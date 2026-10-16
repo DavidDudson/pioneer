@@ -1,0 +1,2050 @@
+[
+  {
+    "id": "7d2a7322-6ac1-5bf0-8efc-237bcf2990c9",
+    "pack": "battlecry",
+    "kind": "class",
+    "slug": "class:commander",
+    "name": "Commander",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You approach battle with the knowledge that tactics and strategy are every bit as crucial as brute strength or numbers. You might have trained in classical theories of warfare and strategy at a military academy, or you might have refined your techniques through hard-won experience as part of an army or mercenary company. Regardless of how you came by your knowledge, you have a gift for signaling your allies from across the battlefield and deploying commands to rout even the most desperate conflicts, empowering your squad to exceed their limits and claim victory.",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Commander"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "perception",
+        "rank": "expert"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "save:fortitude",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "save:reflex",
+        "rank": "expert"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "save:will",
+        "rank": "expert"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:unarmed",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:simple",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:martial",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "defense:unarmored",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "defense:light",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "defense:medium",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "defense:heavy",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "class-dc",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:society",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "90d281cd-6b90-5ab8-a2cb-0be8739f40fd"
+      },
+      {
+        "key": "GrantItem",
+        "item": "73da3752-3c34-5716-b4b0-4b815aa99a7e"
+      },
+      {
+        "key": "GrantItem",
+        "item": "e5bcf9d0-292f-531d-ac78-3a2c2de8f6fd"
+      },
+      {
+        "key": "GrantItem",
+        "item": "962eab49-ccc4-5644-ae1f-fa511d54846d"
+      },
+      {
+        "key": "GrantItem",
+        "item": "7bcc1010-edb1-59bf-a604-fbe0ffe22c09",
+        "predicate": [
+          {
+            "gte": ["self:level", 3]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "78445323-2b02-5d3b-a86d-0bff6dc19669",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "9be2a394-5547-5666-90b7-0d5235efb760",
+        "predicate": [
+          {
+            "gte": ["self:level", 7]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "ffa82ea1-1d92-58b0-b19c-ae3e23446328",
+        "predicate": [
+          {
+            "gte": ["self:level", 7]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "875c9b6a-da45-59ba-9597-ebcf35248d91",
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "aa0a0e1c-98f0-5f60-8018-dacc21825c2b",
+        "predicate": [
+          {
+            "gte": ["self:level", 11]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "6b388395-06ca-5a81-b67b-22a29ddd3c37",
+        "predicate": [
+          {
+            "gte": ["self:level", 11]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "2cb487a6-08e7-51fc-8dcc-4e29ff632745",
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "db43ce0f-9654-54cd-aab5-5efad0921d95",
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "f97ed3b6-2b24-59c0-b0f6-2601f469e9e1",
+        "predicate": [
+          {
+            "gte": ["self:level", 15]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "350366a2-2b56-5ada-92f6-ca1c9b6273bb",
+        "predicate": [
+          {
+            "gte": ["self:level", 15]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "4bcadb40-5a66-5c59-bccf-935aec0aaa27",
+        "predicate": [
+          {
+            "gte": ["self:level", 15]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "cd97a256-e0eb-54b9-ab2f-682fed5a875f",
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "52695b42-b9b3-513d-b2c4-d7173d293e03",
+        "predicate": [
+          {
+            "gte": ["self:level", 19]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "class-feat-1",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:commander",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Commander feat"
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "class-feat-1"
+        }
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "class-feat-2",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:commander",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Commander feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 2]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "class-feat-2"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 2]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "class-feat-4",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:commander",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Commander feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 4]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "class-feat-4"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 4]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "class-feat-6",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:commander",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Commander feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 6]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "class-feat-6"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 6]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "class-feat-8",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:commander",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Commander feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 8]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "class-feat-8"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 8]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "class-feat-10",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:commander",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Commander feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 10]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "class-feat-10"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 10]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "class-feat-12",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:commander",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Commander feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 12]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "class-feat-12"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 12]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "class-feat-14",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:commander",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Commander feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 14]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "class-feat-14"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 14]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "class-feat-16",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:commander",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Commander feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 16]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "class-feat-16"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 16]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "class-feat-18",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:commander",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Commander feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 18]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "class-feat-18"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 18]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "class-feat-20",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:commander",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Commander feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 20]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "class-feat-20"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 20]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "general-feat-3",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:general",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "General feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 3]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "general-feat-3"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 3]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "general-feat-7",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:general",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "General feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 7]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "general-feat-7"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 7]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "general-feat-11",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:general",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "General feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 11]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "general-feat-11"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 11]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "general-feat-15",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:general",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "General feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 15]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "general-feat-15"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 15]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "general-feat-19",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:general",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "General feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 19]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "general-feat-19"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 19]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "skill-feat-2",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:skill",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Skill feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 2]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "skill-feat-2"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 2]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "skill-feat-4",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:skill",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Skill feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 4]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "skill-feat-4"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 4]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "skill-feat-6",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:skill",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Skill feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 6]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "skill-feat-6"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 6]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "skill-feat-8",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:skill",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Skill feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 8]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "skill-feat-8"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 8]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "skill-feat-10",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:skill",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Skill feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 10]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "skill-feat-10"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 10]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "skill-feat-12",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:skill",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Skill feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 12]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "skill-feat-12"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 12]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "skill-feat-14",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:skill",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Skill feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 14]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "skill-feat-14"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 14]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "skill-feat-16",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:skill",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Skill feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 16]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "skill-feat-16"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 16]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "skill-feat-18",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:skill",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Skill feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 18]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "skill-feat-18"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 18]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "skill-feat-20",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:skill",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Skill feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 20]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "skill-feat-20"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 20]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classes.Item.Oyee5Ds9uwYLEkD0"
+    },
+    "data": {
+      "keyAttribute": ["int"],
+      "hitPoints": 8,
+      "additionalSkills": 2,
+      "skillIncreaseLevels": [3, 5, 7, 9, 11, 13, 15, 17, 19]
+    }
+  },
+  {
+    "id": "eede38c5-ffda-5a06-b6b4-3d40551ec338",
+    "pack": "battlecry",
+    "kind": "class",
+    "slug": "class:guardian",
+    "name": "Guardian",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Death and danger from all manner of enemies threaten all that you and your companions hold dear. But you are the shield, the steel wall that holds back the tide of opposition. You're clad in armor you wear like a second skin and can angle it to protect yourself and your allies from damage and keep foes at bay. Allies look to you to safeguard them, whether they stand beside you on the battlefield or remain on the back lines, and enemies see you for the imposing threat you are. Be it to friend or foe, your presence is difficult to ignore.",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Guardian"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "perception",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "save:fortitude",
+        "rank": "expert"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "save:reflex",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "save:will",
+        "rank": "expert"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:unarmed",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:simple",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:martial",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "defense:unarmored",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "defense:light",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "defense:medium",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "defense:heavy",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "class-dc",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:athletics",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "1336bd5c-5475-5cb1-bc90-a5aa28c94fe8"
+      },
+      {
+        "key": "GrantItem",
+        "item": "16ce87b8-9688-53f5-85a8-f4ecb4da0f2d"
+      },
+      {
+        "key": "GrantItem",
+        "item": "e5bcf9d0-292f-531d-ac78-3a2c2de8f6fd"
+      },
+      {
+        "key": "GrantItem",
+        "item": "ed000b26-afe0-5931-8bfd-21f6f2835f22"
+      },
+      {
+        "key": "GrantItem",
+        "item": "5142703d-9925-5de4-94a7-81fb0482780c",
+        "predicate": [
+          {
+            "gte": ["self:level", 3]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "4da1da66-370b-5302-9005-69f47259164b",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "31364a26-b9ea-582e-8fc2-2f1f47fb1ab4",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "beea4548-a187-5052-87c4-860846863c0d",
+        "predicate": [
+          {
+            "gte": ["self:level", 7]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "222cdf7e-d3a9-5c3c-b957-2d07f3f44c6e",
+        "predicate": [
+          {
+            "gte": ["self:level", 7]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "cc4f7c33-0efe-5512-8ce3-d5977e69b957",
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "8b9a3f42-4885-56fb-9dd0-193953950939",
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "10f84a96-02f4-5d28-b16b-3ed5a3e9f157",
+        "predicate": [
+          {
+            "gte": ["self:level", 11]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "ffa82ea1-1d92-58b0-b19c-ae3e23446328",
+        "predicate": [
+          {
+            "gte": ["self:level", 11]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "db43ce0f-9654-54cd-aab5-5efad0921d95",
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "0ab6eed1-178e-5f46-8ee4-25af3a62df1f",
+        "predicate": [
+          {
+            "gte": ["self:level", 15]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "350366a2-2b56-5ada-92f6-ca1c9b6273bb",
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "159149a4-3bbc-5741-a186-bce250758bc2",
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "6ecd538b-a876-546d-9a69-9cd51ca9c021",
+        "predicate": [
+          {
+            "gte": ["self:level", 19]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "class-feat-1",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:guardian",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Guardian feat"
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "class-feat-1"
+        }
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "class-feat-2",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:guardian",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Guardian feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 2]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "class-feat-2"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 2]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "class-feat-4",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:guardian",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Guardian feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 4]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "class-feat-4"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 4]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "class-feat-6",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:guardian",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Guardian feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 6]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "class-feat-6"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 6]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "class-feat-8",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:guardian",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Guardian feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 8]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "class-feat-8"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 8]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "class-feat-10",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:guardian",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Guardian feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 10]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "class-feat-10"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 10]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "class-feat-12",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:guardian",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Guardian feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 12]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "class-feat-12"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 12]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "class-feat-14",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:guardian",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Guardian feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 14]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "class-feat-14"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 14]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "class-feat-16",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:guardian",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Guardian feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 16]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "class-feat-16"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 16]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "class-feat-18",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:guardian",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Guardian feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 18]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "class-feat-18"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 18]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "class-feat-20",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:guardian",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Guardian feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 20]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "class-feat-20"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 20]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "general-feat-3",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:general",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "General feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 3]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "general-feat-3"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 3]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "general-feat-7",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:general",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "General feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 7]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "general-feat-7"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 7]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "general-feat-11",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:general",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "General feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 11]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "general-feat-11"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 11]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "general-feat-15",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:general",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "General feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 15]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "general-feat-15"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 15]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "general-feat-19",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:general",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "General feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 19]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "general-feat-19"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 19]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "skill-feat-2",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:skill",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Skill feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 2]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "skill-feat-2"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 2]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "skill-feat-4",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:skill",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Skill feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 4]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "skill-feat-4"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 4]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "skill-feat-6",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:skill",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Skill feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 6]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "skill-feat-6"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 6]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "skill-feat-8",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:skill",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Skill feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 8]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "skill-feat-8"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 8]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "skill-feat-10",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:skill",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Skill feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 10]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "skill-feat-10"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 10]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "skill-feat-12",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:skill",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Skill feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 12]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "skill-feat-12"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 12]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "skill-feat-14",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:skill",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Skill feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 14]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "skill-feat-14"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 14]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "skill-feat-16",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:skill",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Skill feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 16]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "skill-feat-16"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 16]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "skill-feat-18",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:skill",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Skill feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 18]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "skill-feat-18"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 18]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "skill-feat-20",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:skill",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Skill feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 20]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "skill-feat-20"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 20]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classes.Item.1L7geK3aoosye3Xj"
+    },
+    "data": {
+      "keyAttribute": ["str"],
+      "hitPoints": 12,
+      "additionalSkills": 3,
+      "skillIncreaseLevels": [3, 5, 7, 9, 11, 13, 15, 17, 19]
+    }
+  }
+]

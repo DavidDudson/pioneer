@@ -42,3 +42,25 @@ export async function gunsAndGearsPack(): Promise<PackContents> {
     import('@pioneer/content/packs/guns-and-gears/weapon.json'),
   ]);
 }
+
+export async function battlecryPack(): Promise<PackContents> {
+  return pack(import('@pioneer/content/packs/battlecry/pack.json'), [
+    import('@pioneer/content/packs/battlecry/action.json'),
+    import('@pioneer/content/packs/battlecry/ancestry.json'),
+    import('@pioneer/content/packs/battlecry/ancestry-feature.json'),
+    import('@pioneer/content/packs/battlecry/archetype.json'),
+    import('@pioneer/content/packs/battlecry/armor.json'),
+    import('@pioneer/content/packs/battlecry/background.json'),
+    import('@pioneer/content/packs/battlecry/class.json'),
+    import('@pioneer/content/packs/battlecry/class-feature.json'),
+    import('@pioneer/content/packs/battlecry/consumable.json'),
+    import('@pioneer/content/packs/battlecry/effect.json'),
+    import('@pioneer/content/packs/battlecry/equipment.json'),
+    import('@pioneer/content/packs/battlecry/feat.json'),
+    import('@pioneer/content/packs/battlecry/heritage.json'),
+    import('@pioneer/content/packs/battlecry/ritual.json'),
+    import('@pioneer/content/packs/battlecry/shield.json'),
+    import('@pioneer/content/packs/battlecry/spell.json'),
+    import('@pioneer/content/packs/battlecry/weapon.json'),
+  ]);
+}

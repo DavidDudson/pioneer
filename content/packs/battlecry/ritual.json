@@ -1,0 +1,1328 @@
+[
+  {
+    "id": "0993de64-4f68-537f-bb33-e8b611bacf80",
+    "pack": "battlecry",
+    "kind": "ritual",
+    "slug": "ritual:army-of-shadows",
+    "name": "Army of Shadows",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["darkness"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You conjure a squadron of shadows to surge forth and plunge your enemies into darkness. All non-magical light sources in the area are extinguished and can't be lit again during the duration. Any dim light from sources outside the area can't penetrate the area, and sources of bright light from outside the area shed only dim light into the area. The shadows also attempt to counteract any magical light in the area, with a counteract rank of 2 and a counteract modifier of +13. If a new magical light effect enters the area during the duration, the shadows immediately attempt to counteract it."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The shadows are particularly powerful. Their counteract rank increases by 1, and they gain a +2 circumstance bonus to their counteract check."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The shadows are of normal power."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual has no effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The shadows instead cling to you and obscure your vision, rendering you "
+          },
+          {
+            "type": "ref",
+            "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+          },
+          {
+            "type": "text",
+            "text": " for 24 hours."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (4th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The shadows have a counteract rank of 4 and a counteract modifier of +18."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (6th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The shadows have a counteract rank of 6 and a counteract modifier of +24."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (8th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The shadows have a counteract rank of 8 and a counteract modifier of +29."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.WfImUYSXyW3YdyY9"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "time",
+        "count": 4,
+        "unit": "hour"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 1000
+      },
+      "area": {
+        "shape": "burst",
+        "size": 200
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour"
+      },
+      "primary": {
+        "skills": ["skill:occultism", "skill:lore:warfare"],
+        "proficiency": "expert"
+      },
+      "secondary": {
+        "checks": [],
+        "casters": 0
+      }
+    }
+  },
+  {
+    "id": "8cfa2f70-f0a5-59da-bd1e-d08c438d06a2",
+    "pack": "battlecry",
+    "kind": "ritual",
+    "slug": "ritual:encroaching-woods",
+    "name": "Encroaching Woods",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["plant"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You entreat the spirits of a nearby wood to cloak the movements of you and your allies. Each day at dawn following the successful completion of the ritual, the trees and other plants of the affected area move up to 500 feet in a direction of your choosing. There must be enough open space for the trees to move into, maintaining the general shape and size of the affected area. Large fortifications, such as city walls, and inhospitable natural features, such as wide rivers, will stop the trees, but the forest can shape itself around small buildings and streams. The trees traverse the distance over the course of 5 minutes, which is slow enough for most creatures within the forest to move along with them if they desire. However, anyone watching the forest from outside doesn't immediately perceive the movement unless they succeed at a Perception check against the ritual's casting DC. After this movement, the fact that the trees have changed their positions is obvious."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "During the ritual's duration, creatures within the forest are obscured to those outside the forest, as determined by the ritual's degree of success. This cover is usually used to stealthily approach opposing armies or settlements."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Once the ritual's duration has ended, the trees remain in their last location. They are affected normally by anything in their current environment that would prevent or stunt plant growth, such as a change of soil type or water quality, though such issues occur at the usual rate."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The affected trees sprout obscuring foliage, causing any creature within the forest to be undetected to creatures outside the forest. Each creature in the forest also gains greater cover."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As critical success, but the creatures inside the forest are "
+          },
+          {
+            "type": "ref",
+            "id": "d851e3ca-be0d-55a7-a4d1-d7ed8b7ecafa"
+          },
+          {
+            "type": "text",
+            "text": " to creatures outside the forest and gain standard cover."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual has no effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The primal energy of the forest lashes out at you, cursing you to become one of the trees you sought to control. Each caster immediately gains the petrified condition, though they're solid wood instead of stone. Instead of the normal Hardness, a petrified caster has a Hardness of 5 and a weakness to axes equal to their level. The DC to counteract this condition is the ritual's casting DC."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.BNkgZi1bcQcVmBHp"
+    },
+    "data": {
+      "rank": 8,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 100
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "week"
+      },
+      "primary": {
+        "skills": ["skill:nature"],
+        "proficiency": "master"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:survival"]
+          },
+          {
+            "skills": ["skill:lore:warfare"]
+          }
+        ],
+        "casters": 2
+      }
+    }
+  },
+  {
+    "id": "28b2a25b-776c-56eb-b9f2-b9910b05b747",
+    "pack": "battlecry",
+    "kind": "ritual",
+    "slug": "ritual:halt-death",
+    "name": "Halt Death",
+    "level": 10,
+    "rarity": "rare",
+    "traits": ["vitality"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While death may be war's stock and trade, you attempt to momentarily delay the inevitable. Upon the successful completion of the ritual, the sands of the hourglass begin to slowly float upward into the upper bulb over the course of the next 24 hours. The hourglass shatters at the end of the ritual's duration, ending the protective magic."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " All living creatures within the area are guarded against death, gaining a +4 status bonus to saving throws against death effects. In addition, when a living creature in the area succeeds at a recovery check, they get a critical success instead. Finally, the first time during the duration that a living creature would be reduced to dying 2 or higher, that creature remains at dying 1 instead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " All living creatures within the area are guarded against death, gaining a +2 status bonus to saving throws against death effects. In addition, the first time during the duration that a living creature would be reduced to dying 3 or higher, that creature remains at dying 2 instead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual has no effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Attempting to stave off death earns Pharasma's ire. You and all the secondary casters become "
+          },
+          {
+            "type": "ref",
+            "id": "cd164d22-2d8e-5fd2-b8b2-03e1360df1e7",
+            "label": "Doomed 2"
+          },
+          {
+            "type": "text",
+            "text": ". This condition can't be reduced or removed for 1 week."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "9433d635-e486-5213-8529-08a9ca39c3fc"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.NQk8Cabhhw7jXkg0"
+    },
+    "data": {
+      "rank": 10,
+      "time": {
+        "type": "time",
+        "count": 8,
+        "unit": "hour"
+      },
+      "area": {
+        "shape": "emanation",
+        "size": 5280
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "an hourglass filled with ebon sand, worth at least 10,000 gp"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:lore:warfare"],
+        "proficiency": "legendary"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:medicine"]
+          },
+          {
+            "skills": ["skill:occultism"]
+          },
+          {
+            "skills": ["skill:lore:pharasma"]
+          }
+        ],
+        "casters": 3
+      }
+    }
+  },
+  {
+    "id": "382ae8b0-cec3-50f8-b231-3e892e67f0d7",
+    "pack": "battlecry",
+    "kind": "ritual",
+    "slug": "ritual:plague-shot",
+    "name": "Plague Shot",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["disease"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You imbue several pieces of siege weapon ammunition with an infectious disease that can bring an opposing force low over time. Once the ritual is successfully concluded, the affected pieces of ammunition glow a sickly green and must be launched within the hour or the enchantment fades. In addition to its normal damage or other effects, a successful attack with a piece of the affected ammunition exposes every creature within a 60-foot-radius emanation from the point of impact to siege sickness."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Siege Sickness",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (disease) Level 8"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Saving Throw",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 24
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Onset",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 2"
+          },
+          {
+            "type": "text",
+            "text": " (1 day)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 1"
+          },
+          {
+            "type": "text",
+            "text": " and sickened 2 (1 day)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 3",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 2"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 3"
+          },
+          {
+            "type": "text",
+            "text": " (1 day)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 4",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 3"
+          },
+          {
+            "type": "text",
+            "text": ", sickened 3, and a creature who comes into physical contact with the afflicted is exposed to siege sickness (1 day)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 5",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " death, and a creature who comes into physical contact with the corpse is exposed to siege sickness"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The siege sickness gains the virulent trait."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The siege sickness is normal."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual has no effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Instead of being imbued in the ammunition, the disease becomes airborne at the site of the ritual. Each creature within a 60-foot emanation centered on the primary caster is exposed to siege sickness at stage 2."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.NjN6md0KpdelWpu7"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "time",
+        "count": 4,
+        "unit": "hour"
+      },
+      "range": {
+        "type": "touch"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour"
+      },
+      "primary": {
+        "skills": ["skill:medicine"],
+        "proficiency": "expert"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:lore:warfare"]
+          }
+        ],
+        "casters": 1
+      }
+    }
+  },
+  {
+    "id": "cede0089-d915-52ed-a42d-5d12ae4ce386",
+    "pack": "battlecry",
+    "kind": "ritual",
+    "slug": "ritual:reinforced-rations",
+    "name": "Reinforced Rations",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An army marches on its stomach, and a city under siege is often cut off from its normal food supplies, so preserving comestibles is of utmost importance during a prolonged conflict. You enchant food and water in the area to not decay or spoil for the duration and grant better nourishment according to the success of the ritual. At the end of the duration, the food and water return to the state they were before the ritual."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A single meal of the affected food contains enough nourishment to sustain a typical human for 3 days."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A single meal of the affected food contains enough nourishment to sustain a typical human for 1 day."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual has no effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The food and water in the area rots and spoils rapidly, releasing noxious fumes. Each living creature in the area becomes "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 2"
+          },
+          {
+            "type": "text",
+            "text": " and can't reduce the value of this condition for 24 hours."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.2LsiiZZIZEKD23VQ"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "time",
+        "count": 4,
+        "unit": "hour"
+      },
+      "area": {
+        "shape": "emanation",
+        "size": 50
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "month"
+      },
+      "primary": {
+        "skills": ["skill:lore:cooking", "skill:crafting"],
+        "proficiency": "expert"
+      },
+      "secondary": {
+        "checks": [],
+        "casters": 0
+      }
+    }
+  },
+  {
+    "id": "8ebece9c-2c74-5c22-8c78-078b1826345b",
+    "pack": "battlecry",
+    "kind": "ritual",
+    "slug": "ritual:secure-siege-weapons",
+    "name": "Secure Siege Weapons",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You strengthen your army's siege weapons and prevent them from being commandeered by enemy hands. At the successful conclusion of the ritual, each allied siege weapon in the area gains an increase to its Hardness and Hit Points for the duration. In addition, enemies who try to operate or move an affected mounted siege weapon or pick up an affected portable siege weapon must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 20
+          },
+          {
+            "type": "text",
+            "text": " saving throw or be forced to roll twice and take the worse result on any check to Load or Strike with the siege weapon; this is a misfortune effect. Finally, if an enemy Launches an affected siege weapon, their targets can roll twice and take the better result for any resulting saving throw; this is a fortune effect."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Each affected siege weapon's Hardness increases by 10, and its maximum Hit Points increase by an amount equal to three times the siege weapon's level."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Each affected siege weapon's Hardness increases by 5, and its maximum Hit Points increase by an amount equal to twice the siege weapon's level."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual has no effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " All allied siege weapons in the area gain the broken condition."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.a9og2ZYfr8kAeltU"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "time",
+        "count": 2,
+        "unit": "hour"
+      },
+      "area": {
+        "shape": "burst",
+        "size": 250
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "month"
+      },
+      "primary": {
+        "skills": ["skill:crafting", "skill:lore:warfare"],
+        "proficiency": "expert"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:lore:engineering"]
+          }
+        ],
+        "casters": 1
+      }
+    }
+  },
+  {
+    "id": "5ae1e61b-252d-5d10-b0d1-dc4896ad8e4b",
+    "pack": "battlecry",
+    "kind": "ritual",
+    "slug": "ritual:sleepless-season",
+    "name": "Sleepless Season",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["curse", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You attempt to inflict a curse of sleeplessness upon individuals in the target area to weaken their resolve, possibly making it easier to conquer them. As you successfully complete the ritual, the amethyst pendant crumbles into sand that travels on an unfelt wind to drift down onto the target area. Each living creature in the target area must attempt a Fortitude saving throw against the ritual's casting DC or become unable to gain the benefits of a full night's rest for 1 week. The curse can be removed before that time with cleanse affliction or similar magic."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Sleep is unattainable for anyone in the target area who fails the saving throw. As usual, a living creature who goes more than 16 hours without sleeping becomes "
+          },
+          {
+            "type": "ref",
+            "id": "5e3582c3-701c-5169-9c69-4221096722c2"
+          },
+          {
+            "type": "text",
+            "text": ". A target who becomes fatigued in this way is also "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 1"
+          },
+          {
+            "type": "text",
+            "text": "; the value of this condition can't be reduced while they're fatigued. For every subsequent day an affected target is fatigued, the value of their enfeebled condition increases by 1 (to a maximum of 4)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Sleep can only be caught in short bursts for anyone in the target area who fails the saving throw. As critical success, but a fatigued target doesn't become enfeebled."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual has no effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The notion of sleep itself abandons the casters. The casters become fatigued and can't gain the benefits of a full night's rest for 1 month. This is a curse effect."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.bTFWSpHEvXq8IK37"
+    },
+    "data": {
+      "rank": 6,
+      "time": {
+        "type": "time",
+        "count": 4,
+        "unit": "hour"
+      },
+      "range": {
+        "type": "miles",
+        "miles": 5
+      },
+      "area": {
+        "shape": "square",
+        "size": 5280
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "week"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "an amethyst pendant worth at least 75 gp"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:lore:herbalism", "skill:occultism"],
+        "proficiency": "master"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:medicine", "skill:lore:warfare"]
+          }
+        ],
+        "casters": 1
+      }
+    }
+  },
+  {
+    "id": "a0b9394d-cc23-56cc-9f40-8b2c3ff1acff",
+    "pack": "battlecry",
+    "kind": "ritual",
+    "slug": "ritual:sprawling-tunnels",
+    "name": "Sprawling Tunnels",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["earth"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You spill the ink on an accurate map of the area, which transforms into a series of lines that correspond to a new network of tunnels under the earth. A momentary shift, like the aftershock of a distant earthquake, is the only aboveground sign that anything has occurred. You choose a single entrance and exit to these tunnels, which must be locations within range that are known to you, though you need not be familiar with them. For example, you could name \"the basement of the town hall\" as an exit if you knew the town hall had a basement but had never seen it with your own eyes. If either named entrance or exit doesn't exist, the ritual fails. The entrance and exit are difficult to spot, requiring a successful "
+          },
+          {
+            "type": "check",
+            "statistic": "perception",
+            "dc": 35
+          },
+          {
+            "type": "text",
+            "text": " check to see; the casters automatically succeed at this check."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The tunnels avoid existing subterranean features and underground structures, unless they're designated as an entrance or an exit. The tunnels are 10 feet wide and 15 feet high, providing room for most armies, but the passageways twist and turn, making navigation difficult. A creature can lead groups through the tunnels with a successful "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:survival",
+            "dc": 32
+          },
+          {
+            "type": "text",
+            "text": " check to Sense Direction. On a success, the group reaches the other end of the tunnels in 2 hours. Failure on this check means the group gets lost within the tunnels for 4 hours, after which the leader can attempt the check again. A critical failure means that the group spends 8 hours wandering through the tunnels, only to arrive where they entered; the leader can attempt the check again the next day."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If any creature is in the tunnels when the ritual's duration ends, it's harmlessly pushed to the nearest entrance or exit."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The map provides some indication of the layout of the tunnels. A creature with the map gains a +2 circumstance bonus to the Survival check to navigate the tunnels. Any creatures not allied with the casters take a –2 circumstance penalty to the Perception check to spot the entrance and exit."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As critical success, but the bonus to the Survival check is +1, and the penalty to the Perception check is –1."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual has no effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ground beneath your feet rebels against your attempt to control it. The casters are attacked by a pair of elite Elemental Avalanches."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.rsYeiz2V2KeEfjpr"
+    },
+    "data": {
+      "rank": 7,
+      "time": {
+        "type": "time",
+        "count": 8,
+        "unit": "hour"
+      },
+      "range": {
+        "type": "miles",
+        "miles": 5
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "week"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "fine ink worth 50 gp"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:lore:mining", "skill:nature"],
+        "proficiency": "expert"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:lore:engineering"]
+          },
+          {
+            "skills": ["skill:lore:warfare"]
+          }
+        ],
+        "casters": 2
+      }
+    }
+  }
+]

@@ -1,0 +1,5211 @@
+[
+  {
+    "id": "5408331f-d3e3-5dfc-a9a6-8fa7c3f29857",
+    "pack": "battlecry",
+    "kind": "weapon",
+    "slug": "weapon:aldori-dueling-sword",
+    "name": "Aldori Dueling Sword",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["finesse", "versatile-p"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An Aldori dueling sword is a slim, single-bladed dueling sword with a slight curve and a sharp, reinforced point."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:aldori-dueling-sword"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.iSceAVMkVv1uKK7t"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2
+        }
+      },
+      "bulk": 1,
+      "category": "advanced",
+      "group": "sword",
+      "baseItem": "aldori-dueling-sword",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "5f28a613-5cf0-50e6-bdb0-c001bd7a5c3d",
+    "pack": "battlecry",
+    "kind": "weapon",
+    "slug": "weapon:battle-lute",
+    "name": "Battle Lute",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["shove", "two-hand-d8"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This reinforced lute is suitable both for use as a handheld musical instrument and for bashing heads should a crowd turn sour. Its strings are finely braided wires that run along its sturdy metal neck. A battle lute adds its item bonus from weapon potency runes (if any) as an item bonus on Performance checks made while using it as an instrument."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "skill:performance",
+        "option": "option:playing",
+        "toggleable": true,
+        "display": {
+          "label": "Playing Battle Lute"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.79krBL334Kp1RMNB"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 7
+        }
+      },
+      "bulk": 1,
+      "category": "simple",
+      "group": "club",
+      "baseItem": "battle-lute",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "e3ce1ee2-cb81-58c3-a754-104ba91c9cb2",
+    "pack": "battlecry",
+    "kind": "weapon",
+    "slug": "weapon:belkzen-deadsmasher",
+    "name": "Belkzen Deadsmasher",
+    "level": 13,
+    "rarity": "uncommon",
+    "traits": ["magical", "versatile-p"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The head of this imposing steel "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater striking vitalizing morningstar",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is shaped to resemble a cluster of snarling orc faces, their sharpened tusks serving as the spikes. Forged deep in the Hold of Belkzen and wielded by elite warriors tasked with protecting their lands from the servants of the Whispering Tyrant, this brutal weapon grants void resistance 5 to any living creature who wields it."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Untouchable Spirit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (fortune)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail or critically fail a saving throw against an effect originating from an undead creature that would inflict void damage"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Reroll the saving throw and take the better result."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["void"],
+        "value": 5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.VDyPNtcxDbVGQ613"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2800
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "untouchable-spirit",
+          "name": "Untouchable Spirit",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "simple",
+      "group": "club",
+      "baseItem": "morningstar",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 2,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "30cfb254-6116-513d-aa53-237e3eb31933",
+    "pack": "battlecry",
+    "kind": "weapon",
+    "slug": "weapon:belkzen-deadsmasher-greater",
+    "name": "Belkzen Deadsmasher (Greater)",
+    "level": 18,
+    "rarity": "uncommon",
+    "traits": ["magical", "versatile-p"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The head of this imposing steel "
+          },
+          {
+            "type": "text",
+            "text": "+3 greater striking ghost touch greater vitalizing",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " morningstar is shaped to resemble a cluster of snarling orc faces, their sharpened tusks serving as the spikes. Forged deep in the Hold of Belkzen and wielded by elite warriors tasked with protecting their lands from the servants of the Whispering Tyrant, this brutal weapon grants void resistance 10 to any living creature who wields it."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Untouchable Spirit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (fortune)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail or critically fail a saving throw against an effect originating from an undead creature that would inflict void damage"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Reroll the saving throw and take the better result."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["void"],
+        "value": 10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.lJOygeHETz6S8cEz"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 22000
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "untouchable-spirit",
+          "name": "Untouchable Spirit",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "simple",
+      "group": "club",
+      "baseItem": "morningstar",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 3,
+        "striking": 2,
+        "property": ["3e294082-c3ff-58be-ab80-1608b9c6229a"]
+      }
+    }
+  },
+  {
+    "id": "72a85b1e-5d80-53ee-96d6-24f2b413feb8",
+    "pack": "battlecry",
+    "kind": "weapon",
+    "slug": "weapon:bladed-gauntlet",
+    "name": "Bladed Gauntlet",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["agile", "finesse", "free-hand", "modular"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A dagger attached to a retractable mechanism is integrated in this gauntlet's dorsum, so a combatant can quickly arm themself with a blade to exploit the weak points in an enemy's armor. Switching configurations on the gauntlet reveals or retracts the contained dagger as appropriate. The dagger isn't removable, and thus can't be wielded or etched with runes separately from the gauntlet."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.PJboj72eI9JXjtbn"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "brawling",
+      "baseItem": "bladed-gauntlet",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "92c1370f-81dc-5d78-9a05-3b4178a94059",
+    "pack": "battlecry",
+    "kind": "weapon",
+    "slug": "weapon:bladesweeper",
+    "name": "Bladesweeper",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["disarm", "jotunborn", "sweep", "versatile-p"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Little more than three swords attached to a single hilt, a bladesweeper is a devastating weapon in the hands of a jotunborn warrior."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.geSDZ68zolr0dNrD"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": 2,
+      "category": "advanced",
+      "group": "sword",
+      "baseItem": "bladesweeper",
+      "damage": {
+        "dice": 1,
+        "die": "d10",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "1529553c-ff21-5dd4-8e0f-8a69bb7aa441",
+    "pack": "battlecry",
+    "kind": "weapon",
+    "slug": "weapon:cavalry-commanders-lance",
+    "name": "Cavalry Commander's Lance",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["deadly-d8", "jousting-d6", "magical", "reach"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking lance",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " bears a pennant that displays a standard, heraldry, or other symbols desired by its original creator. When mounted and wielding a "
+          },
+          {
+            "type": "text",
+            "text": "cavalry commander's lance",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you gain a +2 circumstance bonus to Diplomacy checks when interacting with anyone loyal to the nation or cause represented by your pennant's imagery."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Ride Them Down!",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (auditory, concentrate, linguistic)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your last action was to Strike and inflict damage on a target with the cavalry commander's lance"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You shout a command to all mounted allies within 60 feet, granting them a +1 circumstance bonus on the next attack roll they make against the target you just damaged before the start of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "ad40e84d-f8c5-5623-9073-cd1e3cd3b853"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["option:calvarys-commander-lance"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.0oU6xeU1fV66O47y"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 225
+        }
+      },
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "ride-them-down",
+          "name": "Ride Them Down!",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "spear",
+      "baseItem": "lance",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "3ec1586e-f8bd-5946-a9a3-b8753ff34ea4",
+    "pack": "battlecry",
+    "kind": "weapon",
+    "slug": "weapon:chain-of-command",
+    "name": "Chain of Command",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["disarm", "finesse", "magical", "trip"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking spiked chain",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", strung with bloodied military insignia and other grisly trophies harvested from slain soldiers, is commonly used by hobgoblin commandants to motivate their troops. On a critical hit, the "
+          },
+          {
+            "type": "text",
+            "text": "chain of command",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " deals an additional 1d6 mental damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Mercy of the Commander",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The chain of command gains the nonlethal trait for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Will of the Commander",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your last action was a critical hit with the chain of command"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "15904512-5f17-5bba-b1a0-1f892989912c"
+          },
+          {
+            "type": "text",
+            "text": " on the target of your critical hit with a DC of 22. Regardless of the outcome, the target is then immune to this effect for 24 hours."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply one casting of "
+          },
+          {
+            "type": "ref",
+            "id": "15904512-5f17-5bba-b1a0-1f892989912c"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.0wwEdvm0u9LswjQO"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 240
+        }
+      },
+      "bulk": 1,
+      "category": "martial",
+      "group": "flail",
+      "baseItem": "spiked-chain",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "0161b400-cd6a-5e27-8754-3a878dbfdaf8",
+    "pack": "battlecry",
+    "kind": "weapon",
+    "slug": "weapon:chainbreaker",
+    "name": "Chainbreaker",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["fatal-d10", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The head of this "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking pick",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is adorned with a detailed etching of an eagle with outstretched wings. When you use it to Strike an unattended object whose intended purpose is to restrain or confine, such as a pair of manacles or the bars of a prison cell, you ignore the first 5 points of the object's Hardness."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Liberating Strike",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Strike a creature with the "
+          },
+          {
+            "type": "text",
+            "text": "chainbreaker",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". If you hit and deal damage, one "
+          },
+          {
+            "type": "ref",
+            "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "b374c4c9-d230-5167-8878-38e08932a071"
+          },
+          {
+            "type": "text",
+            "text": " ally within 60 feet of the target can use a reaction to attempt to "
+          },
+          {
+            "type": "ref",
+            "id": "2ae74030-e87a-55ee-955c-fb9870392d44"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.zmgF0sh9YicCngev"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 150
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "liberating-strike",
+          "name": "Liberating Strike",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "pick",
+      "baseItem": "pick",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "abd4467e-3a06-510a-8907-df1428f7ca47",
+    "pack": "battlecry",
+    "kind": "weapon",
+    "slug": "weapon:chainbreaker-greater",
+    "name": "Chainbreaker (Greater)",
+    "level": 12,
+    "rarity": "uncommon",
+    "traits": ["fatal-d10", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The head of this "
+          },
+          {
+            "type": "text",
+            "text": "+2 striking pick",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is adorned with a detailed etching of an eagle with outstretched wings. When you use it to Strike an unattended object whose intended purpose is to restrain or confine, such as a pair of manacles or the bars of a prison cell, you ignore the first 10 points of the object's Hardness."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Liberating Strike",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Strike a creature with the "
+          },
+          {
+            "type": "text",
+            "text": "chainbreaker",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". If you hit and deal damage, one "
+          },
+          {
+            "type": "ref",
+            "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "b374c4c9-d230-5167-8878-38e08932a071"
+          },
+          {
+            "type": "text",
+            "text": " ally within 60 feet of the target can use a reaction to attempt to "
+          },
+          {
+            "type": "ref",
+            "id": "2ae74030-e87a-55ee-955c-fb9870392d44"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.hgyktS6n2t5MztjW"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1750
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "liberating-strike",
+          "name": "Liberating Strike",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "pick",
+      "baseItem": "pick",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "01bcdf05-9e3f-5e55-9a57-f577de0fc27d",
+    "pack": "battlecry",
+    "kind": "weapon",
+    "slug": "weapon:dazzling-shortbow",
+    "name": "Dazzling Shortbow",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["deadly-d10", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking shortbow",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a favorite of mage hunters and those who frequently fight enemies who can turn themselves "
+          },
+          {
+            "type": "ref",
+            "id": "53cf375b-c3fa-5d92-afde-135a3c001674"
+          },
+          {
+            "type": "text",
+            "text": ". A creature who is critically hit with a ranged Strike from a "
+          },
+          {
+            "type": "text",
+            "text": "dazzling shortbow",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 19
+          },
+          {
+            "type": "text",
+            "text": " save or be "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Show Yourself!",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fire an arrow that glows with purple light at a spot. Each creature in a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": " within 60 feet is affected by "
+          },
+          {
+            "type": "ref",
+            "id": "3597aeb0-883c-562a-82ca-37e92210633d"
+          },
+          {
+            "type": "text",
+            "text": " (DC 19)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply one casting of "
+          },
+          {
+            "type": "text",
+            "text": "revealing light",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.xBp6xT689GGCYr35"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 160
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "show-yourself",
+          "name": "Show Yourself!",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "bow",
+      "baseItem": "shortbow",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing"
+      },
+      "range": 60,
+      "reload": 0,
+      "ammunition": {
+        "type": "arrows"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one-plus"
+      },
+      "runes": {
+        "potency": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "2cf6fca9-0f41-5d01-b9b4-15687c24b91f",
+    "pack": "battlecry",
+    "kind": "weapon",
+    "slug": "weapon:doomsweeper",
+    "name": "Doomsweeper",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["reach", "versatile-s"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Functioning as a "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking halberd",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " when wielded as a weapon, a "
+          },
+          {
+            "type": "text",
+            "text": "doomsweeper",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a heavy steel rake-like implement commonly used by frontline soldiers to scour the battlefield for unseen dangers. When you hold a "
+          },
+          {
+            "type": "text",
+            "text": "doomsweeper",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " extended in front of you, you gain a +1 item bonus to Perception checks to notice any "
+          },
+          {
+            "type": "ref",
+            "id": "d851e3ca-be0d-55a7-a4d1-d7ed8b7ecafa"
+          },
+          {
+            "type": "text",
+            "text": " hazards in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": ", with the bonus increasing to +2 if you are performing the "
+          },
+          {
+            "type": "ref",
+            "id": "5d960085-3b5f-54fa-8aa2-99ae536e8d4b"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "5aa8b556-60af-556b-bfe9-85e6667f9a09"
+          },
+          {
+            "type": "text",
+            "text": " exploration action."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Clear the Way",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're holding the doomsweeper in 2 hands"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "doomsweeper",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " sweeps the ground clear of obstacles in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": ". This automatically removes any mundane effects of 4th level or lower that would hinder ground movement through the area of effect, including caltrops and non-magical difficult terrain features no deeper or higher than 4 feet. It also attempts to counteract any magical dangers or obstacles with a +14 modifier and a counteract rank of 4th. Finally, it attempts a Thievery check with a +14 modifier to disable all non-magical hazards (but not haunts) in the area. You don't need to be aware of any hazards or effects in the area for the doomsweeper to remove them, but you don't become aware of them if the attempt fails."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:doomsweeper-bonus-bump",
+        "toggleable": true,
+        "display": {
+          "label": "Doomsweeper - Search or Seek."
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "item",
+        "value": 1,
+        "slug": "doomsweeper-bonus",
+        "predicate": ["option:doomsweeper"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["perception"],
+        "slug": "doomsweeper-bonus",
+        "mode": "upgrade",
+        "value": 2,
+        "predicate": ["option:doomsweeper-bonus-bump"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.J2YjO6JfbeJCPOaT"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 475
+        }
+      },
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "clear-the-way",
+          "name": "Clear the Way",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "polearm",
+      "baseItem": "halberd",
+      "damage": {
+        "dice": 1,
+        "die": "d10",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "38a99846-141c-5d89-a361-fd4da2c0cae4",
+    "pack": "battlecry",
+    "kind": "weapon",
+    "slug": "weapon:draddeths-edge",
+    "name": "Draddeth's Edge",
+    "level": 16,
+    "rarity": "unique",
+    "traits": ["intelligent", "occult", "shove"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Perception +11; precise vision 30 feet, imprecise hearing 30 feet"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Communication telepathy (Common, Varisian)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Skills Survival +28, Warfare Lore +35"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Int +6, Wis +3, Cha +3"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Will +28"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "It's uncertain how or why the intelligence occupying this "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater striking shifting warhammer",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " came to be there, but over its many years of battlefield experience, it has proven itself to be a brilliant military tactician on par with some of history's greatest generals. Its earliest appearance was in the hands of its namesake, General Lord Draddeth, who attributed many of his successful campaigns to the counsel of a magical hammer he had commissioned during the Molthuni Cessation from Cheliax. Though the hammer disappeared upon the general's death, its legend has persisted, and the colloquialism \"the Draddeth Edge\"—referring to a natural talent for strategic planning and quick thinking—remains in common usage across Molthune."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Draddeth's Edge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " possesses a deep and abiding sense of patriotism for the nation of Molthune that sometimes outweighs its loyalty to those wielding it. Wielders who consistently express disrespect for Molthune or admiration for its enemies, or who fail to show proper respect for the hammer's tactical prowess, inevitably find it missing at some crucial moment when it departs in search of a more suitable comrade in arms. Conversely, it's unwaveringly loyal to and difficult to separate from those it deems worthy of its devotion. As long as you draw breath, the hammer can't be knocked from your grasp or dropped unless you will it, even remaining in your hand if you're rendered "
+          },
+          {
+            "type": "ref",
+            "id": "e1a78dad-4887-518e-9120-e58b7009ebfd"
+          },
+          {
+            "type": "text",
+            "text": ". It also grants an item bonus equal to the bonus it gains from any currently affixed potency rune to recovery checks you make while dying."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.DjF9liKIgV16YzMJ"
+    },
+    "data": {
+      "bulk": 1,
+      "category": "martial",
+      "group": "hammer",
+      "baseItem": "warhammer",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 2,
+        "property": ["ef5cd06c-2a43-5c3b-bb92-137af16e574e"]
+      }
+    }
+  },
+  {
+    "id": "bc761e5d-5e86-5c21-bcb9-9ddfc82b5f5a",
+    "pack": "battlecry",
+    "kind": "weapon",
+    "slug": "weapon:fauchard",
+    "name": "Fauchard",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["deadly-d8", "reach", "sweep", "trip"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A fauchard is similar to a glaive, save that its cutting edge is along the concave side."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.FuS6F91Rhd4m3T6d"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 14
+        }
+      },
+      "bulk": 2,
+      "category": "martial",
+      "group": "polearm",
+      "baseItem": "fauchard",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "2a738a22-6d3c-5456-b146-f13d821afe1d",
+    "pack": "battlecry",
+    "kind": "weapon",
+    "slug": "weapon:final-stand",
+    "name": "Final Stand",
+    "level": 17,
+    "rarity": "unique",
+    "traits": ["artifact", "deadly-d8", "disarm", "divine", "finesse", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The origins of this "
+          },
+          {
+            "type": "text",
+            "text": "+3 greater striking rapier",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " are shrouded in mystery, but it earned its name in the hands of an unknown hero who used it to singlehandedly defend a remote Nirmathi village from a vicious gang of bandits, shrugging off dozens of blows that would have felled any other mortal. Only when all of the bandits had been dispatched or driven off did the noble warrior finally succumb to their injuries."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While wielding "
+          },
+          {
+            "type": "text",
+            "text": "Final Stand",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", if you take damage that would reduce you to 0 Hit Points but not immediately kill you, attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 11
+          },
+          {
+            "type": "text",
+            "text": ". If you succeed, you avoid being knocked out and remain at 1 Hit Point instead. For the remainder of the encounter, you can't regain Hit Points in any way, though you can be stabilized if you gain the dying condition. If you're still conscious and there are no nearby enemies that you can perceive, you immediately drop to 0 Hit Points and are dying 1. If you have any other abilities that would allow you to remain at 1 Hit Point when you would be reduced to 0 Hit Points (such as "
+          },
+          {
+            "type": "ref",
+            "id": "9ea21395-7a73-595a-b64f-5c44bd818484"
+          },
+          {
+            "type": "text",
+            "text": "), you must use those abilities before you can benefit from Final Stand's ability."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Destruction",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If the wielder of "
+          },
+          {
+            "type": "text",
+            "text": "Final Stand",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " surrenders to their enemies while any of their allies are still standing, the blade weakens and the DC of the flat check permanently increases by 2. Final Stand shatters into hundreds of pieces the moment the DC of the flat check is ever higher than 20."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.od3HCoOa3pnDmQB9"
+    },
+    "data": {
+      "bulk": 1,
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "rapier",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 3,
+        "striking": 2,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "d6f7b9ee-97c9-53b6-86d0-6d9fb42aceb5",
+    "pack": "battlecry",
+    "kind": "weapon",
+    "slug": "weapon:gaff",
+    "name": "Gaff",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["trip", "versatile-p"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These hooked staffs are popular among fishers and warriors alike."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.NApB2Fl7i8wzp7RX"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1
+        }
+      },
+      "bulk": 1,
+      "category": "martial",
+      "group": "club",
+      "baseItem": "gaff",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "57fed387-5666-5080-a288-111eb78b1ad6",
+    "pack": "battlecry",
+    "kind": "weapon",
+    "slug": "weapon:gauntlet-bow",
+    "name": "Gauntlet Bow",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["capacity-4", "free-hand", "parry"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The gauntlet bow is a heavy metal glove with a built-in crossbow and rotating chamber mechanism for easy reloading. A gauntlet bow can be used to make melee attacks like a standard gauntlet, and it retains any valid runes when used as such. You can't reload a gauntlet bow with the hand wielding it."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.LcIfvbMPnOGYXVge"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 9
+        }
+      },
+      "bulk": 1,
+      "category": "martial",
+      "group": "crossbow",
+      "baseItem": "gauntlet-bow",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "piercing"
+      },
+      "range": 60,
+      "reload": 1,
+      "ammunition": {
+        "type": "bolts",
+        "capacity": 1
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "64195cf2-52a8-57e1-ac81-358519dd0a00",
+    "pack": "battlecry",
+    "kind": "weapon",
+    "slug": "weapon:generals-word",
+    "name": "General's Word",
+    "level": 14,
+    "rarity": "uncommon",
+    "traits": ["magical", "shove"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The mere act of wielding this heavy "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater striking thundering mace",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " grants you a distinct air of authority and gravitas. While wielding the weapon, you can cast "
+          },
+          {
+            "type": "ref",
+            "id": "427481f6-06b8-5e15-9f76-a87a84b28d01"
+          },
+          {
+            "type": "text",
+            "text": " as a 1st-rank cantrip at will."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Battlefield Broadcast",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, linguistic, manipulate, mental, occult)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The weapon amplifies your force of personality across the battlefield with the effects of "
+          },
+          {
+            "type": "ref",
+            "id": "b9c6ff5d-7757-5750-8536-1486fd82c8a7"
+          },
+          {
+            "type": "text",
+            "text": " for 10 minutes, except the range is 500 feet. The effect ends immediately if you drop your weapon."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply one casting of "
+          },
+          {
+            "type": "text",
+            "text": "bullhorn",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "text",
+            "text": "telepathy",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Tej7JTxvq1K0qGYn"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4500
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "battlefield-broadcast",
+          "name": "Battlefield Broadcast",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "simple",
+      "group": "club",
+      "baseItem": "mace",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 2,
+        "property": ["20d890d1-7dff-59ce-98c5-9c009eb6a398"]
+      }
+    }
+  },
+  {
+    "id": "06aca223-4279-5386-b4ce-0df575498453",
+    "pack": "battlecry",
+    "kind": "weapon",
+    "slug": "weapon:gravediggers-call",
+    "name": "Gravedigger's Call",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["deadly-d8", "forceful", "magical", "occult", "reach"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This rusted shovel functions as a "
+          },
+          {
+            "type": "text",
+            "text": "+2 striking decaying glaive",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " when wielded as a weapon, but it more closely resembles a neglected tool. Its haft was carved from the trunk of a long-dead tree that once grew among the broken stones of an abandoned cemetery, and its blade was forged from shattered remnants of the armor that failed to protect those buried there. When you carry or wield a "
+          },
+          {
+            "type": "text",
+            "text": "gravedigger's call",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you gain a +1 item bonus to Perception checks to Seek haunts and to skill checks to determine the reasons for a haunt or spirit's existence."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Call the Fallen",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "21a80879-9160-5bdf-810e-1f12dbf466e3"
+          },
+          {
+            "type": "text",
+            "text": " as a 5th-rank occult spell. The DC is 30."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply one casting of "
+          },
+          {
+            "type": "text",
+            "text": "rouse skeletons",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " (5th rank)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "item",
+        "value": 1,
+        "slug": "gravediggers-call-seek-bonus",
+        "predicate": ["action:seek", "option:gravediggers-call"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "item",
+        "value": 1,
+        "slug": "gravediggers-call-existence-bonus",
+        "predicate": ["option:gravediggers-call"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.GQHPI84ilXlglr27"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1700
+        }
+      },
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "call-the-fallen",
+          "name": "Call the Fallen",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "polearm",
+      "baseItem": "glaive",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 1,
+        "property": ["f0455ffb-aa99-554e-a3e8-328023d85255"]
+      }
+    }
+  },
+  {
+    "id": "9d6b05f4-864c-51bc-a4b3-49cd392ca05b",
+    "pack": "battlecry",
+    "kind": "weapon",
+    "slug": "weapon:hells-judgment",
+    "name": "Hell's Judgment",
+    "level": 16,
+    "rarity": "uncommon",
+    "traits": ["fire", "magical", "reach", "trip"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A character who is a member of the Hellknights has access to this weapon."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These massive "
+          },
+          {
+            "type": "text",
+            "text": "+2 flaming greater striking guisarmes",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " are bestowed only upon the most loyal and renowned Hellknight paravicars, especially those who have distinguished themselves in the service of the strict laws of the organization."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Flames of Phlegethon",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, divine, manipulate, unholy)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You strike the ground with your axe, tearing open a one-way rift to the fourth layer of Hell in a "
+          },
+          {
+            "type": "template",
+            "shape": "line",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " that spews a curtain of hellfire. All creatures in the area take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d6",
+                "damageType": "fire"
+              },
+              {
+                "formula": "6d6",
+                "damageType": "spirit"
+              }
+            ],
+            "label": "6d6 fire damage and 6d6 spirit damage"
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 37,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save) before the rift vanishes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ggjnWvQpl7EzXi6Q"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10000
+        }
+      },
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "flames-of-phlegethon",
+          "name": "Flames of Phlegethon",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "polearm",
+      "baseItem": "guisarme",
+      "damage": {
+        "dice": 1,
+        "die": "d10",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 2,
+        "property": ["161a6329-9809-57d5-9b34-c150d2bfe235"]
+      }
+    }
+  },
+  {
+    "id": "dec74f5b-b19e-5cd0-8574-d558140d7b07",
+    "pack": "battlecry",
+    "kind": "weapon",
+    "slug": "weapon:horselords-longbow",
+    "name": "Horselord's Longbow",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["deadly-d10", "magical", "volley-30"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking longbows",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", usually decorated with intricate animal carvings and hawk feathers, are a favored weapon among the mounted warriors of the Shriikirri-Quah clan in north-central Varisia, although Shoanti travel widely enough that they find frequent use by cavalries of other nations and cultures as well. While you are mounted, Strikes with this bow gain a +2 circumstance bonus to damage against unmounted creatures who are smaller than your mount."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.VvJo7xIJANfoqRKr"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": 2,
+      "category": "martial",
+      "group": "bow",
+      "baseItem": "longbow",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "piercing"
+      },
+      "range": 100,
+      "reload": 0,
+      "ammunition": {
+        "type": "arrows"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one-plus"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "61eb4eba-be78-53cd-af6b-f19ab94c6d45",
+    "pack": "battlecry",
+    "kind": "weapon",
+    "slug": "weapon:jistkan-colossus-crusher",
+    "name": "Jistkan Colossus Crusher",
+    "level": 15,
+    "rarity": "rare",
+    "traits": ["magical", "shove"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater striking maul",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a marvel of magical and mechanical engineering, designed thousands of years ago by the mages of the Jistka Imperium for the express purpose of disabling any of the Imperium's countless magical constructs and automatons that might turn against their creators. When you damage a construct with a Strike from the Jistkan colossus crusher, you deal an additional 1d6 persistent force damage. Additionally, whenever you critically hit a construct with this weapon, the Jistkan colossus crusher briefly disrupts the magical energy signature animating the construct; it must succeed a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 35
+          },
+          {
+            "type": "text",
+            "text": " save or become "
+          },
+          {
+            "type": "ref",
+            "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+            "label": "Stunned 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.vVVorEuulaPUDHM0"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6250
+        }
+      },
+      "bulk": 2,
+      "category": "martial",
+      "group": "hammer",
+      "baseItem": "maul",
+      "damage": {
+        "dice": 1,
+        "die": "d12",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 2,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "ab8d2731-5f60-5ca5-b726-c69d4ec9177a",
+    "pack": "battlecry",
+    "kind": "weapon",
+    "slug": "weapon:jistkan-war-crossbow",
+    "name": "Jistkan War Crossbow",
+    "level": 18,
+    "rarity": "rare",
+    "traits": ["backstabber", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These "
+          },
+          {
+            "type": "text",
+            "text": "+3 greater striking grievous arbalests",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " are a fantastically intricate creation of the ancient Jistka Imperium, seamlessly weaving together mechanical ingenuity and powerful magic to create one of the deadliest projectile weapons ever devised by human hands."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Bolt of War",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Make a Strike with the Jistkan war crossbow, ignoring the penalty for making a Strike within your second or third range increment. Additionally, the arbalest gains the splash trait and deals 10 piercing splash damage for this Strike."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:bolt-of-war",
+        "toggleable": true,
+        "display": {
+          "label": "Jistkan War Crossbow - Bolt of War"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.b7Qqj2Pzj6SwihwD"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 22000
+        }
+      },
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "bolt-of-war",
+          "name": "Bolt of War",
+          "frequency": {
+            "max": 1,
+            "per": "ten-minutes"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "crossbow",
+      "baseItem": "arbalest",
+      "damage": {
+        "dice": 1,
+        "die": "d10",
+        "damageType": "piercing"
+      },
+      "range": 110,
+      "reload": 1,
+      "ammunition": {
+        "type": "bolts",
+        "capacity": 1
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 3,
+        "striking": 2,
+        "property": ["7d9ea442-d6e1-5178-b5cf-e5be287effc2"]
+      }
+    }
+  },
+  {
+    "id": "a8dca8b1-3c85-5d6d-81fd-387040853f26",
+    "pack": "battlecry",
+    "kind": "weapon",
+    "slug": "weapon:kithrender",
+    "name": "Kithrender",
+    "level": 16,
+    "rarity": "rare",
+    "traits": ["magical", "sweep"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The head of this heavily notched +2 greater striking fearsome greataxe is crudely inscribed with the face of a hideous fiend, its fangs bared in a twisted leer. The name of the fiend has been lost to history, but legends say it took a particular delight in turning the bonds between mortal beings against them, and that it created these weapons for its mortal acolytes so that they might carry on its cruel work."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you make a successful Strike with a kithrender, it deals 1d6 mental damage to all other enemies within 30 feet who consider the target an ally. All mental damage dealt by this weapon is doubled if the target is uniquely connected by a strong bond, such as family or a creature with the minion trait, or any kind of magical connection, such as telepathy."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Render Connection",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You reduce an enemy to 0 Hit Points with this weapon"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Each foe within 30 feet who considers the target an ally takes an additional "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d8",
+                "damageType": "mental"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 35,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Hz9ivObyYZryi8uW"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10000
+        }
+      },
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "render-connection",
+          "name": "Render Connection",
+          "frequency": {
+            "max": 1,
+            "per": "ten-minutes"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "axe",
+      "baseItem": "greataxe",
+      "damage": {
+        "dice": 1,
+        "die": "d12",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 2,
+        "property": ["d86545b9-266e-54d0-9347-f4b9fb077448"]
+      }
+    }
+  },
+  {
+    "id": "b645617f-8e8f-5b1d-94cc-37e05e7cf41c",
+    "pack": "battlecry",
+    "kind": "weapon",
+    "slug": "weapon:lamentation-of-the-faithless",
+    "name": "Lamentation of the Faithless",
+    "level": 25,
+    "rarity": "unique",
+    "traits": ["artifact", "divine", "magical", "unholy", "versatile-p"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The weapon wielded in battle by Szuriel, Rider of War, is a perpetually blood-covered blade that has taken more lives than even the gods can count. "
+          },
+          {
+            "type": "text",
+            "text": "Lamentation of the Faithless",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a "
+          },
+          {
+            "type": "text",
+            "text": "+4 major striking quickstrike unholy greatsword",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " with a blade of unyielding jet-black steel that absorbs all incident light, counteracting all light effects in a 15-foot radius with a +37 modifier as long as the weapon is unsheathed. Any creature within range attempting to use a spell or ability with the light trait must first succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 15
+          },
+          {
+            "type": "text",
+            "text": ", or the attempt fails. Whenever the blade strikes and deals damage to a living creature, its wielder regains "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d12"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Lo and Behold",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate, unholy, visual)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You raise Lamentation of the Faithless high above the battlefield, presenting its terrible glory for all to witness. All creatures within 60 feet that are able to see the sword must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 50
+          },
+          {
+            "type": "text",
+            "text": " save. Creatures with the unholy trait are immune to this effect, but creatures with the holy trait take a –2 status penalty on this save."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is stricken by crushing despair. It becomes "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " as it sobs uncontrollably, and it can't use reactions while it's slowed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but the creature is also "
+          },
+          {
+            "type": "ref",
+            "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but the duration of the blinded condition is 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Destruction",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Lamentation of the Faithless",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can only be destroyed if it's driven into the ground within the walls of the secluded garden at the summit of Heaven's mountain by a risen, repentant fiend, whereupon it shatters and crumbles to dust."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.TG8DO0YsLiguZJW3"
+    },
+    "data": {
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "lo-and-behold",
+          "name": "Lo and Behold",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "greatsword",
+      "damage": {
+        "dice": 1,
+        "die": "d12",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 4,
+        "striking": 3,
+        "property": ["dd06f261-aa49-55df-aa1b-52807ce2dedd", "ad239acc-57b4-5fc9-9f6a-6794eb470637"]
+      }
+    }
+  },
+  {
+    "id": "792dac3a-7743-5427-bc56-c8b39dd1c64a",
+    "pack": "battlecry",
+    "kind": "weapon",
+    "slug": "weapon:last-hope",
+    "name": "Last Hope",
+    "level": 16,
+    "rarity": "uncommon",
+    "traits": ["magical", "versatile-p"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A character who is a member of the Knights of Lastwall has access to this weapon."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater striking vitalizing longswords",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " are granted as special commendations to Knights of Lastwall who perform acts of exceptional heroism or strike decisive blows against the forces of the Whispering Tyrant."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Comes the Dawn",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, divine, healing, vitality)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You regain Hit Points from a magical effect"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You release a wave of vital energy in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": ". For every 10 Hit Points you are healed, you restore 1d10 Hit Points to all other living creatures and deal that amount of vitality damage to all undead creatures in the area, with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 37,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.zXvYaLxfov2jrV06"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10000
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "comes-the-dawn",
+          "name": "Comes the Dawn",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "longsword",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 2,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "62e13fe9-ec63-544b-9931-0f7be8d05bcc",
+    "pack": "battlecry",
+    "kind": "weapon",
+    "slug": "weapon:lion-scythe",
+    "name": "Lion Scythe",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["agile", "finesse", "trip"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A lion scythe resembles a common sickle but is specially weighted to allow for greater power when attacking."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Ak3oHoPDJoMR14yg"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "knife",
+      "baseItem": "lion-scythe",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "7df415f0-5c07-5cc8-a0fb-74efafbc7461",
+    "pack": "battlecry",
+    "kind": "weapon",
+    "slug": "weapon:mageslayer",
+    "name": "Mageslayer",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["forceful", "magical", "sweep"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This roughly forged "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking scimitar",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a favorite instrument of battlefield operatives seeking to weaken an enemy's forces by strategically eliminating their magical support. A mageslayer deals an additional 1d6 spirit damage to any creature it Strikes that's capable of casting spells from the arcane tradition. When wearing or wielding a mageslayer, you gain resistance 5 to damage from spells from the arcane tradition."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:mageslayer",
+        "toggleable": true,
+        "display": {
+          "label": "Mageslayer - vs. Arcane casters."
+        }
+      },
+      {
+        "key": "Resistance",
+        "type": ["all"],
+        "value": 5,
+        "predicate": ["origin:action:trait:arcane"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.lSnYM1j5C4A9a3Mn"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 500
+        }
+      },
+      "bulk": 1,
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "scimitar",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "23bd260c-c0ef-59db-a951-0962826f65fc",
+    "pack": "battlecry",
+    "kind": "weapon",
+    "slug": "weapon:maul-spade",
+    "name": "Maul-spade",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["deadly-d10", "jotunborn", "shove"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This heavy, club-like weapon can clobber foes, but it also functions as a shovel. A maul-spade adds its item bonus from weapon potency runes (if any) as an item bonus on checks made with Athletics and appropriate Lore skills (such as Labor Lore) when using it as a shovel to dig."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.MiiaZeNMGGSefjVH"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6
+        }
+      },
+      "bulk": 2,
+      "category": "advanced",
+      "group": "club",
+      "baseItem": "maul-spade",
+      "damage": {
+        "dice": 1,
+        "die": "d10",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "669be9ae-6493-5e17-b935-596163b65fcc",
+    "pack": "battlecry",
+    "kind": "weapon",
+    "slug": "weapon:radiant-victory",
+    "name": "Radiant Victory",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["agile", "finesse", "magical", "versatile-s"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This finely crafted "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking shortsword",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is carried by field marshals and other military officers who fight alongside their troops on the battlefield. Numerous other types of this blade exist, ranging from falchions to scimitars to longswords, and their appearances vary as widely as the nations and causes to which their wielders swear fealty. Many say that a soldier can tell the worth of their commanding officer by noting whether their primary weapon gives off the faint residual glow associated with a "
+          },
+          {
+            "type": "text",
+            "text": "radiant victory",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Rally the Troops",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate, visual)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You reduced a creature to 0 Hit Points with a Strike from the radiant victory as your last action"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You raise the blade high above your fallen enemy to inspire your comrades, projecting a blazing beacon into the sky that sheds bright light in a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " centered on you. This lasts for 1 minute and grants you and all allies within the area a +1 status bonus to attack rolls while within the light."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "5b3d855c-40a0-5e7d-9770-c9efba217cb6"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.phfqMz2811LT8hfD"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 240
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "rally-the-troops",
+          "name": "Rally the Troops",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "shortsword",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "c520faec-861f-5439-b6b7-1da90dbd2e2f",
+    "pack": "battlecry",
+    "kind": "weapon",
+    "slug": "weapon:reapers-toll",
+    "name": "Reaper's Toll",
+    "level": 15,
+    "rarity": "uncommon",
+    "traits": ["deadly-d10", "magical", "trip"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater striking decaying scythe",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is deathly cold to the touch and exudes an unmistakable aura of menace. As long as you carry this weapon, your presence repels and noticeably unnerves most animals, causing them to avoid you if possible and react to you with a starting attitude one step worse than normal if made to interact with you directly. The one exception is vermin who scavenge corpses; they appear around you with greater frequency. Small mundane plants, such as grass or flowers, wilt and die after spending 24 hours in close proximity to a reaper's toll, crumbling to dust 24 hours after that."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Reaper's Claim",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature within 30 feet is reduced to 0 Hit Points"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Make a melee Strike with reaper's toll as though you were in the space of the triggering creature. If your Strike hits, you gain temporary Hit Points equal to half the damage dealt, which last for 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.YgsDUh6shTham38Q"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6500
+        }
+      },
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "reapers-claim",
+          "name": "Reaper's Claim",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "polearm",
+      "baseItem": "scythe",
+      "damage": {
+        "dice": 1,
+        "die": "d10",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 2,
+        "property": ["f0455ffb-aa99-554e-a3e8-328023d85255"]
+      }
+    }
+  },
+  {
+    "id": "e6f1b9e1-4878-5377-86a3-5d7518aead38",
+    "pack": "battlecry",
+    "kind": "weapon",
+    "slug": "weapon:repeating-hand-crossbow",
+    "name": "Repeating Hand Crossbow",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["repeating"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This handheld crossbow features an ingeniously designed catch mechanism at the top of the flight groove, just in front of the latch, which automatically loads a bolt from a magazine and resets the string each time the weapon is fired. A typical repeating hand crossbow magazine holds five bolts."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.zcrIuILnp6oh4dr9"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "light",
+      "category": "advanced",
+      "group": "crossbow",
+      "baseItem": "repeating-hand-crossbow",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing"
+      },
+      "range": 60,
+      "reload": 0,
+      "ammunition": {
+        "type": "magazine-repeating-hand-crossbow",
+        "capacity": 1
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "e42706c8-cc15-5fbe-8f06-1ae42ea45386",
+    "pack": "battlecry",
+    "kind": "weapon",
+    "slug": "weapon:revenant-blade",
+    "name": "Revenant Blade",
+    "level": 10,
+    "rarity": "rare",
+    "traits": ["agile", "finesse", "invested", "magical", "trip", "void"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The mortal agents of powerful necromancers are a varied lot, but they tend to share two things in common: a deep and abiding fear of death, and a desperate hope that loyalty to their foul masters might be rewarded with some means of transcending it. To most of these wretched souls, this simple "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking sickle",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is as close as they will ever come to realizing that desire."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Revenant blades are usually created in large numbers to arm a necromancer's mortal troops before sending them into battle, and despite their name, they can be crafted from whichever base weapon is best suited for the expected conflict. Whatever form it takes, every revenant blade is adorned in some way with a small gem of deep black onyx. When you invest in the weapon, a small portion of your soul is transferred into the gem, bonding it to you and granting the weapon the effects of the "
+          },
+          {
+            "type": "ref",
+            "id": "f0455ffb-aa99-554e-a3e8-328023d85255",
+            "label": "Decaying rune"
+          },
+          {
+            "type": "text",
+            "text": " for as long as it remains invested."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Should you die in battle while invested in a revenant blade, its gem shatters, and your corpse rises 1 round later to continue the fight. You become an undead creature under the GM's control, although you generally retain the motivations and loyalties you had in life. The GM chooses what type of undead you become, selecting an appropriate undead creature that has a level no greater than your level – 5, to a minimum of 0. You can't be raised from the dead by any means short of a wish ritual until your undead form is destroyed."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.hmtzclfmm1FTExNp"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 900
+        }
+      },
+      "bulk": "light",
+      "category": "simple",
+      "group": "knife",
+      "baseItem": "sickle",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": ["f0455ffb-aa99-554e-a3e8-328023d85255"]
+      }
+    }
+  },
+  {
+    "id": "72695712-a0b0-5428-96a1-21428455b4c1",
+    "pack": "battlecry",
+    "kind": "weapon",
+    "slug": "weapon:righteous-fury",
+    "name": "Righteous Fury",
+    "level": 15,
+    "rarity": "uncommon",
+    "traits": ["holy", "magical", "versatile-p"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This gold-plated "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater striking holy longsword",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " sports an ornate hilt bearing the religious symbol of Ragathiel, General of Vengeance, and is painstakingly crafted to resemble the divine armaments wielded by the empyreal lord's celestial soldiers in their battles against the forces of darkness. These weapons are popular among the ranks of those who hold the line against similar enemies, such as the Knights of Lastwall and warriors of the former Mendevian Crusade."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Great Vengeance",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, divine, holy, spirit, vitality)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your last action was a successful melee Strike with righteous fury against a creature with the unholy trait"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The sword emits a 20-foot-radius emanation of holy fire centered on your target, inflicting "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d8",
+                "damageType": "spirit"
+              },
+              {
+                "formula": "2d8",
+                "damageType": "vitality"
+              }
+            ],
+            "label": "2d8 spirit damage and 2d8 vitality damage"
+          },
+          {
+            "type": "text",
+            "text": " to all enemies in the area ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 34,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save). Creatures that fail the save are "
+          },
+          {
+            "type": "ref",
+            "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round, and those that critically fail are blinded for 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.sFeUlzkJ8GgcFRES"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6000
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "great-vengeance",
+          "name": "Great Vengeance",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "longsword",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 2,
+        "property": ["1c942139-39ff-5ab6-bccc-88a68a1ec2e6"]
+      }
+    }
+  },
+  {
+    "id": "0d72f457-9895-51cb-8d66-e731ba7e3c7e",
+    "pack": "battlecry",
+    "kind": "weapon",
+    "slug": "weapon:scourge",
+    "name": "Scourge",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["agile", "disarm", "finesse", "nonlethal", "sweep"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A scourge—also known as a cat-o'-nine-tails—is a set of several knotted cords made from cotton or leather and attached to a handle. While most scourges are more suitable for torture than combat, when fashioned into a weapon, a scourge can have metal barbs woven into the cords to pierce clothing and armor."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.I5DJUbAFGMwa6qCz"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 1
+        }
+      },
+      "bulk": 1,
+      "category": "martial",
+      "group": "flail",
+      "baseItem": "scourge",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "08728bff-263e-5738-89fa-876a12e9000d",
+    "pack": "battlecry",
+    "kind": "weapon",
+    "slug": "weapon:talonstrike-blade",
+    "name": "Talonstrike Blade",
+    "level": 12,
+    "rarity": "uncommon",
+    "traits": ["magical", "two-hand-d12"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A character who is a member of the Eagle Knights has access to this weapon."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This large "
+          },
+          {
+            "type": "text",
+            "text": "+2 striking standard-grade silver bastard sword",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is the signature weapon of many veteran Eagle Knights. It's easily recognized by its distinctively notched blade and the stylized wings adorning its cross guard. These blades are sometimes passed down from generation to generation."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Defense of Liberty",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You or your mount are targeted by a physical melee or ranged attack"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are aware of the attack and are not "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " against it"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You or your mount gain a +2 circumstance bonus to AC against the triggering attack."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "69f1bece-c03d-558b-80e7-d063a2433909"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.6Wj3janUyfxe17d0"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2000
+        }
+      },
+      "bulk": 1,
+      "material": {
+        "type": "silver",
+        "grade": "standard"
+      },
+      "activations": [
+        {
+          "slug": "defense-of-liberty",
+          "name": "Defense of Liberty",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "bastard-sword",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "b12a9aec-46f9-5a2e-a450-405d29f26d04",
+    "pack": "battlecry",
+    "kind": "weapon",
+    "slug": "weapon:talonstrike-blade-greater",
+    "name": "Talonstrike Blade (Greater)",
+    "level": 14,
+    "rarity": "uncommon",
+    "traits": ["magical", "two-hand-d12"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A character who is a member of the Eagle Knights has access to this weapon."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Eagle Knights charged with protecting Andoran's western border against Chelaxian incursion often carry these "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater striking standard-grade silver bastard swords",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", enchanted to offer greater utility when battling fiends. A greater talonstrike blade gains the Grasping Talons activation."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Defense of Liberty",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You or your mount are targeted by a physical melee or ranged attack"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are aware of the attack and are not "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " against it"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You or your mount gain a +2 circumstance bonus to AC against the triggering attack."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "69f1bece-c03d-558b-80e7-d063a2433909"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Grasping Talons",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (arcane)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You hit with a melee Strike using the greater talonstrike blade and deal damage"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast a 5th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "c116ade1-041d-5bc1-a428-dcd37ab4e61e"
+          },
+          {
+            "type": "text",
+            "text": " on the creature you just dealt damage to, with a DC of 34."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " For a greater talonstrike blade, supply one casting of planar tether."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.zxzJzXkM2CtODNQv"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4500
+        }
+      },
+      "bulk": 1,
+      "material": {
+        "type": "silver",
+        "grade": "standard"
+      },
+      "activations": [
+        {
+          "slug": "defense-of-liberty",
+          "name": "Defense of Liberty",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        },
+        {
+          "slug": "grasping-talons",
+          "name": "Grasping Talons",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "bastard-sword",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 2,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "a7d6a6d9-9add-58ba-8c33-fd9bec66ce7e",
+    "pack": "battlecry",
+    "kind": "weapon",
+    "slug": "weapon:ulfen-shieldbreaker",
+    "name": "Ulfen Shieldbreaker",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["magical", "sweep"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The axe and shield are signature weapons of war and powerful cultural symbols for the Ulfen people. Duels among Ulfen warriors that don't end in death are traditionally called when one of the combatants' shield shatters, leading experienced warriors to take as much pride in the resilience of their shields as the sharpness of their axes. This has led to something of an ongoing rivalry between Ulfen armorers seeking to craft unbreakable shields and those seeking to forge unstoppable weapons, with this distinctively bearded "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking battle axe",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " representing the current pinnacle of the latter group's craft."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you damage a raised shield with an "
+          },
+          {
+            "type": "text",
+            "text": "Ulfen shieldbreaker",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", your attack ignores the shield's first 3 points of Hardness. If the damage is not fully mitigated by any remaining Hardness, the shield takes an additional "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "slashing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage from the attack. This damage ignores all Hardness."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Battering Blow",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your melee Strike with the Ulfen shieldbreaker reduces an enemy's shield below its Broken Threshold"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The force of your blow threatens to knock your opponent to the ground. Attempt an Athletics check to "
+          },
+          {
+            "type": "ref",
+            "id": "6257c7f0-f483-53d3-a791-d73a616cbce4"
+          },
+          {
+            "type": "text",
+            "text": " the target of the triggering attack. If your attack was powerful enough to destroy the shield outright, you gain a +2 circumstance bonus to the roll."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["action:trip", "option:ulfen-shieldbreaker"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.AXz1edC2ZhqNLaeZ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": 1,
+      "category": "martial",
+      "group": "axe",
+      "baseItem": "battle-axe",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "0633d355-e6c7-5ede-af2c-1a90e563da1c",
+    "pack": "battlecry",
+    "kind": "weapon",
+    "slug": "weapon:undead-scourge",
+    "name": "Undead Scourge",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["agile", "finesse", "thrown-10", "versatile-s"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A character who is a member of the Knights of Lastwall has access to this weapon."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An undead scourge is a "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking vitalizing dagger",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " with a bluish-white metal blade that emits a faint glow. These used to be weapons of Pharasmin undead slayers only, but the slayers have since shared the secrets of their creation with the Knights of Lastwall."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Sever from the Void",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, divine, vitality)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You hit and damage an undead creature with an undead scourge"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You disrupt the undead's connection to void energy. For 1 minute, the undead damaged with the dagger can't be healed by void energy unless the effect attempting to heal the undead first counteracts the undead scourge's effect, which has a counteract rank of 4th and a DC of 25. Vitality energy still has the usual effects on the undead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.6aubQ21gRc5EMnbT"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 350
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "sever-from-the-void",
+          "name": "Sever from the Void",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "category": "simple",
+      "group": "knife",
+      "baseItem": "dagger",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "0efc57b5-9e0a-5631-8667-1ced8c50ee4c",
+    "pack": "battlecry",
+    "kind": "weapon",
+    "slug": "weapon:war-lance",
+    "name": "War Lance",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["deadly-d8", "jousting-d6", "parry", "shove"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This lance appears shorter and stockier in comparison to other weapons of its type. The war lance notably features shielding integrated into its vamplate, exchanging its reach for a sturdier base when defending against attacks or attempting to overpower an opponent."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.zXbZn5HJf81tquPm"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": 2,
+      "category": "martial",
+      "group": "spear",
+      "baseItem": "war-lance",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  }
+]

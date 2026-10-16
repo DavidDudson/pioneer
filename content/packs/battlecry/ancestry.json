@@ -1,0 +1,209 @@
+[
+  {
+    "id": "b31c2ca8-d7cd-5063-aad5-a2c32f421a48",
+    "pack": "battlecry",
+    "kind": "ancestry",
+    "slug": "ancestry:jotunborn",
+    "name": "Jotunborn",
+    "rarity": "rare",
+    "traits": ["giant", "humanoid", "jotunborn"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "According to their oldest stories, the first jotunborn were the direct creations of the earliest gods. Having just completed the majority of the creation of Golarion, these gods created several groups of people to act as stewards for this new world. Among these groups were jotunborn, beings who were formed from the remains of titans who dared rebel against the gods in the earliest days of existence. Rather than give jotunborn the full power they gave the titans, the gods instead instilled the first jotunborn with the faintest spark of creation and gave them slighter forms. These new servitors would be just as capable at helping to shape the rest of Golarion but would also be weaker and easier to strike down should they rebel like their progenitors.",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Jotunborn"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "738dc449-50b8-5c53-bc1a-eb382ff7ad60"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-1",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:jotunborn",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Jotunborn feat"
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-1"
+        }
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-5",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:jotunborn",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Jotunborn feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-5"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-9",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:jotunborn",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Jotunborn feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-9"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-13",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:jotunborn",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Jotunborn feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-13"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-17",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:jotunborn",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Jotunborn feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-17"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestries.Item.gayvFCiQcGNCA7aM"
+    },
+    "data": {
+      "hitPoints": 10,
+      "size": "large",
+      "speed": 25,
+      "boosts": [["str"], ["wis"], ["str", "dex", "con", "int", "wis", "cha"]],
+      "flaws": ["cha"],
+      "languages": ["444a2133-3e11-55b6-b57a-1f11ebe8e12b", "315eced7-9fa5-595b-bdab-002877559cff"],
+      "additionalLanguages": {
+        "count": 0,
+        "options": [
+          "8c7a7b2f-1b72-5a6a-9b1e-72f5fb801c5a",
+          "c49a86a0-8e49-56c1-86f9-eaa50a3297e3",
+          "c60a69f8-1fae-5452-9c94-4cf2bd4662b1",
+          "30b3a33b-b3f0-5ba1-9e46-aed5301bb2ce",
+          "4d4fb5fa-160d-553f-b657-24105dc56050",
+          "ff9d8655-df77-52bc-852f-ee4669509e08",
+          "c960afa4-f657-5917-8612-e95b449496cc"
+        ]
+      },
+      "vision": "16b42c38-9373-58ec-a7ac-2221bb17a71c",
+      "reach": 5
+    }
+  }
+]

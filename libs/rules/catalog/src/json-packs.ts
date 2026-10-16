@@ -54,6 +54,8 @@ export async function coreRulesPack(): Promise<PackContents> {
     import('@pioneer/content/packs/core-rules/imported/secrets-of-magic/trait.json'),
     import('@pioneer/content/packs/core-rules/imported/impossible-magic/statistic.json'),
     import('@pioneer/content/packs/core-rules/imported/impossible-magic/trait.json'),
+    import('@pioneer/content/packs/core-rules/imported/battlecry/statistic.json'),
+    import('@pioneer/content/packs/core-rules/imported/battlecry/trait.json'),
     import('@pioneer/content/packs/core-rules/imported/guns-and-gears/language.json'),
     import('@pioneer/content/packs/core-rules/imported/guns-and-gears/statistic.json'),
     import('@pioneer/content/packs/core-rules/imported/guns-and-gears/trait.json'),

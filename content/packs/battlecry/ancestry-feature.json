@@ -1,0 +1,34 @@
+[
+  {
+    "id": "738dc449-50b8-5c53-bc1a-eb382ff7ad60",
+    "pack": "battlecry",
+    "kind": "ancestry-feature",
+    "slug": "ancestry-feature:iivlar-weaving",
+    "name": "Iivlar Weaving",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["jotunborn"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Planar thread produced by creatures called iivlars is woven into your skin. This thread glows with dim light in a 10-foot emanation. You can Sustain to extinguish, reactivate, or adjust the coloration of this light."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestryfeatures.Item.DPPFBUk0l9KfRN8h"
+    },
+    "data": {}
+  }
+]

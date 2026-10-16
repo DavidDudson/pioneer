@@ -1,0 +1,132 @@
+[
+  {
+    "id": "8c0bd9c5-0d85-573e-98d3-94e618041c01",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:brandish",
+    "name": "Brandish",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "condition", "effect", "feat"]
+    }
+  },
+  {
+    "id": "0bdb1a41-c4be-589a-9718-18a78a281274",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:giant",
+    "name": "Giant",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["ancestry", "creature", "heritage"]
+    }
+  },
+  {
+    "id": "4343a304-6b9b-55cd-abe5-83b114158eed",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:jotunborn",
+    "name": "Jotunborn",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "ec953907-6295-5994-a51c-6f235631f8f3",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:skirmish",
+    "name": "Skirmish",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "condition", "effect"]
+    }
+  },
+  {
+    "id": "9786de55-0701-5648-9a97-cd92eb37cfc5",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:tactic",
+    "name": "Tactic",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "condition", "effect", "feat"]
+    }
+  },
+  {
+    "id": "ddb8f5fe-5312-5887-8c0b-87543fbac87e",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:whetstone",
+    "name": "Whetstone",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "condition", "consumable", "effect"]
+    }
+  }
+]

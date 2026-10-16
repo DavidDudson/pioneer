@@ -134,5 +134,13 @@
     "remaster": true,
     "released": "2025-02-05",
     "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=98"
+  },
+  {
+    "id": "battlecry",
+    "publisher": "paizo",
+    "license": "ORC",
+    "remaster": true,
+    "released": "2025-07-31",
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=268"
   }
 ]

@@ -1,0 +1,122 @@
+[
+  {
+    "id": "3b9cc1ce-d3c4-585f-8261-327d36547f3d",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:architecture-lore",
+    "name": "Architecture Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:architecture",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.architecture",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "3c955ec2-38d1-5f4c-9901-480d6fbb54e0",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:pharasma-lore",
+    "name": "Pharasma Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:pharasma",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.pharasma",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "4bbf8df6-e4d1-5c2b-b597-32c2b22f2b8a",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:piloting-lore",
+    "name": "Piloting Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:piloting",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.piloting",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "4e17543f-91e7-5f35-a85d-21eecbfa8d0e",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:stabling-lore",
+    "name": "Stabling Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:stabling",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.stabling",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "7f935184-5644-5666-8be3-ea96b12e8b00",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:vehicle-lore",
+    "name": "Vehicle Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:vehicle",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.vehicle",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  }
+]

@@ -1,0 +1,489 @@
+[
+  {
+    "id": "46799de3-7dd6-5334-b826-254e35916864",
+    "pack": "battlecry",
+    "kind": "archetype",
+    "slug": "archetype:aldori-duelist",
+    "name": "Aldori Duelist",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have sworn the Aldori swordpact and studied the art of Aldori dueling, a famed school of bladecraft that has been passed down for over a millennium from the teachings of Baron Sirian Aldori. The Aldori Academy, widely regarded as the region's finest war college, is the pride and joy of Restov. You're filled with pride and determined to challenge yourself at every opportunity. One day, you hope to demonstrate your skill at swordplay to become acknowledged as a true swordlord."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Aldori duelists have much in common with swashbucklers, and many Aldori duelists have the swashbuckler class or archetype. Much like a swashbuckler's daring deeds, classic Aldori duelist maneuvers are often showy feats intended to impress or intimidate."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Many feats in this section refer to being in a duel or dueling actions. For more information about duels and dueling actions, see the dueling subsystem."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.cBBwTnJrVmvaRMYq"
+    },
+    "data": {
+      "dedication": "35b498eb-45f0-51c7-b5dd-2c5188718ac0"
+    }
+  },
+  {
+    "id": "b0ef3404-2369-5c1c-9aa0-6aa9871f6589",
+    "pack": "battlecry",
+    "kind": "archetype",
+    "slug": "archetype:captain",
+    "name": "Captain",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whether it's your personal prowess, your fearsome reputation, or your skill at bringing out the best in others, you inspire people to flock to your banner. You might hold an official position in a military, guild, or other institution, or you might operate outside of formal structures. Regardless of your role, you are the type of person that others instinctively turn to for guidance in dangerous or chaotic situations."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A captain is always accompanied by at least one follower, who stays by their side through thick and thin and relies upon them to excel in combat. Followers can fill a variety of roles, from eagle-eyed scouts or stalwart bodyguards to capable medics."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.S1fjneSam9WpN44R"
+    },
+    "data": {
+      "dedication": "f65319db-7c82-5d0d-8f8a-36fa1bbd35de"
+    }
+  },
+  {
+    "id": "1356ee12-a3b0-541b-88d8-2bd9af80cdc0",
+    "pack": "battlecry",
+    "kind": "archetype",
+    "slug": "archetype:commander",
+    "name": "Commander",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your knack for battlefield strategy and command has been honed into a fine skill, and you can use your keen intellect to help lead your allies to decisive victories."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.FYeYr2IQ7voFSb8y"
+    },
+    "data": {
+      "dedication": "1c417f2e-2fcd-53c2-9776-cab4f822fedf",
+      "multiclass": "7d2a7322-6ac1-5bf0-8efc-237bcf2990c9"
+    }
+  },
+  {
+    "id": "03f0441b-db7d-55b3-b30d-20a8fcc5e528",
+    "pack": "battlecry",
+    "kind": "archetype",
+    "slug": "archetype:crossbow-infiltrator",
+    "name": "Crossbow Infiltrator",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Crossbow infiltrators are typically highly trained members of specialized units or organizations who favor stealthy tactics and quiet weapons. Whether you were trained as an assassin, a spy, or for some other purpose related to espionage and infiltration, you specialize in using unobtrusive forms of crossbow weaponry to eliminate targets."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While all crossbow infiltrators learn to use the hand crossbow and gauntlet bow, some take part in more aggressive and dangerous infiltrations and request specialized equipment like the repeating hand crossbow or crescent cross—a unique weapon that combines a bladed gauntlet with an arm-mounted crossbow apparatus—to complete their objectives. It's also incredibly common for crossbow infiltrators to either have access to poisons and poison training from the organizations they serve, or to have their own supplier to supplement their tool sets."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The use of small, easily Concealed or disposed-of weapons and tools makes it easy for crossbow infiltrators to slip into a location unnoticed, complete whatever objective they have been given, and then slip away without being detected, either climbing over a castle wall or blending into a crowded marketplace."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.JzUDumJ3Dlyame4z"
+    },
+    "data": {
+      "dedication": "5b547e84-964e-54cc-be99-baf0cefffc98"
+    }
+  },
+  {
+    "id": "1593c2e8-c219-5666-a9cd-ddc0cdbc712b",
+    "pack": "battlecry",
+    "kind": "archetype",
+    "slug": "archetype:field-propagandist",
+    "name": "Field Propagandist",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Some might call you a journalist, while others might think of you as a town crier or deploy you as a herald. You know that you are so much more: the words you use and the stories you tell can sway the course of battles or turn the tides of war. You have studied the means to influence the beliefs and behaviors of those around you. You boost the morale of your allies, confound enemies, and influence neutral bystanders."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whether you work as a journalist for a private organization, such as the Pathfinder Society, or are directly employed by a government body to reveal the best face of their actions, you've accepted a role that requires you to do more than just report events. You excel at inserting your own interpretation into the narrative and using that interpretation to sway the hearts and minds of your audience, for good or ill. Those whom you might speak against may not appreciate your words, referring to them as \"lies\" or \"slander,\" but you have come to understand that truth can be as changeable as the winds."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.f7a4f9nUuk00X3qu"
+    },
+    "data": {
+      "dedication": "d8104833-2516-5e69-871f-7487527aba2e"
+    }
+  },
+  {
+    "id": "6e255da8-0835-5e1f-a52d-567b0720df49",
+    "pack": "battlecry",
+    "kind": "archetype",
+    "slug": "archetype:guardian",
+    "name": "Guardian",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've learned the advantages of wearing the sturdiest of armor and keeping your enemies' attention focused on you instead of your allies. You can eventually put yourself in harm's way to protect your friends."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.5eGP9Wh9Nr2WFxeZ"
+    },
+    "data": {
+      "dedication": "46cb1d23-c743-5047-b2be-fca984510c0c",
+      "multiclass": "eede38c5-ffda-5a06-b6b4-3d40551ec338"
+    }
+  },
+  {
+    "id": "662ea97a-53c8-5892-94b2-0fdcc48c0e88",
+    "pack": "battlecry",
+    "kind": "archetype",
+    "slug": "archetype:guerrilla",
+    "name": "Guerrilla",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Eschewing straightforward clashes of armies on the fields of war, you favor covert, hit-and-run techniques that make your environment your battlefield. You specialize in using your surroundings to your advantage, striking from the shadows and disappearing before your foes realize what hit them."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "4th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Blowgun Poisoner"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.6bVnGg5GyWZgYZst"
+    },
+    "data": {
+      "dedication": "55f3cb25-7cc9-5959-a880-8a178913ae32"
+    }
+  },
+  {
+    "id": "13f19362-d416-59fd-8fb6-280388728c51",
+    "pack": "battlecry",
+    "kind": "archetype",
+    "slug": "archetype:iridian-choirmaster",
+    "name": "Iridian Choirmaster",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When the Iridian Fold disbanded, a splinter sect of this philosophical group called the Iridian Choir, which originated within the city of Ular Kel in Casmaron, rose to prominence in Kaer Maga. You are a member of this school of ideology and martial prowess, seeking another to form a bonded pair called a szerik. Together, you practice moving, fighting, and even speaking in complete harmony so that your souls may unite into one, a single spirit in two bodies. While this relationship can be quite intimate, the Iridian Choir believes any type of bond can bring a szerik to the true enlightenment known as \"shared mind, shared heart,\" whether it be romantic or platonic."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've chosen a student to train in the Iridian Choir's philosophy, which teaches that two people battling together are greater than the sum of their parts. You and your student share a deep connection, the nature of which is up to the two of you. As a symbol of your bond, you might each wear small, identical chains somewhere on your body. You and your student spend a lot of time practicing, seeking to achieve that perfect blending of souls to lead to enlightenment."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.717fNt85QebVFOS3"
+    },
+    "data": {
+      "dedication": "f5f210d4-a101-5f76-9a0f-6937c46a641e"
+    }
+  },
+  {
+    "id": "ea1f9da5-204d-5d3c-b445-00cc47a953fd",
+    "pack": "battlecry",
+    "kind": "archetype",
+    "slug": "archetype:necrologist",
+    "name": "Necrologist",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Rare"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Though some may think it morbid, you spend your time compiling and studying lists of the dead, from town or church records that date back hundreds of years to more recent records of battlefield casualties. You have become so invested in the lives and stories of these unfortunates that you can tap into your own animating force to bring them all temporarily back from the dead at once. This usually entails enacting esoteric arcana, occult rites, or divine pacts with gods of the undead. Necrologists can be valuable assets in any battle, as their hordes are essentially expendable and in endless supply."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.A5aAl3LLEiwbvQ9L"
+    },
+    "data": {
+      "dedication": "5047df2c-c9b2-55e8-9881-1fca355d92af"
+    }
+  }
+]

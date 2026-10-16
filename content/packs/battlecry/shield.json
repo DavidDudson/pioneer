@@ -1,0 +1,2150 @@
+[
+  {
+    "id": "4352ed2c-c7f5-58fe-bd8f-297a00b04446",
+    "pack": "battlecry",
+    "kind": "shield",
+    "slug": "shield:bivouac-targe",
+    "name": "Bivouac Targe",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This buckler (Hardness 3, HP 6, BT 3) has the appearance of a common wooden shield."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Deploy Encampment",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute (manipulate, structure) You pull a strap near the shield's enarmes to create a makeshift shelter that unfolds over the next minute. The shield becomes a "
+          },
+          {
+            "type": "ref",
+            "id": "6a085679-555e-5565-9b22-8e45319dfec6",
+            "label": "pup tent"
+          },
+          {
+            "type": "text",
+            "text": " until you spend another minute collapsing it. Within the tent is a satchel that holds 1 Bulk of "
+          },
+          {
+            "type": "ref",
+            "id": "21c8c797-ee6f-5887-b1ba-511761dfd6c5"
+          },
+          {
+            "type": "text",
+            "text": " and replenishes every week."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.2uQbXmE06SbudRFp"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 35
+        }
+      },
+      "bulk": "light",
+      "hardness": 3,
+      "hitPoints": 6,
+      "baseItem": "buckler",
+      "acBonus": 1
+    }
+  },
+  {
+    "id": "2f45343d-2199-5ed6-af81-6e1c8fd1292b",
+    "pack": "battlecry",
+    "kind": "shield",
+    "slug": "shield:dragon-shield",
+    "name": "Dragon Shield",
+    "level": 13,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This moderate reinforcing steel shield (Hardness 8, HP 84, BT 42) has an image of a cinder dragon's head painted on it. Additional metal adornments accentuate the fearsome mouth."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Burning Path",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " (fire, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Raise your Shield and Stride up to twice your Speed in a straight line. You can move through creatures with this movement, but you can't end your movement in their space. Creatures you moved through take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "5d8",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 31,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save). Creatures who critically fail also take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d8",
+                "damageType": "fire",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.oLibqACz1SwR8uhh"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3000
+        }
+      },
+      "bulk": 1,
+      "hardness": 5,
+      "hitPoints": 20,
+      "activations": [
+        {
+          "slug": "burning-path",
+          "name": "Burning Path",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "baseItem": "steel-shield",
+      "acBonus": 2,
+      "runes": {
+        "reinforcing": 3
+      }
+    }
+  },
+  {
+    "id": "fd656e04-7a11-5d4a-a87a-9b2c306f694d",
+    "pack": "battlecry",
+    "kind": "shield",
+    "slug": "shield:energized-shield-greater",
+    "name": "Energized Shield (Greater)",
+    "level": 15,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This minor reinforcing steel shield (Hardness 8, HP 64, BT 32) is lined with pale silver that glows when struck. Whenever you use the "
+          },
+          {
+            "type": "ref",
+            "id": "4333cbb5-7f4c-5c8e-bbad-afa6b6f2043b"
+          },
+          {
+            "type": "text",
+            "text": " reaction, this shield becomes energized for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Energized Blast",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (force, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The shield is energized"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You direct the stored energy into a short blast, targeting a creature within 15 feet. The target takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d10",
+                "damageType": "force"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 34,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.j66vP9yPSDe5by2k"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6000
+        }
+      },
+      "bulk": 1,
+      "hardness": 5,
+      "hitPoints": 20,
+      "activations": [
+        {
+          "slug": "energized-blast",
+          "name": "Energized Blast",
+          "frequency": {
+            "max": 1,
+            "per": "ten-minutes"
+          }
+        }
+      ],
+      "baseItem": "steel-shield",
+      "acBonus": 2,
+      "runes": {
+        "reinforcing": 4
+      }
+    }
+  },
+  {
+    "id": "ff303c02-24a9-504d-a7ef-945f6912691f",
+    "pack": "battlecry",
+    "kind": "shield",
+    "slug": "shield:energized-shield-lesser",
+    "name": "Energized Shield (Lesser)",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This minor reinforcing steel shield (Hardness 8, HP 64, BT 32) is lined with pale silver that glows when struck. Whenever you use the "
+          },
+          {
+            "type": "ref",
+            "id": "4333cbb5-7f4c-5c8e-bbad-afa6b6f2043b"
+          },
+          {
+            "type": "text",
+            "text": " reaction, this shield becomes energized for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Energized Blast",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (force, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The shield is energized"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You direct the stored energy into a short blast, targeting a creature within 15 feet. The target takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d10",
+                "damageType": "force"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 23,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.u2rlekTlwFOUkxLN"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 350
+        }
+      },
+      "bulk": 1,
+      "hardness": 5,
+      "hitPoints": 20,
+      "activations": [
+        {
+          "slug": "energized-blast",
+          "name": "Energized Blast",
+          "frequency": {
+            "max": 1,
+            "per": "ten-minutes"
+          }
+        }
+      ],
+      "baseItem": "steel-shield",
+      "acBonus": 2,
+      "runes": {
+        "reinforcing": 1
+      }
+    }
+  },
+  {
+    "id": "c26eb1da-85cf-543c-be2e-de91cb9672fe",
+    "pack": "battlecry",
+    "kind": "shield",
+    "slug": "shield:energized-shield-major",
+    "name": "Energized Shield (Major)",
+    "level": 19,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This minor reinforcing steel shield (Hardness 8, HP 64, BT 32) is lined with pale silver that glows when struck. Whenever you use the "
+          },
+          {
+            "type": "ref",
+            "id": "4333cbb5-7f4c-5c8e-bbad-afa6b6f2043b"
+          },
+          {
+            "type": "text",
+            "text": " reaction, this shield becomes energized for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Energized Blast",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (force, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The shield is energized"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You direct the stored energy into a short blast, targeting a creature within 15 feet. The target takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "5d10",
+                "damageType": "force"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 39,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.EpWa6SEocKadswN7"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 35000
+        }
+      },
+      "bulk": 1,
+      "hardness": 5,
+      "hitPoints": 20,
+      "activations": [
+        {
+          "slug": "energized-blast",
+          "name": "Energized Blast",
+          "frequency": {
+            "max": 1,
+            "per": "ten-minutes"
+          }
+        }
+      ],
+      "baseItem": "steel-shield",
+      "acBonus": 2,
+      "runes": {
+        "reinforcing": 5
+      }
+    }
+  },
+  {
+    "id": "2882fc8a-85b5-5dba-bba8-cf4fa5ade34c",
+    "pack": "battlecry",
+    "kind": "shield",
+    "slug": "shield:energized-shield-moderate",
+    "name": "Energized Shield (Moderate)",
+    "level": 11,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This minor reinforcing steel shield (Hardness 8, HP 64, BT 32) is lined with pale silver that glows when struck. Whenever you use the Shield Block reaction, this shield becomes energized for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Energized Blast",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (force, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The shield is energized"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You direct the stored energy into a short blast, targeting a creature within 15 feet. The target takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d10",
+                "damageType": "force"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 28,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.c3rgT6PKYery9QH8"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1300
+        }
+      },
+      "bulk": 1,
+      "hardness": 5,
+      "hitPoints": 20,
+      "activations": [
+        {
+          "slug": "energized-blast",
+          "name": "Energized Blast",
+          "frequency": {
+            "max": 1,
+            "per": "ten-minutes"
+          }
+        }
+      ],
+      "baseItem": "steel-shield",
+      "acBonus": 2,
+      "runes": {
+        "reinforcing": 3
+      }
+    }
+  },
+  {
+    "id": "28e8be87-d930-5c6e-a299-64d0807d2319",
+    "pack": "battlecry",
+    "kind": "shield",
+    "slug": "shield:medics-shield",
+    "name": "Medic's Shield",
+    "level": 14,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This standard-grade dawnsilver shield (Hardness 5, HP 20, BT 10) is inscribed with the symbol of a deity dedicated to healing and medicine. The shield is designed for combat medics to aid combatants or adventurers in the midst of battle. "
+          },
+          {
+            "type": "ref",
+            "id": "050458fd-ce2e-53a2-ac9d-e9a790d70513",
+            "label": "Healer's tools"
+          },
+          {
+            "type": "text",
+            "text": " can be stored on the backside of this shield. This shield grants a +2 item bonus to Medicine checks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Adrenaline Boost",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You grant a medicinal boost to bring someone back into the fray. You Administer First Aid to stabilize an adjacent ally with the dying condition. On a success, they gain "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d6+20"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points, can immediately "
+          },
+          {
+            "type": "ref",
+            "id": "667bebee-bb47-5bf2-b54e-7955517106a6"
+          },
+          {
+            "type": "text",
+            "text": " as a free action, and become "
+          },
+          {
+            "type": "ref",
+            "id": "6517bbf2-8085-534b-be6a-187d52739fa0"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round. They can use this extra action only to Stride or Strike."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:medicine"],
+        "type": "item",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.w1AuKvQ3ikJSMQNu"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4000
+        }
+      },
+      "bulk": 1,
+      "hardness": 5,
+      "hitPoints": 20,
+      "material": {
+        "type": "dawnsilver",
+        "grade": "standard"
+      },
+      "activations": [
+        {
+          "slug": "adrenaline-boost",
+          "name": "Adrenaline Boost",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "baseItem": "steel-shield",
+      "acBonus": 2
+    }
+  },
+  {
+    "id": "85ca8ee7-7f82-5d69-9452-010ced75957a",
+    "pack": "battlecry",
+    "kind": "shield",
+    "slug": "shield:siege-shield",
+    "name": "Siege Shield",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This massive tower shield (Hardness 5, HP 20, BT 10) is crafted from the toughest steel. It's not ideal for single combat, but it can be used to defend soldiers during a siege. While this shield is raised, you gain resistance to damage from siege weapons equal to half this shield's Hardness."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Plant Cover",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You unequip the shield and prop it on the ground. The shield grants standard cover for one Medium or smaller creature in its square and lesser cover for a Large one."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.idcfnKHZvJTSCdWK"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 60
+        }
+      },
+      "bulk": 4,
+      "hardness": 5,
+      "hitPoints": 20,
+      "baseItem": "tower-shield",
+      "acBonus": 2,
+      "speedPenalty": 5
+    }
+  },
+  {
+    "id": "af33bf22-6ab5-5585-801c-b9f08d46b702",
+    "pack": "battlecry",
+    "kind": "shield",
+    "slug": "shield:sun-slayer",
+    "name": "Sun Slayer",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This lesser reinforced wooden shield (Hardness 6, HP 64, BT 32) is painted with intricate, pale-blue knots. The wood has been magically enhanced against solar energy and heat. While you have this shield raised, you gain fire resistance 5."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Sunset",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (darkness, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are in sunlight"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You raise your shield in the air toward the sunlight, eclipsing it. The area in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 60
+          },
+          {
+            "type": "text",
+            "text": " becomes dim light for 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.RwR9FgjXRowrADqS"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": 1,
+      "hardness": 3,
+      "hitPoints": 12,
+      "activations": [
+        {
+          "slug": "sunset",
+          "name": "Sunset",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "baseItem": "wooden-shield",
+      "acBonus": 2,
+      "runes": {
+        "reinforcing": 2
+      }
+    }
+  },
+  {
+    "id": "675567f1-8300-501d-80dd-ef46afa1726f",
+    "pack": "battlecry",
+    "kind": "shield",
+    "slug": "shield:testudo-shield",
+    "name": "Testudo Shield",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This tower shield (Hardness 5, HP 20, BT 10) sports a bright red front with a gold inlay of an eagle. While it looks unassuming, this shield can protect not only yourself but also those behind you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Tortoise Form",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, force, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your shield creates a magical barrier, consisting of translucent copies of the shield. The wall is 1 inch thick, 15 feet long, and 10 feet high. The barrier is conjured adjacent to you in a straight line on the border between squares and lasts for 1 minute. The barrier is created with the Hardness and Hit Points equal to those of the testudo shield and is immune to critical hits and precision damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ZuqvNXDyhedwJM7y"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 150
+        }
+      },
+      "bulk": 4,
+      "hardness": 5,
+      "hitPoints": 20,
+      "activations": [
+        {
+          "slug": "tortoise-form",
+          "name": "Tortoise Form",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "baseItem": "tower-shield",
+      "acBonus": 2,
+      "speedPenalty": 5
+    }
+  },
+  {
+    "id": "e2d61954-3150-5473-b478-843efd16be3a",
+    "pack": "battlecry",
+    "kind": "shield",
+    "slug": "shield:testudo-shield-greater",
+    "name": "Testudo Shield (Greater)",
+    "level": 13,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This tower shield (Hardness 5, HP 20, BT 10) sports a bright red front with a gold inlay of an eagle. While it looks unassuming, this shield can protect not only yourself but also those behind you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Tortoise Form",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, force, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your shield creates a magical barrier, consisting of translucent copies of the shield. The wall is 1 inch thick, 25 feet long, and 10 feet high. The barrier is conjured adjacent to you in a straight line on the border between squares and lasts for 1 minute. The barrier is created with the Hardness and Hit Points equal to those of the testudo shield and is immune to critical hits and precision damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.GmjKkSdqU9rapwSq"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2800
+        }
+      },
+      "bulk": 4,
+      "hardness": 5,
+      "hitPoints": 20,
+      "activations": [
+        {
+          "slug": "tortoise-form",
+          "name": "Tortoise Form",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "baseItem": "tower-shield",
+      "acBonus": 2,
+      "speedPenalty": 5
+    }
+  },
+  {
+    "id": "fffd78d3-b680-5c01-b4de-f03994d84f63",
+    "pack": "battlecry",
+    "kind": "shield",
+    "slug": "shield:tiger-shield",
+    "name": "Tiger Shield",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This minor reinforcing wooden shield (Hardness 6, HP 56, BT 28) is made with a sturdy but flexible wood found in Tian Xia. It's painted with bold, bright colors in the style of a fiendish tiger head. In combat, the eyes of the tiger seem to follow the opponent."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Tiger's Eyes",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your shield is raised"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The tiger's eyes glow and animate. The shield casts "
+          },
+          {
+            "type": "ref",
+            "id": "4f616729-3f27-5aee-a02e-426f121c6fa3"
+          },
+          {
+            "type": "text",
+            "text": " (DC 20) on a target within your melee range."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply one casting of ill omen."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.4MVVw0ExHFqLvKXL"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 145
+        }
+      },
+      "bulk": 1,
+      "hardness": 3,
+      "hitPoints": 12,
+      "activations": [
+        {
+          "slug": "tigers-eyes",
+          "name": "Tiger's Eyes",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "baseItem": "wooden-shield",
+      "acBonus": 2,
+      "runes": {
+        "reinforcing": 1
+      }
+    }
+  },
+  {
+    "id": "a3c900b2-32ed-59ce-bebd-395b3323c0a8",
+    "pack": "battlecry",
+    "kind": "shield",
+    "slug": "shield:vambrace-of-gorum",
+    "name": "Vambrace of Gorum",
+    "level": 20,
+    "rarity": "unique",
+    "traits": ["artifact", "divine", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When the Lord in Iron shattered, immeasurable fragments fell to Golarion as pieces of metal. This piece of his armor has been shaped into the Vambrace of Gorum, a supreme reinforcing high-grade adamantine shield (Hardness 20, HP 160, BT 80). Pieces of sharp iron stick out, acting as +3 major striking shield spikes. The Vambrace still holds some of the deity's power. When the shield is broken, small fragments of metal explode outward, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d6",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 40,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Blade of Iron",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, divine, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The shield reforms into a +3 high-grade adamantine major striking greatsword for 1 minute. While wielding this sword, you gain a +1 circumstance bonus to AC for each adjacent enemy (up to a +4 bonus)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Blood of Iron",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (aura, divine)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The Vambrace of Gorum is in its shield form"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your shield becomes an empowering symbol of the thrill of battle. You and your allies within 10 feet of you gain 30 temporary Hit Points that last for 1 hour, and reduce your clumsy, enfeebled, frightened, and stupefied conditions by 1."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Bones of Iron",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You use the shield to Shield Block and the attack overcomes the shield's Hardness"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The iron spikes lash out at the creature who made the attack. The creature takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d6",
+                "damageType": "piercing"
+              },
+              {
+                "formula": "3d6",
+                "damageType": "bleed",
+                "category": "persistent"
+              }
+            ],
+            "label": "6d6 piercing damage and 3d6 persistent bleed damage"
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 40,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Destruction",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If the Vambrace of Gorum is broken, buried under a rose bush in Nirvana, and left undisturbed for 100 years, it loses all its magic and becomes a standard steel shield."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.wAeG3XWvDZz5eP50"
+    },
+    "data": {
+      "bulk": 1,
+      "hardness": 5,
+      "hitPoints": 20,
+      "material": {
+        "type": "adamantine",
+        "grade": "high"
+      },
+      "activations": [
+        {
+          "slug": "blade-of-iron",
+          "name": "Blade of Iron",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        },
+        {
+          "slug": "blood-of-iron",
+          "name": "Blood of Iron",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        },
+        {
+          "slug": "bones-of-iron",
+          "name": "Bones of Iron",
+          "frequency": {
+            "max": 1,
+            "per": "ten-minutes"
+          }
+        }
+      ],
+      "baseItem": "steel-shield",
+      "acBonus": 2,
+      "runes": {
+        "reinforcing": 6
+      }
+    }
+  },
+  {
+    "id": "70f25f12-2a58-5e8f-be8c-e8a798806b4e",
+    "pack": "battlecry",
+    "kind": "shield",
+    "slug": "shield:vanguards-shield",
+    "name": "Vanguard's Shield",
+    "level": 13,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This moderate reinforced standard-grade duskwood tower shield (Hardness 8, HP 84, BT 42) is slightly wider than standard. Designed for bodyguards, it grants the user a small burst of speed to save themself and others from harm."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—By Your Side",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An effect within 15 feet would deal damage in an area and require a saving throw"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your shield is raised"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Stride up to 15 feet and grant yourself and creatures adjacent to you after the movement a +2 circumstance bonus to the saving throw against the triggering effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "fbfcffc7-5297-5227-941e-99892a44da57"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.HJ0GNBKtHpdCMnfW"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3000
+        }
+      },
+      "bulk": 4,
+      "hardness": 5,
+      "hitPoints": 20,
+      "material": {
+        "type": "duskwood",
+        "grade": "standard"
+      },
+      "activations": [
+        {
+          "slug": "by-your-side",
+          "name": "By Your Side",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "baseItem": "tower-shield",
+      "acBonus": 2,
+      "speedPenalty": 5,
+      "runes": {
+        "reinforcing": 3
+      }
+    }
+  },
+  {
+    "id": "a7c19a3b-72fe-594e-b6e9-3ccab3fa0434",
+    "pack": "battlecry",
+    "kind": "shield",
+    "slug": "shield:war-mages-buckler",
+    "name": "War Mage's Buckler",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This minor reinforced buckler (Hardness 6, HP 50, BT 25) is a lightweight metal disk with a rounded bump at the center. The shield gives off a light hum near magic."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Spell Amp",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You throw your shield up to 30 feet into an unoccupied space you can see. The shield magically floats in the space as a focal point for your magic for 1 minute. You can cast spells using the shield as your point of origin, calculating range and cover from its space instead of yours. You can Dismiss this effect, causing the shield to fly back to your hand. If the shield breaks, the effect ends."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.4ZqyWVsjxpISfj48"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 450
+        }
+      },
+      "bulk": "light",
+      "hardness": 3,
+      "hitPoints": 6,
+      "activations": [
+        {
+          "slug": "spell-amp",
+          "name": "Spell Amp",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "baseItem": "buckler",
+      "acBonus": 1,
+      "runes": {
+        "reinforcing": 1
+      }
+    }
+  }
+]
