@@ -62,6 +62,7 @@ function entry({ slug, preparation, ranks, tradition = 'arcane' }: EntryShape): 
     pools: [],
     signatures: false,
     focusSpells: [],
+    innateSpells: [],
     deitySpells: false,
   } as unknown as SpellcastingInPlay;
 }

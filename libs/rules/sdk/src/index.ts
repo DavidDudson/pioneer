@@ -385,6 +385,7 @@ export {
   PoolSpellsElement,
   RepertoireCountElement,
   RepertoireDeitySpellsElement,
+  InnateSpellsElement,
   RepertoireSpellsElement,
   SignatureSpellsElement,
   SLOT_COUNT_MAX,

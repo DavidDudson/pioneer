@@ -206,3 +206,22 @@ export const FOCUS_POOL_MAX = 3;
 /** A number of Focus Points: a focus pool's maximum, or the points in it. */
 export const FocusPoints = Pg.smallint().min(0).max(FOCUS_POOL_MAX).brand<'FocusPoints'>();
 export type FocusPoints = z.infer<typeof FocusPoints>;
+
+/** The most spells an `InnateSpells` element names: a feat, heritage or ancestry feature grants one or a few. */
+const INNATE_SPELLS_MAX = 8;
+
+/**
+ * Gives an innate entry the spells a feat, heritage or ancestry feature lets the character cast innately (ADR-0067):
+ * Fey Influence's once-a-day spell, Grown of Oak's, a dedication's. Each is named with the rank it is cast at, a cantrip
+ * or 1 to 10, so a spell heightened by the feature carries its rank. Those of every element in play for an entry add
+ * up, each rank and spell once; one for an entry not in play, or for one that isn't innate, gives none. Innate spells
+ * take no slot and no repertoire place. A Pioneer element with no Foundry counterpart: Foundry's innate spells are
+ * items the player adds to an innate entry by hand.
+ */
+export const InnateSpellsElement = z.strictObject({
+  key: z.literal(RuleElementKey.InnateSpells),
+  entry: EntrySourceSlug,
+  spells: z.array(GrantedSpell).min(1).max(INNATE_SPELLS_MAX).readonly(),
+  ...ruleElementBase,
+});
+export type InnateSpellsElement = z.infer<typeof InnateSpellsElement>;

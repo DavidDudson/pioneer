@@ -26,6 +26,9 @@
         @if (shownFocus(); as focusLine) {
           <pio-focus-spells [focus]="focusLine" />
         }
+        @if (shownInnate(); as innateLine) {
+          <pio-innate-spells [innate]="innateLine" />
+        }
         <pio-sheet-prepared-spells [entries]="shownPrepared()" />
         @if (access(); as spellAccess) {
           <pio-spell-access [access]="spellAccess" />

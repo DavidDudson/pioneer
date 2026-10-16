@@ -3,6 +3,7 @@ import type {
   ContentId,
   FocusSpellsElement,
   GrantedSpell,
+  InnateSpellsElement,
   PoolSpellsElement,
   RuleElement,
   RuleSlug,
@@ -24,6 +25,8 @@ export interface Gathered {
   readonly signatures: Set<Slug>;
   /** The spells the `FocusSpells` elements give, by the entry they name. */
   readonly focusSpells: Map<Slug, ContentId[]>;
+  /** The spells the `InnateSpells` elements give, by the entry they name. */
+  readonly innateSpells: Map<Slug, GrantedSpell[]>;
   /** The spells the `RepertoireSpells` elements give, by the entry they name. */
   readonly grantedSpells: Map<Slug, GrantedSpell[]>;
   /** The counts the `RepertoireCount` elements give, by the entry they name. */
@@ -38,6 +41,15 @@ function addPoolSpells({ poolSpells }: Gathered, { entry, pool, spells }: PoolSp
   const taken = pools.get(pool) ?? [];
   pools.set(pool, [...taken, ...spells.filter((spell) => !taken.includes(spell))]);
   poolSpells.set(entry, pools);
+}
+
+/** Adds the spells of an `InnateSpells` element to those gathered for its entry, each rank and spell once. */
+function addInnateSpells({ innateSpells }: Gathered, { entry, spells }: InnateSpellsElement): void {
+  const known = innateSpells.get(entry) ?? [];
+  const fresh = spells.filter(
+    (spell) => !known.some(({ rank, spell: id }) => rank === spell.rank && id === spell.spell),
+  );
+  innateSpells.set(entry, [...known, ...fresh]);
 }
 
 /** Adds `spells` to the focus spells of `entry`, each spell once. */
@@ -72,6 +84,9 @@ export function gatherSpells(gathered: Gathered, element: RuleElement): void {
   }
   if (element.key === RuleElementKey.FocusSpells) {
     addFocusSpells(gathered, element);
+  }
+  if (element.key === RuleElementKey.InnateSpells) {
+    addInnateSpells(gathered, element);
   }
   gatherRepertoire(gathered, element);
 }

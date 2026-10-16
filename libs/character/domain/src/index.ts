@@ -171,6 +171,7 @@ export {
 } from './class-build';
 export { characterSpellcasting } from './spellcasting-build';
 export { type CharacterFocus, characterFocus, type FocusEntrySpells } from './focus-spells';
+export { characterInnate, type InnateEntrySpells, type InnateSpell } from './innate-spells';
 export { type ListedChoice, listedChoices } from './listed-choices';
 export {
   cantripRank,

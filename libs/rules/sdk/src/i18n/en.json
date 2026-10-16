@@ -1051,6 +1051,11 @@
       "cantrip": "Cantrip",
       "none": "No focus spells yet. A choice that grants them may still be open."
     },
+    "innateSpells": {
+      "heading": "Innate spells",
+      "rank": "Cast at {rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank",
+      "none": "No innate spells yet. A choice that grants them may still be open."
+    },
     "proficiency": {
       "untrained": "Untrained",
       "trained": "Trained",
@@ -1128,6 +1133,7 @@
       "tag": {
         "cantrip": "Cantrip",
         "focus": "Focus",
+        "innate": "Innate",
         "signature": "Signature",
         "attack": "Spell attack"
       },
