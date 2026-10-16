@@ -5,11 +5,14 @@ import {
   effectProblem,
   isConditionCommand,
   isEffectCommand,
+  isExplorationActivity,
+  isExplorationCommand,
   PlayCommandField,
   StaffProblem,
   staffProblem,
 } from '@pioneer/character/domain';
 import type { ConditionValued, EffectContent, PlayCommand, PlayState, StaffLimits } from '@pioneer/character/domain';
+import type { ContentRegistry } from '@pioneer/rules/sdk';
 import { message, ValidationError } from '@pioneer/shared/kernel';
 
 /** The message each refused effect edit answers with. */
@@ -64,5 +67,19 @@ export function checkEffect(play: PlayState, command: PlayCommand, content: Effe
   const problem = isEffectCommand(command) ? effectProblem(play.effects, command, content) : undefined;
   if (problem !== undefined) {
     throw new ValidationError([{ path: ['command'], message: message(EFFECT_MESSAGES[problem]) }]);
+  }
+}
+
+/** Refuses an exploration activity that is not an exploration action of the character's content. */
+export async function checkExploration(command: PlayCommand, registry: () => Promise<ContentRegistry>): Promise<void> {
+  const activity = isExplorationCommand(command) ? command.activity : undefined;
+  if (activity === undefined) {
+    return;
+  }
+  const content = await registry();
+  if (!isExplorationActivity(content, activity)) {
+    throw new ValidationError([
+      { path: ['command', 'activity'], message: message('character.validation.explorationUnknown') },
+    ]);
   }
 }

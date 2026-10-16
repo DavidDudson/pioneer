@@ -139,6 +139,14 @@
     },
     "skillsHeading": "Skills",
     "languagesHeading": "Languages",
+    "exploration": {
+      "heading": "Exploration activity",
+      "activity": {
+        "label": "Exploration activity",
+        "none": "None",
+        "hint": "What the character is doing while exploring. It suggests the skill of the initiative roll."
+      }
+    },
     "roleplay": {
       "heading": "Appearance and personality",
       "appearance": "Appearance",
@@ -444,6 +452,7 @@
     "staffNotHeld": "That staff is not in the character's inventory. Choose another.",
     "staffSlotWithoutStaff": "A slot can only be expended to add charges to a staff. Choose a staff first.",
     "staffSlotNotExpendable": "Only a spell slot of a prepared spellcasting entry can be expended for charges. Choose another.",
+    "explorationUnknown": "That is not an exploration activity in the content this character uses.",
     "effectUnknown": "That effect is not in the content this character uses.",
     "effectMissing": "That effect is no longer on the character. Reload the sheet and try again.",
     "effectFull": "This character has as many effects as it can hold. Remove one first.",

@@ -66,7 +66,7 @@ import { contentOfCharacter, variantRulesOfCharacter } from './character-content
 import type { CharacterContentSource } from './character-content';
 import { mayAccessCharacter } from './character-policy';
 import type { CharacterRepository, PlayWrite } from './character-repository';
-import { checkCondition, checkEffect, checkStaff, isDailyPreparations } from './play-checks';
+import { checkCondition, checkEffect, checkExploration, checkStaff, isDailyPreparations } from './play-checks';
 import { NO_MAX_HIT_POINTS, NO_REST, NO_VALUED, turnLimits, WAND_MESSAGES } from './play-defaults';
 import type { RestContent } from './play-defaults';
 import { derivedMaxHitPoints } from './play-hit-points';
@@ -112,6 +112,7 @@ export class PlayService {
     if (current.revision !== expectedRevision) {
       throw new VersionConflictError('CharacterPlay', id);
     }
+    await checkExploration(command, async () => this.#contentOf(character).registry());
     const wanded = isWandCommand(command) ? await this.#wanded(character, current.play, command) : undefined;
     const { play, events } = isTurnCommand(command)
       ? await this.#turned(character, current.play, command)

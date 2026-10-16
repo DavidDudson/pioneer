@@ -5,11 +5,12 @@ import { array, assert, boolean, constant, integer, oneof, property, tuple } fro
 import type { Arbitrary } from 'fast-check';
 
 import { deathThreshold, Doomed, Dying, Wounded } from './death-track';
-import { applyPlayCommand, currentHitPoints, FRESH_PLAY, PlayCommandField, untypedDamage } from './play-state';
+import { applyPlayCommand, currentHitPoints, FRESH_PLAY, PlayCommandField } from './play-state';
 import type { PlayCommand } from './play-state';
 import { currentResource, Resource, ResourceCount } from './resources';
 import type { ResourceMaxima } from './resources';
 import { within } from './testing';
+import { untypedDamage } from './untyped-damage';
 
 const MAX_HP = 500;
 const AMOUNT_MAX = 1000;
