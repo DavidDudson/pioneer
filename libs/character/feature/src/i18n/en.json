@@ -556,6 +556,13 @@
       }
     }
   },
+  "unenabled": {
+    "intro": "{campaign} has not enabled some of what this character uses. Nothing is blocked; raise it with your GM.",
+    "variantRules": "Variant rules:",
+    "packs": "Packs:",
+    "items": "Items:",
+    "entry": "{name} ({pack})"
+  },
   "variantRules": {
     "loadError": "Could not load the variant rules.",
     "empty": "The packs this character uses have no variant rules.",

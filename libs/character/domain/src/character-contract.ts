@@ -16,6 +16,7 @@ import { ClearedPick } from './dependent-picks';
 import { FeatDisplayChoice, SetFeatDisplayBody } from './feat-display';
 import { CharacterPlay, PatchPlayBody } from './play-state';
 import { SetSheetModeBody, SheetModeChoice } from './sheet-mode';
+import { UnenabledContent } from './unenabled-content';
 
 const ById = z.object({ id: CharacterId });
 const ByPack = z.object({ id: CharacterId, packId: ContentPackId });
@@ -241,5 +242,17 @@ export const CharacterContract = {
     query: NoQuery,
     body: NoBody,
     response: CharacterVariantRules,
+  }),
+  /**
+   * What the character uses that its campaign has not enabled: variant rules, homebrew packs and the items carried from
+   * them. A warning only, empty while the character is in no campaign. Owner only; anyone else gets a 404.
+   */
+  unenabledContent: new Endpoint({
+    method: HttpMethod.Get,
+    path: '/characters/:id/unenabled-content',
+    params: ById,
+    query: NoQuery,
+    body: NoBody,
+    response: UnenabledContent,
   }),
 } as const;

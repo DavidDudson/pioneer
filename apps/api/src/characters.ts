@@ -2,6 +2,7 @@ import {
   CharacterContent,
   CharacterAllyService,
   CharacterPackService,
+  CharacterUnenabledService,
   CharacterVariantService,
   CharacterService,
   FeatDisplayService,
@@ -13,6 +14,7 @@ import {
 import {
   characterAllyRoutes,
   characterPackRoutes,
+  characterUnenabledRoutes,
   characterVariantRoutes,
   characterRoutes,
   featDisplayRoutes,
@@ -44,6 +46,7 @@ interface PackServices {
   readonly packs: CharacterPackService;
   readonly allies: CharacterAllyService;
   readonly variants: CharacterVariantService;
+  readonly unenabled: CharacterUnenabledService;
 }
 
 /** What the pack services read a character's content and rows from. */
@@ -69,7 +72,8 @@ function packServices(db: Database, clock: Clock, { content, repository }: Chara
     clock,
   );
   const allies = new CharacterAllyService({ characters: repository, campaigns });
-  return { packs, variants, allies };
+  const unenabled = new CharacterUnenabledService({ characters: repository, content, packs, variants, campaigns });
+  return { packs, variants, allies, unenabled };
 }
 
 /**
@@ -79,7 +83,7 @@ function packServices(db: Database, clock: Clock, { content, repository }: Chara
 export function characters(db: Database, clock: Clock, authenticator: RequestAuthenticator): ContractRouter['app'] {
   const content = new StoredContentSource(new ContentRepository(db));
   const repository = new DrizzleCharacterRepository(db);
-  const { packs, variants, allies } = packServices(db, clock, { content, repository });
+  const { packs, variants, allies, unenabled } = packServices(db, clock, { content, repository });
   const characterContent = new CharacterContent(content, packs, variants);
   const service = new CharacterService(repository, characterContent, clock);
   const importer = new PathbuilderImportService(
@@ -103,5 +107,6 @@ export function characters(db: Database, clock: Clock, authenticator: RequestAut
     .use(characterAllyRoutes(allies, authenticator))
     .use(characterPackRoutes(packs, authenticator))
     .use(characterVariantRoutes(variants, authenticator))
+    .use(characterUnenabledRoutes(unenabled, authenticator))
     .use(playRoutes(play, authenticator));
 }

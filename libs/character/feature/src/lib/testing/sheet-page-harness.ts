@@ -122,7 +122,12 @@ export interface SheetOptions {
   readonly characterPacks?: object;
   /** The variant rules the server has the character using; none, for its owner to change, by default. */
   readonly characterVariantRules?: object;
+  /** What the server has the character using that its campaign has not enabled; nothing by default. */
+  readonly unenabledContent?: object;
 }
+
+/** What a character in no campaign uses that no campaign has enabled: nothing. */
+const NO_UNENABLED = { variantRules: [], packs: [], items: [] };
 
 /** The variant rules of a character that has enabled none, which its owner may change. */
 const NO_VARIANT_RULES = { decidedBy: 'character', manageable: true, enabled: [], available: [] };
@@ -252,6 +257,10 @@ export async function openSheet(character: object = MERISIEL, options: SheetOpti
       // The feats section reads the user''s feat filter once it renders; other tabs never ask.
       for (const read of TestBed.inject(HttpTestingController).match(`/api/characters/${id}/feat-display`)) {
         read.flush(options.featDisplay ?? { showGrantOnly: [] });
+      }
+      // The Plan tab's warning reads what its campaign has not enabled once it renders; other tabs never ask.
+      for (const read of TestBed.inject(HttpTestingController).match(`/api/characters/${id}/unenabled-content`)) {
+        read.flush(options.unenabledContent ?? NO_UNENABLED);
       }
       // Through the application, not `harness.detectChanges()`, so render hooks (roving focus) run as in the app.
       await TestBed.inject(ApplicationRef).whenStable();

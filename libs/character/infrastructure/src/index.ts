@@ -16,3 +16,4 @@ export { characterAllyRoutes } from './character-ally-routes';
 export { characterPackRoutes } from './character-pack-routes';
 export { DrizzleCharacterVariantRepository } from './drizzle-character-variant-repository';
 export { characterVariantRoutes } from './character-variant-routes';
+export { characterUnenabledRoutes } from './character-unenabled-routes';

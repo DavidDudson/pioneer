@@ -472,6 +472,7 @@ export {
   EnableVariantRuleBody,
   VariantRuleOption,
 } from './character-variant-rules';
+export { UnenabledContent, UnenabledItem, UnenabledPack } from './unenabled-content';
 export {
   type ClassOption,
   type ClassPickerContent,
