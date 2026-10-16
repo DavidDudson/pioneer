@@ -3,16 +3,10 @@ import { describe, expect, test } from 'bun:test';
 import { DegreeOfSuccess, HitPoints, ToggleKey } from '@pioneer/rules/sdk';
 
 import { Doomed, Dying, Wounded } from './death-track';
-import {
-  applyPlayCommand,
-  currentHitPoints,
-  FRESH_PLAY,
-  PlayCommandField,
-  PlayStateSchema,
-  untypedDamage,
-} from './play-state';
+import { applyPlayCommand, currentHitPoints, FRESH_PLAY, PlayCommandField, PlayStateSchema } from './play-state';
 import type { PlayState } from './play-state';
 import { within } from './testing';
+import { untypedDamage } from './untyped-damage';
 
 const MAX = HitPoints.parse(20);
 

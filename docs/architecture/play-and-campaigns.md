@@ -106,6 +106,11 @@ off-turn, no use left) writes nothing. Out of an encounter nothing is counted, s
 Leave encounter clear the log, and the actions of a spend cannot be undone once the turn is over. The log is play state
 and the actions left are the turn's, so the log never has to be summed.
 
+The exploration activity (Defend, Search, Avoid Notice, Follow the Expert: an action with the `exploration` mode) is
+play state too, the id of the action or none, set by the `setExplorationActivity` play command; the server refuses an
+id that is not an exploration action. It suggests the skill of the initiative roll (`suggestedInitiative`: the
+activity's skill, else Perception); the roll itself is kept nowhere but the roll card.
+
 #### Durations, sustaining and dismissing
 
 - **Countdown**: Start turn counts down every active effect with a `time` duration by one round (a minute is 10

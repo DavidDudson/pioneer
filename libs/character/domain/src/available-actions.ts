@@ -37,7 +37,7 @@ function actionOf(entry: ContentEntry): ActionData | undefined {
 const READ = new WeakMap<ContentRegistry, ReadonlyMap<ContentId, ActionData>>();
 
 /** How every action, feat, class feature and ancestry feature in the registry is used; read once per registry. */
-function abilityActions(registry: ContentRegistry): ReadonlyMap<ContentId, ActionData> {
+export function abilityActions(registry: ContentRegistry): ReadonlyMap<ContentId, ActionData> {
   const existing = READ.get(registry);
   if (existing !== undefined) {
     return existing;

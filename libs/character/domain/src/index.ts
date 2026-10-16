@@ -381,6 +381,15 @@ export {
   type StatisticSources,
 } from './character-statistics';
 export {
+  applyExplorationCommand,
+  type ExplorationActivity,
+  ExplorationActivitySchema,
+  ExplorationCommandField,
+  type ExplorationCommand,
+  ExplorationCommandSchema,
+  isExplorationCommand,
+} from './exploration-commands';
+export {
   applyToggleCommand,
   isToggleCommand,
   type StoredToggle,
@@ -592,4 +601,5 @@ export {
 } from './spend-log';
 export type { ActionCostRange, SpendCommand, SpendCost, SpendEntry, SpendLog, SpendRequest } from './spend-log';
 export { actionCosts } from './action-costs';
+export { explorationAction, isExplorationActivity, PERCEPTION, suggestedInitiative } from './exploration-activity';
 export { untypedDamage } from './untyped-damage';

@@ -1,0 +1,14 @@
+<fr-async-region>
+  <ng-template frAsyncPending><fr-skeleton width="md" /></ng-template>
+  <ng-template [frAsyncData]="playQuery">
+    <fr-stack gap="xs">
+      <fr-text>{{ 'character.sheet.exploration.activity.hint' | transloco }}</fr-text>
+      <fr-select
+        [ariaLabel]="'character.sheet.exploration.activity.label' | transloco"
+        [options]="choices()"
+        [value]="picked()"
+        (valueChange)="pick($event)"
+      />
+    </fr-stack>
+  </ng-template>
+</fr-async-region>

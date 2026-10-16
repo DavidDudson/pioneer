@@ -9,6 +9,13 @@
     <pio-sheet-roleplay-section />
   </fr-section>
 
+  <fr-section
+    [anchor]="sections.explorationActivity.anchor"
+    [heading]="sections.explorationActivity.headingKey | transloco"
+  >
+    <pio-sheet-exploration-activity />
+  </fr-section>
+
   <fr-section [anchor]="sections.actions.anchor" [heading]="sections.actions.headingKey | transloco">
     <pio-sheet-actions [mode]="Mode" />
   </fr-section>
