@@ -28,3 +28,9 @@ export const FIRST_REVELATION = archetypeFeat({
   level: 4,
   traits: [],
 });
+export const BEASTMASTERS_TRANCE = archetypeFeat({
+  id: 'sPeLlCaStInG0054',
+  name: "Beastmaster's Trance",
+  level: 6,
+  traits: [],
+});

@@ -4,6 +4,8 @@ import { DOMAIN_SPELLS } from './domain-spells';
 import {
   BARD,
   BARD_ENTRY,
+  BEASTMASTER,
+  BEASTMASTER_ENTRY,
   CLERIC,
   CLERIC_ENTRY,
   DRUID,
@@ -256,6 +258,8 @@ const FOCUS: ReadonlyMap<string, Planned> = new Map([
   ...MYSTERIES.map(([slug, , ...spells]): [string, Planned] => [`class-feature:${slug}`, mystery(...spells)]),
   ['feat:oracle-dedication', ORACLE_DEDICATION_RULES],
   ['feat:first-revelation', FIRST_REVELATION_RULES],
+  // Beastmaster: Beastmaster's Trance teaches Beastmaster Trance.
+  ['feat:beastmasters-trance', [BEASTMASTER_ENTRY, { entry: BEASTMASTER, spells: ['beastmaster-trance'] }]],
   // Champion: the devotion spell, and the archetypes that grant one.
   ['class-feature:devotion-spells', DEVOTION_SPELLS_RULES],
   ['feat:devout-magic', DEVOUT_MAGIC_RULES],

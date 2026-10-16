@@ -7315,7 +7315,20 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellcastingEntry",
+        "slug": "beastmaster-focus",
+        "tradition": "primal",
+        "attribute": "cha",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "beastmaster-focus",
+        "spells": ["b064d870-47dd-5193-aae4-a1896c3c7f20"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.Ckglzh4dXcGWPNS3"
     },
