@@ -1049,6 +1049,30 @@
             "gte": ["self:level", 11]
           }
         ]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "oracle-focus",
+        "tradition": "divine",
+        "attribute": "cha",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["314f478a-c0d1-5a38-bc28-ed7622311b9b"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["7b2140ac-8737-57cf-9fca-a248229aa06c"],
+        "predicate": ["feat:advanced-revelation"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["9f6488c3-ba6f-5ed9-8cb0-a8ff72f0b2fe"],
+        "predicate": ["feat:greater-revelation"]
       }
     ],
     "externalIds": {
@@ -3235,6 +3259,30 @@
             "gte": ["self:level", 11]
           }
         ]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "oracle-focus",
+        "tradition": "divine",
+        "attribute": "cha",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["7cb26c36-0ea4-50ce-8b05-aa34a7e9c928"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["c1bc59e4-9315-5b78-9ded-5189da4e68e2"],
+        "predicate": ["feat:advanced-revelation"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["5ca0cf3a-81ee-5cdc-aa2e-2e3a7ad9d398"],
+        "predicate": ["feat:greater-revelation"]
       }
     ],
     "externalIds": {
@@ -8899,6 +8947,30 @@
             "gte": ["self:level", 11]
           }
         ]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "oracle-focus",
+        "tradition": "divine",
+        "attribute": "cha",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["6901a0c0-97db-5150-b426-9c8896e8f4d7"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["89a09daa-0da7-556a-8354-4dd77c3defd5"],
+        "predicate": ["feat:advanced-revelation"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["d949b7b2-ced3-5c77-9391-0c5459094859"],
+        "predicate": ["feat:greater-revelation"]
       }
     ],
     "externalIds": {
@@ -9995,6 +10067,30 @@
             "gte": ["self:level", 11]
           }
         ]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "oracle-focus",
+        "tradition": "divine",
+        "attribute": "cha",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["93c888b1-1d38-5ab1-a90f-ca5f14bf5c19"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["0479bfa9-6558-52c5-9517-18fb56a2a2c8"],
+        "predicate": ["feat:advanced-revelation"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["fd12c1df-87bd-5b3d-9c57-8b3e5ccfc11e"],
+        "predicate": ["feat:greater-revelation"]
       }
     ],
     "externalIds": {
@@ -13595,6 +13691,30 @@
             "gte": ["self:level", 11]
           }
         ]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "oracle-focus",
+        "tradition": "divine",
+        "attribute": "cha",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["97ec82bf-f942-55b2-b9e7-d1d4f1197f24"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["41ef5551-6398-5366-b133-e2a5ebd1bdd5"],
+        "predicate": ["feat:advanced-revelation"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["722396c4-f707-5d59-b11a-ed2a67b3f6e6"],
+        "predicate": ["feat:greater-revelation"]
       }
     ],
     "externalIds": {
@@ -16162,6 +16282,30 @@
             "gte": ["self:level", 11]
           }
         ]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "oracle-focus",
+        "tradition": "divine",
+        "attribute": "cha",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["794fae16-e55f-57c8-ba13-abb022e6c5d4"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["e36b2171-4a83-5e50-8cea-7374c656557e"],
+        "predicate": ["feat:advanced-revelation"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["d2ec7cec-a755-51f3-9e36-e446fb1bfd05"],
+        "predicate": ["feat:greater-revelation"]
       }
     ],
     "externalIds": {
@@ -16486,6 +16630,30 @@
             "gte": ["self:level", 11]
           }
         ]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "oracle-focus",
+        "tradition": "divine",
+        "attribute": "cha",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["bd189974-9a9b-52d2-b1f8-fd146a47570a"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["69529bad-93f5-560c-b96a-958a2e9c7071"],
+        "predicate": ["feat:advanced-revelation"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["ea00e787-61b2-5192-8ed7-618f16415173"],
+        "predicate": ["feat:greater-revelation"]
       }
     ],
     "externalIds": {
@@ -20721,6 +20889,30 @@
             "gte": ["self:level", 11]
           }
         ]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "oracle-focus",
+        "tradition": "divine",
+        "attribute": "cha",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["f2daa081-afed-5c16-9f60-5d0ee3bdfce1"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["0e6aa125-cfdc-5559-83ac-6d7b69e51bc9"],
+        "predicate": ["feat:advanced-revelation"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["1a23d936-4d61-5009-9a88-a96af45ce325"],
+        "predicate": ["feat:greater-revelation"]
       }
     ],
     "externalIds": {

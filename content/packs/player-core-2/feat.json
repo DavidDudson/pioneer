@@ -25561,7 +25561,63 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellcastingEntry",
+        "slug": "oracle-focus",
+        "tradition": "divine",
+        "attribute": "cha",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["314f478a-c0d1-5a38-bc28-ed7622311b9b"],
+        "predicate": ["feat:oracle-dedication:ancestors"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["7cb26c36-0ea4-50ce-8b05-aa34a7e9c928"],
+        "predicate": ["feat:oracle-dedication:battle"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["6901a0c0-97db-5150-b426-9c8896e8f4d7"],
+        "predicate": ["feat:oracle-dedication:bones"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["93c888b1-1d38-5ab1-a90f-ca5f14bf5c19"],
+        "predicate": ["feat:oracle-dedication:cosmos"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["97ec82bf-f942-55b2-b9e7-d1d4f1197f24"],
+        "predicate": ["feat:oracle-dedication:flames"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["794fae16-e55f-57c8-ba13-abb022e6c5d4"],
+        "predicate": ["feat:oracle-dedication:life"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["bd189974-9a9b-52d2-b1f8-fd146a47570a"],
+        "predicate": ["feat:oracle-dedication:lore"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["f2daa081-afed-5c16-9f60-5d0ee3bdfce1"],
+        "predicate": ["feat:oracle-dedication:tempest"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.HdhnAm9SNfDqxRSN"
     },
@@ -44243,6 +44299,46 @@
         "key": "Proficiency",
         "selector": "spellcasting",
         "rank": "trained"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "mystery",
+        "rollOption": "feat:oracle-dedication",
+        "prompt": "Select a mystery.",
+        "choices": [
+          {
+            "value": "ancestors",
+            "label": "Ancestors"
+          },
+          {
+            "value": "battle",
+            "label": "Battle"
+          },
+          {
+            "value": "bones",
+            "label": "Bones"
+          },
+          {
+            "value": "cosmos",
+            "label": "Cosmos"
+          },
+          {
+            "value": "flames",
+            "label": "Flames"
+          },
+          {
+            "value": "life",
+            "label": "Life"
+          },
+          {
+            "value": "lore",
+            "label": "Lore"
+          },
+          {
+            "value": "tempest",
+            "label": "Tempest"
+          }
+        ]
       }
     ],
     "externalIds": {

@@ -66,6 +66,10 @@ Alternatives:
   Bloodline. A bloodline Crossblooded Evolution joins grants none of them. Sorcerer Dedication picks a bloodline
   (`feat:sorcerer-dedication:<bloodline>`, a draconic one once per exemplar: `draconic-primal`) and Basic Bloodline Spell
   gives its initial spell in that tradition.
+- An oracle's mystery gives the divine charisma focus entry `oracle-focus` and its initial revelation spell, then its
+  advanced and greater ones with Advanced and Greater Revelation. Oracle Dedication picks a mystery
+  (`feat:oracle-dedication:<mystery>`) and First Revelation gives its initial spell. Player Core 2's mysteries are
+  covered; a later book's follow with its import.
 - An order's focus entry and order spell hold unless the order was joined through Order Explorer
   (`not feat:order-explorer:<order>`), which grants none of its other benefits, as Foundry guards an order's own.
 - Order Explorer offers the druidic orders the druid has not (an order it joined through the feat stays offered, so its
