@@ -57,6 +57,10 @@ Alternatives:
   of the school Wizard Dedication picked (`feat:wizard-dedication:<school>`). Each gives the focus entry of its class's
   tradition and attribute, and an order joined through Druid Dedication, like one joined through Order Explorer, grants
   no order spell of its own.
+- A champion's devotion spell is a choice of Shields of the Spirit or the spell of the deity's divine font (Lay on Hands
+  for heal, Touch of the Void for harm), in the divine charisma entry `champion-focus`. Devout Magic offers the same
+  choice, Blessed One Dedication gives Lay on Hands, and Blessed Sacrifice Protector's Sacrifice, which Player Core
+  prints (a spell is named `<book>/<slug>` when another book prints it).
 - An order's focus entry and order spell hold unless the order was joined through Order Explorer
   (`not feat:order-explorer:<order>`), which grants none of its other benefits, as Foundry guards an order's own.
 - Order Explorer offers the druidic orders the druid has not (an order it joined through the feat stays offered, so its

@@ -10632,7 +10632,55 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellcastingEntry",
+        "slug": "champion-focus",
+        "tradition": "divine",
+        "attribute": "cha",
+        "preparation": "focus"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "devotion-spell",
+        "choices": [
+          {
+            "value": "shields-of-the-spirit",
+            "label": "Shields of the Spirit"
+          },
+          {
+            "value": "lay-on-hands",
+            "label": "Lay on Hands",
+            "predicate": ["deity:primary:font:heal"]
+          },
+          {
+            "value": "touch-of-the-void",
+            "label": "Touch of the Void",
+            "predicate": ["deity:primary:font:harm"]
+          }
+        ],
+        "prompt": "Select a devotion spell.",
+        "rollOption": "devotion-spell"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "champion-focus",
+        "spells": ["d2d0179a-4a99-5b15-8db6-6fee0d1e8b05"],
+        "predicate": ["devotion-spell:shields-of-the-spirit"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "champion-focus",
+        "spells": ["63af3503-b13d-5e5f-9c69-ab215b1ca711"],
+        "predicate": ["devotion-spell:lay-on-hands"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "champion-focus",
+        "spells": ["a8deb947-a2ff-5a4e-81f0-1ee9641513e2"],
+        "predicate": ["devotion-spell:touch-of-the-void"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.Q1VfQZp49hkhY0HY"
     },

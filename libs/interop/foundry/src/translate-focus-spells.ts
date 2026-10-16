@@ -18,6 +18,12 @@ import {
 } from './focus-plan';
 import type { Planned } from './focus-plan';
 import {
+  BLESSED_ONE_DEDICATION_RULES,
+  BLESSED_SACRIFICE_RULES,
+  DEVOTION_SPELLS_RULES,
+  DEVOUT_MAGIC_RULES,
+} from './translate-champion-devotion';
+import {
   DRUID_DEDICATION_RULES,
   ORDER_EXPLORER,
   ORDER_EXPLORER_RULES,
@@ -235,6 +241,11 @@ const FOCUS: ReadonlyMap<string, Planned> = new Map([
   ['feat:counter-perform', [BARD_ENTRY, { entry: BARD, spells: ['counter-performance'] }]],
   ['feat:druid-dedication', DRUID_DEDICATION_RULES],
   ['feat:order-spell', ORDER_SPELL_RULES],
+  // Champion: the devotion spell, and the archetypes that grant one.
+  ['class-feature:devotion-spells', DEVOTION_SPELLS_RULES],
+  ['feat:devout-magic', DEVOUT_MAGIC_RULES],
+  ['feat:blessed-one-dedication', BLESSED_ONE_DEDICATION_RULES],
+  ['feat:blessed-sacrifice', BLESSED_SACRIFICE_RULES],
 ]);
 
 /** The focus entry, choices and `FocusSpells` elements the entry with `slug` gains in `pack`, if any. */

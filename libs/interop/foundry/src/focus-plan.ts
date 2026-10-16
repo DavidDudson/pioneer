@@ -1,5 +1,4 @@
-import { contentId, EntrySlug, RuleElementKey } from '@pioneer/rules/sdk';
-import type { PackId } from '@pioneer/rules/sdk';
+import { contentId, EntrySlug, PackId, RuleElementKey } from '@pioneer/rules/sdk';
 
 /** The pieces a focus plan is built from (ADR-0050): focus entries, the plan's element types, and a choice of spells. */
 
@@ -49,11 +48,17 @@ export function isGrant(element: object | Grant): element is Grant {
   return 'spells' in element && !('key' in element);
 }
 
+/** A spell's id: `<slug>` in `pack`, or `<book>/<slug>` for a spell another book prints. */
+function spellId(pack: PackId, spell: string): string {
+  const [book, slug] = spell.includes('/') ? spell.split('/') : [pack, spell];
+  return contentId(PackId.parse(book), EntrySlug.parse(`spell:${slug}`));
+}
+
 export function focusSpells(pack: PackId, { entry, spells, predicate }: Grant): object {
   return {
     key: RuleElementKey.FocusSpells,
     entry,
-    spells: spells.map((spell) => contentId(pack, EntrySlug.parse(`spell:${spell}`))),
+    spells: spells.map((spell) => spellId(pack, spell)),
     ...(predicate === undefined ? {} : { predicate }),
   };
 }
