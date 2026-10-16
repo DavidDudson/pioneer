@@ -2,7 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { fixedClock } from '@pioneer/shared/kernel';
 
-import { DisplayName, EmailAddress, UserId } from './identity-fields';
+import { DisplayName, EmailAddress, UserId, UserRole } from './identity-fields';
 import { ProfileBuilder } from './testing';
 import { User } from './user';
 
@@ -49,9 +49,36 @@ describe('User', () => {
       displayName: 'Amiri',
       avatarUrl: 'https://avatars.example/1.png',
       emailVerified: false,
+      role: 'member',
       createdAt: '2026-10-09T08:00:00.000Z',
       updatedAt: '2026-10-09T08:00:00.000Z',
     });
     expect(User.codec.decode(wire)).toStrictEqual(user);
+  });
+});
+
+/** An account that has been made a maintainer. */
+function maintainer(): User {
+  const member = User.fromProfile(id, new ProfileBuilder().build(), created);
+  return User.codec.decode({ ...User.codec.encode(member), role: UserRole.Maintainer });
+}
+
+describe('User role', () => {
+  test('a new account is a member, and not a maintainer', () => {
+    const user = User.fromProfile(id, new ProfileBuilder().build(), created);
+    expect(user.role).toBe(UserRole.Member);
+    expect(user.isMaintainer).toBe(false);
+  });
+
+  test('a provider sign-in keeps the role the account has', () => {
+    const renamed = maintainer().withProfile(new ProfileBuilder().named('Amiri R').build(), later);
+    expect(renamed.isMaintainer).toBe(true);
+  });
+
+  test('the wire carries the role, and a wire without one is a member', () => {
+    const wire = User.codec.encode(maintainer());
+    expect(wire.role).toBe(UserRole.Maintainer);
+    const { role: _dropped, ...older } = wire;
+    expect(User.codec.decode(older).role).toBe(UserRole.Member);
   });
 });

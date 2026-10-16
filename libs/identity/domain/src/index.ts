@@ -36,6 +36,8 @@ export {
   ProviderSubject,
   SessionId,
   UserId,
+  UserRole,
+  UserRoleSchema,
 } from './identity-fields';
 export { NO_PREFERENCES, patchPreferences, Preferences } from './preferences';
 export type { ProviderProfile } from './provider-profile';

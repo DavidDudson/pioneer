@@ -2,7 +2,7 @@ import { InstantCodec } from '@pioneer/shared/kernel';
 import type { Temporal } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
-import { AvatarUrl, DisplayName, EmailAddress, UserId } from './identity-fields';
+import { AvatarUrl, DisplayName, EmailAddress, UserId, UserRole, UserRoleSchema } from './identity-fields';
 import type { ProviderProfile } from './provider-profile';
 
 /** JSON shape of a user on the wire: the signed-in user's own account. */
@@ -12,6 +12,7 @@ export const UserWire = z.object({
   avatarUrl: AvatarUrl.optional(),
   email: EmailAddress.optional(),
   emailVerified: z.boolean(),
+  role: UserRoleSchema.default(UserRole.Member),
   createdAt: InstantCodec,
   updatedAt: InstantCodec,
 });
@@ -22,6 +23,7 @@ interface UserProps {
   readonly avatarUrl: AvatarUrl | undefined;
   readonly email: EmailAddress | undefined;
   readonly emailVerified: boolean;
+  readonly role: UserRole;
   readonly createdAt: Temporal.Instant;
   readonly updatedAt: Temporal.Instant;
 }
@@ -41,6 +43,7 @@ export class User {
   public readonly avatarUrl: AvatarUrl | undefined;
   public readonly email: EmailAddress | undefined;
   public readonly emailVerified: boolean;
+  public readonly role: UserRole;
   public readonly createdAt: Temporal.Instant;
   public readonly updatedAt: Temporal.Instant;
 
@@ -50,12 +53,18 @@ export class User {
     this.avatarUrl = props.avatarUrl;
     this.email = props.email;
     this.emailVerified = props.emailVerified;
+    this.role = props.role;
     this.createdAt = props.createdAt;
     this.updatedAt = props.updatedAt;
   }
 
+  /** Whether this account may triage bug reports. */
+  public get isMaintainer(): boolean {
+    return this.role === UserRole.Maintainer;
+  }
+
   public static fromProfile(id: UserId, profile: ProviderProfile, now: Temporal.Instant): User {
-    return new User({ id, ...User.#profileFields(profile), createdAt: now, updatedAt: now });
+    return new User({ id, ...User.#profileFields(profile), role: UserRole.Member, createdAt: now, updatedAt: now });
   }
 
   /** The provider's current name, avatar and email. */
@@ -81,6 +90,7 @@ export class User {
       avatarUrl: this.avatarUrl,
       email: this.email,
       emailVerified: this.emailVerified,
+      role: this.role,
       createdAt: this.createdAt,
       updatedAt: this.updatedAt,
     };
