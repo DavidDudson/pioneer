@@ -83,3 +83,80 @@ export async function chelaxInfernalInheritancePack(): Promise<PackContents> {
     json(import('@pioneer/content/packs/cheliax-infernal-inheritance/weapon.json')),
   ]);
 }
+
+export async function rivalAcademiesPack(): Promise<PackContents> {
+  return pack(import('@pioneer/content/packs/rival-academies/pack.json'), [
+    json(import('@pioneer/content/packs/rival-academies/action.json')),
+    json(import('@pioneer/content/packs/rival-academies/archetype.json')),
+    json(import('@pioneer/content/packs/rival-academies/background.json')),
+    json(import('@pioneer/content/packs/rival-academies/class-feature.json')),
+    json(import('@pioneer/content/packs/rival-academies/consumable.json')),
+    json(import('@pioneer/content/packs/rival-academies/effect.json')),
+    json(import('@pioneer/content/packs/rival-academies/equipment.json')),
+    json(import('@pioneer/content/packs/rival-academies/feat.json')),
+    json(import('@pioneer/content/packs/rival-academies/ritual.json')),
+    json(import('@pioneer/content/packs/rival-academies/spell.json')),
+  ]);
+}
+
+export async function shiningKingdomsPack(): Promise<PackContents> {
+  return pack(import('@pioneer/content/packs/shining-kingdoms/pack.json'), [
+    json(import('@pioneer/content/packs/shining-kingdoms/action.json')),
+    json(import('@pioneer/content/packs/shining-kingdoms/archetype.json')),
+    json(import('@pioneer/content/packs/shining-kingdoms/armor.json')),
+    json(import('@pioneer/content/packs/shining-kingdoms/class-feature.json')),
+    json(import('@pioneer/content/packs/shining-kingdoms/consumable.json')),
+    json(import('@pioneer/content/packs/shining-kingdoms/deity.json')),
+    json(import('@pioneer/content/packs/shining-kingdoms/effect.json')),
+    json(import('@pioneer/content/packs/shining-kingdoms/equipment.json')),
+    json(import('@pioneer/content/packs/shining-kingdoms/feat.json')),
+    json(import('@pioneer/content/packs/shining-kingdoms/rune.json')),
+    json(import('@pioneer/content/packs/shining-kingdoms/spell.json')),
+    json(import('@pioneer/content/packs/shining-kingdoms/weapon.json')),
+  ]);
+}
+
+export async function draconicCodexPack(): Promise<PackContents> {
+  return pack(import('@pioneer/content/packs/draconic-codex/pack.json'), [
+    json(import('@pioneer/content/packs/draconic-codex/action.json')),
+    json(import('@pioneer/content/packs/draconic-codex/ancestry-feature.json')),
+    json(import('@pioneer/content/packs/draconic-codex/ancestry.json')),
+    json(import('@pioneer/content/packs/draconic-codex/archetype.json')),
+    json(import('@pioneer/content/packs/draconic-codex/armor.json')),
+    json(import('@pioneer/content/packs/draconic-codex/consumable.json')),
+    json(import('@pioneer/content/packs/draconic-codex/deity.json')),
+    json(import('@pioneer/content/packs/draconic-codex/effect.json')),
+    json(import('@pioneer/content/packs/draconic-codex/equipment.json')),
+    json(import('@pioneer/content/packs/draconic-codex/feat.json')),
+    json(import('@pioneer/content/packs/draconic-codex/heritage.json')),
+    json(import('@pioneer/content/packs/draconic-codex/spell.json')),
+    json(import('@pioneer/content/packs/draconic-codex/weapon.json')),
+  ]);
+}
+
+export async function hellfireDispatchesPack(): Promise<PackContents> {
+  return pack(import('@pioneer/content/packs/hellfire-dispatches/pack.json'), [
+    json(import('@pioneer/content/packs/hellfire-dispatches/action.json')),
+    json(import('@pioneer/content/packs/hellfire-dispatches/archetype.json')),
+    json(import('@pioneer/content/packs/hellfire-dispatches/consumable.json')),
+    json(import('@pioneer/content/packs/hellfire-dispatches/effect.json')),
+    json(import('@pioneer/content/packs/hellfire-dispatches/equipment.json')),
+    json(import('@pioneer/content/packs/hellfire-dispatches/feat.json')),
+  ]);
+}
+
+export async function highSeasPack(): Promise<PackContents> {
+  return pack(import('@pioneer/content/packs/high-seas/pack.json'), [
+    json(import('@pioneer/content/packs/high-seas/action.json')),
+    json(import('@pioneer/content/packs/high-seas/archetype.json')),
+    json(import('@pioneer/content/packs/high-seas/armor.json')),
+    json(import('@pioneer/content/packs/high-seas/consumable.json')),
+    json(import('@pioneer/content/packs/high-seas/deity.json')),
+    json(import('@pioneer/content/packs/high-seas/effect.json')),
+    json(import('@pioneer/content/packs/high-seas/equipment.json')),
+    json(import('@pioneer/content/packs/high-seas/feat.json')),
+    json(import('@pioneer/content/packs/high-seas/heritage.json')),
+    json(import('@pioneer/content/packs/high-seas/spell.json')),
+    json(import('@pioneer/content/packs/high-seas/weapon.json')),
+  ]);
+}

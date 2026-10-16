@@ -1,0 +1,312 @@
+[
+  {
+    "id": "c735c6e6-e6e8-57ea-a6e7-1cd4e4c75bf0",
+    "pack": "shining-kingdoms",
+    "kind": "armor",
+    "slug": "armor:lions-pelt-chain",
+    "name": "Lion's Pelt (Chain)",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["flexible", "noisy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're a member of the Lion Blades."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Laurisa Tromaine ordered these as prototype uniforms. The fur-lined pauldrons bear the insignia of a lion with a blade in its mouth. The type of blade indicates which bard school one graduated from. When you disguise the armor via its "
+          },
+          {
+            "type": "ref",
+            "id": "4c5e50fd-48f6-5724-ab46-39f9229f49e8"
+          },
+          {
+            "type": "text",
+            "text": " rune, you can choose whether to conceal this symbol or not. You can also use the rune's activation to quickly display or hide the insignia."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Contact Ally",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (arcane, concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "c319a7b8-ee8e-5f50-97c7-16151916ad80"
+          },
+          {
+            "type": "text",
+            "text": " at 1st rank to a target that you know is also wearing a "
+          },
+          {
+            "type": "text",
+            "text": "lion's pelt",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " uniform. If you and the target share an insignia, the spell is heightened to 3rd rank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.kPHVVkNSEi1QeEIO"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "contact-ally",
+          "name": "Contact Ally",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "category": "light",
+      "group": "chain",
+      "baseItem": "chain-shirt",
+      "acBonus": 2,
+      "dexCap": 3,
+      "checkPenalty": 1,
+      "strength": 0,
+      "runes": {
+        "potency": 1,
+        "property": ["4c5e50fd-48f6-5724-ab46-39f9229f49e8"]
+      }
+    }
+  },
+  {
+    "id": "24ed3665-4e44-50a1-b94e-2cb558737ac1",
+    "pack": "shining-kingdoms",
+    "kind": "armor",
+    "slug": "armor:lions-pelt-leather",
+    "name": "Lion's Pelt (Leather)",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're a member of the Lion Blades."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Laurisa Tromaine ordered these as prototype uniforms. The fur-lined pauldrons bear the insignia of a lion with a blade in its mouth. The type of blade indicates which bard school one graduated from. When you disguise the armor via its "
+          },
+          {
+            "type": "ref",
+            "id": "4c5e50fd-48f6-5724-ab46-39f9229f49e8"
+          },
+          {
+            "type": "text",
+            "text": " rune, you can choose whether to conceal this symbol or not. You can also use the rune's activation to quickly display or hide the insignia."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Contact Ally",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (arcane, concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "c319a7b8-ee8e-5f50-97c7-16151916ad80"
+          },
+          {
+            "type": "text",
+            "text": " at 1st rank to a target that you know is also wearing a "
+          },
+          {
+            "type": "text",
+            "text": "lion's pelt",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " uniform. If you and the target share an insignia, the spell is heightened to 3rd rank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.dXCdg96HwVGT1URT"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "contact-ally",
+          "name": "Contact Ally",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "category": "light",
+      "group": "leather",
+      "baseItem": "leather-armor",
+      "acBonus": 1,
+      "dexCap": 4,
+      "checkPenalty": 1,
+      "strength": 0,
+      "runes": {
+        "potency": 1,
+        "property": ["4c5e50fd-48f6-5724-ab46-39f9229f49e8"]
+      }
+    }
+  }
+]

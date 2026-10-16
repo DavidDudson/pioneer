@@ -37,7 +37,12 @@
         "impossibleMagic": "Impossible Magic",
         "gunsAndGears": "Guns & Gears",
         "battlecry": "Battlecry!",
-        "chelaxInfernalInheritance": "Lost Omens Cheliax, Infernal Inheritance"
+        "chelaxInfernalInheritance": "Lost Omens Cheliax, Infernal Inheritance",
+        "rivalAcademies": "Lost Omens Rival Academies",
+        "shiningKingdoms": "Lost Omens Shining Kingdoms",
+        "draconicCodex": "Lost Omens Draconic Codex",
+        "hellfireDispatches": "Lost Omens Hellfire Dispatches",
+        "highSeas": "Lost Omens High Seas"
       },
       "publisher": {
         "paizo": "Paizo"

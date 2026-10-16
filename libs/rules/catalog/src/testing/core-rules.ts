@@ -16,7 +16,7 @@ import type { ContentPack, Selector } from '@pioneer/rules/sdk';
 import { constantFrom, integer, record } from 'fast-check';
 import type { Arbitrary } from 'fast-check';
 
-import { coreRulesPack } from '../json-packs';
+import { coreRulesPack } from '../core-rules-packs';
 
 /** The core rules pack as the catalog loads it from `content/packs/core-rules`. */
 export const coreRules: ContentPack = contentPackFromContents(await coreRulesPack());

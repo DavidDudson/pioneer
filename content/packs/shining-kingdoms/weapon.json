@@ -1,0 +1,632 @@
+[
+  {
+    "id": "aa9fb830-d0e9-5d41-a021-f447bd60f537",
+    "pack": "shining-kingdoms",
+    "kind": "weapon",
+    "slug": "weapon:jorngarls-harm",
+    "name": "Jorngarl's Harm",
+    "level": 20,
+    "rarity": "unique",
+    "traits": ["occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This oversized greataxe, infamous for the chilling laughter it emits whenever it takes a life, was crafted by the frost giant sorcerer Jorngarl from the final blade named Toothy Morris after it was stolen in an attack on a Gray Gardener convoy. It functions as a "
+          },
+          {
+            "type": "text",
+            "text": "+3 major striking vorpal greataxe",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " that retains the unique properties of a Final Blade, trapping the souls of any it slays and preventing them from being returned to life by any means short of divine intervention, even a "
+          },
+          {
+            "type": "ref",
+            "id": "0f1f01cd-bf9a-5147-bc44-1697e6548675"
+          },
+          {
+            "type": "text",
+            "text": " ritual or similar magic."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.mpu2fvjDVe771RbU"
+    },
+    "data": {
+      "bulk": 2,
+      "size": "large",
+      "category": "martial",
+      "group": "axe",
+      "baseItem": "greataxe",
+      "damage": {
+        "dice": 1,
+        "die": "d12",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 3,
+        "striking": 3,
+        "property": ["86eff5f6-6a74-532a-a150-ae97aadd3faa"]
+      }
+    }
+  },
+  {
+    "id": "7d1bc6a7-48f6-5369-95c6-fc0fb532801b",
+    "pack": "shining-kingdoms",
+    "kind": "weapon",
+    "slug": "weapon:lions-call",
+    "name": "Lion's Call",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["agile", "finesse", "versatile-s"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're a member of the Lion Blades."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Given only to highly trusted agents by the grand princes back when Lion Blades protected the Primogen Crown, these historic "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking authorized shortswords",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " allow a Lion Blade wielder to locate resources."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Find the Pride",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " (arcane, concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "d437e6ba-d367-5d77-b142-bace584873d7"
+          },
+          {
+            "type": "text",
+            "text": " at 5th rank to learn the location of one of the following of your choice: the nearest Lion Blade safe house, shadow school, Lion Blade agent, Lion Blade kith, or a person other than yourself who's in possession of a "
+          },
+          {
+            "type": "text",
+            "text": "lion's call",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Echo the Call",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (arcane, concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature locates you using another "
+          },
+          {
+            "type": "text",
+            "text": "lion's call",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You immediately learn the location and appearance of the triggering creature. You can communicate telepathically with the triggering creature while you remain within 1 mile of each other for the next hour"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.zdTVlzR2OW17gLW6"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 900
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "find-the-pride",
+          "name": "Find the Pride",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        },
+        {
+          "slug": "echo-the-call",
+          "name": "Echo the Call",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "shortsword",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "79a46b18-f259-5178-bceb-d644f7971d44",
+    "pack": "shining-kingdoms",
+    "kind": "weapon",
+    "slug": "weapon:screaming-pinion",
+    "name": "Screaming Pinion",
+    "level": 13,
+    "rarity": "rare",
+    "traits": ["concussive", "fatal-d10"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater striking flintlock musket",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is an innovation of the Platinum Wing, and possession of one by a civilian is a high crime in Andoran. The gun's secret is the chip of a warshard used as the hammer in the striking mechanism."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Transcendent Shot",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The screaming pinion is unloaded"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You call on the power of the warshard to load the screaming pinion with a bullet made of divine fury. The next attack from the gun deals spirit damage, rather than its typical type, and on a critical hit, the target is subject to the weapon's critical specialization effect. If the gun isn't fired before the end of your next turn, the bullet disappears, and the gun becomes unloaded."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Eagle's Cry",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate, sonic)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The musket unleashes a piercing sound wave in a "
+          },
+          {
+            "type": "template",
+            "shape": "line",
+            "size": 70
+          },
+          {
+            "type": "text",
+            "text": ". Each creature in the area takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "8d10",
+                "damageType": "sonic"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 30,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save. A creature that critically fails its save is also "
+          },
+          {
+            "type": "ref",
+            "id": "4271da2e-7225-5aa7-9807-c499d8af6a5a"
+          },
+          {
+            "type": "text",
+            "text": ". If the screaming pinion has a +3 potency rune, the DC increases to 35 ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 35,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": "), and the damage increases to "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10d10",
+                "damageType": "sonic"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:screaming-pinion-transcendent-shot",
+        "toggleable": true,
+        "display": {
+          "label": "Screaming Pinion — Transcendent Shot"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.PsBTAUV7ExEsKpVx"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3000
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "eagles-cry",
+          "name": "Eagle's Cry",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "simple",
+      "group": "firearm",
+      "baseItem": "flintlock-musket",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing"
+      },
+      "range": 70,
+      "reload": 1,
+      "ammunition": {
+        "type": "rounds-flintlock-musket",
+        "capacity": 1
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 2,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "27c33006-85b8-5ff2-8b2f-eb6340866d64",
+    "pack": "shining-kingdoms",
+    "kind": "weapon",
+    "slug": "weapon:spectral-dagger",
+    "name": "Spectral Dagger",
+    "level": 0,
+    "rarity": "unique",
+    "traits": ["agile", "finesse", "thrown-10", "versatile-s"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "72b3c51e-cb49-5c85-abe3-62cdbe0736d4"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ts5z3xR9j48Cic5H"
+    },
+    "data": {
+      "bulk": "light",
+      "category": "simple",
+      "group": "knife",
+      "baseItem": "dagger",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 1,
+        "property": ["3e294082-c3ff-58be-ab80-1608b9c6229a"]
+      }
+    }
+  }
+]

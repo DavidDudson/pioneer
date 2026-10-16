@@ -1,0 +1,2532 @@
+[
+  {
+    "id": "8c4d0ef7-6b67-52f7-844c-ea555217ae9a",
+    "pack": "draconic-codex",
+    "kind": "effect",
+    "slug": "effect:aura-form-a-flock",
+    "name": "Aura: Form a Flock",
+    "level": 13,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "5588a773-4756-587b-afe0-195976893755"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a 10-foot aura, 25 temporary Hit Points, and you gain weakness 5 to area and splash damage. Enemies in the aura are dazzled."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": 25
+      },
+      {
+        "key": "Aura",
+        "radius": 10,
+        "effects": [
+          {
+            "effect": "857deb9d-130d-5381-aab5-b466515c1e80",
+            "affects": "enemies"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.wdOBAcEkC7L0NdJ8"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "2865100b-01d2-5a78-b066-58d24064b6fe",
+    "pack": "draconic-codex",
+    "kind": "effect",
+    "slug": "effect:effect-assured-fate",
+    "name": "Effect: Assured Fate",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you roll initiative, you can choose to have a result equal to 13 + your initiative modifier."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.ggqCmAH0a7cmAdA3"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 24,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "0ceb6beb-86ae-5ad5-80f8-606fa68bee62",
+    "pack": "draconic-codex",
+    "kind": "effect",
+    "slug": "effect:effect-binding-oath",
+    "name": "Effect: Binding Oath",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You automatically critically succeed on basic saving throws against the origin's abilities and spells."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.LRLc8KQIJa4FhvvW"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "fc944fd2-94ce-532f-9ed3-7c447c02d100",
+    "pack": "draconic-codex",
+    "kind": "effect",
+    "slug": "effect:effect-blood-and-spirit",
+    "name": "Effect: Blood and Spirit",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "2a3f4dcf-b0db-50d2-8fa2-40e4b4018e0c"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose a piercing or slashing weapon you're wielding. Your Strikes with that weapon deal an additional 1d6 spirit damage with the holy or unholy trait, depending on your chosen trait."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.tu36I5HWaqOjaLVu"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "turn",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "fa217e60-9029-5df9-bc7c-a9654b54d6d9",
+    "pack": "draconic-codex",
+    "kind": "effect",
+    "slug": "effect:effect-channel-draconic-essence",
+    "name": "Effect: Channel Draconic Essence",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "05759210-f685-5c60-93c4-49c3c2d2f9e7"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to saves against sleep and paralysis."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:spectral-dragon",
+        "toggleable": true,
+        "value": true,
+        "display": {
+          "label": "Spectral Dragon is in your space"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 1,
+        "slug": "channel-draconic-essence-bonus",
+        "predicate": [
+          "option:spectral-dragon",
+          {
+            "or": ["item:trait:sleep", "inflicts:paralyzed"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.DkdAPJohjgtnCIJe"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "encounter"
+      }
+    }
+  },
+  {
+    "id": "5618f050-5a4c-50a0-9227-6b0961d1492c",
+    "pack": "draconic-codex",
+    "kind": "effect",
+    "slug": "effect:effect-countered-by-fire",
+    "name": "Effect: Countered by Fire",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –1 circumstance penalty to attack rolls and AC, and your jaws Strike doesn't deal electricity damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "attack"],
+        "type": "circumstance",
+        "value": -1
+      },
+      {
+        "key": "DamageAlteration",
+        "selectors": ["jaws-damage"],
+        "slug": "base",
+        "property": "dice-number",
+        "mode": "override",
+        "value": 0,
+        "predicate": ["damage:type:electricity"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.a4bZrBNL17zPjDiH"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "3c67725a-38a5-54f5-b122-277fee21723b",
+    "pack": "draconic-codex",
+    "kind": "effect",
+    "slug": "effect:effect-countered-by-water",
+    "name": "Effect: Countered by Water",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature takes a -1 circumstance penalty to attack rolls, and its jaws Strike doesn't deal fire damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack"],
+        "type": "circumstance",
+        "value": -1
+      },
+      {
+        "key": "RollOption",
+        "domain": "damage",
+        "option": "option:countered-by-water",
+        "value": true
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.81XYZZ3H0GL8thdQ"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "dbd7108b-de91-58bb-b855-bee5b786ffb3",
+    "pack": "draconic-codex",
+    "kind": "effect",
+    "slug": "effect:effect-dematerialize",
+    "name": "Effect: Dematerialize",
+    "level": 9,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the incorporeal trait, resistance to all damage (except force, ghost touch, and spirit) equal to half your level (double against non-magical damage), and immunity to precision damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you attempt a Strike against a creature with any circumstance bonus to AC, reduce that bonus by 2."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ActorTraits",
+        "add": ["incorporeal"]
+      },
+      {
+        "key": "Immunity",
+        "type": ["precision"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.GnIAh8I8Ln8IQao8"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "1eeda242-253e-52d9-bd94-d7e820aa2f76",
+    "pack": "draconic-codex",
+    "kind": "effect",
+    "slug": "effect:effect-dematerialize-ephemeral",
+    "name": "Effect: Dematerialize (Ephemeral)",
+    "level": 9,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your circumstance bonus to AC is reduced by 2."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["ac"],
+        "mode": "subtract",
+        "value": 2,
+        "predicate": ["bonus:type:circumstance"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["ac"],
+        "mode": "upgrade",
+        "value": 0,
+        "predicate": ["bonus:type:circumstance"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.WMbwQNRLQ9boujz4"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "14109bc7-65fe-595b-859f-a22dd8bbdaaa",
+    "pack": "draconic-codex",
+    "kind": "effect",
+    "slug": "effect:effect-divert-essence",
+    "name": "Effect: Divert Essence",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance to damage from spells equal to the triggering spell's rank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.u7WExsKZepTe1VkP"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "bdc51ca7-e49b-52d2-8163-20e6201f3b6c",
+    "pack": "draconic-codex",
+    "kind": "effect",
+    "slug": "effect:effect-draconic-resilience",
+    "name": "Effect: Draconic Resilience",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "c6776cb7-2c75-5613-97e9-e05ab389928d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to AC and gain resistance equal to half your level to bludgeoning damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "status",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.e183eoJd714WEi6J"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "862a6a94-1bcb-5837-b0fb-a39680bf741d",
+    "pack": "draconic-codex",
+    "kind": "effect",
+    "slug": "effect:effect-dragon-eye",
+    "name": "Effect: Dragon Eye",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "fe46a418-8968-5946-a4fa-c05623edc003"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you cast "
+          },
+          {
+            "type": "text",
+            "text": "breathe fire",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " at 3rd-rank or higher, creatures in the spell's area must attempt a basic Will save instead of a basic Reflex save, and in addition to taking the spell's normal damage on a failure, they're frightened 1. This adds the emotion, fear, and mental traits to the spell."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": [
+          "item:type:spell",
+          "item:slug:breathe-fire",
+          {
+            "gte": ["item:rank", 3]
+          }
+        ],
+        "property": "traits",
+        "mode": "add",
+        "value": "emotion"
+      },
+      {
+        "key": "ItemAlteration",
+        "items": [
+          "item:type:spell",
+          "item:slug:breathe-fire",
+          {
+            "gte": ["item:rank", 3]
+          }
+        ],
+        "property": "traits",
+        "mode": "add",
+        "value": "fear"
+      },
+      {
+        "key": "ItemAlteration",
+        "items": [
+          "item:type:spell",
+          "item:slug:breathe-fire",
+          {
+            "gte": ["item:rank", 3]
+          }
+        ],
+        "property": "traits",
+        "mode": "add",
+        "value": "mental"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.K3nzzDkz8dNwAd1a"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "11ea271d-c6a9-526c-a0cd-4713ae93e650",
+    "pack": "draconic-codex",
+    "kind": "effect",
+    "slug": "effect:effect-drain-vigor",
+    "name": "Effect: Drain Vigor",
+    "level": 20,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain 20 temporary HP."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": 20
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.wBFtXxByOza6N9hs"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "85528723-7d26-56cb-9a31-8a6a8f867a3c",
+    "pack": "draconic-codex",
+    "kind": "effect",
+    "slug": "effect:effect-eldritch-interference-critical-failure",
+    "name": "Effect: Eldritch Interference (Critical Failure)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " When you Cast a Spell that either deals damage or restores Hit Points, you take a status penalty to the spell's damage or healing equal to the spell's rank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.iG3d3Bma7knjUWjw"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "70fc5fb6-cc56-502f-8194-59b0d8daf275",
+    "pack": "draconic-codex",
+    "kind": "effect",
+    "slug": "effect:effect-eldritch-interference-critical-success",
+    "name": "Effect: Eldritch Interference (Critical Success)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " When you Cast a Spell that either deals damage or restores Hit Points, you gain a status bonus to the spell's damage or healing equal to the spell's rank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.OBIcnWY1ws6uTdtb"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "774c2e25-ea73-56f4-bccc-5e0b1712fc5e",
+    "pack": "draconic-codex",
+    "kind": "effect",
+    "slug": "effect:effect-eldritch-interference-failure",
+    "name": "Effect: Eldritch Interference (Failure)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " When you Cast a Spell that either deals damage or restores Hit Points, you take a status penalty to the spell's damage or healing equal to the spell's rank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.sPpIvSLpol7cSCYg"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "f0c10dcf-f084-554d-8e3a-72e28c34d127",
+    "pack": "draconic-codex",
+    "kind": "effect",
+    "slug": "effect:effect-energize-bite",
+    "name": "Effect: Energize Bite",
+    "level": 9,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "4c70cd39-cb1e-5900-a7a4-228eed953254"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your jaws unarmed attack deals an extra 1d6 damage of a type matching that of your draconic benefactor."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.WQ48SJOWNuNMJ07l"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "turn",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "d0bfa046-3c1c-5078-9197-221915b1ca2c",
+    "pack": "draconic-codex",
+    "kind": "effect",
+    "slug": "effect:effect-fed-by-metal",
+    "name": "Effect: Fed by Metal",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain an item bonus to AC."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.OMJnZspk5YHai8yn"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "2a057261-7df8-5ebb-ac8d-2dbeefd858b9",
+    "pack": "draconic-codex",
+    "kind": "effect",
+    "slug": "effect:effect-fed-by-water",
+    "name": "Effect: Fed by Water",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.35OHxyrZA43S8rtL"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "fcfba139-0d86-57b2-86a6-32ef59ab0391",
+    "pack": "draconic-codex",
+    "kind": "effect",
+    "slug": "effect:effect-fog-of-chance",
+    "name": "Effect: Fog of Chance",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Fortune",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The first time you attempt an attack roll or skill check, you roll twice and use the better result."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Misfortune",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The first time you attempt an attack roll or skill check, you must roll twice and use the worse result."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-fog-of-chance",
+        "choices": [
+          {
+            "value": "fortune",
+            "label": "Fortune"
+          },
+          {
+            "value": "misfortune",
+            "label": "Misfortune"
+          }
+        ],
+        "rollOption": "fog-of-chance"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.ojzyLjd9094jkTPy"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "857deb9d-130d-5381-aab5-b466515c1e80",
+    "pack": "draconic-codex",
+    "kind": "effect",
+    "slug": "effect:effect-form-a-flock",
+    "name": "Effect: Form a Flock",
+    "level": 13,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "5588a773-4756-587b-afe0-195976893755"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are dazzled."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "943dfd55-ad09-5abf-9138-95a6149d3302"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.7k5oCD4wQUNFZYkC"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "f6ebf47d-9004-52a2-a03f-bd02f63a77f0",
+    "pack": "draconic-codex",
+    "kind": "effect",
+    "slug": "effect:effect-gleaming-armor",
+    "name": "Effect: Gleaming Armor",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 status bonus to AC and resistance to acid, cold, electricity, fire, and sonic damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "status",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.CoPPOCyfADvybcxV"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "6027dc76-dc65-5e7a-b594-92ec18b73249",
+    "pack": "draconic-codex",
+    "kind": "effect",
+    "slug": "effect:effect-graceless-domain",
+    "name": "Effect: Graceless Domain",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The first time each round you roll an Athletics, Acrobatics, or Performance skill check, you must roll twice and take the worse result."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Every time you roll an Athletics, Acrobatics, or Performance skill check, you must roll twice and take the worse result."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-graceless-domain",
+        "choices": [
+          {
+            "value": "failure",
+            "label": "Failure"
+          },
+          {
+            "value": "critical-failure",
+            "label": "Critical Failure"
+          }
+        ],
+        "prompt": "Select the degree of success.",
+        "rollOption": "graceless-domain"
+      },
+      {
+        "key": "RollOption",
+        "option": "option:graceless-domain-failure-first",
+        "toggleable": true,
+        "value": true,
+        "predicate": ["graceless-domain:failure"]
+      },
+      {
+        "key": "RollTwice",
+        "selectors": ["skill:athletics", "skill:acrobatics", "skill:performance"],
+        "keep": "lower",
+        "predicate": [
+          {
+            "or": [
+              "graceless-domain:critical-failure",
+              {
+                "and": ["graceless-domain:failure", "option:graceless-domain-failure-first"]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.7LWZ6BwPIxr1uQm5"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "0b967080-d572-58e2-bf92-6bcc09f751df",
+    "pack": "draconic-codex",
+    "kind": "effect",
+    "slug": "effect:effect-graceless-domain-success",
+    "name": "Effect: Graceless Domain (Success)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The first time you roll an Athletics, Acrobatics, or Performance skill check, you must roll twice and take the worse result."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.luJf1FTHfwkeuDsF"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "f62f1353-0a40-5f22-b0a7-e98876dc2ac9",
+    "pack": "draconic-codex",
+    "kind": "effect",
+    "slug": "effect:effect-heartening-aura",
+    "name": "Effect: Heartening Aura",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a status bonus to attack and damage rolls. A bonded companion also gains fast healing."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.o86YugTsxhm1T86j"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "b2d9f272-9740-55be-84ea-d8531fbfa04e",
+    "pack": "draconic-codex",
+    "kind": "effect",
+    "slug": "effect:effect-inextinguishable-aura",
+    "name": "Effect: Inextinguishable Aura",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you attempt a flat check to end persistent fire damage, it must roll twice and take the worst result."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollTwice",
+        "selectors": ["pd-recovery-check"],
+        "keep": "lower"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.gszL5RAakyyYfBMb"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "d889d38a-5090-573e-9f2c-9bd1b53bcef1",
+    "pack": "draconic-codex",
+    "kind": "effect",
+    "slug": "effect:effect-inspire-envoy",
+    "name": "Effect: Inspire Envoy",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a status bonus to attack rolls, AC, or all of the following: Perception, Will saves, and Charisma-based skill checks."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "statistic",
+        "choices": [
+          {
+            "value": "atk",
+            "label": "Bonus to Attack"
+          },
+          {
+            "value": "ac",
+            "label": "Bonus to AC"
+          },
+          {
+            "value": "perc-will-cha",
+            "label": "Bonus to Will, Perception and Charisma-based skill checks"
+          }
+        ],
+        "prompt": "Granted Effect",
+        "rollOption": "inspire-envoy"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.YDJnC3Bdc2GI6hX5"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "day",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "b7a3b2ff-b302-522c-b7b4-e7c3a74c1cd2",
+    "pack": "draconic-codex",
+    "kind": "effect",
+    "slug": "effect:effect-invigorating-spores",
+    "name": "Effect: Invigorating Spores",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary Hit Points equal to your level, and you gain resistance to bludgeoning, piercing, and slashing damage equal to half your level."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "@level"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.6vJacr4iXeYf44Vd"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "e4c5c9e2-f55f-5836-9531-fd11da741873",
+    "pack": "draconic-codex",
+    "kind": "effect",
+    "slug": "effect:effect-invigorating-spores-resistance",
+    "name": "Effect: Invigorating Spores (Resistance)",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance to bludgeoning, piercing, and slashing damage equal to half your level."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["bludgeoning", "piercing", "slashing"],
+        "value": "floor(@level / 2)"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.ynJ0UNfAwV0Bcdn7"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "d853214c-233d-5c21-bc22-ca8587a51b37",
+    "pack": "draconic-codex",
+    "kind": "effect",
+    "slug": "effect:effect-liquefy",
+    "name": "Effect: Liquefy",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain fire resistance."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.hhkmOtzPa3S9yyqq"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "5db72b03-6dd0-5c91-b7d5-2eda190ca883",
+    "pack": "draconic-codex",
+    "kind": "effect",
+    "slug": "effect:effect-luminous-form",
+    "name": "Effect: Luminous Form",
+    "level": 23,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You shed bright light in a 30-foot emanation and your melee Strikes deal an additional 1d6 fire damage and 1d6 spirit damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["melee-strike-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "fire"
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["melee-strike-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "spirit"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.woDkDd0Vrrut0wGf"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "98cfade2-4091-5ad7-ab24-27e7dea44952",
+    "pack": "draconic-codex",
+    "kind": "effect",
+    "slug": "effect:effect-mineral-deposits",
+    "name": "Effect: Mineral Deposits",
+    "level": 9,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "material",
+        "choices": [
+          {
+            "value": "cold-iron",
+            "label": "Cold Iron"
+          },
+          {
+            "value": "silver",
+            "label": "Silver"
+          },
+          {
+            "value": "adamantine",
+            "label": "Adamantine",
+            "predicate": [
+              {
+                "gte": ["self:level", 17]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select a material."
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "attack",
+        "choices": [
+          {
+            "value": "claw",
+            "label": "Claw"
+          },
+          {
+            "value": "jaws",
+            "label": "Jaws"
+          },
+          {
+            "value": "tail",
+            "label": "Tail"
+          }
+        ],
+        "prompt": "Select an unarmed attack."
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.0q1sI5pgZs0eHydw"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "e52bc0a3-128c-50f8-8cca-c0809166c2c2",
+    "pack": "draconic-codex",
+    "kind": "effect",
+    "slug": "effect:effect-pearl-dragonet-breath",
+    "name": "Effect: Pearl Dragonet Breath",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "693e7a7f-b9dc-588d-ad5c-2a5119e5a8cb"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the origin's breath gives good luck, you gain a +1 status bonus to your next attack roll or skill check. If the origin's breath gives bad luck, you take a –1 status penalty to your next attack roll or skill check."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.covFunty2HlvEN9K"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "aeaa151b-a3bd-5ee1-b3d3-6bced352d633",
+    "pack": "draconic-codex",
+    "kind": "effect",
+    "slug": "effect:effect-play-scape",
+    "name": "Effect: Play Scape",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your Strikes and other damaging effects gain the nonlethal trait."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustStrike",
+        "property": "traits",
+        "mode": "add",
+        "value": "nonlethal"
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell"],
+        "property": "traits",
+        "mode": "add",
+        "value": "nonlethal",
+        "predicate": ["option:damaging-effect"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.f4IRnmOVesolJhVO"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "db524241-4e00-57ef-b4e8-199aaf1008b6",
+    "pack": "draconic-codex",
+    "kind": "effect",
+    "slug": "effect:effect-radiate-cold",
+    "name": "Effect: Radiate Cold",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take a –5-foot status penalty to your Speeds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take a –10-foot status penalty to your Speeds and are enfeebled 1."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are immobilized and enfeebled 2."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-radiate-cold",
+        "choices": [
+          {
+            "value": "success",
+            "label": "Success"
+          },
+          {
+            "value": "failure",
+            "label": "Failure"
+          },
+          {
+            "value": "critical-failure",
+            "label": "Critical Failure"
+          }
+        ],
+        "prompt": "Select the degree of success.",
+        "rollOption": "radiate-cold"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "status",
+        "value": -5,
+        "slug": "radiate-cold-penalty",
+        "predicate": [
+          {
+            "or": ["radiate-cold:success", "radiate-cold:failure"]
+          }
+        ]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["all-speeds"],
+        "slug": "radiate-cold-penalty",
+        "mode": "override",
+        "value": -10,
+        "predicate": ["radiate-cold:failure"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+        "predicate": ["radiate-cold:failure"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+        "value": 2,
+        "predicate": ["radiate-cold:critical-failure"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "64278392-4910-5a32-b819-56f6e54952dd",
+        "predicate": ["radiate-cold:critical-failure"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.7fTxNaznBfjrGTjt"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "c1ae601e-268a-5880-9f0b-bdf6fcc8cb66",
+    "pack": "draconic-codex",
+    "kind": "effect",
+    "slug": "effect:effect-restorative-halo",
+    "name": "Effect: Restorative Halo",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain fast healing equal to half the origin's level."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.eFb1PU15j7t7wxqp"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "1d3a0e66-5916-551f-9bf5-ec5e344222ca",
+    "pack": "draconic-codex",
+    "kind": "effect",
+    "slug": "effect:effect-rime-shield",
+    "name": "Effect: Rime Shield",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to AC and temporary Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.gvCHmUQ2WxTdBKLq"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "6e42f427-f425-55c2-b1eb-60a1e3e7743b",
+    "pack": "draconic-codex",
+    "kind": "effect",
+    "slug": "effect:effect-sheltering-wing",
+    "name": "Effect: Sheltering Wing",
+    "level": 9,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "31ccba3a-0b9e-5589-a710-f03715df7845"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to AC and to saving throws against spells. If you have Dragon's Flight, this bonus increases to +2."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["ac", "saving-throw"],
+        "mode": "upgrade",
+        "value": 2,
+        "predicate": ["feat:dragons-flight", "bonus:tag:sheltering-wing"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.4siBPDdWmwks1bI5"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "c6411483-dcc6-591c-9fa3-871de0a41449",
+    "pack": "draconic-codex",
+    "kind": "effect",
+    "slug": "effect:effect-shielding-wing",
+    "name": "Effect: Shielding Wing",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to AC against the triggering attack."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.uxZSx9JfzwxdJg51"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "84884a2d-24ed-5306-aff6-0f6b565ccb7e",
+    "pack": "draconic-codex",
+    "kind": "effect",
+    "slug": "effect:effect-soul-roar-ally",
+    "name": "Effect: Soul Roar (Ally)",
+    "level": 11,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary Hit Points equal to the origin's level."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.SrUJbUErv3pjBRCw"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "491080d3-e2d8-5da1-95c1-4fb40f9ff6da",
+    "pack": "draconic-codex",
+    "kind": "effect",
+    "slug": "effect:effect-volcanic-purge",
+    "name": "Effect: Volcanic Purge",
+    "level": 13,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As long as you have this persistent fire damage, you take a –10-foot status penalty to your Speeds."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "status",
+        "value": -10,
+        "predicate": ["self:condition:persistent-damage:fire"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.7qoZauizAKfPIXeu"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "55278072-8138-5807-86bc-0c7f4332b437",
+    "pack": "draconic-codex",
+    "kind": "effect",
+    "slug": "effect:effect-word-of-advice",
+    "name": "Effect: Word of Advice",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your Strike deals additional fire damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.iTjPZQneHwBqlRiq"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "ca01d2a2-f9d8-5510-84d5-a0ab1a61e853",
+    "pack": "draconic-codex",
+    "kind": "effect",
+    "slug": "effect:effect-word-of-caution",
+    "name": "Effect: Word of Caution",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain immunity to the origin's Powerful Utterance and resistance to all other damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.jQdNEbZ7n7B10aZC"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "1e980459-868e-5eaf-8321-78d733a2b10f",
+    "pack": "draconic-codex",
+    "kind": "effect",
+    "slug": "effect:effect-word-of-heroism",
+    "name": "Effect: Word of Heroism",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a status bonus to attack rolls, Perception checks, saving throws, and skill checks."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.F2vfkxDnMjBZt91r"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "ad6ac675-1df8-5c5a-95ea-2828afb1a4e6",
+    "pack": "draconic-codex",
+    "kind": "effect",
+    "slug": "effect:effect-word-of-vigor",
+    "name": "Effect: Word of Vigor",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain regeneration 25."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FastHealing",
+        "value": 25,
+        "type": "regeneration"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.VdQthM85CHkHZd8a"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "03c0db84-6f63-5999-987e-0557a42a8b80",
+    "pack": "draconic-codex",
+    "kind": "effect",
+    "slug": "effect:effect-wreath-of-holy-light",
+    "name": "Effect: Wreath of Holy Light",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the holy trait, your Strikes do an additional 1d10 fire damage, and if you critically Strike an enemy, the enemy also takes 1d6 persistent fire damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ActorTraits",
+        "add": ["holy"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "slug": "wreath-of-holy-light",
+        "diceNumber": 1,
+        "dieSize": "d10",
+        "damageType": "fire"
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "slug": "wreath-of-holy-light-persistent",
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "fire",
+        "category": "persistent",
+        "critical": true
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.mq351Vs8ATFa5nYv"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "71520837-5110-5b4d-8eaf-de6d5ff898b3",
+    "pack": "draconic-codex",
+    "kind": "effect",
+    "slug": "effect:spell-effect-divine-dragons-watch",
+    "name": "Spell Effect: Divine Dragon's Watch",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "7215781c-46c7-51b3-a0ab-b81b7eefc12d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the Dragon's Protection reaction."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "8afd08f8-4676-5b4a-b5ee-878f0ad8b261"
+      },
+      {
+        "key": "DamageAlteration",
+        "selectors": ["dragons-protection-inline-damage"],
+        "property": "dice-number",
+        "mode": "upgrade",
+        "value": "@item.level"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.yCDQ8lW7e01maOXc"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 24,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  }
+]

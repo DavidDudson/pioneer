@@ -1,0 +1,2190 @@
+{
+  "pin": {
+    "tag": "pf2e-8.6.0",
+    "sha256": "d9c4c1f6bbf9bd907ec0acbaea9b8d4e8b0d049758a8616829f07c1b4ee81342"
+  },
+  "backlog": [
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "class-feature:baba-yaga",
+      "foundry": "Compendium.pf2e.classfeatures.Item.VVMMJdIWL7fAsQf3",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.proficiencies.aliases.witch",
+            "priority": 39,
+            "value": "occult"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["class:witch", "item:trait:hex"],
+            "property": "description",
+            "value": [
+              {
+                "text": "PF2E.SpecificRule.Witch.Patron.FamiliarAbility.ObscuringSnowfall.Description",
+                "title": "PF2E.SpecificRule.Witch.Patron.FamiliarAbility.ObscuringSnowfall.Title"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "class-feature:cobyslarni",
+      "foundry": "Compendium.pf2e.classfeatures.Item.CxvLFkrV5LlADQkx",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.proficiencies.aliases.witch",
+            "priority": 39,
+            "value": "occult"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["class:witch", "item:trait:hex"],
+            "property": "description",
+            "value": [
+              {
+                "text": "@Embed[Compendium.pf2e.familiar-abilities.Item.YptMhsztTS9dYGAY inline]",
+                "title": "PF2E.SpecificRule.Witch.Patron.FamiliarAbility.InsightfulObservation.Title"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "class-feature:envy",
+      "foundry": "Compendium.pf2e.classfeatures.Item.Fh5Khtx5bgGpBeOu",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": [
+                  "item:slug:shield",
+                  "item:slug:tangle-vine",
+                  "item:slug:schadenfreude",
+                  "item:slug:enfeeble",
+                  "item:slug:dispel-magic",
+                  "item:slug:stupefy",
+                  "item:slug:earthbind",
+                  "item:slug:thief-of-fortune",
+                  "item:slug:containment",
+                  "item:slug:outcasts-curse",
+                  "item:slug:banishment",
+                  "item:slug:grisly-growths",
+                  "item:slug:cursed-metamorphosis",
+                  "item:slug:spellwrack",
+                  "item:slug:duplicate-foe",
+                  "item:slug:planar-seal",
+                  "item:slug:quandary",
+                  "item:slug:detonate-magic"
+                ]
+              }
+            ],
+            "priority": 118,
+            "property": "other-tags",
+            "value": "runelord-sin-spell"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "class-feature:gluttony",
+      "foundry": "Compendium.pf2e.classfeatures.Item.hzATJ1FV3lTPgeG9",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": [
+                  "item:slug:caustic-blast",
+                  "item:slug:void-warp",
+                  "item:slug:grim-tendrils",
+                  "item:slug:summon-undead",
+                  "item:slug:create-food",
+                  "item:slug:ghoulish-cravings",
+                  "item:slug:rouse-skeletons",
+                  "item:slug:vampiric-feast",
+                  "item:slug:seal-fate",
+                  "item:slug:vampiric-maiden",
+                  "item:slug:corrosive-muck",
+                  "item:slug:slither",
+                  "item:slug:disintegrate",
+                  "item:slug:vampiric-exsanguination",
+                  "item:slug:devouring-void",
+                  "item:slug:eclipse-burst",
+                  "item:slug:desiccate",
+                  "item:slug:massacre"
+                ]
+              }
+            ],
+            "priority": 118,
+            "property": "other-tags",
+            "value": "runelord-sin-spell"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "class-feature:greed",
+      "foundry": "Compendium.pf2e.classfeatures.Item.COMhWWNBJOdaJqp7",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": [
+                  "item:slug:live-wire",
+                  "item:slug:read-aura",
+                  "item:slug:ant-haul",
+                  "item:slug:leaden-steps",
+                  "item:slug:enlarge",
+                  "item:slug:phantasmal-treasure",
+                  "item:slug:one-with-stone",
+                  "item:slug:shrink-item",
+                  "item:slug:aerial-form",
+                  "item:slug:shape-stone",
+                  "item:slug:elemental-form",
+                  "item:slug:impaling-spike",
+                  "item:slug:dragon-form",
+                  "item:slug:petrify",
+                  "item:slug:chrysopoetic-curse",
+                  "item:slug:lifewood-cage",
+                  "item:slug:monstrosity-form",
+                  "item:slug:metamorphosis"
+                ]
+              }
+            ],
+            "priority": 118,
+            "property": "other-tags",
+            "value": "runelord-sin-spell"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "class-feature:lust",
+      "foundry": "Compendium.pf2e.classfeatures.Item.MpZ0sdwMJ8fdZmtR",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": [
+                  "item:slug:daze",
+                  "item:slug:message",
+                  "item:slug:charm",
+                  "item:slug:command",
+                  "item:slug:charitable-urge",
+                  "item:slug:stupefy",
+                  "item:slug:dream-message",
+                  "item:slug:enthrall",
+                  "item:slug:confusion",
+                  "item:slug:suggestion",
+                  "item:slug:mind-probe",
+                  "item:slug:subconscious-suggestion",
+                  "item:slug:dominate",
+                  "item:slug:never-mind",
+                  "item:slug:loves-sacrifice",
+                  "item:slug:warp-mind",
+                  "item:slug:uncontrollable-dance",
+                  "item:slug:telepathic-demand"
+                ]
+              }
+            ],
+            "priority": 118,
+            "property": "other-tags",
+            "value": "runelord-sin-spell"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "class-feature:pride",
+      "foundry": "Compendium.pf2e.classfeatures.Item.GI09dKNZVCPdSGZC",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": [
+                  "item:slug:bullhorn",
+                  "item:slug:figment",
+                  "item:slug:dizzying-colors",
+                  "item:slug:illusory-disguise",
+                  "item:slug:illusory-creature",
+                  "item:slug:invisibility",
+                  "item:slug:blindness",
+                  "item:slug:levitate",
+                  "item:slug:mirage",
+                  "item:slug:vision-of-death",
+                  "item:slug:cloak-of-colors",
+                  "item:slug:phantasmal-calamity",
+                  "item:slug:mask-of-terror",
+                  "item:slug:project-image",
+                  "item:slug:confusing-colors",
+                  "item:slug:overwhelming-presence"
+                ]
+              }
+            ],
+            "priority": 118,
+            "property": "other-tags",
+            "value": "runelord-sin-spell"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "class-feature:resurgent-maelstrom",
+      "foundry": "Compendium.pf2e.classfeatures.Item.X3nPGnqh6rkRJ75i",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              "spellcasting:category:prepared",
+              "spellcasting:tradition:arcane",
+              {
+                "or": [
+                  {
+                    "and": [
+                      "item:slug:water-walk",
+                      {
+                        "gte": ["self:level", 7]
+                      }
+                    ]
+                  },
+                  {
+                    "and": [
+                      "item:slug:aqueous-orb",
+                      {
+                        "gte": ["self:level", 11]
+                      }
+                    ]
+                  },
+                  {
+                    "and": [
+                      "item:slug:unfettered-movement",
+                      {
+                        "gte": ["self:level", 13]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "property": "other-tags",
+            "value": "studious-spell"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "class-feature:runelord",
+      "foundry": "Compendium.pf2e.classfeatures.Item.HYTaibaCGE85rhbZ",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "MartialProficiency",
+          "raw": {
+            "definition": [
+              "item:category:martial",
+              {
+                "or": ["item:group:polearm", "item:group:spear"]
+              }
+            ],
+            "key": "MartialProficiency",
+            "label": "PF2E.SpecificRule.MartialProficiency.MartialPolearmsAndSpears",
+            "sameAs": "simple"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "flag": "runelordDedication",
+            "key": "GrantItem",
+            "predicate": [
+              {
+                "gte": ["self:level", 2]
+              }
+            ],
+            "reevaluateOnUpdate": true,
+            "uuid": "Compendium.pf2e.feats-srd.Item.Runelord Dedication"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "feat",
+            "key": "ItemAlteration",
+            "label": "PF2E.SpecificRule.Wizard.Runelord.ArcaneBond.Label",
+            "mode": "add",
+            "predicate": ["item:slug:arcane-bond"],
+            "property": "description",
+            "value": [
+              {
+                "text": "PF2E.SpecificRule.Wizard.Runelord.ArcaneBond.DescriptionAddendum"
+              }
+            ]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "subfeatures.suppressedFeatures",
+          "raw": ["Compendium.pf2e.classfeatures.Item.Arcane Thesis"]
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "subfeatures.languages.granted",
+          "raw": "thassilonian"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[spells-srd] Pathfinder Player Core"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Embed"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "class-feature:school-of-rooted-wisdom",
+      "foundry": "Compendium.pf2e.classfeatures.Item.KGkWSv9rARpwWzXW",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "value": "Compendium.pf2e.classfeatures.Item.Cascade Bearers"
+              },
+              {
+                "value": "Compendium.pf2e.classfeatures.Item.Emerald Boughs"
+              },
+              {
+                "value": "Compendium.pf2e.classfeatures.Item.Rain-Scribes"
+              },
+              {
+                "value": "Compendium.pf2e.classfeatures.Item.Tempest-Sun Mages"
+              },
+              {
+                "value": "Compendium.pf2e.classfeatures.Item.Uzunjati"
+              }
+            ],
+            "flag": "branch",
+            "key": "ChoiceSet"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "key": "GrantItem",
+            "uuid": "{item|flags.system.rulesSelections.branch}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "class-feature:school-of-thassilonian-rune-magic",
+      "foundry": "Compendium.pf2e.classfeatures.Item.aYWPtW5T4Lx07Occ",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "value": "Compendium.pf2e.classfeatures.Item.Envy"
+              },
+              {
+                "value": "Compendium.pf2e.classfeatures.Item.Gluttony"
+              },
+              {
+                "value": "Compendium.pf2e.classfeatures.Item.Greed"
+              },
+              {
+                "value": "Compendium.pf2e.classfeatures.Item.Lust"
+              },
+              {
+                "value": "Compendium.pf2e.classfeatures.Item.Pride"
+              },
+              {
+                "value": "Compendium.pf2e.classfeatures.Item.Sloth"
+              },
+              {
+                "value": "Compendium.pf2e.classfeatures.Item.Wrath"
+              }
+            ],
+            "flag": "sin",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Wizard.Runelord.Sin.Prompt"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "key": "GrantItem",
+            "uuid": "{item|flags.system.rulesSelections.sin}"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": [
+                  "item:tag:runelord-sin-spell",
+                  "item:slug:detect-magic",
+                  "item:slug:sigil",
+                  "item:slug:mystic-armor",
+                  "item:slug:runic-body",
+                  "item:slug:runic-weapon",
+                  "item:slug:sure-strike",
+                  "item:slug:darkvision",
+                  "item:slug:see-the-unseen",
+                  "item:slug:clairaudience",
+                  "item:slug:veil-of-privacy",
+                  "item:slug:clairvoyance",
+                  "item:slug:fly",
+                  "item:slug:mind-probe",
+                  "item:slug:sending",
+                  "item:slug:scrying",
+                  "item:slug:truesight",
+                  "item:slug:contingency",
+                  "item:slug:spell-riposte",
+                  "item:slug:unrelenting-observation",
+                  "item:slug:seize-soul",
+                  "item:slug:foresight"
+                ]
+              }
+            ],
+            "priority": 119,
+            "property": "other-tags",
+            "value": "runelord-curriculum-spell"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "class-feature:sloth",
+      "foundry": "Compendium.pf2e.classfeatures.Item.cz9fwc6KSkqxD3Nn",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": [
+                  "item:slug:telekinetic-hand",
+                  "item:slug:telekinetic-projectile",
+                  "item:slug:sleep",
+                  "item:slug:enfeeble",
+                  "item:slug:ghostly-carrier",
+                  "item:slug:summon-elemental",
+                  "item:slug:cozy-cabin",
+                  "item:slug:slow",
+                  "item:slug:dull-ambition",
+                  "item:slug:translocate",
+                  "item:slug:summon-dragon",
+                  "item:slug:telekinetic-haul",
+                  "item:slug:collective-transposition",
+                  "item:slug:indolent-haze",
+                  "item:slug:planar-palace",
+                  "item:slug:quandary",
+                  "item:slug:resplendent-mansion"
+                ]
+              }
+            ],
+            "priority": 118,
+            "property": "other-tags",
+            "value": "runelord-sin-spell"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "class-feature:wrath",
+      "foundry": "Compendium.pf2e.classfeatures.Item.wtPywk3wqEg3iYOP",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": [
+                  "item:slug:frostbite",
+                  "item:slug:ignition",
+                  "item:slug:force-barrage",
+                  "item:slug:thunderstrike",
+                  "item:slug:blistering-invective",
+                  "item:slug:floating-flame",
+                  "item:slug:fireball",
+                  "item:slug:lightning-bolt",
+                  "item:slug:ice-storm",
+                  "item:slug:wall-of-fire",
+                  "item:slug:howling-blizzard",
+                  "item:slug:wall-of-ice",
+                  "item:slug:blinding-fury",
+                  "item:slug:disintegrate",
+                  "item:slug:eclipse-burst",
+                  "item:slug:fiery-body",
+                  "item:slug:earthquake",
+                  "item:slug:falling-stars"
+                ]
+              }
+            ],
+            "priority": 118,
+            "property": "other-tags",
+            "value": "runelord-sin-spell"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "consumable:fake-blood-pack",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.2VS3S2E3dbqvGifH",
+      "leftOut": {
+        "reason": "no-kind-data",
+        "detail": ""
+      },
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "invalid-data",
+          "field": "usage.slot",
+          "raw": {
+            "price": {
+              "coins": {
+                "gp": 1
+              }
+            },
+            "bulk": "light",
+            "category": "other",
+            "usage": {
+              "type": "worn",
+              "slot": "-under-armor"
+            }
+          }
+        }
+      ],
+      "document": {
+        "_id": "2VS3S2E3dbqvGifH",
+        "name": "Fake Blood Pack",
+        "type": "consumable",
+        "system": {
+          "publication": {
+            "title": "Pathfinder Lost Omens Rival Academies",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 0
+          },
+          "traits": {
+            "value": ["consumable"],
+            "rarity": "common"
+          },
+          "description": {
+            "value": "<p>Adventurers have found a number of uses for these animal blood–filled bladders, which were originally used in theatrical productions. Whenever you take slashing or piercing damage with the fake blood pack under your clothes or armor, roll a @Check[flat|dc:11]. On a success, the blood pack is punctured. You or an ally can puncture the hidden pack intentionally with an Interact action. When faking an injury, a punctured blood pack grants a +2 item bonus to relevant Deception checks, such as to @UUID[Compendium.pf2e.actionspf2e.Item.Lie] about being injured, for 4 hours after the pack has been punctured or until the blood is washed off, whichever comes first. Abilities that trigger when a creature deals bleed damage, that determine if a creature is bleeding, or are otherwise based on bleed damage don't trigger or apply for blood from a fake blood pack, which might mean creatures with such abilities automatically realize the ruse.</p>"
+          },
+          "rules": [],
+          "baseItem": null,
+          "bulk": {
+            "value": 0.1
+          },
+          "category": "other",
+          "containerId": null,
+          "damage": null,
+          "hardness": 0,
+          "hp": {
+            "max": 0,
+            "value": 0
+          },
+          "material": {
+            "grade": null,
+            "type": null
+          },
+          "price": {
+            "value": {
+              "gp": 1
+            }
+          },
+          "quantity": 1,
+          "size": "med",
+          "usage": {
+            "value": "worn-under-armor"
+          },
+          "uses": {
+            "autoDestroy": true,
+            "max": 1,
+            "value": 1
+          }
+        }
+      }
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "consumable:perfections-first-step",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.00p14e3pfEMBB1Xq",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[spells-srd] Pathfinder Lost Omens World Guide"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "consumable:quartz-coil-rail-transport-greater",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.8RcvD4xTCKpsJBLj",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "consumable:quartz-coil-rail-transport-lesser",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.KFCXhqEAEMN7IH6p",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "consumable:quartz-coil-rail-transport-major",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.iVhkA8bpG2phbb0Q",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "consumable:quartz-coil-rail-transport-moderate",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.2JrQLWnVE4DrOLUE",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "consumable:spark-wafer",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.2n6BXtjZ7T6NJtXq",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "consumable:twig-of-knowledge-and-memory",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.cw05uEofzYkHwv8p",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "usage",
+          "raw": "held-in-1-hand-hung-on-a-cord-or-attached-to-clothing"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "effect:effect-drop-of-convergent-waters",
+      "foundry": "Compendium.pf2e.equipment-effects.Item.YjcV6eW4u9OpSNC2",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": {
+              "attacks": true,
+              "predicate": ["item:category:unarmed"]
+            },
+            "flag": "attack",
+            "key": "ChoiceSet"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "weapon",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:{item|flags.system.rulesSelections.attack}"],
+            "property": "traits",
+            "value": "magical"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "weapon",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:{item|flags.system.rulesSelections.attack}"],
+            "property": "traits",
+            "value": "reach"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "weapon",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:{item|flags.system.rulesSelections.attack}"],
+            "property": "traits",
+            "value": "water"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "AdjustModifier",
+          "raw": {
+            "key": "AdjustModifier",
+            "selector": "{item|flags.system.rulesSelections.attack}-attack-roll",
+            "slug": "aquatic-combat",
+            "suppress": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "effect:effect-in-lightning-life",
+      "foundry": "Compendium.pf2e.feat-effects.Item.ZouxY0u1dKQEHQ6E",
+      "leftOut": {
+        "reason": "no-kind-data",
+        "detail": ""
+      },
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "invalid-data",
+          "field": "badge.formula",
+          "raw": {
+            "category": "feat",
+            "duration": {
+              "type": "time",
+              "count": 1,
+              "unit": "minute",
+              "expiry": "turn-start"
+            },
+            "badge": {
+              "type": "formula",
+              "formula": "(1 + floor(@item.origin.level / 4))d4"
+            }
+          }
+        }
+      ],
+      "document": {
+        "_id": "ZouxY0u1dKQEHQ6E",
+        "name": "Effect: In Lightning, Life",
+        "type": "effect",
+        "system": {
+          "publication": {
+            "title": "Pathfinder Lost Omens Rival Academies",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 4
+          },
+          "traits": {
+            "value": []
+          },
+          "description": {
+            "value": "<p>Granted by @UUID[Compendium.pf2e.feats-srd.Item.In Lightning, Life]</p>\n<p>You gain temporary Hit Points.</p>"
+          },
+          "rules": [
+            {
+              "key": "TempHP",
+              "value": "@item.badge.value"
+            }
+          ],
+          "badge": {
+            "evaluate": true,
+            "reevaluate": null,
+            "type": "formula",
+            "value": "(1 + floor(@item.origin.level / 4))d4"
+          },
+          "duration": {
+            "expiry": "turn-start",
+            "sustained": false,
+            "unit": "minutes",
+            "value": 1
+          },
+          "start": {
+            "initiative": null,
+            "value": 0
+          },
+          "tokenIcon": {
+            "show": true
+          }
+        }
+      }
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "effect:effect-offer-story",
+      "foundry": "Compendium.pf2e.feat-effects.Item.dzYnksinvWvfgBVt",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": ["offer-story:illuminating-stories"],
+            "selector": "skill-check",
+            "slug": "offer-story-illuminating-stories",
+            "type": "status",
+            "value": "ternary(gte(@item.origin.system.skills.religion.rank,4),3,ternary(gte(@item.origin.system.skills.religion.rank,3),2,1))"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "damageType": "fire",
+            "hideIfDisabled": true,
+            "key": "FlatModifier",
+            "predicate": ["offer-story:raging-stories"],
+            "selector": ["melee-strike-damage"],
+            "slug": "offer-story-raging-stories",
+            "value": "ternary(gte(@item.origin.system.skills.religion.rank,4),6,ternary(gte(@item.origin.system.skills.religion.rank,3),4,2))"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "effect:effect-rod-of-rule",
+      "foundry": "Compendium.pf2e.feat-effects.Item.ixAmr0VkB6q6LpGq",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": ["origin:signature:{item|origin.signature}", "item:tag:runelord-curriculum-spell"],
+            "selector": "saving-throw",
+            "type": "circumstance",
+            "value": -2
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "effect:effect-ruthless-orator",
+      "foundry": "Compendium.pf2e.feat-effects.Item.lWi5NjGv16mGpncU",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "EphemeralEffect",
+          "raw": {
+            "affects": "origin",
+            "key": "EphemeralEffect",
+            "selectors": ["attack-roll"],
+            "uuid": "Compendium.pf2e.feat-effects.Item.Effect: Ruthless Orator (Enemy)"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "effect:spell-effect-beseech-the-sphinx",
+      "foundry": "Compendium.pf2e.spell-effects.Item.3CzDP9Bamc1aVLyh",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": {
+              "config": "skills"
+            },
+            "flag": "skill",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Skill"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": {
+              "config": "saves"
+            },
+            "flag": "save",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.SavingThrow"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "selector": ["{item|flags.system.rulesSelections.save}", "{item|flags.system.rulesSelections.skill}"],
+            "type": "status",
+            "value": "ternary(gte(@item.level,7),3,ternary(gte(@item.level,4),2,1))"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "effect:spell-effect-cutting-eye",
+      "foundry": "Compendium.pf2e.spell-effects.Item.tlbv3TAD2xPDFnAf",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "removeAfterRoll": "if-enabled",
+            "selector": "{item|flags.system.rulesSelections.defense}",
+            "type": "circumstance",
+            "value": 2
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "effect:spell-effect-personal-runewell",
+      "foundry": "Compendium.pf2e.spell-effects.Item.ZwTwuNuvHuQhIjcu",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "selector": "spell-damage",
+            "type": "status",
+            "value": "@spell.rank"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "effect:spell-effect-pocket-library",
+      "foundry": "Compendium.pf2e.spell-effects.Item.9ZIP6gWSp9OTEu8i",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": [
+              "action:recall-knowledge",
+              "pocket-library",
+              {
+                "gte": ["hands-free", 1]
+              }
+            ],
+            "selector": "{item|flags.system.rulesSelections.skill}",
+            "type": "status",
+            "value": "1+floor(@item.level/3)"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "AdjustDegreeOfSuccess",
+          "raw": {
+            "adjustment": {
+              "criticalFailure": "one-degree-better"
+            },
+            "key": "AdjustDegreeOfSuccess",
+            "predicate": [
+              "action:recall-knowledge",
+              "pocket-library",
+              {
+                "gte": ["hands-free", 1]
+              }
+            ],
+            "selector": "{item|flags.system.rulesSelections.skill}",
+            "type": "skill"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "effect:spell-effect-precious-gleam",
+      "foundry": "Compendium.pf2e.spell-effects.Item.ojC0jckNHOEIFFtB",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": {
+              "ownedItems": true,
+              "types": ["weapon"]
+            },
+            "flag": "weapon",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Weapon"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "DamageDice",
+          "raw": {
+            "category": "precision",
+            "diceNumber": "@item.level",
+            "dieSize": "d6",
+            "key": "DamageDice",
+            "selector": "{item|flags.system.rulesSelections.weapon}-damage"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "AdjustStrike",
+          "raw": {
+            "definition": ["item:id:{item|flags.system.rulesSelections.weapon}"],
+            "key": "AdjustStrike",
+            "mode": "add",
+            "property": "materials",
+            "value": "{item|flags.system.rulesSelections.preciousMaterial}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "effect:stance-flood-stance",
+      "foundry": "Compendium.pf2e.feat-effects.Item.yBJPNp0mKjMkKe1w",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Strike",
+          "raw": {
+            "category": "unarmed",
+            "damage": {
+              "base": {
+                "damageType": "bludgeoning",
+                "dice": 1,
+                "die": "d8"
+              }
+            },
+            "group": "brawling",
+            "key": "Strike",
+            "label": "PF2E.SpecificRule.Stance.Attack.FloodedRiver",
+            "range": null,
+            "replaceAll": true,
+            "slug": "flooded-river",
+            "traits": ["nonlethal", "trip", "unarmed", "water"]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "equipment:uzunjati-storytelling-amulet",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.IIG33n6yrNjz07Ir",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]][skill]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "equipment:weapon-of-false-wounds",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.JKrqKeBxSlLjF8xU",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "usage",
+          "raw": "held-in-one-or-two-hands"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "equipment:zarothrasks-contract",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.vKzbNBm01hlp3jiO",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "feat:aeon-resonance",
+      "foundry": "Compendium.pf2e.feats-srd.Item.OxvZSFGOjGfcSCv8",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "feat:animal-actor",
+      "foundry": "Compendium.pf2e.feats-srd.Item.pShjDoTqAdX1m3DK",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "label": "PF2E.UI.RuleElements.ChoiceSet.YesLabel",
+                "predicate": ["skill:nature:rank:1"],
+                "value": 2
+              },
+              {
+                "label": "PF2E.UI.RuleElements.ChoiceSet.NoLabel",
+                "predicate": [
+                  {
+                    "not": "skill:nature:rank:1"
+                  }
+                ],
+                "value": 1
+              }
+            ],
+            "flag": "rank",
+            "key": "ChoiceSet"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.skills.nature.rank",
+            "value": "@item.flags.system.rulesSelections.rank"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "feat:artery-map",
+      "foundry": "Compendium.pf2e.feats-srd.Item.PFcg6OHheNy2dnoo",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "DamageDice",
+          "raw": {
+            "category": "persistent",
+            "damageType": "bleed",
+            "diceNumber": 1,
+            "dieSize": "match(when(lte(@actor.system.skills.medicine.rank, 3), \"d6\"), when(gte(@actor.system.skills.medicine.rank, 4), \"d10\"))",
+            "key": "DamageDice",
+            "predicate": ["target:condition:off-guard", "item:group:knife"],
+            "selector": "strike-damage"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "feat:beautiful-knifework",
+      "foundry": "Compendium.pf2e.feats-srd.Item.iUCz2engECjvbSeB",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[traits]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "feat:campfire-chronicler-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.MFsCCVgU0z4N9bmY",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "feat:embed-aeon-stone",
+      "foundry": "Compendium.pf2e.feats-srd.Item.EZrxp0XxYh9rjghB",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "feat:flickering-stories",
+      "foundry": "Compendium.pf2e.feats-srd.Item.gPiYj2vgWm0CNoGW",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:offer-story"],
+            "property": "other-tags",
+            "value": "flickering-stories"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "feat:illuminating-stories",
+      "foundry": "Compendium.pf2e.feats-srd.Item.yRT94fGPaS1M9f9I",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:offer-story"],
+            "property": "other-tags",
+            "value": "illuminating-stories"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "feat:in-lightning-life",
+      "foundry": "Compendium.pf2e.feats-srd.Item.1RQLf09kpOO6ljmb",
+      "leftOut": {
+        "reason": "unresolved-reference",
+        "detail": "rival-academies/effect:effect-in-lightning-life"
+      },
+      "gaps": [],
+      "document": {
+        "_id": "1RQLf09kpOO6ljmb",
+        "name": "In Lightning, Life",
+        "type": "feat",
+        "system": {
+          "publication": {
+            "title": "Pathfinder Lost Omens Rival Academies",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 4
+          },
+          "traits": {
+            "value": ["archetype", "concentrate", "electricity", "healing", "manipulate"],
+            "rarity": "common"
+          },
+          "description": {
+            "value": "<p><strong>Frequency</strong> once per 10 minutes</p>\n<p><strong>Requirements</strong> You're wearing or holding a @UUID[Compendium.pf2e.equipment-srd.Item.Healer's Toolkit].</p><hr /><p>\"In lightning, there is life.\" This lesson is whispered throughout Lepidstadt, and you can put it to practical use. You have integrated a miniature Stasian coil into your healer's toolkit. You use the coil to gently shock a willing or @UUID[Compendium.pf2e.conditionitems.Item.Unconscious] ally within your reach, who gains 2d4 temporary Hit Points from the jolt. These temporary Hit Points last for 1 minute. These temporary Hit Points increase by 1d4 at 8th level and every 4 levels thereafter.</p>\n<p>@UUID[Compendium.pf2e.feat-effects.Item.Effect: In Lightning, Life]</p>\n<p>A creature that has resistance or immunity to electricity is immune to this ability, and a creature that received temporary Hit Points from In Lightning, Life is temporarily immune to it for 24 hours.</p>"
+          },
+          "rules": [],
+          "actionType": {
+            "value": "action"
+          },
+          "actions": {
+            "value": 1
+          },
+          "category": "class",
+          "frequency": {
+            "max": 1,
+            "per": "PT10M"
+          },
+          "prerequisites": {
+            "value": [
+              {
+                "value": "Lepidstadt Surgeon Dedication"
+              }
+            ]
+          },
+          "selfEffect": {
+            "name": "Effect: In Lightning, Life",
+            "uuid": "Compendium.pf2e.feat-effects.Item.Effect: In Lightning, Life"
+          },
+          "subfeatures": {
+            "proficiencies": {},
+            "senses": {},
+            "suppressedFeatures": []
+          }
+        },
+        "folder": "rKTkNlqyaQuLy3sq"
+      }
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "feat:kitharodian-actor-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.Xiv87UvRqfLPqvin",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "feat:lepidstadt-surgeon-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.8KxcNpQhmUOj3vuV",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "feat:orichalcum-bond",
+      "foundry": "Compendium.pf2e.feats-srd.Item.DUajVmPdAlf16CGP",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "feat:ouroboric-pact",
+      "foundry": "Compendium.pf2e.feats-srd.Item.VbGyh1LcaRSAvmKt",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "feat:pact-of-huldras-renewal",
+      "foundry": "Compendium.pf2e.feats-srd.Item.ByFircdZMLPOe58K",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "feat:pact-of-the-crossroads",
+      "foundry": "Compendium.pf2e.feats-srd.Item.zU0nKWJIWlKaT0gt",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "feat:pact-of-the-death-hunter",
+      "foundry": "Compendium.pf2e.feats-srd.Item.OYeBODzHgyybCBxu",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "feat:pact-of-the-fey-paths",
+      "foundry": "Compendium.pf2e.feats-srd.Item.bSalPlHitGbYvsZM",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "feat:pact-of-the-living-pact",
+      "foundry": "Compendium.pf2e.feats-srd.Item.nZtINeZbhGvbSUAg",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "feat:pact-of-the-nightblossom",
+      "foundry": "Compendium.pf2e.feats-srd.Item.x90yRgXMhY9NCbKw",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "feat:pact-of-the-rune-dragon",
+      "foundry": "Compendium.pf2e.feats-srd.Item.gbKZk9nEXUZVywc9",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "feat:performers-treatment",
+      "foundry": "Compendium.pf2e.feats-srd.Item.nxq9hFyIPR2jRi6G",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[traits]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[against]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "feat:raging-stories",
+      "foundry": "Compendium.pf2e.feats-srd.Item.3GmgFUL2xzt5vhCz",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:offer-story"],
+            "property": "other-tags",
+            "value": "raging-stories"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "feat:rod-of-rule",
+      "foundry": "Compendium.pf2e.feats-srd.Item.ZELjVKOohGw3ECwB",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "feat:runelord-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.mz2x4HFrWT8usbEL",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "location",
+          "raw": "class-2"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "feat:ruthless-orator",
+      "foundry": "Compendium.pf2e.feats-srd.Item.7HZaOlJ43QxkDrmO",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[dc]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "feat:sin-counterspell",
+      "foundry": "Compendium.pf2e.feats-srd.Item.xblAUCASehLA9fbc",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "feat:sin-reservoir",
+      "foundry": "Compendium.pf2e.feats-srd.Item.zAJY8rLvZjzOK0Mt",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "feat:sinbladed-spell",
+      "foundry": "Compendium.pf2e.feats-srd.Item.2oZYzQnrmKCpMH0V",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.TraitSpellshape",
+            "mergeable": true,
+            "option": "spellshape",
+            "placement": "spellcasting",
+            "suboptions": [
+              {
+                "label": "{item|name}",
+                "value": "sinbladed-spell"
+              }
+            ],
+            "toggleable": true
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              "item:tag:runelord-curriculum-spell",
+              "spellshape:sinbladed-spell",
+              {
+                "not": "item:trait:cantrip"
+              }
+            ],
+            "property": "description",
+            "value": [
+              {
+                "text": "PF2E.SpecificRule.Spellshape.SinbladedSpell"
+              }
+            ]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "feat:student-of-water",
+      "foundry": "Compendium.pf2e.feats-srd.Item.WHplmUTHN8L6q1b2",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "flag": "intimidatingGlare",
+            "key": "GrantItem",
+            "predicate": [
+              {
+                "gte": ["skill:athletics:rank", 1]
+              }
+            ],
+            "reevaluateOnUpdate": true,
+            "uuid": "Compendium.pf2e.feats-srd.Item.Underwater Marauder"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "flag": "intimidatingGlare",
+            "key": "GrantItem",
+            "predicate": [
+              {
+                "gte": ["skill:athletics:rank", 3]
+              }
+            ],
+            "reevaluateOnUpdate": true,
+            "uuid": "Compendium.pf2e.feats-srd.Item.Water Sprint"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "feat:the-dead-tell-tales",
+      "foundry": "Compendium.pf2e.feats-srd.Item.6WsUotDsr7TUVDkE",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "definition": [
+              {
+                "or": ["origin:trait:haunt", "origin:trait:spirit", "origin:trait:undead"]
+              },
+              {
+                "or": ["damage:type:void", "damage:type:spirit"]
+              }
+            ],
+            "key": "Resistance",
+            "type": "custom",
+            "value": "@actor.level"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "spell:annunciation-of-the-outer-gate",
+      "foundry": "Compendium.pf2e.spells-srd.Item.L1JnU3RepQiWxysc",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "duration",
+          "raw": {
+            "value": "10 minutes (see text)",
+            "sustained": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "spell:beseech-the-sphinx",
+      "foundry": "Compendium.pf2e.spells-srd.Item.7GZVTtzN7H4Jujc1",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "target.value",
+          "raw": "1 creature other than yourself"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "spell:buzzing-servants",
+      "foundry": "Compendium.pf2e.spells-srd.Item.U7415tttUO8JLvpf",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "target.value",
+          "raw": "one unoccupied 5-foot square"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "spell:call-the-ten",
+      "foundry": "Compendium.pf2e.spells-srd.Item.REBo9wSxDDx7Qdcc",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "target.value",
+          "raw": "up to 10 creatures, including yourself"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "spell:crescent-scepter",
+      "foundry": "Compendium.pf2e.spells-srd.Item.C8HWMMuB5tMhqJ5W",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "duration",
+          "raw": {
+            "value": "until the beginning of your next turn",
+            "sustained": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "spell:disruptive-transfer",
+      "foundry": "Compendium.pf2e.spells-srd.Item.jSJz4vx0fXPHa3d6",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "range.value",
+          "raw": "your Speed"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "spell:grasping-vine",
+      "foundry": "Compendium.pf2e.spells-srd.Item.cQgPIohUja0DUiRL",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "target.value",
+          "raw": "1 unattended object of up to 8 Bulk, or Medium or smaller creature that is currently on the ground"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "duration",
+          "raw": {
+            "value": "1 minute (see text)",
+            "sustained": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "spell:hearts-hook",
+      "foundry": "Compendium.pf2e.spells-srd.Item.1B8BLEQBQn9aEMoY",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "target.value",
+          "raw": "two creatures"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "spell:ibexs-harvest",
+      "foundry": "Compendium.pf2e.spells-srd.Item.P7AToTm0ulueRk63",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "range.value",
+          "raw": "varies"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "spell:precious-gleam",
+      "foundry": "Compendium.pf2e.spells-srd.Item.v14zLiiSc4sl9RrK",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "target.value",
+          "raw": "1 weapon that is unattended or wielded by a willing creature."
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "duration",
+          "raw": {
+            "value": "until the beginning of your next turn",
+            "sustained": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "spell:recall-legacy",
+      "foundry": "Compendium.pf2e.spells-srd.Item.onvFdBWAsQp0CsAy",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "duration",
+          "raw": {
+            "value": "Until the target's next daily preparations",
+            "sustained": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "spell:reclined-apport",
+      "foundry": "Compendium.pf2e.spells-srd.Item.lsR3RLEdBG4rcSzd",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "target.value",
+          "raw": "1 unattended object of light Bulk or less"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "heightening.levels.3.target.value",
+          "raw": "an unattended object with a Bulk of 1 or less"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "heightening.levels.5.target.value",
+          "raw": "an unattended object with a Bulk of 1 or less"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "heightening.levels.7.target.value",
+          "raw": "an unattended object with a Bulk of 2 or less"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "spell:the-four-hunters",
+      "foundry": "Compendium.pf2e.spells-srd.Item.EdRYr7HmLm9wr71X",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "range.value",
+          "raw": "varies"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "spell:thief-of-fortune",
+      "foundry": "Compendium.pf2e.spells-srd.Item.uGi6t3cypb93mgyV",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "target.value",
+          "raw": "one beneficial spell effect currently affecting a creature, with a duration of 10 minutes or less"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "spell:threefold-limb",
+      "foundry": "Compendium.pf2e.spells-srd.Item.3DY4vbXj0BYSWA7z",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "overlays.BOVbZOmZ6WE9VOXC.traits",
+          "raw": {
+            "value": ["attack", "cold", "concentrate", "manipulate", "morph", "water"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "overlays.iLSVxhnKWj7DHGmf.traits",
+          "raw": {
+            "value": ["attack", "concentrate", "fire", "manipulate", "morph", "water"]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "spell:unbroken-panoply",
+      "foundry": "Compendium.pf2e.spells-srd.Item.19V9aVrn8OAHsn4Q",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "target.value",
+          "raw": "1 broken weapon that is unattended or held by a willing creature"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rival-academies",
+      "slug": "spell:vengeful-glare",
+      "foundry": "Compendium.pf2e.spells-srd.Item.8uVMoiYDzhzWJEZ2",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "target.value",
+          "raw": "one creature you can see"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "overlays.ci80ouAhMWhvH5hc.traits",
+          "raw": {
+            "traditions": [],
+            "value": ["cold", "concentrate", "focus", "wizard"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "overlays.Xbeg9SUkGfiqGXzU.traits",
+          "raw": {
+            "traditions": [],
+            "value": ["concentrate", "fire", "focus", "wizard"]
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Damage[formula]"
+        }
+      ]
+    },
+    {
+      "type": "vocabulary",
+      "kind": "damage-type",
+      "slug": "untyped",
+      "reason": "unmapped-value",
+      "detail": "untyped"
+    }
+  ]
+}

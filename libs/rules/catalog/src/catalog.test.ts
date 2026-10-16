@@ -29,6 +29,11 @@ const impossibleMagic = PackId.parse('impossible-magic');
 const gunsAndGears = PackId.parse('guns-and-gears');
 const battlecry = PackId.parse('battlecry');
 const chelaxInfernalInheritance = PackId.parse('cheliax-infernal-inheritance');
+const rivalAcademies = PackId.parse('rival-academies');
+const shiningKingdoms = PackId.parse('shining-kingdoms');
+const draconicCodex = PackId.parse('draconic-codex');
+const hellfireDispatches = PackId.parse('hellfire-dispatches');
+const highSeas = PackId.parse('high-seas');
 const rageOfElements = PackId.parse('rage-of-elements');
 const secretsOfMagic = PackId.parse('secrets-of-magic');
 const tianXiaCharacterGuide = PackId.parse('tian-xia-character-guide');
@@ -50,8 +55,11 @@ describe('content catalog', () => {
       coreRules,
       darkArchiveRemastered,
       divineMysteries,
+      draconicCodex,
       gmCore,
       gunsAndGears,
+      hellfireDispatches,
+      highSeas,
       howlOfTheWild,
       impossibleLands,
       impossibleMagic,
@@ -60,7 +68,9 @@ describe('content catalog', () => {
       playerCore,
       playerCore2,
       rageOfElements,
+      rivalAcademies,
       secretsOfMagic,
+      shiningKingdoms,
       tianXiaCharacterGuide,
       treasureVault,
       warOfImmortals,
