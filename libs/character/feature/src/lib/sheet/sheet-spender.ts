@@ -10,7 +10,7 @@ import {
 } from '@pioneer/character/domain';
 import type { SpendRequest, TurnState } from '@pioneer/character/domain';
 import { ActionCost } from '@pioneer/rules/sdk';
-import type { ContentRegistry } from '@pioneer/rules/sdk';
+import type { ContentId, ContentRegistry } from '@pioneer/rules/sdk';
 import { ActionUser } from '@pioneer/rules/ui';
 import type { ActionUse, UsePayment } from '@pioneer/rules/ui';
 import { newId } from '@pioneer/shared/kernel';
@@ -18,6 +18,7 @@ import { newId } from '@pioneer/shared/kernel';
 import { injectContentRegistry } from '../data/content-registry-query';
 import { PlayStore } from '../data/play-store';
 import { ACTION_CONTENT_KINDS, spendCostOf } from './sheet-actions';
+import { raisedEdit, shieldIds } from './sheet-shields';
 
 /** The payment a spend records beside its cost, as the spend names it. */
 type SpendPayment = Pick<SpendRequest, 'use' | 'slot' | 'focus'>;
@@ -66,6 +67,21 @@ export class SheetSpender extends ActionUser {
       cost,
       ...recorded,
     });
+    await this.#raised(line.id);
+  }
+
+  /** Raising a shield puts its effect on the character until the start of its next turn, unless it is already on. */
+  async #raised(action: ContentId): Promise<void> {
+    const registry = this.#registry.data();
+    const read = this.#play.play.data();
+    const ids = registry === undefined ? undefined : shieldIds(registry);
+    if (ids === undefined || read === undefined || ids.raise !== action) {
+      return;
+    }
+    const edit = raisedEdit(read.play, ids);
+    if (edit !== undefined) {
+      await this.#play.send(edit);
+    }
   }
 }
 

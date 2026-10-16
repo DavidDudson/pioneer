@@ -6,6 +6,7 @@ import type { PlayLimits } from '../play-state';
 import { NO_RESOURCES } from '../resources';
 import type { ResourceMaxima } from '../resources';
 import type { RecoveryConditions } from '../rest-types';
+import { NO_SHIELDS } from '../shield-commands';
 import type { SpendLimits } from '../spend-commands';
 import { SpendTime } from '../spend-log';
 import { NO_STAFF } from '../staff-limits';
@@ -33,5 +34,6 @@ export function within(
     valued: new Map(),
     effects: new Map(),
     spend: TEST_SPEND,
+    shields: NO_SHIELDS,
   };
 }

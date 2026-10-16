@@ -58,7 +58,9 @@ export class PlayStore {
 
   async #patch(command: PlayEdit): Promise<readonly TurnEvent[]> {
     const id = this.#id();
-    const current = this.play.data();
+    // The cache, not the signal: the signal catches up a tick after an edit.
+    // A second edit straight after the first must carry the revision the first one saved.
+    const current = this.#client.getQueryData<CharacterPlay>(playKey(id)) ?? this.play.data();
     if (id === undefined || current === undefined) {
       throw new Error('No play state loaded');
     }

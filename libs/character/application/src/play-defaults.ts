@@ -1,4 +1,4 @@
-import { NO_COUNTED, NO_RESOURCES, NO_STAFF, SpendTime, WandProblem } from '@pioneer/character/domain';
+import { NO_COUNTED, NO_RESOURCES, NO_SHIELDS, NO_STAFF, SpendTime, WandProblem } from '@pioneer/character/domain';
 import type { ConditionValued, PlayLimits, RecoveryConditions, SpendLimits } from '@pioneer/character/domain';
 import { HitPoints } from '@pioneer/rules/sdk';
 
@@ -40,6 +40,7 @@ export function turnLimits(hitPoints: HitPoints, effects: PlayLimits['effects'])
     staff: NO_STAFF,
     valued: NO_VALUED,
     effects,
+    shields: NO_SHIELDS,
     spend: NO_SPEND,
   };
 }

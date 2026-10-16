@@ -11,7 +11,14 @@ import {
   StaffProblem,
   staffProblem,
 } from '@pioneer/character/domain';
-import type { ConditionValued, EffectContent, PlayCommand, PlayState, StaffLimits } from '@pioneer/character/domain';
+import type {
+  ConditionValued,
+  EffectContent,
+  PlayCommand,
+  PlayEdit,
+  PlayState,
+  StaffLimits,
+} from '@pioneer/character/domain';
 import type { ContentRegistry } from '@pioneer/rules/sdk';
 import { message, ValidationError } from '@pioneer/shared/kernel';
 
@@ -71,7 +78,7 @@ export function checkEffect(play: PlayState, command: PlayCommand, content: Effe
 }
 
 /** Refuses an exploration activity that is not an exploration action of the character's content. */
-export async function checkExploration(command: PlayCommand, registry: () => Promise<ContentRegistry>): Promise<void> {
+export async function checkExploration(command: PlayEdit, registry: () => Promise<ContentRegistry>): Promise<void> {
   const activity = isExplorationCommand(command) ? command.activity : undefined;
   if (activity === undefined) {
     return;
