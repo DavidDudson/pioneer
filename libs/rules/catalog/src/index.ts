@@ -28,6 +28,7 @@ import {
   highSeasPack,
   impossibleMagicPack,
   rivalAcademiesPack,
+  seasonOfGhostsPack,
   shiningKingdomsPack,
 } from './orc-packs';
 import { checkPackSources } from './source-check';
@@ -101,6 +102,7 @@ export const officialPacks: readonly PackContentsLoader[] = [
   checkedLoader('draconic-codex', draconicCodexPack),
   checkedLoader('hellfire-dispatches', hellfireDispatchesPack),
   checkedLoader('high-seas', highSeasPack),
+  checkedLoader('season-of-ghosts', seasonOfGhostsPack),
   checkedLoader('gm-core', gmCorePack),
 ];
 

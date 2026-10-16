@@ -1,0 +1,1309 @@
+[
+  {
+    "id": "69021b14-c5c5-5b1f-bf7d-70e48b6faa0f",
+    "pack": "season-of-ghosts",
+    "kind": "spell",
+    "slug": "spell:cycle-of-retribution",
+    "name": "Cycle of Retribution",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "manipulate", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An understanding of how violence begets more violence fills your target, causing it mental anguish in the form of splitting headaches when it attempts to take violent actions. The target must attempt a Will saving throw, with the following results."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The next time the target takes a hostile action, the target takes 1d4 mental damage; the spell's duration then ends."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The first time in a round when the target takes a hostile action, the target takes 1d4 mental damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Each time the target takes a hostile action, the target takes 1d4 mental damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The mental damage increases by 1d4."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.m2i7N8tnqar3gZDZ"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "touch"
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": ["divine", "occult"],
+      "damage": [
+        {
+          "key": "kxmchmcznhy5fbuw",
+          "formula": "1d4",
+          "damageType": "mental",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "kxmchmcznhy5fbuw",
+            "formula": "1d4"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "f2dd9ade-3b2d-5120-96b1-40dfe2385fd4",
+    "pack": "season-of-ghosts",
+    "kind": "spell",
+    "slug": "spell:entangle-fate",
+    "name": "Entangle Fate",
+    "level": 4,
+    "rarity": "rare",
+    "traits": ["concentrate", "manipulate", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You cause a swirl of energy to entangle the fates of all caught within the blast. Each creature in the area must attempt a Will save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature's fate becomes distorted, and momentary conflicting glimpses of the immediate future cause the creature to become "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " until the start of its next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but the creature is off-guard for the duration of the spell. If more than one of the targets failed to resist this spell, the creature also becomes "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 1"
+          },
+          {
+            "type": "text",
+            "text": " for the duration of the spell as its fate and those of the other creatures continue to clash and strain against each other."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but any creature that becomes stupefied 1 for the duration of the spell also becomes "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 1"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": " for the spell's duration."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.11haL5O9KMpY5Fv7"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "duration": {
+        "type": "time",
+        "count": 3,
+        "unit": "round"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "d6150a19-00da-5d19-843c-566c7f14c6d3",
+    "pack": "season-of-ghosts",
+    "kind": "spell",
+    "slug": "spell:fated-healing",
+    "name": "Fated Healing",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "linguistic", "manipulate", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You speak about the consequences of actions people take against each other and how it's possible to break cycles of violence simply by making a different choice. The targets regain 1d4 Hit Points at the end of each of their own turns while the spell is in effect. If a target uses a hostile action against the other target, the spell ends for the target that used the hostile action."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The targets regain an additional 1d4 Hit Points at the end of their own turns."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.X3RUan7TVqo6UpUG"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "duration": {
+        "type": "time",
+        "count": 5,
+        "unit": "round"
+      },
+      "traditions": ["divine", "occult"],
+      "damage": [
+        {
+          "key": "whdzwzgmadiivxko",
+          "formula": "1d4",
+          "kinds": ["healing"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "whdzwzgmadiivxko",
+            "formula": "1d4"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "e28dc240-2e8e-549b-94ed-2f48728cfabd",
+    "pack": "season-of-ghosts",
+    "kind": "spell",
+    "slug": "spell:fateful-condemnation",
+    "name": "Fateful Condemnation",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["aura", "concentrate", "incapacitation", "manipulate", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You draw upon the target's negative fate, causing this lingering destiny to afflict it and its nearby allies with the unintended consequences of its past lives. Spiritual echoes of the target's past lives instill overwhelming feelings of doubt, regret, and despair into the minds of the target and its nearby allies. The effects depend on the target's Will save, with the following results."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes 4d6 mental damage, and then an aura of shimmering mist with a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": " surrounds the creature. This mist isn't dense enough to affect sight, but it does cause the creature and any of its allies in the aura to take a –1 status penalty to all skill checks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but the creature takes an initial 8d6 mental damage and is then "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " for the duration of the effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but the creature takes an initial 16d6 mental damage, then is slowed 1 for the duration of the effect. Any of the target's allies who begin their turn in the "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": " is slowed 1 for 1 round."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.ReUoodsqUYSTwSgE"
+    },
+    "data": {
+      "rank": 6,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature",
+            "qualifiers": ["living"]
+          }
+        ]
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": ["divine", "occult"],
+      "damage": [
+        {
+          "key": "mtnvoqutbnrqtzma",
+          "formula": "8d6",
+          "damageType": "mental",
+          "kinds": ["damage"]
+        }
+      ]
+    }
+  },
+  {
+    "id": "9c7428fa-588f-5dc8-822b-202eed6952ac",
+    "pack": "season-of-ghosts",
+    "kind": "spell",
+    "slug": "spell:lifes-flowing-river",
+    "name": "Life's Flowing River",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You create a flowing river of ghostly water and that sheds dim light for 10 feet on each side. The river begins in an adjacent square to you and extends in a straight 5-foot path to its maximum range or until it hits a solid barrier, whichever comes first. A creature that begins its turn in the glowing waters of the river or who enters one of the river's spaces must attempt a Will save. If the creature is undead or a nindoru, it takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "mental"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, modified by the result of their Will save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature ignores the river's effects until the start of its next turn. If the creature is undead or a nindoru, it takes no damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature treats all squares occupied by the river as difficult terrain until the start of its next turn. If the creature is undead or a nindoru, it takes half damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but the creature is also knocked "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": ". If the creature is undead or a nindoru, it takes full damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but the creature is pushed 20 feet along the river's path in the direction of flow. If the creature is undead or a nindoru, it takes double mental damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The mental damage increases by 1d6."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.CgekONDD5jIxL8oM"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 120
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": ["occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "3d13bf05-d490-5e74-852c-2254bac4d0ae",
+    "pack": "season-of-ghosts",
+    "kind": "spell",
+    "slug": "spell:lifes-fresh-bloom",
+    "name": "Life's Fresh Bloom",
+    "level": 4,
+    "rarity": "rare",
+    "traits": ["concentrate", "healing", "manipulate", "vitality"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The ground around you blooms with life, sprouting sparkling grass, flowers, and small shrubs. Each living and non-nindoru creature that starts its turn standing on the ground in the area recovers 1d6 Hit Points and gains a +5-foot status bonus to its Speed until the end of its next turn. Nindoru fiends and undead that start their turn in the area of life's fresh bloom instead become "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": " unless they succeed at a Fortitude saving throw."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "06640546-77a0-5734-b00a-bd8b66dc62ec"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (7th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Increase the Hit Points restored to 1d8 and "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 2"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (10th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Increase the Hit Points restored to 1d10 and "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 3"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.2TVc8NabmGpc092W"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "area": {
+        "shape": "burst",
+        "size": 20
+      },
+      "duration": {
+        "type": "time",
+        "count": 5,
+        "unit": "round",
+        "sustained": true
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:fortitude",
+          "basic": false
+        }
+      },
+      "traditions": ["divine", "primal"],
+      "damage": [
+        {
+          "key": "gcu9lyuqezmqqir2",
+          "formula": "1d6",
+          "kinds": ["healing"]
+        }
+      ],
+      "heightening": {
+        "type": "fixed",
+        "ranks": [
+          {
+            "rank": 7,
+            "damage": [
+              {
+                "key": "gcu9lyuqezmqqir2",
+                "formula": "1d8",
+                "kinds": ["healing"]
+              }
+            ]
+          },
+          {
+            "rank": 10,
+            "damage": [
+              {
+                "key": "gcu9lyuqezmqqir2",
+                "formula": "1d10",
+                "kinds": ["healing"]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "2664b216-8b13-540b-ade3-211df030e832",
+    "pack": "season-of-ghosts",
+    "kind": "spell",
+    "slug": "spell:prophets-luck",
+    "name": "Prophet's Luck",
+    "level": 4,
+    "rarity": "rare",
+    "traits": ["concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You or a creature within range attempts a saving throw against an obvious threat."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You prophesize the result of the triggering saving throw as either a success (including a critical success) or a failure (including a critical failure). The target gains a +1 status bonus to the save if you predict success or a –1 status penalty if you predict failure. If you predict the result correctly, fortune favors you, and you gain a +1 status bonus to saving throws. If you predict incorrectly, fortune spurns the target, imparting a –1 status penalty to its saving throws."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (6th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The save bonus or penalty increases to +2 or –2."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (9th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The save bonus or penalty increases to +3 or –3."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.n2CM3NeRuq5RSY19"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "reaction"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 60
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute"
+      },
+      "traditions": ["arcane", "divine"],
+      "damage": []
+    }
+  },
+  {
+    "id": "86b4026d-76d2-5cd3-a0a1-086c47edce70",
+    "pack": "season-of-ghosts",
+    "kind": "spell",
+    "slug": "spell:sacred-nimbus",
+    "name": "Sacred Nimbus",
+    "level": 4,
+    "rarity": "rare",
+    "traits": ["concentrate", "holy", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You summon a small, fluffy white nimbus cloud that floats 10 feet above the ground and rains down pleasantly warm sanctified water. The rain deals 5d6 spirit damage to fiends, undead, and creatures that have a weakness to spirit damage in the area at the end of your turn. When you Sustain the spell, you can move the cloud at a fly speed of 15 feet to anywhere in the spell's range. The water dissipates as it makes contact with any creatures or surfaces, leaving only a bit of humidity in its place."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage increases by 1d6."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.GabRQPc9qD86jDGI"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "area": {
+        "shape": "square",
+        "size": 10
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:reflex",
+          "basic": false
+        }
+      },
+      "traditions": ["divine", "primal"],
+      "damage": [
+        {
+          "key": "vzh6f22b2x2twam3",
+          "formula": "5d6",
+          "damageType": "spirit",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "vzh6f22b2x2twam3",
+            "formula": "1d6"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "5d743557-36f3-57e3-823c-de532dadaf8f",
+    "pack": "season-of-ghosts",
+    "kind": "spell",
+    "slug": "spell:tomorrows-dawn",
+    "name": "Tomorrow's Dawn",
+    "level": 4,
+    "rarity": "rare",
+    "traits": ["concentrate", "light", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The golden light of a new dawn and the promise of life beyond death radiates from your body. You radiate bright light in a 20-foot radius (and dim light for the next 20 feet) and gain mental resistance 5. Any nindoru fiend or undead that begins its turn adjacent to you must attempt a Will save with the following results."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "2345fce4-b742-5db4-a2b6-8a076732fa7b"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected and immune to this spell's effects for the remainder of the spell's duration."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": " until the end of its turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is sickened 1. In addition, it becomes "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " until the end of its next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 2"
+          },
+          {
+            "type": "text",
+            "text": " and the creature remains slowed 1 for the rest of the spell's duration."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (6th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain mental resistance 10."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (8th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain mental resistance 15."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.a0MfDnUa33oWM74s"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": ["occult", "primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "6d5b8435-f205-56ef-b35b-a36a84ca854a",
+    "pack": "season-of-ghosts",
+    "kind": "spell",
+    "slug": "spell:wall-of-mirrors",
+    "name": "Wall Of Mirrors",
+    "level": 4,
+    "rarity": "rare",
+    "traits": ["concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You create a solid wall of shimmering reflective glass up to 50 feet long and 20 feet high. The wall is an inch thick and stands vertically. You must create the wall in an unbroken open space so its edges don't pass through any creatures or objects, or the spell is lost. Each 10-foot-by-10-foot section of the wall has AC 10, Hardness 10, and 40 Hit Points, and it's immune to critical hits and precision damage. Everything on each side of the wall is "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " from creatures on the opposite side. If a creature Strikes the wall, the wall causes the creature to endure the mental anguish of that attack's pain as well; the creature takes 4d4 mental damage and can resist this damage with a basic Will save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The Hit Points of each section of the wall increase by 10."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.eONVFSbBiqaDLGey"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 120
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": [
+        {
+          "key": "shvzaq6nb5kquabr",
+          "formula": "4d4",
+          "damageType": "mental",
+          "kinds": ["damage"]
+        }
+      ]
+    }
+  }
+]

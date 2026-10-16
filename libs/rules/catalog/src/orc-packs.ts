@@ -160,3 +160,18 @@ export async function highSeasPack(): Promise<PackContents> {
     json(import('@pioneer/content/packs/high-seas/weapon.json')),
   ]);
 }
+
+export async function seasonOfGhostsPack(): Promise<PackContents> {
+  return pack(import('@pioneer/content/packs/season-of-ghosts/pack.json'), [
+    json(import('@pioneer/content/packs/season-of-ghosts/action.json')),
+    json(import('@pioneer/content/packs/season-of-ghosts/armor.json')),
+    json(import('@pioneer/content/packs/season-of-ghosts/consumable.json')),
+    json(import('@pioneer/content/packs/season-of-ghosts/effect.json')),
+    json(import('@pioneer/content/packs/season-of-ghosts/equipment.json')),
+    json(import('@pioneer/content/packs/season-of-ghosts/feat.json')),
+    json(import('@pioneer/content/packs/season-of-ghosts/ritual.json')),
+    json(import('@pioneer/content/packs/season-of-ghosts/shield.json')),
+    json(import('@pioneer/content/packs/season-of-ghosts/spell.json')),
+    json(import('@pioneer/content/packs/season-of-ghosts/weapon.json')),
+  ]);
+}

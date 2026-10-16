@@ -45,6 +45,7 @@ export const FOUNDRY_IMPORTS: readonly FoundryImport[] = [
   imported('draconic-codex'),
   imported('hellfire-dispatches'),
   imported('high-seas'),
+  imported('season-of-ghosts'),
 ];
 
 /** The release's page on GitHub. */

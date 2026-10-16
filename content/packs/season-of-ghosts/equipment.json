@@ -1,0 +1,3913 @@
+[
+  {
+    "id": "e2726706-53c8-5dfb-bf07-ba6bcd870f2f",
+    "pack": "season-of-ghosts",
+    "kind": "equipment",
+    "slug": "equipment:cape-of-justice",
+    "name": "Cape of Justice",
+    "level": 4,
+    "rarity": "rare",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While Yaezhing is feared and seldom worshipped in the open, some regions of Tian Xia see him as a god of necessary evil and their only hope for justice. This garment is often worn by bounty hunters or priests of Yaezhing, yet non-worshippers of the god of harsh justice sometimes wear this item without fear of religious persecution. The red cape appears almost black while in the shadows, with a lighter red mandala pattern on it that resembles a shuriken."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you invest a "
+          },
+          {
+            "type": "text",
+            "text": "cape of justice",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you must designate a single creature as your offender. You must have met the creature before, or the creature should have a persona well known to the public (for instance, a bandit's name or epithet, if not their face as shown on a wanted poster)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 item bonus to Demoralize this creature. If you don't designate a creature as your offender when you invest the "
+          },
+          {
+            "type": "text",
+            "text": "cape of justice",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", or if 24 hours pass without you either slaying or capturing your offender, your thoughts become worried and distracted, and you take a –1 item penalty to Perception checks for the next 24 hours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "cb18bd2d-cbd5-530e-9fa7-1cb5e3cd76dc"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Force Shuriken",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (force, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " By using a free hand to grab the edge of your cape and give it a quick flourish, you cause a red, shuriken-shaped bolt of force to fire at a target within 60 feet that you can see. The shuriken hits automatically and deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d4+1",
+                "damageType": "force"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, or "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d4+2",
+                "damageType": "force"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage if the target is your designated offender. If the target is within 30 feet, you can attempt to Demoralize the target as a free action after the shuriken strikes them."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Enact Justice",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, incapacitation, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You produce manacles from the cape and then fling them at a Medium or Small bipedal target within 30 feet. The target must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 18,
+            "options": ["inflicts:off-guard", "inflicts:immobilized"]
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected, and the manacles vanish."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The manacles strike the target's legs but fail to latch properly. The target is "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " until the start of your next turn, at which point the manacles vanish."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The manacles lock on the target's legs. The target takes a –15-foot circumstance penalty to its Speeds for 1 minute, or until it Escapes or is freed by someone using Pick a Lock, after which the manacles vanish."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "1a0514c4-235e-532a-a442-219e6cd599e8"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but the target is "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": " for as long as the manacles remain in place."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["action:demoralize", "option:designated-offender"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.vXMIKXn3RHh3UET8"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 100
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "force-shuriken",
+          "name": "Force Shuriken",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        },
+        {
+          "slug": "enact-justice",
+          "name": "Enact Justice",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "cloak"
+      }
+    }
+  },
+  {
+    "id": "17d8ef1d-04d7-59f1-9003-51404e7c0ebe",
+    "pack": "season-of-ghosts",
+    "kind": "equipment",
+    "slug": "equipment:dragon-turtle-artillery",
+    "name": "Dragon Turtle Artillery",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "One end of this heavy cylinder of steel has been forged in the likeness of a dragon turtle's head, the mouth gaping wide. Grips at the opposite end allow one to hold and aim this heavy cannon-like barrel with both hands. As long as you're carrying "
+          },
+          {
+            "type": "text",
+            "text": "dragon turtle artillery",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " while you're on a boat or ship, the DC for any effect to capsize that vehicle increases by 4."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Turtle's Tsunami",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate, water)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 50
+          },
+          {
+            "type": "text",
+            "text": " of surging water blasts from the mouth of the cannon, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10d6",
+                "damageType": "bludgeoning"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to creatures in its area of effect ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 27,
+            "basic": true,
+            "options": ["inflicts:prone"]
+          },
+          {
+            "type": "text",
+            "text": " save). A creature that fails its save is knocked "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.zBXPmr6w8VxBvwZW"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": 3,
+      "activations": [
+        {
+          "slug": "turtles-tsunami",
+          "name": "Turtle's Tsunami",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "d9c023f0-71e5-5a43-9a57-afc782afe3e0",
+    "pack": "season-of-ghosts",
+    "kind": "equipment",
+    "slug": "equipment:fan-of-falling-words",
+    "name": "Fan of Falling Words",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["illusion", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This folding handheld paper fan appears blank when first found, but if the wielder unfolds its leaves as an Interact action, they display an ink-brush painting of the wielder's choice. The fan must be closed and opened again to display a different painting. While held, the "
+          },
+          {
+            "type": "text",
+            "text": "fan of falling words",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " grants you a +2 item bonus to Performance checks to act or perform comedy, orate, or sing."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Whispered World",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You manifest the tapestry of your words, causing the image you depict on the fan to leap off its leaves. The fan casts "
+          },
+          {
+            "type": "ref",
+            "id": "d894e516-941a-5425-aad2-92f58eeaccac"
+          },
+          {
+            "type": "text",
+            "text": " to your specifications ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 27
+          },
+          {
+            "type": "text",
+            "text": " save). While this only takes 3 actions to perform (as opposed to the spell's normal 10 minutes of casting), the effect has no range, and the "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 50
+          },
+          {
+            "type": "text",
+            "text": " it creates is centered on you."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:performance"],
+        "type": "item",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["action:perform:act", "action:perform:comedy", "action:perform:oratory", "action:perform:singing"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.MoXTxoH7IHgDGtXM"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 900
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "whispered-world",
+          "name": "Whispered World",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "5c958abe-5647-5f59-ac1b-80f722941280",
+    "pack": "season-of-ghosts",
+    "kind": "equipment",
+    "slug": "equipment:fortune-cord",
+    "name": "Fortune Cord",
+    "level": 11,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In many parts of Tian Xia, it's tradition to mint coins with holes in the centers for the purpose of being able to thread a cord through them and tie them off for security and ease of transaction. This immaculately braided red cord is made in this tradition and can hold up to 100 coins at any given time. As long as you carry a "
+          },
+          {
+            "type": "text",
+            "text": "fortune cord",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you gain a +2 item bonus to skill checks to "
+          },
+          {
+            "type": "ref",
+            "id": "b03a543f-4d12-5c6b-a4f9-6afe141aa651"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you load up to 100 coins onto a "
+          },
+          {
+            "type": "text",
+            "text": "fortune cord",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " as part of your daily preparations, you can Activate the magic item in two different ways until the next time you make your daily preparations, provided all the loaded coins are of the same type."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Merchant's Bludgeon",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have at least 50 coins loaded onto the "
+          },
+          {
+            "type": "text",
+            "text": "fortune cord",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You transform the "
+          },
+          {
+            "type": "text",
+            "text": "fortune cord",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " into a "
+          },
+          {
+            "type": "text",
+            "text": "+2 striking nunchaku",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute. The type of coin loaded onto the cord determines the additional weapon property rune that manifests on this "
+          },
+          {
+            "type": "text",
+            "text": "+2 striking nunchaku",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", as follows."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Copper",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": ": "
+                },
+                {
+                  "type": "ref",
+                  "id": "9ec0c103-48fb-55b5-b03b-ccc5d857dd7d"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Silver",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": ": "
+                },
+                {
+                  "type": "ref",
+                  "id": "bafaacb5-8430-53b6-b6d9-2dd04e7c6d00"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Gold",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": ": "
+                },
+                {
+                  "type": "ref",
+                  "id": "161a6329-9809-57d5-9b34-c150d2bfe235"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Platinum",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": ": "
+                },
+                {
+                  "type": "ref",
+                  "id": "b1439a9d-7374-5ad3-9cf7-9dfe7936e106"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "e5adeee2-e943-5887-9a88-66a80787a937"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Fling Coins",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You whip the "
+          },
+          {
+            "type": "text",
+            "text": "fortune cord",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", causing 10 coins loaded onto it to detach and fire at a creature within 100 feet that you can see. That creature takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 28,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save); the damage type depends on the type of coins you've loaded. Copper coins deal acid damage, silver coins deal electricity damage, gold coins deal fire damage, and platinum coins deal cold damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["action:earn-income"]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:fortune-cord-damage",
+        "toggleable": true,
+        "suboptions": [
+          {
+            "value": "acid",
+            "label": "Copper"
+          },
+          {
+            "value": "electricity",
+            "label": "Silver"
+          },
+          {
+            "value": "fire",
+            "label": "Gold"
+          },
+          {
+            "value": "cold",
+            "label": "Platinum"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.cuWnhVyMCHqOA2Hl"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1300
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "merchants-bludgeon",
+          "name": "Merchant's Bludgeon",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "9b1f1abe-344f-5065-941c-2c7a66fe4fee",
+    "pack": "season-of-ghosts",
+    "kind": "equipment",
+    "slug": "equipment:ghost-scarf",
+    "name": "Ghost Scarf",
+    "level": 7,
+    "rarity": "rare",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This 6-foot-long scarf shimmers with the silvery light of the River of Souls while worn, providing illumination equivalent to that of a candle. You can deactivate or activate this radiance as an Interact action. The dangling lengths of a "
+          },
+          {
+            "type": "text",
+            "text": "ghost scarf",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " softly billow in the presence of haunts, granting the wearer a +1 item bonus to all Perception checks and Perception DCs to resolve discovering a haunt or rolling initiative when a haunt triggers."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Ghost Slayer's Caress",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The scarf extends silvery threads that wrap around a weapon you carry, granting the effects of a "
+          },
+          {
+            "type": "ref",
+            "id": "3e294082-c3ff-58be-ab80-1608b9c6229a"
+          },
+          {
+            "type": "text",
+            "text": " property rune to that weapon for 5 minutes. If the weapon already bears a "
+          },
+          {
+            "type": "text",
+            "text": "ghost touch",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rune, you instead gain a +1 item bonus to Fortitude saves against effects from incorporeal undead for 5 minutes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "3679d2a6-2cfc-5733-ad2e-1ba033921a1a"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:ghost-scarf-light",
+        "toggleable": true,
+        "value": true,
+        "display": {
+          "label": "Ghost Scarf is shedding light"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["target:trait:haunt"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.VMYiP4xRd1hPa5ny"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 360
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "ghost-slayers-caress",
+          "name": "Ghost Slayer's Caress",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "belt"
+      }
+    }
+  },
+  {
+    "id": "9237c17a-33a9-58c2-a12f-7102a46dd220",
+    "pack": "season-of-ghosts",
+    "kind": "equipment",
+    "slug": "equipment:hairpin-of-blooming-flowers",
+    "name": "Hairpin of Blooming Flowers",
+    "level": 7,
+    "rarity": "rare",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The flower that adorns this hairpin is a blooming lotus flower that varies in color; it regrows in a day after the item is activated. Whether or not the hairpin's flower is in bloom, as long as you wear it and it's invested, it grants a +1 item bonus to Diplomacy checks."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Scatter Petals",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You pluck the flower from the hairpin and scatter the petals, creating a flurry of color in a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": " centered on you. You become "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute or until you move from your current location. Any creature within the 10-foot burst when you Activate the Item must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 23,
+            "options": ["inflicts:dazzled", "inflicts:blinded"]
+          },
+          {
+            "type": "text",
+            "text": " save or become "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " until the end of its next turn (or "
+          },
+          {
+            "type": "ref",
+            "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+          },
+          {
+            "type": "text",
+            "text": " until the end of its next turn on a critical failure). The flower blooms again the next day."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy"],
+        "type": "item",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.EHMGDwY0oSZAHz8Y"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 360
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "scatter-petals",
+          "name": "Scatter Petals",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "fc21ab70-d0e8-5536-8317-3dabe11a6582",
+    "pack": "season-of-ghosts",
+    "kind": "equipment",
+    "slug": "equipment:hongruis-gratitude",
+    "name": "Hongrui's Gratitude",
+    "level": 3,
+    "rarity": "unique",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Given as thanks for honoring the memories of three unfortunate travelers who met a tragic end in the Willowshore Hinterlands, this red-hooded cloak is decorated with an image of an elaborately dressed performer whose two companions hold a lantern and umbrella for her."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Release Lantern",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, light, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You don't have the Release Umbrella activation of this cloak active"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " With a wave of the cloak to the left, you cause the image of the lantern-holding companion on the cloak to vanish. A floating red lantern appears at your side and follows you at an arm's length while casting bright light in a 20-foot radius (and dim light for the next 20 feet) like a torch. For 1 hour, while the light from this lantern is active, you gain a +1 item bonus to Diplomacy checks. You can Release Lantern again to dismiss the effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "8f8e5308-6162-5c3d-a39d-2377befedec7"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Release Umbrella",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You don't have the Release Lantern activation of this cloak active"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " With a wave of the cloak to the right, you cause the image of the umbrella-holding companion on the cloak to vanish. An indestructible red wax paper umbrella appears above you and follows you, shielding you from weather effects, such as rain or bright sunlight. For 1 hour, while this umbrella is active, you gain a +1 item bonus to Survival checks. You can Release Umbrella again to dismiss the effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "03fa5a0f-358f-553a-90e2-a452c4f1d91d"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.2pzrpfYE9AHMAX9H"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 60
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "release-lantern",
+          "name": "Release Lantern",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        },
+        {
+          "slug": "release-umbrella",
+          "name": "Release Umbrella",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "cloak"
+      }
+    }
+  },
+  {
+    "id": "6cf10ee7-6794-5e86-aed2-54fa172a4143",
+    "pack": "season-of-ghosts",
+    "kind": "equipment",
+    "slug": "equipment:injigos-loving-embrace",
+    "name": "Injigo's Loving Embrace",
+    "level": 9,
+    "rarity": "unique",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This net was woven by the jorogumo Injigo, who presented it as a gift to her gnome sweetheart, Mara, to keep her safe in their mountain cottage whenever Injigo left home to go on hunting expeditions."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Injigo's Loving Embrace",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " functions as a typical net. You gain a +1 item bonus to Athletics checks to Grapple with the net."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Ensnare Ghost",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You spin the net in the direction of an incorporeal creature within 30 feet that you can see. Lines of silken force whip out to lash around the incorporeal creature, who must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 25,
+            "options": ["inflicts:immobilized"]
+          },
+          {
+            "type": "text",
+            "text": " save or become "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": " until the end of your next turn. You can Sustain this activation for up to 1 minute, and the creature must succeed at a DC 25 check to Escape the net."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—A Night of Melancholic Dreams",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 10 minutes (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per week"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You wrap the net around you like a blanket as you prepare to sleep. As long as you get 8 hours of sleep or analogous rest, you dream of writing love letters to someone you adore: this could be an actual paramour, someone you're interested in, or someone unknown whose identity you don't recall after waking. When you wake, you're filled with a sense of melancholia about those unsent letters, but these feelings distract you from other, more unpleasant thoughts, granting you mental resistance 5 and a +1 item bonus to saving throws against mental effects for the next 8 hours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "8673b2b5-a24a-519b-9d5d-90bd3aafa154"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["action:grapple", "option:injigos-loving-embrace"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.MV9tQYR5vsjPeyar"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 675
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "ensnare-ghost",
+          "name": "Ensnare Ghost",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        },
+        {
+          "slug": "a-night-of-melancholic-dreams",
+          "name": "A Night of Melancholic Dreams",
+          "frequency": {
+            "max": 1,
+            "per": "week"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "ea34f21d-0544-5198-b022-ca55b5f474aa",
+    "pack": "season-of-ghosts",
+    "kind": "equipment",
+    "slug": "equipment:jiang-shi-bell",
+    "name": "Jiang-Shi Bell",
+    "level": 11,
+    "rarity": "uncommon",
+    "traits": ["illusion", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This ornate handbell creates a sonorous low-pitched tone when rung, as if sounding from a much larger bell than one carried in the hand. The bell is crafted of silver and polished to a reflective sheen, while the bell's wooden handle is carved with detailed images of various foodstuffs. You can Interact with a "
+          },
+          {
+            "type": "text",
+            "text": "jiang-shi bell",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to brandish it against a jiang-shi vampire. If a jiang-shi gains the "
+          },
+          {
+            "type": "ref",
+            "id": "f7fea8f9-c457-5b9f-9283-f567fa557184"
+          },
+          {
+            "type": "text",
+            "text": " condition as a result of a "
+          },
+          {
+            "type": "text",
+            "text": "jiang-shi bell",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " being brandished, they must run until they're at least 20 feet away. They take a -2 penalty to the Will save to any attempt to overcome their revulsion toward this object."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Phantom Banquet",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate, olfactory, visual)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You ring the bell and create an illusory image of a delicious-looking banquet of food laid out on an altar in a "
+          },
+          {
+            "type": "template",
+            "shape": "square",
+            "size": 5
+          },
+          {
+            "type": "text",
+            "text": " at any point within 30 feet of you that you can see. Any creature that must eat food to survive that's within 30 feet of the appearance of the illusory food must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 28,
+            "options": ["inflicts:fascinated"]
+          },
+          {
+            "type": "text",
+            "text": " save or be so distracted by the food's sight and smell that they become "
+          },
+          {
+            "type": "ref",
+            "id": "88ca1b7b-d5de-5978-9ff4-258c9aadef1a"
+          },
+          {
+            "type": "text",
+            "text": " by it for 10 minutes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This food's appearance can trigger any jiang-shi's bitter epiphany weakness; if the food does so, the jiang-shi takes a –2 item penalty to their Will save to resist the effects of this weakness."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.TFlgUM4CqPBmzhRC"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1200
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "phantom-banquet",
+          "name": "Phantom Banquet",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "9a26b807-8ac1-58c0-b1e9-3f1f3a4b7d6d",
+    "pack": "season-of-ghosts",
+    "kind": "equipment",
+    "slug": "equipment:juubuns-one-thousand-poems",
+    "name": "Juubun's One Thousand Poems",
+    "level": 9,
+    "rarity": "unique",
+    "traits": ["grimoire", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This well-worn manuscript is side stitched with fading lilac-colored thread. It's filled with poems written long ago by a philosopher named Seiji Juubun, containing a lifetime of wisdom and presenting information and advice on a tremendous breadth of topics."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Poetic Spellcasting",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, emotion, mental, spellshape)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If your next action is to Cast a Spell that has the linguistic trait and that targets 1 creature, you're overtaken by Juubun's spirit, and the spoken elements of your spell become impressively poetic. If the target is an ally, your words inspire them and they gain 10 temporary Hit Points that last for 1 minute. If the targeted creature is an enemy and the spell requires a saving throw, and if the enemy fails its saving throw, they become "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": " as a result of despair and sadness."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "07f2ed0f-ae8a-50ab-a1ae-e5a2c28374b0"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.kDbL1zbqf76odwlU"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 700
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "poetic-spellcasting",
+          "name": "Poetic Spellcasting",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "c8b80c96-ecfb-55ed-92a9-d360d875a3e0",
+    "pack": "season-of-ghosts",
+    "kind": "equipment",
+    "slug": "equipment:kinburis-sandals-of-bounding",
+    "name": "Kinburi's Sandals of Bounding",
+    "level": 9,
+    "rarity": "unique",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These elevated wooden sandals once belonged to a haughty kitsune named Kinburi. It was well known that her swiftness and grace were unmatched, and observers described her as seeming to glide above the earth with each step. She often challenged others to wager on her speed, but as people began to grow wise, she was forced to conceal her identity or promise to forfeit her sandals if she lost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These sandals give you a +1 item bonus to Athletics checks to High Jump and Long Jump. In addition, when you use the Leap action, you can move 5 feet further if jumping horizontally or 3 feet higher if jumping vertically."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Light-Footed Bound",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You loudly boast about your grace and agility, then take any combination of two High Jumps or Long Jumps. You don't need to Stride first, and between the two jumps, you need only to come into contact with a physical object before making the second jump; this object doesn't need to be one that can bear your weight, or even be attached to the ground—you can jump off of a floating feather or a thin branch or even off a paper wall as needed. The sandals' item bonus increases to +2 for these jumps."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "skill-check",
+        "option": "option:light-footed-bound",
+        "toggleable": true,
+        "display": {
+          "label": "Kinburi's Sandals of Bounding — Light-Footed Bound"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "item",
+        "value": 1,
+        "slug": "kinburis-sandals-of-bounding",
+        "predicate": [
+          {
+            "or": ["action:long-jump", "action:high-jump"]
+          }
+        ]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["skill:athletics"],
+        "slug": "kinburis-sandals-of-bounding",
+        "mode": "add",
+        "value": 1,
+        "predicate": ["option:light-footed-bound"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.LuW0KcoGUJ49dFCJ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 700
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "light-footed-bound",
+          "name": "Light-Footed Bound",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "shoes"
+      }
+    }
+  },
+  {
+    "id": "23412be2-4654-509a-b85b-40d22be7282e",
+    "pack": "season-of-ghosts",
+    "kind": "equipment",
+    "slug": "equipment:lacquered-waist-drum",
+    "name": "Lacquered Waist Drum",
+    "level": 11,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This hourglass-shaped drum has two heads, each of which produces a different sound when struck. When played together, the resonance of the two sounds is effective in repelling evil spirits. This drum can be played as an instrument, granting a +2 item bonus to Performance."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Memories of Life",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate, vitality)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You play both heads of the drums, generating a pulse of energy that targets one creature within 30 feet that has the undead trait. This deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "5d8",
+                "damageType": "vitality"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 28
+          },
+          {
+            "type": "text",
+            "text": " save) to that creature; if the undead also has the ghost trait, the ghost becomes "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": " if it fails the save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Memories of Joy",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate, vitality)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You raucously play both heads of the drums, accompanied with shouting and dancing. This display generates a pulse of energy in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " from you. All undead creatures within this area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 28
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes no damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d8",
+                "damageType": "vitality"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "5d8",
+                "damageType": "vitality"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage; if the creature has the ghost trait, it becomes "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10d8",
+                "damageType": "vitality"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage; if the creature has the ghost trait, it becomes "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 2"
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "skill:performance",
+        "option": "option:playing",
+        "toggleable": true,
+        "display": {
+          "label": "Playing Lacquered Waist Drum"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:performance"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["option:playing"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.qTfLcil8S2E0ffnX"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1300
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "memories-of-life",
+          "name": "Memories of Life",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        },
+        {
+          "slug": "memories-of-joy",
+          "name": "Memories of Joy",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "34b0eaef-fa8f-5bde-b022-11d06cdbf3c4",
+    "pack": "season-of-ghosts",
+    "kind": "equipment",
+    "slug": "equipment:moonsilver-necklace",
+    "name": "Moonsilver Necklace",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Those who are in tune with nature understand well the transience of life and the migration of souls. Just as the moon waxes and wanes, so too are the candles of life lit and extinguished. The ritual for creating this item requires an animal sacrifice in direct moonlight, the belief being that creatures sacrificed in this way are blessed to reincarnate into better lives. While you have this silver, crescent-shaped necklace invested, your unarmed melee Strikes are silver weapons with the properties of the "
+          },
+          {
+            "type": "ref",
+            "id": "3e294082-c3ff-58be-ab80-1608b9c6229a"
+          },
+          {
+            "type": "text",
+            "text": " rune."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:category:unarmed", "item:melee"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "ghost-touch"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:category:unarmed", "item:melee"],
+        "property": "materials",
+        "mode": "add",
+        "value": "silver"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.zhC0xjOecyuT7TFh"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "3b1a0902-5850-5688-9988-d5505b03da67",
+    "pack": "season-of-ghosts",
+    "kind": "equipment",
+    "slug": "equipment:noppera-bo-hood",
+    "name": "Noppera-Bo Hood",
+    "level": 4,
+    "rarity": "rare",
+    "traits": ["illusion", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This unpleasant-looking hood appears to be a completely smooth, round sack of skin that feels uncannily warm to the touch. When you wear this hood and invest it, it merges with your head and face, becoming imperceptible as a worn item except on close examination, which reveals a slight oily sheen to your facial features. You can cause minor shifts and changes to your features while wearing a "
+          },
+          {
+            "type": "text",
+            "text": "noppera-bo hood",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "; this counts as having a "
+          },
+          {
+            "type": "ref",
+            "id": "60245d6a-d7d0-5730-a2bb-7575d230e105"
+          },
+          {
+            "type": "text",
+            "text": " to "
+          },
+          {
+            "type": "ref",
+            "id": "9d26c6da-04e9-5491-86c1-7a4b23fe9da3"
+          },
+          {
+            "type": "text",
+            "text": " any creature that's the same ancestry as you."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Another Face",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, morph)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You focus on the hood's magic, and then gain the effects of a 1st-rank "
+          },
+          {
+            "type": "ref",
+            "id": "adcc4c8f-05ae-5440-83d0-9e88ad22209b"
+          },
+          {
+            "type": "text",
+            "text": " spell, though it's a morph effect rather than an illusion effect."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.l5aps7Qfc0lB0LYX"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 85
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "another-face",
+          "name": "Another Face",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "headwear"
+      }
+    }
+  },
+  {
+    "id": "52291947-7313-5e87-9632-c39a7f8a0151",
+    "pack": "season-of-ghosts",
+    "kind": "equipment",
+    "slug": "equipment:phoenix-fulu-holder",
+    "name": "Phoenix Fulu Holder",
+    "level": 12,
+    "rarity": "rare",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This elegant wooden frame is decorated with numerous downy red feathers that feel almost uncomfortably hot to the touch. A "
+          },
+          {
+            "type": "text",
+            "text": "phoenix fulu holder",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " grants a sort of second \"life\" to any fulu placed for a time within its frame but also gives the fulu wielder a stylish and eye-catching way of displaying such a treasure. You can place any fulu into a "
+          },
+          {
+            "type": "text",
+            "text": "phoenix fulu holder",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " as an Interact action."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Duplicate Fulu",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An 11th- or lower-level fulu is stored in the "
+          },
+          {
+            "type": "text",
+            "text": "phoenix fulu holder",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take the fulu from the "
+          },
+          {
+            "type": "text",
+            "text": "phoenix fulu holder",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", and an instant later, a glowing image of the fulu you removed manifests in the frame. If the previously stored fulu is consumed within the next 24 hours, the flickering image within the "
+          },
+          {
+            "type": "text",
+            "text": "phoenix fulu holder",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " becomes a solid and fully functional duplicate of that fulu. This duplicated fulu functions identically to the original fulu, but if not affixed within 24 hours of its formation, it fades away and vanishes. A duplicated fulu can't be placed in a "
+          },
+          {
+            "type": "text",
+            "text": "phoenix fulu holder",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to be further duplicated."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.cJyDBuwgJw7lLi0t"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "duplicate-fulu",
+          "name": "Duplicate Fulu",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "3ab2a6b6-168d-55d3-a440-8d5f1639736e",
+    "pack": "season-of-ghosts",
+    "kind": "equipment",
+    "slug": "equipment:red-thread-knot",
+    "name": "Red Thread Knot",
+    "level": 7,
+    "rarity": "rare",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This small length of red thread is knotted six times, with a loop at each end so it can either be worn as a bracelet or anklet, or hung from a strap."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Untie Fate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, fortune)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You critically fail a save"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The knot unties one of its six knots, altering your fate in the process. Treat your saving throw as if you failed the check rather than critically failed the check. Once the sixth knot unties, it becomes a non-magical red thread."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.JrvrGairz2itBqhj"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 360
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "d7c614b0-e282-5309-9b22-a20309303770",
+    "pack": "season-of-ghosts",
+    "kind": "equipment",
+    "slug": "equipment:resolute-mind-wrap",
+    "name": "Resolute Mind Wrap",
+    "level": 7,
+    "rarity": "rare",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The followers of the Tan Sugi monastery understood the value of protecting the mind from the intrusion of violence and anger and infused this strip of striped green and brown cloth with their beliefs. Wrapped around the head, the stripes almost evoke the patterns of sugi branches coiled around the wearer's skull. The "
+          },
+          {
+            "type": "text",
+            "text": "resolute mind wrap",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " grants you mental resistance 5."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Shield Thoughts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You attempt a Will saving throw against a mental effect"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "resolute mind wrap",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " clings more tightly to your head, granting you a +1 item bonus to your Will saving throw. If you succeed at this saving throw, the resistance to mental damage granted by the "
+          },
+          {
+            "type": "text",
+            "text": "resolute mind wrap",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " increases to 10 for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "9b4fa532-6df1-50bd-8a51-0481d51a7f32"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["mental"],
+        "value": 5
+      },
+      {
+        "key": "RollOption",
+        "domain": "saving-throw",
+        "option": "option:resolute-mind-wrap-shield-thoughts",
+        "toggleable": true,
+        "display": {
+          "label": "Resolute Mind Wrap — Shield Thoughts"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:will"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["item:trait:mental", "option:resolute-mind-wrap-shield-thoughts"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["save:will"],
+        "title": "Resolute Mind Wrap — Shield Thoughts",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "If you succeed at this saving throw, the resistance to mental damage granted by the "
+              },
+              {
+                "type": "text",
+                "text": "resolute mind wrap",
+                "marks": ["emphasis"]
+              },
+              {
+                "type": "text",
+                "text": " increases to 10 for 1 minute. Effect: Shield Thoughts"
+              }
+            ]
+          }
+        ],
+        "outcome": ["criticalSuccess", "success"],
+        "predicate": ["item:trait:mental", "option:resolute-mind-wrap-shield-thoughts"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.azZNewz2sEWwZwtZ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 360
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "shield-thoughts",
+          "name": "Shield Thoughts",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "headwear"
+      }
+    }
+  },
+  {
+    "id": "6066e323-320d-5663-9ee7-4542af580a93",
+    "pack": "season-of-ghosts",
+    "kind": "equipment",
+    "slug": "equipment:root-boots",
+    "name": "Root Boots",
+    "level": 7,
+    "rarity": "rare",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The soles of these plain leather boots look like coils of flattened roots. The boots allow for full-foot flexibility despite their sturdy make and smell faintly of evergreen trees. While worn and invested, your footsteps sound like rustling leaves, granting you a +1 item bonus to Stealth checks in a forest or wooded area."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Root Walk",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The small roots extending from the soles of these boots allow you to move freely and easily across wood. For 10 minutes, you gain a 20-foot climb Speed on trees and other wooden surfaces, and you don't need to use your hands to climb."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "c9a6f5a7-e494-5c4f-ad0b-42505241d315"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Take Root",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're standing on earth, and something attempts to move you against your will"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The roots extend from your boots to grip the ground, granting you a +4 item bonus to your Fortitude DC against effects that attempt to move you, such as "
+          },
+          {
+            "type": "ref",
+            "id": "082b982f-3ed4-5d9c-9722-9ab10198523a"
+          },
+          {
+            "type": "text",
+            "text": " or Pull."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "skill:stealth",
+        "option": "terrain:forest",
+        "toggleable": true,
+        "display": {
+          "label": "In Forests"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["terrain:forest"]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:root-boots-grip-ground",
+        "toggleable": true,
+        "display": {
+          "label": "Root Boots — Take Root"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["fortitude-dc"],
+        "type": "item",
+        "value": 4,
+        "predicate": [
+          "option:root-boots-grip-ground",
+          {
+            "or": ["action:pull", "action:reposition", "action:shove", "option:forced-movement"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.kQiO32jZmuxAiqGV"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 360
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "root-walk",
+          "name": "Root Walk",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        },
+        {
+          "slug": "take-root",
+          "name": "Take Root",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "8e3d8aba-4753-5101-9696-0da0d43bc971",
+    "pack": "season-of-ghosts",
+    "kind": "equipment",
+    "slug": "equipment:skyfang-crystal",
+    "name": "Skyfang Crystal",
+    "level": 12,
+    "rarity": "rare",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "skyfang crystal",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " appears as a softly glowing length of blue crystal shaped like a gently curved fang; it's typically affixed to a short length of chain, allowing it to be worn as a necklace or wrapped around a forearm. The light it sheds is equal in strength to that of a candle; it can't be extinguished but can be blocked simply by wrapping the crystal in cloth, wearing it under clothing, or keeping it in a container. The first of these magical crystals was believed to have been created by a dying dragon who'd spent her life fighting against evil spirits. She plucked a dozen of her smallest teeth from her jaw and offered them to her 12 most trusted allies so that they could continue to track down evil spirits and remain protected as they did so, even after she was gone."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As long as you have a "
+          },
+          {
+            "type": "text",
+            "text": "skyfang crystal",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " invested, you gain mental resistance 10. If you're unholy, you're "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 2"
+          },
+          {
+            "type": "text",
+            "text": " while you have a "
+          },
+          {
+            "type": "text",
+            "text": "skyfang crystal",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " invested."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Seek the Unholy",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You touch the "
+          },
+          {
+            "type": "text",
+            "text": "skyfang crystal",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to your brow and utter the name of a specific fiend or spirit you seek. If the target is on the same plane as you, the "
+          },
+          {
+            "type": "text",
+            "text": "skyfang crystal",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " pulses stronger with light when you face in the approximate direction of the named creature, allowing you to "
+          },
+          {
+            "type": "ref",
+            "id": "b81cfd58-ce40-526a-b3da-f3c218b5c566"
+          },
+          {
+            "type": "text",
+            "text": " that creature. The DC for this check is equal to the creature's Will DC, and you can use Track, Track, or Track to attempt the check. As long as you're tracking this fiend or spirit, you gain a +2 item bonus to saving throws against effects that creature generates. This effect persists until you activate the "
+          },
+          {
+            "type": "text",
+            "text": "skyfang crystal",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " again to track a different target."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "44fb25bd-67a1-55aa-88d4-066828e846e5"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["mental"],
+        "value": 10
+      },
+      {
+        "key": "GrantItem",
+        "item": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+        "value": 2,
+        "predicate": ["self:trait:unholy"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.vSctvZGoJYTHjpZV"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2000
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "seek-the-unholy",
+          "name": "Seek the Unholy",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "5ca38660-aa6a-57a9-956b-16904c8a8e0b",
+    "pack": "season-of-ghosts",
+    "kind": "equipment",
+    "slug": "equipment:spider-lily-tattoo",
+    "name": "Spider Lily Tattoo",
+    "level": 3,
+    "rarity": "rare",
+    "traits": ["invested", "magical", "tattoo"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The "
+          },
+          {
+            "type": "text",
+            "text": "spider lily tattoo",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " marks you as a trusted member of Granny Hu's network. This crimson tattoo fades and becomes invisible within a day of being applied, reappearing only when you Activate it, when you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "cd164d22-2d8e-5fd2-b8b2-03e1360df1e7"
+          },
+          {
+            "type": "text",
+            "text": " condition, or when you die. The higher the doomed value, the more vivid the color."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If your tattoo is plainly visible, you gain a +1 item bonus to Intimidation checks against all creatures that can see the tattoo, but you take a –1 item penalty to Diplomacy checks to Make an Impression on those who understand the actual meaning of the "
+          },
+          {
+            "type": "text",
+            "text": "spider lily tattoo",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " (including all of Willowshore's citizens)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Reveal Tattoo",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your tattoo isn't currently visible"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You make the tattoo visible. You can use this activation again to make the tattoo not visible, unless you have the doomed condition."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Dead Like You",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An undead creature detects you for the first time, and you're aware of the undead creature"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "spider lily tattoo",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " manipulates your life force to make you appear to be undead for a short time. Attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:deception"
+          },
+          {
+            "type": "text",
+            "text": " check against the triggering undead creature's Perception DC. On a success, the triggering undead believes you're undead as well—a mindless undead is likely to ignore you, while a sapient undead might react with curiosity or confusion. You can continue attempting Deception checks each round as a single action to Sustain the effect for up to 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "skill-check",
+        "option": "option:spider-lily-tattoo",
+        "toggleable": true
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:intimidation"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["option:spider-lily-tattoo"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy"],
+        "type": "item",
+        "value": -1,
+        "predicate": ["option:spider-lily-tattoo", "action:make-an-impression"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.F4jOdM3qhYELTz1I"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 60
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "dead-like-you",
+          "name": "Dead Like You",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "tattooed"
+      }
+    }
+  }
+]

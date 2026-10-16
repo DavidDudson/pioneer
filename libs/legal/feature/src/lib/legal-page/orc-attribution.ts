@@ -64,6 +64,7 @@ export const ORC_ATTRIBUTION: readonly AttributionGroup[] = [
     'Pathfinder Adventure Path #211: The Secret of Deathstalk Tower © 2025, Paizo Inc.; Author: James Jacobs, Linda Zayas-Palmer, and Aoife Ester.',
     'Pathfinder Adventure Path #212: A Voice in the Blight © 2025, Paizo Inc.; Author: Rigby Bendele.',
     'Pathfinder Free RPG Day Adventure 2024: The Great Toy Heist © 2024, Paizo Inc.; Author: Jason Keeley.',
+    'Pathfinder Season of Ghosts © 2026, Paizo Inc.',
   ]),
   group('legal.orc.attribution.society', [
     "Pathfinder Society Quest #20: The Dacilane Academy's Show Must Go On © 2024, Paizo Inc.; Author: Lucas Servideo.",

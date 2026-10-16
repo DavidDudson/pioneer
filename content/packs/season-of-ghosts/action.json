@@ -1,0 +1,651 @@
+[
+  {
+    "id": "87978b08-889b-55d3-bccf-c1fe98c5fbaf",
+    "pack": "season-of-ghosts",
+    "kind": "action",
+    "slug": "action:elemental-attack",
+    "name": "Elemental Attack",
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose from air, earth, fire, metal, water, or wood (this choice can't be changed once you select it for the impersonator). The noppera-bo impersonator targets a creature within 60 feet and creates a detonation of that element; that creature takes 4d6[@item.flags.system.rulesSelections.elementalAttack.damage] (slashing (air), bludgeoning (earth, water, or wood), piercing (metal), or fire (fire)) damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 24,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save). Elemental Attack gains the appropriate elemental trait."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.6U04OKtvRURExkli"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "a7073345-9142-5dd8-879b-811baeca6eea",
+    "pack": "season-of-ghosts",
+    "kind": "action",
+    "slug": "action:invoke-shrine-blessing",
+    "name": "Invoke Shrine Blessing",
+    "rarity": "common",
+    "traits": ["concentrate", "exploration", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are holding an unblessed copper coin and are adjacent to one of Willowshore's shrines."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You offer prayers to a shrine and implore its associated deity to bless a copper coin. Place the copper coin before the shrine, then spend 10 minutes in prayer before the shrine. Attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:religion",
+            "dc": 15
+          },
+          {
+            "type": "text",
+            "text": " or deity Lore check or a DC 17 skill check associated with the deity's teachings—two alternate skills are available for each shrine, as detailed in the Willowshore's Shrines. If you worship the deity in question, increase the result of your check by one degree of success."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The deity blesses the copper coin but also imbues you with additional divine energy and insight. You heal "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d8+8"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points and can cast "
+          },
+          {
+            "type": "ref",
+            "id": "71a6396c-7cc2-5918-a06b-bf3cf1b533f6"
+          },
+          {
+            "type": "text",
+            "text": " once in the next 24 hours as a divine spell. You treat all further critical successes at Invoking Shrine Blessing as regular successes instead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The deity blesses the copper coin."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail, and can't attempt to invoke a blessing at this specific shrine again for 24 hours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You anger the deity. The copper coin vanishes, you can't attempt to invoke a blessing at this shrine again for 1 week, and you become "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 hour."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.Su0ZQXpm2D60kWa0"
+    },
+    "data": {
+      "category": "interaction",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You are holding an unblessed copper coin and are adjacent to one of Willowshore's shrines."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "3925c839-f7d4-5397-bfaa-521ed5475e1c",
+    "pack": "season-of-ghosts",
+    "kind": "action",
+    "slug": "action:path-maiden-apostates-shroud",
+    "name": "(Path Maiden) Apostate's Shroud",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "All path maidens have an apostate's shroud unarmed attack that deals mental damage. This attack, which manifests as a whipping lash from the path maiden's sleeves or hem, has the agile, finesse, and magical traits. A creature damaged by this attack must succeed at a Fortitude save against the path maiden's spell DC. On a failure, the creature becomes cursed for 1 hour; if the creature dies while cursed, it immediately rises from death as a ghost. If the creature is a lower level than the path maiden that cursed it, it treats that path maiden as an ally and loyally obeys her; otherwise, it manifests as a free-willed ghost. In either case, it becomes site bound to the site of their death."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.SPNfbhNa46L3V2NQ"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "86f73ec7-7e8b-56f8-8bf8-43d1827cd7ec",
+    "pack": "season-of-ghosts",
+    "kind": "action",
+    "slug": "action:path-maiden-blasphemous-aura",
+    "name": "(Path Maiden) Blasphemous Aura",
+    "rarity": "common",
+    "traits": ["aura", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "30 feet. When a creature in the aura uses a spell or ability with the healing trait, it must succeed at a Will save against the path maiden's spell DC – 3. On a failure, the amount of Hit Points restored by the spell or ability is halved. On a critical failure, the vitality energy becomes void energy, harming a living target instead of healing it."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Aura",
+        "radius": 30,
+        "traits": ["occult"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.3H0xMglx23V5PP2N"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "ca237a4c-c403-57da-a3dd-3a139ed8fdde",
+    "pack": "season-of-ghosts",
+    "kind": "action",
+    "slug": "action:path-maiden-corrupting-doubt",
+    "name": "(Path Maiden) Corrupting Doubt",
+    "rarity": "common",
+    "traits": ["emotion", "mental", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A creature damaged by the path maiden's hand Strike must succeed at a Will save to avoid becoming "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round ("
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 2"
+          },
+          {
+            "type": "text",
+            "text": " on a critical failure)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.VupsXjJEpavg5ByS"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "36b273ed-b80e-5f5d-9e1c-d7b9d423f2f0",
+    "pack": "season-of-ghosts",
+    "kind": "action",
+    "slug": "action:path-maiden-imprisoning-grave",
+    "name": "(Path Maiden) Imprisoning Grave",
+    "rarity": "common",
+    "traits": ["aura", "divine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "30 feet. The soul of a creature that dies within the path maiden's aura is trapped within its corpse until its body spends 1 minute outside the aura. While trapped, the soul can't move on to the afterlife but can still be brought back to life or transformed into an undead creature."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Aura",
+        "radius": 30,
+        "traits": ["divine"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.igFRStfWiTekB9cU"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "759da9f8-9285-5dd0-b548-1530eccb82c3",
+    "pack": "season-of-ghosts",
+    "kind": "action",
+    "slug": "action:path-maiden-limited-flight",
+    "name": "(Path Maiden) Limited Flight",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A path maiden has a fly Speed equal to her Speed but can't fly higher than 10 feet above the ground, and if she ends her turn above a nonsolid surface, she vanishes and rematerializes on the last space she occupied over solid ground and becomes "
+          },
+          {
+            "type": "ref",
+            "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+            "label": "Stunned 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": "@stat.speed.land"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.gTORJ6OyH2GvfJLC"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "97581c85-1070-557f-a991-e2897cd4a847",
+    "pack": "season-of-ghosts",
+    "kind": "action",
+    "slug": "action:path-maiden-scorn-fate",
+    "name": "(Path Maiden) Scorn Fate",
+    "rarity": "common",
+    "traits": ["curse", "misfortune", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The path maiden targets a creature she can see. The creature must attempt a Will save against the path maiden's spell DC. On a failure, the creature's next roll is cursed. If the result of the roll is a critical success, it becomes a regular success. A success becomes a failure, and a failure becomes a critical failure. That creature is then temporarily immune to Scorn Fate for 24 hours."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.UQ2ZvIag5gPL2QiU"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "dbf132d1-500d-5a61-ad52-b1d3274eba64",
+    "pack": "season-of-ghosts",
+    "kind": "action",
+    "slug": "action:path-maiden-sour-victory",
+    "name": "(Path Maiden) Sour Victory",
+    "rarity": "common",
+    "traits": ["curse", "misfortune", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature scores a critical hit against the path maiden"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature must attempt a Will save against the path maiden's spell DC. On a failure, its next roll to attack the path maiden must be rolled twice, and it takes the worse result. That creature is then temporarily immune to Sour Victory for 24 hours."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.rB3msRRnN5M9z5Vm"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "offensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A creature scores a critical hit against the path maiden"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "5b12c806-5432-5047-be70-b989592f45a1",
+    "pack": "season-of-ghosts",
+    "kind": "action",
+    "slug": "action:path-maiden-vengeful-frenzy",
+    "name": "(Path Maiden) Vengeful Frenzy",
+    "rarity": "common",
+    "traits": ["emotion", "mental", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The path maiden targets a creature within 60 feet that she can see. The target must attempt a Will save against the path maiden's spell DC. On a failure, the target is "
+          },
+          {
+            "type": "ref",
+            "id": "6f53a234-670f-5b02-a986-7cce57585fc8"
+          },
+          {
+            "type": "text",
+            "text": " until the end of its next turn, but it can't attack path maidens or itself as the result of this confusion."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.w5wDTUUeGHAAoZH1"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "9e63eb9c-0eac-53d3-b885-8feaaae9202b",
+    "pack": "season-of-ghosts",
+    "kind": "action",
+    "slug": "action:reactive-scorch",
+    "name": "Reactive Scorch",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature Strikes you"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": {
+              "against": "class-or-spell-dc"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.kfmEGGs8DbIL9JuF"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A creature Strikes you"
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

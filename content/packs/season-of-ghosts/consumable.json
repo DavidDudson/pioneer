@@ -1,0 +1,2625 @@
+[
+  {
+    "id": "9b3aee4f-9a1e-53cc-89e9-2a54a5894a3d",
+    "pack": "season-of-ghosts",
+    "kind": "consumable",
+    "slug": "consumable:animal-turning-fulu",
+    "name": "Animal-Turning Fulu",
+    "level": 1,
+    "rarity": "rare",
+    "traits": ["consumable", "fulu", "magical", "talisman"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature with the animal trait successfully Strikes you."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frightened animals depicted on this fulu flee in all directions from a central figure (traditionally represented by a human hunter, but sometimes depicted as a skeletal undead creature or even a fiend with long, broken arms). You activate this fulu, gaining a +2 item bonus to AC against the triggering Strike. If this causes the Strike to miss, you become "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " from the triggering creature until the start of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.GZo6icE8v07xQKKc"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "negligible",
+      "category": "fulu",
+      "usage": {
+        "type": "affixed",
+        "to": "armor"
+      }
+    }
+  },
+  {
+    "id": "8edd29e4-2314-5e65-bee0-aa761c158d00",
+    "pack": "season-of-ghosts",
+    "kind": "consumable",
+    "slug": "consumable:ascendant-dragon-spirit",
+    "name": "Ascendant Dragon Spirit",
+    "level": 11,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This masterfully crafted spirit is mixed into a potent magical cocktail and packaged in a gourd with an engraving of a dragon coiling around it. Drinking it imparts an intriguing balance of woodsmoke, honey, and bright floral top notes. When consumed, your arms become infused with the deadly power of a dragon's restless spirit. For 1 minute, your unarmed Strikes deal an additional 1d6 poison damage and an additional 1d6 void damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "adbe2f5c-1010-5371-b254-aded0831abfc"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.7fN8xgFBxqrOkCJW"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "1df59c07-92df-55b7-9e40-8c6ea5348d75",
+    "pack": "season-of-ghosts",
+    "kind": "consumable",
+    "slug": "consumable:covenant-tea",
+    "name": "Covenant Tea",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical", "potion", "tea"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This green tea is often steeped in a pot with a dried persimmon. Traditionally, all participants in a complex discussion start their conversation with a tea ceremony involving "
+          },
+          {
+            "type": "text",
+            "text": "covenant tea",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", with each member of the group enjoying the covenant of the shared beverage. Some have been known to use trickery and sleight of hand to ensure that only those whose goals align with the tea preparer's are served "
+          },
+          {
+            "type": "text",
+            "text": "covenant tea",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", while others in the group are served non-magical (but still delicious) green tea, thus subtly tipping the balance in discussion toward those the tea server favors. This practice has resulted in some regions referring to "
+          },
+          {
+            "type": "text",
+            "text": "covenant tea",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " as \"trickery tea.\" Regardless of what you prefer to call the tea, when you drink it, you gain a +1 item bonus to Diplomacy checks and to your Perception DC for 10 minutes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "0a07a5bf-a4d0-5fd7-b558-80eec8788466"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Tea Ceremony",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 10 minutes (concentrate, manipulate) The duration increases to 1 hour."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ByaYlK0QmnqEbCE2"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "35fa559b-6cfe-52d0-b260-38ebe63e4254",
+    "pack": "season-of-ghosts",
+    "kind": "consumable",
+    "slug": "consumable:energizing-pill",
+    "name": "Energizing Pill",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "consumable", "lozenge"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This special blend of potent herbs comes in the form of a compact ball the size of a marble that allows it to be held in the mouth, where it remains for 1 hour. An energizing pill has a bitter taste at first, but the longer one lets it soak, the more complex and sweet its flavor grows. It heightens your reactions, granting you a +2 item bonus to initiative rolls with Perception."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "3cb71fc5-2c2b-592b-a648-e13169c79ae3"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Secondary Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You would become "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Reduce the value of the condition you just gained by 1; if this reduces the value to 0, you don't gain the triggering condition."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.u4R5KKvgKU0jOkjb"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 180
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "4580303b-e2cc-5f58-9a5f-b76ca89f122c",
+    "pack": "season-of-ghosts",
+    "kind": "consumable",
+    "slug": "consumable:energizing-tea",
+    "name": "Energizing Tea",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical", "potion", "tea"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This sweet and refreshing tea is made with a mixture of honey, lemon slices, and sliced ginger. This is considered to be the bare minimum when serving "
+          },
+          {
+            "type": "text",
+            "text": "energizing tea",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", and many go above and beyond by adding additional citrus fruits or berries to the mix or refusing to serve the tea at all without also serving a full platter of spiced pastries and sweets. This golden tea has energizing properties and, when consumed, grants you a +1 item bonus to Athletics and Acrobatics checks for 10 minutes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "d9c2cc9c-afea-5f62-a0e8-274f1fe790b3"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Tea Ceremony",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 10 minutes (concentrate, manipulate) The duration increases to 1 hour."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.RK03uy9os4H0dUfS"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 20
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "c10e660d-89d2-5c7c-9d80-d0b02a01bb70",
+    "pack": "season-of-ghosts",
+    "kind": "consumable",
+    "slug": "consumable:firecracker-fulu",
+    "name": "Firecracker Fulu",
+    "level": 1,
+    "rarity": "rare",
+    "traits": ["consumable", "fulu", "magical", "talisman"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You critically succeed at an attack roll with the affixed weapon."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The fulu explodes and showers the area with bright sparks. The struck creature takes an additional "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d4",
+                "damageType": "sonic"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 15,
+            "options": ["inflicts:dazzled"]
+          },
+          {
+            "type": "text",
+            "text": " save or be "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round (or dazzled for 1 minute on a critical failure)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.G3EIZLApRwt3hq13"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "negligible",
+      "category": "fulu",
+      "usage": {
+        "type": "affixed",
+        "to": "weapon"
+      }
+    }
+  },
+  {
+    "id": "7191270d-f4ea-5260-a953-f1270b0098a9",
+    "pack": "season-of-ghosts",
+    "kind": "consumable",
+    "slug": "consumable:gossamer-sash",
+    "name": "Gossamer Sash",
+    "level": 11,
+    "rarity": "rare",
+    "traits": ["consumable", "illusion", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 hour (envision, Interact, move)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This lightweight sash of spidersilk measures 20 feet long when fully unfurled. White at one end and shading to violet at the other, occult markings in silver thread are stitched along the sash's length. When a gossamer sash is held by up to 4 people and they spend 1 hour walking along any road in Shenmen between midnight and sunrise, they step into an immersive mindscape that appears to be a lonely mountainside road inhabited by path maidens who are (at least initially) favorably disposed toward answering questions the travelers might have. Once the path maidens have answered their questions or are slain (whichever comes first), the mindscape ends, and those who traveled it are returned to the point on the road where they first activated the gossamer sash."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Q3ZYTbPGPDG6WINq"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "cfaf35bb-84ef-58e3-a456-799051cd1ca3",
+    "pack": "season-of-ghosts",
+    "kind": "consumable",
+    "slug": "consumable:invigorating-soap",
+    "name": "Invigorating Soap",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "consumable", "healing", "processed"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 10 minutes (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This slender bar of pine-scented soap can only be activated when you're immersed in water. Upon activation, the soap covers you in a sudsy foam that quickly fades, filling you with energy and soothing away aches and pains. It immediately restores "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points and removes the "
+          },
+          {
+            "type": "ref",
+            "id": "5e3582c3-701c-5169-9c69-4221096722c2"
+          },
+          {
+            "type": "text",
+            "text": " condition. If you begin an 8-hour period of rest immediately after using invigorating soap, you regain an additional 10 Hit Points from resting."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.qrgUIr4PAvLvHn5C"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 28
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "damage": {
+        "formula": "10",
+        "kind": "healing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "b885eb60-8dcb-5c67-9cb8-7368f8024d3a",
+    "pack": "season-of-ghosts",
+    "kind": "consumable",
+    "slug": "consumable:longnight-tea",
+    "name": "Longnight Tea",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical", "potion", "tea"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This tea is brewed with a mixture of matcha, turmeric, and 10 drops of morning dew, creating a fragrant but mildly bitter tea. The bitter aftertaste is said to be the most important element of "
+          },
+          {
+            "type": "text",
+            "text": "longnight tea",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", for it's believed that this flavor lingers on the tongue and aids in keeping you awake and alert. The tea is favored by scholars and soldiers alike, although the value to which each attributes the ability to endure long nights without sleeping varies—and is often the subject of unusually impassioned debate. When you drink "
+          },
+          {
+            "type": "text",
+            "text": "longnight tea",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", it grants you a +1 item bonus to saving throws against sleep effects for 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "d2c1d407-deba-5481-9d2f-dfa67ab2f217"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Tea Ceremony",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 10 minutes (concentrate, manipulate) The duration increases to 8 hours, and the tea removes the "
+          },
+          {
+            "type": "ref",
+            "id": "5e3582c3-701c-5169-9c69-4221096722c2"
+          },
+          {
+            "type": "text",
+            "text": " condition."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.n5xlR7ApXgfJRkbF"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 12
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "9cb28a88-7920-5f10-93a7-a63403f92dfc",
+    "pack": "season-of-ghosts",
+    "kind": "consumable",
+    "slug": "consumable:matsukis-medicinal-wine",
+    "name": "Matsuki's Medicinal Wine",
+    "level": 3,
+    "rarity": "rare",
+    "traits": ["alchemical", "consumable", "ingested", "poison"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Old Matsuki's private brew has quite the kick. In addition to making you tipsy, this medicinal wine works wonders in helping to recover from disease. When you drink a dose of this wine you must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 18,
+            "options": ["inflicts:off-guard", "inflicts:clumsy"]
+          },
+          {
+            "type": "text",
+            "text": " save to avoid becoming "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " for 10 minutes (and also "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": " for this duration if you critically fail the saving throw). Regardless of the saving throw's results, you gain a +2 item bonus to Fortitude saving throws against diseases and poisons for the next 24 hours. This applies to your daily save against a disease's progression as well."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "3e6d057b-20fa-50e5-b86c-28b1bb5c49df"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.5lhQ79p0Z3j1VsY3"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 12
+        }
+      },
+      "bulk": "light",
+      "category": "drug",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "afaaaa22-784f-52d4-aa15-6cdb5cc8adf3",
+    "pack": "season-of-ghosts",
+    "kind": "consumable",
+    "slug": "consumable:moon-blossom-tea",
+    "name": "Moon Blossom Tea",
+    "level": 9,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical", "potion", "tea"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This bright and citrusy tea is traditionally made with green tea combined with orange rind shavings and flower petals plucked during a full moon. Some claim to be able to tell the difference if these petals were plucked at other times, but this does not alter the tea's effects. The tea leaves have a chance to anticipate unexpected encounters. After consuming the tea, you gain a +2 item bonus to all initiative rolls for 1 hour and gain the following reaction."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "16a2621f-c581-59a5-8cf6-5ae4322cf811"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Evade Peril",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, fortune)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You roll a failure on a Reflex save"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You get a success on the Reflex save instead. Reduce the remaining duration of "
+          },
+          {
+            "type": "text",
+            "text": "moon blossom tea",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " by 1 hour; if this reduces the duration to 0, the duration ends."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Tea Ceremony",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 10 minutes (concentrate, manipulate) The duration increases to 4 hours."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Sq4MIaXhb2zcCT6y"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 150
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "b6b79e87-942a-5d25-9292-ed37e1be7aaa",
+    "pack": "season-of-ghosts",
+    "kind": "consumable",
+    "slug": "consumable:panaceatic-salve",
+    "name": "Panaceatic Salve",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical", "mental", "oil"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This pungent herbal ointment was originally only intended for use as an analgesic. That being said, popular folklore around this salve claims it can do anything from curing fevers to repelling vampires, a reputation that, if nothing else, is easy to get swept up in. When you activate a dose of "
+          },
+          {
+            "type": "text",
+            "text": "panaceatic salve",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " by rubbing it on your skin, you gain 4d8+10 temporary Hit Points for 10 minutes. At the end of this duration, if you still retain at least 1 of these temporary Hit Points, you can attempt a new saving throw against an ongoing disease or poison affliction you're afflicted with; if you fail or critically fail this saving throw, you don't increase the affliction's stage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "9ece2db1-878b-58fb-8d8f-16e2fa32fb70"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.V3qaNCEFpG0dCFl5"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 155
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "ee2ef29b-ffdd-5edf-b9a7-f6df7f6f52ae",
+    "pack": "season-of-ghosts",
+    "kind": "consumable",
+    "slug": "consumable:peace-in-dreams-tea",
+    "name": "Peace in Dreams Tea",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical", "potion", "tea"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This creamy tea is made from warm soy milk steeped with whole, dried chrysanthemum flowers and honey and brewed from when the sun first touches the horizon to when it has fully set. Consuming this tea causes mild drowsiness, aids in sleep, and protects from harmful mental effects. You gain a +1 item bonus to all saving throws against mental effects for 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "43fa566b-a4ba-5270-af8e-b600c26015ea"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Tea Ceremony",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 10 minutes (concentrate, manipulate) The effects last for 8 hours, and as long as you're asleep, the item bonus increases to +2."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Cz0XxRVMma7cllCd"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "65b5dc1c-902f-5894-8522-79ca3f3b2b7a",
+    "pack": "season-of-ghosts",
+    "kind": "consumable",
+    "slug": "consumable:privacy-ward-fulu-chamber",
+    "name": "Privacy Ward Fulu (Chamber)",
+    "level": 9,
+    "rarity": "rare",
+    "traits": ["consumable", "fulu", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This fulu seeks to keep thieves, spies, and unwanted attention away from a room. A depiction of a lock appears in the center of this fulu, which is in turn surrounded by circles of broken keys. When applied to a wall inside a room, all creatures within the room gain an item bonus to Stealth checks against creatures outside the room."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The "
+          },
+          {
+            "type": "text",
+            "text": "privacy ward fulu",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can shield a room of up to 90 square feet, grants a +2 item bonus, and has a duration of 24 hours. If you become "
+          },
+          {
+            "type": "ref",
+            "id": "d851e3ca-be0d-55a7-a4d1-d7ed8b7ecafa"
+          },
+          {
+            "type": "text",
+            "text": " within the room, you automatically become "
+          },
+          {
+            "type": "ref",
+            "id": "61f1fec4-1bb4-585d-9c12-6059d15dd74b"
+          },
+          {
+            "type": "text",
+            "text": " to creatures of the fulu's level or lower."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.pDbWjlhIoQpUIvLb"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 120
+        }
+      },
+      "bulk": "negligible",
+      "category": "fulu",
+      "usage": {
+        "type": "affixed",
+        "to": "wall"
+      }
+    }
+  },
+  {
+    "id": "1e70064f-f47e-5b7e-b26e-1db684b33817",
+    "pack": "season-of-ghosts",
+    "kind": "consumable",
+    "slug": "consumable:privacy-ward-fulu-hallway",
+    "name": "Privacy Ward Fulu (Hallway)",
+    "level": 1,
+    "rarity": "rare",
+    "traits": ["consumable", "fulu", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This fulu seeks to keep thieves, spies, and unwanted attention away from a room. A depiction of a lock appears in the center of this fulu, which is in turn surrounded by circles of broken keys. When applied to a wall inside a room, all creatures within the room gain an item bonus to Stealth checks against creatures outside the room."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The "
+          },
+          {
+            "type": "text",
+            "text": "privacy ward fulu",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can shield a room of up to 10 square feet, grants a +1 item bonus, and has a duration of 1 hour."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.UaSVmCl0JQ76kiYY"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "negligible",
+      "category": "fulu",
+      "usage": {
+        "type": "affixed",
+        "to": "wall"
+      }
+    }
+  },
+  {
+    "id": "106e4f8f-4dcf-5e4a-82f5-263e3d028114",
+    "pack": "season-of-ghosts",
+    "kind": "consumable",
+    "slug": "consumable:privacy-ward-fulu-room",
+    "name": "Privacy Ward Fulu (Room)",
+    "level": 5,
+    "rarity": "rare",
+    "traits": ["consumable", "fulu", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This fulu seeks to keep thieves, spies, and unwanted attention away from a room. A depiction of a lock appears in the center of this fulu, which is in turn surrounded by circles of broken keys. When applied to a wall inside a room, all creatures within the room gain an item bonus to Stealth checks against creatures outside the room."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The "
+          },
+          {
+            "type": "text",
+            "text": "privacy ward fulu",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can shield a room of up to 30 square feet, grants a +1 item bonus, and has a duration of 8 hours. If you become "
+          },
+          {
+            "type": "ref",
+            "id": "d851e3ca-be0d-55a7-a4d1-d7ed8b7ecafa"
+          },
+          {
+            "type": "text",
+            "text": " within the room, you automatically become "
+          },
+          {
+            "type": "ref",
+            "id": "61f1fec4-1bb4-585d-9c12-6059d15dd74b"
+          },
+          {
+            "type": "text",
+            "text": " to creatures of the fulu's level or lower."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.PfVTTuTsErku7vss"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 25
+        }
+      },
+      "bulk": "negligible",
+      "category": "fulu",
+      "usage": {
+        "type": "affixed",
+        "to": "wall"
+      }
+    }
+  },
+  {
+    "id": "013616a4-9a8b-59d4-9e7f-daf3fe145167",
+    "pack": "season-of-ghosts",
+    "kind": "consumable",
+    "slug": "consumable:resurrection-tea",
+    "name": "Resurrection Tea",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical", "potion", "tea"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Resurrection tea",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " was named for its repugnant taste, said to be \"strong enough to kill the living,\" and its incredible medicinal properties \"powerful enough to raise the dead.\" The primary ingredients in this medicinal tea are ginseng and jujubes, enhanced with additional herbs, shaved deer antlers, sugi tree bark, and a variety of mushrooms stewed for several hours in a large pot to form a brown, pulpy, and viscous liquid. The bitterness and earthy taste make the tea rather unappetizing. The tea restores "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d8+5"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points, and you reduce the DC of recovery checks by 1 for 8 hours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "7a4de242-dd41-5606-becc-170f8f5dd49f"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Tea Ceremony",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 10 minutes (concentrate, manipulate) The tea reduces the DC of recovery checks by 3."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.qyjaueXduvCUeDbp"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 25
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "538486d7-2875-5006-8188-365f553daff2",
+    "pack": "season-of-ghosts",
+    "kind": "consumable",
+    "slug": "consumable:sanctified-beans",
+    "name": "Sanctified Beans",
+    "level": 11,
+    "rarity": "uncommon",
+    "traits": ["consumable", "divine", "magical", "vitality"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These roasted soybeans are blessed by a priest to ward against all various forms of otherworldly influence, but are most effective against incorporeal evils, such as wraiths or path maidens. They can be safely eaten by living creatures and taste delicious when paired with rice wine. When you activate this item, choose an adjacent "
+          },
+          {
+            "type": "template",
+            "shape": "square",
+            "size": 5
+          },
+          {
+            "type": "text",
+            "text": " to exhale into. You fill that square with soothing vapors that harm any fiend, fey, ghost, spirit, or undead creature that ends their turn in that square for the next minute, causing them to take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d8+4",
+                "damageType": "spirit"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 28,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save). An incorporeal creature that takes this damage must also attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 28,
+            "options": ["inflicts:off-guard", "inflicts:slowed", "inflicts:stunned"]
+          },
+          {
+            "type": "text",
+            "text": " save to resist being affected as follows."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature becomes "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " until the start of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature becomes "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature becomes "
+          },
+          {
+            "type": "ref",
+            "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+            "label": "Stunned 1"
+          },
+          {
+            "type": "text",
+            "text": " and is then slowed 1 for 1 round after the stun effect ends."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.vmsKlURWyWTGoO6o"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "b99650ea-417c-5406-812b-a971cbd8614f",
+    "pack": "season-of-ghosts",
+    "kind": "consumable",
+    "slug": "consumable:spirit-trap",
+    "name": "Spirit Trap",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical", "snare", "trap"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "spirit trap",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " consists of a net dipped in water that has been steeped with sacred herbs to better combat phantoms. This snare's components function as a net when not set up. You set this snare up in a "
+          },
+          {
+            "type": "template",
+            "shape": "square",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": " area. The first creature with the spirit trait that steps into the area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 16,
+            "options": ["inflicts:off-guard", "inflicts:immobilized"]
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is immobilized until it Escapes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.x6V1tlDDBTVj5XnW"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5
+        }
+      },
+      "bulk": "light",
+      "category": "snare",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "1cecc7ca-2347-5058-8c1e-6f3f50db3832",
+    "pack": "season-of-ghosts",
+    "kind": "consumable",
+    "slug": "consumable:spiritsight-tea",
+    "name": "Spiritsight Tea",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical", "potion", "tea"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Spiritsight tea",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " exudes a soft blue glow, creating illumination equal to that of a candle. When consumed, your eyes take on a soft glow as well, and you can see "
+          },
+          {
+            "type": "ref",
+            "id": "53cf375b-c3fa-5d92-afde-135a3c001674"
+          },
+          {
+            "type": "text",
+            "text": " creatures and objects for 10 minutes; such creatures appear to you as translucent shapes, and they're "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " to you. You gain a +1 item bonus to Perception checks to Seek incorporeal creatures."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "708ed4cf-329b-5ce4-9424-db92bdaefea4"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Tea Ceremony",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 10 minutes (concentrate, manipulate) The duration of being able to see invisible creatures and objects increases to 30 minutes, and the duration of the item bonus increases to 8 hours."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.EMviiUBFb5hB1X5Q"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 60
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "b37bf973-21e5-504e-a4c3-1f98b3a0033e",
+    "pack": "season-of-ghosts",
+    "kind": "consumable",
+    "slug": "consumable:taljjae-tassel",
+    "name": "Taljjae Tassel",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical", "talisman"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your Strike with the affixed weapon was a critical success."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The bright red tassels of the creature known as Taljjae are a ubiquitous motif in Hwanggot and are used as charms to pray for good fortune and reward for great effort. They adorn clothing, weapons, and even drinking gourds. These particular tassels carry within them a potent fraction of the mysterious fey's power. When you activate a "
+          },
+          {
+            "type": "text",
+            "text": "Taljjae tassel",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", your weapon gains the properties of the "
+          },
+          {
+            "type": "ref",
+            "id": "7d9ea442-d6e1-5178-b5cf-e5be287effc2"
+          },
+          {
+            "type": "text",
+            "text": " rune for the duration of the triggering attack."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.pKQwOJsBAcNcXwe6"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 160
+        }
+      },
+      "bulk": "negligible",
+      "category": "talisman",
+      "usage": {
+        "type": "affixed",
+        "to": "weapon"
+      }
+    }
+  },
+  {
+    "id": "c8bddbea-ac87-5c25-bcc2-d4759475f02c",
+    "pack": "season-of-ghosts",
+    "kind": "consumable",
+    "slug": "consumable:thousand-year-dragonroot",
+    "name": "Thousand-Year Dragonroot",
+    "level": 10,
+    "rarity": "rare",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Dragonroots are pale, golden-rooted plants that grow throughout Tian Xia. Just as mandrake roots or ginseng roots are sometimes regarded to have almost humanoid shapes, these roots appear as if they were dragons. They're commonly used in the formulation of healing potions, but the most sought-after have grown for centuries, for they're viable for enchantment into "
+          },
+          {
+            "type": "text",
+            "text": "thousand-year dragonroots",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you activate a "
+          },
+          {
+            "type": "text",
+            "text": "thousand-year dragonroot",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", your body shimmers with golden light, providing illumination as a torch. You gain a fly Speed of 40 feet and fire resistance 5 for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "a50ac31c-4590-5d1c-85b8-28be85a94f14"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.xVK6dbAIUJqNFYoI"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 180
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "f3ada932-3d20-577b-9e17-91cab5e1064d",
+    "pack": "season-of-ghosts",
+    "kind": "consumable",
+    "slug": "consumable:travelers-fulu",
+    "name": "Traveler's Fulu",
+    "level": 2,
+    "rarity": "rare",
+    "traits": ["consumable", "fulu", "magical", "talisman"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You attempt to Sense Direction"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're trained in Survival."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This fulu shows a series of constellations and arrows depicting astronomical movements through the night sky. When you activate a "
+          },
+          {
+            "type": "text",
+            "text": "traveler's fulu",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", the magic infuses your mind with sensations of deja vu, as if you'd been in this region before. Your attempt to Sense Direction functions as if you have a compass, and you use the outcome one degree of success better than the result of your Survival check to Sense Direction, or by two degrees of success if you're a master in Survival."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect: Traveler's Fulu"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.5DiekAhNEjr6Vwi3"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 7
+        }
+      },
+      "bulk": "negligible",
+      "category": "fulu",
+      "usage": {
+        "type": "affixed",
+        "to": "armor"
+      }
+    }
+  },
+  {
+    "id": "d89cbdb4-1667-5a08-a3e3-a6ad7e5ceb36",
+    "pack": "season-of-ghosts",
+    "kind": "consumable",
+    "slug": "consumable:vengeful-demons-tears",
+    "name": "Vengeful Demon's Tears",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Vengeful demon's tears",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is an infamously noxious spirit mixed into a potent magical cocktail and traditionally packaged in a gourd adorned with an engraving of a terrifying demonic face. Drinking it feels akin to lighting your throat on fire and putting it out with an herbal tonic. When you activate this potion, you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "6517bbf2-8085-534b-be6a-187d52739fa0"
+          },
+          {
+            "type": "text",
+            "text": " condition for 3 rounds and can use the extra action each round to Strike, Stride, or to take the following action."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Release the Demon",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, healing) You focus on the sensation of life burning within your flesh and gain 2d8 temporary Hit Points for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "6ce2a911-f4b8-5e9c-b031-440a4965294b"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Ut6fuRkMsydWVlSb"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 160
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

@@ -164,6 +164,7 @@ describe.skipIf(adminUrl === undefined)('content routes (postgres)', () => {
       'player-core-2',
       'rage-of-elements',
       'rival-academies',
+      'season-of-ghosts',
       'secrets-of-magic',
       'shining-kingdoms',
       'tian-xia-character-guide',
