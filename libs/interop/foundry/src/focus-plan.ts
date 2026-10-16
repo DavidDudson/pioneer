@@ -16,6 +16,7 @@ export function focusEntry(fields: FocusEntryFields): object {
 export const BARD = 'bard-focus';
 export const CLERIC = 'cleric-focus';
 export const DRUID = 'druid-focus';
+export const ORACLE = 'oracle-focus';
 export const RANGER = 'ranger-focus';
 export const WITCH = 'witch-focus';
 export const SORCERER = 'sorcerer-focus';
@@ -25,6 +26,7 @@ export const BARD_ENTRY = focusEntry({ slug: BARD, tradition: 'occult', attribut
 export const CLERIC_ENTRY = focusEntry({ slug: CLERIC, tradition: 'divine', attribute: 'wis' });
 export const DRUID_ENTRY = focusEntry({ slug: DRUID, tradition: 'primal', attribute: 'wis' });
 export const RANGER_ENTRY = focusEntry({ slug: RANGER, tradition: 'primal', attribute: 'wis' });
+export const ORACLE_ENTRY = focusEntry({ slug: ORACLE, tradition: 'divine', attribute: 'cha' });
 
 export const WIZARD_ENTRY = focusEntry({ slug: WIZARD, tradition: 'arcane', attribute: 'int' });
 

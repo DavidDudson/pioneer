@@ -32,6 +32,7 @@ import {
   ORDERS,
   order,
 } from './translate-druid-orders';
+import { FIRST_REVELATION_RULES, mystery, MYSTERIES, ORACLE_DEDICATION_RULES } from './translate-oracle-mysteries';
 import {
   BASIC_BLOODLINE_SPELL_RULES,
   BLOODLINES,
@@ -251,6 +252,10 @@ const FOCUS: ReadonlyMap<string, Planned> = new Map([
   ...BLOODLINES.map((each): [string, Planned] => [`class-feature:${each.slug}`, bloodline(each)]),
   ['feat:sorcerer-dedication', SORCERER_DEDICATION_RULES],
   ['feat:basic-bloodline-spell', BASIC_BLOODLINE_SPELL_RULES],
+  // Oracle: each mystery's spells, the mystery a dedication picks and the spell First Revelation gives.
+  ...MYSTERIES.map(([slug, , ...spells]): [string, Planned] => [`class-feature:${slug}`, mystery(...spells)]),
+  ['feat:oracle-dedication', ORACLE_DEDICATION_RULES],
+  ['feat:first-revelation', FIRST_REVELATION_RULES],
   // Champion: the devotion spell, and the archetypes that grant one.
   ['class-feature:devotion-spells', DEVOTION_SPELLS_RULES],
   ['feat:devout-magic', DEVOUT_MAGIC_RULES],
