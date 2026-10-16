@@ -1,0 +1,2502 @@
+[
+  {
+    "id": "202a5bb5-4c9a-5758-a21c-8c9e3560395e",
+    "pack": "hellbreakers",
+    "kind": "equipment",
+    "slug": "equipment:abrogail-i-script",
+    "name": "Abrogail I Script",
+    "level": 4,
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This satirical play by Amalia Wraxton was published in 4710 ar. Its controversial content, depicting the eponymous queen as the lover of Asmodeus and a coconspirator in the death of Aroden, caused an uproar that led to violent suppression and a defiant uprising. The play has since been banned and can be found only among the secret collections of art connoisseurs. If you own a copy of this play, you can publicly perform parts of Abrogail I as a downtime activity with a successful "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:performance",
+            "dc": 19
+          },
+          {
+            "type": "text",
+            "text": " check. This activity lasts four hours including setup, rehearsal, and attracting a crowd, and you can't perform this play again in this settlement for a week."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but you gain 2 Uprising Points."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The people are roused by your performance. You gain 1 Uprising Point."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The authorities crack down on rebellious activity, stopping you from performing in this settlement again for 1 month."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but the people are intimidated and you lose 1 Uprising Point."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.GOSnin5vDXi7DX1f"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 300
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "f5b06b9a-b507-5640-80f3-b15853b6e3e4",
+    "pack": "hellbreakers",
+    "kind": "equipment",
+    "slug": "equipment:devilwing-badge",
+    "name": "Devilwing Badge",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["magical", "spellheart"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This small tearing of a devil's wing has been cleansed with holy water before being mounted onto a silver badge. The spell attack modifier of any spell cast by Activating this item is +8, and the spell DC is 18."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Armor",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You gain resistance 2 to fire and unholy."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Weapon",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " After you cast a spell by Activating the "
+                },
+                {
+                  "type": "text",
+                  "text": "devilwing badge",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": ", your Strikes with the weapon deal an additional 1d4 spirit damage until the end of your next turn."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "22baec48-0a86-59bf-82b8-5e5e0e77ef68"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "7d887b0f-6cfc-5f24-a843-356eea20f9ca"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "a593a292-4fca-5280-9857-56a2178b1618"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.hQ442kcLpkHPZ7Nk"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 90
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "affixed",
+        "to": "armor-or-a-weapon"
+      }
+    }
+  },
+  {
+    "id": "2fefd6d7-884f-5406-bc43-474a80271c5e",
+    "pack": "hellbreakers",
+    "kind": "equipment",
+    "slug": "equipment:devilwing-badge-greater",
+    "name": "Devilwing Badge (Greater)",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["magical", "spellheart"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This small tearing of a devil's wing has been cleansed with holy water before being mounted onto a silver badge. The spell attack modifier of any spell cast by Activating this item is +14, and the spell DC is 24."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Armor",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You gain resistance 5 to fire and unholy."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Weapon",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " After you cast a spell by Activating the "
+                },
+                {
+                  "type": "text",
+                  "text": "devilwing badge",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": ", your Strikes with the weapon deal an additional 1d6 spirit damage until the end of your next turn."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "22baec48-0a86-59bf-82b8-5e5e0e77ef68"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "7d887b0f-6cfc-5f24-a843-356eea20f9ca"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "a593a292-4fca-5280-9857-56a2178b1618"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "52e6a91e-087f-5216-962c-d8cde645e96c"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.G6njXf4pRdYsE7E7"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 425
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "devilwing-badge-greater",
+          "name": "Devilwing Badge (Greater)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "affixed",
+        "to": "armor-or-a-weapon"
+      }
+    }
+  },
+  {
+    "id": "ed6e0a7d-d4d0-5eeb-890b-2a67289de64b",
+    "pack": "hellbreakers",
+    "kind": "equipment",
+    "slug": "equipment:devilwing-badge-major",
+    "name": "Devilwing Badge (Major)",
+    "level": 12,
+    "rarity": "uncommon",
+    "traits": ["magical", "spellheart"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This small tearing of a devil's wing has been cleansed with holy water before being mounted onto a silver badge. The spell attack modifier of any spell cast by Activating this item is +19, and the spell DC is 29."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Armor",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You gain resistance 10 to fire and unholy."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Weapon",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " After you cast a spell by Activating the "
+                },
+                {
+                  "type": "text",
+                  "text": "devilwing badge",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": ", your Strikes with the weapon deal an additional 1d8 spirit damage until the end of your next turn."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "22baec48-0a86-59bf-82b8-5e5e0e77ef68"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "7d887b0f-6cfc-5f24-a843-356eea20f9ca"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "a593a292-4fca-5280-9857-56a2178b1618"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast 4th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "52e6a91e-087f-5216-962c-d8cde645e96c"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "c9f296d5-7325-5ec8-be5d-eb9502269e2f"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.B1SiT510ndPAP7xz"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1750
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "devilwing-badge-major",
+          "name": "Devilwing Badge (Major)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "affixed",
+        "to": "armor-or-a-weapon"
+      }
+    }
+  },
+  {
+    "id": "a9fe9ea3-3554-5a8e-a679-cbdc7efe3674",
+    "pack": "hellbreakers",
+    "kind": "equipment",
+    "slug": "equipment:hellhusk-shroud",
+    "name": "Hellhusk Shroud",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This hooded cloak is popular among those who must evade or surveil fiendish authorities. The grisly secrets behind this garment belies its innocuous appearance; its fabrics include threads woven from the hair, blood, and scales of various devils. When invested, a hellhusk shroud doesn't appear to radiate a magic aura to "
+          },
+          {
+            "type": "ref",
+            "id": "c91ac947-a9ec-5f07-b5f9-a054617eb571"
+          },
+          {
+            "type": "text",
+            "text": " or similar spells unless the spells are 4th rank or higher. As long as you're wearing the cloak, you can read and speak Diabolic."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Horned Husk",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (illusion, manipulate, olfactory, visual)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The cloak wraps around you, becoming a second skin that suffuses you with Hell's corrosive brimstone. Your appearance becomes that of a nondescript low-level devil, and you gain a +1 status bonus to your Deception checks when you Lie to maintain your disguise. To creatures with scent, you also smell like a devil."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Hellish Senses",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You pull your hood up, allowing the remnants of fallen devils to nestle closely and whisper Hell's secrets. You gain fiendsense as an imprecise sense within 60 feet, allowing you to sense creatures with the fiend trait as a vague sense. This effect lasts for 10 minutes or until you take this action again."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.yWr6S7pytCcDlCcR"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 230
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "horned-husk",
+          "name": "Horned Husk",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        },
+        {
+          "slug": "hellish-senses",
+          "name": "Hellish Senses",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "cloak"
+      }
+    }
+  },
+  {
+    "id": "c80aac9e-de34-5c5c-9200-b7398ba4da4b",
+    "pack": "hellbreakers",
+    "kind": "equipment",
+    "slug": "equipment:lazybones-pendant",
+    "name": "Lazybones Pendant",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A lazybones pendant is a six-sided die pendant carved from the regretful bones of Work-Too-Hard Whappa, a goblin unusually industrious in life and said to be making up for a long-overdue rest in his afterlife. Depicted on the five sides of this six-sided die are representations of Whappa engaged in various acts of slothful mischief, while the remaining side is utterly blank; apparently, he's so engrossed in his indolence that even his image has forgotten to show up on that side of the die."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you wear and invest in this pendant, you gain a +1 item bonus to checks when you Follow the Expert."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Can't Someone Else Do It?",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate, occult)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "52547c94-24db-549b-961f-07a2350befdc"
+          },
+          {
+            "type": "text",
+            "text": ", summoning an ephemeral version of yourself. When you Activate the pendant and each time you Sustain the spell, your phantasmal minion gains a reaction that can be used only to Aid an ally. It uses your skills for any skill checks and can't Aid an attack."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["self:effect:follow-the-expert"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.eRDtYkNm8lQHwo4g"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 130
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "cant-someone-else-do-it",
+          "name": "Can't Someone Else Do It?",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "9619a954-28be-5b3d-ac91-b47eb6bbee06",
+    "pack": "hellbreakers",
+    "kind": "equipment",
+    "slug": "equipment:pallid-crystal",
+    "name": "Pallid Crystal",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["divine", "invested"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're a follower of Urgathoa."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This finger-shaped crystal on a thin strip of leather bridges the worlds of life and undeath, shifting from a pale opaque pink when worn by a living creature to a deep translucent purple when worn by an undead creature. While wearing the necklace, rotten food and drink taste as if they were fresh and can be eaten with no ill effects. If you're healed by healing vitality effects, you gain void resistance 5, but if you're healed by void effects, you instead gain vitality resistance 5."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["void"],
+        "value": 5,
+        "predicate": [
+          {
+            "not": "self:negative-healing"
+          }
+        ]
+      },
+      {
+        "key": "Resistance",
+        "type": ["vitality"],
+        "value": 5,
+        "predicate": ["self:negative-healing"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.1K8xqplmaXW9Yto3"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 360
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "ab322d70-4c9b-5860-9317-90036a2d7e1c",
+    "pack": "hellbreakers",
+    "kind": "equipment",
+    "slug": "equipment:platter-of-putrid-dreams",
+    "name": "Platter of Putrid Dreams",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["divine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This silver platter and cloche set is intricately carved with scenes of overflowing feast tables. When you speak the command word, a dish is created for your lips and tongue alone. Anyone else who tries to eat the summoned food is compelled to immediately vomit it back up, unchewed and undigested."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Savory Feast",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 10 minutes (concentrate, exploration, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per week"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Speaking \"savor\" as you lift the lid creates a dish you've never tasted before, whether it's the unique delicacy of a far-flung region or the forbidden flesh of a sapient creature. If you spend 10 minutes consuming the entire meal, you regain "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6+8"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points and gain a +2 status bonus to saving throws against being sickened for 24 hours, but if you attempt to ingest anything else in that time—including elixirs and potions—you must first succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 5
+          },
+          {
+            "type": "text",
+            "text": " or the action is wasted."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "091dec50-c7f7-5b56-8c8b-26d050ff4d2a"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.7Dj3iXpYMA7b5p74"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 100
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "savory-feast",
+          "name": "Savory Feast",
+          "frequency": {
+            "max": 1,
+            "per": "week"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "138d0d1a-8c62-5987-b5d3-293a456c6012",
+    "pack": "hellbreakers",
+    "kind": "equipment",
+    "slug": "equipment:ring-of-fair-assessment",
+    "name": "Ring of Fair Assessment",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While the Kalistocrats of Druma profiteer off selling weapons to both Hellbreakers and Hellknights, they also offer options suitable for intelligence and counterintelligence efforts. This white gold ring grants you a +1 item bonus to skill checks to Decipher Writing that's primarily numerical or mathematical in nature as well as to skill checks to "
+          },
+          {
+            "type": "ref",
+            "id": "722e5346-27c0-5157-b5a9-e6018df94150"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "ed0f3425-17f0-51f3-bb5d-1ca7475499a5"
+          },
+          {
+            "type": "text",
+            "text": " to convince others of the fairness or accuracy of your judgments."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Fair Assessment",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate, mental)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The Prophecies of Kalistrade reveal the secrets of wealth to you; this appears as a balance sheet of numbers only you can see. Choose an area of up to 1 cubic foot within 30 feet; you can estimate the value in gold pieces of any items within this area. If you attempt to estimate the value of items worn or held by a creature, you must succeed at a Society check to Decipher Writing against their Will DC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["action:decipher-writing"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.1rOwO8kOQjpjPXKQ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 350
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "fair-assessment",
+          "name": "Fair Assessment",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "ff90be44-27de-5966-825a-31a9ffad2d8a",
+    "pack": "hellbreakers",
+    "kind": "equipment",
+    "slug": "equipment:robe-of-the-erinys",
+    "name": "Robe of the Erinys",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This exquisite scarlet robe embroidered with golden depictions of fiends and their weapons is fashioned after the garb of the cloistered Sisters of the Golden Erinys. The robe's belt is embroidered to look like a snake, complete with metal fangs."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Biting Belt",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You remove the robe's belt and snap it at an enemy within your reach. As you do, it briefly animates to bite that foe, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d8",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 18,
+            "basic": true,
+            "options": ["inflicts:sickened"]
+          },
+          {
+            "type": "text",
+            "text": " save. On a critical failure, the target is also "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Sdb13IJJMmryDqox"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 55
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "biting-belt",
+          "name": "Biting Belt",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "garment"
+      }
+    }
+  },
+  {
+    "id": "28c8ea10-8685-5f99-b9f2-626469845d15",
+    "pack": "hellbreakers",
+    "kind": "equipment",
+    "slug": "equipment:robe-of-the-erinys-greater",
+    "name": "Robe of the Erinys (Greater)",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This exquisite scarlet robe embroidered with golden depictions of fiends and their weapons is fashioned after the garb of the cloistered Sisters of the Golden Erinys. The robe's belt is embroidered to look like a snake, complete with metal fangs."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Biting Belt",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You remove the robe's belt and snap it at an enemy within your reach. As you do, it briefly animates to bite that foe, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d8",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with a basic "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 24
+          },
+          {
+            "type": "text",
+            "text": " save. On a critical failure, the target is also "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.PtlGktLAPSkBOlzJ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 475
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "biting-belt",
+          "name": "Biting Belt",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "garment"
+      }
+    }
+  },
+  {
+    "id": "13cf536f-65b8-5709-aec9-85114d9b346b",
+    "pack": "hellbreakers",
+    "kind": "equipment",
+    "slug": "equipment:robe-of-the-erinys-major",
+    "name": "Robe of the Erinys (Major)",
+    "level": 13,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This exquisite scarlet robe embroidered with golden depictions of fiends and their weapons is fashioned after the garb of the cloistered Sisters of the Golden Erinys. The robe's belt is embroidered to look like a snake, complete with metal fangs."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Biting Belt",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You remove the robe's belt and snap it at an enemy within your reach. As you do, it briefly animates to bite that foe, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d8",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with a basic "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 31
+          },
+          {
+            "type": "text",
+            "text": " save. On a critical failure, the target is also "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.08w0aIB1JRipvrUN"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2750
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "biting-belt",
+          "name": "Biting Belt",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "garment"
+      }
+    }
+  },
+  {
+    "id": "cc4c1d03-1461-5624-87f3-ecd26eb3b46e",
+    "pack": "hellbreakers",
+    "kind": "equipment",
+    "slug": "equipment:shacklebreaker",
+    "name": "Shacklebreaker",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This bracelet has three charms depicting a dagger, a shield, and a rose. While wearing this bracelet, you gain a +1 item bonus to Thievery checks. Whenever you roll a success to free someone from manacles, it counts as two successes (three on a critical success)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—No Chains",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature attempts to "
+          },
+          {
+            "type": "ref",
+            "id": "380d34f1-f6f6-5820-b9dd-c01ee4e19fd5"
+          },
+          {
+            "type": "text",
+            "text": " you"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are aware of the creature and aren't "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The bracelet yanks your body in one direction, attempting to throw off your attacker's grip. You gain a +1 circumstance bonus to your Fortitude DC against the triggering Grapple."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:thievery"],
+        "type": "item",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.DdxmBp8ULtLESATE"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 100
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "no-chains",
+          "name": "No Chains",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "4626dbb9-4124-5883-b43b-6f8f0ed353f1",
+    "pack": "hellbreakers",
+    "kind": "equipment",
+    "slug": "equipment:shacklebreaker-greater",
+    "name": "Shacklebreaker (Greater)",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This bracelet has three charms depicting a dagger, a shield, and a rose. While wearing this bracelet, you gain a +2 item bonus to Thievery checks. Whenever you roll a success to free someone from manacles, it counts as two successes (three on a critical success)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—No Chains",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature attempts to "
+          },
+          {
+            "type": "ref",
+            "id": "380d34f1-f6f6-5820-b9dd-c01ee4e19fd5"
+          },
+          {
+            "type": "text",
+            "text": " you"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are aware of the creature and aren't "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The bracelet yanks your body in one direction, attempting to throw off your attacker's grip. You gain a +2 circumstance bonus to your Fortitude DC against the triggering Grapple."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:thievery"],
+        "type": "item",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.0BpLj6rmLsC8LMbd"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 950
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "no-chains",
+          "name": "No Chains",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "89ec3d80-504a-5f80-aabd-5e3ad756ced1",
+    "pack": "hellbreakers",
+    "kind": "equipment",
+    "slug": "equipment:token-of-salt-and-earth",
+    "name": "Token of Salt and Earth",
+    "level": 6,
+    "rarity": "rare",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This charm is usually worn around the neck or hanging from a belt. It consists of a three-part hourglass with individual glass bulbs filled with sea salts, charcoal ash, and minute slivers of silver. It grants the wearer a +1 item bonus to Stealth checks to Hide and Sneak from creatures with the unholy trait."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Hide from the Hateful",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (illusion, manipulate, occult, subtle)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " By rotating the charm along one of its concentric rings, you become "
+          },
+          {
+            "type": "ref",
+            "id": "53cf375b-c3fa-5d92-afde-135a3c001674"
+          },
+          {
+            "type": "text",
+            "text": " to creatures with the fiend, fey, or undead trait (your choice) for 1 minute. If you use a hostile action, you're no longer invisible after the action is completed."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "untyped",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["action:sneak", "action:hide"]
+          },
+          "target:trait:unholy"
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.OXZHwDQVxDXxEYTv"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 225
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "hide-from-the-hateful",
+          "name": "Hide from the Hateful",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "e3d80520-bda3-5b57-bbe9-2e78f23d1494",
+    "pack": "hellbreakers",
+    "kind": "equipment",
+    "slug": "equipment:whispering-wire",
+    "name": "Whispering Wire",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This coiled cord of brightly colored wire can be twisted neatly into any shape."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Words on the Wind",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You quietly mouth words to the wire, which sends them to a target with the effects of the "
+          },
+          {
+            "type": "ref",
+            "id": "c319a7b8-ee8e-5f50-97c7-16151916ad80"
+          },
+          {
+            "type": "text",
+            "text": " cantrip."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.VeLs0UGkFu3Ga8Cd"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 30
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "words-on-the-wind",
+          "name": "Words on the Wind",
+          "frequency": {
+            "max": 1,
+            "per": "ten-minutes"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "95ab7290-461d-5bdd-a414-e0d521e65655",
+    "pack": "hellbreakers",
+    "kind": "equipment",
+    "slug": "equipment:whispering-wire-greater",
+    "name": "Whispering Wire (Greater)",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This coiled cord of brightly colored wire can be twisted neatly into any shape."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Words on the Wind",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You quietly mouth words to the wire, which sends them to a target with the effects of the 3rd-rank "
+          },
+          {
+            "type": "ref",
+            "id": "c319a7b8-ee8e-5f50-97c7-16151916ad80"
+          },
+          {
+            "type": "text",
+            "text": " cantrip."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.lJBKINXBmSq7njTi"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 125
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "words-on-the-wind",
+          "name": "Words on the Wind",
+          "frequency": {
+            "max": 1,
+            "per": "ten-minutes"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "102098ba-4e25-508a-9e32-2295b983c08b",
+    "pack": "hellbreakers",
+    "kind": "equipment",
+    "slug": "equipment:woe",
+    "name": "Woe",
+    "level": 10,
+    "rarity": "unique",
+    "traits": ["magical", "relic", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Little is known about the origins of this wintry cloak of snowflakes, which functions as a "
+          },
+          {
+            "type": "ref",
+            "id": "3e6f0372-f7f2-55f2-92f9-cd91497a8437"
+          },
+          {
+            "type": "text",
+            "text": " but with snow instead of plants."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:nature"],
+        "type": "item",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.rikanygoG7zWhb59"
+    },
+    "data": {
+      "bulk": "light",
+      "usage": {
+        "type": "worn",
+        "slot": "cloak"
+      }
+    }
+  }
+]

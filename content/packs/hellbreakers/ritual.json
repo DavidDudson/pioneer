@@ -1,0 +1,209 @@
+[
+  {
+    "id": "0671160f-61f1-5822-a215-1c4dd4803605",
+    "pack": "hellbreakers",
+    "kind": "ritual",
+    "slug": "ritual:divine-keystone",
+    "name": "Divine Keystone",
+    "level": 4,
+    "rarity": "rare",
+    "traits": ["consecration", "holy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You magically remove and consecrate the cornerstone of a building or ruin in the center of a settlement before returning the stone to its structure to spread its divine protection into the settlement around it. Once the final hammer strike returns the stone to its structure, the area protected by the sanctified stone becomes a sacred space, protecting the living from undead. Within the protected area, the consecrated site is holy, undead creatures can't be created or raised, and living creatures are "
+          },
+          {
+            "type": "ref",
+            "id": "53cf375b-c3fa-5d92-afde-135a3c001674"
+          },
+          {
+            "type": "text",
+            "text": " to the undead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A successful "
+          },
+          {
+            "type": "ref",
+            "id": "b434b2d9-47e5-519e-a542-6dae12c51157"
+          },
+          {
+            "type": "text",
+            "text": " used on a specific effect removes only that effect (such as the invisibility effect). However, destroying or removing the keystone ends the entire ritual and all its effects."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You create the effects described above, and the keystone's consecration effect doubles its radius."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You create the effects described above."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual has no effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The area becomes a font of power for undead for the next month. All undead creatures in the ritual's area gain fast healing 3 and resistance 3 to holy."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "9cf881c7-2131-570e-9363-3a386472b5e3"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The emanation protected by the keystone increases by 20 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.xKHq2Eisapixvj6q"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "time",
+        "count": 4,
+        "unit": "day"
+      },
+      "area": {
+        "shape": "emanation",
+        "size": 100
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "week"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "holy water, powdered silver, and purified chalk worth 200 gp"
+            }
+          ]
+        }
+      ],
+      "requirements": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "cornerstone from the structure of the casting area used as a locus"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:arcana", "skill:religion"],
+        "ranked": [
+          {
+            "skill": "skill:arcana",
+            "proficiency": "master"
+          },
+          {
+            "skill": "skill:religion",
+            "proficiency": "expert"
+          }
+        ]
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:lore:architecture"]
+          },
+          {
+            "skills": ["skill:crafting"]
+          },
+          {
+            "skills": ["skill:lore:or-engineering"]
+          }
+        ],
+        "casters": 1
+      }
+    }
+  }
+]

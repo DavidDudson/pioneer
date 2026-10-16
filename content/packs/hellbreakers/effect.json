@@ -1,0 +1,2046 @@
+[
+  {
+    "id": "77a2c0ad-bc6f-5dbb-b3b1-e1907a6b581a",
+    "pack": "hellbreakers",
+    "kind": "effect",
+    "slug": "effect:effect-banner-bearer",
+    "name": "Effect: Banner Bearer",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "All allies in the area gain a +1 status bonus to saves and DCs against devils and Hellknights."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw", "ac"],
+        "type": "untyped",
+        "value": 1,
+        "predicate": ["origin:trait:devil"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.dCNQpHO0Ka8PW3z5"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "1ba0a451-d713-5998-8e1b-65d7e68c6c11",
+    "pack": "hellbreakers",
+    "kind": "effect",
+    "slug": "effect:effect-blistering-touch",
+    "name": "Effect: Blistering Touch",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The aurocan funnels some of the steam powering it into its body, heating up its metal frame. For the next minute, its melee Strikes deal an additional 1d6 fire damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["melee-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "fire"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.GzDBmtKQY0cHSGM3"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "d91b89f4-6120-528b-87f0-dcc5aa09acf8",
+    "pack": "hellbreakers",
+    "kind": "effect",
+    "slug": "effect:effect-denounce",
+    "name": "Effect: Denounce",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Until the start of Lefranek's next turn, any Strikes she or her allies make against the creature do an additional 1d4 precision damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 1,
+        "dieSize": "d4",
+        "category": "precision",
+        "predicate": ["target:mark:denounce"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.izuJvgHjqI6kQNbK"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "4ee0e73c-4b99-5c7f-93eb-885317ea3eb3",
+    "pack": "hellbreakers",
+    "kind": "effect",
+    "slug": "effect:effect-devil-you-know",
+    "name": "Effect: Devil You Know",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "1e72abb2-7928-54f9-bbe6-210459db40bc"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to your next skill check against the marked creature. If you're a master in Devil Lore or Hellknight Lore, the bonus increases to +2."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.3Qej6bMkgJ5ntllg"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "22baec48-0a86-59bf-82b8-5e5e0e77ef68",
+    "pack": "hellbreakers",
+    "kind": "effect",
+    "slug": "effect:effect-devilwing-badge-armor",
+    "name": "Effect: Devilwing Badge (Armor)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "f5b06b9a-b507-5640-80f3-b15853b6e3e4"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "2fefd6d7-884f-5406-bc43-474a80271c5e"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "ed6e0a7d-d4d0-5eeb-890b-2a67289de64b"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance to fire and unholy."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.IdlSIN88G5Ca7TLe"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "7d887b0f-6cfc-5f24-a843-356eea20f9ca",
+    "pack": "hellbreakers",
+    "kind": "effect",
+    "slug": "effect:effect-devilwing-badge-weapon",
+    "name": "Effect: Devilwing Badge (Weapon)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "f5b06b9a-b507-5640-80f3-b15853b6e3e4"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "2fefd6d7-884f-5406-bc43-474a80271c5e"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "ed6e0a7d-d4d0-5eeb-890b-2a67289de64b"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Strikes with the weapon deal an additional spirit damage until the end of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.JuyEDBlFwyDguEzG"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "37534777-bc01-508d-b176-e5e86360d8d9",
+    "pack": "hellbreakers",
+    "kind": "effect",
+    "slug": "effect:effect-diabolic-certitude",
+    "name": "Effect: Diabolic Certitude",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When Gredress publicly espouses the superiority of Hell, she gains a +1 status bonus to skill checks, AC, and saves for 1 day. These bonuses don't apply against devils."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check", "ac", "saving-throw"],
+        "type": "untyped",
+        "value": 1,
+        "predicate": [
+          {
+            "not": "target:trait:devil"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.6bGS19fnwbv4E7mn"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "7d401c95-ad7c-5a80-b5ea-1b7f11498a3e",
+    "pack": "hellbreakers",
+    "kind": "effect",
+    "slug": "effect:effect-dreamcrusher",
+    "name": "Effect: Dreamcrusher",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "40715b6f-aa06-5a79-96e6-3e610b89a88e"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –1 status penalty to attack rolls and skill checks."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll", "skill-check"],
+        "type": "status",
+        "value": -1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.2gKeytEnwpXhaLXM"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "84370023-40bf-57a5-bdc7-49728bdc2176",
+    "pack": "hellbreakers",
+    "kind": "effect",
+    "slug": "effect:effect-drunken-stumble",
+    "name": "Effect: Drunken Stumble",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a -1 circumstance penalty to AC for 1 round."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": -1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.QVLX06QevxTcuZxU"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "e3cc4f14-3991-51ca-aa3d-9cd3bf122a27",
+    "pack": "hellbreakers",
+    "kind": "effect",
+    "slug": "effect:effect-evoke-fault",
+    "name": "Effect: Evoke Fault",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Brakknap gains a +1 status bonus to the attack roll of his next Strike against that target, and that Strike deals an extra 1d6 precision damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll"],
+        "type": "status",
+        "value": 1
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "category": "precision"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.rZR7o9uj598vLVaY"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "2927d7a2-95f7-51a7-9ff1-c701d90d3906",
+    "pack": "hellbreakers",
+    "kind": "effect",
+    "slug": "effect:effect-false-flag",
+    "name": "Effect: False Flag",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Hellbreakers in the area take a –1 circumstance penalty to saving throws and DCs vs. effects that give the frightened or confused condition."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": -1,
+        "predicate": [
+          {
+            "or": ["inflicts:confused", "inflicts:frightened"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.LGxrp2XkcOJHRPLz"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "53f3f185-7037-526c-af4b-d432cb8d998b",
+    "pack": "hellbreakers",
+    "kind": "effect",
+    "slug": "effect:effect-field-of-undeath",
+    "name": "Effect: Field of Undeath",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Allies within the aura who have void healing gain fast healing."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.x8e0MXrPgdRYQqBm"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "ea2f770c-c3f9-5da0-a273-c3a3cd7aa989",
+    "pack": "hellbreakers",
+    "kind": "effect",
+    "slug": "effect:effect-field-of-unholy-undeath",
+    "name": "Effect: Field of Unholy Undeath",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Undead allies within the aura gain a +1 status bonus to attack rolls and saving throws. If the ally has void healing, they also gain fast healing 5."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll", "saving-throw"],
+        "type": "status",
+        "value": 1,
+        "predicate": ["option:undead"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.3hyrbOFyIPF99hcY"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "e8540d01-249a-519d-8a0b-5d15d4f6a506",
+    "pack": "hellbreakers",
+    "kind": "effect",
+    "slug": "effect:effect-fiendish-order",
+    "name": "Effect: Fiendish Order",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each allied ort in the aura gains a +1 circumstance bonus to attack and damage rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll", "damage-roll"],
+        "type": "circumstance",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.ywP3B88P2gfsYhQ0"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "1515859b-0942-5670-a076-c3601999f0ba",
+    "pack": "hellbreakers",
+    "kind": "effect",
+    "slug": "effect:effect-greased-axle",
+    "name": "Effect: Greased Axle",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "5d54ced2-6550-59d8-a949-fc0897f65656"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You attempt a check to Escape, with a +1 item bonus to your check. If you critically fail, you get a failure instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll", "skill:acrobatics", "skill:athletics"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["action:escape"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["attack-roll"],
+        "adjustment": {
+          "criticalFailure": "one-degree-better"
+        },
+        "predicate": ["action:escape"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill:acrobatics"],
+        "adjustment": {
+          "criticalFailure": "one-degree-better"
+        },
+        "predicate": ["action:escape"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill:athletics"],
+        "adjustment": {
+          "criticalFailure": "one-degree-better"
+        },
+        "predicate": ["action:escape"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.k75TZi11cy23WoQj"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "214d0f44-9cd8-5e7f-8393-9769e842f08a",
+    "pack": "hellbreakers",
+    "kind": "effect",
+    "slug": "effect:effect-harpys-talon",
+    "name": "Effect: Harpy's Talon",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "9da4ae0f-a3f1-525d-910e-cb22983ba3ec"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you activate the harpy's talon, the weapon deals persistent bleed damage equal to the number of weapon damage dice. If the Strike was a critical success, the persistent bleed damage increases to twice the number of weapon damage dice."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.3aJ9AiJdOrwdjYPF"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "ce872563-e177-5b30-bcd5-d01a9f89fbe6",
+    "pack": "hellbreakers",
+    "kind": "effect",
+    "slug": "effect:effect-hellbreakers-resolve",
+    "name": "Effect: Hellbreaker's Resolve",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "52d44710-4446-520b-a00d-91348ce7b0b8"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a number of temporary Hit Points equal to your level. While you have those temporary Hit Points, you gain a +1 status bonus to Will saves."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "@level"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:will"],
+        "type": "status",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.wZcxrAL40jM5I5Dm"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "218aead4-0fdb-55c4-9af4-541fb2cbad57",
+    "pack": "hellbreakers",
+    "kind": "effect",
+    "slug": "effect:effect-hells-bane",
+    "name": "Effect: Hell's Bane",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "0d814de4-5502-56b3-ac27-6df3cfbbdd7f"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +4 status bonus to damage against the marked creature."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["damage"],
+        "type": "status",
+        "value": 4,
+        "predicate": ["target:mark:hells-bane"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.00gozjbtueYWop0w"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "ba1b3a1f-f2fd-5da3-849a-4564dc42c6fc",
+    "pack": "hellbreakers",
+    "kind": "effect",
+    "slug": "effect:effect-high-alert",
+    "name": "Effect: High Alert",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "459c984b-2365-5939-9d88-f9afd33fa700"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to your AC and Reflex saving throws against devils and creatures allied with the Chelaxian government (as determined by the GM)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "save:reflex"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["origin:trait:devil"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.FlwmvnPH3Fu62hTE"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "c8cd8168-9a86-577a-a6fe-9b321967bb9c",
+    "pack": "hellbreakers",
+    "kind": "effect",
+    "slug": "effect:effect-hypnotic-gaze",
+    "name": "Effect: Hypnotic Gaze",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Creatures in the aura take a –1 status penalty to Perception checks to "
+          },
+          {
+            "type": "ref",
+            "id": "775b68f2-1542-5f47-bc0d-87d5884d7baa"
+          },
+          {
+            "type": "text",
+            "text": " and Perception DCs against Ezio."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "status",
+        "value": -1,
+        "predicate": ["action:sense-motive"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.zzhRh3aMh3ZRcIEo"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "8e87f75c-c8dd-598e-92ed-d2642321bdf1",
+    "pack": "hellbreakers",
+    "kind": "effect",
+    "slug": "effect:effect-impelling-symbol",
+    "name": "Effect: Impelling Symbol",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "87c67132-4b8f-5760-bc5a-f9f342fbe532"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a number of temporary Hit Points equal to your level plus the rank of the spell you cast."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.4xeFMXOsfrNZ3Ijv"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "ba74d668-a121-5072-82ca-6cc913e27f3b",
+    "pack": "hellbreakers",
+    "kind": "effect",
+    "slug": "effect:effect-in-our-wake-hell-will-break",
+    "name": "Effect: In Our Wake, Hell Will Break!",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each allied creature in the aura gains a +1 circumstance bonus to saving throws against mental effects."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 1,
+        "predicate": ["option:mental"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.wsDecJEF8va4EAei"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "8a7692fb-f14c-56ac-b97e-216c33cf434e",
+    "pack": "hellbreakers",
+    "kind": "effect",
+    "slug": "effect:effect-magnetic-bola-damage",
+    "name": "Effect: Magnetic Bola (Damage)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "0b394d97-60cd-5e36-9dc9-b9fcc9dd7a86"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You deal an extra 1d6 electricity damage with your next Strike with this weapon."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.UoTJv0GODidag5Ik"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "39ae079e-68b3-5b34-84eb-6e05278482ab",
+    "pack": "hellbreakers",
+    "kind": "effect",
+    "slug": "effect:effect-magnetic-bola-speed-penalty",
+    "name": "Effect: Magnetic Bola (Speed Penalty)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "0b394d97-60cd-5e36-9dc9-b9fcc9dd7a86"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –10-foot circumstance penalty to your Speed until you spend an Interact action to remove the bola."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["speed"],
+        "type": "circumstance",
+        "value": -10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.7GJnkRhlqPwq3nSX"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "encounter"
+      }
+    }
+  },
+  {
+    "id": "091dec50-c7f7-5b56-8c8b-26d050ff4d2a",
+    "pack": "hellbreakers",
+    "kind": "effect",
+    "slug": "effect:effect-platter-of-putrid-dreams",
+    "name": "Effect: Platter of Putrid Dreams",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "ab322d70-4c9b-5860-9317-90036a2d7e1c"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 status bonus to saving throws against being sickened."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["inflicts:sickened"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.5yP9Y2iSOmy4hsrW"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "008fe360-aee5-5f6f-86df-403459aefeb9",
+    "pack": "hellbreakers",
+    "kind": "effect",
+    "slug": "effect:effect-pyres-mercy",
+    "name": "Effect: Pyre's Mercy",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain fire weakness 5 while frightened."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Weakness",
+        "type": ["fire"],
+        "value": 5,
+        "predicate": ["self:condition:frightened"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.u3Qy9t7RuE4wKV0O"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "85b99749-eb8c-559b-a194-61cc2e6aad51",
+    "pack": "hellbreakers",
+    "kind": "effect",
+    "slug": "effect:effect-reactive-detach",
+    "name": "Effect: Reactive Detach",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The sarcovalt gains resistance 5 to the triggering slashing damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["slashing"],
+        "value": 5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.78Dfh5ghvULGiyzk"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "15ea5e59-4807-5ece-bbc2-335ca30b51fc",
+    "pack": "hellbreakers",
+    "kind": "effect",
+    "slug": "effect:effect-rend-armor",
+    "name": "Effect: Rend Armor",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "3dae75d2-7d58-54e5-bc73-f197a8b2a809"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –2 circumstance penalty to your AC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": -2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.CBEHOTjal3nllTtt"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "1fdd6da1-4c80-5038-ba39-75b06e4fcf1c",
+    "pack": "hellbreakers",
+    "kind": "effect",
+    "slug": "effect:effect-shroud-of-burning-pages",
+    "name": "Effect: Shroud of Burning Pages",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are concealed and take a –2 circumstance penalty to Perception checks."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "f410da96-b56a-5c7c-857b-7096defec0a1"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "circumstance",
+        "value": -2,
+        "predicate": [
+          {
+            "not": "option:fevered-consciousness"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.iFPNXFOCYHIxIKBw"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "d4c0ca57-5773-5f5e-8084-8863a75d7624",
+    "pack": "hellbreakers",
+    "kind": "effect",
+    "slug": "effect:effect-thorn-of-milani-spirit-damage",
+    "name": "Effect: Thorn of Milani (Spirit Damage)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "7961700a-f80e-5cf2-a65d-a22c6bd8bacb"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "ccada03d-9752-511f-9a62-64a611f50163"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You deal additional spirit damage with the holy trait."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.XjMGlQTXx13OMAkN"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "50c19a64-95bb-5fc8-8390-3d3d0dd61569",
+    "pack": "hellbreakers",
+    "kind": "effect",
+    "slug": "effect:effect-thorn-of-milani-unholy-weakness",
+    "name": "Effect: Thorn of Milani (Unholy Weakness)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "7961700a-f80e-5cf2-a65d-a22c6bd8bacb"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "ccada03d-9752-511f-9a62-64a611f50163"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain weakness 1 to unholy until the end of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.ThhQDjUXKL7DcdbF"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "c3a4f2c0-008a-5126-8cee-805e17918394",
+    "pack": "hellbreakers",
+    "kind": "effect",
+    "slug": "effect:effect-unassuming-face-paint",
+    "name": "Effect: Unassuming Face Paint",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "d9f26233-cae1-5083-b84d-4c5b642a1749"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 item bonus to Stealth checks and DCs while blending into a crowd."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "item",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.aA2JwRWclQJbfVMT"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "b1e5046e-5ce6-51da-a328-0ed495555840",
+    "pack": "hellbreakers",
+    "kind": "effect",
+    "slug": "effect:effect-vitality-of-hell",
+    "name": "Effect: Vitality of Hell",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain 1d6 temporary Hit Points that last for 1 round."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "@item.value"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.bwEZazVhE5KkLfwA"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      },
+      "badge": {
+        "type": "formula",
+        "formula": "1d6"
+      }
+    }
+  },
+  {
+    "id": "f0c53b76-6569-5ee5-96f6-a6349cc592cf",
+    "pack": "hellbreakers",
+    "kind": "effect",
+    "slug": "effect:effect-warding-paste-attacker",
+    "name": "Effect: Warding Paste (Attacker)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "43737a2c-93a9-59a4-adea-58954aaa1232"
+          },
+          {
+            "type": "text",
+            "text": " via Ephemeral Effect"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a -1 circumstance penalty to melee attacks against the origin."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["melee-attack-roll"],
+        "type": "circumstance",
+        "value": -1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.Ewb35HkmaoBV5iLL"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "b73d9b9f-9332-5708-a5c9-54b796d976a5",
+    "pack": "hellbreakers",
+    "kind": "effect",
+    "slug": "effect:effect-warding-paste-wearer",
+    "name": "Effect: Warding Paste (Wearer)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "43737a2c-93a9-59a4-adea-58954aaa1232"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Creatures with the unholy trait take a -1 circumstance penalty to melee attacks against you."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.CvnIiMOigw3TeHYC"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "9cf881c7-2131-570e-9363-3a386472b5e3",
+    "pack": "hellbreakers",
+    "kind": "effect",
+    "slug": "effect:spell-effect-divine-keystone-critical-failure",
+    "name": "Spell Effect: Divine Keystone (Critical Failure)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "All undead creatures in the ritual's area gain fast healing 3 and resistance 3 to holy."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.LiQDQYAYYE6Qg4yI"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "d46cba17-7063-5446-8faf-eb5476ea8094",
+    "pack": "hellbreakers",
+    "kind": "effect",
+    "slug": "effect:stance-bite-of-the-asp-stance",
+    "name": "Stance: Bite of the Asp Stance",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your asp coil loses the reach weapon property, but you can make asp coil Strikes instead of fist Strikes when you uses Flurry of Blows. Claw of pain also applies to these asp coil Strikes when in this stance."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:melee", "item:slug:asp-coil"],
+        "property": "traits",
+        "mode": "remove",
+        "value": "reach-10"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.UbyVJdH8p3FM6pXw"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "e4e72de1-08d3-50e5-b57b-eae2c3d85dda",
+    "pack": "hellbreakers",
+    "kind": "effect",
+    "slug": "effect:stance-defy-hell",
+    "name": "Stance: Defy Hell",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "c328fe50-54ef-50f4-b61b-d5f048ec9fa2"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As long as you're in this stance, you gain a +2 status bonus to saves against mental effects and can make Hellbreaker Strikes."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["item:trait:mental"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.T4w2mURZqsdQHi8V"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  }
+]

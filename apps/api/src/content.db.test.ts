@@ -153,6 +153,7 @@ describe.skipIf(adminUrl === undefined)('content routes (postgres)', () => {
       'draconic-codex',
       'gm-core',
       'guns-and-gears',
+      'hellbreakers',
       'hellfire-dispatches',
       'high-seas',
       'howl-of-the-wild',

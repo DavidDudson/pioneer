@@ -175,3 +175,16 @@ export async function seasonOfGhostsPack(): Promise<PackContents> {
     json(import('@pioneer/content/packs/season-of-ghosts/weapon.json')),
   ]);
 }
+
+export async function hellbreakersPack(): Promise<PackContents> {
+  return pack(import('@pioneer/content/packs/hellbreakers/pack.json'), [
+    json(import('@pioneer/content/packs/hellbreakers/archetype.json')),
+    json(import('@pioneer/content/packs/hellbreakers/consumable.json')),
+    json(import('@pioneer/content/packs/hellbreakers/effect.json')),
+    json(import('@pioneer/content/packs/hellbreakers/equipment.json')),
+    json(import('@pioneer/content/packs/hellbreakers/feat.json')),
+    json(import('@pioneer/content/packs/hellbreakers/ritual.json')),
+    json(import('@pioneer/content/packs/hellbreakers/shield.json')),
+    json(import('@pioneer/content/packs/hellbreakers/weapon.json')),
+  ]);
+}
