@@ -7,9 +7,9 @@ import {
   MAX_HIT_POINTS,
   RANKED_STATISTICS,
 } from '@pioneer/interop/pathbuilder';
-import type { DiscrepancyReport, PathbuilderImport, PioneerValues } from '@pioneer/interop/pathbuilder';
+import type { DiscrepancyReport, PathbuilderImport, PioneerSpellDc, PioneerValues } from '@pioneer/interop/pathbuilder';
 import type { StatisticResult } from '@pioneer/rules/engine';
-import { Proficiency } from '@pioneer/rules/sdk';
+import { Proficiency, Selector as SelectorSchema } from '@pioneer/rules/sdk';
 import type { ContentRegistry, Selector, VariantRuleEntry } from '@pioneer/rules/sdk';
 
 /** The totals the report compares. */
@@ -31,9 +31,19 @@ function derived(statistics: ReadonlyMap<Selector, StatisticResult>, selector: S
 function pioneerValues(character: Character, { registry, slots, variants }: DerivationContent): PioneerValues {
   const { document } = character;
   const inputs = characterStatisticInputs(registry, document, slots);
-  const statistics = characterStatistics(document, { registry, slots, inputs, variants });
+  const statistics = characterStatistics(document, {
+    registry,
+    slots,
+    inputs,
+    variants,
+  });
   const ranks = buildRanks(document, slots);
   return {
+    spellDcs: inputs.spellcasting.flatMap(({ slug, tradition, attribute }): PioneerSpellDc[] => {
+      const selector = SelectorSchema.parse(`spell-dc:${slug}`);
+      const total = derived(statistics, selector);
+      return total === undefined ? [] : [{ selector, tradition, attribute, total }];
+    }),
     totals: new Map(
       TOTALS.flatMap((selector): [Selector, number][] => {
         const total = derived(statistics, selector);

@@ -78,10 +78,30 @@ export const ARMOR_CLASS = Selector.parse('ac');
 export const MAX_HIT_POINTS = Selector.parse('hp:max');
 export const LAND_SPEED = Selector.parse('speed');
 
-/** What the engine derived for the imported character: totals by statistic, and ranks of the statistics ranked. */
+/** The spell DC the engine derived for one of the character's spellcasting entries. */
+export interface PioneerSpellDc {
+  /** The entry's `spell-dc:<slug>`. */
+  readonly selector: Selector;
+  readonly tradition: string;
+  readonly attribute: string;
+  readonly total: number;
+}
+
+/** What the engine derived for the imported character: totals by statistic, ranks of the statistics ranked, and the spell DCs. */
 export interface PioneerValues {
   readonly totals: ReadonlyMap<Selector, number>;
   readonly ranks: ReadonlyMap<Selector, Proficiency>;
+  readonly spellDcs: readonly PioneerSpellDc[];
+}
+
+/** The base of a DC. */
+const BASE_DC = 10;
+
+/** A total Pathbuilder computed and the engine's for the same statistic. */
+interface Pair {
+  readonly selector: Selector;
+  readonly pathbuilder: number;
+  readonly pioneer: number;
 }
 
 const RANKS: readonly Proficiency[] = Object.values(Proficiency);
@@ -104,11 +124,41 @@ function reportedTotals(value: PathbuilderImport): Map<Selector, number> {
   return totals;
 }
 
-function totalDifferences(value: PathbuilderImport, { totals }: PioneerValues): [number, TotalDiscrepancy[]] {
-  const compared = [...reportedTotals(value)].flatMap(([selector, pathbuilder]) => {
-    const pioneer = totals.get(selector);
-    return pioneer === undefined ? [] : [{ selector, pathbuilder, pioneer }];
-  });
+/** A focus entry's DC: 10, its attribute and item bonuses, and its rank's number plus the level when trained or better. */
+function focusDc(level: number, entry: { abilityBonus?: number; proficiency?: number; itemBonus?: number }): number {
+  const rank = entry.proficiency ?? 0;
+  return BASE_DC + (entry.abilityBonus ?? 0) + rank + (entry.itemBonus ?? 0) + (rank > 0 ? level : 0);
+}
+
+/**
+ * The spell DC Pathbuilder computed for each focus tradition and attribute, beside the engine's for the first of its
+ * entries with that tradition and attribute. One with no such entry (a focus-only caster the engine gives none) is left out.
+ */
+function spellDcPairs(value: PathbuilderImport, { spellDcs }: PioneerValues): Pair[] {
+  return Object.entries(value.reported.focus).flatMap(([tradition, byAttribute]) =>
+    Object.entries(byAttribute).flatMap(([attribute, entry]) => {
+      const pioneer = spellDcs.find((dc) => dc.tradition === tradition && dc.attribute === attribute);
+      return pioneer === undefined
+        ? []
+        : [
+            {
+              selector: pioneer.selector,
+              pathbuilder: focusDc(value.level, entry),
+              pioneer: pioneer.total,
+            },
+          ];
+    }),
+  );
+}
+
+function totalDifferences(value: PathbuilderImport, values: PioneerValues): [number, TotalDiscrepancy[]] {
+  const compared: Pair[] = [
+    ...[...reportedTotals(value)].flatMap(([selector, pathbuilder]): Pair[] => {
+      const pioneer = values.totals.get(selector);
+      return pioneer === undefined ? [] : [{ selector, pathbuilder, pioneer }];
+    }),
+    ...spellDcPairs(value, values),
+  ];
   const differing = compared
     .filter(({ pathbuilder, pioneer }) => pathbuilder !== pioneer)
     .map(({ selector, pathbuilder, pioneer }): TotalDiscrepancy => ({
@@ -142,11 +192,14 @@ function rankDifferences(value: PathbuilderImport, { ranks }: PioneerValues): [n
 
 /**
  * The numbers Pathbuilder computed, beside the engine's for the imported character (#312): AC, maximum Hit Points,
- * Speed and the rank of each save, Perception, the class DC and the skills. Only a statistic both sides have is
+ * Speed, the spell DC of each focus tradition and the rank of each save, Perception, the class DC and the skills. Only a statistic both sides have is
  * compared, so one the engine can't derive yet (no content for it) counts as neither matching nor differing.
  */
 export function discrepancyReport(value: PathbuilderImport, pioneer: PioneerValues): DiscrepancyReport {
   const [comparedTotals, totals] = totalDifferences(value, pioneer);
   const [comparedRanks, ranks] = rankDifferences(value, pioneer);
-  return { compared: comparedTotals + comparedRanks, differences: [...totals, ...ranks] };
+  return {
+    compared: comparedTotals + comparedRanks,
+    differences: [...totals, ...ranks],
+  };
 }

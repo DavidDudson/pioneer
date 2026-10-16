@@ -66,6 +66,7 @@ export {
   DiscrepancyReport,
   LAND_SPEED,
   MAX_HIT_POINTS,
+  type PioneerSpellDc,
   type PioneerValues,
   RANKED_STATISTICS,
   RankDiscrepancy,
