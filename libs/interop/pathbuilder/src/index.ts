@@ -51,4 +51,10 @@ export {
   UnplacedBoost,
 } from './boost-placement';
 export { placeSkills, SkillGap, type SkillPicks, type SkillPlacement, type SkillRanks } from './skill-placement';
+export {
+  type LanguagePicks,
+  type LanguagePlacement,
+  type LanguagePlacementContent,
+  placeLanguages,
+} from './language-placement';
 export { type FeatPicks, type FeatPlacement, type FeatPlacementContent, placeFeats } from './feat-placement';

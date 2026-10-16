@@ -110,6 +110,7 @@ export function registryLookup(registry: ContentRegistry): ContentLookup {
     [ImportKind.Background]: envelopeEntries(registry, ContentKind.Background),
     [ImportKind.Class]: envelopeEntries(registry, ContentKind.Class),
     [ImportKind.Feat]: envelopeEntries(registry, ContentKind.Feat, ContentKind.Heritage),
+    [ImportKind.Language]: envelopeEntries(registry, ContentKind.Language),
     [ImportKind.Item]: envelopeEntries(registry, ...ITEM_KINDS),
     [ImportKind.ClassFeature]: envelopeEntries(
       registry,

@@ -22,7 +22,6 @@ export const UNCARRIED_KEYS: Readonly<Record<UncarriedField, string>> = {
   [UncarriedField.ClassFeature]: KIND_KEYS[ImportKind.ClassFeature],
   [UncarriedField.Spell]: KIND_KEYS[ImportKind.Spell],
   [UncarriedField.Ritual]: KIND_KEYS[ImportKind.Ritual],
-  [UncarriedField.Language]: KIND_KEYS[ImportKind.Language],
 };
 
 export const STATUS_KEYS: Readonly<Record<MatchStatus, string>> = {
