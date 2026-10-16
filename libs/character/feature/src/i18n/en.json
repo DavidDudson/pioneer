@@ -272,6 +272,15 @@
       "end": "End turn",
       "leave": "Leave encounter"
     },
+    "spend": {
+      "label": "Used this turn",
+      "unknown": "An action",
+      "undo": "Undo",
+      "costOne": "1 action",
+      "costMany": "{count} actions",
+      "costReaction": "Reaction",
+      "costFree": "Free action"
+    },
     "death": {
       "label": "Death",
       "dead": "Dead",

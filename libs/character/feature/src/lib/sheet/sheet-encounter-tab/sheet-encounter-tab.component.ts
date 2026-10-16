@@ -9,6 +9,7 @@ import { SheetActions } from '../sheet-actions/sheet-actions.component';
 import { SheetPickFields } from '../sheet-pick-fields/sheet-pick-fields.component';
 import { SHEET_SECTIONS, SHEET_TAB_SECTIONS } from '../sheet-sections';
 import { SheetSpells } from '../sheet-spells/sheet-spells.component';
+import { SheetSpendLog } from '../sheet-spend-log/sheet-spend-log.component';
 import { SheetState } from '../sheet-state';
 import { SheetStaves } from '../sheet-staves/sheet-staves.component';
 import { rememberTab } from '../sheet-tab';
@@ -34,6 +35,7 @@ import { SheetWands } from '../sheet-wands/sheet-wands.component';
     SheetPickFields,
     SheetSpells,
     SheetStaves,
+    SheetSpendLog,
     SheetTurnBar,
     SheetWands,
     SpellcastingView,
