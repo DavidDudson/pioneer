@@ -545,7 +545,8 @@ any kind of entry can grant any other.
 - An inline `ChoiceSet` whose predicate is true is a **slot**, keyed `<entry id>:<rule index>`. The entry is on the
   character once, so the key is stable however it got there, and picks (slot key to value) survive re-resolution.
   Options whose predicate is false are left out; unknown ones are offered with their summary.
-- A pick among the offered options answers the slot, and its `rollOption` sets `<rollOption>:<pick>`. A
+- A pick among the offered options answers the slot, and its `rollOption` sets `<rollOption>:<pick>`. A pick that is an
+  entry sets its slug less its kind (`feat:order-explorer:leaf-order`), as Foundry names an item pick. A
   `GrantItem { choice: <flag> }` on the same entry grants the picked entry behind a `choice` hop, then a `grant` hop.
   With no pick the slot is **open** and the grant waits; a pick not on offer is an error and the slot reopens. A pick
   that is a plain option, not an entry, cannot be granted. Removing a pick drops everything granted through it.

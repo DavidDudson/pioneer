@@ -129,6 +129,15 @@ function answeredOf(place: SlotPlace, offer: Offer, answer: SlotAnswer): Answere
 
 const choiceHop = (slot: SlotKey): OriginHop => ({ kind: OriginHopKind.Choice, slot });
 
+/**
+ * What a pick is called in the roll option it sets: an entry's slug less its kind, as Foundry names an item pick
+ * (`feat:order-explorer:leaf-order`), else the plain option as it is.
+ */
+function pickName(value: ChoiceValue, lookup: ContentLookup): string {
+  const id = ContentId.safeParse(value);
+  return (id.success ? lookup.entry(id.data)?.slug : undefined) ?? value;
+}
+
 /** Collects one entry's slots, answered and open, as it reads them in rule order. */
 class ChoiceReader {
   readonly #at: EntryAt;
@@ -167,7 +176,10 @@ class ChoiceReader {
     if (value === undefined) {
       this.#open.push(slotOf(place, offer));
     } else if (isOffered(element, value, this.#context)) {
-      const option = element.rollOption === undefined ? undefined : optionOf(element.rollOption, value);
+      const option =
+        element.rollOption === undefined
+          ? undefined
+          : optionOf(element.rollOption, pickName(value, this.#context.lookup));
       this.#answer(answeredOf(place, offer, { pick: value, option }));
     } else {
       this.#refuse(slotOf(place, offer), value);

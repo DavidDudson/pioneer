@@ -120,7 +120,7 @@ describe('resolveGrants choice queries', () => {
     expect(result.answered.map((slot) => slot.pick)).toEqual([idOf('sudden-charge')]);
     const granted = result.items.find((item) => item.entry.id === idOf('sudden-charge'));
     expect(granted?.origin.hops.at(-2)).toEqual(OriginHop.parse({ kind: 'choice', slot: CLASS_FEAT_SLOT }));
-    expect(result.rollOptions).toContain(RollOption.parse(`class-feat:${idOf('sudden-charge')}`));
+    expect(result.rollOptions).toContain(RollOption.parse('class-feat:sudden-charge'));
   });
 
   test('a pick the filter rules out is an error and the slot opens again', () => {

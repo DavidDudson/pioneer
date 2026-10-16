@@ -54,8 +54,11 @@ Alternatives:
   a spell (a later book's) would need its own element.
 - An order's focus entry and order spell hold unless the order was joined through Order Explorer
   (`not feat:order-explorer:<order>`), which grants none of its other benefits, as Foundry guards an order's own.
-- Order Magic offers nothing until Order Explorer's choice imports (#604), and a feat taken twice shares its first
-  take's choice, so a second Domain Initiate or Initiate Warden picks nothing new (#605).
+- Order Explorer offers the druidic orders the druid has not (an order it joined through the feat stays offered, so its
+  own pick holds), sets `feat:order-explorer:<order>` and grants the order's feature, which counts for prerequisites
+  and nothing else. Order Magic offers the orders Order Explorer joined and gives the picked order's order spell. A
+  pick that is an entry sets its slug in the roll option, as Foundry does. A feat taken twice shares its first take's
+  choice, so a second Order Explorer, Order Magic, Domain Initiate or Initiate Warden picks nothing new (#605).
 - Lesson features carry their hexes, but Basic, Greater and Major Lesson import with no rules, so no lesson reaches a
   witch yet.
 - Feats can't be picked on the sheet until #466, so feat-granted focus spells are reachable only through the API.
