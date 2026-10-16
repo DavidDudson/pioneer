@@ -15,6 +15,7 @@ import {
   placeFlaws,
   placeLanguages,
   placeSkills,
+  placeSpells,
   readPathbuilderExport,
 } from '@pioneer/interop/pathbuilder';
 import type {
@@ -25,6 +26,7 @@ import type {
   PathbuilderName,
   PathbuilderReadFailure,
   SkillGap,
+  SpellGap,
   UnplacedBoost,
 } from '@pioneer/interop/pathbuilder';
 import { AncestryId, ChoiceValue, VariantStructure } from '@pioneer/rules/sdk';
@@ -118,6 +120,7 @@ export interface ImportedCharacter {
   readonly character: Character;
   readonly unplaced: readonly UnplacedBoost[];
   readonly skillGaps: readonly SkillGap[];
+  readonly spellGaps: readonly SpellGap[];
   readonly notOffered: readonly ImportedName[];
 }
 
@@ -125,6 +128,7 @@ export interface ImportedCharacter {
 interface SlotFills {
   readonly choices: BoostChoices;
   readonly skillGaps: readonly SkillGap[];
+  readonly spellGaps: readonly SpellGap[];
   readonly notOffered: readonly ImportedName[];
 }
 
@@ -134,16 +138,19 @@ interface Build {
   readonly choices: BoostChoices;
 }
 
-/** The feats, then the skills and Lores, then the languages in the slots `build` opens, each read after the last. */
+/** The feats, then the skills and Lores, the languages and the spells in the slots `build` opens, each read after the last. */
 function slotFills(value: PathbuilderImport, content: ImportContent, { create, choices: built }: Build): SlotFills {
   const feats = placeFeats(create(built).document, content, value.feats);
   const withFeats = { ...built, ...feats.choices };
   const skills = placeSkills(create(withFeats).document, content.slots, value);
   const withSkills = { ...withFeats, ...skills.choices };
   const languages = placeLanguages(create(withSkills).document, content, value.names);
+  const withLanguages = { ...withSkills, ...languages.choices };
+  const spells = placeSpells(create(withLanguages).document, content, value.casters);
   return {
-    choices: { ...withSkills, ...languages.choices },
+    choices: { ...withLanguages, ...spells.choices },
     skillGaps: skills.gaps,
+    spellGaps: spells.gaps,
     notOffered: [
       ...feats.unplaced.map(({ name }): ImportedName => ({ kind: ImportKind.Feat, name })),
       ...languages.unplaced.map((name): ImportedName => ({ kind: ImportKind.Language, name })),
@@ -154,7 +161,8 @@ function slotFills(value: PathbuilderImport, content: ImportContent, { create, c
 /**
  * The character `create` makes from an export: its background and class (and second class) picked, then the heritage
  * its ancestry offers, then each boost in the slots they open, the voluntary flaws (#550) and the feats in the slots
- * those open, the skills and Lores in the skill slots and the languages in the language slots (#308); a matched feat or
+ * those open, the skills and Lores in the skill slots, the languages in the language slots (#308) and the spells in the
+ * prepared and repertoire slots (#311); a matched feat or
  * language no slot offers is named as not offered.
  */
 export function importedCharacter(
@@ -175,6 +183,7 @@ export function importedCharacter(
     character: create(fills.choices),
     unplaced: placement.unplaced,
     skillGaps: fills.skillGaps,
+    spellGaps: fills.spellGaps,
     notOffered: [...heritage.notOffered, ...secondClassNotOffered(value, content), ...fills.notOffered],
   };
 }

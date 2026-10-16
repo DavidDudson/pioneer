@@ -156,6 +156,7 @@ describe('PathbuilderImportPage create', () => {
         notCarried: ['class-feature', 'spell'],
         unplacedBoosts: [],
         skillGaps: [],
+        spellGaps: [],
         modifierDifferences: [],
         discrepancies: { compared: 0, differences: [] },
       },

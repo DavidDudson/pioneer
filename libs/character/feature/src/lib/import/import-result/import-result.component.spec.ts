@@ -21,6 +21,7 @@ const EMPTY: CharacterImportReport = {
   notCarried: [],
   unplacedBoosts: [],
   skillGaps: [],
+  spellGaps: [],
   modifierDifferences: [],
   discrepancies: { compared: 0, differences: [] },
 };
@@ -56,6 +57,7 @@ describe(ImportResult, () => {
       notCarried: [UncarriedField.ClassFeature, UncarriedField.Spell],
       unplacedBoosts: [],
       skillGaps: [],
+      spellGaps: [],
       modifierDifferences: [],
       discrepancies: { compared: 0, differences: [] },
     });
