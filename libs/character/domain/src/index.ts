@@ -603,3 +603,5 @@ export type { ActionCostRange, SpendCommand, SpendCost, SpendEntry, SpendLog, Sp
 export { actionCosts } from './action-costs';
 export { explorationAction, isExplorationActivity, PERCEPTION, suggestedInitiative } from './exploration-activity';
 export { untypedDamage } from './untyped-damage';
+export { INITIATIVE, initiativeRoll } from './initiative-roll';
+export type { RollAs } from './initiative-roll';

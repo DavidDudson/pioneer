@@ -13,6 +13,8 @@ import { importedFeats } from './read-feats';
 import type { ImportedFeat } from './read-feats';
 import { importedCoins, importedItems } from './read-items';
 import type { ImportedCoins, ImportedItem } from './read-items';
+import { importedCasters } from './read-spells';
+import type { ImportedCaster } from './read-spells';
 
 /** Why an export could not be read. The UI maps each to a message key. */
 export const PathbuilderProblem = {
@@ -63,6 +65,8 @@ export interface PathbuilderImport {
   /** Every feat row in export order, awarded and heritage feats too. */
   readonly feats: readonly ImportedFeat[];
   readonly coins: ImportedCoins;
+  /** Every `spellCasters` row, in export order. */
+  readonly casters: readonly ImportedCaster[];
   readonly reported: PathbuilderReported;
 }
 
@@ -213,6 +217,7 @@ function toImport(build: PathbuilderBuild): PathbuilderReadResult {
     items: importedItems(build),
     feats: importedFeats(build),
     coins: importedCoins(build),
+    casters: importedCasters(build),
     reported: {
       acTotal: build.acTotal,
       attributes: build.attributes,

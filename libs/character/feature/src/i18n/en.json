@@ -276,9 +276,19 @@
       "pipQuickenedFor": "Quickened action: {restriction}",
       "reactionReady": "Reaction ready",
       "reactionSpent": "Reaction spent",
+      "enter": "Enter encounter",
       "start": "Start turn",
       "end": "End turn",
       "leave": "Leave encounter"
+    },
+    "initiative": {
+      "heading": "Roll initiative",
+      "label": "Statistic to roll initiative with",
+      "option": "{name} {modifier}",
+      "roll": "Roll initiative",
+      "reroll": "Roll again",
+      "skip": "Skip",
+      "done": "Done"
     },
     "spend": {
       "label": "Used this turn",
@@ -541,6 +551,13 @@
       "unplacedSummary": "{count, plural, one {# boost} other {# boosts}} found no slot",
       "skillGapsSummary": "{count, plural, one {# skill} other {# skills}} fell short of Pathbuilder",
       "skillGap": "Pathbuilder {wanted}, Pioneer {reached}",
+      "spellGapsSummary": "{count, plural, one {# spell} other {# spells}} found no slot",
+      "spellGap": "{name} ({caster}, {rank, select, cantrip {cantrip} other {rank {rank}}})",
+      "spellGapReason": {
+        "noEntry": "No spellcasting to put it in",
+        "noSlot": "Every slot of its rank is taken",
+        "notOffered": "No slot offers it"
+      },
       "discrepanciesSummary": "{count, plural, one {# statistic differs} other {# statistics differ}} from Pathbuilder, of {compared, number} compared",
       "discrepanciesMatch": "All {count, number} statistics Pathbuilder computed match Pioneer's.",
       "discrepancyWhy": "Why Pioneer's value is what it is",
@@ -557,7 +574,8 @@
         "attackMartial": "Martial weapons",
         "attackAdvanced": "Advanced weapons",
         "spellcasting": "Spellcasting",
-        "spellDc": "Spell DC ({entry})"
+        "spellDc": "Spell DC ({entry})",
+        "spellSlots": "Spell slots ({entry}, {rank, select, cantrip {cantrips} other {rank {rank}}})"
       },
       "notCarried": "Characters can't hold these yet, so they weren't kept: {fields}.",
       "groupSummary": "{kind} · {count, number} not carried over",

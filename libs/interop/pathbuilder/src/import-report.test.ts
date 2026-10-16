@@ -106,7 +106,7 @@ describe('buildImportReport: golden fixture against loaded packs', () => {
     });
   });
 
-  test('heritages, backgrounds, classes, items, feats, class features and languages are looked up; every other kind is not loaded yet', () => {
+  test('heritages, backgrounds, classes, items, feats, class features, languages, spells and rituals are looked up; every other kind is not loaded yet', () => {
     const indexed = new Set<ImportKind>([
       ImportKind.Ancestry,
       ImportKind.Heritage,
@@ -116,6 +116,8 @@ describe('buildImportReport: golden fixture against loaded packs', () => {
       ImportKind.ClassFeature,
       ImportKind.Item,
       ImportKind.Language,
+      ImportKind.Spell,
+      ImportKind.Ritual,
     ]);
     const others = report.groups.filter((group) => !indexed.has(group.kind));
     expect(others.flatMap((group) => group.rows).every((row) => row.status === MatchStatus.KindNotLoaded)).toBe(true);

@@ -25,6 +25,7 @@ import { ImportBoostReport } from '../import-boost-report/import-boost-report.co
 import { ImportDiscrepancyReport } from '../import-discrepancy-report/import-discrepancy-report.component';
 import { KIND_KEYS, REASON_KEYS, REASON_TONES, UNCARRIED_KEYS } from '../import-labels';
 import { ImportSkillReport } from '../import-skill-report/import-skill-report.component';
+import { ImportSpellReport } from '../import-spell-report/import-spell-report.component';
 
 /** One name that was not carried over, as the list shows it. */
 interface NameView {
@@ -53,6 +54,7 @@ interface GroupView {
     ImportDiscrepancyReport,
     ImportSkillReport,
     Link,
+    ImportSpellReport,
     List,
     ListItem,
     Stack,

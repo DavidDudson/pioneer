@@ -45,6 +45,7 @@ describe('book registry', () => {
         'draconic-codex',
         'gm-core',
         'guns-and-gears',
+        'hellbreakers',
         'hellfire-dispatches',
         'high-seas',
         'howl-of-the-wild',

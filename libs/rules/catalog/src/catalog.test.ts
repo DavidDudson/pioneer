@@ -32,6 +32,7 @@ const chelaxInfernalInheritance = PackId.parse('cheliax-infernal-inheritance');
 const rivalAcademies = PackId.parse('rival-academies');
 const shiningKingdoms = PackId.parse('shining-kingdoms');
 const draconicCodex = PackId.parse('draconic-codex');
+const hellbreakers = PackId.parse('hellbreakers');
 const hellfireDispatches = PackId.parse('hellfire-dispatches');
 const highSeas = PackId.parse('high-seas');
 const seasonOfGhosts = PackId.parse('season-of-ghosts');
@@ -59,6 +60,7 @@ describe('content catalog', () => {
       draconicCodex,
       gmCore,
       gunsAndGears,
+      hellbreakers,
       hellfireDispatches,
       highSeas,
       howlOfTheWild,

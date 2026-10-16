@@ -1,0 +1,19 @@
+@if (anyGaps()) {
+  <fr-disclosure>
+    <fr-text frDisclosureSummary>{{
+      'character.import.result.spellGapsSummary' | transloco: { count: gaps().length }
+    }}</fr-text>
+    <fr-list>
+      @for (row of gaps(); track $index) {
+        <fr-list-item>
+          <fr-stack direction="horizontal" justify="between" align="center" gap="sm">
+            <fr-text>{{
+              'character.import.result.spellGap' | transloco: { name: row.name, caster: row.caster, rank: row.rank }
+            }}</fr-text>
+            <fr-text tone="muted">{{ row.reasonKey | transloco }}</fr-text>
+          </fr-stack>
+        </fr-list-item>
+      }
+    </fr-list>
+  </fr-disclosure>
+}

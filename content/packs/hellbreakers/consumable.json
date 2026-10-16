@@ -1,0 +1,1195 @@
+[
+  {
+    "id": "b153dbec-e372-5819-8a9c-36d2ee96449e",
+    "pack": "hellbreakers",
+    "kind": "consumable",
+    "slug": "consumable:bortled-favorite-lesser",
+    "name": "Bortled Favorite (Lesser)",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "consumable", "processed"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An Isgeri specialty from Etran's Folly, this root vegetable porridge was named after the dwarf trader Bort Bargith. When you eat this porridge, you can "
+          },
+          {
+            "type": "ref",
+            "id": "80d65abb-eee5-5673-a8ed-871abd9c89f2"
+          },
+          {
+            "type": "text",
+            "text": " for an additional 10 minutes during exploration. This lasts for 24 hours or until you make your next daily preparations, whichever comes first."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.SN3zU6CpyN79OINk"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "d37e4f5e-61db-5b7f-b380-7b96b4df823c",
+    "pack": "hellbreakers",
+    "kind": "consumable",
+    "slug": "consumable:bortled-favorite-moderate",
+    "name": "Bortled Favorite (Moderate)",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "consumable", "processed"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An Isgeri specialty from Etran's Folly, this root vegetable porridge was named after the dwarf trader Bort Bargith. When you eat this porridge, you can "
+          },
+          {
+            "type": "ref",
+            "id": "80d65abb-eee5-5673-a8ed-871abd9c89f2"
+          },
+          {
+            "type": "text",
+            "text": " for an additional 20 minutes during exploration. This lasts for 24 hours or until you make your next daily preparations, whichever comes first."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.DVPP0DF0ijId1ZYO"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 25
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "5d54ced2-6550-59d8-a949-fc0897f65656",
+    "pack": "hellbreakers",
+    "kind": "consumable",
+    "slug": "consumable:greased-axle",
+    "name": "Greased Axle",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "talisman"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're "
+          },
+          {
+            "type": "ref",
+            "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "b374c4c9-d230-5167-8878-38e08932a071"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When rogues and scoundrels find themselves in sticky situations, a greased axle is a quick way out. You attempt a check to "
+          },
+          {
+            "type": "ref",
+            "id": "2ae74030-e87a-55ee-955c-fb9870392d44"
+          },
+          {
+            "type": "text",
+            "text": ", with a +1 item bonus to your check. If you critically fail, you get a failure instead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "1515859b-0942-5670-a076-c3601999f0ba"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.5ayGokKzSBMCGJD8"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 7
+        }
+      },
+      "bulk": "negligible",
+      "category": "talisman",
+      "usage": {
+        "type": "affixed",
+        "to": "armor"
+      }
+    }
+  },
+  {
+    "id": "9da4ae0f-a3f1-525d-910e-cb22983ba3ec",
+    "pack": "hellbreakers",
+    "kind": "consumable",
+    "slug": "consumable:harpys-talon",
+    "name": "Harpy's Talon",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical", "talisman"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You successfully Strike a creature with the affixed weapon."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This sharp metal claw is used to inflict additional pain upon your enemies. When you activate the harpy's talon, the weapon deals persistent bleed damage equal to the number of weapon damage dice. If the Strike was a critical success, the persistent bleed damage increases to twice the number of weapon damage dice."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "214d0f44-9cd8-5e7f-8393-9769e842f08a"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.rJqth4cFwWnSiCr1"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3
+        }
+      },
+      "bulk": "negligible",
+      "category": "talisman",
+      "usage": {
+        "type": "affixed",
+        "to": "a-slashing-weapon"
+      }
+    }
+  },
+  {
+    "id": "87c67132-4b8f-5760-bc5a-f9f342fbe532",
+    "pack": "hellbreakers",
+    "kind": "consumable",
+    "slug": "consumable:impelling-symbol",
+    "name": "Impelling Symbol",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "talisman", "vitality"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Cast a Spell that restores Hit Points to another creature."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This simple religious symbol bolsters you when you help others. When you activate it, you gain a number of temporary Hit Points equal to your level plus the rank of the spell you cast. These temporary Hit Points last for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "8e87f75c-c8dd-598e-92ed-d2642321bdf1"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.KMuzxjJehmJgoQ7h"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 75
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "usage": {
+        "type": "applied",
+        "to": "armor"
+      }
+    }
+  },
+  {
+    "id": "000c14bb-73dc-5d4f-b2cb-ad43fa008bae",
+    "pack": "hellbreakers",
+    "kind": "consumable",
+    "slug": "consumable:marvelous-miniature-swift-sparrow",
+    "name": "Marvelous Miniature, Swift Sparrow",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["consumable", "expandable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When activated, this miniature transforms into a seemingly mundane sparrow. The sparrow flies to a destination of your choice within 200 feet that you can see, then Seeks in a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " using your Perception modifier before returning. The sparrow then unravels into a small map of the area it perceived, including any creatures it saw. The map is rudimentary and doesn't reveal anything the sparrow failed to perceive."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.AB9MZTjKQMTBXyi4"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "1d71e5be-6a49-5a83-bae5-89ac7ca5c0d9",
+    "pack": "hellbreakers",
+    "kind": "consumable",
+    "slug": "consumable:restful-salve",
+    "name": "Restful Salve",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical", "oil"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "restful salve",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a compound that can be applied to the skin to prevent undeath. If applied to a fresh corpse, the corpse doesn't decay, nor can it be transformed into an undead or otherwise controlled until the sun rises the next morning. If applied to a living creature, this salve lasts for only 1 hour due to the body's natural excretions. For that duration, the salve wards off effects that would cause undeath upon dying."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.M7lC4RUuPlx2I8fP"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 30
+        }
+      },
+      "bulk": "light",
+      "category": "oil",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "cc34feea-d122-5b6b-9643-ea250e52fab4",
+    "pack": "hellbreakers",
+    "kind": "consumable",
+    "slug": "consumable:serene-smelling-salts",
+    "name": "Serene Smelling Salts",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "consumable"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This package of smelling salts has such a pungent stench, it can snap any creature out of a panicked state. When used on yourself or a creature within your reach, that target reduces the value of its frightened condition by 1 and becomes temporarily immune to any serene smelling salts for 1 hour."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.TaC5Eln00j3PMyiu"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "a66ce180-e931-58be-8e10-3160cec5b49f",
+    "pack": "hellbreakers",
+    "kind": "consumable",
+    "slug": "consumable:smugglers-padlock",
+    "name": "Smuggler's Padlock",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["consumable", "extradimensional", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This padlock exists in a dormant state while it's closed and its associated key is in the keyhole. To activate this item, you remove the key, which causes the keyhole to become a portal to an extradimensional space. This space can hold a single object of up to 1 Bulk by pressing it against the keyhole. At any point within the next 24 hours, the key can be used to open the lock with an Interact action, which safely releases the item onto the ground in your space."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the lock isn't opened within the next 24 hours, the key disintegrates, and from then on, a creature who succeeds at a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:thievery",
+            "dc": 16
+          },
+          {
+            "type": "text",
+            "text": " check can Pick the Lock open to release the item. On a critical failure, the padlock is destroyed and its contents are lost forever"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.4jjhUwHiEY2v8afe"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "7961700a-f80e-5cf2-a65d-a22c6bd8bacb",
+    "pack": "hellbreakers",
+    "kind": "consumable",
+    "slug": "consumable:thorn-of-milani-lesser",
+    "name": "Thorn of Milani (Lesser)",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical", "talisman"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You hit a creature with the affixed weapon."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This pure white thorn glows bright with the spirit of justice. When you activate the thorn, you deal an additional 1d4 spirit damage with the holy trait. You then gain weakness 1 to unholy until the end of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "d4c0ca57-5773-5f5e-8084-8863a75d7624"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "50c19a64-95bb-5fc8-8390-3d3d0dd61569"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.TzGABJvUoCJVmLlE"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 12
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "usage": {
+        "type": "affixed",
+        "to": "weapon"
+      }
+    }
+  },
+  {
+    "id": "ccada03d-9752-511f-9a62-64a611f50163",
+    "pack": "hellbreakers",
+    "kind": "consumable",
+    "slug": "consumable:thorn-of-milani-moderate",
+    "name": "Thorn of Milani (Moderate)",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical", "talisman"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You hit a creature with the affixed weapon."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This pure white thorn glows bright with the spirit of justice. When you activate the thorn, you deal an additional 2d4 spirit damage with the holy trait."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "d4c0ca57-5773-5f5e-8084-8863a75d7624"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.hkcRHApzlqRVhfEv"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 60
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "usage": {
+        "type": "affixed",
+        "to": "weapon"
+      }
+    }
+  },
+  {
+    "id": "d9f26233-cae1-5083-b84d-4c5b642a1749",
+    "pack": "hellbreakers",
+    "kind": "consumable",
+    "slug": "consumable:unassuming-face-paint",
+    "name": "Unassuming Face Paint",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When these drab pigments are applied to your face, you appear plain and inconspicuous for 10 minutes. You gain a +2 item bonus to Stealth checks and DCs while blending into a crowd during this time. If you take a hostile action, the effects of "
+          },
+          {
+            "type": "text",
+            "text": "unassuming face paint",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " immediately end."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "c3a4f2c0-008a-5126-8cee-805e17918394"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.gxnMdbLRgWsWyVGA"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 16
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "a1a07262-9b18-5e41-9034-663386d1f585",
+    "pack": "hellbreakers",
+    "kind": "consumable",
+    "slug": "consumable:verdant-poultice",
+    "name": "Verdant Poultice",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "consumable", "healing"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This poultice of herbs and dried berries found throughout Isger was invented by those fighting against Cheliax's diabolic intrusion and those warring against demons at the Worldwound. You can use a verdant poultice on a creature that's taking persistent damage from a fiend; attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:nature"
+          },
+          {
+            "type": "text",
+            "text": " check with a +1 item bonus against the DC of the effect that caused the persistent damage. On a success, the persistent damage ends."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.U0jReHtTNpb0eH58"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 27
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "43737a2c-93a9-59a4-adea-58954aaa1232",
+    "pack": "hellbreakers",
+    "kind": "consumable",
+    "slug": "consumable:warding-paste",
+    "name": "Warding Paste",
+    "level": 6,
+    "rarity": "rare",
+    "traits": ["alchemical", "consumable"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Silver filings to ward off fiends, cold iron filings to repulse demons and fey, and powders made from garlic, peppers, and wort to repel undead creatures are combined into this gritty paste. A container of warding paste contains enough to cover one suit of armor or set of clothes. For the next hour, creatures with the unholy trait take a -1 circumstance penalty to melee attacks against the affected outfit's wearer."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "b73d9b9f-9332-5708-a5c9-54b796d976a5"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.GBaUehNIPMxLS5KN"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

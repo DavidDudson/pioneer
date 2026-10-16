@@ -1,0 +1,826 @@
+{
+  "pin": {
+    "tag": "pf2e-8.6.0",
+    "sha256": "d9c4c1f6bbf9bd907ec0acbaea9b8d4e8b0d049758a8616829f07c1b4ee81342"
+  },
+  "backlog": [
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "consumable:marvelous-miniature-swift-sparrow",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.AB9MZTjKQMTBXyi4",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "effect:effect-devil-you-know",
+      "foundry": "Compendium.pf2e.feat-effects.Item.3Qej6bMkgJ5ntllg",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": ["target:mark:devil-you-know"],
+            "removeAfterRoll": "if-enabled",
+            "selector": ["skill-check"],
+            "slug": "devil-you-know",
+            "type": "circumstance",
+            "value": 1
+          }
+        },
+        {
+          "type": "rule",
+          "key": "AdjustModifier",
+          "raw": {
+            "key": "AdjustModifier",
+            "mode": "upgrade",
+            "predicate": [
+              {
+                "or": [
+                  {
+                    "gte": ["skill:devil-lore:rank", 3]
+                  },
+                  {
+                    "gte": ["skill:hellknight-lore:rank", 3]
+                  }
+                ]
+              }
+            ],
+            "slug": "devil-you-know",
+            "value": 2
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "effect:effect-devilwing-badge-armor",
+      "foundry": "Compendium.pf2e.equipment-effects.Item.IdlSIN88G5Ca7TLe",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:devilwing-badge",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Devilwing Badge"
+              },
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:devilwing-badge-greater",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Devilwing Badge (Greater)"
+              },
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:devilwing-badge-major",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Devilwing Badge (Major)"
+              }
+            ],
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
+            "rollOption": "devilwing-badge"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "key": "Resistance",
+            "predicate": ["devilwing-badge:devilwing-badge"],
+            "type": ["fire", "unholy"],
+            "value": 2
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "key": "Resistance",
+            "predicate": ["devilwing-badge:devilwing-badge-greater"],
+            "type": ["fire", "unholy"],
+            "value": 5
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "key": "Resistance",
+            "predicate": ["devilwing-badge:devilwing-badge-major"],
+            "type": ["fire", "unholy"],
+            "value": 10
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "effect:effect-devilwing-badge-weapon",
+      "foundry": "Compendium.pf2e.equipment-effects.Item.JuyEDBlFwyDguEzG",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": {
+              "ownedItems": true,
+              "types": ["weapon"]
+            },
+            "flag": "weapon",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Weapon"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:devilwing-badge",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Devilwing Badge"
+              },
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:devilwing-badge-greater",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Devilwing Badge (Greater)"
+              },
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:devilwing-badge-major",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Devilwing Badge (Major)"
+              }
+            ],
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
+            "rollOption": "devilwing-badge"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "DamageDice",
+          "raw": {
+            "damageType": "spirit",
+            "diceNumber": 1,
+            "dieSize": "d4",
+            "key": "DamageDice",
+            "selector": "{item|flags.pf2e.rulesSelections.weapon}-damage",
+            "slug": "devilwing-badge"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "upgrade",
+            "predicate": ["devilwing-badge:devilwing-badge-greater"],
+            "property": "dice-faces",
+            "selectors": ["{item|flags.pf2e.rulesSelections.weapon}-damage"],
+            "slug": "devilwing-badge",
+            "value": 6
+          }
+        },
+        {
+          "type": "rule",
+          "key": "DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "upgrade",
+            "predicate": ["devilwing-badge:devilwing-badge-major"],
+            "property": "dice-faces",
+            "selectors": ["{item|flags.pf2e.rulesSelections.weapon}-damage"],
+            "slug": "devilwing-badge",
+            "value": 8
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "effect:effect-field-of-undeath",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.x8e0MXrPgdRYQqBm",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FastHealing",
+          "raw": {
+            "details": "",
+            "key": "FastHealing",
+            "predicate": ["self:negative-healing"],
+            "type": "fast-healing",
+            "value": "@item.origin.flags.system.fieldOfUndeathFastHealing"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "effect:effect-field-of-unholy-undeath",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.3hyrbOFyIPF99hcY",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FastHealing",
+          "raw": {
+            "key": "FastHealing",
+            "predicate": ["self:negative-healing", "undead"],
+            "value": "@item.origin.flags.pf2e.fieldOfUndeathFastHealing"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "effect:effect-greased-axle",
+      "foundry": "Compendium.pf2e.equipment-effects.Item.k75TZi11cy23WoQj",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["criticalFailure"],
+            "predicate": ["action:escape"],
+            "selector": ["acrobatics", "athletics", "attack"],
+            "text": "{item|description}",
+            "title": "{item|name}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "effect:effect-harpys-talon",
+      "foundry": "Compendium.pf2e.equipment-effects.Item.3aJ9AiJdOrwdjYPF",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": {
+              "ownedItems": true,
+              "types": ["weapon"]
+            },
+            "flag": "weapon",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Weapon"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "damageCategory": "persistent",
+            "damageType": "bleed",
+            "key": "FlatModifier",
+            "selector": ["{item|flags.pf2e.rulesSelections.weapon}-damage"],
+            "value": "@weapon.system.damage.dice"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "effect:effect-impelling-symbol",
+      "foundry": "Compendium.pf2e.equipment-effects.Item.4xeFMXOsfrNZ3Ijv",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": {
+              "config": "ranks"
+            },
+            "flag": "rank",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Rank"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "TempHP",
+          "raw": {
+            "key": "TempHP",
+            "value": "@actor.level+@item.flags.pf2e.rulesSelections.rank"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "effect:effect-magnetic-bola-damage",
+      "foundry": "Compendium.pf2e.equipment-effects.Item.UoTJv0GODidag5Ik",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": {
+              "ownedItems": true,
+              "types": ["weapon"]
+            },
+            "flag": "weapon",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Weapon"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "DamageDice",
+          "raw": {
+            "damageType": "electricity",
+            "diceNumber": 1,
+            "dieFaces": "d6",
+            "key": "DamageDice",
+            "selector": "{item|flags.pf2e.rulesSelections.weapon}-damage"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "effect:effect-thorn-of-milani-spirit-damage",
+      "foundry": "Compendium.pf2e.equipment-effects.Item.XjMGlQTXx13OMAkN",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": {
+              "ownedItems": true,
+              "types": ["weapon"]
+            },
+            "flag": "weapon",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Weapon"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:thorn-of-milani-lesser",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Thorn of Milani (Lesser)"
+              },
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:thorn-of-milani-moderate",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Thorn of Milani (Moderate)"
+              }
+            ],
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
+            "rollOption": "thorn-of-milani"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "DamageDice",
+          "raw": {
+            "damageType": "spirit",
+            "diceNumber": 1,
+            "dieSize": "d4",
+            "key": "DamageDice",
+            "selector": "{item|flags.pf2e.rulesSelections.weapon}-damage",
+            "slug": "thorn-of-milani"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "upgrade",
+            "predicate": ["thorn-of-milani:thorn-of-milani-moderate"],
+            "property": "dice-number",
+            "selectors": ["{item|flags.pf2e.rulesSelections.weapon}-damage"],
+            "slug": "thorn-of-milani",
+            "value": 2
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "effect:effect-thorn-of-milani-unholy-weakness",
+      "foundry": "Compendium.pf2e.equipment-effects.Item.ThhQDjUXKL7DcdbF",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Weakness",
+          "raw": {
+            "key": "Weakness",
+            "type": "unholy",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "effect:effect-warding-paste-wearer",
+      "foundry": "Compendium.pf2e.equipment-effects.Item.CvnIiMOigw3TeHYC",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "EphemeralEffect",
+          "raw": {
+            "key": "EphemeralEffect",
+            "predicate": ["self:trait:unholy"],
+            "selectors": ["melee-attack-roll"],
+            "uuid": "Compendium.pf2e.equipment-effects.Item.Effect: Warding Paste (Attacker)"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "effect:spell-effect-divine-keystone-critical-failure",
+      "foundry": "Compendium.pf2e.spell-effects.Item.LiQDQYAYYE6Qg4yI",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FastHealing",
+          "raw": {
+            "details": "3",
+            "key": "FastHealing",
+            "value": 0
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "key": "Resistance",
+            "type": "holy",
+            "value": 3
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "effect:stance-defy-hell",
+      "foundry": "Compendium.pf2e.feat-effects.Item.T4w2mURZqsdQHi8V",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "key": "GrantItem",
+            "uuid": "Compendium.pf2e.actionspf2e.Item.Hellbreaker Strike"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "equipment:hellhusk-shroud",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.yWr6S7pytCcDlCcR",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "system.build.languages.granted",
+            "value": {
+              "slug": "diabolic",
+              "source": "{item|name}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "equipment:robe-of-the-erinys",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Sdb13IJJMmryDqox",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[traits]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "feat:battle-scars",
+      "foundry": "Compendium.pf2e.feats-srd.Item.97zURBF7RiVcbBsQ",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "definition": [
+              {
+                "or": ["self:battle-scars", "origin:trait:devil"]
+              },
+              {
+                "or": ["damage:type:bludgeoning", "damage:type:slashing"]
+              }
+            ],
+            "key": "Resistance",
+            "label": "{item|name}",
+            "type": "custom",
+            "value": "floor(@actor.level/2)"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "feat:defy-hell",
+      "foundry": "Compendium.pf2e.feats-srd.Item.rLAaQBIgnv6zeNvP",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[actionspf2e] "
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "feat:hellbreaker-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.v22KrWg1T7F5VYgx",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.skills.devil-lore",
+            "value": {
+              "attribute": "int",
+              "label": "PF2E.SpecificLore.Devil",
+              "rank": "match(when(gte(@actor.level, 15), 4), when(gte(@actor.level, 7), 3),when(gte(@actor.level, 3), 2),1)"
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.skills.hellknight-lore",
+            "value": {
+              "attribute": "int",
+              "label": "PF2E.SpecificLore.Hellknight",
+              "rank": "match(when(gte(@actor.level, 15), 4), when(gte(@actor.level, 7), 3),when(gte(@actor.level, 3), 2),1)"
+            }
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]][skill]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "feat:opportune-trickster",
+      "foundry": "Compendium.pf2e.feats-srd.Item.B51a2EwAD84xVX1n",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[against]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "feat:thorn-in-hells-side",
+      "foundry": "Compendium.pf2e.feats-srd.Item.5gj6tZyQLfA1iQwn",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["criticalSuccess"],
+            "predicate": ["hellbreakers-strike"],
+            "selector": ["damage"],
+            "text": "{item|description}",
+            "title": "{item|name}"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[traits]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "ritual:divine-keystone",
+      "foundry": "Compendium.pf2e.spells-srd.Item.xKHq2Eisapixvj6q",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "heightening",
+          "raw": {
+            "area": 20,
+            "damage": {},
+            "interval": 1,
+            "type": "interval"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "shield:fiendsbane-shield",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Q3cmIfjVVNWzyR2f",
+      "gaps": [
+        {
+          "type": "markup",
+          "markup": "table[class]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "shield:imposing-shield",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Hkjqt1Y98payfa37",
+      "gaps": [
+        {
+          "type": "markup",
+          "markup": "table[class]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "shield:martyrs-shield-hellbreakers",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.stlTN5eb1qRJMHgB",
+      "gaps": [
+        {
+          "type": "markup",
+          "markup": "table[class]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "weapon:calamity",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.YqhEmz8dmf02b99u",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[traits]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "weapon:dreamcrusher",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.9QugctA7ZTeCIsx2",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[traits]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "weapon:lifebloom",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.2NDH3AX5Ewu4MLT6",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "runes.property",
+          "raw": "disrupting"
+        }
+      ]
+    },
+    {
+      "type": "vocabulary",
+      "kind": "damage-type",
+      "slug": "untyped",
+      "reason": "unmapped-value",
+      "detail": "untyped"
+    }
+  ]
+}

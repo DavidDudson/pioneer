@@ -17,6 +17,7 @@ import { RollCard } from '@pioneer/play/ui';
 
 import { PlayStore } from '../../data/play-store';
 import { describeSaveError } from '../sheet-field';
+import { SheetInitiative } from '../sheet-initiative/sheet-initiative.component';
 import { phaseKey, pipKey, pipTone, turnBarView, turnLog } from './turn-bar-view';
 import type { TurnBarView, TurnLogLine } from './turn-bar-view';
 
@@ -27,7 +28,19 @@ import type { TurnBarView, TurnLogLine } from './turn-bar-view';
  */
 @Component({
   selector: 'pio-sheet-turn-bar',
-  imports: [AsyncButton, AsyncData, AsyncPending, AsyncRegion, Badge, RollCard, Skeleton, Stack, Text, TranslocoPipe],
+  imports: [
+    AsyncButton,
+    AsyncData,
+    AsyncPending,
+    AsyncRegion,
+    Badge,
+    RollCard,
+    SheetInitiative,
+    Skeleton,
+    Stack,
+    Text,
+    TranslocoPipe,
+  ],
   templateUrl: './sheet-turn-bar.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -50,9 +63,19 @@ export class SheetTurnBar {
   /** What the last Start turn or End turn did, in order. */
   protected readonly log = signal<readonly TurnLogLine[]>([]);
 
+  /** Whether the initiative roll is on offer: Enter encounter opens it, rolling or skipping closes it. */
+  protected readonly choosingInitiative = signal(false);
+
+  protected readonly enterEncounter = async (): Promise<void> => {
+    await this.#send({ field: TurnCommandField.EnterEncounter });
+    this.choosingInitiative.set(true);
+  };
   protected readonly startTurn = async (): Promise<void> => this.#send({ field: TurnCommandField.StartTurn });
   protected readonly endTurn = async (): Promise<void> => this.#send({ field: TurnCommandField.EndTurn });
-  protected readonly leaveEncounter = async (): Promise<void> => this.#send({ field: TurnCommandField.LeaveEncounter });
+  protected readonly leaveEncounter = async (): Promise<void> => {
+    await this.#send({ field: TurnCommandField.LeaveEncounter });
+    this.choosingInitiative.set(false);
+  };
 
   /** The words of a log line, with the parameters its message carries. */
   protected readonly worded = (line: TurnLogLine): string =>

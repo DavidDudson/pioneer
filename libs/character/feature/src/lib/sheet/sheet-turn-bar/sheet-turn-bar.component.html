@@ -21,6 +21,14 @@
           </fr-badge>
         </fr-stack>
         <fr-stack direction="horizontal" align="center" gap="xs" wrap>
+          <fr-async-button
+            size="sm"
+            [action]="enterEncounter"
+            [disabled]="!bar.canEnter"
+            [describeError]="describeError"
+          >
+            {{ 'character.sheet.turn.enter' | transloco }}
+          </fr-async-button>
           <fr-async-button size="sm" [action]="startTurn" [disabled]="!bar.canStart" [describeError]="describeError">
             {{ 'character.sheet.turn.start' | transloco }}
           </fr-async-button>
@@ -36,6 +44,9 @@
             {{ 'character.sheet.turn.leave' | transloco }}
           </fr-async-button>
         </fr-stack>
+        @if (choosingInitiative()) {
+          <pio-sheet-initiative (closed)="choosingInitiative.set(false)" />
+        }
         @for (line of log(); track $index) {
           <fr-stack gap="2xs">
             <fr-text>{{ worded(line) }}</fr-text>

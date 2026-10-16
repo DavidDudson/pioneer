@@ -46,6 +46,7 @@ export const FOUNDRY_IMPORTS: readonly FoundryImport[] = [
   imported('hellfire-dispatches'),
   imported('high-seas'),
   imported('season-of-ghosts'),
+  imported('hellbreakers'),
 ];
 
 /** The release's page on GitHub. */

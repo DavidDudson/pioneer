@@ -24,6 +24,7 @@ import {
   chelaxInfernalInheritancePack,
   draconicCodexPack,
   gunsAndGearsPack,
+  hellbreakersPack,
   hellfireDispatchesPack,
   highSeasPack,
   impossibleMagicPack,
@@ -103,6 +104,7 @@ export const officialPacks: readonly PackContentsLoader[] = [
   checkedLoader('hellfire-dispatches', hellfireDispatchesPack),
   checkedLoader('high-seas', highSeasPack),
   checkedLoader('season-of-ghosts', seasonOfGhostsPack),
+  checkedLoader('hellbreakers', hellbreakersPack),
   checkedLoader('gm-core', gmCorePack),
 ];
 

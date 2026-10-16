@@ -68,9 +68,20 @@ export {
   LAND_SPEED,
   MAX_HIT_POINTS,
   type PioneerSpellDc,
+  type PioneerSpellSlots,
   type PioneerValues,
   RANKED_STATISTICS,
+  SPELL_SLOTS_PREFIX,
   SPELLCASTING,
   RankDiscrepancy,
   TotalDiscrepancy,
 } from './discrepancy-report';
+export type { ImportedCaster, ImportedSpellRank } from './read-spells';
+export {
+  placeSpells,
+  SpellGap,
+  SpellGapReason,
+  type SpellPicks,
+  type SpellPlacement,
+  type SpellPlacementContent,
+} from './spell-placement';

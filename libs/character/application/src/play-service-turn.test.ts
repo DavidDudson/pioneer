@@ -46,6 +46,7 @@ const held = (slug: string, value?: number): ActiveCondition => ({
   duration: UNLIMITED,
 });
 
+const enterEncounter: PlayEdit = { field: TurnCommandField.EnterEncounter };
 const startTurn: PlayEdit = { field: TurnCommandField.StartTurn };
 const endTurn: PlayEdit = { field: TurnCommandField.EndTurn };
 const leaveEncounter: PlayEdit = { field: TurnCommandField.LeaveEncounter };
@@ -95,6 +96,15 @@ describe('PlayService turn cycle', () => {
     const left = await play.patch(amiri, kyra.id, { expectedRevision: ended.revision, command: leaveEncounter });
     expect(left.play.turn.phase).toBe(TurnPhase.OutOfEncounter);
     expect(left.events).toEqual([]);
+  });
+
+  test('Enter encounter goes off-turn without refilling anything, and is audited', async () => {
+    const entered = await play.patch(amiri, kyra.id, { expectedRevision: FIRST_VERSION, command: enterEncounter });
+    expect(entered.play.turn).toMatchObject({ phase: TurnPhase.OffTurn, actions: 0 });
+    expect(entered.events).toEqual([]);
+    expect(repository.audits.at(-1)?.command).toBe(CharacterCommand.EnterEncounter);
+    const again = await play.patch(amiri, kyra.id, { expectedRevision: entered.revision, command: enterEncounter });
+    expect(again.play.turn).toEqual(entered.play.turn);
   });
 
   test('a command from the wrong phase changes nothing and rolls nothing', async () => {
