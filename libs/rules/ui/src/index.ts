@@ -215,5 +215,7 @@ export {
   slotPickerColumns,
 } from './lib/slot-picker/slot-picker-table';
 export type { ActionLine } from './lib/actions/action-line';
+export { ActionUser } from './lib/actions/action-user';
+export type { ActionUse } from './lib/actions/action-user';
 export { ActionsViewKind } from './lib/actions/actions-list';
 export { ActionsView } from './lib/actions/actions.component';

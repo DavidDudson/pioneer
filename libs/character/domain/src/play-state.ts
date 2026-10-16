@@ -28,6 +28,8 @@ import { ResourceCommandField, ResourceCommandSchema } from './resource-commands
 import { ResourcesSpentSchema } from './resources';
 import { RestCommandField, RestCommandSchema } from './rest-types';
 import type { RestLimits } from './rest-types';
+import type { SpendLimits } from './spend-commands';
+import { SpendCommandField, SpendCommandSchema, SpendLogSchema } from './spend-log';
 import { ToggleCommandField, ToggleCommandSchema, TogglesSchema } from './toggle-commands';
 import { TurnEventSchema } from './turn-events';
 import { OUT_OF_ENCOUNTER, TurnCommandSchema, TurnStateSchema } from './turn-state';
@@ -64,6 +66,8 @@ export const PlayStateSchema = z.strictObject({
   effects: ActiveEffectsSchema,
   toggles: TogglesSchema,
   turn: TurnStateSchema.default(OUT_OF_ENCOUNTER),
+  /** The spends since the turn began; the actions they took are already out of `turn`. */
+  spendLog: SpendLogSchema.default([]),
   ...DeathTrackSchema.shape,
 });
 export type PlayState = z.infer<typeof PlayStateSchema>;
@@ -94,6 +98,8 @@ export const PlayCommandField = {
   ...EffectCommandField,
   /** Rest, daily preparations, Refocus and start of session (`rest-actions.ts`). */
   ...RestCommandField,
+  /** An action, spell or activation spent from the turn, or such a spend taken back (`spend-log.ts`). */
+  ...SpendCommandField,
   /** A `RollOption` toggle set on or off (`toggle-commands.ts`). */
   ...ToggleCommandField,
 } as const;
@@ -118,6 +124,7 @@ export const PlayCommandSchema = z.discriminatedUnion('field', [
   ...ConditionCommandSchema.options,
   ...EffectCommandSchema.options,
   ...RestCommandSchema.options,
+  ...SpendCommandSchema.options,
   ...ToggleCommandSchema.options,
 ]);
 export type PlayCommand = z.infer<typeof PlayCommandSchema>;
@@ -153,6 +160,8 @@ export interface PlayLimits extends RestLimits {
   readonly valued: ConditionValued;
   /** The effects the content has, with the clock and badge each starts from. */
   readonly effects: EffectContent;
+  /** The time a spend is stamped with. */
+  readonly spend: SpendLimits;
 }
 
 /** `value`, or `max` when it is more. */
@@ -285,15 +294,5 @@ function applyHitPointsEdit(play: PlayState, command: HitPointsCommand, max: Hit
   }
 }
 
-/** Damage entered by hand, with no roll behind it: one untyped instance, taken in full. */
-export function untypedDamage(amount: HitPoints): DamageApplication {
-  const total = DamageTotal.parse(amount);
-  const none = DamageTotal.parse(0);
-  return {
-    critical: false,
-    immediate: [{ rolled: total, dealt: total, taken: total, lines: [] }],
-    persistent: [],
-    taken: total,
-    persistentTaken: none,
-  };
-}
+/** Damage entered by hand lives in `untyped-damage.ts`; the play-state tests still read it from here. */
+export { untypedDamage } from './untyped-damage';

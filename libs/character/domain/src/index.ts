@@ -32,7 +32,6 @@ export {
   type PlayState,
   PlayStateId,
   PlayStateSchema,
-  untypedDamage,
 } from './play-state';
 export {
   type ActiveCondition,
@@ -575,3 +574,22 @@ export {
   type TurnCommand,
   type TurnState,
 } from './turn-state';
+export { applySpendCommand, isSpendCommand, spendRefusal } from './spend-commands';
+export type { SpendLimits, SpendPlay } from './spend-commands';
+export {
+  costAllowed,
+  SpendCommandField,
+  SpendCommandSchema,
+  SpendCostSchema,
+  SpendCount,
+  SpendEntrySchema,
+  SpendId,
+  SpendKind,
+  SpendLogSchema,
+  SpendProblem,
+  SpendRequestSchema,
+  SpendTime,
+} from './spend-log';
+export type { ActionCostRange, SpendCommand, SpendCost, SpendEntry, SpendLog, SpendRequest } from './spend-log';
+export { actionCosts } from './action-costs';
+export { untypedDamage } from './untyped-damage';

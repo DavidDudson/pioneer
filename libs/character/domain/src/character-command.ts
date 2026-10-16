@@ -69,6 +69,8 @@ export const CharacterCommand = {
   StartTurn: 'startTurn',
   EndTurn: 'endTurn',
   LeaveEncounter: 'leaveEncounter',
+  SpendAction: 'spendAction',
+  UndoSpend: 'undoSpend',
   SetAppearance: 'setAppearance',
   SetPersonality: 'setPersonality',
 } as const;
@@ -137,4 +139,6 @@ export const PLAY_COMMANDS = {
   [TurnCommandField.StartTurn]: CharacterCommand.StartTurn,
   [TurnCommandField.EndTurn]: CharacterCommand.EndTurn,
   [TurnCommandField.LeaveEncounter]: CharacterCommand.LeaveEncounter,
+  [PlayCommandField.SpendAction]: CharacterCommand.SpendAction,
+  [PlayCommandField.UndoSpend]: CharacterCommand.UndoSpend,
 } as const satisfies Record<PlayCommandField | TurnCommandField, CharacterCommand>;

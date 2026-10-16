@@ -1,4 +1,5 @@
 export {
+  ACTION_COUNT,
   ActionCategory,
   ActionData,
   ActionMode,
@@ -6,6 +7,7 @@ export {
   FrequencyPeriod,
   TriggerEvent,
   TriggerEventType,
+  UP_TO_MAX,
   Uses,
 } from './action';
 export { Activation, ActivationName, Activations } from './activation';

@@ -1,5 +1,5 @@
-import { NO_COUNTED, NO_RESOURCES, NO_STAFF, WandProblem } from '@pioneer/character/domain';
-import type { ConditionValued, PlayLimits, RecoveryConditions } from '@pioneer/character/domain';
+import { NO_COUNTED, NO_RESOURCES, NO_STAFF, SpendTime, WandProblem } from '@pioneer/character/domain';
+import type { ConditionValued, PlayLimits, RecoveryConditions, SpendLimits } from '@pioneer/character/domain';
 import { HitPoints } from '@pioneer/rules/sdk';
 
 /** The maximum handed to edits that don't read it, so none has to be derived for them. */
@@ -26,6 +26,9 @@ export const WAND_MESSAGES = {
   [WandProblem.RollMissing]: 'character.validation.wandRollMissing',
 } as const satisfies Record<WandProblem, string>;
 
+/** The spend limits handed to edits that don't spend, so no time has to be read for them. */
+export const NO_SPEND: SpendLimits = { now: SpendTime.parse('1970-01-01T00:00:00.000Z') };
+
 /** The limits a turn-cycle edit reads: the maximum Hit Points and the effects, and nothing else. */
 export function turnLimits(hitPoints: HitPoints, effects: PlayLimits['effects']): PlayLimits {
   return {
@@ -37,5 +40,6 @@ export function turnLimits(hitPoints: HitPoints, effects: PlayLimits['effects'])
     staff: NO_STAFF,
     valued: NO_VALUED,
     effects,
+    spend: NO_SPEND,
   };
 }
