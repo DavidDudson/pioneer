@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input, output } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
+import { SheetMode } from '@pioneer/character/domain';
 import {
   Badge,
   Button,
@@ -8,6 +9,7 @@ import {
   Heading,
   List,
   ListItem,
+  Link,
   LocaleFormat,
   Stack,
   Surface,
@@ -50,6 +52,7 @@ interface GroupView {
     ImportBoostReport,
     ImportDiscrepancyReport,
     ImportSkillReport,
+    Link,
     List,
     ListItem,
     Stack,
@@ -66,6 +69,9 @@ export class ImportResult {
   public readonly statistics = input<ReadonlyMap<Selector, NamedStatistic>>(new Map());
   public readonly entryNames = input<ReadonlyMap<ContentId, string>>(new Map());
   public readonly dismissed = output();
+
+  /** The Exploration tab, beside this one, where the inventory and its flagged lines are. */
+  protected readonly inventory = ['..', SheetMode.Exploration];
 
   readonly #format = inject(LocaleFormat);
   readonly #i18n = inject(TranslocoService);

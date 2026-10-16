@@ -17,6 +17,12 @@
       [statistics]="statistics()"
       [entryNames]="entryNames()"
     />
+    @if (report().ruleBreaking > 0) {
+      <fr-stack direction="horizontal" align="center" gap="sm">
+        <fr-text>{{ 'character.import.result.ruleBreaking' | transloco: { count: report().ruleBreaking } }}</fr-text>
+        <fr-link [to]="inventory">{{ 'character.import.result.ruleBreakingReview' | transloco }}</fr-link>
+      </fr-stack>
+    }
     @if (notCarried() !== '') {
       <fr-text>{{ 'character.import.result.notCarried' | transloco: { fields: notCarried() } }}</fr-text>
     }

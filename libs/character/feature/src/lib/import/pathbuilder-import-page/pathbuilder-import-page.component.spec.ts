@@ -4,6 +4,7 @@ import { TestBed } from '@angular/core/testing';
 import { provideRouter, Router, withComponentInputBinding } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
 import { frontierMessages } from '@pioneer/frontier';
+import { RuleBreakingCount } from '@pioneer/interop/pathbuilder';
 import { briarRoseExport, mordredExport } from '@pioneer/interop/pathbuilder/testing';
 import { officialPacks } from '@pioneer/rules/catalog';
 import { MemoryBundleStore } from '@pioneer/rules/data-access';
@@ -158,6 +159,7 @@ describe('PathbuilderImportPage create', () => {
         skillGaps: [],
         modifierDifferences: [],
         discrepancies: { compared: 0, differences: [] },
+        ruleBreaking: RuleBreakingCount.parse(0),
       },
     });
 

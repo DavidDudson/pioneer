@@ -1,10 +1,17 @@
 import { describe, expect, test } from 'bun:test';
 
-import { CarryState, itemContent } from '@pioneer/character/domain';
+import { CarryState, ItemOrigin, itemContent } from '@pioneer/character/domain';
 import type { Inventory } from '@pioneer/character/domain';
-import { entryLookup, ImportKind, readPathbuilderExport, registryLookup } from '@pioneer/interop/pathbuilder';
-import { mordredExport } from '@pioneer/interop/pathbuilder/testing';
-import { ContentKind, ContentText, PROPERTY_RUNES_MAX } from '@pioneer/rules/sdk';
+import {
+  entryLookup,
+  ImportKind,
+  PathbuilderName,
+  readPathbuilderExport,
+  registryLookup,
+} from '@pioneer/interop/pathbuilder';
+import type { ImportedItem, PathbuilderImport } from '@pioneer/interop/pathbuilder';
+import { briarRoseExport, mordredExport } from '@pioneer/interop/pathbuilder/testing';
+import { ContentKind, ContentText } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, fixedContent } from '@pioneer/rules/sdk/testing';
 import { newId, Uuid } from '@pioneer/shared/kernel';
 
@@ -53,17 +60,35 @@ const CALIBURN_RUNES = [
   'Keen',
 ];
 
-async function mordredInventory(): Promise<Inventory> {
-  const read = readPathbuilderExport(mordredExport);
-  if (!read.ok) {
-    throw new TypeError('Mordred does not read');
-  }
+/** What an import of `value` keeps, with `GEAR` and Caliburn's runes loaded, and how many of its lines `GEAR` matches. */
+interface Imported {
+  readonly inventory: Inventory;
+  readonly matched: number;
+}
+
+async function importOf(value: PathbuilderImport): Promise<Imported> {
   const registry = await fixedContent(GEAR).registry();
   const lookup = registryLookup(registry);
   const runes = entryLookup({
     [ImportKind.Item]: CALIBURN_RUNES.map((name) => ({ id: Uuid.parse(newId()), name: ContentText.parse(name) })),
   });
-  return importedInventory(read.value, { items: lookup, runes, entries: itemContent(registry) });
+  return {
+    inventory: importedInventory(value, { items: lookup, runes, entries: itemContent(registry) }),
+    matched: value.items.filter((each) => lookup.resolve(ImportKind.Item, each.name) !== undefined).length,
+  };
+}
+
+function readExport(raw: unknown): PathbuilderImport {
+  const read = readPathbuilderExport(raw);
+  if (!read.ok) {
+    throw new TypeError('The export does not read');
+  }
+  return read.value;
+}
+
+async function mordredInventory(): Promise<Inventory> {
+  const { inventory } = await importOf(readExport(mordredExport));
+  return inventory;
 }
 
 describe('importedInventory (Mordred)', () => {
@@ -86,14 +111,47 @@ describe('importedInventory (Mordred)', () => {
     expect(items.find((item) => item.name === 'Clarent')?.runes).toMatchObject({ potency: 2, striking: 2 });
   });
 
-  test('etches no more property runes than an item holds', async () => {
+  test("keeps all seven of Caliburn's property runes", async () => {
     const { items } = await mordredInventory();
-    expect(items.find((item) => item.name === 'Caliburn')?.runes?.property).toHaveLength(PROPERTY_RUNES_MAX);
+    expect(items.find((item) => item.name === 'Caliburn')?.runes?.property).toHaveLength(CALIBURN_RUNES.length);
+  });
+
+  test('marks every line as imported', async () => {
+    const { items } = await mordredInventory();
+    expect(items.filter((item) => item.origin !== ItemOrigin.Import)).toStrictEqual([]);
   });
 
   test('invests only what content says is invested, and carries the coins', async () => {
     const { items, coins } = await mordredInventory();
     expect(items.filter((item) => item.invested === true)).toHaveLength(2);
     expect(coins).toStrictEqual({ pp: 0, gp: 45, sp: 6, cp: 1 });
+  });
+});
+
+describe('importedInventory (fixtures)', () => {
+  test.each([
+    ['Briar Rose', briarRoseExport],
+    ['Mordred', mordredExport],
+  ])('keeps every item of %s that the packs hold', async (_name, raw) => {
+    const { inventory, matched } = await importOf(readExport(raw));
+    expect(inventory.items).toHaveLength(matched);
+  });
+});
+
+describe('importedInventory (over the limits)', () => {
+  const cloak: ImportedItem = {
+    name: PathbuilderName.parse('Aerial Cloak'),
+    quantity: 1,
+    displayName: undefined,
+    worn: false,
+    invested: true,
+    runes: undefined,
+  };
+  const CLOAKS = 12;
+
+  test('keeps every item Pathbuilder invests invested, past the limit', async () => {
+    const value = { ...readExport(mordredExport), items: Array.from({ length: CLOAKS }, () => cloak) };
+    const { inventory } = await importOf(value);
+    expect(inventory.items.filter((item) => item.invested === true)).toHaveLength(CLOAKS);
   });
 });

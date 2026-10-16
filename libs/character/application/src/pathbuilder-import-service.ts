@@ -4,6 +4,7 @@ import {
   CharacterCommand,
   CharacterId,
   CharacterVariantRuleId,
+  inventoryViolations,
   itemContent,
   runeContent,
   slotContent,
@@ -15,6 +16,7 @@ import {
   ImportKind,
   modifierDifferences,
   registryLookup,
+  RuleBreakingCount,
 } from '@pioneer/interop/pathbuilder';
 import type {
   BoostChoices,
@@ -48,6 +50,12 @@ function inventoryContent(registry: ContentRegistry, lookup: ContentLookup): Inv
     }),
     entries: itemContent(registry),
   };
+}
+
+/** How many of `inventory`'s items break a rule: the imported lines kept past a limit. */
+function ruleBreaking(inventory: Inventory, registry: ContentRegistry): RuleBreakingCount {
+  const violations = inventoryViolations(inventory, { items: itemContent(registry), runes: runeContent(registry) });
+  return RuleBreakingCount.parse(new Set(violations.map(({ item }) => item)).size);
 }
 
 /** The ports `PathbuilderImportService` works through. */
@@ -112,6 +120,7 @@ export class PathbuilderImportService {
         slots,
         variants: dual === undefined ? [] : [dual],
       }),
+      ruleBreaking: ruleBreaking(character.document.inventory, content),
     });
     return { character: saved, report };
   }

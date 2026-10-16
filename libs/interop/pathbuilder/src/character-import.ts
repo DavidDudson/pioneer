@@ -34,6 +34,10 @@ export const UncarriedField = {
 } as const;
 export type UncarriedField = ValueOf<typeof UncarriedField>;
 
+/** How many imported inventory lines break a table rule. */
+export const RuleBreakingCount = z.int().nonnegative().brand<'RuleBreakingCount'>();
+export type RuleBreakingCount = z.infer<typeof RuleBreakingCount>;
+
 export const UnmatchedName = z.object({
   name: PathbuilderName,
   occurrences: Occurrences,
@@ -55,6 +59,7 @@ export const CharacterImportReport = z.object({
   skillGaps: z.array(SkillGap).readonly(),
   modifierDifferences: z.array(ModifierDifference).readonly(),
   discrepancies: DiscrepancyReport,
+  ruleBreaking: RuleBreakingCount,
 });
 export type CharacterImportReport = z.infer<typeof CharacterImportReport>;
 
@@ -96,6 +101,7 @@ export interface ImportOutcome {
   readonly skillGaps: readonly SkillGap[];
   readonly modifierDifferences: readonly ModifierDifference[];
   readonly discrepancies: DiscrepancyReport;
+  readonly ruleBreaking: RuleBreakingCount;
 }
 
 /** The report shown on a character created from `value`. */
