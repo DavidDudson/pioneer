@@ -8,9 +8,15 @@ import {
   RANKED_STATISTICS,
   SPELLCASTING,
 } from '@pioneer/interop/pathbuilder';
-import type { DiscrepancyReport, PathbuilderImport, PioneerSpellDc, PioneerValues } from '@pioneer/interop/pathbuilder';
-import type { StatisticResult } from '@pioneer/rules/engine';
-import { Proficiency, Selector as SelectorSchema } from '@pioneer/rules/sdk';
+import type {
+  DiscrepancyReport,
+  PathbuilderImport,
+  PioneerSpellDc,
+  PioneerSpellSlots,
+  PioneerValues,
+} from '@pioneer/interop/pathbuilder';
+import type { SpellcastingInPlay, StatisticResult } from '@pioneer/rules/engine';
+import { Proficiency, Selector as SelectorSchema, SPELL_RANK_MAX, SpellPreparation } from '@pioneer/rules/sdk';
 import type { ContentRegistry, Selector, VariantRuleEntry } from '@pioneer/rules/sdk';
 
 /** The totals the report compares. */
@@ -41,6 +47,26 @@ function rankDerivable(statistics: ReadonlyMap<Selector, StatisticResult>, selec
   return derived(statistics, category ? ARMOR_CLASS : selector) !== undefined;
 }
 
+/** An entry's own slots per day, cantrips first and then each rank to the tenth: the order Pathbuilder's `perDay` is in. */
+function slotCounts({ slots }: SpellcastingInPlay): number[] {
+  return [
+    slots.cantrips ?? 0,
+    ...Array.from(
+      { length: SPELL_RANK_MAX },
+      (_unused, index) => slots.ranks.find(({ rank }) => rank === index + 1)?.count ?? 0,
+    ),
+  ];
+}
+
+/** The slots per day of each entry that picks its spells, which a Pathbuilder caster that prepares or is spontaneous compares with. */
+function spellSlots(entries: readonly SpellcastingInPlay[]): PioneerSpellSlots[] {
+  return entries.flatMap((entry): PioneerSpellSlots[] =>
+    entry.preparation === SpellPreparation.Prepared || entry.preparation === SpellPreparation.Spontaneous
+      ? [{ slug: entry.slug, preparation: entry.preparation, tradition: entry.tradition, counts: slotCounts(entry) }]
+      : [],
+  );
+}
+
 /** What the engine derives for `character`, for the statistics it could derive: a failed or missing one is left out. */
 function pioneerValues(character: Character, { registry, slots, variants }: DerivationContent): PioneerValues {
   const { document } = character;
@@ -53,6 +79,7 @@ function pioneerValues(character: Character, { registry, slots, variants }: Deri
   });
   const ranks = buildRanks(document, slots);
   return {
+    spellSlots: spellSlots(inputs.spellcasting),
     spellDcs: inputs.spellcasting.flatMap(({ slug, tradition, attribute }): PioneerSpellDc[] => {
       const selector = SelectorSchema.parse(`spell-dc:${slug}`);
       const total = derived(statistics, selector);

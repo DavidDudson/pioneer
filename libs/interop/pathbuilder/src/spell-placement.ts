@@ -4,7 +4,7 @@ import { ChoiceValue, ContentId, SlotRank } from '@pioneer/rules/sdk';
 import type { SlotKey } from '@pioneer/rules/sdk';
 import * as z from 'zod';
 
-import { matchKey } from './content-lookup';
+import { pairCasters } from './caster-pairing';
 import type { ContentLookup } from './content-lookup';
 import { ImportKind, PathbuilderName } from './import-kind';
 import type { ImportedCaster, ImportedSpellRank } from './read-spells';
@@ -69,35 +69,6 @@ function entriesOf(slots: readonly PreparedSlot[]): Entry[] {
   });
 }
 
-function sameCasting(caster: ImportedCaster, entry: Entry): boolean {
-  return caster.preparation === entry.preparation && matchKey(caster.tradition) === matchKey(entry.tradition);
-}
-
-/** Whether the caster's name is the entry's (the Oracle's `oracle`), either way round. */
-function sameName(caster: ImportedCaster, entry: Entry): boolean {
-  const casterKey = matchKey(caster.name);
-  const entryKey = matchKey(entry.slug);
-  return casterKey.includes(entryKey) || entryKey.includes(casterKey);
-}
-
-/**
- * Each caster's entry: of those that cast the same way (prepared or spontaneous, the same tradition) the one that
- * shares its name, else the first no earlier caster took.
- */
-function pair(casters: readonly ImportedCaster[], entries: readonly Entry[]): Map<ImportedCaster, Entry> {
-  const paired = new Map<ImportedCaster, Entry>();
-  const taken = new Set<Entry>();
-  for (const caster of casters) {
-    const free = entries.filter((entry) => !taken.has(entry) && sameCasting(caster, entry));
-    const entry = free.find((each) => sameName(caster, each)) ?? free[0];
-    if (entry !== undefined) {
-      paired.set(caster, entry);
-      taken.add(entry);
-    }
-  }
-  return paired;
-}
-
 /** A spell the export lists, matched to content, at the rank it lists it. */
 interface Listed {
   readonly name: PathbuilderName;
@@ -156,7 +127,7 @@ export function placeSpells(
   casters: readonly ImportedCaster[],
 ): SpellPlacement {
   const entries = entriesOf(preparedSlots(document, preparedReads(document, slots)));
-  const paired = pair(casters, entries);
+  const paired = pairCasters(casters, entries);
   const placements = casters.map((caster) => placeCaster(caster, paired.get(caster), lookup));
   return {
     choices: Object.fromEntries(placements.flatMap(({ choices }) => Object.entries(choices))),

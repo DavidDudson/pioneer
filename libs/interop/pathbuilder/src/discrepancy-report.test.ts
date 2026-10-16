@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { Proficiency, Selector } from '@pioneer/rules/sdk';
+import { Proficiency, Selector, SpellPreparation } from '@pioneer/rules/sdk';
 
 import {
   ARMOR_CLASS,
@@ -11,6 +11,7 @@ import {
   RANKED_STATISTICS,
   SPELLCASTING,
 } from './discrepancy-report';
+import type { PioneerSpellSlots } from './discrepancy-report';
 import mordredFixture from './fixtures/mordred.json';
 import { readPathbuilderExport } from './read-pathbuilder-export';
 import type { PathbuilderImport } from './read-pathbuilder-export';
@@ -32,11 +33,16 @@ const MORDRED_AC = 34;
 /** 10 + Charisma 6 + expert 4 + level 12, from Mordred's divine focus. */
 const MORDRED_SPELL_DC = 32;
 const ORACLE_DC = Selector.parse('spell-dc:oracle');
+/** Mordred's Oracle, which Pathbuilder gives these spells a day: five cantrips, then four of each rank 1 to 6. */
+const ORACLE_ENTRY = { slug: 'oracle', preparation: SpellPreparation.Spontaneous, tradition: 'divine' } as const;
+const ORACLE_PER_DAY = [5, 4, 4, 4, 4, 4, 4];
+const ORACLE_THIRD_RANK = 3;
 
 /** The values Pioneer derives, as maps the tests can change. */
 interface Values {
   readonly totals: Map<Selector, number>;
   readonly ranks: Map<Selector, Proficiency>;
+  spellSlots: PioneerSpellSlots[];
   readonly spellDcs: {
     selector: Selector;
     tradition: string;
@@ -55,6 +61,7 @@ function agreeing(): Values {
       [MAX_HIT_POINTS, (attributes?.ancestryhp ?? 0) + perLevel * mordred.level],
       [LAND_SPEED, attributes?.speed ?? 0],
     ]),
+    spellSlots: [{ ...ORACLE_ENTRY, counts: ORACLE_PER_DAY }],
     spellDcs: [
       {
         selector: Selector.parse('spell-dc:mortal-herald'),
@@ -82,7 +89,7 @@ describe('discrepancyReport', () => {
   test('reports nothing when Pioneer derives what Pathbuilder computed', () => {
     const report = discrepancyReport(mordred, agreeing());
     expect(report.differences).toStrictEqual([]);
-    expect(report.compared).toBe(TOTALS_COMPARED + Object.keys(RANKED_STATISTICS).length);
+    expect(report.compared).toBe(TOTALS_COMPARED + ORACLE_PER_DAY.length + Object.keys(RANKED_STATISTICS).length);
   });
 
   test('names a total that differs, with Pioneer less Pathbuilder', () => {
@@ -167,11 +174,42 @@ describe('discrepancyReport', () => {
     ]);
   });
 
+  test('names the ranks of spell slots that differ for the entry that casts the way the caster does', () => {
+    const values = agreeing();
+    values.spellSlots = [{ ...ORACLE_ENTRY, counts: ORACLE_PER_DAY.with(ORACLE_THIRD_RANK, 3) }];
+    const { differences } = discrepancyReport(mordred, values);
+    expect(differences).toStrictEqual([
+      {
+        kind: DiscrepancyKind.Total,
+        selector: Selector.parse('spell-slots:oracle:3'),
+        pathbuilder: 4,
+        pioneer: 3,
+        difference: -1,
+      },
+    ]);
+  });
+
+  test('compares the cantrips, and slots Pioneer lacks entirely, but not a rank neither side has', () => {
+    const values = agreeing();
+    values.spellSlots = [{ ...ORACLE_ENTRY, counts: [4, 4] }];
+    const selectors = discrepancyReport(mordred, values).differences.map(({ selector }) => selector);
+    expect(selectors).toStrictEqual(
+      ['cantrip', '2', '3', '4', '5', '6'].map((rank) => Selector.parse(`spell-slots:oracle:${rank}`)),
+    );
+  });
+
+  test('has nothing to compare for a caster with no entry that casts the way it does', () => {
+    const values = agreeing();
+    values.spellSlots = [{ ...ORACLE_ENTRY, preparation: SpellPreparation.Prepared, counts: [] }];
+    expect(discrepancyReport(mordred, values).differences).toStrictEqual([]);
+  });
+
   test('leaves out a statistic Pioneer cannot derive', () => {
     const report = discrepancyReport(mordred, {
       totals: new Map(),
       ranks: new Map(),
       spellDcs: [],
+      spellSlots: [],
     });
     expect(report).toStrictEqual({ compared: 0, differences: [] });
   });
