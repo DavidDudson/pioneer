@@ -4,10 +4,10 @@ import {
   InventoryItemId,
   InventoryItemName,
   InventorySchema,
-  INVESTED_MAX,
   isInvestable,
   isSpecific,
   isWearable,
+  ItemOrigin,
   ItemQuantity,
   ONE_HAND,
   runedItemOf,
@@ -15,7 +15,7 @@ import {
 import type { Carry, Inventory, InventoryItem, ItemContent, ItemEntry, ItemRunes } from '@pioneer/character/domain';
 import { ImportKind } from '@pioneer/interop/pathbuilder';
 import type { ContentLookup, ImportedItem, ImportedRunes, PathbuilderImport } from '@pioneer/interop/pathbuilder';
-import { ContentKind, Coin, ContentId, PROPERTY_RUNES_MAX, RuneGrade, RunedItem } from '@pioneer/rules/sdk';
+import { ContentKind, Coin, ContentId, RuneGrade, RunedItem } from '@pioneer/rules/sdk';
 import { newId } from '@pioneer/shared/kernel';
 
 /** What an import's gear is matched against: items and property runes by name, and what each item is. */
@@ -49,7 +49,7 @@ function etched(
     striking: kind === RunedItem.Weapon ? grade(runes.striking) : undefined,
     resilient: kind === RunedItem.Weapon ? undefined : grade(runes.resilient),
     reinforcing: undefined,
-    property: [...new Set(property)].slice(0, PROPERTY_RUNES_MAX),
+    property: [...new Set(property)],
   };
 }
 
@@ -68,12 +68,6 @@ function carryOf(imported: ImportedItem, entry: ItemEntry, armourWorn: boolean):
   return isWearable(entry) && !(entry.kind === ContentKind.Armor && armourWorn)
     ? { state: CarryState.Worn }
     : { state: CarryState.Stowed };
-}
-
-/** The lines built so far, and how many are invested. */
-interface Stock {
-  readonly items: readonly InventoryItem[];
-  readonly invested: number;
 }
 
 /** The inventory line `imported` makes, or undefined when no loaded item or quantity fits. */
@@ -97,33 +91,27 @@ function lineFor(
     item: entry.id,
     quantity: quantity.data,
     carry: carryOf(imported, entry, armourWorn),
+    origin: ItemOrigin.Import,
     ...(name.success ? { name: name.data } : {}),
   };
   return withRunes(base, etched(imported.runes, entry, content));
 }
 
-/** `stock` with `imported` added, invested when Pathbuilder says so or it is worn, content allows and the limit has room. */
-function added(stock: Stock, imported: ImportedItem, content: InventoryContent): Stock {
-  const line = lineFor(imported, content, stock.items);
-  if (line === undefined) {
-    return stock;
-  }
-  const entry = content.entries.get(line.item);
+/** `line` as an import keeps it: invested when Pathbuilder says so or it is worn and content allows, past any limit. */
+function investedAs(line: InventoryItem, imported: ImportedItem, content: InventoryContent): InventoryItem {
   const wantsInvesting = imported.invested || line.carry.state === CarryState.Worn;
-  const invests = wantsInvesting && stock.invested < INVESTED_MAX && isInvestable(line, entry);
-  return {
-    items: [...stock.items, invests ? { ...line, invested: true } : line],
-    invested: stock.invested + (invests ? 1 : 0),
-  };
+  return wantsInvesting && isInvestable(line, content.entries.get(line.item)) ? { ...line, invested: true } : line;
 }
 
-/** The inventory an import carries: matched items with their runes, carry state and investment, and the coins. */
+/** The inventory an import carries: every matched item with its runes, carry state and investment, and the coins. */
 export function importedInventory(value: PathbuilderImport, content: InventoryContent): Inventory {
-  let stock: Stock = { items: [], invested: 0 };
+  const items: InventoryItem[] = [];
   for (const imported of value.items) {
-    stock = added(stock, imported, content);
+    const line = lineFor(imported, content, items);
+    if (line !== undefined) {
+      items.push(investedAs(line, imported, content));
+    }
   }
-  const { items } = stock;
   const { platinum, gold, silver, copper } = value.coins;
   return InventorySchema.parse({
     items,

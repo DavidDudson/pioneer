@@ -561,6 +561,8 @@
       "discrepanciesSummary": "{count, plural, one {# statistic differs} other {# statistics differ}} from Pathbuilder, of {compared, number} compared",
       "discrepanciesMatch": "All {count, number} statistics Pathbuilder computed match Pioneer's.",
       "discrepancyWhy": "Why Pioneer's value is what it is",
+      "ruleBreaking": "{count, plural, one {# item was kept as imported but breaks a rule} other {# items were kept as imported but break a rule}}.",
+      "ruleBreakingReview": "Review them in the inventory",
       "statistic": {
         "named": "{name}",
         "defenseUnarmored": "Unarmored defense",

@@ -36,6 +36,7 @@ export {
   characterImportReport,
   PathbuilderImportContract,
   PathbuilderImportResponse,
+  RuleBreakingCount,
   UncarriedField,
   UnmatchedGroup,
   UnmatchedName,

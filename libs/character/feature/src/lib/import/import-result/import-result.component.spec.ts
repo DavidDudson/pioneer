@@ -1,11 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 import type { ComponentFixture } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 import { TranslocoService } from '@jsverse/transloco';
 import { frontierMessages } from '@pioneer/frontier';
 import {
   ImportKind,
   Occurrences,
   PathbuilderName,
+  RuleBreakingCount,
   UncarriedField,
   UnmatchedReason,
 } from '@pioneer/interop/pathbuilder';
@@ -24,10 +26,11 @@ const EMPTY: CharacterImportReport = {
   spellGaps: [],
   modifierDifferences: [],
   discrepancies: { compared: 0, differences: [] },
+  ruleBreaking: RuleBreakingCount.parse(0),
 };
 
 async function render(report: CharacterImportReport): Promise<ComponentFixture<ImportResult>> {
-  TestBed.configureTestingModule({ providers: [provideI18n({ en: async () => frontierMessages })] });
+  TestBed.configureTestingModule({ providers: [provideRouter([]), provideI18n({ en: async () => frontierMessages })] });
   TestBed.inject(TranslocoService).setTranslation({ character: en }, 'en', { merge: true });
   const fixture = TestBed.createComponent(ImportResult);
   fixture.componentRef.setInput('report', report);
@@ -60,6 +63,7 @@ describe(ImportResult, () => {
       spellGaps: [],
       modifierDifferences: [],
       discrepancies: { compared: 0, differences: [] },
+      ruleBreaking: RuleBreakingCount.parse(0),
     });
 
     expect(text(fixture)).toContain("weren't kept: Class features and Spells");
@@ -97,6 +101,19 @@ describe(ImportResult, () => {
     expect(text(fixture)).toContain('Every name matched content you have loaded.');
     expect(text(fixture)).not.toContain("weren't kept");
     expect(text(fixture)).toContain("Every attribute modifier matches Pathbuilder's.");
+  });
+
+  it('counts the imported items that break a rule and links to the inventory', async () => {
+    const fixture = await render({ ...EMPTY, ruleBreaking: RuleBreakingCount.parse(3) });
+
+    expect(text(fixture)).toContain('3 items were kept as imported but break a rule.');
+    expect(text(fixture)).toContain('Review them in the inventory');
+  });
+
+  it('leaves out the rule-breaking line when no imported item breaks a rule', async () => {
+    const fixture = await render(EMPTY);
+
+    expect(text(fixture)).not.toContain('break a rule');
   });
 
   it('emits dismissed when Dismiss is pressed', async () => {
