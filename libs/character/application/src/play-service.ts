@@ -69,9 +69,9 @@ import type { CharacterContentSource } from './character-content';
 import { mayAccessCharacter } from './character-policy';
 import type { CharacterRepository, PlayWrite } from './character-repository';
 import { checkCondition, checkEffect, checkStaff, isDailyPreparations } from './play-checks';
-import { checkStaffCast } from './play-staff';
-import { NO_MAX_HIT_POINTS, NO_REST, NO_VALUED, WAND_MESSAGES } from './play-defaults';
+import { NO_MAX_HIT_POINTS, NO_REST, NO_VALUED, turnLimits, WAND_MESSAGES } from './play-defaults';
 import type { RestContent } from './play-defaults';
+import { checkStaffCast } from './play-staff';
 
 /**
  * A character's play state (#343): read and edited apart from its build, with its own revision, so a play edit never
@@ -181,16 +181,7 @@ export class PlayService {
     const variants = await variantRulesOfCharacter(this.#content, character, registry);
     const slots = slotContent(registry, variants);
     const inputs = characterStatisticInputs(registry, character.document, slots);
-    const limits: PlayLimits = {
-      hitPoints: await this.#maxHitPoints(character, play),
-      healing: NO_MAX_HIT_POINTS,
-      recovery: NO_REST.recovery,
-      resources: NO_RESOURCES,
-      counted: NO_COUNTED,
-      staff: NO_STAFF,
-      valued: NO_VALUED,
-      effects: await this.#effects(character),
-    };
+    const limits = turnLimits(await this.#maxHitPoints(character, play), await this.#effects(character));
     const turn = turnCommandInputs({ registry, slots, inputs, variants }, character.document, limits);
     return applyTurnCommand(play, command, { inputs: turn, random: cryptoRandom });
   }

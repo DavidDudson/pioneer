@@ -1,5 +1,5 @@
-import { WandProblem } from '@pioneer/character/domain';
-import type { ConditionValued, RecoveryConditions } from '@pioneer/character/domain';
+import { NO_COUNTED, NO_RESOURCES, NO_STAFF, WandProblem } from '@pioneer/character/domain';
+import type { ConditionValued, PlayLimits, RecoveryConditions } from '@pioneer/character/domain';
 import { HitPoints } from '@pioneer/rules/sdk';
 
 /** The maximum handed to edits that don't read it, so none has to be derived for them. */
@@ -25,3 +25,17 @@ export const WAND_MESSAGES = {
   [WandProblem.UseLeft]: 'character.validation.wandUseLeft',
   [WandProblem.RollMissing]: 'character.validation.wandRollMissing',
 } as const satisfies Record<WandProblem, string>;
+
+/** The limits a turn-cycle edit reads: the maximum Hit Points and the effects, and nothing else. */
+export function turnLimits(hitPoints: HitPoints, effects: PlayLimits['effects']): PlayLimits {
+  return {
+    hitPoints,
+    healing: NO_MAX_HIT_POINTS,
+    recovery: NO_REST.recovery,
+    resources: NO_RESOURCES,
+    counted: NO_COUNTED,
+    staff: NO_STAFF,
+    valued: NO_VALUED,
+    effects,
+  };
+}

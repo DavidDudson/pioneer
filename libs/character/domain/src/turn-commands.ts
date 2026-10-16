@@ -13,7 +13,7 @@ import type { RecoveryConditions } from './rest-types';
 import { endTurn } from './turn-end';
 import { startTurn } from './turn-start';
 import type { TurnOutcome } from './turn-start';
-import { economyConditions, OUT_OF_ENCOUNTER, refilled, TurnCommandField, turnEnded } from './turn-state';
+import { economyConditions, OUT_OF_ENCOUNTER, refilled, TurnCommandField, TurnPhase, turnEnded } from './turn-state';
 import type { EconomyConditions, TurnCommand } from './turn-state';
 
 /** What the turn cycle reads besides the play state: the limits, and what the build and the content give. */
@@ -42,23 +42,35 @@ function ended(play: PlayState, inputs: TurnCommandInputs, random: RandomSource)
   return { play: { ...done.play, turn: turnEnded(done.play.turn) }, events: done.events };
 }
 
+/** A command that does not apply in the current phase. */
+function unchanged(play: PlayState): TurnOutcome {
+  return { play, events: [] };
+}
+
 /** What a turn-cycle edit reads, and the dice it rolls with. */
 export interface TurnRun {
   readonly inputs: TurnCommandInputs;
   readonly random: RandomSource;
 }
 
-/** `play` after a turn-cycle `command`, and what the bookkeeping did, in order. Dice come from `run.random`. */
+/**
+ * `play` after a turn-cycle `command`, and what the bookkeeping did, in order. Dice come from `run.random`. A command
+ * from a phase it does not apply to (Start turn mid-turn, End turn off-turn, Leave encounter out of one) changes
+ * nothing, so a stale or direct call never runs the bookkeeping twice.
+ */
 export function applyTurnCommand(play: PlayState, command: TurnCommand, { inputs, random }: TurnRun): TurnOutcome {
+  const { phase } = play.turn;
   switch (command.field) {
     case TurnCommandField.StartTurn: {
-      return started(play, inputs, random);
+      return phase === TurnPhase.Turn ? unchanged(play) : started(play, inputs, random);
     }
     case TurnCommandField.EndTurn: {
-      return ended(play, inputs, random);
+      return phase === TurnPhase.Turn ? ended(play, inputs, random) : unchanged(play);
     }
     case TurnCommandField.LeaveEncounter: {
-      return { play: { ...play, turn: OUT_OF_ENCOUNTER }, events: [] };
+      return phase === TurnPhase.OutOfEncounter
+        ? unchanged(play)
+        : { play: { ...play, turn: OUT_OF_ENCOUNTER }, events: [] };
     }
     default: {
       return command satisfies never;

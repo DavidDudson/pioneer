@@ -96,4 +96,14 @@ describe('PlayService turn cycle', () => {
     expect(left.play.turn.phase).toBe(TurnPhase.OutOfEncounter);
     expect(left.events).toEqual([]);
   });
+
+  test('a command from the wrong phase changes nothing and rolls nothing', async () => {
+    const offTurn = await play.patch(amiri, kyra.id, { expectedRevision: FIRST_VERSION, command: endTurn });
+    expect(offTurn.events).toEqual([]);
+    expect(offTurn.play.turn.phase).toBe(TurnPhase.OutOfEncounter);
+    const started = await play.patch(amiri, kyra.id, { expectedRevision: offTurn.revision, command: startTurn });
+    const again = await play.patch(amiri, kyra.id, { expectedRevision: started.revision, command: startTurn });
+    expect(again.events).toEqual([]);
+    expect(again.play.turn).toEqual(started.play.turn);
+  });
 });
