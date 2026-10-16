@@ -70,13 +70,12 @@ describe('Pathbuilder exports over the official packs', () => {
   );
 
   test(
-    'Mordred differs in AC, Hit Points, the Oracle spell DC, the class DC and the skill ranks his build does not reach',
+    'Mordred differs in AC, the Oracle spell DC, the class DC and the skill ranks his build does not reach',
     async () => {
       const { report } = await service.importPathbuilder(actor, mordredExport);
       expect(report.discrepancies.compared).toBe(COMPARED);
       expect(summary(report.discrepancies.differences)).toStrictEqual([
         'ac: Pathbuilder 34, Pioneer 33',
-        'hp:max: Pathbuilder 164, Pioneer 152',
         'spell-dc:oracle: Pathbuilder 32, Pioneer 31',
         'class-dc: Pathbuilder trained, Pioneer expert',
         'skill:diplomacy: Pathbuilder master, Pioneer expert',

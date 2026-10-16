@@ -1,7 +1,7 @@
-import { NO_MODIFIERS, RuleInPlay } from '@pioneer/rules/engine';
-import type { ArmorInputs, ModifierInputs, WeaponInputs } from '@pioneer/rules/engine';
+import { NO_MODIFIERS } from '@pioneer/rules/engine';
+import type { ArmorInputs, ModifierInputs, RuleInPlay, WeaponInputs } from '@pioneer/rules/engine';
 import { resolveGrants } from '@pioneer/rules/grants';
-import type { GrantEntry, GrantResolution, GrantRoot, ToggleSlot } from '@pioneer/rules/grants';
+import type { GrantResolution, GrantRoot, ToggleSlot } from '@pioneer/rules/grants';
 import type { PredicateFacts } from '@pioneer/rules/predicate';
 import {
   AttributeModifier,
@@ -28,6 +28,8 @@ import type { CharacterDocument } from './character-document';
 import { conditionRoots } from './conditions';
 import { effectRoots } from './effects';
 import { encumberedRoots } from './encumbered-roots';
+import { rulesOf } from './entry-rules';
+import type { Resolved } from './entry-rules';
 import type { Inventory } from './inventory';
 import { activeState, equippedState } from './inventory-content';
 import type { ItemContent } from './inventory-content';
@@ -253,37 +255,24 @@ export function equippedGrants(document: CharacterDocument, content: ItemContent
  */
 export function equippedRules(document: CharacterDocument, content: ItemContent, slots: SlotContent): EquippedRules {
   const resolution = equippedResolution(document, content, slots);
-  const rules = resolution.items
-    .filter(({ origin }) => fromInventory(origin))
-    .flatMap(({ entry, origin, value }) =>
-      entry.rules.map((element, rule) =>
-        RuleInPlay.parse({
-          element,
-          origin,
-          rule,
-          itemLevel: itemLevelOf(content, document.inventory, { entry, origin }),
-          conditionValue: value,
-        }),
-      ),
-    );
   const toggles = resolution.toggles.filter(({ origin }) => fromInventory(origin));
-  return { rules, facts: resolution.facts, toggles };
-}
-
-/** An entry grants put in play, and why. */
-interface Resolved {
-  readonly entry: GrantEntry;
-  readonly origin: Origin;
+  return {
+    rules: rulesOf(resolution, { inventory: document.inventory, content }, fromInventory),
+    facts: resolution.facts,
+    toggles,
+  };
 }
 
 /**
- * The level `@item.level` reads in an entry's rule elements: the item's own, or for a property rune the level of the
- * item it is etched onto, as Foundry pf2e keeps a rune's rules on that item.
+ * The rule elements the character's build puts in play: its ancestry, heritage, class and class features, background
+ * and feats, and what they grant, with the same facts as `equippedRules` so a predicate sees the build and the gear.
+ * Statistics read them beside the items' (`characterStatistics`); a Hit Points feat such as Toughness is one of them.
  */
-function itemLevelOf(content: ItemContent, inventory: Inventory, { entry, origin }: Resolved): Level | undefined {
-  const [hop] = origin.hops;
-  const host = hop?.kind === OriginHopKind.Inventory ? inventory.items.find((each) => each.id === hop.item) : undefined;
-  const id = entry.kind === ContentKind.Rune && host !== undefined ? host.item : entry.id;
-  const level = content.get(id)?.level;
-  return level === undefined ? undefined : Level.parse(level);
+export function buildRules(
+  document: CharacterDocument,
+  content: ItemContent,
+  slots: SlotContent,
+): readonly RuleInPlay[] {
+  const resolution = equippedResolution(document, content, slots);
+  return rulesOf(resolution, { inventory: document.inventory, content }, (origin) => !fromInventory(origin));
 }
