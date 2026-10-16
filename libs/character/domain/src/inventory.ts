@@ -1,10 +1,13 @@
-import { Coin, ContentId } from '@pioneer/rules/sdk';
+import { ContentId } from '@pioneer/rules/sdk';
 import { message, Pg, Uuid } from '@pioneer/shared/kernel';
 import type { MessageDescriptor, ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
+import { CoinsSchema } from './coins';
 import { CarrySchema, CarryState, HANDS_MAX, handsInUse, INVESTED_MAX, investedCount, STOWED } from './item-carry';
 import type { Carry } from './item-carry';
+import { CORE_RULE_LIMITS } from './rule-limits';
+import type { RuleLimits } from './rule-limits';
 import { ItemRunesSchema } from './rune-etching';
 
 /** One line of a character's inventory. Branded so it can't be passed where a content id is expected. */
@@ -26,21 +29,6 @@ export const InventoryItemName = z
   .brand<'InventoryItemName'>();
 export type InventoryItemName = z.infer<typeof InventoryItemName>;
 
-/** How many of one coin the character holds; a dragon's hoard runs past a smallint. */
-export const CoinAmount = Pg.integer().nonnegative().brand<'CoinAmount'>();
-export type CoinAmount = z.infer<typeof CoinAmount>;
-
-const NO_COINS = CoinAmount.parse(0);
-
-/** The character's purse: every coin, none when absent. */
-export const CoinsSchema = z.strictObject({
-  [Coin.Platinum]: CoinAmount.default(NO_COINS),
-  [Coin.Gold]: CoinAmount.default(NO_COINS),
-  [Coin.Silver]: CoinAmount.default(NO_COINS),
-  [Coin.Copper]: CoinAmount.default(NO_COINS),
-});
-export type Coins = z.infer<typeof CoinsSchema>;
-
 /**
  * An item the character has: the content it is, how many, the item it is stowed in (none when carried loose), the
  * player's name for it, how it is carried, whether it is invested, whether it is broken, and the runes etched onto it.
@@ -60,7 +48,10 @@ export const InventoryItemSchema = z.strictObject({
 });
 export type InventoryItem = z.infer<typeof InventoryItemSchema>;
 
-export const INVENTORY_ITEMS_MAX = 500;
+export { CoinAmount, CoinsSchema } from './coins';
+export type { Coins } from './coins';
+
+export const INVENTORY_ITEMS_MAX = CORE_RULE_LIMITS.itemsMax;
 
 /** The item ids that hold `id`, innermost first; stops at a loop, which `InventorySchema` refuses. */
 function containersOf(items: ReadonlyMap<InventoryItemId, InventoryItem>, id: InventoryItemId): InventoryItemId[] {
@@ -245,13 +236,17 @@ export interface InventoryRefusal {
  * hold, investing past the limit, a move into an item the inventory hasn't, and a move of an item into itself or into
  * something it holds. Which items can hold others, be worn or be invested is content's to say (`itemRefusal`).
  */
-export function inventoryRefusal(inventory: Inventory, edit: InventoryEdit): InventoryRefusal | undefined {
+export function inventoryRefusal(
+  inventory: Inventory,
+  edit: InventoryEdit,
+  limits: RuleLimits = CORE_RULE_LIMITS,
+): InventoryRefusal | undefined {
   const { id, item, kit } = edit;
   const adds = item !== undefined || kit !== undefined;
-  if (adds && inventory.items.length >= INVENTORY_ITEMS_MAX) {
+  if (adds && inventory.items.length >= limits.itemsMax) {
     return {
       field: kit === undefined ? InventoryRefusalField.Item : InventoryRefusalField.Kit,
-      message: message('character.validation.inventoryFull', { maximum: INVENTORY_ITEMS_MAX }),
+      message: message('character.validation.inventoryFull', { maximum: limits.itemsMax }),
     };
   }
   const items = byId(inventory.items);
@@ -261,22 +256,26 @@ export function inventoryRefusal(inventory: Inventory, edit: InventoryEdit): Inv
   if (edit.to !== undefined && !items.has(edit.to)) {
     return { field: InventoryRefusalField.To, message: message('character.validation.itemNotFound') };
   }
-  return limitRefusal(inventory, edit) ?? containerRefusal(items, edit);
+  return limitRefusal(inventory, edit, limits) ?? containerRefusal(items, edit);
 }
 
 /** Refuses holding more than two hands hold, and investing an item past the limit. */
-function limitRefusal(inventory: Inventory, { id, carry, invested }: InventoryEdit): InventoryRefusal | undefined {
+function limitRefusal(
+  inventory: Inventory,
+  { id, carry, invested }: InventoryEdit,
+  limits: RuleLimits,
+): InventoryRefusal | undefined {
   const others = inventory.items.filter((each) => each.id !== id);
-  if (carry?.state === CarryState.Held && handsInUse(others) + carry.hands > HANDS_MAX) {
+  if (carry?.state === CarryState.Held && handsInUse(others) + carry.hands > limits.handsMax) {
     return {
       field: InventoryRefusalField.Carry,
-      message: message('character.validation.handsFull', { maximum: HANDS_MAX }),
+      message: message('character.validation.handsFull', { maximum: limits.handsMax }),
     };
   }
-  if (invested === true && investedCount(others) >= INVESTED_MAX) {
+  if (invested === true && investedCount(others) >= limits.investedMax) {
     return {
       field: InventoryRefusalField.Invested,
-      message: message('character.validation.investmentFull', { maximum: INVESTED_MAX }),
+      message: message('character.validation.investmentFull', { maximum: limits.investedMax }),
     };
   }
   return undefined;

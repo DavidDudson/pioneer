@@ -9,6 +9,8 @@ import type { Inventory, InventoryItem, InventoryItemId, InventoryRefusal } from
 import type { ItemEntry } from './inventory-content';
 import { isSpecific, itemRunes, printedRunes, propertyRoom, runedItemOf } from './item-runes';
 import type { RunedContent, RuneContent } from './item-runes';
+import { CORE_RULE_LIMITS } from './rule-limits';
+import type { RuleLimits } from './rule-limits';
 import { etchingOf, RuneAction } from './rune-edits';
 import type { RuneEdit } from './rune-edits';
 import { NO_RUNES } from './rune-etching';
@@ -19,19 +21,25 @@ function runeRefused(refusal: MessageDescriptor): InventoryRefusal {
 }
 
 /** The item a rune edit reads: its inventory line, its content, and what that is as runes read it. */
-interface RunedLine {
+export interface RunedLine {
   readonly item: InventoryItem;
   readonly entry: ItemEntry | undefined;
   readonly runed: RunedItem | undefined;
 }
 
-function runedLine(content: RunedContent, inventory: Inventory, id: InventoryItemId): RunedLine | undefined {
+export function runedLine(content: RunedContent, inventory: Inventory, id: InventoryItemId): RunedLine | undefined {
   const item = inventory.items.find((each) => each.id === id);
   if (item === undefined) {
     return undefined;
   }
   const entry = content.items.get(item.item);
   return { item, entry, runed: runedItemOf(entry) };
+}
+
+/** What an etching reads of the table: the runes it can use and the limits it is held to. */
+interface RuneReads {
+  readonly runes: RuneContent;
+  readonly limits: RuleLimits;
 }
 
 /** A fundamental rune to etch. */
@@ -55,7 +63,7 @@ function fundamentalRefusal(
 }
 
 /** Refuses a property rune no loaded pack has, and one for another kind of item or whose restriction it doesn't meet. */
-function propertyFitRefusal(
+export function propertyFitRefusal(
   runes: RuneContent,
   { item, entry, runed }: RunedLine,
   id: ContentId,
@@ -75,8 +83,8 @@ function propertyFitRefusal(
  * Refuses a property rune that doesn't fit the item (`propertyFitRefusal`), any on a specific item, one already
  * etched, and one past the room its potency rune leaves.
  */
-function propertyRefusal(runes: RuneContent, line: RunedLine, id: ContentId): InventoryRefusal | undefined {
-  const unfit = propertyFitRefusal(runes, line, id);
+function propertyRefusal(reads: RuneReads, line: RunedLine, id: ContentId): InventoryRefusal | undefined {
+  const unfit = propertyFitRefusal(reads.runes, line, id);
   if (unfit !== undefined) {
     return unfit;
   }
@@ -87,18 +95,18 @@ function propertyRefusal(runes: RuneContent, line: RunedLine, id: ContentId): In
   if (current.property.includes(id)) {
     return runeRefused(message('character.validation.runeEtched'));
   }
-  const room = propertyRoom(current);
+  const room = propertyRoom(current, reads.limits);
   return current.property.length >= room
     ? runeRefused(message('character.validation.propertyRunesFull', { maximum: room }))
     : undefined;
 }
 
 /** Refuses etching onto anything but a weapon, armour or a shield, and the fundamental and property refusals. */
-function etchRefusal(runes: RuneContent, line: RunedLine, rune: RuneEtching): InventoryRefusal | undefined {
+function etchRefusal(reads: RuneReads, line: RunedLine, rune: RuneEtching): InventoryRefusal | undefined {
   if (line.runed === undefined) {
     return runeRefused(message('character.validation.takesNoRunes'));
   }
-  return rune.type === RuneType.Fundamental ? fundamentalRefusal(line, rune) : propertyRefusal(runes, line, rune.rune);
+  return rune.type === RuneType.Fundamental ? fundamentalRefusal(line, rune) : propertyRefusal(reads, line, rune.rune);
 }
 
 /** Refuses erasing or moving a specific item's property runes, and a rune that isn't etched onto the item. */
@@ -121,7 +129,7 @@ interface TransferLines {
  * Refuses moving a rune onto the item it is on, off a specific item or onto one, onto an item that already has that
  * fundamental rune, and whatever refuses erasing it here (`etchedRefusal`) or etching it there (`etchRefusal`).
  */
-function transferRefusal(runes: RuneContent, { from, to }: TransferLines, rune: RuneRef): InventoryRefusal | undefined {
+function transferRefusal(reads: RuneReads, { from, to }: TransferLines, rune: RuneRef): InventoryRefusal | undefined {
   if (to.item.id === from.item.id) {
     return { field: InventoryRefusalField.To, message: message('character.validation.transferSameItem') };
   }
@@ -139,7 +147,7 @@ function transferRefusal(runes: RuneContent, { from, to }: TransferLines, rune: 
   if (moving.type === RuneType.Fundamental && to.item.runes?.[moving.rune] !== undefined) {
     return runeRefused(message('character.validation.runeEtched'));
   }
-  return etchRefusal(runes, to, moving);
+  return etchRefusal(reads, to, moving);
 }
 
 function itemNotFound(field: InventoryRefusal['field']): InventoryRefusal {
@@ -152,13 +160,14 @@ function itemNotFound(field: InventoryRefusal['field']): InventoryRefusal {
  * are in the inventory.
  */
 export function runeRefusal(content: RunedContent, inventory: Inventory, edit: RuneEdit): InventoryRefusal | undefined {
+  const reads: RuneReads = { runes: content.runes, limits: content.limits ?? CORE_RULE_LIMITS };
   const line = runedLine(content, inventory, edit.id);
   if (line === undefined) {
     return itemNotFound(InventoryRefusalField.Id);
   }
   switch (edit.action) {
     case RuneAction.Etch: {
-      return etchRefusal(content.runes, line, edit.rune);
+      return etchRefusal(reads, line, edit.rune);
     }
     case RuneAction.Erase: {
       return etchedRefusal(line, edit.rune);
@@ -167,7 +176,7 @@ export function runeRefusal(content: RunedContent, inventory: Inventory, edit: R
       const to = runedLine(content, inventory, edit.to);
       return to === undefined
         ? itemNotFound(InventoryRefusalField.To)
-        : transferRefusal(content.runes, { from: line, to }, edit.rune);
+        : transferRefusal(reads, { from: line, to }, edit.rune);
     }
     default: {
       return edit satisfies never;
