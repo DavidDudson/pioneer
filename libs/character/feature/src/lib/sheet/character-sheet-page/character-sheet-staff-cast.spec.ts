@@ -2,6 +2,7 @@ import { HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { SheetMode } from '@pioneer/character/domain';
 import { ITEM_FIXTURE_FILES, ItemFixture, itemFixtureId, playerCoreClassId } from '@pioneer/character/domain/testing';
+import { contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
@@ -16,6 +17,11 @@ const PLAY_URL = `/api/characters/${id}/play`;
 
 /** Player Core with its spells, and the fixture items among them the fire staff. */
 const PACKS = [...cutTo(SPELL_CONTENT_KINDS), ITEM_FIXTURE_FILES];
+
+/** Player Core 2's id for the entry with `slug`. */
+function playerCore2(slug: string): string {
+  return contentId(PackId.parse('player-core-2'), EntrySlug.parse(slug));
+}
 
 const STAFF = '55555555-5555-4555-8555-555555555555';
 
@@ -37,6 +43,17 @@ function wizardWithStaff(): object {
       coins: { pp: 0, gp: 0, sp: 0, cp: 0 },
     },
   };
+}
+
+/** A 5th-level imperial sorcerer (arcane, spontaneous), who casts 3rd-rank spells, holding the fire staff. */
+function sorcererWithStaff(): object {
+  const wizard = wizardWithStaff() as { build: { choices: Record<string, string> } };
+  const choices = {
+    ...wizard.build.choices,
+    class: playerCore2('class:sorcerer'),
+    [`${playerCore2('class-feature:bloodline')}:0`]: playerCore2('class-feature:bloodline-imperial'),
+  };
+  return { ...wizardWithStaff(), build: { choices, spellAccess: [] } };
 }
 
 /** The play state with the staff prepared with 3 charges, `spent` of them spent. */
@@ -83,7 +100,32 @@ describe('CharacterSheetPage staff casts', () => {
     expect(labels).toContain('Cast, heightened to 3rd rank, no charges');
   });
 
-  it('casts a spell at the revision last read, then offers to take the cast back', async () => {
+  const SPEND = '00000000-0000-4000-8000-000000000001';
+
+  /** The play state after one cast of the staff's spell: `spent` charges gone, and the cast on the spend log. */
+  function castWith(spent: number, spell: string, revision: number): object {
+    const prepared = preparedWith(spent, revision);
+    return {
+      ...prepared,
+      events: [],
+      play: {
+        ...(prepared as { play: object }).play,
+        turn: { phase: 'turn', actions: 2, quickened: 0, reactionUsed: false },
+        spendLog: [
+          {
+            id: SPEND,
+            action: spell,
+            cost: { kind: 'actions', count: 1 },
+            at: '2026-10-16T12:00:00.000Z',
+            quickened: 0,
+            staff: { item: STAFF, spell },
+          },
+        ],
+      },
+    };
+  }
+
+  it('casts a spell as a spend that records the staff cast, at the revision last read', async () => {
     const { root } = await openSheet(wizardWithStaff(), { play: preparedWith(0), packs: PACKS });
     const staves = await stavesOf(root);
     await vi.waitFor(() => {
@@ -92,46 +134,70 @@ describe('CharacterSheetPage staff casts', () => {
 
     buttonOf(staves, 'Cast, 1 charge').click();
 
+    let spell = '';
     await vi.waitFor(() => {
       const request = TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: PLAY_URL });
       expect(request.request.body).toMatchObject({
         expectedRevision: 1,
-        command: { field: 'castStaff', item: STAFF },
+        command: { field: 'spendAction', staff: { item: STAFF } },
       });
-      request.flush(preparedWith(1, 2));
+      const { command } = request.request.body as { command: { action: string } };
+      spell = command.action;
+      request.flush(castWith(1, spell, 2));
     });
     await vi.waitFor(() => {
       expect(textOf(staves)).toContain('2 of 3 charges');
-      expect(buttonOf(staves, 'Undo Breathe-fire').disabled).toBe(false);
     });
   });
 
-  it('takes the last cast back, which sends the same cast to be refunded', async () => {
+  it('takes the cast back from the spend log, which sends undoSpend for the spend', async () => {
     const { root } = await openSheet(wizardWithStaff(), { play: preparedWith(0), packs: PACKS });
     const staves = await stavesOf(root);
     await vi.waitFor(() => {
       expect(buttonOf(staves, 'Cast, 1 charge').disabled).toBe(false);
     });
     buttonOf(staves, 'Cast, 1 charge').click();
+    let spell = '';
     await vi.waitFor(() => {
-      TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: PLAY_URL }).flush(preparedWith(1, 2));
+      const request = TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: PLAY_URL });
+      spell = (request.request.body as { command: { action: string } }).command.action;
+      request.flush(castWith(1, spell, 2));
     });
+    const log = await vi.waitFor(() => present(root.querySelector<HTMLElement>('pio-sheet-spend-log')));
     await vi.waitFor(() => {
-      expect(buttonOf(staves, 'Undo Breathe-fire').disabled).toBe(false);
+      expect(textOf(log)).toContain('Breathe-fire');
     });
 
-    buttonOf(staves, 'Undo Breathe-fire').click();
+    present([...log.querySelectorAll('button')].find((button) => textOf(button) === 'Undo')).click();
+
+    await vi.waitFor(() => {
+      const request = TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: PLAY_URL });
+      expect(request.request.body).toStrictEqual({
+        expectedRevision: 2,
+        command: { field: 'undoSpend', id: SPEND },
+      });
+      request.flush({ ...preparedWith(0, 3), events: [] });
+    });
+    await vi.waitFor(() => {
+      expect(textOf(staves)).toContain('3 of 3 charges');
+    });
+  });
+
+  it('pays a spontaneous caster’s cast with a slot too, sending the slot in the spend', async () => {
+    const { root } = await openSheet(sorcererWithStaff(), { play: preparedWith(0), packs: PACKS });
+    const staves = await stavesOf(root);
+    await vi.waitFor(() => {
+      expect(buttonOf(staves, 'Cast, 1 charge and a 3rd-rank slot').disabled).toBe(false);
+    });
+
+    buttonOf(staves, 'Cast, 1 charge and a 3rd-rank slot').click();
 
     await vi.waitFor(() => {
       const request = TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: PLAY_URL });
       expect(request.request.body).toMatchObject({
-        expectedRevision: 2,
-        command: { field: 'uncastStaff', item: STAFF },
+        command: { field: 'spendAction', staff: { item: STAFF, slot: expect.stringContaining('sorcerer') as string } },
       });
-      request.flush(preparedWith(0, 3));
-    });
-    await vi.waitFor(() => {
-      expect(textOf(staves)).toContain('3 of 3 charges');
+      request.flush({ ...preparedWith(1, 2), events: [] });
     });
   });
 });

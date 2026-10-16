@@ -83,7 +83,7 @@ and the turn's spend log are play state.
   variable-cost spell asks for the count (1 to 3) and spends that; free actions spend nothing; a reaction spends the
   reaction. Each spend is in the turn's log and can be undone, refunding the cost.
 - **Filtering**: the Now view, Strikes, spells and items show only what fits the economy left. Actions costing more
-  than remain are hidden from the Now view and shown as unavailable ("needs 2 actions, 1 left") in the All view.
+  than remain are hidden from the Now view and listed in the All view without a Use button.
   Off-turn, only reactions (while the reaction is unspent) and free actions with a trigger are offered.
 - **End turn** (button): runs end-of-turn bookkeeping, then drops remaining actions to 0 and moves to off-turn, so
   only reactions are offered until the next Start turn. Persistent damage happens here: each persistent damage
@@ -97,14 +97,26 @@ state is the phase, the ordinary actions left, the quickened action left with th
 and whether the reaction is spent.
 
 `spendAction` and `undoSpend` are play commands too. A spend names the action, spell or activation used by content id,
-its cost (a count of actions, the reaction or a free action) and, for an action with a frequency, the use it records.
+its cost (a count of actions, the reaction or a free action) and what it pays besides: for an action with a frequency or
+an item activation, the use it records; for a spell, the slot of its rank or the Focus Point it expends; for a spell
+cast from a staff, the staff cast (item, spell and the slot that adds to the charges).
 The server checks the cost against the action's content (a fixed cost allows only its own count, a variable one any
 count up to its `upTo`) and the turn, takes ordinary actions first and then the unrestricted quickened one, and logs the
 spend with the time it stamps and how much of it came out of the quickened action, so `undoSpend` gives back exactly
-what was taken: actions, quickened action, reaction and frequency use. A refused spend (too few actions, reaction spent,
-off-turn, no use left) writes nothing. Out of an encounter nothing is counted, so a spend only logs. Start turn and
-Leave encounter clear the log, and the actions of a spend cannot be undone once the turn is over. The log is play state
-and the actions left are the turn's, so the log never has to be summed.
+what was taken: actions, quickened action, reaction, frequency use, slot, Focus Point and the staff's charges. A refused
+spend (too few actions, reaction spent, off-turn, no use, slot or Focus Point left) writes nothing. Out of an
+encounter nothing is counted, so a spend only logs. Start turn and Leave encounter clear the log, and the actions of a
+spend cannot be undone once the turn is over. The log is play state and the actions left are the turn's, so the log
+never has to be summed.
+
+The sheet offers only what the turn can pay for. The Now view lists the actions the turn has the actions for, and a
+Strike, spell or item activation shows its Use button only when the actions, slot or Focus Point it takes are left; a
+variable cost offers only the counts the turn can pay. Off turn that leaves the reactions and free actions. The All
+view keeps every action, without the button. Every Use button is the one `pio-use-buttons` component, and the sheet page
+provides the one spender (`SheetSpender`) that sends `spendAction`, so a Strike, a prepared or focus spell and an
+activation spend the same way. An activation's content may give a `cost` and `upTo`; one that gives none takes nothing
+from the turn but still logs and records its use. A spell's cost is its casting time (the fewest actions, up to the
+most of a variable cost), and the log shows when each spend happened.
 
 The exploration activity (Defend, Search, Avoid Notice, Follow the Expert: an action with the `exploration` mode) is
 play state too, the id of the action or none, set by the `setExplorationActivity` play command; the server refuses an
@@ -375,8 +387,9 @@ the spell and, to pay with a slot, the slot key; the server finds the cost from 
 name a cheaper one. A slot is accepted only from a spontaneous entry that lists the spell, at the spell's rank or
 higher, and a cantrip takes none. The cast changes only the play state: the staff's spent charges and the slot's spent
 count, in one write under one audit entry. A refused cast writes nothing. `uncastStaff` takes the same payload and
-refunds exactly what the cast spent; it is refused when that is not spent. Until the spend log lands, the
-sheet offers one undo, for the last cast it made.
+refunds exactly what the cast spent; it is refused when that is not spent. The sheet casts from a staff as a
+`spendAction` that records the staff cast, so the cast takes its actions from the turn and joins the spend log, and
+`undoSpend` refunds its charges and its slot with the actions.
 
 A wand casts its spell once a day at the wand's rank, if the spell is on one of the holder's spell lists, with that
 entry's spell attack and DC. Only a held wand is a spell source. Once the day's cast is spent, the holder can overcharge

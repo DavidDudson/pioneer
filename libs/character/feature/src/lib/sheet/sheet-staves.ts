@@ -2,31 +2,33 @@ import {
   characterGrants,
   characterSpellcasting,
   itemContent,
-  PlayCommandField,
   slotCountKey,
+  SpendKind,
   spellContent,
-  StaffCommandField,
+  spellCost,
   staffCantripRank,
   staffCastCost,
   staffCastOptions,
-  staffCastProblem,
   StaffSpellProblem,
   staffSources,
 } from '@pioneer/character/domain';
 import type {
   Character,
-  InventoryItemId,
   SlotCountKey,
   ResourcesSpent,
+  SpendId,
+  SpendRequest,
+  StaffCast,
   StaffCommand,
   StaffSlots,
   StaffSource,
 } from '@pioneer/character/domain';
-import { STAFF_CANTRIP } from '@pioneer/rules/sdk';
-import type { ContentId, ContentRegistry, SpellRank } from '@pioneer/rules/sdk';
+import { ActionCost, STAFF_CANTRIP } from '@pioneer/rules/sdk';
+import type { ContentRegistry, SpellRank } from '@pioneer/rules/sdk';
 import { StaffSpellBlock } from '@pioneer/rules/ui';
-import type { StaffCastOptionLine, StaffLine, StaffSpellLine, StaffUndoLine } from '@pioneer/rules/ui';
+import type { StaffCastOptionLine, StaffLine, StaffSpellLine } from '@pioneer/rules/ui';
 
+import { spendCostOf } from './sheet-actions';
 import { sheetCounted } from './sheet-counted';
 import { sheetSlotContent } from './sheet-slot-content';
 
@@ -36,25 +38,22 @@ const BLOCKS: Readonly<Record<StaffSpellProblem, StaffSpellBlock>> = {
   [StaffSpellProblem.RankTooHigh]: StaffSpellBlock.RankTooHigh,
 };
 
-/** The command that casts `spell` from the staff `item`, paying the charge with `slot` when it is given. */
-export function castStaffCommand(
-  item: InventoryItemId,
-  spell: ContentId,
-  slot: SlotCountKey | undefined,
-): StaffCommand {
-  const base = { field: PlayCommandField.CastStaff, item, spell };
-  return slot === undefined ? base : { ...base, slot };
+/**
+ * The spend that casts `spell` from the staff `item`, paying the charge with `slot` when it is given: the spell's cost
+ * in actions (its fewest, for a spell cast for a range of them), recording the staff cast so taking the spend back from
+ * the spend log gives the charges and the slot back. A spell the content gives no cost in actions for, one cast over
+ * minutes or with no casting time, takes nothing from the turn.
+ */
+export function staffSpendRequest(registry: ContentRegistry, cast: StaffCast, id: SpendId): SpendRequest {
+  const option = spellContent(registry).anySpell(cast.spell);
+  const range = option === undefined ? undefined : spellCost(option);
+  const cost = spendCostOf(range?.cost ?? ActionCost.Free, undefined) ?? { kind: SpendKind.Free };
+  return { id, action: cast.spell, cost, staff: cast };
 }
 
-/** The command that takes back the staff cast `cast`. */
-export function uncastStaffCommand(cast: StaffCommand): StaffCommand {
-  return { ...cast, field: StaffCommandField.UncastStaff };
-}
-
-/** What the staves are shown against: the spent resources and the cast the player may still take back. */
+/** What the staves are shown against: the spent resources. */
 export interface StavesInPlay {
   readonly resources: ResourcesSpent;
-  readonly last: StaffCommand | undefined;
 }
 
 /** The rank of each slot an entry has, by the key it is spent under. */
@@ -89,32 +88,10 @@ interface LineContext {
   readonly slots: StaffSlots;
   readonly ranks: SlotRanks;
   readonly level: Character['document']['level'];
-  readonly last: StaffCommand | undefined;
-}
-
-/** The last cast, when it was made with this staff and taking it back would still pass. */
-function undoLine(source: StaffSource, { last, slots, ranks }: LineContext): StaffUndoLine | undefined {
-  if (last?.item !== source.item.id) {
-    return undefined;
-  }
-  const spell = source.spells.find(({ id }) => id === last.spell);
-  const taken = uncastStaffCommand(last);
-  if (spell === undefined || staffCastProblem(taken, source, slots) !== undefined) {
-    return undefined;
-  }
-  return {
-    spell: spell.spell?.name ?? spell.id,
-    charges: staffCastCost(taken, spell),
-    slotRank: last.slot === undefined ? undefined : ranks.get(last.slot),
-  };
 }
 
 /** The staves the character holds as the spell list shows them: a section each, with the charges left and the casts. */
-export function sheetStaves(
-  registry: ContentRegistry,
-  character: Character,
-  { resources, last }: StavesInPlay,
-): StaffLine[] {
+export function sheetStaves(registry: ContentRegistry, character: Character, { resources }: StavesInPlay): StaffLine[] {
   const entries = characterSpellcasting(characterGrants(character.document, sheetSlotContent(registry)));
   const items = itemContent(registry);
   const context: LineContext = {
@@ -125,7 +102,6 @@ export function sheetStaves(
       ),
     ),
     level: character.document.level,
-    last,
   };
   return staffSources({
     inventory: character.document.inventory.items,
@@ -138,6 +114,5 @@ export function sheetStaves(
     name: source.item.name ?? items.get(source.item.item)?.name ?? source.item.item,
     charges: source.charges,
     spells: source.spells.map((spell) => spellLine(source, spell, context)),
-    undo: undoLine(source, context),
   }));
 }

@@ -6,6 +6,7 @@ import {
   preparedSlots,
   signatureSlots,
   SlotStatus,
+  slotCountKey,
 } from '@pioneer/character/domain';
 import type {
   Character,
@@ -13,6 +14,7 @@ import type {
   PickedPreparation,
   PreparedSlot,
   SignatureSlot,
+  SlotCountKey,
   SlotContent,
   SpellOption,
 } from '@pioneer/character/domain';
@@ -27,6 +29,7 @@ import type { MessageDescriptor } from '@pioneer/shared/kernel';
 import { CHARACTER_CONTENT_KINDS } from '../data/content-registry-query';
 import { sheetSlotContent } from './sheet-slot-content';
 import type { SpellOnSheet } from './sheet-spell-details';
+import { slotKeyOf } from './sheet-spell-use';
 
 /** The kinds the spell pickers read: the character's, so its entries resolve, and the spells. */
 export const SPELL_CONTENT_KINDS: readonly ContentKind[] = [...CHARACTER_CONTENT_KINDS, ContentKind.Spell];
@@ -50,6 +53,8 @@ export interface SheetPreparedSlot {
   readonly spell: SpellOnSheet | undefined;
   /** The server's reason when the slot's pick is invalid. */
   readonly reason: MessageDescriptor | undefined;
+  /** The slots a cast from it expends, counted under this key; undefined for a cantrip, which expends none. */
+  readonly slotKey: SlotCountKey | undefined;
 }
 
 /**
@@ -194,6 +199,7 @@ function signatureField(
     granted: false,
     storedName: signature.stored === undefined ? undefined : content.spells.spell(signature.stored)?.name,
     reason: reasonOf(slots, signature.key),
+    slotKey: slotCountKey(signature.entry, undefined, signature.rank),
     spell: spellOf(signature.pick, signature.castRanks.at(-1) ?? signature.rank, [SpellListMessage.TagSignature]),
   };
 }
@@ -221,6 +227,7 @@ export function sheetPreparedSlots(
     granted: named.slot.granted,
     storedName: named.slot.stored === undefined ? undefined : content.spells.spell(named.slot.stored)?.name,
     reason: reasonOf(slots, named.slot.key),
+    slotKey: slotKeyOf(named.slot),
     spell: spellOf(named.slot.pick, named.slot.castRank, cantripTags(named.slot.rank)),
   });
   const reads = preparedReads(character.document, content);

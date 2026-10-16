@@ -42,6 +42,7 @@
                 <fr-text tone="muted">{{
                   'character.sheet.resources.held' | transloco: { current: use.current, max: use.max }
                 }}</fr-text>
+                <pio-use-buttons [line]="activations().get(use.key)" />
                 <fr-async-button
                   size="sm"
                   [action]="spendUse(use.key)"

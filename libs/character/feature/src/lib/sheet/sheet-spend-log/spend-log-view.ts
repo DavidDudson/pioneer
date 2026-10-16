@@ -2,13 +2,15 @@ import { SpendKind } from '@pioneer/character/domain';
 import type { SpendCost, SpendId, SpendLog } from '@pioneer/character/domain';
 import type { ContentId } from '@pioneer/rules/sdk';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
-import { message } from '@pioneer/shared/kernel';
+import { message, Temporal } from '@pioneer/shared/kernel';
 
 /** One spend of the log as shown: what was used, what it cost in words, and the id undoing it names. */
 export interface SpendRow {
   readonly id: SpendId;
   readonly name: string | undefined;
   readonly cost: MessageDescriptor;
+  /** When it was used, as the server stamped it. */
+  readonly at: Temporal.Instant;
 }
 
 const ONE_ACTION = 1;
@@ -36,6 +38,11 @@ export function costMessage(cost: SpendCost): MessageDescriptor {
 /** The rows of `log`, newest first, with each action's name when `names` has it. */
 export function spendRows(log: SpendLog, names: ReadonlyMap<ContentId, string>): readonly SpendRow[] {
   return log
-    .map((entry): SpendRow => ({ id: entry.id, name: names.get(entry.action), cost: costMessage(entry.cost) }))
+    .map((entry): SpendRow => ({
+      id: entry.id,
+      name: names.get(entry.action),
+      cost: costMessage(entry.cost),
+      at: Temporal.Instant.from(entry.at),
+    }))
     .toReversed();
 }

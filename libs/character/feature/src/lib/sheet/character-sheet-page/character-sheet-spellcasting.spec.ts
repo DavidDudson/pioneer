@@ -2,6 +2,7 @@ import { HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { SheetMode } from '@pioneer/character/domain';
 import { playerCoreClassId } from '@pioneer/character/domain/testing';
+import { contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { openPickerTable } from '../../testing/feat-table-testing';
@@ -11,6 +12,8 @@ import { cutTo } from '../../testing/test-packs';
 import { SPELL_CONTENT_KINDS } from '../sheet-prepared-spells';
 
 const openSheet = openerAt(SheetMode.Encounter);
+
+const PLAY_URL = `/api/characters/${id}/play`;
 
 /** Player Core with its spells, for the spell pickers. */
 const SPELL_PACKS = cutTo(SPELL_CONTENT_KINDS);
@@ -68,6 +71,14 @@ function pickerLabels(root: HTMLElement): string[] {
 
 function section(root: HTMLElement): HTMLElement {
   return present(root.querySelector<HTMLElement>('section[aria-labelledby="sheet-spellcasting"]'));
+}
+
+function playOf(turn: object): object {
+  return { revision: 1, play: { hp: { damage: 0, temp: 0 }, turn } };
+}
+
+function useButtons(root: HTMLElement): HTMLButtonElement[] {
+  return [...root.querySelectorAll<HTMLButtonElement>('pio-sheet-prepared-spells pio-use-buttons button')];
 }
 
 describe('CharacterSheetPage spellcasting', () => {
@@ -188,6 +199,49 @@ describe('CharacterSheetPage spellcasting', () => {
       expect(document.activeElement).toBe(
         section(root).querySelector('pio-spell-access fr-picker-field button[aria-haspopup="grid"]'),
       );
+    });
+  });
+
+  describe('casting a prepared spell', () => {
+    const slot = 'prepared:wizard:1:0';
+    const GREASE = contentId(PackId.parse('player-core'), EntrySlug.parse('spell:grease'));
+    const OWN_TURN = { phase: 'turn', actions: 3, quickened: 0, reactionUsed: false };
+
+    it('spends the slot of its rank and the actions its casting time takes', async () => {
+      const { root } = await openSheet(as('wizard', { choices: { [slot]: GREASE } }), {
+        packs: SPELL_PACKS,
+        play: playOf(OWN_TURN),
+      });
+      await vi.waitFor(() => {
+        expect(useButtons(root)).toHaveLength(1);
+      });
+
+      useButtons(root)[0]?.click();
+
+      await vi.waitFor(() => {
+        const request = TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: PLAY_URL });
+        expect(request.request.body).toMatchObject({
+          command: {
+            field: 'spendAction',
+            action: GREASE,
+            cost: { kind: 'actions', count: 2 },
+            slot: expect.stringContaining('wizard') as string,
+          },
+        });
+        request.flush({ ...playOf(OWN_TURN), events: [] });
+      });
+    });
+
+    it('offers no cast the turn has too few actions for', async () => {
+      const turn = { ...OWN_TURN, actions: 1 };
+      const { root } = await openSheet(as('wizard', { choices: { [slot]: GREASE } }), {
+        packs: SPELL_PACKS,
+        play: playOf(turn),
+      });
+      await vi.waitFor(() => {
+        expect(root.querySelector('pio-sheet-prepared-spells fr-inline-field')).not.toBeNull();
+      });
+      expect(useButtons(root)).toHaveLength(0);
     });
   });
 });

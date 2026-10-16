@@ -4,15 +4,18 @@ import type { Character, CharacterSlot, PickedPreparation } from '@pioneer/chara
 import type { InlineEdit } from '@pioneer/frontier';
 import { ChoiceValue, ContentId, SpellPreparation } from '@pioneer/rules/sdk';
 import type { ContentRegistry, MagicTradition, SlotKey, Slug } from '@pioneer/rules/sdk';
-import type { SpellDetailLine, SpellPickerRow, Translate } from '@pioneer/rules/ui';
+import type { SpellDetailLine, SpellPickerRow, Translate, UsableLine } from '@pioneer/rules/ui';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { NOT_CHOSEN, RootPick } from './sheet-build';
 import { sheetField } from './sheet-field';
 import { sheetPreparedSlots } from './sheet-prepared-spells';
 import type { SheetPreparedEntry, SheetPreparedSlot } from './sheet-prepared-spells';
+import { sheetSlotContent } from './sheet-slot-content';
 import { sheetSpellDetail } from './sheet-spell-details';
 import { spellRows } from './sheet-spell-rows';
+import type { SpellSpend } from './sheet-spell-use';
+import { spellUse } from './sheet-spell-use';
 
 /** What the spell pickers read and write through. */
 export interface SpellPickSources {
@@ -26,6 +29,8 @@ export interface SpellPickSources {
   readonly translate: Translate;
   /** Changes when the language changes or the messages load, so translated text is read again. */
   readonly messages: Signal<unknown>;
+  /** What casting is checked against; undefined while the turn and the play state load, when no spell can be cast. */
+  readonly spend?: Signal<SpellSpend | undefined>;
 }
 
 /** A prepared slot as an inline pick: the spells it offers as table rows, and why its pick counts for nothing. */
@@ -38,6 +43,8 @@ export interface PreparedField {
   readonly detail: Signal<SpellDetailLine | undefined>;
   /** The spell a gift fills the slot with, which can't be changed; undefined for a slot the player picks. */
   readonly grantedSpell: Signal<string | undefined>;
+  /** What casting the spell it holds spends, and whether it can be cast now; undefined while the slot is empty or no spend is known. */
+  readonly use: Signal<UsableLine | undefined>;
   readonly field: InlineEdit<string | undefined>;
 }
 
@@ -94,6 +101,16 @@ function takenElsewhere(
   return new Set(picks.flatMap((pick) => (pick.success ? [pick.data] : [])));
 }
 
+/** What casting the spell a slot holds spends, and whether it can be cast now; undefined while the slot holds none. */
+function castLine(sources: SpellPickSources, held: SheetPreparedSlot | undefined): UsableLine | undefined {
+  const registry = sources.registry();
+  const spend = sources.spend?.();
+  const id = held?.spell?.id;
+  const option =
+    id === undefined || registry === undefined ? undefined : sheetSlotContent(registry).spells.anySpell(id);
+  return spend === undefined || option === undefined ? undefined : spellUse(option, { slot: held?.slotKey }, spend);
+}
+
 /** One prepared slot as an inline pick, saved by `selectSlot`, cleared by `clearSlot`. */
 function preparedField(
   sources: SpellPickSources,
@@ -133,6 +150,7 @@ function preparedField(
     }),
     reason: computed(() => slot()?.reason),
     grantedSpell: computed(() => (slot()?.granted === true ? slot()?.spell?.name : undefined)),
+    use: computed(() => castLine(sources, slot())),
     detail: computed(() => {
       const registry = sources.registry();
       const spell = slot()?.spell;

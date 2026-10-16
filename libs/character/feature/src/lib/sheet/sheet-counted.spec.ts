@@ -65,6 +65,14 @@ describe(countedViews, () => {
     expect(spent.uses).toMatchObject([{ key, current: 0, max: 1 }]);
   });
 
+  it('carries what activating the item costs, for the sheet to spend', async () => {
+    const registry = await registryWithItems();
+
+    const views = countedViews(registry, wearingBoots(1), ResourcesSpentSchema.parse({}));
+
+    expect(views.uses[0]?.activation).toMatchObject({ item: itemFixtureId(ItemFixture.WingedBoots), cost: 'two' });
+  });
+
   it('gives a line of several items a use each', async () => {
     const registry = await registryWithItems();
 

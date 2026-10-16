@@ -1,13 +1,17 @@
+import { HttpTestingController } from '@angular/common/http/testing';
+import { TestBed } from '@angular/core/testing';
 import { SheetMode } from '@pioneer/character/domain';
 import { playerCoreClassId } from '@pioneer/character/domain/testing';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
-import { MERISIEL, openerAt, present } from '../../testing/sheet-page-harness';
+import { id, MERISIEL, openerAt, present } from '../../testing/sheet-page-harness';
 import { cutTo } from '../../testing/test-packs';
 import { SPELL_CONTENT_KINDS } from '../sheet-prepared-spells';
 
 const openSheet = openerAt(SheetMode.Encounter);
+
+const PLAY_URL = `/api/characters/${id}/play`;
 
 /** Player Core with its spells, for the focus spells' names. */
 const SPELL_PACKS = cutTo(SPELL_CONTENT_KINDS);
@@ -53,6 +57,12 @@ function fieldsOf(focus: HTMLElement, name: string): string[] {
   return [...(details?.querySelectorAll('fr-description-item') ?? [])].map((row) =>
     [...row.querySelectorAll('[role=term], [role=definition]')].map((part) => textOf(part)).join(': '),
   );
+}
+
+/** The play state of a character in its own turn with all three actions. */
+function ownTurn(spendLog: readonly object[] = []): object {
+  const turn = { phase: 'turn', actions: 3, quickened: 0, reactionUsed: false };
+  return { revision: 1, play: { hp: { damage: 0, temp: 0 }, turn, spendLog } };
 }
 
 describe('CharacterSheetPage focus spells', () => {
@@ -106,5 +116,37 @@ describe('CharacterSheetPage focus spells', () => {
       expect(root.querySelector('pio-sheet-prepared-spells')).not.toBeNull();
     });
     expect(root.querySelector('pio-focus-spells')).toBeNull();
+  });
+
+  it('casts a focus spell as a spend that pays a Focus Point and takes its reaction', async () => {
+    const { root } = await openSheet(as('bard', 1), { packs: SPELL_PACKS, play: ownTurn() });
+    const focus = await focusOf(root);
+    await vi.waitFor(() => {
+      expect(spellsIn(focus)).toContain('Counter Performance Focus');
+    });
+
+    const buttons = [...focus.querySelectorAll('pio-use-buttons button')];
+    expect(buttons).toHaveLength(2);
+    (buttons[0] as HTMLButtonElement).click();
+
+    await vi.waitFor(() => {
+      const request = TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: PLAY_URL });
+      expect(request.request.body).toMatchObject({
+        expectedRevision: 1,
+        command: { field: 'spendAction', focus: true, cost: { kind: 'reaction' } },
+      });
+      request.flush({ ...ownTurn(), events: [] });
+    });
+  });
+
+  it('offers no Use button for a cast the turn has no action left for', async () => {
+    const spent = { phase: 'turn', actions: 0, quickened: 0, reactionUsed: true };
+    const play = { revision: 1, play: { hp: { damage: 0, temp: 0 }, turn: spent } };
+    const { root } = await openSheet(as('bard', 1), { packs: SPELL_PACKS, play });
+    const focus = await focusOf(root);
+    await vi.waitFor(() => {
+      expect(spellsIn(focus)).toContain('Courageous Anthem Cantrip');
+    });
+    expect(focus.querySelectorAll('pio-use-buttons button')).toHaveLength(0);
   });
 });
