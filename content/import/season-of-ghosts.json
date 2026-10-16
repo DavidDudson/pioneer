@@ -1,0 +1,3246 @@
+{
+  "pin": {
+    "tag": "pf2e-8.6.0",
+    "sha256": "d9c4c1f6bbf9bd907ec0acbaea9b8d4e8b0d049758a8616829f07c1b4ee81342"
+  },
+  "backlog": [
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "action:elemental-attack",
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.6U04OKtvRURExkli",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "label": "PF2E.TraitAir",
+                "value": {
+                  "damage": "slashing",
+                  "element": "air"
+                }
+              },
+              {
+                "label": "PF2E.TraitEarth",
+                "value": {
+                  "damage": "bludgeoning",
+                  "element": "earth"
+                }
+              },
+              {
+                "label": "PF2E.TraitFire",
+                "value": {
+                  "damage": "fire",
+                  "element": "fire"
+                }
+              },
+              {
+                "label": "PF2E.TraitMetal",
+                "value": {
+                  "damage": "piercing",
+                  "element": "metal"
+                }
+              },
+              {
+                "label": "PF2E.TraitWater",
+                "value": {
+                  "damage": "bludgeoning",
+                  "element": "water"
+                }
+              },
+              {
+                "label": "PF2E.TraitWood",
+                "value": {
+                  "damage": "bludgeoning",
+                  "element": "wood"
+                }
+              }
+            ],
+            "flag": "elementalAttack",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Element"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "property": "traits",
+            "value": "{item|flags.system.rulesSelections.elementalAttack.element}"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Damage[type:@item.flags.system.rulesSelections.elementalAttack.damage]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "action:path-maiden-apostates-shroud",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.SPNfbhNa46L3V2NQ",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.PathMaiden.ApostateSShroud.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "action:path-maiden-blasphemous-aura",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.3H0xMglx23V5PP2N",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.PathMaiden.BlasphemousAura.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "action:path-maiden-corrupting-doubt",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.VupsXjJEpavg5ByS",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.PathMaiden.CorruptingDoubt.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "action:path-maiden-imprisoning-grave",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.igFRStfWiTekB9cU",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.PathMaiden.ImprisoningGrave.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "action:path-maiden-limited-flight",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.gTORJ6OyH2GvfJLC",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.PathMaiden.LimitedFlight.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "action:path-maiden-scorn-fate",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.UQ2ZvIag5gPL2QiU",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.PathMaiden.ScornFate.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "action:path-maiden-sour-victory",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.rB3msRRnN5M9z5Vm",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.PathMaiden.SourVictory.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "action:path-maiden-vengeful-frenzy",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.w5wDTUUeGHAAoZH1",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.PathMaiden.VengefulFrenzy.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "armor:dragon-turtle-armor",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.YFAaJntmFK2fPqi5",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.flanking.flankable",
+            "value": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "consumable:sanctified-beans",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.vmsKlURWyWTGoO6o",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "consumable:spirit-trap",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.x6V1tlDDBTVj5XnW",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]][dc]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]][show-dc]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "consumable:spiritsight-tea",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.EMviiUBFb5hB1X5Q",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "consumable:travelers-fulu",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.5DiekAhNEjr6Vwi3",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[equipment-effects] "
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "effect:effect-blessed-coins",
+      "foundry": "Compendium.pf2e.campaign-effects.Item.A1VCJqeusccB7OOH",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": {
+              "config": "skills"
+            },
+            "flag": "skillOne",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Skill"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": {
+              "config": "skills"
+            },
+            "flag": "skillTwo",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Skill"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": {
+              "config": "skills"
+            },
+            "flag": "skillThree",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Skill"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "selector": [
+              "{item|flags.system.rulesSelections.skillOne}",
+              "{item|flags.system.rulesSelections.skillTwo}",
+              "{item|flags.system.rulesSelections.skillThree}"
+            ],
+            "type": "item",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "effect:effect-ghost-slayers-caress",
+      "foundry": "Compendium.pf2e.equipment-effects.Item.vOwZlSNCS35GULgL",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": {
+              "ownedItems": true,
+              "predicate": [
+                "item:equipped",
+                {
+                  "not": "item:rune:property:ghost-touch"
+                }
+              ],
+              "types": ["weapon"]
+            },
+            "flag": "weapon",
+            "key": "ChoiceSet",
+            "predicate": ["ghost-scarf:ghost-touch"],
+            "prompt": "PF2E.SpecificRule.Prompt.Weapon"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "AdjustStrike",
+          "raw": {
+            "definition": ["item:id:{item|flags.system.rulesSelections.weapon}"],
+            "key": "AdjustStrike",
+            "mode": "add",
+            "predicate": ["ghost-scarf:ghost-touch"],
+            "property": "property-runes",
+            "value": "ghost-touch"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "effect:effect-impersonated-ability",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.kkP0tagXmAYuSH3u",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "allowDuplicate": false,
+            "key": "GrantItem",
+            "predicate": ["impersonated-ability:attack-of-opportunity"],
+            "uuid": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.Attack of Opportunity"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "allowDuplicate": false,
+            "key": "GrantItem",
+            "predicate": ["impersonated-ability:shield-carrier"],
+            "uuid": "Compendium.pf2e.equipment-srd.Item.Sturdy Shield (Minor)"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "allowDuplicate": false,
+            "key": "GrantItem",
+            "predicate": ["impersonated-ability:shield-carrier"],
+            "uuid": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.Shield Block"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "allowDuplicate": false,
+            "key": "GrantItem",
+            "predicate": ["impersonated-ability:sneak-attack"],
+            "uuid": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.Sneak Attack"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "label": "PF2E.TraitAgile",
+                "predicate": [
+                  {
+                    "or": ["noppera-bo-impersonator:martial", "noppera-bo-impersonator:skilled"]
+                  }
+                ],
+                "value": "agile"
+              },
+              {
+                "label": "PF2E.TraitBackstabber",
+                "predicate": ["noppera-bo-impersonator:skilled"],
+                "value": "backstabber"
+              },
+              {
+                "label": "PF2E.TraitDeadlyD8",
+                "predicate": ["noppera-bo-impersonator:martial"],
+                "value": "deadly-d8"
+              },
+              {
+                "label": "PF2E.TraitDisarm",
+                "predicate": ["noppera-bo-impersonator:skilled"],
+                "value": "disarm"
+              },
+              {
+                "label": "PF2E.TraitFinesse",
+                "predicate": ["noppera-bo-impersonator:skilled"],
+                "value": "finesse"
+              },
+              {
+                "label": "PF2E.TraitForceful",
+                "predicate": ["noppera-bo-impersonator:martial"],
+                "value": "forceful"
+              },
+              {
+                "label": "PF2E.TraitParry",
+                "predicate": ["noppera-bo-impersonator:martial"],
+                "value": "parry"
+              },
+              {
+                "label": "PF2E.TraitReach",
+                "predicate": ["noppera-bo-impersonator:martial"],
+                "value": "reach"
+              },
+              {
+                "label": "PF2E.TraitShove",
+                "predicate": ["noppera-bo-impersonator:martial"],
+                "value": "shove"
+              },
+              {
+                "label": "PF2E.TraitSweep",
+                "predicate": [
+                  {
+                    "or": ["noppera-bo-impersonator:martial", "noppera-bo-impersonator:skilled"]
+                  }
+                ],
+                "value": "sweep"
+              },
+              {
+                "label": "PF2E.TraitTrip",
+                "predicate": [
+                  {
+                    "or": ["noppera-bo-impersonator:martial", "noppera-bo-impersonator:skilled"]
+                  }
+                ],
+                "value": "trip"
+              }
+            ],
+            "flag": "perk",
+            "key": "ChoiceSet",
+            "predicate": ["impersonated-ability:weapon-perk"],
+            "prompt": "PF2E.NPCAbility.NopperaBo.Impersonator.WeaponPerkPrompt"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "weapon",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["impersonated-ability:weapon-perk"],
+            "property": "traits",
+            "value": "{item|flags.system.rulesSelections.perk}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "effect:effect-merchants-bludgeon",
+      "foundry": "Compendium.pf2e.equipment-effects.Item.qlsPMC8G5Wyf2f71",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "flag": "merchantsBludgeonNunchaku",
+            "key": "GrantItem",
+            "onDeleteActions": {
+              "granter": "cascade"
+            },
+            "track": true,
+            "uuid": "Compendium.pf2e.equipment-srd.Item.Nunchaku"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{actor|flags.system.trackedItems.merchantsBludgeonNunchaku}",
+            "key": "ItemAlteration",
+            "mode": "upgrade",
+            "property": "runes-potency",
+            "value": 2
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{actor|flags.system.trackedItems.merchantsBludgeonNunchaku}",
+            "key": "ItemAlteration",
+            "mode": "upgrade",
+            "property": "runes-striking",
+            "value": 1
+          }
+        },
+        {
+          "type": "rule",
+          "key": "AdjustStrike",
+          "raw": {
+            "definition": ["item:id:{actor|flags.system.trackedItems.merchantsBludgeonNunchaku}"],
+            "key": "AdjustStrike",
+            "mode": "add",
+            "predicate": ["fortune-cord-damage:acid"],
+            "property": "property-runes",
+            "value": "corrosive"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "AdjustStrike",
+          "raw": {
+            "definition": ["item:id:{actor|flags.system.trackedItems.merchantsBludgeonNunchaku}"],
+            "key": "AdjustStrike",
+            "mode": "add",
+            "predicate": ["fortune-cord-damage:electricity"],
+            "property": "property-runes",
+            "value": "shock"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "AdjustStrike",
+          "raw": {
+            "definition": ["item:id:{actor|flags.system.trackedItems.merchantsBludgeonNunchaku}"],
+            "key": "AdjustStrike",
+            "mode": "add",
+            "predicate": ["fortune-cord-damage:fire"],
+            "property": "property-runes",
+            "value": "flaming"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "AdjustStrike",
+          "raw": {
+            "definition": ["item:id:{actor|flags.system.trackedItems.merchantsBludgeonNunchaku}"],
+            "key": "AdjustStrike",
+            "mode": "add",
+            "predicate": ["fortune-cord-damage:cold"],
+            "property": "property-runes",
+            "value": "frost"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "effect:effect-near-death-experience",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.3HaT8gBo8krdVniF",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "subtract",
+            "path": "system.attributes.dying.recoveryDC",
+            "value": 2
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "effect:effect-near-death-experience-healing",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.ejnUAEdbvj6uPuNJ",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": [
+              {
+                "label": "PF2E.Check.Result.Degree.Check.criticalSuccess",
+                "value": 5
+              },
+              {
+                "label": "PF2E.Check.Result.Degree.Check.success",
+                "value": 1
+              }
+            ],
+            "flag": "healing",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.DegreeOfSuccess"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FastHealing",
+          "raw": {
+            "key": "FastHealing",
+            "value": "@item.flags.system.rulesSelections.healing"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "effect:effect-resurrection-tea",
+      "foundry": "Compendium.pf2e.equipment-effects.Item.Wa5s0Perw2DGHGCA",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "label": "PF2E.SpecificRule.Actions.OneAction",
+                "value": 1
+              },
+              {
+                "label": "PF2E.SpecificRule.TeaCeremony.Label",
+                "value": 3
+              }
+            ],
+            "flag": "tea",
+            "key": "ChoiceSet"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "subtract",
+            "path": "system.attributes.dying.recoveryDC",
+            "value": "@item.flags.system.rulesSelections.tea"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "effect:effect-spirit-power-passion",
+      "foundry": "Compendium.pf2e.campaign-effects.Item.ECCyLvt5uRw8Qv8V",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "label": "PF2E.Color.Blue",
+                "value": "#0000FF"
+              },
+              {
+                "label": "PF2E.Color.Cyan",
+                "value": "#43D6D6"
+              },
+              {
+                "label": "PF2E.Color.Green",
+                "value": "#00FF00"
+              },
+              {
+                "label": "PF2E.Color.Indigo",
+                "value": "#4B0082"
+              },
+              {
+                "label": "PF2E.Color.Magenta",
+                "value": "#FF00FF"
+              },
+              {
+                "label": "PF2E.Color.Orange",
+                "value": "#FFA400"
+              },
+              {
+                "label": "PF2E.Color.Red",
+                "value": "#FF0000"
+              },
+              {
+                "label": "PF2E.Color.Violet",
+                "value": "#9400D3"
+              },
+              {
+                "label": "PF2E.Color.White",
+                "value": "#AAAAAA"
+              },
+              {
+                "label": "PF2E.Color.Yellow",
+                "value": "#FAFA00"
+              }
+            ],
+            "flag": "color",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Color"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "effect:effect-spirit-powers",
+      "foundry": "Compendium.pf2e.campaign-effects.Item.Rzlo3kvFUavFQJ3S",
+      "gaps": [
+        {
+          "type": "link",
+          "entry": "season-of-ghosts/feat:curiosity",
+          "element": {
+            "type": "ref",
+            "id": "21160542-f77d-5f39-9920-512322e6f88c"
+          }
+        },
+        {
+          "type": "link",
+          "entry": "season-of-ghosts/feat:delusion",
+          "element": {
+            "type": "ref",
+            "id": "86393c80-fa16-51a6-bcd5-32966c6a2dc4"
+          }
+        },
+        {
+          "type": "link",
+          "entry": "season-of-ghosts/feat:duty",
+          "element": {
+            "type": "ref",
+            "id": "0a92fd05-b8b2-5f6f-9b93-569c1af12c6e"
+          }
+        },
+        {
+          "type": "link",
+          "entry": "season-of-ghosts/feat:love",
+          "element": {
+            "type": "ref",
+            "id": "5369d5e7-5834-571f-99d9-f22aea765cb6"
+          }
+        },
+        {
+          "type": "link",
+          "entry": "season-of-ghosts/feat:obsession",
+          "element": {
+            "type": "ref",
+            "id": "79191463-d903-5b4d-9e02-145618fe7c41"
+          }
+        },
+        {
+          "type": "link",
+          "entry": "season-of-ghosts/feat:passion",
+          "element": {
+            "type": "ref",
+            "id": "3333b8d5-b631-55cc-ad50-983a40015d98"
+          }
+        },
+        {
+          "type": "link",
+          "entry": "season-of-ghosts/feat:spite",
+          "element": {
+            "type": "ref",
+            "id": "86ebeb96-3e7d-565a-8470-361c5ae1df77"
+          }
+        },
+        {
+          "type": "link",
+          "entry": "season-of-ghosts/feat:chilling-paralysis",
+          "element": {
+            "type": "ref",
+            "id": "d0eb3ac5-dca5-5dd1-b5a9-f910c541ac50"
+          }
+        },
+        {
+          "type": "link",
+          "entry": "season-of-ghosts/feat:dematerialize",
+          "element": {
+            "type": "ref",
+            "id": "87fca4aa-0c32-52ea-9d1b-80f080a16e35"
+          }
+        },
+        {
+          "type": "link",
+          "entry": "season-of-ghosts/feat:flickering-figure",
+          "element": {
+            "type": "ref",
+            "id": "9fab69ea-6913-5fd9-bebd-274391890b03"
+          }
+        },
+        {
+          "type": "link",
+          "entry": "season-of-ghosts/feat:flight",
+          "element": {
+            "type": "ref",
+            "id": "4fd7d6f1-3212-5609-81c9-54037456ac05"
+          }
+        },
+        {
+          "type": "link",
+          "entry": "season-of-ghosts/feat:grudge",
+          "element": {
+            "type": "ref",
+            "id": "d0b1d179-9826-5758-a837-09083c2f35f2"
+          }
+        },
+        {
+          "type": "link",
+          "entry": "season-of-ghosts/feat:resist-death",
+          "element": {
+            "type": "ref",
+            "id": "ddd474b5-5061-5734-9328-659a36028971"
+          }
+        },
+        {
+          "type": "link",
+          "entry": "season-of-ghosts/feat:rivers-reflection",
+          "element": {
+            "type": "ref",
+            "id": "509216b7-f9b5-522e-88f0-5fdf9d1e8997"
+          }
+        },
+        {
+          "type": "link",
+          "entry": "season-of-ghosts/feat:sap-life",
+          "element": {
+            "type": "ref",
+            "id": "b0ab9fd9-a9fc-5334-900a-05a7e618460e"
+          }
+        },
+        {
+          "type": "link",
+          "entry": "season-of-ghosts/feat:undying-flesh",
+          "element": {
+            "type": "ref",
+            "id": "c30e4fa7-97ba-579c-b03b-efa36682f17e"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "effect:effect-transformative-polish",
+      "foundry": "Compendium.pf2e.equipment-effects.Item.8WnFg5HMKX8JEDLl",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "label": "PF2E.PreciousMaterialAdamantine",
+                "value": "adamantine"
+              },
+              {
+                "label": "PF2E.PreciousMaterialDawnsilver",
+                "value": "dawnsilver"
+              }
+            ],
+            "flag": "material",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Material"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "AdjustStrike",
+          "raw": {
+            "definition": ["item:slug:lumber-lords-axe"],
+            "key": "AdjustStrike",
+            "mode": "remove",
+            "property": "materials",
+            "value": "cold-iron"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "AdjustStrike",
+          "raw": {
+            "definition": ["item:slug:lumber-lords-axe"],
+            "key": "AdjustStrike",
+            "mode": "add",
+            "property": "materials",
+            "value": "{item|flags.system.rulesSelections.material}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "effect:effect-whiskers-sense",
+      "foundry": "Compendium.pf2e.equipment-effects.Item.05mIW5FMX2socBY9",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "key": "GrantItem",
+            "onDeleteActions": {
+              "grantee": "cascade"
+            },
+            "uuid": "Compendium.pf2e.equipment-effects.Item.Effect: Parry"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "effect:spell-effect-open-the-wall-of-ghosts-critical-success",
+      "foundry": "Compendium.pf2e.spell-effects.Item.lGU4GIF2GUn21zFa",
+      "gaps": [
+        {
+          "type": "link",
+          "entry": "season-of-ghosts/ritual:open-the-wall-of-ghosts",
+          "element": {
+            "type": "ref",
+            "id": "a16956c7-3a6d-53c8-9603-46b43568d9ac"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "effect:spell-effect-sweetest-solstice",
+      "foundry": "Compendium.pf2e.spell-effects.Item.HDT5oiQXXnRdDIKR",
+      "gaps": [
+        {
+          "type": "link",
+          "entry": "season-of-ghosts/ritual:sweetest-solstice",
+          "element": {
+            "type": "ref",
+            "id": "041929f8-ee78-51a1-8eef-2bb6e8c63ace"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "equipment:cape-of-justice",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.vXMIKXn3RHh3UET8",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]][options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[traits]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]][dc]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]][show-dc]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "equipment:dragon-turtle-artillery",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.zBXPmr6w8VxBvwZW",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Damage[traits]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[traits]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "equipment:fortune-cord",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.cuWnhVyMCHqOA2Hl",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "override",
+            "property": "damage-type",
+            "selectors": ["{item|id}-inline-damage"],
+            "value": "{item|flags.system.rulesSelections.fortuneCordDamage}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "equipment:hairpin-of-blooming-flowers",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.EHMGDwY0oSZAHz8Y",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "equipment:injigos-loving-embrace",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.MV9tQYR5vsjPeyar",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]][options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]][dc]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]][show-dc]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "equipment:jiang-shi-bell",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.TFlgUM4CqPBmzhRC",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[traits]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "equipment:kinburis-sandals-of-bounding",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.LuW0KcoGUJ49dFCJ",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "equipment:lacquered-waist-drum",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.qTfLcil8S2E0ffnX",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Damage[traits]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[traits]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "equipment:skyfang-crystal",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.vSctvZGoJYTHjpZV",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]][skill]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "equipment:spider-lily-tattoo",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.F4jOdM3qhYELTz1I",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[against]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "feat:animal-soul-siblings",
+      "foundry": "Compendium.pf2e.feats-srd.Item.3omfgwa6waDNj0Eg",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:speak-with-animals", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:speak-with-animals", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:reincarnated"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "feat:boneyard-acquaintance",
+      "foundry": "Compendium.pf2e.feats-srd.Item.fjzxzlHhiORtV7Ll",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:spiritual-guardian", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:spiritual-guardian", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:reincarnated"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "feat:chilling-paralysis",
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.DVILYNQVB2hx9Chl",
+      "leftOut": {
+        "reason": "no-kind-data",
+        "detail": ""
+      },
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "category",
+          "raw": "deityboon"
+        }
+      ],
+      "document": {
+        "_id": "DVILYNQVB2hx9Chl",
+        "name": "Chilling Paralysis",
+        "type": "feat",
+        "system": {
+          "publication": {
+            "title": "Pathfinder Season of Ghosts Hardcover Compilation",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 0
+          },
+          "traits": {
+            "value": ["cold", "incapacitation", "occult"],
+            "rarity": "rare",
+            "otherTags": ["major-spirit-power"]
+          },
+          "description": {
+            "value": "<p><strong>Frequency</strong> once per hour</p><hr /><p>The unnatural cold of your touch freezes muscles and locks joints, leaving your victims shivering and unable to move. Attempt a melee weapon or unarmed Strike against a target. If you hit, in addition to all the Strike's normal effects, the target must attempt a @Check[fortitude|against:class-spell] save.</p><hr /><p><strong>Critical Success</strong> The target is unaffected.</p>\n<p><strong>Success</strong> The supernatural cold causes the target to shiver and quake, making them @UUID[Compendium.pf2e.conditionitems.Item.Slowed]{Slowed 1} until the end of their next turn.</p>\n<p><strong>Failure</strong> The supernatural cold paralyzes the target for 1 round, then leaves them slowed 1 for 1 round after.</p>\n<p><strong>Critical Failure</strong> The target becomes frozen in place by the cold and is @UUID[Compendium.pf2e.conditionitems.Item.Paralyzed] for 1 minute. It can attempt a new save at the end of each of its turns, and the DC cumulatively decreases by 1 on each attempt. Once the target recovers, it's slowed 1 for 1 round.</p>"
+          },
+          "rules": [],
+          "actionType": {
+            "value": "action"
+          },
+          "actions": {
+            "value": 2
+          },
+          "category": "deityboon",
+          "frequency": {
+            "max": 1,
+            "per": "PT1H"
+          },
+          "prerequisites": {
+            "value": []
+          }
+        }
+      }
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "feat:curiosity",
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.VMpc8QWEZxSH8Mr4",
+      "leftOut": {
+        "reason": "no-kind-data",
+        "detail": ""
+      },
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "category",
+          "raw": "deityboon"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[against]"
+        }
+      ],
+      "document": {
+        "_id": "VMpc8QWEZxSH8Mr4",
+        "name": "Curiosity",
+        "type": "feat",
+        "system": {
+          "publication": {
+            "title": "Pathfinder Season of Ghosts Hardcover Compilation",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 0
+          },
+          "traits": {
+            "value": ["linguistic", "mental", "occult"],
+            "rarity": "rare",
+            "otherTags": ["minor-spirit-power"]
+          },
+          "description": {
+            "value": "<p>A desire for knowledge can be a powerful motivation. This focus also commonly manifests in young or otherwise innocent spirits, as they're bound mainly by a desire to see the world a little longer. You reach out to touch an adjacent living target, and for a moment, your hand becomes incorporeal as it passes through their body. The target must attempt a @Check[will|against:class-spell] save, after which they're immune to this power.</p><hr /><p><strong>Critical Success</strong> The target is unaffected.</p>\n<p><strong>Success</strong> You perceive vague surface thoughts from the target and find out whether its Intelligence modifier is higher than, equal to, or lower than yours.</p>\n<p><strong>Failure</strong> As success, but you can probe into the target's mind and attempt to uncover the answer to a question you telepathically pose to them. The target can attempt a @Check[deception|against:class-spell] check against your spirit power's DC; if the target succeeds, you don't learn the answer, and on a critical success, the target gives you a false answer you believe is truthful.</p>\n<p><strong>Critical Failure</strong> As failure, but once you resolve the telepathic question and its answer, the target loses all memory of this event.</p>"
+          },
+          "rules": [],
+          "actionType": {
+            "value": "action"
+          },
+          "actions": {
+            "value": 2
+          },
+          "category": "deityboon",
+          "prerequisites": {
+            "value": []
+          }
+        }
+      }
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "feat:delusion",
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.fsxCcyWpag5iuWOU",
+      "leftOut": {
+        "reason": "no-kind-data",
+        "detail": ""
+      },
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "category",
+          "raw": "deityboon"
+        }
+      ],
+      "document": {
+        "_id": "fsxCcyWpag5iuWOU",
+        "name": "Delusion",
+        "type": "feat",
+        "system": {
+          "publication": {
+            "title": "Pathfinder Season of Ghosts Hardcover Compilation",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 0
+          },
+          "traits": {
+            "value": ["auditory", "illusion", "occult", "olfactory", "visual"],
+            "rarity": "rare",
+            "otherTags": ["minor-spirit-power"]
+          },
+          "description": {
+            "value": "<p>You weave illusions to fool mortal senses. However, the metaphysical distance between the spirit world and that of the living distorts how these figments appear to living viewers. To undead, and to creatures with illusion-piercing abilities such as truesight, the images appear as you intend for them to. To other observers, these illusions always take on a macabre tone. Blood, bone, and shadow replace more mundane materials in the composition. Speech is warped to resemble either shrill screams or low-pitched growls and is generally unintelligible. You gain a +2 status bonus to Deception checks.</p>\n<p>Once per day, you can cast one of the following spells as a 5th-rank innate occult spell: @UUID[Compendium.pf2e.spells-srd.Item.Illusory Creature], @UUID[Compendium.pf2e.spells-srd.Item.Illusory Object], or @UUID[Compendium.pf2e.spells-srd.Item.Illusory Scene].</p>"
+          },
+          "rules": [
+            {
+              "key": "FlatModifier",
+              "selector": "deception",
+              "type": "status",
+              "value": 2
+            }
+          ],
+          "actionType": {
+            "value": "passive"
+          },
+          "actions": {
+            "value": null
+          },
+          "category": "deityboon",
+          "prerequisites": {
+            "value": []
+          }
+        }
+      }
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "feat:dematerialize",
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.pHXGTgjwWY3OBRF2",
+      "leftOut": {
+        "reason": "no-kind-data",
+        "detail": ""
+      },
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "category",
+          "raw": "deityboon"
+        }
+      ],
+      "document": {
+        "_id": "pHXGTgjwWY3OBRF2",
+        "name": "Dematerialize",
+        "type": "feat",
+        "system": {
+          "publication": {
+            "title": "Pathfinder Season of Ghosts Hardcover Compilation",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 0
+          },
+          "traits": {
+            "value": ["occult"],
+            "rarity": "rare",
+            "otherTags": ["major-spirit-power"]
+          },
+          "description": {
+            "value": "<p><strong>Frequency</strong> once per day</p><hr /><p>You cause your body to flicker and fade, becoming truly ghostlike in appearance and becoming unable to touch or to be touched in turn. You become incorporeal for 1 round and can Sustain this effect for up to 5 rounds.</p>"
+          },
+          "rules": [],
+          "actionType": {
+            "value": "action"
+          },
+          "actions": {
+            "value": 2
+          },
+          "category": "deityboon",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "prerequisites": {
+            "value": []
+          }
+        }
+      }
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "feat:duty",
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.ekiKKfsBDFEeVmun",
+      "leftOut": {
+        "reason": "no-kind-data",
+        "detail": ""
+      },
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "category",
+          "raw": "deityboon"
+        }
+      ],
+      "document": {
+        "_id": "ekiKKfsBDFEeVmun",
+        "name": "Duty",
+        "type": "feat",
+        "system": {
+          "publication": {
+            "title": "Pathfinder Season of Ghosts Hardcover Compilation",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 0
+          },
+          "traits": {
+            "value": ["incapacitation", "linguistic", "mental", "occult"],
+            "rarity": "rare",
+            "otherTags": ["minor-spirit-power"]
+          },
+          "description": {
+            "value": "<p>Stoic resolve or plain stubbornness form the core of this focus. While the dead can't demand their flesh persist beyond their time, they can still impose some of their iron will on other people. This focus expresses itself as an ability to whisper in the ears of the living. You whisper to a target within 30 feet that you can see. The target must then attempt a @Check[will|against:class-spell] saving throw, after which they're immune to this power.</p><hr /><p><strong>Critical Success</strong> The target hears your whispered words but isn't otherwise affected.</p>\n<p><strong>Success</strong> The target is unnerved by your whispered words and becomes @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 1}.</p>\n<p><strong>Failure</strong> The target hears your whispered words and must obey your suggested course of action for 1 minute, until it has completed the task, or until the task becomes self-destructive or has other obvious negative effects. Your suggested course of action must be phrased in such a way as to seem like a logical course of action to the target.</p>\n<p><strong>Critical Failure</strong> As failure, but the duration is 1 hour.</p>"
+          },
+          "rules": [],
+          "actionType": {
+            "value": "action"
+          },
+          "actions": {
+            "value": 2
+          },
+          "category": "deityboon",
+          "prerequisites": {
+            "value": []
+          }
+        }
+      }
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "feat:flickering-figure",
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.0HChyDaXdpXN11q4",
+      "leftOut": {
+        "reason": "no-kind-data",
+        "detail": ""
+      },
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "category",
+          "raw": "deityboon"
+        }
+      ],
+      "document": {
+        "_id": "0HChyDaXdpXN11q4",
+        "name": "Flickering Figure",
+        "type": "feat",
+        "system": {
+          "publication": {
+            "title": "Pathfinder Season of Ghosts Hardcover Compilation",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 0
+          },
+          "traits": {
+            "value": ["illusion", "occult", "visual"],
+            "rarity": "rare",
+            "otherTags": ["major-spirit-power"]
+          },
+          "description": {
+            "value": "<p><strong>Frequency</strong> once per day</p><hr /><p>You transform your body so it appears to grow translucent, so that your appearance shimmers and blends with your surroundings. You become @UUID[Compendium.pf2e.conditionitems.Item.Concealed] and can use this concealment to @UUID[Compendium.pf2e.actionspf2e.Item.Hide]. This effect lasts for 10 minutes.</p>"
+          },
+          "rules": [],
+          "actionType": {
+            "value": "action"
+          },
+          "actions": {
+            "value": 1
+          },
+          "category": "deityboon",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "prerequisites": {
+            "value": []
+          }
+        }
+      }
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "feat:flight",
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.SnIvcCNASDzgevQK",
+      "leftOut": {
+        "reason": "no-kind-data",
+        "detail": ""
+      },
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "category",
+          "raw": "deityboon"
+        }
+      ],
+      "document": {
+        "_id": "SnIvcCNASDzgevQK",
+        "name": "Flight",
+        "type": "feat",
+        "system": {
+          "publication": {
+            "title": "Pathfinder Season of Ghosts Hardcover Compilation",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 0
+          },
+          "traits": {
+            "value": ["occult"],
+            "rarity": "rare",
+            "otherTags": ["major-spirit-power"]
+          },
+          "description": {
+            "value": "<p><strong>Frequency</strong> once per day</p><hr /><p>Unbound by the weight of flesh and bones, you become untouched by even the most basic of mortal experiences—gravity. You gain a fly Speed equal to your Speed or 30 feet, whichever is greater, for 10 minutes. While flying, you might grow more ghostly in appearance, or you might leave some sort of temporary flickering trail in the air while you travel as you see fit.</p>"
+          },
+          "rules": [],
+          "actionType": {
+            "value": "action"
+          },
+          "actions": {
+            "value": 2
+          },
+          "category": "deityboon",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "prerequisites": {
+            "value": []
+          },
+          "selfEffect": {
+            "name": "Effect: Spirit Power (Flight)",
+            "uuid": "Compendium.pf2e.campaign-effects.Item.Effect: Spirit Power (Flight)"
+          }
+        }
+      }
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "feat:go-with-the-flow",
+      "foundry": "Compendium.pf2e.feats-srd.Item.u96anl3ACNhBqnbT",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[against]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "feat:grudge",
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.3yYlHV7GBrafsDwE",
+      "leftOut": {
+        "reason": "no-kind-data",
+        "detail": ""
+      },
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "category",
+          "raw": "deityboon"
+        }
+      ],
+      "document": {
+        "_id": "3yYlHV7GBrafsDwE",
+        "name": "Grudge",
+        "type": "feat",
+        "system": {
+          "publication": {
+            "title": "Pathfinder Season of Ghosts Hardcover Compilation",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 0
+          },
+          "traits": {
+            "value": ["emotion", "fear", "incapacitation", "mental", "occult"],
+            "rarity": "rare",
+            "otherTags": ["major-spirit-power"]
+          },
+          "description": {
+            "value": "<p>Your hatred is so powerful that it can overwhelm another's mind. Choose a creature within 30 feet of you that's aware of you. That creature sees your expression suddenly transform into a supernaturally distorted visage of hatred and must attempt a @Check[will|against:class-spell] save. Since this perception of your hatred is all perceived directly in the target's mind, it doesn't have the visual trait—if the target can't see you, your hatred manifests in different ways that the target will have no problem observing. Perhaps your voice manifests as a sinister whisper in their ears, or maybe you flood them with a scent that invokes a horrific memory. The creature is then immune to Grudge for 24 hours.</p><hr /><p><strong>Critical Success</strong> The creature is unaffected.</p>\n<p><strong>Success</strong> The creature becomes @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 1}</p>\n<p><strong>Failure</strong> The creature becomes @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 2}, falls @UUID[Compendium.pf2e.conditionitems.Item.Prone] from the shock, and is @UUID[Compendium.pf2e.conditionitems.Item.Fleeing] as long as it remains frightened.</p>\n<p><strong>Critical Failure</strong> The creature faints from fear, becoming @UUID[Compendium.pf2e.conditionitems.Item.Unconscious]. As soon as it's no longer unconscious it becomes frightened 2 and is fleeing as long as it remains frightened.</p>"
+          },
+          "rules": [],
+          "actionType": {
+            "value": "action"
+          },
+          "actions": {
+            "value": 1
+          },
+          "category": "deityboon",
+          "prerequisites": {
+            "value": []
+          }
+        }
+      }
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "feat:i-sense-malevolence",
+      "foundry": "Compendium.pf2e.feats-srd.Item.aEcK9cX64xDrbzwH",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:spirit-sense", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:spirit-sense", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:reincarnated"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "feat:lingering-echoes",
+      "foundry": "Compendium.pf2e.feats-srd.Item.ZTIM5YyCiNxIO3Mp",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:talking-corpse", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:talking-corpse", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:reincarnated"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[traits]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "feat:linguistic-revival",
+      "foundry": "Compendium.pf2e.feats-srd.Item.xSOpBaHbrjiaQsME",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:truespeech", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:truespeech", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:reincarnated"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "feat:love",
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.w4t0ElpqNQRFCaPJ",
+      "leftOut": {
+        "reason": "no-kind-data",
+        "detail": ""
+      },
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "category",
+          "raw": "deityboon"
+        }
+      ],
+      "document": {
+        "_id": "w4t0ElpqNQRFCaPJ",
+        "name": "Love",
+        "type": "feat",
+        "system": {
+          "publication": {
+            "title": "Pathfinder Season of Ghosts Hardcover Compilation",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 0
+          },
+          "traits": {
+            "value": ["mental", "occult"],
+            "rarity": "rare",
+            "otherTags": ["minor-spirit-power"]
+          },
+          "description": {
+            "value": "<p>A powerful and all-consuming devotion, love for another can sometimes reach them beyond the grave. Romantic, familial, or platonic love can be the driving force behind this focus. It expresses itself as an aura of empathy for animals, who are sensitive toward otherworldly beings and easier to influence with ghostly emotions than more logical creatures. You can ask questions of, receive answers from, and use the Diplomacy skill with animals. When you're within 30 feet of a trusted ally (such as another PC), you gain a +1 status bonus to Will saving throws. This increases to a +2 status bonus if a trusted ally you love is within this range.</p>"
+          },
+          "rules": [
+            {
+              "key": "RollOption",
+              "label": "PF2E.SpecificRule.SpiritPower.Love.Label",
+              "option": "spirit-power:love",
+              "suboptions": [
+                {
+                  "label": "PF2E.SpecificRule.SpiritPower.Love.Trusted",
+                  "value": "trusted"
+                },
+                {
+                  "label": "PF2E.SpecificRule.SpiritPower.Love.Love",
+                  "value": "love"
+                }
+              ],
+              "toggleable": true
+            },
+            {
+              "key": "FlatModifier",
+              "predicate": ["spirit-power:love"],
+              "selector": "will",
+              "slug": "spirit-power-love",
+              "type": "status",
+              "value": 1
+            },
+            {
+              "key": "AdjustModifier",
+              "mode": "add",
+              "predicate": ["spirit-power:love:love"],
+              "selector": "will",
+              "slug": "spirit-power-love",
+              "value": 1
+            }
+          ],
+          "actionType": {
+            "value": "passive"
+          },
+          "actions": {
+            "value": null
+          },
+          "category": "deityboon",
+          "prerequisites": {
+            "value": []
+          }
+        }
+      }
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "feat:obsession",
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.g6iKvH7Y3InQtZ8K",
+      "leftOut": {
+        "reason": "no-kind-data",
+        "detail": ""
+      },
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "category",
+          "raw": "deityboon"
+        }
+      ],
+      "document": {
+        "_id": "g6iKvH7Y3InQtZ8K",
+        "name": "Obsession",
+        "type": "feat",
+        "system": {
+          "publication": {
+            "title": "Pathfinder Season of Ghosts Hardcover Compilation",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 0
+          },
+          "traits": {
+            "value": ["occult"],
+            "rarity": "rare",
+            "otherTags": ["minor-spirit-power"]
+          },
+          "description": {
+            "value": "<p>This spirit power represents an extreme fixation on a particular object. While this is most often a result of insatiable greed, this could also represent fondness for a cherished heirloom or attachment to a defining piece of art that a person created. This focus is appropriate for a character particularly attached to their wealth or to a particular piece of gear. It expresses itself as an ability to telekinetically control small objects. You can cast @UUID[Compendium.pf2e.spells-srd.Item.Telekinetic Projectile] at will as a 5th-rank innate occult cantrip.</p>\n<p>Once per day, you can cast one of the following spells as a 5th-rank innate occult spell: @UUID[Compendium.pf2e.spells-srd.Item.Animated Assault], @UUID[Compendium.pf2e.spells-srd.Item.Charitable Urge], or @UUID[Compendium.pf2e.spells-srd.Item.Telekinetic Haul].</p>"
+          },
+          "rules": [],
+          "actionType": {
+            "value": "passive"
+          },
+          "actions": {
+            "value": null
+          },
+          "category": "deityboon",
+          "prerequisites": {
+            "value": []
+          }
+        }
+      }
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "feat:passion",
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.w1nzN61S6NfkDH7Y",
+      "leftOut": {
+        "reason": "no-kind-data",
+        "detail": ""
+      },
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "category",
+          "raw": "deityboon"
+        }
+      ],
+      "document": {
+        "_id": "w1nzN61S6NfkDH7Y",
+        "name": "Passion",
+        "type": "feat",
+        "system": {
+          "publication": {
+            "title": "Pathfinder Season of Ghosts Hardcover Compilation",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 0
+          },
+          "traits": {
+            "value": ["fire", "occult"],
+            "rarity": "rare",
+            "otherTags": ["minor-spirit-power"]
+          },
+          "description": {
+            "value": "<p>Even in death, the flames of excitement burn hot. Be it the result of ignited enthusiasm or burning anger inspired by love for another or something more, the chill of the grave can't quench the hero's emotions. You kindle your passion into actual flames for 1 minute. During this time, your body is engulfed in fire of a color of your choice that sheds bright light in a 40-foot radius (and dim light to the next 40 feet). Your melee Strikes inflict an additional 1d6 fire damage, you gain fire resistance 10, and you gain the following reaction.</p>\n<p>@UUID[Compendium.pf2e.adventure-specific-actions.Item.Reactive Scorch]</p>"
+          },
+          "rules": [],
+          "actionType": {
+            "value": "action"
+          },
+          "actions": {
+            "value": 2
+          },
+          "category": "deityboon",
+          "prerequisites": {
+            "value": []
+          },
+          "selfEffect": {
+            "name": "Effect: Spirit Power (Passion)",
+            "uuid": "Compendium.pf2e.campaign-effects.Item.Effect: Spirit Power (Passion)"
+          }
+        }
+      }
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "feat:plant-soul-siblings",
+      "foundry": "Compendium.pf2e.feats-srd.Item.mlFDIQuh84VLj5IC",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:speak-with-plants", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:speak-with-plants", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:reincarnated"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "feat:resist-death",
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.KtqDsKBuOmCkbDcR",
+      "leftOut": {
+        "reason": "no-kind-data",
+        "detail": ""
+      },
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "category",
+          "raw": "deityboon"
+        }
+      ],
+      "document": {
+        "_id": "KtqDsKBuOmCkbDcR",
+        "name": "Resist Death",
+        "type": "feat",
+        "system": {
+          "publication": {
+            "title": "Pathfinder Season of Ghosts Hardcover Compilation",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 0
+          },
+          "traits": {
+            "value": ["occult"],
+            "rarity": "rare",
+            "otherTags": ["major-spirit-power"]
+          },
+          "description": {
+            "value": "<p>Your spirit is so single-minded in its purpose that even obliteration of your transmigrated body isn't enough to stop them. The next time you're reduced to 0 Hit Points within the next 24 hours, you are instead reduced to 10 Hit Points and are exposed to soul degradation.</p>"
+          },
+          "rules": [],
+          "actionType": {
+            "value": "passive"
+          },
+          "actions": {
+            "value": null
+          },
+          "category": "deityboon",
+          "prerequisites": {
+            "value": []
+          }
+        }
+      }
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "feat:rivers-reflection",
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.KbQXDTBi5MKtHbpU",
+      "leftOut": {
+        "reason": "no-kind-data",
+        "detail": ""
+      },
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "category",
+          "raw": "deityboon"
+        }
+      ],
+      "document": {
+        "_id": "KbQXDTBi5MKtHbpU",
+        "name": "River's Reflection",
+        "type": "feat",
+        "system": {
+          "publication": {
+            "title": "Pathfinder Season of Ghosts Hardcover Compilation",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 0
+          },
+          "traits": {
+            "value": ["manipulate", "spellshape"],
+            "rarity": "rare",
+            "otherTags": ["major-spirit-power"]
+          },
+          "description": {
+            "value": "<p>Existing between life and death can offer insights when it comes to channeling the energies of life and death. If the next action you use is to Cast a Spell with the vitality or void traits, that spell's effects on living and undead targets are reversed. All void damage becomes vitality damage and vice versa. Any ability to heal living creatures or undead creatures is similarly swapped.</p>"
+          },
+          "rules": [],
+          "actionType": {
+            "value": "action"
+          },
+          "actions": {
+            "value": 1
+          },
+          "category": "deityboon",
+          "prerequisites": {
+            "value": []
+          }
+        }
+      }
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "feat:sap-life",
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.sjLNgLFyDvTt6VVV",
+      "leftOut": {
+        "reason": "no-kind-data",
+        "detail": ""
+      },
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "category",
+          "raw": "deityboon"
+        }
+      ],
+      "document": {
+        "_id": "sjLNgLFyDvTt6VVV",
+        "name": "Sap Life",
+        "type": "feat",
+        "system": {
+          "publication": {
+            "title": "Pathfinder Season of Ghosts Hardcover Compilation",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 0
+          },
+          "traits": {
+            "value": ["occult", "void"],
+            "rarity": "rare",
+            "otherTags": ["major-spirit-power"]
+          },
+          "description": {
+            "value": "<p>Just as some undead hunger for life, you feel the urge to draw vitality from the living. Attempt an unarmed Strike against a foe. If you hit, you inflict @Damage[4d6[void]] damage and restore @Damage[10[healing]] Hit Points to yourself.</p>"
+          },
+          "rules": [],
+          "actionType": {
+            "value": "action"
+          },
+          "actions": {
+            "value": 2
+          },
+          "category": "deityboon",
+          "prerequisites": {
+            "value": []
+          }
+        }
+      }
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "feat:sleep-of-the-reborn",
+      "foundry": "Compendium.pf2e.feats-srd.Item.zz2kOAHYBxbLtOV0",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "system.attributes.hp.recoveryMultiplier",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "feat:spite",
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.YdG3UwVBia5AyLjO",
+      "leftOut": {
+        "reason": "no-kind-data",
+        "detail": ""
+      },
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "category",
+          "raw": "deityboon"
+        }
+      ],
+      "document": {
+        "_id": "YdG3UwVBia5AyLjO",
+        "name": "Spite",
+        "type": "feat",
+        "system": {
+          "publication": {
+            "title": "Pathfinder Season of Ghosts Hardcover Compilation",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 0
+          },
+          "traits": {
+            "value": ["curse", "occult"],
+            "rarity": "rare",
+            "otherTags": ["minor-spirit-power"]
+          },
+          "description": {
+            "value": "<p>Even if a person was kind in life, the dead have many reasons to spite the living, and the violent urges of the departed are why ghosts are so often feared. This focus isn't just fueled by hate; righteous fury can empower these abilities, though even the most virtuous of feelings can become twisted over time. Spite takes the form of curses, punishing the target with various bodily maladies. Point to a target you can see within 30 feet. The target must then attempt a @Check[will|against:class-spell] saving throw, after which they're immune to this power.</p><hr /><p><strong>Critical Success</strong> The target is unaffected.</p>\n<p><strong>Success</strong> The target's skin itches uncontrollably. If the target doesn't spend an action to scratch at the itch, it becomes @UUID[Compendium.pf2e.conditionitems.Item.Off-Guard] until the start of its next turn. This effect lasts for 1 minute.</p>\n<p><strong>Failure</strong> The target's skin breaks out in painful lesions and unsightly sores. The target becomes @UUID[Compendium.pf2e.conditionitems.Item.Enfeebled]{Enfeebled 2}, @UUID[Compendium.pf2e.conditionitems.Item.Clumsy]{Clumsy 2}, and @UUID[Compendium.pf2e.conditionitems.Item.Drained]{Drained 2} for 24 hours.</p>\n<p><strong>Critical Failure</strong> As failure, but the target is also @UUID[Compendium.pf2e.conditionitems.Item.Slowed]{Slowed 1} for the duration.</p>"
+          },
+          "rules": [],
+          "actionType": {
+            "value": "action"
+          },
+          "actions": {
+            "value": 2
+          },
+          "category": "deityboon",
+          "prerequisites": {
+            "value": []
+          }
+        }
+      }
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "feat:stone-soul-siblings",
+      "foundry": "Compendium.pf2e.feats-srd.Item.NPVi1iPfY1GpiC8A",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:speak-with-stones", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:speak-with-stones", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:reincarnated"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "feat:undying-flesh",
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.UnQ8oHYc0dBJHZv9",
+      "leftOut": {
+        "reason": "no-kind-data",
+        "detail": ""
+      },
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "key": "Resistance",
+            "type": "{item|flags.system.rulesSelections.resistance}",
+            "value": 10
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "category",
+          "raw": "deityboon"
+        }
+      ],
+      "document": {
+        "_id": "UnQ8oHYc0dBJHZv9",
+        "name": "Undying Flesh",
+        "type": "feat",
+        "system": {
+          "publication": {
+            "title": "Pathfinder Season of Ghosts Hardcover Compilation",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 0
+          },
+          "traits": {
+            "value": ["occult"],
+            "rarity": "rare",
+            "otherTags": ["major-spirit-power"]
+          },
+          "description": {
+            "value": "<p>You're a fearsome and vengeful spirit, and certain physical weapons seem to have little effect on you. Choose bludgeoning, piercing, or slashing; you gain resistance 10 to that damage type. Whether your resistance to that damage manifests in the form of a weapon appearing to pass harmlessly through your body or by appearing to leave grievous wounds that you ignore is left to you to decide, but once the decision is made, you can't change it.</p>"
+          },
+          "rules": [
+            {
+              "choices": [
+                {
+                  "label": "PF2E.TraitBludgeoning",
+                  "value": "bludgeoning"
+                },
+                {
+                  "label": "PF2E.TraitSlashing",
+                  "value": "slashing"
+                },
+                {
+                  "label": "PF2E.TraitPiercing",
+                  "value": "piercing"
+                }
+              ],
+              "flag": "resistance",
+              "key": "ChoiceSet",
+              "prompt": "PF2E.SpecificRule.Prompt.DamageType"
+            },
+            {
+              "key": "Resistance",
+              "type": "{item|flags.system.rulesSelections.resistance}",
+              "value": 10
+            }
+          ],
+          "actionType": {
+            "value": "passive"
+          },
+          "actions": {
+            "value": null
+          },
+          "category": "deityboon",
+          "prerequisites": {
+            "value": []
+          }
+        }
+      }
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "feat:weight-of-experience",
+      "foundry": "Compendium.pf2e.feats-srd.Item.rGU4nKAPCkC0lK4Z",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "key": "GrantItem",
+            "preselectChoices": {
+              "assurance": "{item|flags.system.rulesSelections.skill}"
+            },
+            "uuid": "Compendium.pf2e.feats-srd.Item.Assurance"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "ritual:destroy-mindscape",
+      "foundry": "Compendium.pf2e.spells-srd.Item.dQGn0eAyvYMDdj0h",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "target.value",
+          "raw": "the mindscape"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "ritual:gnaw-at-the-moon",
+      "foundry": "Compendium.pf2e.spells-srd.Item.yrsgOdj5oqp7lEQY",
+      "leftOut": {
+        "reason": "no-kind-data",
+        "detail": ""
+      },
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "target.value",
+          "raw": "yourself and the secondary casters"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "ritual.secondary.checks",
+          "raw": "Crafting, Occultism, or Religion"
+        }
+      ],
+      "document": {
+        "_id": "yrsgOdj5oqp7lEQY",
+        "name": "Gnaw at the Moon",
+        "type": "spell",
+        "system": {
+          "publication": {
+            "title": "Pathfinder Season of Ghosts Hardcover Compilation",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 2
+          },
+          "traits": {
+            "value": [],
+            "rarity": "rare",
+            "traditions": []
+          },
+          "description": {
+            "value": "<p>It's said that after his demise at the hands of jealous Fumeiyoshi, Tsukiyo's corpse was left unguarded; this provided a humble matron-rat opportunities to nibble at god flesh, a meal that transformed her into Lao Shu Po. Gnaw at the moon, an obscure folk magic ritual popular among Shenmen's downtrodden, allows you to honor the Old Rat Woman's audacity and unlikely ascent.</p>\n<p>This ritual can only be performed on a night when the moon is visible in the sky above; you can't perform this ritual during a totally moonless night, while indoors, or while underground. Performing this ritual on the night of the full moon reduces the DCs of the ritual's skill checks by 2. You set out offerings of mooncakes and cups of tea on a flat surface (such as a table or a tray on the floor), assiduously ignore this food and drink, and praise the night's beauty while admiring and thanking the moon.</p>\n<p>At the end of a successful ritual, bite marks appear on the mooncakes, and some of the tea disappears as if sipped while no one was looking. Supposedly, the ritual and offerings gain Lao Shu Po's attention, who sends her rodent children to eat and drink their fill and grant stolen blessings of moonlit sight. The effusive admiration for the moon is said to avert Tsukiyo's displeasure for commemorating the event of his murder; after all, old tales warn against giving offense to the moon, lest it slice your ears in retribution.</p><hr /><p><strong>Critical Success</strong> The targets gain darkvision.</p>\n<p><strong>Success</strong> The targets gain low-light vision.</p>\n<p><strong>Failure</strong> The ritual has no effect.</p>\n<p><strong>Critical Failure</strong> You and the targets are @UUID[Compendium.pf2e.conditionitems.Item.Drained]{Drained 1} for 24 hours. Your ears feel lacerated and raw as your earlobes become crisscrossed with tiny cuts.</p>"
+          },
+          "rules": [],
+          "area": null,
+          "cost": {
+            "value": "mooncakes and rare tea worth 100 gp"
+          },
+          "counteraction": false,
+          "damage": {},
+          "defense": null,
+          "duration": {
+            "sustained": false,
+            "value": "8 hours"
+          },
+          "range": {
+            "value": "30 feet"
+          },
+          "requirements": "",
+          "ritual": {
+            "primary": {
+              "check": "Diplomacy (expert)"
+            },
+            "secondary": {
+              "casters": 3,
+              "checks": "Crafting, Occultism, or Religion"
+            }
+          },
+          "target": {
+            "value": "yourself and the secondary casters"
+          },
+          "time": {
+            "value": "1 hour"
+          }
+        },
+        "folder": "6JF73zNhT8zbp1qC"
+      }
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "ritual:last-nights-vigil",
+      "foundry": "Compendium.pf2e.spells-srd.Item.INEAWirvb8c1eAFD",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "target.value",
+          "raw": "1 creature whom you love"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "ritual:mindscape-shift",
+      "foundry": "Compendium.pf2e.spells-srd.Item.VJgSQBYwXGDbMmiW",
+      "leftOut": {
+        "reason": "no-kind-data",
+        "detail": ""
+      },
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "target.value",
+          "raw": "yourself and the secondary casters"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "ritual.secondary.checks",
+          "raw": "Arcana, Deception, Diplomacy, Occultism, Perception, or Willowshore Lore"
+        }
+      ],
+      "document": {
+        "_id": "VJgSQBYwXGDbMmiW",
+        "name": "Mindscape Shift",
+        "type": "spell",
+        "system": {
+          "publication": {
+            "title": "Pathfinder Season of Ghosts Hardcover Compilation",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 3
+          },
+          "traits": {
+            "value": ["teleportation"],
+            "rarity": "rare",
+            "traditions": []
+          },
+          "description": {
+            "value": "",
+            "gm": "<p>You attempt to transport the targets from a mindscape they're currently within into an adjacent, nearly identical mindscape, such as to or from the Willowshore mindscape into Heh Shan-Bao's mindscape—the mindscape in which Governor Heh Shan-Bao is trapped. Unlike the use of @UUID[Compendium.pf2e.spells-srd.Item.Mindscape Door] which projects the mind into a mindscape and leaves the physical body behind, <em>mindscape shift</em> teleports its targets entirely into the new mindscape. If the mindscape's creator wants to prevent anyone from entering or exiting it, the DC of the primary check is the creator's Will DC if that would be higher than the ritual's normal DC (note that in this adventure, Heh Shan-Bao doesn't seek to take this action against the PCs visiting his mindscape, as he has his own plans for them). When you successfully travel to the other mindscape, you and the targets appear in the same corresponding location you occupied in the previous mindscape, and if no such corresponding location exists in the target mindscape, the ritual automatically has a critical failure result.</p><hr><p><strong>Critical Success</strong> You transport the targets as intended and can leave a portal back to the previous mindscape that lasts for up to 24 hours. It typically looks like an ordinary door or passage appropriate to the mindscape. Any target of the spell can enter or exit through this portal as they would an ordinary door. If you wish, you can make this door passable by anyone.</p><p><strong>Success</strong> You transport the targets as intended.</p><p><strong>Failure</strong> You fail to transport the targets.</p><p><strong>Critical Failure</strong> Not only do you fail to transport the targets, you also cause mental feedback to inflict @Damage[9d6[mental]] damage to all ritual casters (@Check[will|dc:26|basic] save).</p><hr><p><strong>Heightened (8th)</strong> You can transport the targets to any mindscape you have visited before or have detailed knowledge of. Your arrival point within the target mindscape is somewhere you've visited or somewhere chosen by the GM.</p>"
+          },
+          "rules": [],
+          "area": null,
+          "cost": {
+            "value": "focusing diagrams and incense worth 28 gp"
+          },
+          "counteraction": false,
+          "damage": {},
+          "defense": null,
+          "duration": {
+            "sustained": false,
+            "value": ""
+          },
+          "range": {
+            "value": "touch"
+          },
+          "requirements": "",
+          "ritual": {
+            "primary": {
+              "check": "Arcana or Occultism (expert) or Willowshore Lore"
+            },
+            "secondary": {
+              "casters": 3,
+              "checks": "Arcana, Deception, Diplomacy, Occultism, Perception, or Willowshore Lore"
+            }
+          },
+          "target": {
+            "value": "yourself and the secondary casters"
+          },
+          "time": {
+            "value": "1 hour"
+          }
+        },
+        "folder": "6JF73zNhT8zbp1qC"
+      }
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "ritual:open-the-wall-of-ghosts",
+      "foundry": "Compendium.pf2e.spells-srd.Item.PvkEzzCaDT07DcJb",
+      "leftOut": {
+        "reason": "no-kind-data",
+        "detail": ""
+      },
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "target.value",
+          "raw": "the Wall of Ghosts"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "ritual.secondary.checks",
+          "raw": "Deception, Diplomacy, or Intimidation"
+        }
+      ],
+      "document": {
+        "_id": "PvkEzzCaDT07DcJb",
+        "name": "Open the Wall of Ghosts",
+        "type": "spell",
+        "system": {
+          "publication": {
+            "title": "Pathfinder Season of Ghosts Hardcover Compilation",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 2
+          },
+          "traits": {
+            "value": ["consecration"],
+            "rarity": "rare",
+            "traditions": []
+          },
+          "description": {
+            "value": "",
+            "gm": "<p>Your research into the nature of the so-called Willowshore Curse has revealed a possible method of opening a doorway through the eerie Wall of Ghosts found west of town. By starting with a @UUID[Compendium.pf2e.spells-srd.Item.Consecrate] ritual and then applying Sangpotshi theories of the cyclical nature of life and reincarnation, along with insights gleaned from Zoudou's notes, you've created a magical ritual that can quiet the angry spirits that haunt this misty barrier and allow other creatures to pass through into the regions beyond.</p><p>This ritual is unlikely to grant total protection from the ghosts or evil spirits within the wall itself, so once you open the wall, you and your allies might need to face additional dangers within before you can exit the other side. In addition, the ritual must be performed during a crescent or new moon (a time that equates to the second half of each month).</p><hr><p><strong>Critical Success</strong> The ritual succeeds and offers unexpected protection while you're passing through the Wall of Ghosts. While you're within the Wall of Ghosts, you and the secondary casters to the ritual gain a +2 status bonus to Armor Class and saving throws.</p><p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Open the Wall of Ghosts (Critical Success)]</p><p><strong>Success</strong> The ritual succeeds.</p><p><strong>Failure</strong> The ritual fails.</p><p><strong>Critical Failure</strong> The ritual fails spectacularly, and two of the ghosts trapped within the wall tear free and attack. Treat each of these ghosts as a @UUID[Compendium.pf2e.pathfinder-monster-core.Actor.Ghost Commoner], save that their ghostly hand attacks deal mental damage rather than void damage.</p>"
+          },
+          "rules": [],
+          "area": null,
+          "cost": {
+            "value": "rice grains and incense worth 60 gp"
+          },
+          "counteraction": false,
+          "damage": {},
+          "defense": null,
+          "duration": {
+            "sustained": false,
+            "value": "1 year"
+          },
+          "range": {
+            "value": "40 feet"
+          },
+          "requirements": "",
+          "ritual": {
+            "primary": {
+              "check": "Occultism or Religion (expert)"
+            },
+            "secondary": {
+              "casters": 3,
+              "checks": "Deception, Diplomacy, or Intimidation"
+            }
+          },
+          "target": {
+            "value": "the Wall of Ghosts"
+          },
+          "time": {
+            "value": "1 day"
+          }
+        },
+        "folder": "6JF73zNhT8zbp1qC"
+      }
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "ritual:ransack-the-night",
+      "foundry": "Compendium.pf2e.spells-srd.Item.ksJFGSGlNpUhwcsp",
+      "leftOut": {
+        "reason": "no-kind-data",
+        "detail": ""
+      },
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "ritual.secondary.checks",
+          "raw": "Arcana, Intimidation, or Occultism"
+        }
+      ],
+      "document": {
+        "_id": "ksJFGSGlNpUhwcsp",
+        "name": "Ransack the Night",
+        "type": "spell",
+        "system": {
+          "publication": {
+            "title": "Pathfinder Season of Ghosts Hardcover Compilation",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 3
+          },
+          "traits": {
+            "value": ["darkness"],
+            "rarity": "rare",
+            "traditions": []
+          },
+          "description": {
+            "value": "<p>When Fumeiyoshi was punished by the Celestial Court for deicide and fratricide, the rat who would become Lao Shu Po robbed the cangue-bound Fumeiyoshi of a sizable chunk of his shadow. This fully catalyzed the rat's transformation into Lao Shu Po, the new Tian goddess of night. <em>Ransack the night</em> is a Laoite ritual allowing you to mimic this divine thievery and shroud yourself in the night's cerements.</p>\n<p>This ritual can only be performed at night. You dig narrow troughs into the dirt and toss blessed salt as well as the juice of citrus fruits into these gashes in the ground. Performing this ritual in an area actively haunted by undead or frequented by fiends reduces the DCs of the ritual's skill checks by 2. If the ritual is successful, a smoky black miasma, said to be the blood and tears of Fumeiyoshi himself, emerges from the broken earth to augment and enhance your spiritual aura, helping you to remain undetected by fiends and undead.</p><hr /><p><strong>Critical Success</strong> Fiends and undead who are 5th level or lower treat you as if you were @UUID[Compendium.pf2e.conditionitems.Item.Concealed]. If you take a hostile action against a fiend or undead, you lose this concealment against that fiend or undead until the end of your next turn.</p>\n<p><strong>Success</strong> As critical success, but when you lose concealment against a fiend or undead, you don't regain concealment from this ritual against that fiend or undead.</p>\n<p><strong>Failure</strong> The ritual has no effect.</p>\n<p><strong>Critical Failure</strong> The miasma occludes your senses instead; for 24 hours, the targets treat fiends and undead as if they were concealed.</p><hr /><p><strong>Heightened (+1)</strong> Increase the level of affected creatures by 2.</p>"
+          },
+          "rules": [],
+          "area": null,
+          "cost": {
+            "value": "blessed salt, citrus fruits (such as yuzu or limes), and rare spices worth 25 gp × the spell rank"
+          },
+          "counteraction": false,
+          "damage": {},
+          "defense": null,
+          "duration": {
+            "sustained": false,
+            "value": "12 hours"
+          },
+          "range": {
+            "value": ""
+          },
+          "requirements": "",
+          "ritual": {
+            "primary": {
+              "check": "Religion (expert)"
+            },
+            "secondary": {
+              "casters": 3,
+              "checks": "Arcana, Intimidation, or Occultism"
+            }
+          },
+          "target": {
+            "value": ""
+          },
+          "time": {
+            "value": "1 hour"
+          }
+        },
+        "folder": "6JF73zNhT8zbp1qC"
+      }
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "ritual:regale-the-lost-ones",
+      "foundry": "Compendium.pf2e.spells-srd.Item.FQZaQXiKtHdVjSc5",
+      "leftOut": {
+        "reason": "no-kind-data",
+        "detail": ""
+      },
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "target.value",
+          "raw": "a settlement with a level equal to or lower than twice the ritual's level"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "ritual.secondary.checks",
+          "raw": "Acrobatics, Occultism, or Religion"
+        }
+      ],
+      "document": {
+        "_id": "FQZaQXiKtHdVjSc5",
+        "name": "Regale the Lost Ones",
+        "type": "spell",
+        "system": {
+          "publication": {
+            "title": "Pathfinder Season of Ghosts Hardcover Compilation",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 2
+          },
+          "traits": {
+            "value": [],
+            "rarity": "rare",
+            "traditions": []
+          },
+          "description": {
+            "value": "<p>Autumn's shorter days herald an increase in hauntings, which only intensify during winter's cold, dark nights. As fall draws to a close, some of Shenmen's villages hire or set up Tian opera troupes to enact <em>regale the lost ones</em> rituals, where they perform dramas drawn from literary classics and historical events that incorporate acting, music, acrobatics, and martial arts.</p>\n<p>These ritual performances fulfill a dual purpose; not only do they bring cheer to the living, but they also entertain and placate the \"lost ones\"—a euphemism for ghosts and other spirits—and seek to reduce the likelihood of attacks from such entities. Performing this ritual during the season of fall reduces the DCs of the ritual's skill checks by 2.</p>\n<p>If the ritual is successful, sentient undead and other spirits become less hostile, allowing villagers to focus their efforts on dealing with mindless undead and other more physical threats. This ritual can only be attempted once per year per settlement; additional attempts to <em>regale the lost ones</em> in the same settlement automatically result in a critical failure.</p><hr /><p><strong>Critical Success</strong> Haunts and undead in the settlement that are level 3 or lower become easier to defeat. Reduce all Disable DCs for affected haunts in the settlement by 2, and all affected undead within the settlement begin combat @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 1}. If the PCs perform this ritual during Act 2 or Act 3, they gain 3 Hope Points.</p>\n<p><strong>Success</strong> Haunts in the settlement that are level 3 or lower become easier to notice and defeat. Reduce all Disable DCs for affected haunts in the settlement by 1. If the PCs perform this ritual during Act 2 or Act 3, they gain 1 Hope Point.</p>\n<p><strong>Failure</strong> The ritual has no effect.</p>\n<p><strong>Critical Failure</strong> Haunts and undead in the settlement that are level 3 or lower become more difficult to notice and defeat. Increase all Disable DCs for affected haunts in the settlement by 2, and all affected undead within the settlement gain the elite adjustment. If the PCs perform this ritual during Act 2 or Act 3, they lose 3 Hope Points.</p><hr /><p><strong>Heightened (+1)</strong> Increase the level of affected haunts and undead by 2.</p>"
+          },
+          "rules": [],
+          "area": null,
+          "cost": {
+            "value": "fees for opera actors, their meals, facial paint, costumes, incense, and offerings of alcohol, tobacco, and food for the lost ones with a total value of 2 gp × the spell rank × the settlement's level"
+          },
+          "counteraction": false,
+          "damage": {},
+          "defense": null,
+          "duration": {
+            "sustained": false,
+            "value": "1 year"
+          },
+          "range": {
+            "value": ""
+          },
+          "requirements": "",
+          "ritual": {
+            "primary": {
+              "check": "Performance (expert)"
+            },
+            "secondary": {
+              "casters": 3,
+              "checks": "Acrobatics, Occultism, or Religion"
+            }
+          },
+          "target": {
+            "value": "a settlement with a level equal to or lower than twice the ritual's level"
+          },
+          "time": {
+            "value": "4 hours"
+          }
+        },
+        "folder": "6JF73zNhT8zbp1qC"
+      }
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "ritual:sweetest-solstice",
+      "foundry": "Compendium.pf2e.spells-srd.Item.wAJ8mXPYbyAg0qWX",
+      "leftOut": {
+        "reason": "no-kind-data",
+        "detail": ""
+      },
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "target.value",
+          "raw": "a settlement with a level equal to or lower than twice the ritual's level"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "ritual.secondary.checks",
+          "raw": "Diplomacy, Performance, or Religion"
+        }
+      ],
+      "document": {
+        "_id": "wAJ8mXPYbyAg0qWX",
+        "name": "Sweetest Solstice",
+        "type": "spell",
+        "system": {
+          "publication": {
+            "title": "Pathfinder Season of Ghosts Hardcover Compilation",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 2
+          },
+          "traits": {
+            "value": [],
+            "rarity": "rare",
+            "traditions": []
+          },
+          "description": {
+            "value": "<p>On long winter nights, many families in Tian Xia share a dish of glutinous rice balls. Wealthier families also dye these rice balls an auspicious pinkish-red in jujube juice and might serve or stuff them with expensive sweetened pastes of red beans, sesame, taro, or lotus. Sweetest solstice is a folk ritual that incorporates this tradition and allows entire villages to experience communal goodwill by celebrating a luxurious version of this dish together.</p>\n<p>This ritual is performed over 1 hour of cooking a soup of crushed black sesame and sugar in several large cauldrons while good-natured jokes and puns praising Daikitsu, Kofusachi, and other benevolent deities are uttered; quips inspired by Hei Feng and Sun Wukong are usually included in these jovialities, for these rambunctious deities are always ready for feasts and humor. Each time a joke or pun is made, a rice ball is dropped into the boiling soups.</p>\n<p>This ritual can only be performed once each winter season. If performed on the night of the winter solstice, the DCs of the ritual's skill checks are reduced by 2.</p>\n<p>If the ritual is successful, the delicious black sesame soup, like the longest of nights, seems never-ending and even hides windfalls of chewy sweetness. Sometimes, this small mercy of hot meals, and the hope for pleasant surprises to come, is all a community needs to endure the bleakest of winters together.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Sweetest Solstice]</p>\n<hr /><p><strong>Critical Success</strong> The pot contains enough black sesame soup and rice balls to feed a hot meal to everyone in the settlement for a month. The casters of the ritual gain a +1 status bonus to saves against emotion and fear effects until the end of winter.</p>\n<p><strong>Success</strong> The pot contains enough black sesame soup and rice balls to feed a hot meal to everyone in the settlement for a week. The casters of the ritual gain a +1 status bonus to saves against fear effects for 1 month or until the end of winter, whichever comes first.</p>\n<p><strong>Failure</strong> The ritual has no effect.</p>\n<p><strong>Critical Failure</strong> The soup becomes tainted; it not only provides no nourishment but spreads food poisoning through the town (this might have disastrous effects). The casters of the ritual become particularly affected by illness and become @UUID[Compendium.pf2e.conditionitems.Item.Sickened]{Sickened 4} and can't reduce the condition for 12 hours.</p>"
+          },
+          "rules": [],
+          "area": null,
+          "cost": {
+            "value": "sesame paste, sugar, rice balls, food dye, cooking pots, and utensils with a total value of 2 gp × the spell rank × the settlement's level"
+          },
+          "counteraction": false,
+          "damage": {},
+          "defense": null,
+          "duration": {
+            "sustained": false,
+            "value": ""
+          },
+          "range": {
+            "value": ""
+          },
+          "requirements": "",
+          "ritual": {
+            "primary": {
+              "check": "Cooking Lore (expert)"
+            },
+            "secondary": {
+              "casters": 3,
+              "checks": "Diplomacy, Performance, or Religion"
+            }
+          },
+          "target": {
+            "value": "a settlement with a level equal to or lower than twice the ritual's level"
+          },
+          "time": {
+            "value": "1 hour"
+          }
+        },
+        "folder": "6JF73zNhT8zbp1qC"
+      }
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "ritual:transmigrate",
+      "foundry": "Compendium.pf2e.spells-srd.Item.8Lk9K3tRnV68MQPW",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "target.value",
+          "raw": "the PCs"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "spell:entangle-fate",
+      "foundry": "Compendium.pf2e.spells-srd.Item.11haL5O9KMpY5Fv7",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "target.value",
+          "raw": "2 to 4 creatures in range"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "spell:fated-healing",
+      "foundry": "Compendium.pf2e.spells-srd.Item.X3RUan7TVqo6UpUG",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "target.value",
+          "raw": "2 creatures who are hostile toward each other"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "spell:fateful-condemnation",
+      "foundry": "Compendium.pf2e.spells-srd.Item.ReUoodsqUYSTwSgE",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "heightening",
+          "raw": {
+            "damage": {}
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "spell:lifes-flowing-river",
+      "foundry": "Compendium.pf2e.spells-srd.Item.CgekONDD5jIxL8oM",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "heightening",
+          "raw": {
+            "damage": {}
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "weapon:branch-of-the-great-sugi",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.h7RtjyqHouB3pGgr",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]][dc]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]][show-dc]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "weapon:dragonfire-halfbow",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ergvi4pLRMndtiQj",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": ["action:command-an-animal", "dragonfire-halfbow"],
+            "selector": "nature",
+            "type": "item",
+            "value": "@item.system.runes.potency"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]][options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[traits]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "weapon:four-tiger-blade",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.05L6c6B8XuU8imfM",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[traits]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "weapon:lumber-lords-axe",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.QNRa5r2I00YtEoIV",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": ["action:lie"],
+            "requiresEquipped": false,
+            "selector": "skill-check",
+            "type": "status",
+            "value": -4
+          }
+        },
+        {
+          "type": "rule",
+          "key": "DamageDice",
+          "raw": {
+            "damageType": "slashing",
+            "diceNumber": 1,
+            "dieSize": "d6",
+            "key": "DamageDice",
+            "predicate": ["lumber-lords-axe-fungus-plant"],
+            "selector": "{item|id}-damage"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "weapon:silversoul-bomb",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.oE3fHS3CUs15bZ4r",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "DamageDice",
+          "raw": {
+            "category": "persistent",
+            "damageType": "mental",
+            "diceNumber": 1,
+            "dieSize": "d6",
+            "key": "DamageDice",
+            "predicate": ["target:trait:nindoru"],
+            "selector": "{item|id}-damage"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "AdjustStrike",
+          "raw": {
+            "definition": ["item:id:{item|id}"],
+            "key": "AdjustStrike",
+            "mode": "add",
+            "property": "materials",
+            "value": "silver"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "weapon:silversoul-bomb-greater",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.mfc9IT94CPnKKBG8",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "DamageDice",
+          "raw": {
+            "category": "persistent",
+            "damageType": "mental",
+            "diceNumber": 2,
+            "dieSize": "d6",
+            "key": "DamageDice",
+            "predicate": ["target:trait:nindoru"],
+            "selector": "{item|id}-damage"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "AdjustStrike",
+          "raw": {
+            "definition": ["item:id:{item|id}"],
+            "key": "AdjustStrike",
+            "mode": "add",
+            "property": "materials",
+            "value": "silver"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "weapon:silversoul-bomb-major",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.R7I0KwKM3PNZn0zJ",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "DamageDice",
+          "raw": {
+            "category": "persistent",
+            "damageType": "mental",
+            "diceNumber": 3,
+            "dieSize": "d6",
+            "key": "DamageDice",
+            "predicate": ["target:trait:nindoru"],
+            "selector": "{item|id}-damage"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "AdjustStrike",
+          "raw": {
+            "definition": ["item:id:{item|id}"],
+            "key": "AdjustStrike",
+            "mode": "add",
+            "property": "materials",
+            "value": "silver"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "season-of-ghosts",
+      "slug": "weapon:spirit-fan",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.SNF8g7u8JYzqvsU1",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Damage[traits]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[traits]"
+        }
+      ]
+    },
+    {
+      "type": "vocabulary",
+      "kind": "damage-type",
+      "slug": "untyped",
+      "reason": "unmapped-value",
+      "detail": "untyped"
+    }
+  ]
+}

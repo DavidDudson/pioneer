@@ -190,5 +190,13 @@
     "remaster": true,
     "released": "2026-07-01",
     "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=351"
+  },
+  {
+    "id": "season-of-ghosts",
+    "publisher": "paizo",
+    "license": "ORC",
+    "remaster": true,
+    "released": "2026-02-04",
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=294"
   }
 ]

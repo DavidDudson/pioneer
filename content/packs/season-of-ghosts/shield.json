@@ -1,0 +1,159 @@
+[
+  {
+    "id": "a7032abe-ea1f-5389-af79-5e7fb37de11d",
+    "pack": "season-of-ghosts",
+    "kind": "shield",
+    "slug": "shield:evil-reflecting-shield",
+    "name": "Evil-Reflecting Shield",
+    "level": 11,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A bright, octagonal frame surrounds this circular dawnsilver shield, which itself is polished to a mirrorlike sheen that reflects clear and true. While you have this standard-grade dawnsilver shield (Hardness 5, HP 20 [BT 10]) raised, you gain its circumstance bonus to saving throws against spells with the unholy or void trait."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Reflect Evil",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, fortune)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You attempt a saving throw against an effect with the unholy or void traits"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your saving throw result is considered one degree better than the actual result. If this effect turns a success into a critical success, you can reflect some of the effect's power as a wave of magical backlash back to the source of the triggering effect, as long as the source is within 30 feet. When you do so, the target must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 28,
+            "options": ["inflicts:stunned"]
+          },
+          {
+            "type": "text",
+            "text": " save or become "
+          },
+          {
+            "type": "ref",
+            "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+            "label": "Stunned 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": [
+          "self:shield:raised",
+          "item:type:spell",
+          {
+            "or": ["item:trait:unholy", "item:trait:void"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.eZximo6owpLhQPZ7"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1250
+        }
+      },
+      "bulk": 1,
+      "hardness": 5,
+      "hitPoints": 20,
+      "material": {
+        "type": "dawnsilver",
+        "grade": "standard"
+      },
+      "activations": [
+        {
+          "slug": "reflect-evil",
+          "name": "Reflect Evil",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "baseItem": "steel-shield",
+      "acBonus": 2
+    }
+  }
+]

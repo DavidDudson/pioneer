@@ -59,6 +59,8 @@ function laterVocabulary(): readonly JsonFile[] {
     json(import('@pioneer/content/packs/core-rules/imported/howl-of-the-wild/language.json')),
     json(import('@pioneer/content/packs/core-rules/imported/howl-of-the-wild/trait.json')),
     json(import('@pioneer/content/packs/core-rules/imported/gm-core/trait.json')),
+    json(import('@pioneer/content/packs/core-rules/imported/season-of-ghosts/statistic.json')),
+    json(import('@pioneer/content/packs/core-rules/imported/season-of-ghosts/trait.json')),
   ];
 }
 

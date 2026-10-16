@@ -34,6 +34,7 @@ const shiningKingdoms = PackId.parse('shining-kingdoms');
 const draconicCodex = PackId.parse('draconic-codex');
 const hellfireDispatches = PackId.parse('hellfire-dispatches');
 const highSeas = PackId.parse('high-seas');
+const seasonOfGhosts = PackId.parse('season-of-ghosts');
 const rageOfElements = PackId.parse('rage-of-elements');
 const secretsOfMagic = PackId.parse('secrets-of-magic');
 const tianXiaCharacterGuide = PackId.parse('tian-xia-character-guide');
@@ -69,6 +70,7 @@ describe('content catalog', () => {
       playerCore2,
       rageOfElements,
       rivalAcademies,
+      seasonOfGhosts,
       secretsOfMagic,
       shiningKingdoms,
       tianXiaCharacterGuide,

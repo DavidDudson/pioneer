@@ -1,0 +1,3946 @@
+[
+  {
+    "id": "8673b2b5-a24a-519b-9d5d-90bd3aafa154",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-a-night-of-melancholic-dreams",
+    "name": "Effect: A Night of Melancholic Dreams",
+    "level": 9,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "6cf10ee7-6794-5e86-aed2-54fa172a4143"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain mental resistance 5 and a +1 item bonus to saving throws against mental effects."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["mental"],
+        "value": 5
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["item:trait:mental"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.EeU33F3eBq5OPYp0"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 8,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "adbe2f5c-1010-5371-b254-aded0831abfc",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-ascendant-dragon-spirit",
+    "name": "Effect: Ascendant Dragon Spirit",
+    "level": 11,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "8edd29e4-2314-5e65-bee0-aa761c158d00"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your unarmed Strikes deal an additional 1d6 poison damage and an additional 1d6 void damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "poison",
+        "predicate": ["item:category:unarmed"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "void",
+        "predicate": ["item:category:unarmed"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.vJfRASrNBBYW6MEC"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "49213b46-150b-5aba-b202-2afa6208a0b5",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-blessed-coins",
+    "name": "Effect: Blessed Coins",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are granted a +1 item bonus to skill checks you attempt with the deities' divine skills."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.campaign-effects.Item.A1VCJqeusccB7OOH"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "cb18bd2d-cbd5-530e-9fa7-1cb5e3cd76dc",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-cape-of-justice-distracted",
+    "name": "Effect: Cape of Justice (Distracted)",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "e2726706-53c8-5dfb-bf07-ba6bcd870f2f"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –1 item penalty to Perception checks."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "item",
+        "value": -1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.wdN3sa1Qs2rEdiDC"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 24,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "0a07a5bf-a4d0-5fd7-b558-80eec8788466",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-covenant-tea",
+    "name": "Effect: Covenant Tea",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "1df59c07-92df-55b7-9e40-8c6ea5348d75"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 item bonus to Diplomacy checks and to your Perception DC."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Note: Adjust duration if consumed during a tea ceremony.",
+            "marks": ["emphasis"]
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception-dc", "skill:diplomacy"],
+        "type": "item",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.NAWKV7G4kBpPHWqL"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "bfcf962a-416e-5113-900e-9a615d179961",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-distracting-giggle",
+    "name": "Effect: Distracting Giggle",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –1 status penalty to Will saves."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:will"],
+        "type": "status",
+        "value": -1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.6TKI9EZKvusrPLHU"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "1a0514c4-235e-532a-a442-219e6cd599e8",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-enact-justice-failure",
+    "name": "Effect: Enact Justice (Failure)",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "e2726706-53c8-5dfb-bf07-ba6bcd870f2f"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –15-foot circumstance penalty to your Speeds."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "circumstance",
+        "value": -15
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.a2WD2oYTbu0XXtck"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "3cb71fc5-2c2b-592b-a648-e13169c79ae3",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-energizing-pill",
+    "name": "Effect: Energizing Pill",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "35fa559b-6cfe-52d0-b260-38ebe63e4254"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 item bonus to initiative rolls with Perception."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["check:type:initiative"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.YsgABP1Ya0QJoiKt"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "d9c2cc9c-afea-5f62-a0e8-274f1fe790b3",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-energizing-tea",
+    "name": "Effect: Energizing Tea",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "4580303b-e2cc-5f58-9a5f-b76ca89f122c"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 item bonus to Athletics and Acrobatics checks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Note: Adjust duration if consumed during a tea ceremony.",
+            "marks": ["emphasis"]
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics", "skill:acrobatics"],
+        "type": "item",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.AJLURqXGLalmV9wN"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "29cb75cf-b99c-57e2-8edc-11dafd6d6644",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-field-of-past-regrets",
+    "name": "Effect: Field of Past Regrets",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "PCs gain a +1 status bonus to saving throws against mental effects. Living, non-nindoru creatures gain weakness 3 to mental damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 1,
+        "predicate": ["item:trait:mental", "self:type:character"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["mental"],
+        "value": 3,
+        "predicate": [
+          "self:mode:living",
+          {
+            "not": "self:trait:nindoru"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.y6fibVDs9QF2vbwu"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "af3be5ee-132f-5bd4-a8b9-2728e902bb66",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-flammable",
+    "name": "Effect: Flammable",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While burning, a bakeneko's Strikes inflict an additional 1d6 fire damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "fire"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.insc09aslLptd0dN"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "5475daff-7a05-5b14-bc91-47a839a9aeb2",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-full-of-life",
+    "name": "Effect: Full of Life",
+    "level": 9,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "e7501cdb-cca9-50d7-abd6-069cf8cc4b88"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the benefits of the Diehard feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "730b86b0-c740-5759-ba8b-82ae1fede883"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.p0piyFHae9uBfNRa"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "6051947b-ef28-5fc1-8d8b-5cac338a0ddc",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-ghost-blocking-tiger",
+    "name": "Effect: Ghost Blocking Tiger",
+    "level": 12,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "0f5f02c5-7493-5dcf-82da-fdb3da5ae690"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain void resistance 10."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["void"],
+        "value": 10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.V7cIpoJL9Zm4TiUT"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "3679d2a6-2cfc-5733-ad2e-1ba033921a1a",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-ghost-slayers-caress",
+    "name": "Effect: Ghost Slayer's Caress",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "9b1f1abe-344f-5065-941c-2c7a66fe4fee"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A weapon you carry is granted the effects of a "
+          },
+          {
+            "type": "text",
+            "text": "ghost touch",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " property rune. If the weapon already bears a "
+          },
+          {
+            "type": "text",
+            "text": "ghost touch",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rune, you instead gain a +1 item bonus to Fortitude saves against effects from incorporeal undead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-ghost-slayer-s-caress",
+        "choices": [
+          {
+            "value": "ghost-touch",
+            "label": "Ghost Touch"
+          },
+          {
+            "value": "fortitude",
+            "label": "Fortitude"
+          }
+        ],
+        "rollOption": "ghost-scarf"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:fortitude"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["ghost-scarf:fortitude", "origin:trait:incorporeal", "origin:trait:undead"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.vOwZlSNCS35GULgL"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 5,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "3ba6a399-e162-5794-ad25-1d74a6f73f2b",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-howl-of-vengeful-fury",
+    "name": "Effect: Howl of Vengeful Fury",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain 5 temporary Hit Points and a +1 status bonus to your Strikes and saving throws."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": 5
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["strike-attack-roll", "saving-throw"],
+        "type": "status",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.X1Q1uBiylZoJg3Co"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "a2eb76ee-05a0-5282-8a8c-ee1d9b5a8f8b",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-impersonated-ability",
+    "name": "Effect: Impersonated Ability",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The Noppera-Bo Impersonator selects from their impersonated abilities."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-impersonated-ability",
+        "choices": [
+          {
+            "value": "armored",
+            "label": "Armored",
+            "predicate": ["noppera-bo-impersonator:martial"]
+          },
+          {
+            "value": "attack-of-opportunity",
+            "label": "Attack of Opportunity",
+            "predicate": ["noppera-bo-impersonator:martial"]
+          },
+          {
+            "value": "commander",
+            "label": "Commander",
+            "predicate": ["noppera-bo-impersonator:skilled"]
+          },
+          {
+            "value": "elemental-attack",
+            "label": "Elemental Attack",
+            "predicate": ["noppera-bo-impersonator:skilled"]
+          },
+          {
+            "value": "shield-carrier",
+            "label": "Shield Carrier",
+            "predicate": ["noppera-bo-impersonator:martial"]
+          },
+          {
+            "value": "sneak-attack",
+            "label": "Sneak Attack",
+            "predicate": ["noppera-bo-impersonator:skilled"]
+          },
+          {
+            "value": "weapon-perk",
+            "label": "Weapon Perk",
+            "predicate": [
+              {
+                "or": ["noppera-bo-impersonator:martial", "noppera-bo-impersonator:skilled"]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an Impersonated Ability",
+        "rollOption": "impersonated-ability"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "untyped",
+        "value": 2,
+        "predicate": ["impersonated-ability:armored"],
+        "display": {
+          "label": "Armored"
+        }
+      },
+      {
+        "key": "GrantItem",
+        "item": "87978b08-889b-55d3-bccf-c1fe98c5fbaf",
+        "allowDuplicate": false,
+        "predicate": ["impersonated-ability:elemental-attack"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.kkP0tagXmAYuSH3u"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "b309723c-2c09-5fd9-9787-500ba846e135",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-indomitable-spirit",
+    "name": "Effect: Indomitable Spirit",
+    "level": 13,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "8c4503bf-3dcd-5c9a-ab4a-b881cb959a34"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You get a +4 circumstance bonus to AC and are quickened. The additional action can be used to Strike or Stride."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 4
+      },
+      {
+        "key": "GrantItem",
+        "item": "6517bbf2-8085-534b-be6a-187d52739fa0"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.A06Qu3BNMQ4FGinM"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "4bf2d588-6dac-59d6-b32a-e7a09206e2ad",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-infected-silver",
+    "name": "Effect: Infected Silver",
+    "level": 13,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You become clumsy 1 and you take a –2 status penalty to all saving throws against mental effects created by nindorus."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "69f88e3c-d871-5fb9-82c6-120348a7c0e8"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": -2,
+        "predicate": ["item:trait:mental", "origin:trait:nindoru"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.P3hC2u7VyAgWV6lE"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "d2c1d407-deba-5481-9d2f-dfa67ab2f217",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-longnight-tea",
+    "name": "Effect: Longnight Tea",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "b885eb60-8dcb-5c67-9cb8-7368f8024d3a"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 item bonus to saving throws against sleep effects."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Note: Adjust duration if consumed during a tea ceremony.",
+            "marks": ["emphasis"]
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["item:trait:sleep"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.AStWCzJcQCwO9Fjr"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "3e6d057b-20fa-50e5-b86c-28b1bb5c49df",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-matsukis-medicinal-wine",
+    "name": "Effect: Matsuki's Medicinal Wine",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "9cb28a88-7920-5f10-93a7-a63403f92dfc"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 item bonus to Fortitude saving throws against diseases and poisons."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:fortitude"],
+        "type": "item",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["item:trait:disease", "item:trait:poison"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.tsxBwSRFqMoorMJ3"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 24,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "e5adeee2-e943-5887-9a88-66a80787a937",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-merchants-bludgeon",
+    "name": "Effect: Merchant's Bludgeon",
+    "level": 11,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "5c958abe-5647-5f59-ac1b-80f722941280"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform the "
+          },
+          {
+            "type": "text",
+            "text": "fortune cord",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " into a "
+          },
+          {
+            "type": "text",
+            "text": "+2 striking nunchaku",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". The type of coin loaded onto the cord determines the additional weapon property rune, as follows."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Copper",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": ": "
+                },
+                {
+                  "type": "text",
+                  "text": "corrosive",
+                  "marks": ["emphasis"]
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Silver",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": ": "
+                },
+                {
+                  "type": "text",
+                  "text": "shock",
+                  "marks": ["emphasis"]
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Gold",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": ": "
+                },
+                {
+                  "type": "text",
+                  "text": "flaming",
+                  "marks": ["emphasis"]
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Platinum",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": ": "
+                },
+                {
+                  "type": "text",
+                  "text": "frost",
+                  "marks": ["emphasis"]
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.qlsPMC8G5Wyf2f71"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "16a2621f-c581-59a5-8cf6-5ae4322cf811",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-moon-blossom-tea",
+    "name": "Effect: Moon Blossom Tea",
+    "level": 9,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "afaaaa22-784f-52d4-aa15-6cdb5cc8adf3"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 item bonus to all initiative rolls."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Note: Adjust duration if consumed during a tea ceremony.",
+            "marks": ["emphasis"]
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["initiative"],
+        "type": "item",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.zoMGcJxA4kH20Zzw"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "97cf1be2-9a92-5edf-a615-b38f10c464e7",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-near-death-experience",
+    "name": "Effect: Near-Death Experience",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You reduce the DC of your recovery checks by 2."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.3HaT8gBo8krdVniF"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "abb7aef9-120a-5583-9977-dae9cf4a89bf",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-near-death-experience-healing",
+    "name": "Effect: Near-Death Experience Healing",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain fast healing."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.ejnUAEdbvj6uPuNJ"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "61dcef5a-2142-5294-a252-099f8a05bdac",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-pain-is-temporary",
+    "name": "Effect: Pain is Temporary",
+    "level": 13,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "6d63b14a-8814-5a24-aabb-4f886fc6f872"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance 10 to all damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["all"],
+        "value": 10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.YAWfkGBnDwimMtJ8"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "9ece2db1-878b-58fb-8d8f-16e2fa32fb70",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-panaceatic-salve",
+    "name": "Effect: Panaceatic Salve",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "b6b79e87-942a-5d25-9292-ed37e1be7aaa"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain 4d8+10 temporary Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "@item.value"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.QBujqOaTXzqM13Cy"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      },
+      "badge": {
+        "type": "formula",
+        "formula": "4d8+10"
+      }
+    }
+  },
+  {
+    "id": "43fa566b-a4ba-5270-af8e-b600c26015ea",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-peace-in-dreams-tea",
+    "name": "Effect: Peace in Dreams Tea",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "ee2ef29b-ffdd-5edf-b9a7-f6df7f6f52ae"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 item bonus to all saving throws against mental effects. If consumed during a tea ceremony, the item bonus increases to +2 as long as you're asleep."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Note: Adjust duration if consumed during a tea ceremony.",
+            "marks": ["emphasis"]
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-peace-in-dreams-tea",
+        "choices": [
+          {
+            "value": "one-action",
+            "label": "One Action"
+          },
+          {
+            "value": "tea-ceremony",
+            "label": "Tea Ceremony"
+          }
+        ],
+        "rollOption": "peace-in-dreams-tea"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "item",
+        "value": 1,
+        "slug": "peace-in-dreams-tea-bonus",
+        "predicate": ["item:trait:mental"]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:asleep",
+        "toggleable": true,
+        "predicate": ["peace-in-dreams-tea:tea-ceremony"],
+        "display": {
+          "label": "Asleep"
+        }
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["saving-throw"],
+        "slug": "peace-in-dreams-tea-bonus",
+        "mode": "override",
+        "value": 2,
+        "predicate": ["option:asleep", "peace-in-dreams-tea:tea-ceremony"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.7BHF5iUHtCvfHAie"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "07f2ed0f-ae8a-50ab-a1ae-e5a2c28374b0",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-poetic-spellcasting",
+    "name": "Effect: Poetic Spellcasting",
+    "level": 9,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "9a26b807-8ac1-58c0-b1e9-3f1f3a4b7d6d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain 10 temporary hit points."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": 10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.Rn2Nl2iXlRMijTNb"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "86880e05-99bc-52e0-a5b2-37676c2faf9f",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-regain-anonymity",
+    "name": "Effect: Regain Anonymity",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain 3d6 temporary Hit Points"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "@item.value"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.6SftAQkadeo4sLCN"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      },
+      "badge": {
+        "type": "formula",
+        "formula": "3d6"
+      }
+    }
+  },
+  {
+    "id": "8f8e5308-6162-5c3d-a39d-2377befedec7",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-release-lantern",
+    "name": "Effect: Release Lantern",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "fc21ab70-d0e8-5536-8317-3dabe11a6582"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 item bonus to Diplomacy checks and cast bright light in a 20-foot radius (and dim light for the next 20 feet)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy"],
+        "type": "item",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.o1Fzi94EODK3fa4A"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "6ce2a911-f4b8-5e9c-b031-440a4965294b",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-release-the-demon",
+    "name": "Effect: Release the Demon",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "d89cbdb4-1667-5a08-a3e3-a6ad7e5ceb36"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain 2d8 temporary Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "@item.value"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.5S2jlx6WZMAF4sxg"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      },
+      "badge": {
+        "type": "formula",
+        "formula": "2d8"
+      }
+    }
+  },
+  {
+    "id": "03fa5a0f-358f-553a-90e2-a452c4f1d91d",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-release-umbrella",
+    "name": "Effect: Release Umbrella",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "fc21ab70-d0e8-5536-8317-3dabe11a6582"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 item bonus to Survival checks."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:survival"],
+        "type": "item",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.g1EdALRxZmmEkSd7"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "7a4de242-dd41-5606-becc-170f8f5dd49f",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-resurrection-tea",
+    "name": "Effect: Resurrection Tea",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "013616a4-9a8b-59d4-9e7f-daf3fe145167"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You reduce the DC of recovery checks by 1 (by 3 if consumed during a tea ceremony)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Note: Adjust duration if consumed during a tea ceremony.",
+            "marks": ["emphasis"]
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.Wa5s0Perw2DGHGCA"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 8,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "c9a6f5a7-e494-5c4f-ad0b-42505241d315",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-root-walk",
+    "name": "Effect: Root Walk",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "6066e323-320d-5663-9ee7-4542af580a93"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a 20-foot climb Speed on trees and other wooden surfaces."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:root-boots-wooden-surface",
+        "toggleable": true,
+        "value": true,
+        "display": {
+          "label": "Root Boots — Wooden Surface"
+        }
+      },
+      {
+        "key": "Change",
+        "selector": "speed:climb",
+        "mode": "upgrade",
+        "value": 20,
+        "predicate": ["option:root-boots-wooden-surface"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.T2eCVO5lN8cNMzyq"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "44fb25bd-67a1-55aa-88d4-066828e846e5",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-seek-the-unholy",
+    "name": "Effect: Seek the Unholy",
+    "level": 12,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "8e3d8aba-4753-5101-9696-0da0d43bc971"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 item bonus to saving throws against effects that the marked creature generates."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["origin:mark:skyfang-crystal-seek-the-unholy"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.Z7KzhGhAWzgXIEkp"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "9b4fa532-6df1-50bd-8a51-0481d51a7f32",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-shield-thoughts",
+    "name": "Effect: Shield Thoughts",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "d7c614b0-e282-5309-9b22-a20309303770"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain mental resistance 10."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["mental"],
+        "value": 10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.sbxGrVdEsYZ5KiCj"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "71fcd5f1-83d9-57fb-80fa-eb00da98c383",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-snack",
+    "name": "Effect: Snack",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to attack rolls and saving throws."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack", "saving-throw"],
+        "type": "status",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.d0aJSi7GI6AhBlAJ"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "27b6a682-cc7c-5d46-acdb-d9724fae3dc0",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-spirit-fan",
+    "name": "Effect: Spirit Fan",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "2331b0e1-a259-5f85-9726-143eb9030420"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The "
+          },
+          {
+            "type": "text",
+            "text": "spirit fan",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " provides illumination equal to that of a torch."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.2SzLumWCqZQAetcx"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "30fc485e-5312-5956-b74a-f3c595b5ded4",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-spirit-power-flight",
+    "name": "Effect: Spirit Power (Flight)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a fly Speed equal to your Speed or 30 feet, whichever is greater."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": "max(30, @stat.speed.land)"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.campaign-effects.Item.UQmizjvdBfSVYoZe"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "bf1e3f13-150d-58d8-9432-bd789b18b7c5",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-spirit-power-passion",
+    "name": "Effect: Spirit Power (Passion)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your body is engulfed in fire of a color of your choice that sheds bright light in a 40-foot radius (and dim light to the next 40 feet). Your melee Strikes inflict an additional 1d6 points of fire damage, you gain resistance 10 to fire, and you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "9e63eb9c-0eac-53d3-b885-8feaaae9202b"
+          },
+          {
+            "type": "text",
+            "text": " reaction."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["melee-strike-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "fire"
+      },
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": 10
+      },
+      {
+        "key": "GrantItem",
+        "item": "9e63eb9c-0eac-53d3-b885-8feaaae9202b"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.campaign-effects.Item.ECCyLvt5uRw8Qv8V"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "136539eb-a46a-585d-94e0-21dae0b5170d",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-spirit-powers",
+    "name": "Effect: Spirit Powers",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When the PCs "
+          },
+          {
+            "type": "ref",
+            "id": "1ebf061f-75fa-59a2-aa4e-938ff4064d6b"
+          },
+          {
+            "type": "text",
+            "text": " into the living world during Act 3, they manifest as beings trapped somewhere between life and undeath. While in this state, the PCs function mostly normally but appear as semisolid ectoplasmic versions of themselves. They aren't quite transparent, but their solid bodies seem to waver and shimmer along the edges, giving them an eerie, unsettling appearance. While in this state, they're living creatures but gain some of the following abilities similar to those shared by undead creatures. As living creatures more akin to phantoms, they remain susceptible to void damage and are healed by vitality effects."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Undead Vision",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ": They gain low-light vision, or darkvision if their ancestry already has low-light vision."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Transmigrated Survival",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ": A PC in this state never gains the wounded condition but instead becomes exposed to soul degradation upon recovering from the dying condition (see below). If a PC dies while transmigrated, they awaken, alive, in the Willowshore mindscape and gain the "
+          },
+          {
+            "type": "ref",
+            "id": "cd164d22-2d8e-5fd2-b8b2-03e1360df1e7",
+            "label": "Doomed 1"
+          },
+          {
+            "type": "text",
+            "text": " condition."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Transmigrated Protection",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ": They gain a +2 circumstance bonus to saving throws (or any other defense) against disease, poison, sleep, and any effects that would impose the "
+          },
+          {
+            "type": "ref",
+            "id": "7802f1d9-5ced-5b9b-8a08-98ec0adb9947"
+          },
+          {
+            "type": "text",
+            "text": " condition."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Spirit Powers",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ": While in this state, the PCs can interact with the living world via their newfound spirit powers. When the PCs manifest their transmigrated bodies in the living world, they each gain two minor spirit powers and one major spirit power from the spirit powers listed on the following pages. Every time the PCs do their daily preparations, they can reselect their chosen spirit powers. When a spirit power calls for a saving throw, use the higher of that PC's class DC or spell DC. Any spirit powers calling for attack rolls use this DC – 10. Use the PC's own level for determining the effects of any counteract checks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Soul Degradation",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ": Initially, PCs will likely revel in their newfound spirit powers. Whenever a transmigrated PC comes close to death, however, they risk losing themselves entirely to their ghostly nature. Each time a dying transmigrated PC would normally gain the wounded condition, they're instead exposed to soul degradation and must attempt a new saving throw to resist increasing the stage of this curse."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Minor Spirit Powers"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Curiosity"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Delusion"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Duty"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Love"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Obsession"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Passion"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Spite"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Major Spirit Powers"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Chilling Paralysis"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Dematerialize"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Flickering Figure"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Flight"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Grudge"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Resist Death"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "River's Reflection"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sap Life"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Undying Flesh"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["option:disease", "option:poison", "option:sleep", "inflicts:paralyzed"]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "minor-power-one",
+        "choices": {
+          "kind": "class-feature",
+          "filter": ["item:tag:minor-spirit-power"]
+        },
+        "prompt": "Select a minor spirit power"
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "minor-power-one"
+        }
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "minor-power-two",
+        "choices": {
+          "kind": "class-feature",
+          "filter": ["item:tag:minor-spirit-power"]
+        },
+        "prompt": "Select a minor spirit power"
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "minor-power-two"
+        }
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "major-power",
+        "choices": {
+          "kind": "class-feature",
+          "filter": ["item:tag:major-spirit-power"]
+        },
+        "prompt": "Select a major spirit power"
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "major-power"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.campaign-effects.Item.Rzlo3kvFUavFQJ3S"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 30,
+        "unit": "day",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "708ed4cf-329b-5ce4-9424-db92bdaefea4",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-spiritsight-tea",
+    "name": "Effect: Spiritsight Tea",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "1cecc7ca-2347-5058-8c1e-6f3f50db3832"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 item bonus to Perception checks to Seek incorporeal creatures."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Note: Adjust duration if consumed during a tea ceremony.",
+            "marks": ["emphasis"]
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["action:seek", "target:trait:incorporeal"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.parbYdReJWd08fGl"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "888fa93a-7993-5af5-8453-1a2f5e90f9f0",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-thatchlings-curse-critical-failure",
+    "name": "Effect: Thatchling's Curse (Critical Failure)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –5-foot status penalty to your Speeds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In addition, when you attempt a Survival check to Sense Direction or Track, you use the outcome for one degree of success worse than the result of your roll."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "status",
+        "value": -5
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill:survival"],
+        "adjustment": {
+          "all": "one-degree-worse"
+        },
+        "predicate": [
+          {
+            "or": ["action:sense-direction", "action:track"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.Immb99meWnNTJvfR"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "58317b79-4bb4-5547-a1fe-8f62b4373194",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-thatchlings-curse-failure",
+    "name": "Effect: Thatchling's Curse (Failure)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –5-foot status penalty to your Speeds."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "status",
+        "value": -5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.K8fgxJoRXqZ5NW1f"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "88816e04-6e5f-509a-8d3a-b2e4875a85d3",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-thatchlings-curse-success",
+    "name": "Effect: Thatchling's Curse (Success)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –5-foot status penalty to your Speeds."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "status",
+        "value": -5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.iVJ8GogqssX0Nraf"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "a50ac31c-4590-5d1c-85b8-28be85a94f14",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-thousand-year-dragonroot",
+    "name": "Effect: Thousand-Year Dragonroot",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "c8bddbea-ac87-5c25-bcc2-d4759475f02c"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your body shimmers with golden light, providing illumination as a torch. You gain a fly Speed of 40 feet and fire resistance 5."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": 40
+      },
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": 5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.p1pxUzwgWZ9l9jmD"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "712354a4-679e-5b53-b789-825445e1a847",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-thunder-dance",
+    "name": "Effect: Thunder Dance",
+    "level": 12,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "acf2c3c5-d261-5bd9-ae72-33c9d9332895"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The "
+          },
+          {
+            "type": "text",
+            "text": "thundering fury dadao",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " gains the agile and forceful traits."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon", "item:slug:thundering-fury-dadao"],
+        "property": "traits",
+        "mode": "add",
+        "value": "agile"
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon", "item:slug:thundering-fury-dadao"],
+        "property": "traits",
+        "mode": "add",
+        "value": "forceful"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.XEP4Ox6NZDGgba1r"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start",
+        "sustained": true
+      }
+    }
+  },
+  {
+    "id": "8f83c6c6-910c-5b2d-a70a-89d6387b5c38",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-transformative-polish",
+    "name": "Effect: Transformative Polish",
+    "level": 11,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "62853dba-4239-54d8-bf2b-66a6c2ff9cf6"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The "
+          },
+          {
+            "type": "text",
+            "text": "lumber lord's axe",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "'s blade transforms into your choice of standard-grade adamantine or standard-grade dawnsilver."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.8WnFg5HMKX8JEDLl"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "d325d87a-b0a5-5425-b771-3111f63bac7a",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-ugly-cutes-favor",
+    "name": "Effect: Ugly Cute's Favor",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "e2cf1586-3e63-5f7f-b5de-feac3776ff65"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ugly Cute's gift",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " gains the advantages of a "
+          },
+          {
+            "type": "text",
+            "text": "ghost touch",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " property rune and deals an additional 2 spirit damage on a successful Strike."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:slug:ugly-cutes-gift"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "ghost-touch"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ugly-cutes-gift-damage"],
+        "type": "untyped",
+        "value": 2,
+        "damageType": "spirit"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.6enQGnnlgGY6ZWgS"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "ec235692-4634-5eef-917b-5443db639590",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-whiskers-sense",
+    "name": "Effect: Whisker's Sense",
+    "level": 9,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "e7501cdb-cca9-50d7-abd6-069cf8cc4b88"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Vashu's Ninth Life",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " gains the parry trait and raises itself into parrying position, granting you a +1 circumstance bonus to AC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon", "item:slug:vashus-ninth-life"],
+        "property": "traits",
+        "mode": "add",
+        "value": "parry"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.05mIW5FMX2socBY9"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "540e3c66-6702-5539-98db-af71e4be9c78",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:effect-your-attacks-are-but-raindrops",
+    "name": "Effect: Your Attacks Are but Raindrops",
+    "level": 11,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "ed04aaa1-fd8c-5f87-949d-4b8af9653b85"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The "
+          },
+          {
+            "type": "text",
+            "text": "sensei's parasol",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " transforms into a "
+          },
+          {
+            "type": "text",
+            "text": "moderate sturdy shield",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "4498b531-0d64-51ae-9be9-a8e0bff2f0b2"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.S98NWZnv6kMl2ruu"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start",
+        "sustained": true
+      }
+    }
+  },
+  {
+    "id": "06640546-77a0-5734-b00a-bd8b66dc62ec",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:spell-effect-lifes-fresh-bloom",
+    "name": "Spell Effect: Life's Fresh Bloom",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "3d13bf05-d490-5e74-852c-2254bac4d0ae"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gains a +5-foot status bonus to your Speed."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "status",
+        "value": 5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.yYDj0G4O3q5iGexx"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "3a1e15c1-c28b-5afb-9f68-c3fe388efb37",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:spell-effect-open-the-wall-of-ghosts-critical-success",
+    "name": "Spell Effect: Open the Wall of Ghosts (Critical Success)",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "text",
+            "text": "Open the Wall of Ghosts"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 status bonus to Armor Class and saving throws."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "saving-throw"],
+        "type": "status",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.lGU4GIF2GUn21zFa"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "14d45d5e-82a0-5a04-972e-6630f2fbdfa3",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:spell-effect-sweetest-solstice",
+    "name": "Spell Effect: Sweetest Solstice",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "text",
+            "text": "Sweetest Solstice"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to saves against fear effects. On a critical success you also gain this bonus to emotion effects."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "spell-effect-sweetest-solstice",
+        "choices": [
+          {
+            "value": "critical-success",
+            "label": "Critical Success"
+          },
+          {
+            "value": "success",
+            "label": "Success"
+          }
+        ],
+        "prompt": "Select the degree of success.",
+        "rollOption": "sweetest-solstace"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 1,
+        "slug": "sweetest-solstace-fear",
+        "predicate": ["option:fear"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 1,
+        "slug": "sweetest-solstace-emotion",
+        "predicate": ["option:emotion", "sweetest-solstace:critical-success"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.HDT5oiQXXnRdDIKR"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 90,
+        "unit": "day",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "2345fce4-b742-5db4-a2b6-8a076732fa7b",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:spell-effect-tomorrows-dawn",
+    "name": "Spell Effect: Tomorrow's Dawn",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "5d743557-36f3-57e3-823c-de532dadaf8f"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You cast bright light in a 20-foot radius (and dim light for the next 20 feet) and gain mental resistance."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["mental"],
+        "value": "ternary(gte(@item.level, 8), 15, ternary(gte(@item.level, 6), 10, 5))"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.SyF5kpZlZuBF4lMf"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start",
+        "sustained": true
+      }
+    }
+  },
+  {
+    "id": "8c15bed9-ff2c-56ac-b2af-58c0527b82c1",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:spell-effect-transmigrate-encounter",
+    "name": "Spell Effect: Transmigrate (Encounter)",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "1ebf061f-75fa-59a2-aa4e-938ff4064d6b"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to all Strikes, saving throws, and skill checks."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["strike-attack-roll", "saving-throw", "skill-check"],
+        "type": "status",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.8jaYbxnP4Z5wvnQs"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "460b738b-a692-5776-b9d8-4dc2afdbdca8",
+    "pack": "season-of-ghosts",
+    "kind": "effect",
+    "slug": "effect:spell-effect-transmigrate-skill",
+    "name": "Spell Effect: Transmigrate (Skill)",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "1ebf061f-75fa-59a2-aa4e-938ff4064d6b"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to skill checks."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "status",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.FqG4zXjSoxq9qTlf"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 30,
+        "unit": "day",
+        "expiry": "turn-start"
+      }
+    }
+  }
+]
