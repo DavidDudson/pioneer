@@ -2,6 +2,7 @@ import { isEffectCommand } from './effect-commands';
 import { PlayCommandField } from './play-state';
 import type { PlayCommand } from './play-state';
 import { isRestCommand } from './rest-types';
+import { isSpendCommand } from './spend-commands';
 import { isToggleCommand } from './toggle-commands';
 
 /** Whether `command` reads or moves Hit Points, and so needs the maximum the engine derives. Temp Hit Points and the death track don't. */
@@ -10,7 +11,7 @@ export function needsMaxHitPoints(command: PlayCommand): boolean {
   if (isRestCommand(command)) {
     return command.field === PlayCommandField.Rest;
   }
-  if (isToggleCommand(command) || isEffectCommand(command)) {
+  if (isToggleCommand(command) || isEffectCommand(command) || isSpendCommand(command)) {
     return false;
   }
   switch (command.field) {
@@ -52,7 +53,10 @@ export function needsResourceMaxima(command: PlayCommand): boolean {
   if (isRestCommand(command)) {
     return true;
   }
-  if (isToggleCommand(command) || isEffectCommand(command)) {
+  if (isSpendCommand(command)) {
+    return true;
+  }
+  if (isToggleCommand(command) || isEffectCommand(command) || isSpendCommand(command)) {
     return false;
   }
   switch (command.field) {
@@ -91,7 +95,7 @@ export function needsResourceMaxima(command: PlayCommand): boolean {
 /** Whether `command` adds or changes a condition, and so needs to know which conditions the content has and which carry a value. */
 // oxlint-disable-next-line complexity -- a case for each play command, with the toggle edit told apart first
 export function needsConditionContent(command: PlayCommand): boolean {
-  if (isRestCommand(command) || isToggleCommand(command) || isEffectCommand(command)) {
+  if (isRestCommand(command) || isToggleCommand(command) || isEffectCommand(command) || isSpendCommand(command)) {
     return false;
   }
   switch (command.field) {

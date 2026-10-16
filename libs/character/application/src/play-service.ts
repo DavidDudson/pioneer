@@ -7,7 +7,6 @@ import {
   characterGrants,
   characterSpellcasting,
   characterStatisticInputs,
-  characterStatistics,
   itemContent,
   NO_STAFF,
   staffLimits,
@@ -17,7 +16,6 @@ import {
   conditionValued,
   itemActivations,
   itemWands,
-  maxHitPoints,
   needsConditionContent,
   needsMaxHitPoints,
   needsResourceMaxima,
@@ -71,6 +69,8 @@ import type { CharacterRepository, PlayWrite } from './character-repository';
 import { checkCondition, checkEffect, checkStaff, isDailyPreparations } from './play-checks';
 import { NO_MAX_HIT_POINTS, NO_REST, NO_VALUED, turnLimits, WAND_MESSAGES } from './play-defaults';
 import type { RestContent } from './play-defaults';
+import { derivedMaxHitPoints } from './play-hit-points';
+import { spendLimits } from './play-spend';
 import { checkStaffCast } from './play-staff';
 
 /**
@@ -181,7 +181,10 @@ export class PlayService {
     const variants = await variantRulesOfCharacter(this.#content, character, registry);
     const slots = slotContent(registry, variants);
     const inputs = characterStatisticInputs(registry, character.document, slots);
-    const limits = turnLimits(await this.#maxHitPoints(character, play), await this.#effects(character));
+    const limits = turnLimits(
+      await derivedMaxHitPoints(this.#content, character, play),
+      await this.#effects(character),
+    );
     const turn = turnCommandInputs({ registry, slots, inputs, variants }, character.document, limits);
     return applyTurnCommand(play, command, { inputs: turn, random: cryptoRandom });
   }
@@ -191,7 +194,9 @@ export class PlayService {
    * limit is derived only for the edits that read it.
    */
   async #applied(character: Character, play: PlayState, command: PlayCommand): Promise<PlayState> {
-    const hitPoints = needsMaxHitPoints(command) ? await this.#maxHitPoints(character, play) : NO_MAX_HIT_POINTS;
+    const hitPoints = needsMaxHitPoints(command)
+      ? await derivedMaxHitPoints(this.#content, character, play)
+      : NO_MAX_HIT_POINTS;
     const resources = needsResourceMaxima(command) ? await this.#resourceMaxima(character) : NO_RESOURCES;
     const counted = needsResourceMaxima(command) ? await this.#counted(character) : NO_COUNTED;
     const staff = await this.#staffLimits(character, play, command);
@@ -209,6 +214,12 @@ export class PlayService {
       staff,
       valued,
       effects,
+      spend: spendLimits(command, {
+        play,
+        counted,
+        registry: await this.#contentOf(character).registry(),
+        now: this.#clock.now(),
+      }),
     };
     return applyPlayCommand(play, command, limits);
   }
@@ -265,19 +276,6 @@ export class PlayService {
   /** Which effects the server's content has, and the clock and badge each starts from. */
   async #effects(character: Character): Promise<EffectContent> {
     return effectContent(await this.#contentOf(character).registry());
-  }
-
-  async #maxHitPoints(character: Character, play: PlayState): Promise<HitPoints> {
-    const registry = await this.#contentOf(character).registry();
-    const variants = await variantRulesOfCharacter(this.#content, character, registry);
-    const slots = slotContent(registry, variants);
-    const inputs = characterStatisticInputs(registry, character.document, slots);
-    const sources = { registry, slots, inputs, variants };
-    const max = maxHitPoints(characterStatistics({ ...character.document, play }, sources));
-    if (max === undefined) {
-      throw new ValidationError([{ path: ['command'], message: message('character.validation.noMaxHitPoints') }]);
-    }
-    return max;
   }
 
   async #stored(id: CharacterId): Promise<CharacterPlay> {
