@@ -1,52 +1,58 @@
-<fr-page [title]="'identity.reportBug.title' | transloco" [description]="'identity.reportBug.description' | transloco">
-  <fr-surface>
-    <fr-async-form [form]="form" [action]="send" [describeError]="describeError">
-      <fr-stack gap="md">
-        @if (character(); as attached) {
-          <fr-stack gap="2xs">
-            <fr-heading variant="subheading" [level]="2">{{
-              'identity.reportBug.attachedHeading' | transloco
-            }}</fr-heading>
-            <fr-text>{{ 'identity.reportBug.attached' | transloco: { name: attached.name } }}</fr-text>
-            <fr-toggle-button-field
-              [label]="'identity.reportBug.shareLabel' | transloco: { name: attached.name }"
-              [hint]="'identity.reportBug.shareHint' | transloco"
-              [formField]="form.shareCharacter"
-            />
-          </fr-stack>
-        }
-        <fr-text-area-field
-          [label]="'identity.reportBug.descriptionLabel' | transloco"
-          [hint]="'identity.reportBug.descriptionHint' | transloco"
-          [rows]="5"
-          [formField]="form.description"
-        />
-        <fr-text-area-field
-          [label]="'identity.reportBug.stepsLabel' | transloco"
-          [hint]="'identity.reportBug.stepsHint' | transloco"
-          [rows]="5"
-          [formField]="form.steps"
-        />
-        <fr-stack direction="horizontal" justify="end" align="center" gap="sm">
-          @if (sent()) {
-            <fr-message [tone]="successTone">
-              @if (sentWithoutCharacter()) {
-                {{ 'identity.reportBug.sentWithoutCharacter' | transloco }}
-              } @else {
-                {{ 'identity.reportBug.sent' | transloco }}
-              }
-            </fr-message>
+<fr-page>
+  <fr-page-header
+    [title]="'identity.reportBug.title' | transloco"
+    [description]="'identity.reportBug.description' | transloco"
+  />
+  <fr-page-body>
+    <fr-surface>
+      <fr-async-form [form]="form" [action]="send" [describeError]="describeError">
+        <fr-stack gap="md">
+          @if (character(); as attached) {
+            <fr-stack gap="2xs">
+              <fr-heading variant="subheading" [level]="2">{{
+                'identity.reportBug.attachedHeading' | transloco
+              }}</fr-heading>
+              <fr-text>{{ 'identity.reportBug.attached' | transloco: { name: attached.name } }}</fr-text>
+              <fr-toggle-button-field
+                [label]="'identity.reportBug.shareLabel' | transloco: { name: attached.name }"
+                [hint]="'identity.reportBug.shareHint' | transloco"
+                [formField]="form.shareCharacter"
+              />
+            </fr-stack>
           }
-          <fr-async-button
-            type="submit"
-            variant="primary"
-            [pendingLabel]="'identity.reportBug.sending' | transloco"
-            [successLabel]="'identity.reportBug.sentLabel' | transloco"
-          >
-            {{ 'identity.reportBug.send' | transloco }}
-          </fr-async-button>
+          <fr-text-area-field
+            [label]="'identity.reportBug.descriptionLabel' | transloco"
+            [hint]="'identity.reportBug.descriptionHint' | transloco"
+            [rows]="5"
+            [formField]="form.description"
+          />
+          <fr-text-area-field
+            [label]="'identity.reportBug.stepsLabel' | transloco"
+            [hint]="'identity.reportBug.stepsHint' | transloco"
+            [rows]="5"
+            [formField]="form.steps"
+          />
+          <fr-stack direction="horizontal" justify="end" align="center" gap="sm">
+            @if (sent()) {
+              <fr-message [tone]="successTone">
+                @if (sentWithoutCharacter()) {
+                  {{ 'identity.reportBug.sentWithoutCharacter' | transloco }}
+                } @else {
+                  {{ 'identity.reportBug.sent' | transloco }}
+                }
+              </fr-message>
+            }
+            <fr-async-button
+              type="submit"
+              variant="primary"
+              [pendingLabel]="'identity.reportBug.sending' | transloco"
+              [successLabel]="'identity.reportBug.sentLabel' | transloco"
+            >
+              {{ 'identity.reportBug.send' | transloco }}
+            </fr-async-button>
+          </fr-stack>
         </fr-stack>
-      </fr-stack>
-    </fr-async-form>
-  </fr-surface>
+      </fr-async-form>
+    </fr-surface>
+  </fr-page-body>
 </fr-page>
