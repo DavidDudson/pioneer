@@ -15,9 +15,12 @@ import {
 } from '@pioneer/frontier';
 import type { BadgeTone } from '@pioneer/frontier';
 import type { CharacterImportReport, ImportKind } from '@pioneer/interop/pathbuilder';
+import type { ContentId, Selector } from '@pioneer/rules/sdk';
+import type { NamedStatistic } from '@pioneer/rules/ui';
 import { filter, merge } from 'rxjs';
 
 import { ImportBoostReport } from '../import-boost-report/import-boost-report.component';
+import { ImportDiscrepancyReport } from '../import-discrepancy-report/import-discrepancy-report.component';
 import { KIND_KEYS, REASON_KEYS, REASON_TONES, UNCARRIED_KEYS } from '../import-labels';
 import { ImportSkillReport } from '../import-skill-report/import-skill-report.component';
 
@@ -45,6 +48,7 @@ interface GroupView {
     Disclosure,
     Heading,
     ImportBoostReport,
+    ImportDiscrepancyReport,
     ImportSkillReport,
     List,
     ListItem,
@@ -58,6 +62,9 @@ interface GroupView {
 })
 export class ImportResult {
   public readonly report = input.required<CharacterImportReport>();
+  /** What the engine derives for the imported character, by statistic, for the breakdown of each that differs. */
+  public readonly statistics = input<ReadonlyMap<Selector, NamedStatistic>>(new Map());
+  public readonly entryNames = input<ReadonlyMap<ContentId, string>>(new Map());
   public readonly dismissed = output();
 
   readonly #format = inject(LocaleFormat);

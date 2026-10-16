@@ -1,0 +1,40 @@
+@if (allMatch()) {
+  <fr-text>{{ 'character.import.result.discrepanciesMatch' | transloco: { count: report().compared } }}</fr-text>
+} @else if (!nothingCompared()) {
+  <fr-disclosure>
+    <fr-text frDisclosureSummary>{{
+      'character.import.result.discrepanciesSummary' | transloco: { count: rows().length, compared: report().compared }
+    }}</fr-text>
+    <fr-list>
+      @for (row of rows(); track row.selector) {
+        <fr-list-item>
+          <fr-stack gap="xs">
+            <fr-stack direction="horizontal" justify="between" align="center" gap="sm">
+              <fr-text>{{ row.name }}</fr-text>
+              @if (row.ranks; as ranks) {
+                <fr-text numeric>{{
+                  'character.import.result.skillGap'
+                    | transloco: { wanted: (ranks.pathbuilder | transloco), reached: (ranks.pioneer | transloco) }
+                }}</fr-text>
+              } @else if (row.totals; as totals) {
+                <fr-text numeric>{{
+                  'character.import.result.difference'
+                    | transloco: { imported: totals.pathbuilder, derived: totals.pioneer }
+                }}</fr-text>
+              }
+              <fr-text numeric>{{ row.difference }}</fr-text>
+            </fr-stack>
+            @if (row.statistic; as statistic) {
+              <fr-disclosure>
+                <fr-text frDisclosureSummary>{{ 'character.import.result.discrepancyWhy' | transloco }}</fr-text>
+                @if (row.kind; as kind) {
+                  <pio-breakdown [statistic]="statistic" [kind]="kind" [entryNames]="entryNames()" />
+                }
+              </fr-disclosure>
+            }
+          </fr-stack>
+        </fr-list-item>
+      }
+    </fr-list>
+  </fr-disclosure>
+}

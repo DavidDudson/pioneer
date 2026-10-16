@@ -85,7 +85,7 @@ const UNSET_NAMES: ReadonlySet<string> = new Set(['', 'Not set', 'None']);
 const SCORE_BASE = 10;
 const SCORE_STEP = 2;
 
-const RANK_BY_NUMBER: Readonly<Record<number, Proficiency>> = {
+export const RANK_BY_NUMBER: Readonly<Record<number, Proficiency>> = {
   0: Proficiency.Untrained,
   2: Proficiency.Trained,
   4: Proficiency.Expert,

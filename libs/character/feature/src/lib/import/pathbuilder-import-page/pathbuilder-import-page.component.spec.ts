@@ -157,6 +157,7 @@ describe('PathbuilderImportPage create', () => {
         unplacedBoosts: [],
         skillGaps: [],
         modifierDifferences: [],
+        discrepancies: { compared: 0, differences: [] },
       },
     });
 

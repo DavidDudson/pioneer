@@ -58,3 +58,16 @@ export {
   placeLanguages,
 } from './language-placement';
 export { type FeatPicks, type FeatPlacement, type FeatPlacementContent, placeFeats } from './feat-placement';
+export {
+  ARMOR_CLASS,
+  Discrepancy,
+  discrepancyReport,
+  DiscrepancyKind,
+  DiscrepancyReport,
+  LAND_SPEED,
+  MAX_HIT_POINTS,
+  type PioneerValues,
+  RANKED_STATISTICS,
+  RankDiscrepancy,
+  TotalDiscrepancy,
+} from './discrepancy-report';

@@ -58,6 +58,27 @@ export function sheetStatistics(registry: ContentRegistry, character: Character)
 }
 
 /**
+ * The named statistics for `selectors` as the engine derives them for a character, by selector: those the registry names
+ * and the engine has a result for.
+ */
+export function namedStatistics(
+  registry: ContentRegistry,
+  character: Character,
+  selectors: readonly Selector[],
+): ReadonlyMap<Selector, NamedStatistic> {
+  const results = sheetDerivation(registry, character);
+  return new Map(
+    selectors.flatMap((selector): [Selector, NamedStatistic][] => {
+      const result = results.get(selector);
+      const entry = registry.statisticsFor(selector).at(-1);
+      return result === undefined || entry === undefined
+        ? []
+        : [[selector, { name: entry.definition.name, kind: entry.definition.kind, result }]];
+    }),
+  );
+}
+
+/**
  * The fast healing, temporary Hit Points and size the character's rule elements give, from the engine (`vitalsInPlay`);
  * undefined until the character has an ancestry.
  */
