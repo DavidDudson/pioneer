@@ -1,0 +1,118 @@
+{
+  "feat:fey-influence": {
+    "entry": { "slug": "fey-influence", "tradition": "primal", "attribute": "cha" },
+    "choice": {
+      "flag": "fey-influence",
+      "prompt": "Select a feature.",
+      "options": [
+        ["anteater", "Anteater"],
+        ["cat-sith", "Cat Sith"],
+        ["cursed-bluebird", "Cursed Bluebird"],
+        ["dryad", "Dryad"],
+        ["faun", "Faun"],
+        ["gremlin", "Gremlin"],
+        ["monarch", "Monarch"],
+        ["unicorn", "Unicorn"]
+      ]
+    },
+    "grants": [
+      { "when": ["fey-influence:anteater"], "spells": [["grim-tendrils", 1]] },
+      { "when": ["fey-influence:cat-sith"], "spells": [["pest-form", 1]] },
+      { "when": ["fey-influence:cursed-bluebird"], "spells": [["ill-omen", 1]] },
+      { "when": ["fey-influence:dryad"], "spells": [["summon-plant-or-fungus", 1]] },
+      { "when": ["fey-influence:faun"], "spells": [["fleet-step", 1]] },
+      { "when": ["fey-influence:gremlin"], "spells": [["bane", 1]] },
+      { "when": ["fey-influence:monarch"], "spells": [["spider-sting", 1]] },
+      { "when": ["fey-influence:unicorn"], "spells": [["heal", 1]] }
+    ]
+  },
+  "feat:fey-ascension": {
+    "entry": {
+      "slug": "fey-ascension",
+      "tradition": "primal",
+      "attribute": "cha",
+      "when": [
+        {
+          "or": [
+            "fey-influence:anteater",
+            "fey-influence:cursed-bluebird",
+            "fey-influence:faun",
+            "fey-influence:gremlin"
+          ]
+        }
+      ]
+    },
+    "grants": [
+      { "when": ["fey-influence:anteater"], "spells": [["slow", 3]] },
+      { "when": ["fey-influence:cursed-bluebird"], "spells": [["pest-form", 4]] },
+      {
+        "when": ["fey-influence:faun"],
+        "spells": [
+          ["charm", 1],
+          ["sleep", 1],
+          ["triple-time", 2]
+        ]
+      },
+      { "when": ["fey-influence:gremlin"], "spells": [["mad-monkeys", 3]] }
+    ]
+  },
+  "feat:grown-of-oak": {
+    "entry": { "slug": "grown-of-oak", "tradition": "primal", "attribute": "wis" },
+    "grants": [
+      {
+        "spell": "oaken-resilience",
+        "levels": [
+          [6, 2],
+          [7, 3],
+          [9, 4],
+          [11, 5],
+          [13, 6],
+          [15, 7],
+          [17, 8]
+        ]
+      }
+    ]
+  },
+  "feat:dream-magic": {
+    "entry": { "slug": "dream-magic", "tradition": "occult", "attribute": "wis" },
+    "choice": {
+      "flag": "dream-magic",
+      "prompt": "Select a spell.",
+      "options": [
+        ["dream-message", "Dream Message"],
+        ["sleep", "Sleep"]
+      ]
+    },
+    "grants": [
+      { "when": ["dream-magic:dream-message"], "spells": [["dream-message", 4]] },
+      { "when": ["dream-magic:sleep"], "spells": [["sleep", 4]] }
+    ]
+  },
+  "feat:mortal-herald-dedication": {
+    "entry": { "slug": "mortal-herald", "tradition": "divine", "attribute": "cha" },
+    "grants": [
+      {
+        "spell": "heal",
+        "when": [{ "not": "deity:primary:font:harm" }],
+        "levels": [
+          [12, 6],
+          [13, 7],
+          [15, 8],
+          [17, 9],
+          [19, 10]
+        ]
+      },
+      {
+        "spell": "harm",
+        "when": ["deity:primary:font:harm"],
+        "levels": [
+          [12, 6],
+          [13, 7],
+          [15, 8],
+          [17, 9],
+          [19, 10]
+        ]
+      }
+    ]
+  }
+}

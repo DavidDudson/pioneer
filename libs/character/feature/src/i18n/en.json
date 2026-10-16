@@ -568,6 +568,7 @@
       "spellGap": "{name} ({caster}, {rank, select, cantrip {cantrip} other {rank {rank}}})",
       "spellGapReason": {
         "noEntry": "No spellcasting to put it in",
+        "notGranted": "Its feat does not grant it",
         "noSlot": "Every slot of its rank is taken",
         "notOffered": "No slot offers it"
       },

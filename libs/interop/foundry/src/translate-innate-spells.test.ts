@@ -11,10 +11,10 @@ const { InnateSpells, SpellcastingEntry, ChoiceSet } = RuleElementKey;
 const spell = (slug: string): string => idOf(`spell:${slug}`);
 
 function keyed(slug: string, key: string): Record<string, unknown>[] {
-  return innateSpellRules(slug).filter(
-    (rule): rule is Record<string, unknown> =>
-      typeof rule === 'object' && rule !== null && 'key' in rule && rule.key === key,
+  const rules: readonly Record<string, unknown>[] = innateSpellRules(slug).map((rule) =>
+    Object.fromEntries(Object.entries(rule)),
   );
+  return rules.filter((rule) => rule.key === key);
 }
 
 const FEATS = [
@@ -46,7 +46,7 @@ describe('innateSpellRules', () => {
     expect(keyed('feat:fey-influence', InnateSpells)).toContainEqual({
       key: InnateSpells,
       entry: 'fey-influence',
-      spells: [{ rank: 1, spell: expect.any(String) }],
+      spells: [{ rank: 1, spell: expect.any(String) as string }],
       predicate: ['fey-influence:cursed-bluebird'],
     });
   });
