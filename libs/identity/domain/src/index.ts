@@ -3,11 +3,15 @@ export {
   BUG_REPORT_ROUTE_MAX_LENGTH,
   BUG_REPORT_TEXT_MAX_LENGTH,
   BUG_REPORT_USER_AGENT_MAX_LENGTH,
+  BUG_REPORT_LIST_LIMIT,
   BugReport,
+  BugReportDetail,
+  BugReportListItem,
   BugReportReceipt,
   BugReportStatus,
   BugReportStatusSchema,
   BugReportSubmission,
+  BugReportTriage,
   CharacterSnapshot,
   AppVersion,
   ReportDescription,
@@ -36,6 +40,8 @@ export {
   ProviderSubject,
   SessionId,
   UserId,
+  UserRole,
+  UserRoleSchema,
 } from './identity-fields';
 export { NO_PREFERENCES, patchPreferences, Preferences } from './preferences';
 export type { ProviderProfile } from './provider-profile';

@@ -2,10 +2,10 @@ import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
 
 import { Character, CharacterPatchField } from '@pioneer/character/domain';
 import { fixtureOwnerId, humanAncestryId } from '@pioneer/character/domain/testing';
-import { BugReportService } from '@pioneer/identity/application';
+import { BugReportService, BugReportTriageService } from '@pioneer/identity/application';
 import { UserId } from '@pioneer/identity/domain';
 import type { BugReportId, CharacterSnapshot } from '@pioneer/identity/domain';
-import { bugReportRoutes, DrizzleBugReportRepository } from '@pioneer/identity/infrastructure';
+import { bugReportRoutes, DrizzleBugReportRepository, DrizzleUserRepository } from '@pioneer/identity/infrastructure';
 import { fixedClock } from '@pioneer/shared/kernel';
 import { problemHandler } from '@pioneer/shared/server';
 import { actingAs, createTestDatabase, FakeAuthenticator, testDatabaseUrl } from '@pioneer/shared/server/testing';
@@ -105,10 +105,12 @@ describe.skipIf(adminUrl === undefined)('bug report character snapshot (postgres
     const character = characters(database.db, clock, auth);
     snapshots.bind(character.pioneerFiles);
     repository = new DrizzleBugReportRepository(database.db);
+    const reports = new BugReportService(repository, snapshots, clock);
+    const triage = new BugReportTriageService(repository, new DrizzleUserRepository(database.db));
     api = new Elysia()
       .use(problemHandler)
       .use(character.routes)
-      .use(bugReportRoutes(new BugReportService(repository, snapshots, clock), auth));
+      .use(bugReportRoutes(reports, triage, auth));
   });
 
   afterAll(async () => {

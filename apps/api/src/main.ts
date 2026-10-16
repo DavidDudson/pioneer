@@ -5,6 +5,7 @@ import { createApp } from './app';
 import { seedOfficialContent } from './content';
 import { connect, runMigrations } from './database';
 import { readEnv, readHealthEnv, readMigrateEnv } from './env';
+import { grantMaintainer } from './grant-maintainer';
 import { API_PREFIX } from './identity';
 import { spa } from './spa';
 
@@ -17,7 +18,11 @@ const MIGRATE_COMMAND = 'migrate';
 const CONTENT_SEED_COMMAND = 'content-seed';
 /** `pioneer-api health` exits 0 when the server on PORT answers its health check: the container HEALTHCHECK. */
 const HEALTH_COMMAND = 'health';
-const COMMANDS: readonly string[] = [MIGRATE_COMMAND, CONTENT_SEED_COMMAND, HEALTH_COMMAND];
+/** `pioneer-api grant-maintainer <user-id>` makes an account a maintainer (it may triage bug reports), and exits. */
+const GRANT_MAINTAINER_COMMAND = 'grant-maintainer';
+/** Where `grant-maintainer` finds the account id: `bun main.ts grant-maintainer <id>`. */
+const USER_ID_ARGUMENT = 3;
+const COMMANDS: readonly string[] = [MIGRATE_COMMAND, CONTENT_SEED_COMMAND, HEALTH_COMMAND, GRANT_MAINTAINER_COMMAND];
 const HEALTH_TIMEOUT = 5000;
 
 function log(line: string): void {
@@ -44,6 +49,20 @@ if (command === MIGRATE_COMMAND) {
   const db = connect(env.DATABASE_URL);
   try {
     await seedOfficialContent(db, systemClock, log);
+  } finally {
+    await db.$client.close();
+  }
+} else if (command === GRANT_MAINTAINER_COMMAND) {
+  const userId = Bun.argv.at(USER_ID_ARGUMENT);
+  if (userId === undefined) {
+    throw new Error('Usage: pioneer-api grant-maintainer <user-id>');
+  }
+  const env = readMigrateEnv();
+  const db = connect(env.DATABASE_URL);
+  try {
+    const found = await grantMaintainer(db, userId);
+    console.info(found ? ` is now a maintainer` : `No account `);
+    process.exitCode = found ? 0 : 1;
   } finally {
     await db.$client.close();
   }

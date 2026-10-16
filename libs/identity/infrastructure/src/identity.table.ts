@@ -15,6 +15,7 @@ import type {
   TokenHash,
   UserAgent,
   UserId,
+  UserRole,
 } from '@pioneer/identity/domain';
 import type { DistanceUnit, Locale, Uuid } from '@pioneer/shared/kernel';
 import { sql } from 'drizzle-orm';
@@ -33,6 +34,7 @@ export const users = pgTable(
     avatarUrl: text().$type<AvatarUrl>(),
     email: text().$type<EmailAddress>(),
     emailVerified: boolean().notNull(),
+    role: text().$type<UserRole>().notNull().default('member'),
     createdAt: timestamp({ withTimezone: true, mode: 'string' }).notNull(),
     updatedAt: timestamp({ withTimezone: true, mode: 'string' }).notNull(),
   },
@@ -128,5 +130,9 @@ export const bugReports = pgTable(
     snapshot: jsonb().$type<CharacterSnapshot>(),
     status: text().$type<BugReportStatus>().notNull(),
   },
-  (table) => [index('bug_reports_reporter_created_idx').on(table.reporter, table.createdAt)],
+  (table) => [
+    index('bug_reports_reporter_created_idx').on(table.reporter, table.createdAt),
+    // The maintainers' list: newest first.
+    index('bug_reports_created_idx').on(table.createdAt),
+  ],
 );

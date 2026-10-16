@@ -39,3 +39,14 @@ export const OAuthProviderSchema = z.enum(OAuthProvider);
 
 export const ProviderSubject = z.string().min(1).max(SUBJECT_MAX_LENGTH).brand<'ProviderSubject'>();
 export type ProviderSubject = z.infer<typeof ProviderSubject>;
+
+/**
+ * What an account may do beyond its own data. Members are everyone; maintainers also triage bug reports. The role is
+ * granted outside the app (`pioneer-api grant-maintainer`), never by a request.
+ */
+export const UserRole = {
+  Member: 'member',
+  Maintainer: 'maintainer',
+} as const;
+export type UserRole = ValueOf<typeof UserRole>;
+export const UserRoleSchema = z.enum(UserRole);

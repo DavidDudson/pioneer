@@ -25,4 +25,6 @@ export abstract class UserRepository {
   public abstract linkAccount(userId: UserId, account: ProviderAccount, now: Temporal.Instant): Promise<void>;
 
   public abstract update(user: User): Promise<User>;
+
+  public abstract findById(id: UserId): Promise<User | undefined>;
 }
