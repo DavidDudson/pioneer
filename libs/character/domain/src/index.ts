@@ -530,6 +530,8 @@ export {
   staffCastOptions,
   staffCantripRank,
   staffCastProblem,
+  type StaffCast,
+  StaffCastSchema,
   type StaffCommand,
   StaffCommandField,
   StaffCommandSchema,
@@ -583,7 +585,7 @@ export {
   type TurnCommand,
   type TurnState,
 } from './turn-state';
-export { applySpendCommand, isSpendCommand, spendRefusal } from './spend-commands';
+export { applySpendCommand, isSpendCommand, spendRefusal, spentStaffOf, turnAllows } from './spend-commands';
 export type { SpendLimits, SpendPlay } from './spend-commands';
 export {
   costAllowed,
@@ -600,7 +602,7 @@ export {
   SpendTime,
 } from './spend-log';
 export type { ActionCostRange, SpendCommand, SpendCost, SpendEntry, SpendLog, SpendRequest } from './spend-log';
-export { actionCosts } from './action-costs';
+export { actionCosts, spellCost } from './action-costs';
 export { explorationAction, isExplorationActivity, PERCEPTION, suggestedInitiative } from './exploration-activity';
 export { untypedDamage } from './untyped-damage';
 export { INITIATIVE, initiativeRoll } from './initiative-roll';

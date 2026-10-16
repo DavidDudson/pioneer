@@ -28,7 +28,8 @@ import {
   restRecovery,
   turnCommandInputs,
   slotContent,
-  isStaffCommand,
+  isSpendCommand,
+  StaffCommandField,
   isTurnCommand,
   isWandCommand,
   wandInventoryAfter,
@@ -71,7 +72,7 @@ import { NO_MAX_HIT_POINTS, NO_REST, NO_VALUED, turnLimits, WAND_MESSAGES } from
 import type { RestContent } from './play-defaults';
 import { derivedMaxHitPoints } from './play-hit-points';
 import { spendLimits } from './play-spend';
-import { checkStaffCast } from './play-staff';
+import { checkStaffCast, staffCastOf } from './play-staff';
 
 /**
  * A character's play state (#343): read and edited apart from its build, with its own revision, so a play edit never
@@ -164,13 +165,15 @@ export class PlayService {
   async #staffLimits(character: Character, play: PlayState, command: PlayCommand): Promise<StaffLimits> {
     const prepared = isDailyPreparations(command) ? await this.#staff(character) : NO_STAFF;
     checkStaff(command, prepared);
-    if (!isStaffCommand(command)) {
+    const cast = staffCastOf(play, command);
+    if (cast === undefined) {
       return prepared;
     }
     const registry = await this.#contentOf(character).registry();
     const slots = await this.#slotContent(character, registry);
     const counted = await this.#counted(character);
-    return { ...prepared, castCost: checkStaffCast(command, { character, play, registry, slots, counted }) };
+    const undoing = cast.field === StaffCommandField.UncastStaff && isSpendCommand(command);
+    return { ...prepared, castCost: checkStaffCast(cast, { character, play, registry, slots, counted, undoing }) };
   }
 
   /**
@@ -218,6 +221,7 @@ export class PlayService {
       spend: spendLimits(command, {
         play,
         counted,
+        points: resources,
         registry: await this.#contentOf(character).registry(),
         now: this.#clock.now(),
       }),

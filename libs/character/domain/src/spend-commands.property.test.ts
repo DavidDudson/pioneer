@@ -72,7 +72,7 @@ describe('spending from the turn', () => {
         const play = played(start, before);
         const serial = Serial.parse(before.length + 1);
         const command = spendOf(serial, cost);
-        pre(spendRefusal(play, command, { counted: COUNTED }) === undefined);
+        pre(spendRefusal(play, command, { counted: COUNTED, points: LIMITS.resources }) === undefined);
         const spent = applyPlayCommand(play, command, LIMITS);
         const undone = applyPlayCommand(spent, undo(serial), LIMITS);
         expect(undone.turn).toEqual(play.turn);
@@ -85,7 +85,7 @@ describe('spending from the turn', () => {
     assert(
       property(starts, taken, (start, count) => {
         const command = spendOf(Serial.parse(1), actions(count));
-        pre(spendRefusal(start, command, { counted: COUNTED }) !== undefined);
+        pre(spendRefusal(start, command, { counted: COUNTED, points: LIMITS.resources }) !== undefined);
         expect(applyPlayCommand(start, command, LIMITS)).toEqual(start);
       }),
     );

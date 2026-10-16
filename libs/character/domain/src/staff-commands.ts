@@ -32,6 +32,10 @@ const StaffCastShape = {
   slot: SlotCountKey.optional(),
 };
 
+/** A staff cast as a spend records it: the staff, the spell and how it was paid for, so undoing the spend gives them back. */
+export const StaffCastSchema = z.strictObject(StaffCastShape);
+export type StaffCast = z.infer<typeof StaffCastSchema>;
+
 export const StaffCommandSchema = z.discriminatedUnion('field', [
   z.object({ field: z.literal(StaffCommandField.CastStaff), ...StaffCastShape }),
   z.object({ field: z.literal(StaffCommandField.UncastStaff), ...StaffCastShape }),

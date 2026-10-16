@@ -27,7 +27,7 @@ export const WAND_MESSAGES = {
 } as const satisfies Record<WandProblem, string>;
 
 /** The spend limits handed to edits that don't spend, so no time has to be read for them. */
-export const NO_SPEND: SpendLimits = { now: SpendTime.parse('1970-01-01T00:00:00.000Z') };
+const NO_SPEND: SpendLimits = { now: SpendTime.parse('1970-01-01T00:00:00.000Z') };
 
 /** The limits a turn-cycle edit reads: the maximum Hit Points and the effects, and nothing else. */
 export function turnLimits(hitPoints: HitPoints, effects: PlayLimits['effects']): PlayLimits {

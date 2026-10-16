@@ -1,7 +1,11 @@
 import {
   characterGrants,
   characterSpellcasting,
+  isSpendCommand,
+  isStaffCommand,
   itemContent,
+  ResourceCount,
+  spentStaffOf,
   StaffCastProblem,
   staffCastCost,
   staffCastProblem,
@@ -10,8 +14,8 @@ import {
 import type {
   Character,
   CountedMaxima,
+  PlayCommand,
   PlayState,
-  ResourceCount,
   SlotContent,
   StaffCommand,
 } from '@pioneer/character/domain';
@@ -31,6 +35,9 @@ const STAFF_CAST_MESSAGES = {
   [StaffCastProblem.NothingToRefund]: 'character.validation.staffCastNothingToRefund',
 } as const satisfies Record<StaffCastProblem, string>;
 
+/** The charges taking back a cast refunds when the staff or its spell is gone, so there is nothing to refund them to. */
+const NO_CHARGES = ResourceCount.parse(0);
+
 /** What a staff cast is checked against: the character and its play, and the content and slots they are read over. */
 export interface StaffCastContext {
   readonly character: Character;
@@ -38,6 +45,8 @@ export interface StaffCastContext {
   readonly registry: ContentRegistry;
   readonly slots: SlotContent;
   readonly counted: CountedMaxima;
+  /** Whether the cast is being taken back from the spend log, which refunds what was spent however the build has changed since. */
+  readonly undoing?: boolean | undefined;
 }
 
 /**
@@ -46,7 +55,7 @@ export interface StaffCastContext {
  * the client.
  */
 export function checkStaffCast(command: StaffCommand, context: StaffCastContext): ResourceCount {
-  const { character, play, registry, slots, counted } = context;
+  const { character, play, registry, slots, counted, undoing } = context;
   const sources = staffSources({
     inventory: character.document.inventory.items,
     items: itemContent(registry),
@@ -55,12 +64,26 @@ export function checkStaffCast(command: StaffCommand, context: StaffCastContext)
     charges: play.resources.staff,
   });
   const source = sources.find(({ item }) => item.id === command.item);
-  const problem = staffCastProblem(command, source, { spent: play.resources.slots, maxima: counted.slots });
   const spell = source?.spells.find(({ id }) => id === command.spell);
+  if (undoing === true) {
+    return spell === undefined ? NO_CHARGES : staffCastCost(command, spell);
+  }
+  const problem = staffCastProblem(command, source, { spent: play.resources.slots, maxima: counted.slots });
   if (problem !== undefined || spell === undefined) {
     throw new ValidationError([
       { path: ['command'], message: message(STAFF_CAST_MESSAGES[problem ?? StaffCastProblem.NotHeld]) },
     ]);
   }
   return staffCastCost(command, spell);
+}
+
+/**
+ * The staff cast `command` makes or takes back, to check and cost: a staff edit itself, or a spend that records a cast
+ * (casting a spell from a staff on the spend log) or takes such a spend back. Undefined for any other edit.
+ */
+export function staffCastOf(play: PlayState, command: PlayCommand): StaffCommand | undefined {
+  if (isStaffCommand(command)) {
+    return command;
+  }
+  return isSpendCommand(command) ? spentStaffOf(play, command) : undefined;
 }

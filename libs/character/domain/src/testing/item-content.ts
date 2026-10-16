@@ -209,7 +209,9 @@ const ITEMS: Readonly<Record<ItemFixture, ItemFixtureFields>> = {
     data: {
       bulk: 'light',
       usage: { type: 'worn', slot: 'boots' },
-      activations: [{ slug: 'take-to-the-skies', name: 'Take to the Skies', frequency: { max: 1, per: 'hour' } }],
+      activations: [
+        { slug: 'take-to-the-skies', name: 'Take to the Skies', frequency: { max: 1, per: 'hour' }, cost: 'two' },
+      ],
     },
     traits: ['magical'],
   },
