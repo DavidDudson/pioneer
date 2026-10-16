@@ -19,7 +19,6 @@ import {
 import { VitalsView } from '@pioneer/rules/ui';
 
 import { FeatDisplayStore } from '../../data/feat-display-store';
-import { PlayStore } from '../../data/play-store';
 import { CHARACTER_CONTENT_PROVIDERS } from '../../data/source-packs';
 import { SheetConditions } from '../sheet-conditions/sheet-conditions.component';
 import { SheetCounted } from '../sheet-counted/sheet-counted.component';
@@ -30,6 +29,7 @@ import { SheetLastRoll } from '../sheet-last-roll/sheet-last-roll.component';
 import { SheetResources } from '../sheet-resources/sheet-resources.component';
 import { SHEET_ROLLS_PROVIDERS } from '../sheet-rolls';
 import { SHEET_TABS } from '../sheet-sections';
+import { SHEET_PLAY_PROVIDERS } from '../sheet-spender';
 import { SheetState } from '../sheet-state';
 
 /**
@@ -65,7 +65,13 @@ import { SheetState } from '../sheet-state';
     VitalsView,
   ],
   templateUrl: './character-sheet-page.component.html',
-  providers: [SheetState, PlayStore, FeatDisplayStore, ...CHARACTER_CONTENT_PROVIDERS, ...SHEET_ROLLS_PROVIDERS],
+  providers: [
+    SheetState,
+    ...SHEET_PLAY_PROVIDERS,
+    FeatDisplayStore,
+    ...CHARACTER_CONTENT_PROVIDERS,
+    ...SHEET_ROLLS_PROVIDERS,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CharacterSheetPage {

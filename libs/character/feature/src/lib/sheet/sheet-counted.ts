@@ -23,7 +23,7 @@ import type {
   SlotCountKey,
   UseCountKey,
 } from '@pioneer/character/domain';
-import type { Activation, ContentId, ContentRegistry, Origin, Slug, SpellRank } from '@pioneer/rules/sdk';
+import type { ActionCost, Activation, ContentId, ContentRegistry, Origin, Slug, SpellRank } from '@pioneer/rules/sdk';
 
 import { sheetSlotContent } from './sheet-slot-content';
 
@@ -38,6 +38,13 @@ interface SlotView {
   readonly max: number;
 }
 
+/** What activating an item spends from the turn: the item's entry and the cost its activation gives, if it gives one. */
+interface ActivationCost {
+  readonly item: ContentId;
+  readonly cost?: ActionCost | undefined;
+  readonly upTo?: number | undefined;
+}
+
 /** The uses of one feat or action with a frequency, as the sheet shows them. */
 interface UseView {
   readonly key: UseCountKey;
@@ -45,6 +52,8 @@ interface UseView {
   readonly boundary: Boundary;
   /** Whether this is the one extra use an activation allows beyond its frequency. */
   readonly overcharge: boolean;
+  /** What activating the item spends, for the use of an activation; absent for any other use. */
+  readonly activation?: ActivationCost | undefined;
   readonly current: number;
   readonly max: number;
 }
@@ -63,10 +72,10 @@ interface UseSource {
 }
 
 /** The use to show: the key it is counted under, the name to show it by and whether it is an overcharged one. */
-type UseTarget = Pick<UseView, 'key' | 'name' | 'overcharge'>;
+type UseTarget = Pick<UseView, 'key' | 'name' | 'overcharge' | 'activation'>;
 
 /** What is held of the use counted under `key`, if the build or content gives it a maximum. */
-function useView({ counted, spent }: UseSource, { key, name, overcharge }: UseTarget): UseView[] {
+function useView({ counted, spent }: UseSource, { key, name, overcharge, activation }: UseTarget): UseView[] {
   const maximum = counted.uses.get(key);
   return maximum === undefined
     ? []
@@ -76,6 +85,7 @@ function useView({ counted, spent }: UseSource, { key, name, overcharge }: UseTa
           name,
           boundary: maximum.boundary,
           overcharge,
+          activation,
           current: heldCount({ spent: spent.uses, maxima: counted.uses, key }),
           max: maximum.max,
         },
@@ -85,14 +95,17 @@ function useView({ counted, spent }: UseSource, { key, name, overcharge }: UseTa
 /** An activation of one inventory item and the name to show its uses by. */
 interface ActivationOnItem {
   readonly item: InventoryItemId;
+  readonly entry: ContentId;
+  readonly cost: Pick<ActivationCost, 'cost' | 'upTo'>;
   readonly slug: Slug;
   readonly name: string;
 }
 
 /** The daily uses of an activation, then its overcharged use if it has one. */
-function activationUses(used: UseSource, { item, slug, name }: ActivationOnItem): UseView[] {
-  const daily = useView(used, { key: activationUseKey(item, slug), name, overcharge: false });
-  const overcharged = useView(used, { key: overchargeUseKey(item, slug), name, overcharge: true });
+function activationUses(used: UseSource, { item, slug, name, entry, cost }: ActivationOnItem): UseView[] {
+  const activation: ActivationCost = { item: entry, ...cost };
+  const daily = useView(used, { key: activationUseKey(item, slug), name, overcharge: false, activation });
+  const overcharged = useView(used, { key: overchargeUseKey(item, slug), name, overcharge: true, activation });
   return [...daily, ...overcharged];
 }
 
@@ -100,10 +113,10 @@ function activationUses(used: UseSource, { item, slug, name }: ActivationOnItem)
 function activationViews(registry: ContentRegistry, character: Character, used: UseSource): UseView[] {
   const itemEntries = itemContent(registry);
   return character.document.inventory.items.flatMap((item) =>
-    (used.activations.get(item.item) ?? []).flatMap(({ slug, name }) => {
+    (used.activations.get(item.item) ?? []).flatMap(({ slug, name, cost, upTo }) => {
       const itemName = item.name ?? itemEntries.get(item.item)?.name ?? name;
       const label = itemName === name ? name : `${itemName}: ${name}`;
-      return activationUses(used, { item: item.id, slug, name: label });
+      return activationUses(used, { item: item.id, entry: item.item, slug, name: label, cost: { cost, upTo } });
     }),
   );
 }

@@ -27,6 +27,7 @@
         </fr-disclosure>
       </fr-stack>
       <pio-statistic-roll [name]="row().name" [kind]="attackKind" [statistic]="attack.statistic" />
+      <pio-use-buttons [line]="row().use" />
     </fr-stack>
   } @else {
     <fr-stack direction="horizontal" gap="xs" align="center" wrap>

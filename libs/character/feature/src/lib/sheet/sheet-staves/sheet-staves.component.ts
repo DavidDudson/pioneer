@@ -4,22 +4,25 @@ import {
   CarryState,
   INVENTORY_KINDS,
   InventoryItemId,
+  PlayCommandField,
   ResourcesSpentSchema,
   SlotCountKey,
+  SpendId,
 } from '@pioneer/character/domain';
-import type { ResourcesSpent, StaffCommand } from '@pioneer/character/domain';
+import type { ResourcesSpent, SpendRequest } from '@pioneer/character/domain';
 import { Stack } from '@pioneer/frontier';
 import { ContentId } from '@pioneer/rules/sdk';
 import type { ContentKind } from '@pioneer/rules/sdk';
 import { StaffSpellsView } from '@pioneer/rules/ui';
 import type { StaffCastRequest, StaffLine } from '@pioneer/rules/ui';
+import { newId } from '@pioneer/shared/kernel';
 
 import { CharacterStore } from '../../data/character-store';
 import { injectContentRegistry } from '../../data/content-registry-query';
 import { PlayStore } from '../../data/play-store';
 import { describeSaveError } from '../sheet-field';
 import { SPELL_CONTENT_KINDS } from '../sheet-prepared-spells';
-import { castStaffCommand, sheetStaves, uncastStaffCommand } from '../sheet-staves';
+import { sheetStaves, staffSpendRequest } from '../sheet-staves';
 
 const STAVES_CONTENT_KINDS: readonly ContentKind[] = [...new Set([...SPELL_CONTENT_KINDS, ...INVENTORY_KINDS])];
 
@@ -30,7 +33,8 @@ const NO_SPENT: ResourcesSpent = ResourcesSpentSchema.parse({});
  * The staves the open character wears or holds, each in its own section of the spell list with its spells by rank, what
  * casting each costs and the charges it has left (#362). A spell is cast with a button for each way to pay for it,
  * labelled with the charges and the slot it spends (#372); the server checks the cast and refuses one the staff can't
- * pay for. The last cast can be taken back, which refunds its charges and its slot. The spell's effects are the table's.
+ * pay for. A cast is a spend (#355): it takes its actions from the turn and joins the spend log, where taking it back
+ * refunds its charges and its slot. The spell's effects are the table's.
  * Nothing loads for a character carrying nothing, and nothing shows without a staff.
  */
 @Component({
@@ -51,9 +55,6 @@ export class SheetStaves {
     ),
   );
 
-  /** The last cast made from the sheet, which can be taken back. */
-  readonly #last = signal<StaffCommand | undefined>(undefined);
-
   /** The registry with the items and spells; loads once the character carries something. */
   protected readonly registry = injectContentRegistry(STAVES_CONTENT_KINDS, () => this.#carrying());
 
@@ -67,43 +68,35 @@ export class SheetStaves {
     if (registry === undefined || character === undefined) {
       return [];
     }
-    return sheetStaves(registry, character, { resources: play?.play.resources ?? NO_SPENT, last: this.#last() });
+    return sheetStaves(registry, character, { resources: play?.play.resources ?? NO_SPENT });
   });
 
   protected readonly cast = async ({ staff, spell, slot }: StaffCastRequest): Promise<void> => {
-    const command = castStaffCommand(
-      InventoryItemId.parse(staff),
-      ContentId.parse(spell),
-      slot === undefined ? undefined : SlotCountKey.parse(slot),
-    );
-    const sent = await this.#send(command);
-    if (sent) {
-      this.#last.set(command);
-    }
-  };
-
-  protected readonly undo = async (staff: string): Promise<void> => {
-    const last = this.#last();
-    if (last === undefined || last.item !== InventoryItemId.parse(staff)) {
+    const registry = this.registry.data();
+    if (registry === undefined) {
       return;
     }
-    const sent = await this.#send(uncastStaffCommand(last));
-    if (sent) {
-      this.#last.set(undefined);
-    }
+    const request = staffSpendRequest(
+      registry,
+      {
+        item: InventoryItemId.parse(staff),
+        spell: ContentId.parse(spell),
+        ...(slot === undefined ? {} : { slot: SlotCountKey.parse(slot) }),
+      },
+      SpendId.parse(newId()),
+    );
+    await this.#send(request);
   };
 
   /** One edit at a time: they share a revision, so a second would meet a conflict nothing caused. */
-  async #send(command: StaffCommand): Promise<boolean> {
+  async #send(request: SpendRequest): Promise<void> {
     this.busy.set(true);
     this.error.set(undefined);
     try {
-      await this.#play.send(command);
-      return true;
+      await this.#play.send({ field: PlayCommandField.SpendAction, ...request });
     } catch (error: unknown) {
       const { key, params } = describeSaveError(error);
       this.error.set(this.#i18n.translate(key, params));
-      return false;
     } finally {
       this.busy.set(false);
     }

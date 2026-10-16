@@ -8,7 +8,7 @@ import type { CountedMaxima } from './counted-resources';
 import { applyPlayCommand, PlayCommandField } from './play-state';
 import type { PlayCommand, PlayLimits, PlayState } from './play-state';
 import { ResourceCount } from './resource-count';
-import { applySpendCommand, isSpendCommand, spendRefusal } from './spend-commands';
+import { applySpendCommand, isSpendCommand, spendRefusal, turnAllows } from './spend-commands';
 import { SpendKind, SpendProblem } from './spend-log';
 import type { SpendCommand, SpendCost } from './spend-log';
 import { actions, OWN_TURN, playIn, Serial, spendId, spendOf, turnOf } from './spend-log-testing';
@@ -36,7 +36,7 @@ function apply(play: PlayState, command: PlayCommand): PlayState {
 }
 
 function refusal(play: PlayState, command: SpendCommand): SpendProblem | undefined {
-  return spendRefusal(play, command, { counted: COUNTED });
+  return spendRefusal(play, command, { counted: COUNTED, points: LIMITS.resources });
 }
 
 function undo(serial: Serial): PlayCommand {
@@ -181,4 +181,27 @@ test('isSpendCommand tells the spend edits from the rest', () => {
   expect(isSpendCommand(spendOf(FIRST, FREE))).toBe(true);
   expect(isSpendCommand({ field: PlayCommandField.Heal })).toBe(false);
   expect(applySpendCommand).toBeDefined();
+});
+
+describe('what the turn allows', () => {
+  test('allows a cost the actions left pay for and refuses one they do not', () => {
+    const turn = turnOf(TurnPhase.Turn, 2);
+    expect(turnAllows(turn, TWO_ACTIONS)).toBe(true);
+    expect(turnAllows(turn, THREE_ACTIONS)).toBe(false);
+  });
+
+  test('offers only the reaction and free actions off turn', () => {
+    const turn = turnOf(TurnPhase.OffTurn, 0);
+    expect(turnAllows(turn, ONE_ACTION)).toBe(false);
+    expect(turnAllows(turn, REACTION)).toBe(true);
+    expect(turnAllows(turn, FREE)).toBe(true);
+  });
+
+  test('refuses the reaction once it is spent', () => {
+    expect(turnAllows(turnOf(TurnPhase.Turn, 3, { reactionUsed: true }), REACTION)).toBe(false);
+  });
+
+  test('allows anything out of an encounter, where nothing is counted', () => {
+    expect(turnAllows(turnOf(TurnPhase.OutOfEncounter, 0), THREE_ACTIONS)).toBe(true);
+  });
 });

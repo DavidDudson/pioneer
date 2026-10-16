@@ -487,6 +487,9 @@
     "spendOffTurn": "Only reactions and free actions can be used off turn.",
     "spendCostNotAllowed": "That is not a cost this action allows.",
     "spendNoUseLeft": "This action has no uses left.",
+    "spendNoSlotLeft": "There is no spell slot left to cast with.",
+    "spendNoFocusLeft": "There are no Focus Points left to spend.",
+    "spendPaymentConflict": "A staff cast pays for itself; it can't also use a slot or a Focus Point.",
     "spendAlreadySpent": "That use is already in the log.",
     "spendNotSpent": "That use is not in the log, so there is nothing to take back."
   },

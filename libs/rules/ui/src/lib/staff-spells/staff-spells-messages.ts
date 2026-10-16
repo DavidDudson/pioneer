@@ -9,7 +9,6 @@ export const StaffSpellsMessage = {
   CastCharges: 'rules.staffSpells.castCharges',
   CastSlot: 'rules.staffSpells.castSlot',
   CastCantrip: 'rules.staffSpells.castCantrip',
-  Undo: 'rules.staffSpells.undo',
 } as const;
 
 /** Why a staff spell can't be cast, by block. */

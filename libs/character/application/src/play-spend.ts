@@ -7,7 +7,7 @@ import {
   SpendTime,
   spendRefusal,
 } from '@pioneer/character/domain';
-import type { CountedMaxima, PlayCommand, PlayState, SpendLimits } from '@pioneer/character/domain';
+import type { CountedMaxima, PlayCommand, PlayState, ResourceMaxima, SpendLimits } from '@pioneer/character/domain';
 import type { ContentRegistry } from '@pioneer/rules/sdk';
 import { message, ValidationError } from '@pioneer/shared/kernel';
 import type { Temporal } from '@pioneer/shared/kernel';
@@ -19,13 +19,17 @@ const SPEND_MESSAGES = {
   [SpendProblem.OffTurn]: 'character.validation.spendOffTurn',
   [SpendProblem.CostNotAllowed]: 'character.validation.spendCostNotAllowed',
   [SpendProblem.NoUseLeft]: 'character.validation.spendNoUseLeft',
+  [SpendProblem.NoSlotLeft]: 'character.validation.spendNoSlotLeft',
+  [SpendProblem.NoFocusLeft]: 'character.validation.spendNoFocusLeft',
   [SpendProblem.AlreadySpent]: 'character.validation.spendAlreadySpent',
+  [SpendProblem.PaymentConflict]: 'character.validation.spendPaymentConflict',
   [SpendProblem.NotSpent]: 'character.validation.spendNotSpent',
 } as const satisfies Record<SpendProblem, string>;
 
 /** What a spend is checked against: the uses the build gives and the content's costs. */
-export interface SpendContext {
+interface SpendContext {
   readonly counted: CountedMaxima;
+  readonly points: ResourceMaxima;
   readonly registry: ContentRegistry;
 }
 
@@ -39,7 +43,7 @@ function refuse(problem: SpendProblem): never {
  * is never partly applied. The content gives the cost, not the client; an action the content has no cost for, such as
  * a Strike or a spell, is checked against the turn alone.
  */
-export function checkSpend(play: PlayState, command: PlayCommand, { counted, registry }: SpendContext): void {
+function checkSpend(play: PlayState, command: PlayCommand, { counted, points, registry }: SpendContext): void {
   if (!isSpendCommand(command)) {
     return;
   }
@@ -49,7 +53,7 @@ export function checkSpend(play: PlayState, command: PlayCommand, { counted, reg
       refuse(SpendProblem.CostNotAllowed);
     }
   }
-  const problem = spendRefusal(play, command, { counted });
+  const problem = spendRefusal(play, command, { counted, points });
   if (problem !== undefined) {
     refuse(problem);
   }

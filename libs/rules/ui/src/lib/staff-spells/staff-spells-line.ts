@@ -44,15 +44,6 @@ export interface StaffChargesLine {
   readonly max: number;
 }
 
-/** The last cast from a staff, which the player can take back. */
-export interface StaffUndoLine {
-  readonly spell: string;
-  /** The charges it spent. */
-  readonly charges: number;
-  /** The rank of the slot it spent, or undefined when it spent none. */
-  readonly slotRank: SpellRank | undefined;
-}
-
 /** A held staff as a section of the spell list: its name, the charges it has left and its spells by rank. */
 export interface StaffLine {
   /** Unique among the staves: the inventory item's id. */
@@ -61,8 +52,6 @@ export interface StaffLine {
   /** The charges left, or undefined when it is not the staff prepared for the day. */
   readonly charges: StaffChargesLine | undefined;
   readonly spells: readonly StaffSpellLine[];
-  /** The cast that can be taken back, or undefined when there is none. */
-  readonly undo: StaffUndoLine | undefined;
 }
 
 /** A cast the player chose: the staff, its spell and the slot that pays with the charge, if any. */

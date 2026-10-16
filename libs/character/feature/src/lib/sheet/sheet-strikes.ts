@@ -1,12 +1,13 @@
 import { characterStrikeRules, equippedRules, heldShields, itemContent } from '@pioneer/character/domain';
-import type { Character } from '@pioneer/character/domain';
+import type { Character, TurnState } from '@pioneer/character/domain';
 import { deriveStrikes } from '@pioneer/rules/engine';
 import type { ModifierInputs, WeaponInputs } from '@pioneer/rules/engine';
-import { OriginHopKind, Selector } from '@pioneer/rules/sdk';
+import { ActionCost, OriginHopKind, Selector } from '@pioneer/rules/sdk';
 import type { ContentId, ContentRegistry } from '@pioneer/rules/sdk';
 import { StatisticsMessage } from '@pioneer/rules/ui';
 import type { NamedStrike, StrikesShield } from '@pioneer/rules/ui';
 
+import { affordability } from './sheet-actions';
 import { traitNames } from './sheet-build';
 import { statisticInputsOf } from './sheet-inputs';
 import { checkSituations, NO_CLAIMS } from './sheet-situations';
@@ -82,4 +83,17 @@ export function sheetShields(registry: ContentRegistry, character: Character): r
       brokenThreshold,
     }),
   );
+}
+
+/** The Strikes of `strikes` with what using each spends: its weapon, one action, and what `turn` leaves to pay it. */
+export function usableStrikes(strikes: readonly NamedStrike[], turn: TurnState | undefined): readonly NamedStrike[] {
+  return strikes.map((named): NamedStrike => ({
+    ...named,
+    use: {
+      id: named.strike.weapon.origin.entry,
+      name: named.name,
+      cost: ActionCost.One,
+      ...affordability(turn, ActionCost.One, undefined),
+    },
+  }));
 }

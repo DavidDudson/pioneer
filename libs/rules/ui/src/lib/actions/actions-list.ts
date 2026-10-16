@@ -56,7 +56,11 @@ function groupPriority({ lines }: ActionGroup): number {
  */
 export function nowGroups(lines: readonly ActionLine[], mode: ActionMode): readonly ActionGroup[] {
   const usable = lines.filter(
-    (line) => line.status !== ActionStatus.Unavailable && !line.dormant && line.modes.includes(mode),
+    (line) =>
+      line.status !== ActionStatus.Unavailable &&
+      !line.dormant &&
+      line.affordable !== false &&
+      line.modes.includes(mode),
   );
   const groups = COST_ORDER.map((cost): ActionGroup => ({
     cost,

@@ -33,7 +33,7 @@
     <fr-async-region>
       <ng-template frAsyncPending><pio-strikes [strikes]="undefined" /></ng-template>
       <ng-template [frAsyncData]="sheet.engineQuery()"
-        ><pio-strikes [strikes]="picks.strikes()" [shields]="picks.shields()" [entryNames]="picks.entryNames()"
+        ><pio-strikes [strikes]="strikes()" [shields]="picks.shields()" [entryNames]="picks.entryNames()"
       /></ng-template>
     </fr-async-region>
   </fr-section>

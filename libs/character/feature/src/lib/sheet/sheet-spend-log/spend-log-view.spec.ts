@@ -1,6 +1,7 @@
 import { SpendCount, SpendId, SpendKind, SpendTime } from '@pioneer/character/domain';
 import type { SpendEntry, SpendLog } from '@pioneer/character/domain';
 import { ContentId } from '@pioneer/rules/sdk';
+import { Temporal } from '@pioneer/shared/kernel';
 import { describe, expect, it } from 'vitest';
 
 import { costMessage, spendRows } from './spend-log-view';
@@ -29,6 +30,11 @@ describe(spendRows, () => {
     expect(rows.map(({ name }) => name)).toStrictEqual(['Stride', 'Stride']);
     expect(rows[0]?.cost.key).toBe('character.sheet.spend.costReaction');
     expect(rows[1]?.cost.key).toBe('character.sheet.spend.costOne');
+  });
+
+  it('carries when each spend happened', () => {
+    const rows = spendRows([entry('1', { kind: SpendKind.Free })], new Map());
+    expect(rows[0]?.at.equals(Temporal.Instant.from(AT))).toBe(true);
   });
 
   it('leaves the name out for an action the content does not have', () => {

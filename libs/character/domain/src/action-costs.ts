@@ -1,6 +1,7 @@
-import { ContentKind } from '@pioneer/rules/sdk';
-import type { ActionData, ContentEntry, ContentId, ContentRegistry } from '@pioneer/rules/sdk';
+import { ACTION_COUNT, CastActions, ContentKind } from '@pioneer/rules/sdk';
+import type { ActionCost, ActionData, ContentEntry, ContentId, ContentRegistry } from '@pioneer/rules/sdk';
 
+import type { SpellOption } from './spell-content';
 import { SpendCount } from './spend-log';
 import type { ActionCostRange } from './spend-log';
 
@@ -43,4 +44,21 @@ export function actionCosts(registry: ContentRegistry): ReadonlyMap<ContentId, A
   );
   READ.set(registry, read);
   return read;
+}
+
+/**
+ * What casting `spell` costs: its fewest actions, or its reaction or free action, and for a spell cast for one action or
+ * more (Heal) the most it runs to. Undefined for a spell cast over minutes or longer, which no turn pays for.
+ */
+export function spellCost({ cast }: Pick<SpellOption, 'cast'>): ActionCostRange | undefined {
+  const costs = cast.filter((each): each is ActionCost => each !== CastActions.Time);
+  const counted = costs.filter((each) => ACTION_COUNT[each] !== undefined);
+  const fewest = counted.toSorted((left, right) => (ACTION_COUNT[left] ?? 0) - (ACTION_COUNT[right] ?? 0)).at(0);
+  if (fewest === undefined) {
+    const single = costs.at(0);
+    return single === undefined ? undefined : { cost: single };
+  }
+  const most = Math.max(...counted.map((each) => ACTION_COUNT[each] ?? 0));
+  const from = ACTION_COUNT[fewest] ?? 0;
+  return { cost: fewest, upTo: most > from ? SpendCount.parse(most) : undefined };
 }

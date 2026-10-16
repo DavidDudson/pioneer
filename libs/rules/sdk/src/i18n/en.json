@@ -1017,7 +1017,6 @@
       "castCharges": "Cast, {charges, plural, one {# charge} other {# charges}}",
       "castSlot": "Cast, {charges, plural, one {# charge} other {# charges}} and a {rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}}-rank slot",
       "castCantrip": "Cast, heightened to {rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank, no charges",
-      "undo": "Undo {spell}",
       "notOnList": "Not on any of your spell lists",
       "rankTooHigh": "You cast no spell of {rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank yet"
     },

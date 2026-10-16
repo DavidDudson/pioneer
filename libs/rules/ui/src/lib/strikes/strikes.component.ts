@@ -8,6 +8,7 @@ import { StatisticKind } from '@pioneer/rules/sdk';
 import type { ContentId, Slug } from '@pioneer/rules/sdk';
 import { filter, merge } from 'rxjs';
 
+import type { UsableLine } from '../actions/action-user';
 import { SIGNED, numberStyle } from '../breakdown/number-style';
 import { NO_ORIGIN_NAMES } from '../origin-chain/origin-names';
 import type { OriginNames } from '../origin-chain/origin-names';
@@ -38,6 +39,8 @@ export interface NamedStrike {
   readonly strike: Strike;
   /** The situations a roll of its attack can claim, when the page lets the player claim them. */
   readonly situations?: StatisticSituations | undefined;
+  /** What using the Strike spends, when the page lets it be used: its weapon, one action, and what the turn can pay. */
+  readonly use?: UsableLine | undefined;
 }
 
 /** A shield held beside the Strikes: its name and the numbers that matter when it blocks. */
@@ -99,11 +102,12 @@ export class StrikesView {
       names: { entries: this.entryNames(), items: this.originNames().items },
     };
     const claims = this.#roller?.claim !== undefined;
-    return this.strikes()?.map(({ name, nameKey, traits, strike, situations }): ShownStrike => {
+    return this.strikes()?.map(({ name, nameKey, traits, strike, situations, use }): ShownStrike => {
       const bonus = strike.damage?.bonus;
       const offered = claims ? (situations?.offered ?? []) : [];
       return {
         key: strike.weapon.slug,
+        use,
         name: nameKey === undefined ? name : this.#i18n.translate(nameKey),
         traits: traits.map((label): Chip => ({ label })),
         attack: this.#attack(strike.attack),

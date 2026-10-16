@@ -1,7 +1,9 @@
 import { applicationConfig } from '@analogjs/storybook-angular';
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
+import { ActionCost, ContentId, contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import { expect, within } from 'storybook/test';
 
+import { ActionUser } from '../actions/action-user';
 import { STATISTIC_ROLLER } from '../statistics/statistic-roller';
 import type { StatisticRoller } from '../statistics/statistic-roller';
 import { ENTRY_NAMES } from '../testing/breakdown-fixtures';
@@ -16,6 +18,7 @@ import {
   THROWN_STRIKES,
 } from '../testing/strike-fixtures';
 import { StrikesView } from './strikes.component';
+import type { NamedStrike } from './strikes.component';
 
 type StrikesStory = StoryObj<StrikesView>;
 
@@ -134,5 +137,37 @@ export const RuleElements: StrikesStory = {
     await expect(canvas.getByText('Plus 1d6 cold on a critical hit')).toBeVisible();
     await expect(canvas.getByText('On a critical success, a success')).toBeVisible();
     await expect(canvas.getByText('The flame lingers.')).toBeVisible();
+  },
+};
+
+/** `named` with a Use button for one action, which only the first Strike has the actions for. */
+function usableStrike(named: NamedStrike, index: number): NamedStrike {
+  const weapon = EntrySlug.parse(`equipment:weapon-${index}`);
+  const id = ContentId.parse(contentId(PackId.parse('player-core'), weapon));
+  return { ...named, use: { id, name: named.name, cost: ActionCost.One, affordable: index === 0 } };
+}
+
+/** A page that spends: each Strike has a Use button for one action, hidden once the turn has none left. */
+export const Usable: StrikesStory = {
+  args: {
+    strikes: FIGHTER_STRIKES.map((named, index) => usableStrike(named, index)),
+  },
+  decorators: [
+    applicationConfig({
+      providers: [
+        {
+          provide: ActionUser,
+          useValue: {
+            use: async (): Promise<void> => {
+              await Promise.resolve();
+            },
+          },
+        },
+      ],
+    }),
+  ],
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getAllByRole('button', { name: 'Use' })).toHaveLength(1);
   },
 };

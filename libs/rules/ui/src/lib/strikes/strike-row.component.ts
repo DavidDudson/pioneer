@@ -6,6 +6,8 @@ import type { StatisticValue } from '@pioneer/rules/engine';
 import { StatisticKind } from '@pioneer/rules/sdk';
 import type { ContentId } from '@pioneer/rules/sdk';
 
+import type { UsableLine } from '../actions/action-user';
+import { UseButtons } from '../actions/use-buttons.component';
 import { BreakdownView } from '../breakdown/breakdown.component';
 import { NO_ORIGIN_NAMES } from '../origin-chain/origin-names';
 import type { OriginNames } from '../origin-chain/origin-names';
@@ -42,6 +44,8 @@ export type DerivedAttack = Extract<ShownAttack, { readonly ok: true }>;
 export interface ShownStrike {
   readonly key: string;
   readonly name: string;
+  /** What the Use button spends, when the page can spend. */
+  readonly use: UsableLine | undefined;
   readonly attack: ShownAttack;
   /** Its traits by name. */
   readonly traits: readonly Chip[];
@@ -88,6 +92,7 @@ export interface ShownStrike {
     StatisticTotal,
     Text,
     TranslocoPipe,
+    UseButtons,
   ],
   templateUrl: './strike-row.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -1,5 +1,6 @@
 import type { ContentId, FocusPoints, MagicTradition, SpellRank } from '@pioneer/rules/sdk';
 
+import type { UsableLine } from '../actions/action-user';
 import type { SpellDetailLine } from '../spell-list/spell-detail-line';
 
 /** A focus spell by name; a focus cantrip costs no Focus Point. */
@@ -12,6 +13,8 @@ export interface FocusSpellLine {
   readonly cantrip: boolean;
   /** What casting it takes and does at the focus rank; undefined while it is not worded. */
   readonly detail: SpellDetailLine | undefined;
+  /** What casting it spends, when the page lets it be cast; absent otherwise. */
+  readonly use?: UsableLine | undefined;
 }
 
 /** A focus entry's spells, named by its tradition. */

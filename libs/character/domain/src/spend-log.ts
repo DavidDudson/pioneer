@@ -3,7 +3,8 @@ import { Pg, Uuid } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
-import { UseCountKey } from './counted-resources';
+import { SlotCountKey, UseCountKey } from './counted-resources';
+import { StaffCastSchema } from './staff-commands';
 import { QuickenedAction } from './turn-state';
 
 /** The most spends the log keeps; the oldest drop first. A turn holds three actions, a reaction and its free actions. */
@@ -44,6 +45,12 @@ export const SpendRequestSchema = z.strictObject({
   cost: SpendCostSchema,
   /** The frequency use recorded with it, so undoing the spend refunds that use too. */
   use: UseCountKey.optional(),
+  /** The staff cast it records, so undoing the spend also refunds the charges and the slot that paid for it. */
+  staff: StaffCastSchema.optional(),
+  /** The spell slot it expends, so undoing the spend gives the slot back. */
+  slot: SlotCountKey.optional(),
+  /** Whether it spends a Focus Point, which undoing the spend regains. */
+  focus: z.literal(true).optional(),
 });
 export type SpendRequest = z.infer<typeof SpendRequestSchema>;
 
@@ -89,6 +96,12 @@ export const SpendProblem = {
   NoUseLeft: 'no-use-left',
   /** The id is already in the log. */
   AlreadySpent: 'already-spent',
+  /** The slot the spend expends has none left. */
+  NoSlotLeft: 'no-slot-left',
+  /** The character has no Focus Point left to spend. */
+  NoFocusLeft: 'no-focus-left',
+  /** A staff cast pays for itself, so the spend can't also expend a slot or a Focus Point. */
+  PaymentConflict: 'payment-conflict',
   /** No spend in the log has that id. */
   NotSpent: 'not-spent',
 } as const;

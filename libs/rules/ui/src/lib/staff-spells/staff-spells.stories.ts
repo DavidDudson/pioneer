@@ -24,7 +24,6 @@ export const Prepared: StaffSpellsStory = {
         key: 'staff-of-fire',
         name: 'Staff of Fire',
         charges: { left: 3, max: 4 },
-        undo: undefined,
         spells: [
           {
             key: 'produce-flame',
@@ -78,7 +77,6 @@ export const CostPicker: StaffSpellsStory = {
         key: 'staff-of-fire',
         name: 'Staff of Fire',
         charges: { left: 4, max: 4 },
-        undo: undefined,
         spells: [
           {
             key: 'fireball',
@@ -105,25 +103,6 @@ export const CostPicker: StaffSpellsStory = {
   },
 };
 
-/** The last cast offers to be taken back. */
-export const Undoable: StaffSpellsStory = {
-  args: {
-    staves: [
-      {
-        key: 'staff-of-fire',
-        name: 'Staff of Fire',
-        charges: { left: 1, max: 4 },
-        undo: { spell: 'Fireball', charges: 3, slotRank: undefined },
-        spells: [],
-      },
-    ],
-  },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    await expect(canvas.getByRole('button', { name: 'Undo Fireball' })).toBeVisible();
-  },
-};
-
 /** A staff held by someone whose spell lists have none of its spells, and that was not prepared today. */
 export const Unavailable: StaffSpellsStory = {
   args: {
@@ -132,7 +111,6 @@ export const Unavailable: StaffSpellsStory = {
         key: 'staff-of-healing',
         name: 'Staff of Healing',
         charges: undefined,
-        undo: undefined,
         spells: [
           {
             key: 'heal',
