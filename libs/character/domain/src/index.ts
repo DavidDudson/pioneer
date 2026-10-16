@@ -359,6 +359,7 @@ export {
 export { ItemOrigin } from './item-origin';
 export { type ActiveItem, activeItems } from './active-items';
 export {
+  buildRules,
   type EquippedInputs,
   equippedInputs,
   equippedRules,
