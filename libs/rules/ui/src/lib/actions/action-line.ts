@@ -24,4 +24,8 @@ export interface ActionLine {
   readonly dormant: boolean;
   /** The most actions a variable cost runs to; absent for a fixed cost. */
   readonly upTo?: number | undefined;
+  /** Whether the turn has what its cost takes; absent when the page tracks no turn, which counts as yes. */
+  readonly affordable?: boolean | undefined;
+  /** The most actions of a variable cost the turn can pay; absent when the page tracks no turn. */
+  readonly affordableUpTo?: number | undefined;
 }

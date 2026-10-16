@@ -258,3 +258,42 @@ describe('using an action', () => {
     expect(used[0]?.actions).toBe(2);
   });
 });
+
+function rowTexts(fixture: ComponentFixture<ActionsView>): string[] {
+  return [...hostOf(fixture).querySelectorAll('pio-action-row')].map((row) => textOf(row));
+}
+
+/** The first of the standing actions, which the tests below make dear or cheap. */
+function firstStanding(): ActionLine {
+  const [first] = STANDING_ACTIONS;
+  if (first === undefined) {
+    throw new Error('The standing actions are empty');
+  }
+  return first;
+}
+
+const FIRST_STANDING = firstStanding();
+
+describe('what the turn has the actions for', () => {
+  it('leaves out of the Now view an action the turn cannot pay', async () => {
+    const lines = [{ ...FIRST_STANDING, affordable: false }, ...STANDING_ACTIONS.slice(1)];
+    const fixture = await render(lines);
+    expect(rowTexts(fixture).some((row) => row.includes(FIRST_STANDING.name))).toBe(false);
+    expect(rowTexts(fixture).length).toBeGreaterThan(0);
+  });
+
+  it('still lists it in the All view, without a Use button', async () => {
+    const { user } = recorder();
+    const lines = STANDING_ACTIONS.map((line): ActionLine => ({ ...line, affordable: false }));
+    const fixture = await render(lines, { user, view: ActionsViewKind.All });
+    expect(rowTexts(fixture)).toHaveLength(STANDING_ACTIONS.length);
+    expect(buttonsOf(fixture).filter((button) => textOf(button).startsWith('Use'))).toHaveLength(0);
+  });
+
+  it('offers only the counts of a variable cost the turn can pay', async () => {
+    const { user } = recorder();
+    const line = { ...upToTwo(FIRST_STANDING), affordableUpTo: 1 };
+    const fixture = await render([line], { user });
+    expect(buttonsOf(fixture).map((button) => textOf(button))).toStrictEqual(['Use for 1 action']);
+  });
+});

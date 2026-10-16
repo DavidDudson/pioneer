@@ -1,0 +1,9 @@
+@if (usable()) {
+  @for (count of counts(); track count) {
+    <fr-async-button size="sm" [action]="useFor(count)">
+      {{ useKey(count) | transloco: { count } }}
+    </fr-async-button>
+  } @empty {
+    <fr-async-button size="sm" [action]="useFor(undefined)">{{ Message.Use | transloco }}</fr-async-button>
+  }
+}

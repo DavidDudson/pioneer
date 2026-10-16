@@ -60,7 +60,6 @@ export {
   type StaffChargesLine,
   type StaffLine,
   type StaffSpellLine,
-  type StaffUndoLine,
   StaffSpellBlock,
 } from './lib/staff-spells/staff-spells-line';
 export { StaffSpellsView } from './lib/staff-spells/staff-spells.component';
@@ -216,6 +215,7 @@ export {
 } from './lib/slot-picker/slot-picker-table';
 export type { ActionLine } from './lib/actions/action-line';
 export { ActionUser } from './lib/actions/action-user';
-export type { ActionUse } from './lib/actions/action-user';
+export type { ActionUse, UsableLine, UsePayment } from './lib/actions/action-user';
+export { UseButtons } from './lib/actions/use-buttons.component';
 export { ActionsViewKind } from './lib/actions/actions-list';
 export { ActionsView } from './lib/actions/actions.component';

@@ -10,11 +10,6 @@
       } @else {
         <fr-badge>{{ Message.NotPrepared | transloco }}</fr-badge>
       }
-      @if (staff.undo; as taken) {
-        <fr-button [disabled]="busy()" (pressed)="undo.emit(staff.key)">
-          {{ Message.Undo | transloco: { spell: taken.spell } }}
-        </fr-button>
-      }
     </fr-stack>
     <fr-list gap="2xs">
       @for (spell of staff.spells; track spell.key) {

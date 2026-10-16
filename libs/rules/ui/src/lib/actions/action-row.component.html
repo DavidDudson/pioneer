@@ -9,17 +9,7 @@
     @if (action().line.roll; as roll) {
       <pio-statistic-roll [name]="action().line.name" [kind]="Check" [statistic]="roll" />
     }
-    @if (usable()) {
-      @if (counts().length > 0) {
-        @for (count of counts(); track count) {
-          <fr-async-button size="sm" [action]="useFor(count)">
-            {{ useKey(count) | transloco: { count } }}
-          </fr-async-button>
-        }
-      } @else {
-        <fr-async-button size="sm" [action]="useFor(undefined)">{{ Message.Use | transloco }}</fr-async-button>
-      }
-    }
+    <pio-use-buttons [line]="action().line" />
   </fr-stack>
   <fr-text variant="caption" tone="muted">{{ action().detail }}</fr-text>
   @if (chips().length > 0) {

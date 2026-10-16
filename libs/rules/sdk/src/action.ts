@@ -108,8 +108,8 @@ const UP_TO_MIN = 2;
 export const UP_TO_MAX = 6;
 
 /** How many actions a variable cost runs to ("[one-action] to [two-actions]", or across turns). */
-const ActionCount = Pg.smallint().min(UP_TO_MIN).max(UP_TO_MAX).brand<'ActionCount'>();
-type ActionCount = z.infer<typeof ActionCount>;
+export const ActionCount = Pg.smallint().min(UP_TO_MIN).max(UP_TO_MAX).brand<'ActionCount'>();
+export type ActionCount = z.infer<typeof ActionCount>;
 
 /** The most skills one feat or action names: every skill but Lore. */
 const SKILLS_MAX = 16;
@@ -124,7 +124,7 @@ const MINIMUM_PROFICIENCY = {
 };
 
 /** A variable cost starts at a glyph that counts actions and runs to more of them. */
-function isVariableCost(cost: ActionCost | undefined, upTo: ActionCount): boolean {
+export function isVariableCost(cost: ActionCost | undefined, upTo: ActionCount): boolean {
   const from = cost === undefined ? undefined : ACTION_COUNT[cost];
   return from !== undefined && from < upTo;
 }
