@@ -536,6 +536,7 @@
       "discrepanciesMatch": "All {count, number} statistics Pathbuilder computed match Pioneer's.",
       "discrepancyWhy": "Why Pioneer's value is what it is",
       "statistic": {
+        "named": "{name}",
         "defenseUnarmored": "Unarmored defense",
         "defenseLight": "Light armor",
         "defenseMedium": "Medium armor",

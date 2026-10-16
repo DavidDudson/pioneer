@@ -14,6 +14,7 @@ const RANK_KEYS: Readonly<Record<string, string>> = {
 };
 
 const SPELL_DC_PREFIX = 'spell-dc:';
+const NAMED_KEY = 'character.import.result.statistic.named';
 const SPELL_DC_KEY = 'character.import.result.statistic.spellDc';
 
 /** What names a statistic row whose selector no statistic definition names: its message key and parameters. */
@@ -22,13 +23,16 @@ export interface StatisticLabel {
   readonly params: Readonly<Record<string, string>>;
 }
 
-/** The label of `selector` when it is one the engine ranks or derives per entry, undefined for the rest. */
-export function statisticLabel(selector: Selector): StatisticLabel | undefined {
+/**
+ * What names the row of `selector`: the ranked statistics and spell DCs no statistic definition names get their own
+ * message; every other row shows its definition's `name`, or its selector when the engine could not derive it.
+ */
+export function statisticLabel(selector: Selector, name: string | undefined): StatisticLabel {
   const key = RANK_KEYS[selector];
   if (key !== undefined) {
     return { key, params: {} };
   }
   return selector.startsWith(SPELL_DC_PREFIX)
     ? { key: SPELL_DC_KEY, params: { entry: selector.slice(SPELL_DC_PREFIX.length) } }
-    : undefined;
+    : { key: NAMED_KEY, params: { name: name ?? selector } };
 }

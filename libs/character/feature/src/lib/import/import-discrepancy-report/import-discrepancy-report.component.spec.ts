@@ -70,6 +70,10 @@ describe(ImportDiscrepancyReport, () => {
   it.each([
     ['defense:heavy', 'Heavy armor'],
     ['defense:unarmored', 'Unarmored defense'],
+    ['defense:light', 'Light armor'],
+    ['defense:medium', 'Medium armor'],
+    ['attack:simple', 'Simple weapons'],
+    ['attack:advanced', 'Advanced weapons'],
     ['attack:martial', 'Martial weapons'],
     ['attack:unarmed', 'Unarmed attacks'],
     ['spellcasting', 'Spellcasting'],

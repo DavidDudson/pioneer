@@ -10,7 +10,7 @@
         <fr-list-item>
           <fr-stack gap="xs">
             <fr-stack direction="horizontal" justify="between" align="center" gap="sm">
-              <fr-text>{{ row.name }}</fr-text>
+              <fr-text>{{ row.label.key | transloco: row.label.params }}</fr-text>
               @if (row.ranks; as ranks) {
                 <fr-text numeric>{{
                   'character.import.result.skillGap'

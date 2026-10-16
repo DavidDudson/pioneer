@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
-import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
+import { TranslocoPipe } from '@jsverse/transloco';
 import { Disclosure, List, ListItem, LocaleFormat, Stack, Text } from '@pioneer/frontier';
 import { DiscrepancyKind } from '@pioneer/interop/pathbuilder';
 import type { Discrepancy, DiscrepancyReport } from '@pioneer/interop/pathbuilder';
@@ -10,6 +10,7 @@ import type { NamedStatistic } from '@pioneer/rules/ui';
 
 import { SIGNED } from '../import-labels';
 import { statisticLabel } from '../import-statistic-labels';
+import type { StatisticLabel } from '../import-statistic-labels';
 
 interface Totals {
   readonly pathbuilder: string;
@@ -24,7 +25,8 @@ interface Ranks {
 /** A statistic that differs, as the list shows it: both values and the difference worded, and its breakdown. */
 interface DiscrepancyView {
   readonly selector: Selector;
-  readonly name: string;
+  /** The message that names the statistic, in the viewer's language. */
+  readonly label: StatisticLabel;
   /** A total Pathbuilder computed and Pioneer's, in the viewer's locale; absent for a rank. */
   readonly totals: Totals | undefined;
   /** The message keys naming the two ranks; absent for a total. */
@@ -53,7 +55,6 @@ export class ImportDiscrepancyReport {
   public readonly entryNames = input<ReadonlyMap<ContentId, string>>(new Map());
 
   readonly #format = inject(LocaleFormat);
-  readonly #i18n = inject(TranslocoService);
 
   protected readonly nothingCompared = computed(() => this.report().compared === 0);
   protected readonly allMatch = computed(() => !this.nothingCompared() && this.report().differences.length === 0);
@@ -64,10 +65,9 @@ export class ImportDiscrepancyReport {
 
   #view(difference: Discrepancy): DiscrepancyView {
     const named = this.statistics().get(difference.selector);
-    const label = named === undefined ? statisticLabel(difference.selector) : undefined;
     const base = {
       selector: difference.selector,
-      name: label === undefined ? (named?.name ?? difference.selector) : this.#i18n.translate(label.key, label.params),
+      label: statisticLabel(difference.selector, named?.name),
       difference: this.#format.number(difference.difference, SIGNED),
       kind: named?.kind,
       statistic: named?.result.ok === true ? named.result : undefined,
