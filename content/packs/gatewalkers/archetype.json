@@ -1,0 +1,211 @@
+[
+  {
+    "id": "45ebf6a5-8c01-5e37-acb5-cbcf5d293d1a",
+    "pack": "gatewalkers",
+    "kind": "archetype",
+    "slug": "archetype:oatia-skysage",
+    "name": "Oatia Skysage",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The tradition of Oatia skysages stems from a small sect of dedicated stargazers on Castrovel. To better study the celestial mantle, these eccentric astronomers broke away from their Sovyrian kin and migrated to the wild continent of Ukulam, where the night skies were clear of light pollution. Though reclusive, Oatia skysages have been known to pass on their esoteric knowledge and unique worldview to similar-minded adventurers. Such adventuring skysages search for secrets and omens in the stars and can even call down stars' light to aid them in battle."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "10th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Know-It-All"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.PVwU1LMWcSgD7Q0m"
+    },
+    "data": {
+      "dedication": "2f8304d3-c51f-5234-93ca-52f74d4cd762"
+    }
+  },
+  {
+    "id": "98a38d02-f650-5c56-be2a-dffa4d4a928d",
+    "pack": "gatewalkers",
+    "kind": "archetype",
+    "slug": "archetype:scion-of-domora",
+    "name": "Scion of Domora",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Rare"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Centuries ago, Domora Hume founded a lakeside city that would become one of the largest in western Sarkoris. When the city was attacked by raiders, Hume conjured a guardian from the lake to drive back the attackers. In the process, he also become the region's first god caller in generations."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Hume's savior was an ancient spirit guide from the Plane of Water named Dyzad. With Dyzad's guidance, Domorans summoned more spirit guides, all of which the citizens worshipped as gods long after his passing. This tradition of god calling—and the worship of Sarkorian gods—came to define the city of Domora."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In the ensuing years, countless pilgrims, Sarkorian or otherwise, came to Domora to learn of god calling. Many hoped to summon a god to bring back to their own people, while others petitioned the deities as a means of spiritual growth. Today, the Domoran god calling tradition is all but extinguished—wiped out during the Worldwound incursion. Nonetheless, worthy individuals who brave Domora's ruins might unbury a fragment of this tradition. Although they aren't true god callers—they lack the ability to bond with greater spirit guides or unlock the highest levels of their power—such \"scions\" still forge unique relationships with lesser spirit guides. Scions of Domora provide physical and spiritual anchors for their spirit guide companions, while the spirit guide returns the favor by sharing a portion of its supernatural powers."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.J0AfK0jJgS5WxhCE"
+    },
+    "data": {
+      "dedication": "27c33f69-6bda-5494-b37e-e0173a486b81"
+    }
+  },
+  {
+    "id": "573cde1d-fb2c-5a42-a849-fd48ee62da96",
+    "pack": "gatewalkers",
+    "kind": "archetype",
+    "slug": "archetype:twilight-speaker",
+    "name": "Twilight Speaker",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As a religious and diplomatic representative of Findeladlara—and all Ilverani of the north—you see it as your duty to befriend shorter-lived peoples you encounter on your travels."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Unlike other Ilverani, also called \"snowcaster elves\" by outsiders, you find outsiders interesting and believe there is much to learn from having conversations and relationships with others. Whether to watch them, teach them, or to keep would-be enemies close, you believe a broad smile, ageless learning, and a watchful eye are key. Some see this watchful and outwardly friendly nature as condescending, but they don't understand the reason why worshipers of Findeladlara feel a duty to uphold this tradition. When Earthfall struck and most of the other elves on Golarion fled to Sovyrian or delved deep into the earth, the elves that would one day come to be known as Ilverani remained and sought to shelter others from catastrophe. They built refuges to protect others and helped guide people to safety during the Age of Darkness. While Twilight Seekers today don't build safe structures, they do work to build bonds among people so that society can be protected against other catastrophic events should they come to pass."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This calling brings you in contact with many different cultures, yet you seek to preserve the ways of your people. To this end, you are ever on your guard against the lure of \"modern fads.\" Unfortunately, some twilight speakers have succumbed to the allure of other ways of life and, for them, there is only one outcome: exile."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.YQXGtBHVoiSYUjtl"
+    },
+    "data": {
+      "dedication": "ad82bd34-bd70-5bf8-a2b4-f3cf7a189bd5"
+    }
+  }
+]

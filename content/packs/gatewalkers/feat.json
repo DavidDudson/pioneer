@@ -1,0 +1,2998 @@
+[
+  {
+    "id": "cfea73f7-e407-51e3-ae36-9876c1e842c9",
+    "pack": "gatewalkers",
+    "kind": "feat",
+    "slug": "feat:basic-skysage-divination",
+    "name": "Basic Skysage Divination",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The stars move, granting you a sliver of their magic. Choose one of the following 1st-rank spells to your spell repertoire: "
+          },
+          {
+            "type": "ref",
+            "id": "982bfd2b-5f56-5940-983b-a1a9aba1bb98"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "566a10d1-097c-5ee1-b473-4e0ab1475228"
+          },
+          {
+            "type": "text",
+            "text": ". You can Cast this Spell as an occult Oatia skysage spell."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At 6th level, choose one of the following 2nd-rank spells to add to your spell repertoire: "
+          },
+          {
+            "type": "ref",
+            "id": "dfab75a2-997b-5597-b7d7-3b9ad9e935dc"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "52cd674f-3e49-5527-b0c9-8a4137bc9c08"
+          },
+          {
+            "type": "text",
+            "text": ". At 8th level, you choose one of the following 3rd-rank spells to add to your spell repertoire: "
+          },
+          {
+            "type": "ref",
+            "id": "137e9f3a-3af5-5004-9a32-dba8fdaff034"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "d437e6ba-d367-5d77-b142-bace584873d7"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.xxvKWQa2olCHoJ03"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Oatia Skysage Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "45ebf6a5-8c01-5e37-acb5-cbcf5d293d1a"
+    }
+  },
+  {
+    "id": "27e301f5-adc7-5741-b721-531863ca034a",
+    "pack": "gatewalkers",
+    "kind": "feat",
+    "slug": "feat:betraying-shank",
+    "name": "Betraying Shank",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are within melee reach of a target, but it is not in combat with you."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While your usual diplomacy is well intentioned, you know that sometimes those same skills will need to be turned to deception. In a flash, you draw a sheathed or concealed agile or finesse weapon and make a melee Strike. The target is "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " against your Strike. You then roll Deception for initiative."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.cXuycCR29sFLBjbo"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Twilight Speaker Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are within melee reach of a target, but it is not in combat with you."
+              }
+            ]
+          }
+        ]
+      },
+      "archetype": "573cde1d-fb2c-5a42-a849-fd48ee62da96"
+    }
+  },
+  {
+    "id": "c558ae94-181c-510c-886d-0dc27bb2f376",
+    "pack": "gatewalkers",
+    "kind": "feat",
+    "slug": "feat:borrowed-ability",
+    "name": "Borrowed Ability",
+    "level": 2,
+    "rarity": "rare",
+    "traits": ["deviant", "magical", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your touch opens a conduit into the mind of your target, the emptiness within you pulling skills and memories through. You touch an adjacent creature and choose any skill you believe they are trained or better in. If you choose a skill that they are trained or better in, you borrow their proficiency in that skill, becoming trained in that skill for 1 minute. If they are not trained in the skill you choose, the GM chooses the next most applicable skill (for instance, choosing Acrobatics instead of Athletics). At 12th level, you can become an expert in the skill if the target is as well."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the target of Borrowed Ability is unwilling, the effects depend on the target's Will save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target resists your touch completely."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your borrowing is unstable. At the beginning of each of your turns, you must either relinquish your hold on the borrowed skill (as a free action), or attempt another backlash check for your deviation; the ability ends if you fail."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Borrowed Ability lasts for its full duration."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Awakening",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain some of the target's defensive abilities. When you use Borrowed Ability, you also gain a +1 circumstance bonus to one of your saving throws for the duration, matching the target's highest saving throw. You can choose to apply a –1 circumstance penalty to the target's saving throw when you do so."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Awakening",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your touch establishes a lingering link through which you can sense what your target does. When you use Borrowed Ability, you gain any special senses—such as darkvision, scent, or tremorsense—that the target possesses. If the target does not have a sense that you normally have (for instance, an ooze that has no vision), you lose those senses as well. Your senses remain altered for the duration of Borrowed Ability."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "2bd3f370-5798-5ef1-aeb6-802a1b60bb91",
+        "allowDuplicate": false,
+        "predicate": [
+          {
+            "not": "feature:leech-deviant-classification"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.v4N0tTGjKGMwjqUG"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "one"
+      }
+    }
+  },
+  {
+    "id": "214b6f6c-bee0-503d-a41b-df87f01e3ca4",
+    "pack": "gatewalkers",
+    "kind": "feat",
+    "slug": "feat:disarming-smile",
+    "name": "Disarming Smile",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype", "concentrate", "emotion", "mental", "visual"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are the target of a melee attack and the attacker has not rolled yet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are aware of the attacker, the attacker is an intelligent humanoid creature, and you have not attempted to harm the attacker."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "With a wide and sincere smile, you give your attacker pause. You attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:diplomacy"
+          },
+          {
+            "type": "text",
+            "text": " check against the triggering attacker's Will DC. After you use Disarming Smile, all creatures who witnessed you use it are temporarily immune to your Disarming Smile for the next 24 hours."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your enemy ceases their attack, momentarily taken aback by your disarming smile. The attack fails and the triggering target can't attempt hostile actions against you until the beginning of its next turn or until you (or your allies) take hostile actions against the enemy (or its allies). You can begin talking to the creature on your next turn to attempt another Diplomacy check; on a success, you sustain the effect until the beginning of your next turn, to a maximum of 1 minute. Talking on subsequent rounds requires that you be able to communicate with the target creature and imparts the auditory and linguistic traits to the action."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your foe pauses momentarily. Their attack fails, but they can attempt further attacks against you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target's attack is unaffected."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.ZGgFrQAQWk0keaFW"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Twilight Speaker Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are aware of the attacker, the attacker is an intelligent humanoid creature, and you have not attempted to harm the attacker."
+              }
+            ]
+          }
+        ],
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are the target of a melee attack and the attacker has not rolled yet."
+              }
+            ]
+          }
+        ]
+      },
+      "archetype": "573cde1d-fb2c-5a42-a849-fd48ee62da96"
+    }
+  },
+  {
+    "id": "e4f4109c-e7ae-5e5e-bd33-f1d2c71603c7",
+    "pack": "gatewalkers",
+    "kind": "feat",
+    "slug": "feat:draining-touch",
+    "name": "Draining Touch",
+    "level": 2,
+    "rarity": "rare",
+    "traits": ["attack", "cold", "deviant", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You reach out your arm, grasping hungrily for a source of energy. Attempt a melee Strike. If you succeed, you deal 1d8 cold damage for every 2 levels you have to the target ("
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(floor(@level/2))d8",
+                "damageType": "cold"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "), or double damage on a critical success."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Awakening",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You drain enough energy from a creature to leave it with lingering aftereffects. Your Draining Touch also leaves a creature "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 2"
+          },
+          {
+            "type": "text",
+            "text": " if your attack was a critical success."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Awakening",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can pull away not just physical energy, but a creature's spirit as well. Your Draining Touch can deal your choice of cold, spirit, or void damage, changing the cold trait to spirit or void as appropriate."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "2bd3f370-5798-5ef1-aeb6-802a1b60bb91",
+        "allowDuplicate": false,
+        "predicate": [
+          {
+            "not": "feature:leech-deviant-classification"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.fFVqsMseN4zA9R24"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "one"
+      }
+    }
+  },
+  {
+    "id": "8a493b52-72c6-5194-9a06-dd49d9d5e659",
+    "pack": "gatewalkers",
+    "kind": "feat",
+    "slug": "feat:empathic-envoy",
+    "name": "Empathic Envoy",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You believe that treating others with respect is the fastest way into their hearts, and in turn others are more likely to believe in your good intentions and write off bad first impressions as flukes. If a creature's attitude toward you becomes lower over the course of a social interaction (for example, from friendly to indifferent, or from indifferent to unfriendly), their impression of you returns to its starting level an hour after the social interaction ends. This ability has no effect if the creature you are interacting with becomes hostile."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.mnHUemd21MtmV9FV"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Twilight Speaker Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "573cde1d-fb2c-5a42-a849-fd48ee62da96"
+    }
+  },
+  {
+    "id": "672c551d-abb2-5940-930b-1b25b6c8848f",
+    "pack": "gatewalkers",
+    "kind": "feat",
+    "slug": "feat:emphatic-emissary",
+    "name": "Emphatic Emissary",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You roll initiative."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can tell when diplomacy has failed and a meeting is close to unraveling or falling to blows. You gain a +2 circumstance bonus on your initiative roll. During your first turn in combat, you can use your "
+          },
+          {
+            "type": "ref",
+            "id": "214b6f6c-bee0-503d-a41b-df87f01e3ca4"
+          },
+          {
+            "type": "text",
+            "text": ", targeting every hostile intelligent humanoid creature that can see you but has yet to act. If you choose to sustain your Disarming Smile, you sustain the effect for only one creature, as normal."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:empathic-emissary",
+        "toggleable": true
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["initiative"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["option:empathic-emissary"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.BV9k3nmVrWDLv8z6"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Disarming Smile"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You roll initiative."
+              }
+            ]
+          }
+        ]
+      },
+      "archetype": "573cde1d-fb2c-5a42-a849-fd48ee62da96"
+    }
+  },
+  {
+    "id": "663773c6-a0e4-571f-b912-be36fb5ee27b",
+    "pack": "gatewalkers",
+    "kind": "feat",
+    "slug": "feat:feed-the-void",
+    "name": "Feed the Void",
+    "level": 10,
+    "rarity": "rare",
+    "traits": ["deviant", "extradimensional", "magical", "mental", "spirit"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The void within you manages to manifest itself temporarily, a black hole opening over your heart and threatening to draw everything in. A "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 60
+          },
+          {
+            "type": "text",
+            "text": " becomes filled with screaming winds that rush in toward you. All creatures in the cone must attempt a Fortitude saving throw."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is pulled 10 feet toward you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is pulled 20 feet toward you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is pulled 30 feet toward you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Creatures that would be pulled into your square contact the void, which deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "5d6",
+                "damageType": "spirit"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with no saving throw, and are then spat back out in a square adjacent to you of your choice. At 12th level, and every 2 levels thereafter, the damage increases by 1d6."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Awakening",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The void feeds upon the creature's spirit, transferring you some of their vitality. If one or more creatures are pulled into the void, you gain temporary Hit Points equal to the level of the highest-level creature pulled in. These temporary Hit Points last for 10 minutes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Awakening",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The void's suction draws in heat and light as well. The first 30 feet of the cone becomes covered in ice as temperatures drop, making the area difficult terrain, and is also plunged into darkness, with the effects of darkness heightened to half your level. Both effects last until the beginning of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "2bd3f370-5798-5ef1-aeb6-802a1b60bb91",
+        "allowDuplicate": false,
+        "predicate": [
+          {
+            "not": "feature:leech-deviant-classification"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.F8rtjsojGLaRuU5l"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "two"
+      }
+    }
+  },
+  {
+    "id": "f0a0f3b0-52f3-5a8a-979d-5018a9e52c2e",
+    "pack": "gatewalkers",
+    "kind": "feat",
+    "slug": "feat:guardians-embrace",
+    "name": "Guardian's Embrace",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are adjacent to your spirit guide or it is sharing your space."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your spirit guide discorporates to surround you in an invisible protective shroud. You gain a +2 status bonus to AC against physical attacks until the beginning of your next turn. If you are hit by a physical attack during this time, you can use a reaction to gain resistance 10 to physical damage dealt by that attack; doing so ends the AC bonus, and you can't use Guardian's Embrace again for 10 minutes. Your spirit guide cannot be targeted by effects, cannot be affected by area effects, and cannot take any actions while this ability is active. Your spirit guide appears in a space adjacent to you when the effect ends."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.fJxIdcg7kWPwlULY"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Scion of Domora Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are adjacent to your spirit guide or it is sharing your space."
+              }
+            ]
+          }
+        ],
+        "selfEffect": "8dc5e316-48c0-5f43-a314-ddef5ee495d8"
+      },
+      "archetype": "98a38d02-f650-5c56-be2a-dffa4d4a928d"
+    }
+  },
+  {
+    "id": "8855c6bd-e766-5115-87c6-f9877d39beb1",
+    "pack": "gatewalkers",
+    "kind": "feat",
+    "slug": "feat:guided-skill",
+    "name": "Guided Skill",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You ask your spirit guide for aid. For the next 10 minutes, you gain a +2 status bonus to checks made using Acrobatics, Occultism, Stealth, or Survival."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.x7EGJYZQuxHbP50X"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Scion of Domora Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "frequency": {
+          "max": 1,
+          "per": "day"
+        },
+        "selfEffect": "0a4a9f9f-a154-5e60-92a6-965054eeb230"
+      },
+      "archetype": "98a38d02-f650-5c56-be2a-dffa4d4a928d"
+    }
+  },
+  {
+    "id": "51b7000c-a7f8-5471-9e80-d8998f2727a8",
+    "pack": "gatewalkers",
+    "kind": "feat",
+    "slug": "feat:ilverani-purist",
+    "name": "Ilverani Purist",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["archetype", "skill"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "All twilight speakers are trained to resist the alluring customs of younger peoples, but you have made it your mandate to keep the Ilverani way unchanged. Such dedication has given you a trained eye for subtlety and deception. When you attempt to "
+          },
+          {
+            "type": "ref",
+            "id": "775b68f2-1542-5f47-bc0d-87d5884d7baa",
+            "label": "Sense the Motive"
+          },
+          {
+            "type": "text",
+            "text": " of a non-elf humanoid creature and you roll a critical failure, you fail instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["perception"],
+        "adjustment": {
+          "criticalFailure": "one-degree-better"
+        },
+        "predicate": [
+          "action:sense-motive",
+          "target:trait:humanoid",
+          {
+            "not": "target:trait:elf"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.tjnL4wsriZugnHLn"
+    },
+    "data": {
+      "category": "skill",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Twilight Speaker Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "573cde1d-fb2c-5a42-a849-fd48ee62da96"
+    }
+  },
+  {
+    "id": "74be9203-ef00-57fc-86e3-ac2de3f34542",
+    "pack": "gatewalkers",
+    "kind": "feat",
+    "slug": "feat:invigorating-breath",
+    "name": "Invigorating Breath",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are adjacent to your spirit guide or it is sharing your space."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your spirit guide exhales its sweet-smelling breath on you, granting you the strength to push through your pain. You gain 20 temporary Hit Points for 10 minutes. At 15th level, you instead gain 30 temporary Hit Points for 10 minutes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.23QgyEYjoslBvkra"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Scion of Domora Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are adjacent to your spirit guide or it is sharing your space."
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "hour"
+        },
+        "selfEffect": "840a8c3d-b787-59d8-9ab6-237df74edb98"
+      },
+      "archetype": "98a38d02-f650-5c56-be2a-dffa4d4a928d"
+    }
+  },
+  {
+    "id": "8f27ea47-924c-5b85-83d2-30f8eee0b788",
+    "pack": "gatewalkers",
+    "kind": "feat",
+    "slug": "feat:kinetic-dampening",
+    "name": "Kinetic Dampening",
+    "level": 6,
+    "rarity": "rare",
+    "traits": ["deviant", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You feed off energy in your immediate surroundings, allowing you to dampen the force imparted by incoming blows. Until the beginning of your next turn, you gain resistance 5 to physical damage. At 10th level, and every 4 levels thereafter, the resistance increases by 5. Any blows that strike you during this time make no sound as their energy is drained."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Awakening",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can extend your dampening field around you to create a safe haven for your allies. If you spend an additional action when using Kinetic Dampening, your field extends in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": " around you. You can choose which creatures within the emanation are affected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Awakening",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You dampen a greater variety of wavelengths. When you use this feat, you also gain resistance to your choice of fire, electricity, or sonic damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "2bd3f370-5798-5ef1-aeb6-802a1b60bb91",
+        "allowDuplicate": false,
+        "predicate": [
+          {
+            "not": "feature:leech-deviant-classification"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.stsCnc8hR6db1Get"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "one"
+      }
+    }
+  },
+  {
+    "id": "c938b112-93f5-5737-975e-cc0a486b5b1b",
+    "pack": "gatewalkers",
+    "kind": "feat",
+    "slug": "feat:lightspeed-assault",
+    "name": "Lightspeed Assault",
+    "level": 10,
+    "rarity": "rare",
+    "traits": ["deviant", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You zoom from enemy to enemy, striking each in an instant. Stride to an enemy and attempt a Strike against it. If successful, you can add another action to Lightspeed Assault. Stride again and attempt another Strike; if this second Strike is successful, you can spend another action to Stride again and attempt a third Strike. You can use Lightspeed Assault while Burrowing, Climbing, Flying, or Swimming instead of Striding if you have the corresponding movement type. You attempt a backlash check for your deviation only once, regardless of how many actions you end up spending on your Lightspeed Assault."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Awakening",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your speed allows you to slip the bonds of space. Instead of Striding, you simply teleport to your desired destination. Lightspeed Assault gains the teleportation trait."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Awakening",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You move so quickly that you might as well be in multiple places at once. When you use Lightspeed Assault, you can decide to spend one, two, or three actions up front, selecting your targets ahead of time. You can flank with yourself for any of these Strikes, and if you deal damage to a target more than once, you can add all the damage together for the purpose of overcoming resistances, if it would be more beneficial to you."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "986c2379-d0b4-5876-9b40-6e416d9d3fcc",
+        "allowDuplicate": false,
+        "predicate": [
+          {
+            "not": "feature:flicker-deviant-classification"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.ZugnuBQu3RNcQmLv"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "one"
+      }
+    }
+  },
+  {
+    "id": "c397bd92-0b13-5cc0-afc3-89cac08eb5fe",
+    "pack": "gatewalkers",
+    "kind": "feat",
+    "slug": "feat:minor-omen",
+    "name": "Minor Omen",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["archetype", "fortune", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail a Reflex save."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can see the night sky."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The stars warn you of danger in the nick of time. Reroll the failed save and use the new result."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.u8hKEb71pI45XP1f"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Oatia Skysage Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You can see the night sky."
+              }
+            ]
+          }
+        ],
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You fail a Reflex save."
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "day"
+        }
+      },
+      "archetype": "45ebf6a5-8c01-5e37-acb5-cbcf5d293d1a"
+    }
+  },
+  {
+    "id": "23a487f6-dde5-5cda-bb94-a1b7fbedaf6f",
+    "pack": "gatewalkers",
+    "kind": "feat",
+    "slug": "feat:nights-glow",
+    "name": "Night's Glow",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The stars and moon lend you their light. You gain your choice of the "
+          },
+          {
+            "type": "ref",
+            "id": "0461db92-5a1c-5572-bdd9-54b7fb6d4804"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "4255ad80-f0e7-5e7c-be1c-aa426b93a3fe"
+          },
+          {
+            "type": "text",
+            "text": " domain spell. Like your Oatia skysage spells, you cast this focus spell as an occult spell."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can take this feat a second time, gaining the focus spell that you didn't gain the first time."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.TjNkvawfWCqb1alg"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Oatia Skysage Dedication"
+            }
+          ]
+        }
+      ],
+      "maxTakable": 2,
+      "archetype": "45ebf6a5-8c01-5e37-acb5-cbcf5d293d1a"
+    }
+  },
+  {
+    "id": "1425f58d-f433-53be-bde2-04248dfbb67b",
+    "pack": "gatewalkers",
+    "kind": "feat",
+    "slug": "feat:nights-shine",
+    "name": "Night's Shine",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["archetype", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your power from the moon and stars becomes strong enough to illuminate the night sky. You gain your choice of the "
+          },
+          {
+            "type": "ref",
+            "id": "d23fcac7-6be4-5704-b075-5850bcad0f18"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "dac265fd-9aac-5965-8a71-8c51081ace1a"
+          },
+          {
+            "type": "text",
+            "text": " domain spell."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can take this feat a second time, gaining the focus spell that you didn't gain the first time."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.KOslKkFO9N1kZY87"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Oatia Skysage Dedication; Night's Glow"
+            }
+          ]
+        }
+      ],
+      "maxTakable": 2,
+      "archetype": "45ebf6a5-8c01-5e37-acb5-cbcf5d293d1a"
+    }
+  },
+  {
+    "id": "2f8304d3-c51f-5234-93ca-52f74d4cd762",
+    "pack": "gatewalkers",
+    "kind": "feat",
+    "slug": "feat:oatia-skysage-dedication",
+    "name": "Oatia Skysage Dedication",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["archetype", "dedication"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your study of the stars unlocks supernatural insights and magic. You either become trained in Astronomy Lore or an expert in Occultism."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You learn to cast spontaneous spells and gain the Cast a Spell activity. You gain a spell repertoire with two of the following cantrips of your choice: "
+          },
+          {
+            "type": "ref",
+            "id": "c91ac947-a9ec-5f07-b5f9-a054617eb571"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "71a6396c-7cc2-5918-a06b-bf3cf1b533f6"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "2837d0b2-7110-5a34-9ce2-be5c9f49cb8e"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "02c769dd-dba8-5437-8189-28b9800afaac"
+          },
+          {
+            "type": "text",
+            "text": ". You cast these spells as occult spells as you draw on the stars and night sky. You're trained in occult spell attack rolls and spell DCs. Your key spellcasting ability for these spells is Intelligence."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Oatia Skysage"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.mrxAX7h5ya9Z7QV9"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "trained in Occultism"
+            }
+          ]
+        }
+      ],
+      "archetype": "45ebf6a5-8c01-5e37-acb5-cbcf5d293d1a"
+    }
+  },
+  {
+    "id": "aa9dd28b-7568-5532-9ea4-33b9606583aa",
+    "pack": "gatewalkers",
+    "kind": "feat",
+    "slug": "feat:overclock-senses",
+    "name": "Overclock Senses",
+    "level": 2,
+    "rarity": "rare",
+    "traits": ["deviant", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your senses speed up to the point that time seems to stand still, allowing you to catch details and incoming attacks. You "
+          },
+          {
+            "type": "ref",
+            "id": "d45207be-e539-50ce-9463-f4edc3671076"
+          },
+          {
+            "type": "text",
+            "text": ". After you Seek, you gain a +2 circumstance bonus to your AC against ranged attacks and to Reflex saving throws until the beginning of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Awakening",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " When you use Overclock Senses, you can focus even more on the present moment, allowing you more apparent time to observe and plot at the expense of defense. When you use Overclock Senses, you do so with the benefits of darkvision, or if you are at least 14th level, with the benefits of truesight. You can attempt a "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": " check as a free action after Seeking. Your senses spent, you then do not gain the normal bonuses to AC and Reflex saving throws."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Awakening",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You hone your senses even further, letting you react to attacks almost before they happen. While you have the bonuses from Overclock Senses, if you would be hit by a ranged attack, you can spend a reaction to have the attacker roll the attack again (this is a misfortune effect), and if you would fail a Reflex save, you can spend a reaction to roll the save again (this is a fortune effect). You must take the second result, even if it is worse."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "986c2379-d0b4-5876-9b40-6e416d9d3fcc",
+        "allowDuplicate": false,
+        "predicate": [
+          {
+            "not": "feature:flicker-deviant-classification"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.xCi23uEFef9jhtlM"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "free",
+        "selfEffect": "88ec23d5-5d25-5e71-8bfa-7d7866044feb"
+      }
+    }
+  },
+  {
+    "id": "03b88225-3ac9-5950-9e9d-9c7e97e1c901",
+    "pack": "gatewalkers",
+    "kind": "feat",
+    "slug": "feat:scholars-hunch",
+    "name": "Scholar's Hunch",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["archetype", "fortune", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail a Lore or Occultism skill check."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Scholarly debates have taught you to think on your feet. Reroll the failed check and use the new result."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.49TMxb8OA1Pp7AiF"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Oatia Skysage Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You fail a Lore or Occultism skill check."
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "hour"
+        }
+      },
+      "archetype": "45ebf6a5-8c01-5e37-acb5-cbcf5d293d1a"
+    }
+  },
+  {
+    "id": "27c33f69-6bda-5494-b37e-e0173a486b81",
+    "pack": "gatewalkers",
+    "kind": "feat",
+    "slug": "feat:scion-of-domora-dedication",
+    "name": "Scion of Domora Dedication",
+    "level": 4,
+    "rarity": "rare",
+    "traits": ["archetype", "dedication"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a spirit guide ally. Your familiar takes on the form of a spirit guide specific familiar."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can take Scion of Domora Dedication even if you have the "
+          },
+          {
+            "type": "ref",
+            "id": "4895f5ed-5768-5ff2-86cb-72d15aac750f"
+          },
+          {
+            "type": "text",
+            "text": " and have not taken two other Familiar Master feats. You can't select another dedication feat until you have gained at least two other feats from the scion of Domora or familiar master archetypes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.R56DLSqoBG8dX4Zv"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Familiar Master Dedication; you have befriended a spirit guide and it bonded with you using its Bond with Mortal ability."
+            }
+          ]
+        }
+      ],
+      "archetype": "98a38d02-f650-5c56-be2a-dffa4d4a928d"
+    }
+  },
+  {
+    "id": "0ed3f60c-5263-53f1-a39c-4e0a0e07c857",
+    "pack": "gatewalkers",
+    "kind": "feat",
+    "slug": "feat:sonic-dash",
+    "name": "Sonic Dash",
+    "level": 2,
+    "rarity": "rare",
+    "traits": ["deviant", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You bounce up and down once, then sprint forward. You Stride twice in a straight line. You can use Sonic Dash while Burrowing, Climbing, Flying, or Swimming instead of Striding if you have the corresponding movement type."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Awakening",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your Sonic Dash generates a sonic boom, dealing 1d4 sonic damage for every two levels you have ("
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "floor(@level/2)d4",
+                "damageType": "sonic"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") to all creatures other than you in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 5
+          },
+          {
+            "type": "text",
+            "text": " at the point you end your Sonic Dash, with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "basic": true,
+            "options": ["inflicts:deafened"]
+          },
+          {
+            "type": "text",
+            "text": " save. Creatures that fail are "
+          },
+          {
+            "type": "ref",
+            "id": "4271da2e-7225-5aa7-9807-c499d8af6a5a"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round, or 1 minute on a critical failure."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Awakening",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your speed generates a slipstream that allows you to reposition your allies. You can dash through a willing ally's space during your Sonic Dash, causing them to be drawn by winds alongside you. You deposit them in any unoccupied space adjacent to you at the end of your Sonic Dash."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "986c2379-d0b4-5876-9b40-6e416d9d3fcc",
+        "allowDuplicate": false,
+        "predicate": [
+          {
+            "not": "feature:flicker-deviant-classification"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.SC5oZbyvLO5CQwhl"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "one"
+      }
+    }
+  },
+  {
+    "id": "8c210356-34d0-5b1e-8846-14976ec6843e",
+    "pack": "gatewalkers",
+    "kind": "feat",
+    "slug": "feat:spirit-guide-form",
+    "name": "Spirit Guide Form",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["archetype", "polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You fuse with your spirit guide, becoming a hybrid being with enhanced physical and spiritual power. This effect lasts 1 minute; you can end it early as a free action. During this time, you can't use any other actions granted by this archetype."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the following statistics and abilities, regardless of your type of spirit guide."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You become incorporeal."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You gain resistance 10 to all damage (except force, ghost touch, or spirit; double resistance vs. non-magical)."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Darkvision."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "An unarmed melee attack of the same type as your spirit guide (either claws or jaws), which is the only attack you can Strike with. You're trained with this attack. Your attack modifier is +29 or your normal unarmed attack modifier, whichever is higher. You use the listed statistics for the unarmed attack type:"
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Claws",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " (agile, backstabber, finesse) "
+                      },
+                      {
+                        "type": "action-cost",
+                        "cost": "one"
+                      },
+                      {
+                        "type": "text",
+                        "text": ", "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Damage",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " 3d6+5 slashing plus 1d6 force;"
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Jaws",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " (forceful) "
+                      },
+                      {
+                        "type": "action-cost",
+                        "cost": "one"
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Damage",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " 3d10+5 piercing plus 1d6 force."
+                      }
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.WKRSBu7H9miAwUaR"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Scion of Domora Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "two",
+        "frequency": {
+          "max": 1,
+          "per": "day"
+        },
+        "selfEffect": "e375de02-8f37-5a97-b821-27e8a82ddfc3"
+      },
+      "archetype": "98a38d02-f650-5c56-be2a-dffa4d4a928d"
+    }
+  },
+  {
+    "id": "655fb82f-d2f7-55a4-a859-42fca68d0c6a",
+    "pack": "gatewalkers",
+    "kind": "feat",
+    "slug": "feat:spiritual-aid",
+    "name": "Spiritual Aid",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you call your spirit guide for aid, its presence bolsters your will and agility. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "8be3a5f9-a00f-5039-8599-55c5af1b3ce9"
+          },
+          {
+            "type": "text",
+            "text": " reaction."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "8be3a5f9-a00f-5039-8599-55c5af1b3ce9"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.I6su6Z9sJTgIrhQV"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Scion of Domora Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "98a38d02-f650-5c56-be2a-dffa4d4a928d"
+    }
+  },
+  {
+    "id": "d6279b20-e341-56c5-bc71-66a62a9e0fcb",
+    "pack": "gatewalkers",
+    "kind": "feat",
+    "slug": "feat:spiritual-flurry",
+    "name": "Spiritual Flurry",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you use Spiritual Strike, hit targets become "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " until the end of your current turn. In addition, the additional force damage dealt by the Strike increases by 2d6."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageAlteration",
+        "selectors": ["strike-damage"],
+        "property": "dice-number",
+        "mode": "add",
+        "value": 2,
+        "predicate": ["damage:slug:spiritual-strike"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["strike-damage"],
+        "title": "Spiritual Flurry",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Targets become Off-Guard until the end of your current turn."
+              }
+            ]
+          }
+        ],
+        "predicate": ["option:spiritual-strike"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.CMDCWPC8m2b6HvEN"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Scion of Domora Dedication; Spiritual Strike"
+            }
+          ]
+        }
+      ],
+      "archetype": "98a38d02-f650-5c56-be2a-dffa4d4a928d"
+    }
+  },
+  {
+    "id": "f8a4a04c-4158-56c2-82fb-3383228accbd",
+    "pack": "gatewalkers",
+    "kind": "feat",
+    "slug": "feat:spiritual-strike",
+    "name": "Spiritual Strike",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype", "flourish"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are wielding a weapon with at least one fundamental rune and your familiar is adjacent to you or in your space."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your spirit guide enhances your attacks with occult power. Make a Strike with a weapon that has at least one fundamental rune. This counts as two attacks when calculating your multiple attack penalty. The Strike has the effects of the ghost touch property rune and deals an additional 2d6 force damage. If your weapon has a major striking rune, this Strike instead deals 3d6 force damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:spiritual-strike",
+        "toggleable": true
+      },
+      {
+        "key": "AdjustStrike",
+        "predicate": ["option:spiritual-strike"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "ghost-touch"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.9DWxzEavOeymc6Ql"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Scion of Domora Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "two",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are wielding a weapon with at least one fundamental rune and your familiar is adjacent to you or in your space."
+              }
+            ]
+          }
+        ]
+      },
+      "archetype": "98a38d02-f650-5c56-be2a-dffa4d4a928d"
+    }
+  },
+  {
+    "id": "691f8198-249a-5e17-8c2c-755d91350d5a",
+    "pack": "gatewalkers",
+    "kind": "feat",
+    "slug": "feat:stargazers-eyes",
+    "name": "Stargazer's Eyes",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Long hours in darkened observatories have sharpened your senses. If you don't have low-light vision or darkvision, you gain low-light vision, or if you already have low-light vision, you gain darkvision."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can take this feat a second time, upgrading your low-light vision to darkvision."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+      },
+      {
+        "key": "Sense",
+        "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.5KXJkEs39y1gaPEm"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Oatia Skysage Dedication"
+            }
+          ]
+        }
+      ],
+      "maxTakable": 2,
+      "archetype": "45ebf6a5-8c01-5e37-acb5-cbcf5d293d1a"
+    }
+  },
+  {
+    "id": "f5c70805-db20-5f16-92a9-ce34f1d0dd5d",
+    "pack": "gatewalkers",
+    "kind": "feat",
+    "slug": "feat:starlight-armor",
+    "name": "Starlight Armor",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["archetype", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You armor yourself in the light of distant suns, shielding yourself from harm. The armor grants you resistance 7 to piercing, bludgeoning, and slashing damage. The armor also sheds bright light for 20 feet (and dim light for the next 20 feet)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whenever an adjacent creature attacks you, the attacker must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "spell-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " save against your spell DC at the end of its action. On a failure, it becomes "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " until the end of its next turn. Regardless of the result of the save, the attacker is temporarily immune until the end of its next turn. The dazzling effect has the light and visual traits."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you reach 17th level, the resistance increases to 10."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Note: A duration for this ability was not provided by Paizo. The effect linked here is set to 1 minute.",
+            "marks": ["emphasis"]
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.jK0hjx4qsRyKnpBd"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Oatia Skysage Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "three",
+        "frequency": {
+          "max": 1,
+          "per": "day"
+        },
+        "selfEffect": "d9cd8aaf-6098-5084-bb07-160a69923b63"
+      },
+      "archetype": "45ebf6a5-8c01-5e37-acb5-cbcf5d293d1a"
+    }
+  },
+  {
+    "id": "774fdc44-7ecd-5b3d-b57a-f3bd9eb3a2af",
+    "pack": "gatewalkers",
+    "kind": "feat",
+    "slug": "feat:starlit-spells",
+    "name": "Starlit Spells",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["archetype", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The stars reveal and punish your enemies. You can cast "
+          },
+          {
+            "type": "ref",
+            "id": "3597aeb0-883c-562a-82ca-37e92210633d"
+          },
+          {
+            "type": "text",
+            "text": " and 3rd-rank "
+          },
+          {
+            "type": "ref",
+            "id": "67633206-076f-520c-b8a2-8d30d756fa26"
+          },
+          {
+            "type": "text",
+            "text": " as occult innate spells, each once per day."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.SVfD887ocfUFikVA"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Oatia Skysage Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "45ebf6a5-8c01-5e37-acb5-cbcf5d293d1a"
+    }
+  },
+  {
+    "id": "ad82bd34-bd70-5bf8-a2b4-f3cf7a189bd5",
+    "pack": "gatewalkers",
+    "kind": "feat",
+    "slug": "feat:twilight-speaker-dedication",
+    "name": "Twilight Speaker Dedication",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["archetype", "dedication"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have carefully studied the histories, customs, and etiquette of many of the younger peoples of Golarion. You become an expert in Society. At 7th level, you become a master in Society, and at 15th level, you become legendary in Society. You can use the Society skill instead of the Diplomacy skill when you attempt to "
+          },
+          {
+            "type": "ref",
+            "id": "722e5346-27c0-5157-b5a9-e6018df94150"
+          },
+          {
+            "type": "text",
+            "text": " on a non-elven intelligent humanoid creature."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Twilight Speaker"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.uBr7wHtOS6KIhHnd"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "trained in Society; you are an Ilverani elf"
+            }
+          ]
+        }
+      ],
+      "archetype": "573cde1d-fb2c-5a42-a849-fd48ee62da96"
+    }
+  },
+  {
+    "id": "6db93326-df54-5370-8671-224a5c90931a",
+    "pack": "gatewalkers",
+    "kind": "feat",
+    "slug": "feat:unstable-gearshift",
+    "name": "Unstable Gearshift",
+    "level": 6,
+    "rarity": "rare",
+    "traits": ["deviant", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You shift your body into a higher gear, your speed compounding further and further. You gain a +10-foot status bonus to all your Speeds, which lasts until the end of your next turn. At any time during your next turn, you can use Unstable Gearshift again, increasing the status bonus by another 5 feet and prolonging the effect for another round. You can keep using Unstable Gearshift in this way until you can no longer use your deviant abilities."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Awakening",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " When moving at high speed, your form blurs. You have concealment for the duration of any move action you take while you are affected by Unstable Gearshift."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Awakening",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your high-speed form has become partially out of phase with reality. While you are affected by Unstable Gearshift, you are not affected by physical difficult terrain (such as rubble), you do not trigger traps that use weight or pressure plates as a trigger, and you can move through enemy spaces without making checks to "
+          },
+          {
+            "type": "ref",
+            "id": "11d6f0fd-b182-5043-8a26-973179a93617"
+          },
+          {
+            "type": "text",
+            "text": ", as you simply phase through them."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "986c2379-d0b4-5876-9b40-6e416d9d3fcc",
+        "allowDuplicate": false,
+        "predicate": [
+          {
+            "not": "feature:flicker-deviant-classification"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.ePQXFTRQORKWP9KH"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "free"
+      }
+    }
+  },
+  {
+    "id": "1044e9ea-bd2f-5be0-b734-b1ee72ecaa87",
+    "pack": "gatewalkers",
+    "kind": "feat",
+    "slug": "feat:world-wise-vigilance",
+    "name": "World-Wise Vigilance",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your keen study of other cultures gives you insights into the ways those cultures fight. When you use Perception to roll initiative and none of your enemies have the elf trait, you can choose to roll Society instead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.thNurw2OnN9jpBGV"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Twilight Speaker Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "573cde1d-fb2c-5a42-a849-fd48ee62da96"
+    }
+  }
+]

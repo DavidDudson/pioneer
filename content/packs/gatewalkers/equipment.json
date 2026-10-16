@@ -1,0 +1,3618 @@
+[
+  {
+    "id": "126e3948-9cc2-530d-9c5a-b0de642548d7",
+    "pack": "gatewalkers",
+    "kind": "equipment",
+    "slug": "equipment:astrolabe-of-the-falling-stars",
+    "name": "Astrolabe of the Falling Stars",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This astrolabe is fashioned of magically attuned platinum plates and rings and is inset with carefully measured ruby gems. The astrolabe's back is engraved with helpful charts, a calendar, and a maker's mark."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An astrolabe of falling stars can be used as a "
+          },
+          {
+            "type": "ref",
+            "id": "4f7179a6-b5bd-5cbc-9044-60404a927155"
+          },
+          {
+            "type": "text",
+            "text": ". In addition, it can produce the following magical effect."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Starfall",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " With a flick of your finger, you set the astrolabe's rule spinning, causing the inset rubies to become a blur. Choose a point within 100 feet. The astrolabe of falling stars calls down a brief rain of meteorites in a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": " centered on that point, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d8",
+                "damageType": "bludgeoning"
+              },
+              {
+                "formula": "1d8",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to creatures in the area ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 19,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Calculate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Astrolabes can be used for navigation in unfamiliar or featureless locations. To use an astrolabe, the holder must be trained in Survival. By spending 1 minute to measure the height of the stars and planets, a holder who knows the time and date can determine the latitude, and a holder who knows their latitude can determine the date and time. An astrolabe also grants a +1 item bonus to checks to identify celestial bodies."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["option:identify-celestial-body"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.NZJkdq4AezyeUvGi"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "starfall",
+          "name": "Starfall",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "3ee53ad1-cac8-58f1-b43b-b9f2b39c2f16",
+    "pack": "gatewalkers",
+    "kind": "equipment",
+    "slug": "equipment:cloak-of-devouring-thorns",
+    "name": "Cloak of Devouring Thorns",
+    "level": 12,
+    "rarity": "rare",
+    "traits": ["invested", "primal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This cloak appears to be woven from a thousand living leaves, hungry for flesh and eager to defend the cloak's wearer."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Bite Back",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per round"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are damaged by a melee attack from an adjacent creature"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The leaves lash out at your attacker, rising up to reveal snapping jaws made of wicked thorns. The triggering creature must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 30
+          },
+          {
+            "type": "text",
+            "text": " saving throw."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "piercing"
+              },
+              {
+                "formula": "3",
+                "damageType": "bleed"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.jYQy2jFxbQL5y36L"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "bite-back",
+          "name": "Bite Back",
+          "frequency": {
+            "max": 1,
+            "per": "round"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "cloak"
+      }
+    }
+  },
+  {
+    "id": "dbbea6e9-7894-5d79-b458-8931f298cdc5",
+    "pack": "gatewalkers",
+    "kind": "equipment",
+    "slug": "equipment:cloak-of-gnawing-leaves",
+    "name": "Cloak of Gnawing Leaves",
+    "level": 3,
+    "rarity": "rare",
+    "traits": ["invested", "primal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This cloak appears to be woven from a thousand living leaves, hungry for flesh and eager to defend the cloak's wearer."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Bite Back",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are damaged by a melee attack from an adjacent creature"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The leaves lash out at your attacker, rising up to reveal snapping jaws made of wicked thorns. The triggering creature must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 17
+          },
+          {
+            "type": "text",
+            "text": " saving throw."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d4",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d4",
+                "damageType": "piercing"
+              },
+              {
+                "formula": "1",
+                "damageType": "bleed"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.RxBVbQEd4DArkpKl"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 60
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "bite-back",
+          "name": "Bite Back",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "cloak"
+      }
+    }
+  },
+  {
+    "id": "15c56e45-d865-567a-8653-1bd4cd7ef55e",
+    "pack": "gatewalkers",
+    "kind": "equipment",
+    "slug": "equipment:cloak-of-thirsty-fronds",
+    "name": "Cloak of Thirsty Fronds",
+    "level": 7,
+    "rarity": "rare",
+    "traits": ["invested", "primal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This cloak appears to be woven from a thousand living leaves, hungry for flesh and eager to defend the cloak's wearer."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Bite Back",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per minute"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are damaged by a melee attack from an adjacent creature"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The leaves lash out at your attacker, rising up to reveal snapping jaws made of wicked thorns. The triggering creature must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 23
+          },
+          {
+            "type": "text",
+            "text": " saving throw."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "piercing"
+              },
+              {
+                "formula": "2",
+                "damageType": "bleed"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.TxB1a2DrhRZABRjV"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 330
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "bite-back",
+          "name": "Bite Back",
+          "frequency": {
+            "max": 1,
+            "per": "minute"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "cloak"
+      }
+    }
+  },
+  {
+    "id": "edcde1ce-3732-5668-b8f8-4ac6700abc0c",
+    "pack": "gatewalkers",
+    "kind": "equipment",
+    "slug": "equipment:ice-forge",
+    "name": "Ice Forge",
+    "level": 11,
+    "rarity": "rare",
+    "traits": ["magical", "structure"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While many of the magical wonders created by saumen kar have been destroyed, "
+          },
+          {
+            "type": "text",
+            "text": "ice forges",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", while rare, still see use today among the few individuals who manage to discover and keep one of these portable treasures. When an "
+          },
+          {
+            "type": "text",
+            "text": "ice forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " isn't activated, it appears to be a small anvil carved from a lump of ice no larger than an apple. While in this state, the "
+          },
+          {
+            "type": "text",
+            "text": "ice forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " remains cold to the touch but doesn't melt in the presence of high temperatures. It can be used to chill a beverage in a small container, although those who venerate and respect these items' legacy would doubtless find this use to be insulting at best."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Expand Forge",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You toss the "
+          },
+          {
+            "type": "text",
+            "text": "ice forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " onto the ground, and it immediately expands in size, transforming into a fully functional forge that appears to be made of solid ice. Expanded, the "
+          },
+          {
+            "type": "text",
+            "text": "ice forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is 10 feet square and 10 feet high. While the forge itself is cold to the touch, it won't melt in higher temperatures, nor will it cause harm to someone who remains in contact with the chill surface for an extended period of time. The forge can be used to work metal as a normal forge (although fuel must be provided)—the heat created by its use does no harm to the "
+          },
+          {
+            "type": "text",
+            "text": "ice forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", nor does it transmit to the surface it sits upon, making an "
+          },
+          {
+            "type": "text",
+            "text": "ice forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " an ideal solution for those who seek to use forges in areas where open flames or smoke would be dangerous."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can return an "
+          },
+          {
+            "type": "text",
+            "text": "ice forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to its handheld anvil form by spending a single action to issue a verbal command, which has the auditory trait. Doing so immediately snuffs out any fire within the forge and leaves behind unused material or ashes. Once deactivated, the forge can't be activated again for 4 hours."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Ice Sculpture",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "ice forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is in forge form"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "ice forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " casts "
+          },
+          {
+            "type": "ref",
+            "id": "04ad7d29-a93e-5d13-9563-5e013d6ca611"
+          },
+          {
+            "type": "text",
+            "text": " (heightened to 5th rank) to your specifications."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.5PmuusQRWQBmexGy"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1300
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "ice-sculpture",
+          "name": "Ice Sculpture",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "other"
+      }
+    }
+  },
+  {
+    "id": "4f7179a6-b5bd-5cbc-9044-60404a927155",
+    "pack": "gatewalkers",
+    "kind": "equipment",
+    "slug": "equipment:mariners-astrolabe",
+    "name": "Mariner's Astrolabe",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Calculate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Astrolabes can be used for navigation in unfamiliar or featureless locations. To use an astrolabe, the holder must be trained in Survival. By spending 1 minute to measure the height of the stars and planets, a holder who knows the time and date can determine the latitude, and a holder who knows their latitude can determine the date and time. An astrolabe also grants a +1 item bonus to checks to identify celestial bodies. A standard astrolabe functions only on steady ground."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A mariner's astrolabe contains additional stabilizers that make it suitable for use on moving surfaces, such as the deck of a ship."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["option:identify-celestial-body"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.O1W40RBvlZW069Mw"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "bca82573-a29f-5e9e-b08a-dc33fabd252b",
+    "pack": "gatewalkers",
+    "kind": "equipment",
+    "slug": "equipment:mindsponge",
+    "name": "Mindsponge",
+    "level": 9,
+    "rarity": "unique",
+    "traits": ["mental", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "mindsponge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " appears as a misshapen gray sponge that unsettlingly resembles a malformed human brain. Though pliable in all the same ways as a damp sponge, a "
+          },
+          {
+            "type": "text",
+            "text": "mindsponge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " has no ability to absorb water and, in fact, doesn't seem terribly porous at all. Instead, a "
+          },
+          {
+            "type": "text",
+            "text": "mindsponge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is used to absorb thoughts and memories from living creatures."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Wipe Memories",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "mindsponge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " casts "
+          },
+          {
+            "type": "ref",
+            "id": "1f048683-4c42-51f0-afdc-351f5fe3af2c"
+          },
+          {
+            "type": "text",
+            "text": ", but only to erase a memory—a "
+          },
+          {
+            "type": "text",
+            "text": "mindsponge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can't enhance memory clarity, alter memories, or add false memories."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Absorb Memories",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You use the "
+          },
+          {
+            "type": "text",
+            "text": "mindsponge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to harvest the memories and mental energy of a specially prepared target as it dies. To prepare the target (who must be willing or helpless), you must perform a 10-minute surgery to expose a portion of the target's brain without killing them. This requires a successful "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:medicine",
+            "dc": 28
+          },
+          {
+            "type": "text",
+            "text": " (master) check; if you fail this check, the target dies before you can use the "
+          },
+          {
+            "type": "text",
+            "text": "mindsponge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Memories and psychic energy absorbed aren't taken from the target's soul but from energies temporarily infused within the body, so that a creature slain in this way who is later brought back to life retains their harvested memories and energy. The corpse of someone who has had their memories harvested is difficult to communicate with via talking corpse—treat the saving throw result against that spell as one degree of success lower than the actual result."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "mindsponge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can store the memories and energy of up to four creatures at a time. Once full, it cannot be activated at all, other than to squeeze it as an Interact action with the concentrate trait, which causes all of the memories within to drip out as cold ectoplasm, which swiftly evaporates if not used or contained."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.TQsV76vrzj6WCqem"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 700
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "4629953b-db42-5076-bf23-0cfeacdacc25",
+    "pack": "gatewalkers",
+    "kind": "equipment",
+    "slug": "equipment:pickled-demon-tongue",
+    "name": "Pickled Demon Tongue",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["acid", "divine", "spellheart"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This small crystal vial contains the forked end of a demon's tongue, preserved in brine. The spell attack roll of any spell cast by Activating this item is +7, and the spell DC is 17."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Armor",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You gain resistance 2 to acid and attacks by demons."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Weapon",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " After you cast an acid spell by Activating the "
+                },
+                {
+                  "type": "text",
+                  "text": "pickled demon tongue",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": ", your Strikes with the weapon deal an additional "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "1d4",
+                      "damageType": "acid"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage until end of your next turn."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "3476d7af-fd4a-5f07-b2a9-9953f7f29cbf"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "286c48ad-6405-5dee-af45-e93779cfa36b"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "5448a3aa-c872-5662-9382-c4039b0b21d5"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.lu42Up1309MqFya4"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 60
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "affixed",
+        "to": "armor-or-a-weapon"
+      }
+    }
+  },
+  {
+    "id": "0c326c98-a9ea-59db-8227-de5838291b10",
+    "pack": "gatewalkers",
+    "kind": "equipment",
+    "slug": "equipment:pickled-demon-tongue-greater",
+    "name": "Pickled Demon Tongue (Greater)",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["acid", "divine", "spellheart"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This small crystal vial contains the forked end of a demon's tongue, preserved in brine. The spell attack roll of any spell cast by Activating this item is +14, and the spell DC is 24."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Armor",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You gain resistance 5 to acid and attacks by demons."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Weapon",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " After you cast an acid spell by Activating the "
+                },
+                {
+                  "type": "text",
+                  "text": "pickled demon tongue",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": ", your Strikes with the weapon deal an additional "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "1d6",
+                      "damageType": "acid"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage until end of your next turn."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "3476d7af-fd4a-5f07-b2a9-9953f7f29cbf"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "286c48ad-6405-5dee-af45-e93779cfa36b"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "5448a3aa-c872-5662-9382-c4039b0b21d5"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast 3rd-rank "
+          },
+          {
+            "type": "ref",
+            "id": "3624caf9-9c29-5486-9f0a-3815b40feae6"
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 24,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": ")."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.HnOWpyuCHwewPZMu"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 460
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "pickled-demon-tongue-greater",
+          "name": "Pickled Demon Tongue (Greater)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "affixed",
+        "to": "armor-or-a-weapon"
+      }
+    }
+  },
+  {
+    "id": "675e1e32-b052-53d6-ac39-2bd4b41c1459",
+    "pack": "gatewalkers",
+    "kind": "equipment",
+    "slug": "equipment:pickled-demon-tongue-major",
+    "name": "Pickled Demon Tongue (Major)",
+    "level": 12,
+    "rarity": "uncommon",
+    "traits": ["acid", "divine", "spellheart"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This small crystal vial contains the forked end of a demon's tongue, preserved in brine. The spell attack roll of any spell cast by Activating this item is +19, and the spell DC is 29."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Armor",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You gain resistance 10 to acid and attacks by demons."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Weapon",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " After you cast an acid spell by Activating the "
+                },
+                {
+                  "type": "text",
+                  "text": "pickled demon tongue",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": ", your Strikes with the weapon deal an additional "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "1d8",
+                      "damageType": "acid"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage until end of your next turn."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "3476d7af-fd4a-5f07-b2a9-9953f7f29cbf"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "286c48ad-6405-5dee-af45-e93779cfa36b"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "5448a3aa-c872-5662-9382-c4039b0b21d5"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast 4th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "bacc25dc-fc88-5b92-9a69-14c56e2e8c04"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast 4th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "3624caf9-9c29-5486-9f0a-3815b40feae6"
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 29,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": ")."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Ug0lQVTJlGKrHQgQ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1750
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "pickled-demon-tongue-major",
+          "name": "Pickled Demon Tongue (Major)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "affixed",
+        "to": "armor-or-a-weapon"
+      }
+    }
+  },
+  {
+    "id": "5f73884f-0cc9-5aa8-b8aa-ae17a3b96fb2",
+    "pack": "gatewalkers",
+    "kind": "equipment",
+    "slug": "equipment:polished-demon-horn",
+    "name": "Polished Demon Horn",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["divine", "spellheart"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This spellheart is fashioned from the tip of a demon's horn that's been polished until smooth and shiny. The spell DC of any spell cast by Activating this item is 17."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Armor",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You gain resistance 2 to unholy."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Weapon",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " After you cast an enchantment spell by Activating the "
+                },
+                {
+                  "type": "text",
+                  "text": "horn",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": ", your Strikes with the weapon deal an additional 1d4 mental damage until end of your next turn."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "5661e269-0a9e-5f1a-aafd-4086b641cadb"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "9e9d256e-8457-511b-b528-01fec03b1967"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "0964edfe-0384-5444-908b-fe24653c28f5"
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 17,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": ")."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.rtfpj9WJHMnMtfuG"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 55
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "affixed",
+        "to": "armor-or-a-weapon"
+      }
+    }
+  },
+  {
+    "id": "19928ae9-2710-5b91-92c5-7cfda4700ad1",
+    "pack": "gatewalkers",
+    "kind": "equipment",
+    "slug": "equipment:polished-demon-horn-greater",
+    "name": "Polished Demon Horn (Greater)",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["divine", "spellheart"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This spellheart is fashioned from the tip of a demon's horn that's been polished until smooth and shiny. The spell DC of any spell cast by Activating this item is 24."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Armor",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You gain resistance 5 to unholy."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Weapon",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " After you cast an enchantment spell by Activating the "
+                },
+                {
+                  "type": "text",
+                  "text": "horn",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": ", your Strikes with the weapon deal an additional 1d6 mental damage until end of your next turn."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "5661e269-0a9e-5f1a-aafd-4086b641cadb"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "9e9d256e-8457-511b-b528-01fec03b1967"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "0964edfe-0384-5444-908b-fe24653c28f5"
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 24,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": ")."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast 3rd-rank "
+          },
+          {
+            "type": "ref",
+            "id": "a8b9cc60-f471-559b-a07c-6ad022c23b56"
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 24
+          },
+          {
+            "type": "text",
+            "text": ")."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.62oxvKUCReo7Iah7"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 450
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "polished-demon-horn-greater",
+          "name": "Polished Demon Horn (Greater)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "affixed",
+        "to": "armor-or-a-weapon"
+      }
+    }
+  },
+  {
+    "id": "93a3178d-2cb8-5e16-aeac-d798917d89cd",
+    "pack": "gatewalkers",
+    "kind": "equipment",
+    "slug": "equipment:polished-demon-horn-major",
+    "name": "Polished Demon Horn (Major)",
+    "level": 12,
+    "rarity": "uncommon",
+    "traits": ["divine", "spellheart"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This spellheart is fashioned from the tip of a demon's horn that's been polished until smooth and shiny. The spell DC of any spell cast by Activating this item is 29."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Armor",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You gain resistance 10 to unholy."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Weapon",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " After you cast an enchantment spell by Activating the "
+                },
+                {
+                  "type": "text",
+                  "text": "horn",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": ", your Strikes with the weapon deal an additional 1d8 mental damage until end of your next turn."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "5661e269-0a9e-5f1a-aafd-4086b641cadb"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "9e9d256e-8457-511b-b528-01fec03b1967"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "0964edfe-0384-5444-908b-fe24653c28f5"
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 29,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": ")."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast 3rd-rank "
+          },
+          {
+            "type": "ref",
+            "id": "a8b9cc60-f471-559b-a07c-6ad022c23b56"
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 29,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": ").."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "0dfae2cc-8da3-54ef-87be-016eadc92505"
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 29
+          },
+          {
+            "type": "text",
+            "text": ")."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "50de9888-d8e7-5733-b97c-4f360205e33f"
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 29
+          },
+          {
+            "type": "text",
+            "text": ")."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.eRlOMigJjx5jAEKw"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1750
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "polished-demon-horn-major",
+          "name": "Polished Demon Horn (Major)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "affixed",
+        "to": "armor-or-a-weapon"
+      }
+    }
+  },
+  {
+    "id": "ec679323-d952-53e0-9c19-4257a36b33cf",
+    "pack": "gatewalkers",
+    "kind": "equipment",
+    "slug": "equipment:rime-jar",
+    "name": "Rime Jar",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Magical reagents slosh inside this rime-frosted pottery jar the size of a human head. Despite appearing to be rimed in hoarfrost, the jar is warm to the touch. Ilverani wizards create "
+          },
+          {
+            "type": "text",
+            "text": "rime jars",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to sustain themselves during the coldest winter nights."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Siphon Chill",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The jar draws off the cold and warms your body. If you have the "
+          },
+          {
+            "type": "ref",
+            "id": "5e3582c3-701c-5169-9c69-4221096722c2"
+          },
+          {
+            "type": "text",
+            "text": " condition caused by exposure to environmental cold, it removes the condition. For 8 hours after applying the rime, you treat extreme cold as severe cold."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.24o5lk8aOcSrsas0"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 175
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "606ebb13-d0be-5c5c-b61a-ec052b0afc42",
+    "pack": "gatewalkers",
+    "kind": "equipment",
+    "slug": "equipment:shadewither-key",
+    "name": "Shadewither Key",
+    "level": 22,
+    "rarity": "unique",
+    "traits": ["artifact", "cursed", "illusion", "invested", "primal", "shadow"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This palm-sized talisman hangs on a string of braided bark fibers. It resembles a leaf from some unknown tree similar to oak, carved from jade and then dipped halfway into black ink that looks wet despite feeling completely dry. The gate key was originally created to open the aiudara known as the Seventh Arch. In recent years, corrupting magic has given it additional, stranger powers."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you wear and invest the "
+          },
+          {
+            "type": "text",
+            "text": "Shadewither Key",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", shadows gather around you. You gain a +1 item bonus to Stealth checks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Umbral Double",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You touch the "
+          },
+          {
+            "type": "text",
+            "text": "Shadewither Key",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " and command the shadows it casts around you to peel away. The shadows form an umbral double that resembles you in every way except for its fiery red eyes and the expression of wicked delight on its face. The double occupies the same space as you and attempts to intercept any attacks aimed at you. A creature must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 11
+          },
+          {
+            "type": "text",
+            "text": " when targeting you with an attack, spell, or other effect; on a failure, they hit the shadowy double instead of you. The effect lasts for 1 minute or until the double is hit, whichever comes first. Once the double is hit, it's destroyed. As long as the double exists, you don't gain the "
+          },
+          {
+            "type": "text",
+            "text": "Shadewither Key's",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " item bonus to Stealth checks."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "item",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.jqaSdm5zp8STSW27"
+    },
+    "data": {
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "99aad228-784d-5d03-9a1d-3f13108e8b83",
+    "pack": "gatewalkers",
+    "kind": "equipment",
+    "slug": "equipment:stalk-goggles",
+    "name": "Stalk Goggles",
+    "level": 1,
+    "rarity": "rare",
+    "traits": ["invested", "magical", "morph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These black leather goggle frames have no lenses. Instead, when a character puts them on and invests them, the wearer's eyes transform and lengthen into snail-like eyestalks. The wobbly eyestalks stretch out through the lens holes and up over the wearer's head on lengthened optic nerves."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Looksee",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " By focusing hard, you can watch for enemies in all directions. You gain all-around vision for 1 minute; during this time, you can't be flanked."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "7a63737a-2a35-5dcc-b871-05d76becfad7"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.iKKZdkn8KQJSuRjY"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 20
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "looksee",
+          "name": "Looksee",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "eyepiece"
+      }
+    }
+  },
+  {
+    "id": "7cb431ed-b67f-5325-aa73-5bb351b6cf15",
+    "pack": "gatewalkers",
+    "kind": "equipment",
+    "slug": "equipment:stalk-goggles-greater",
+    "name": "Stalk Goggles (Greater)",
+    "level": 3,
+    "rarity": "rare",
+    "traits": ["invested", "magical", "morph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These black leather goggle frames have no lenses. Instead, when a character puts them on and invests them, the wearer's eyes transform and lengthen into snail-like eyestalks. The wobbly eyestalks stretch out through the lens holes and up over the wearer's head on lengthened optic nerves."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Looksee",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " By focusing hard, you can watch for enemies in all directions. You gain all-around vision and a +1 item bonus to Perception checks involving sight for 1 minute; during this time, you can't be flanked."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "7a63737a-2a35-5dcc-b871-05d76becfad7"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.U7UVGM93EaNc6lzY"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 60
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "looksee",
+          "name": "Looksee",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "eyepiece"
+      }
+    }
+  },
+  {
+    "id": "c3038d64-e974-5296-b758-d66f867657c8",
+    "pack": "gatewalkers",
+    "kind": "equipment",
+    "slug": "equipment:stalk-goggles-major",
+    "name": "Stalk Goggles (Major)",
+    "level": 8,
+    "rarity": "rare",
+    "traits": ["invested", "magical", "morph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These black leather goggle frames have no lenses. Instead, when a character puts them on and invests them, the wearer's eyes transform and lengthen into snail-like eyestalks. The wobbly eyestalks stretch out through the lens holes and up over the wearer's head on lengthened optic nerves."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Looksee",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " By focusing hard, you can watch for enemies in all directions. You gain all-around vision, low-light vision, and a +2 item bonus to Perception checks involving sight for 1 minute; during this time, you can't be flanked."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "7a63737a-2a35-5dcc-b871-05d76becfad7"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.cbbPoYOil7DZO4mk"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 450
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "looksee",
+          "name": "Looksee",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "eyepiece"
+      }
+    }
+  },
+  {
+    "id": "ccb34a34-de9e-544a-a4ac-8c0e27e91826",
+    "pack": "gatewalkers",
+    "kind": "equipment",
+    "slug": "equipment:standard-astrolabe",
+    "name": "Standard Astrolabe",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Calculate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Astrolabes can be used for navigation in unfamiliar or featureless locations. To use an astrolabe, the holder must be trained in Survival. By spending 1 minute to measure the height of the stars and planets, a holder who knows the time and date can determine the latitude, and a holder who knows their latitude can determine the date and time. An astrolabe also grants a +1 item bonus to checks to identify celestial bodies. A standard astrolabe functions only on steady ground."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["option:identify-celestial-body"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.n8nmqJdfHrDfuG1J"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 30
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "498db648-f0ab-5a36-8877-cb2dc3e7b478",
+    "pack": "gatewalkers",
+    "kind": "equipment",
+    "slug": "equipment:telekinetic-converters",
+    "name": "Telekinetic Converters",
+    "level": 12,
+    "rarity": "rare",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Copper cables run from these thick leather gloves to nodes that attach to the wearer's temples, allowing a spellcaster to convert the magic they normally cast to pure psychic intention. When you Cast a Spell using the "
+          },
+          {
+            "type": "text",
+            "text": "telekinetic converters",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you substitute any spoken words for simple thoughts, granting the subtle trait to the spell you're casting."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Mental Fling",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have a spellcasting class feature and you can cast cantrips"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "ed1f3941-7c08-5015-b12a-2017b44f68e3"
+          },
+          {
+            "type": "text",
+            "text": " as an occult cantrip, heightened to a spell rank equal to half your level rounded up."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Mind Over Matter",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have a spellcasting class feature and have an unexpended spell slot of 5th rank or higher"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast your choice of "
+          },
+          {
+            "type": "ref",
+            "id": "a0d8d75b-39a6-5671-a6cf-1fc2713753f4"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "35f9dc96-eeca-54f3-b920-7ae0733594a8"
+          },
+          {
+            "type": "text",
+            "text": " as a 5th-rank occult spell, consuming one of your unexpended spell slots of the same rank as if you had used it to cast the spell."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.KwqN8qNqp3AFwFbn"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1950
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "worn",
+        "slot": "gloves"
+      }
+    }
+  }
+]

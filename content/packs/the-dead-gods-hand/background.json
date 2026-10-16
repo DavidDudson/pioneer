@@ -1,0 +1,564 @@
+[
+  {
+    "id": "7e476546-9aa9-5133-80e7-d7718d0661c1",
+    "pack": "the-dead-gods-hand",
+    "kind": "background",
+    "slug": "background:absalom-street-preacher",
+    "name": "Absalom Street Preacher",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "the-dead-gods-hand"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When one considers the role of the priest in religion, it's easy to assume all who serve a god do so from the shelter of a cathedral or temple. Not so in your case. You grew up among those of exceptional faith who served under no roof, and for some time, you have been following in their footsteps by bringing the word of your god or philosophy to passersby in the streets. Absalom is a hotbed of competing faiths, and there are always new ears to preach to. At the same time, you've grown particularly intrigued by the dwindling faith and old teachings of Aroden, the god who created Absalom in the first place. What secrets hidden by his followers long ago might still await discovery in the city's hidden places?"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Constitution",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Religion skill and in the Aroden Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "0a4badf5-290b-5ba6-946a-aded360069eb"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:religion",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:aroden",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "0a4badf5-290b-5ba6-946a-aded360069eb"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.UC1jVssliK30AoCQ"
+    },
+    "data": {
+      "boosts": [
+        ["con", "int"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "6dac7765-d764-53ff-9d96-18d1f7f76313",
+    "pack": "the-dead-gods-hand",
+    "kind": "background",
+    "slug": "background:ambitious-knave",
+    "name": "Ambitious Knave",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "the-dead-gods-hand"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You want more than anything to become a member of Absalom's high society, no matter what you have to do to make it happen. Whether you feel guilt for those you're forced to step over (or on) in your scramble to stand among the city's movers and shakers or whether you take pleasure in watching others fall short of the goals you and they are both pursuing, your ultimate ambition is to become famous. Your fellow party members are a rare exception to the disdain with which you regard others, although even then, you know you're the one who really matters in the end."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Dexterity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Thievery skill and in the Absalom Lore skill. You gain the Dirty Trick skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:thievery",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:absalom",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "88af3edf-2b57-5a2f-9a0d-4e7f540fc2ef"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.h9PNw7A5tRrjp4JE"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "dex"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "f642f5a8-e163-553b-9b8f-793cc2c17f06",
+    "pack": "the-dead-gods-hand",
+    "kind": "background",
+    "slug": "background:destined-for-greatness",
+    "name": "Destined for Greatness",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "the-dead-gods-hand"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A fortune-teller once confided in you that your destiny is far greater than that of your peers, and everything you've experienced since that moment seems to confirm it. You'd never go so far as to say you're better than everyone else, but it's certainly true that others often look to you for guidance and rely on your initiative and leadership skills. Things have a way of working out for you, and you're starting to believe it might not just be luck. You've got a purpose. It's just time to figure out what that purpose is..."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Strength",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Society skill and in the Aroden Lore skill, as he's been a role model to you. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "2cf519d9-3331-5d83-80da-9041ede7e26f"
+          },
+          {
+            "type": "text",
+            "text": " skill feat and can select Azlanti as one of your new languages."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:society",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:aroden",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "2cf519d9-3331-5d83-80da-9041ede7e26f"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.VUH3TA6BPFE49v7s"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "str"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "33272594-7951-5903-8c3a-912f25b49f2e",
+    "pack": "the-dead-gods-hand",
+    "kind": "background",
+    "slug": "background:esoteric-bookworm",
+    "name": "Esoteric Bookworm",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "the-dead-gods-hand"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "All your life, you've been fascinated by books, particularly accounts of ancient occult secrets and works of engineering. You've devoured every text you can get your hands on and proudly quote whole passages from memory. You've heard stories of hidden places and secret chambers throughout Absalom—and below it—and have long wanted to explore one of these mysterious locations yourself. What strange marvels might await discovery below?"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Occultism skill and in the Engineering Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "777e0aa6-b6ce-5ea2-959d-6f2331e44907"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:occultism",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:engineering",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "777e0aa6-b6ce-5ea2-959d-6f2331e44907"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.mEp8eMwhi6xly5Ce"
+    },
+    "data": {
+      "boosts": [
+        ["int", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "49c4958b-b8d9-52e9-9ef0-4d51c6e5b42e",
+    "pack": "the-dead-gods-hand",
+    "kind": "background",
+    "slug": "background:mystery-adept",
+    "name": "Mystery Adept",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "the-dead-gods-hand"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your greatest ambition is to enroll in Absalom's prestigious College of Mysteries, one of the most highly regarded institutions of magical training in the world. The admission standards are stringent, but you are ready to do what must be done to add your name to their ledger of students, which has meant spending excruciating hours studying and training."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Constitution",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Arcana skill and in the Academia Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "2e7a3f2a-4cb5-59ab-a713-07b8f1076bae"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:arcana",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:academia",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "2e7a3f2a-4cb5-59ab-a713-07b8f1076bae"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.MG6OQvsudopzy3ng"
+    },
+    "data": {
+      "boosts": [
+        ["con", "int"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "ad184803-83d0-5311-86c5-39477d657b76",
+    "pack": "the-dead-gods-hand",
+    "kind": "background",
+    "slug": "background:puddles-carny",
+    "name": "Puddles Carny",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "the-dead-gods-hand"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The Puddles are an awful place to live, and that makes what you do so important. You've long adored the carnival life, either as a roustabout, a performer, or as something in between, but you've found that it's feats of brawn or balance that tend to put the biggest smiles on downtrodden faces. You don't want to be a Puddles carny all your life, and you've long admired the great works of art on display throughout the city. Maybe one day your own artwork will be as highly regarded, but until then, well—the show must go on."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Strength",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Dexterity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Athletics skill and in the Art Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "7e42ccc3-1342-59f0-b827-0279e78a7260"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:athletics",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:art",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "7e42ccc3-1342-59f0-b827-0279e78a7260"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.lljhasEwZtulkdHX"
+    },
+    "data": {
+      "boosts": [
+        ["dex", "str"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  }
+]

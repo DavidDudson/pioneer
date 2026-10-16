@@ -96,6 +96,14 @@ from, and offers the content caches for download without an account.
 | `high-seas`                    | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
 | `season-of-ghosts`             | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
 | `hellbreakers`                 | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
+| `gatewalkers`                  | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
+| `myth-speakers`                | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
+| `revenge-of-the-runelords`     | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
+| `secrets-of-the-unlit-star`    | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
+| `troubles-in-grayce`           | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
+| `hells-destiny`                | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
+| `bastion-of-blasphemies`       | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
+| `the-dead-gods-hand`           | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
 
 The vocabulary each import adds to `core-rules` (traits, senses, damage types,
 Lore statistics), under `content/packs/core-rules/imported/<pack>/`, comes from

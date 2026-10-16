@@ -1,0 +1,420 @@
+[
+  {
+    "id": "ce4415e6-2f84-58fe-b0a3-b2328b1d0c0b",
+    "pack": "myth-speakers",
+    "kind": "spell",
+    "slug": "spell:crown-of-prophets",
+    "name": "Crown of Prophets",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["animist", "focus", "morph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Serpents sprout from your head, equally ready to bite your foes or offer you counsel. You gain a fangs unarmed attack that deals 1d6 piercing damage and has the agile, finesse, and versatile poison traits. The first time you Cast or Sustain this spell each round, you can perform one of the following as a free action."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Serpentine Advice",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The snakes compete to offer you counsel. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "ea6c8962-0fc5-5db6-8fbd-0ad99296eae2"
+          },
+          {
+            "type": "text",
+            "text": " feat until the end of your turn, then you "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Toxic Prophecy",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (poison)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature within 15 feet damaged you since the end of your last turn"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The snakes spit toxic curses at the required creature, dealing 2d4 poison damage (basic Fortitude save)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "9e2fc63f-fa5b-5de9-847e-431d16b97254"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The poison damage dealt by Toxic Prophecy increases by 1d4."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.h2DLv8TQV0Z83tQp"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "one"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:fortitude",
+          "basic": true
+        }
+      },
+      "traditions": [],
+      "damage": [
+        {
+          "key": "nv7qbk0in2t27lu9",
+          "formula": "2d4",
+          "damageType": "poison",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "nv7qbk0in2t27lu9",
+            "formula": "1d4"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "55fe2364-ea6b-5aec-8c5e-c7221e5eaf5d",
+    "pack": "myth-speakers",
+    "kind": "spell",
+    "slug": "spell:funeral-flames",
+    "name": "Funeral Flames",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "fire", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform a bludgeon into a fearsome torch suited to casting undead into the afterlife. One end of the weapon ignites, becoming wreathed in blue flame. While you wield the target weapon, it becomes a +1 weapon, gains the versatile fire trait, and sheds light as brightly as a torch. Whenever you successfully Strike a creature with the weapon, you can Dismiss the spell as a free action to deal 1d6 persistent fire damage to the target; if the target is undead, increase the persistent damage dice to d8s."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "aa6db74d-f0a5-517a-9882-b21448e00ad4"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+2)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The persistent fire damage increases by 1d6."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.5KmyO4YSGEAUdgAS"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "touch"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "traditions": ["divine", "primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "a7bbcea9-f827-5ac9-a49f-e7f991f77ced",
+    "pack": "myth-speakers",
+    "kind": "spell",
+    "slug": "spell:gift-of-the-anemos",
+    "name": "Gift of the Anemos",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["air", "animist", "aura", "focus"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your apparition envelops you in gusting winds that can speed your steps or buffet your foes. When an enemy in the aura critically fails a Strike against you, they must succeed at a Reflex save or become "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " until the end of your next turn. When you cast or sustain this spell, you can either Step, "
+          },
+          {
+            "type": "ref",
+            "id": "082b982f-3ed4-5d9c-9722-9ab10198523a"
+          },
+          {
+            "type": "text",
+            "text": " a creature in the aura using your spell attack modifier in place of your Athletics modifier, or jump 10 feet in any direction (you must land on solid ground, or else you fall)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.x2Gf3lt64eoMocMd"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "one"
+      },
+      "area": {
+        "shape": "emanation",
+        "size": 10
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:reflex",
+          "basic": false
+        }
+      },
+      "traditions": [],
+      "damage": []
+    }
+  },
+  {
+    "id": "881f73da-5709-5b0a-b0f5-89036754fa43",
+    "pack": "myth-speakers",
+    "kind": "spell",
+    "slug": "spell:pyrefowl-rebuke",
+    "name": "Pyrefowl Rebuke",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["fire", "manipulate", "move"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature within 10 feet of you Strikes and deals damage to you."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Fiery wings briefly envelop your arms, and with a swift wingbeat, you flutter away from your attacker in a shower of searing sparks. You deal 1d6 fire damage to the triggering creature, with a basic Reflex save, and Fly up to 10 feet in a straight line directly away from it. If the creature critically fails its saving throw, your movement does not provoke reactions from it, and it's "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " until the end of its next turn."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+2)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage increases by 1d6, and the maximum distance you can Fly increases by 5 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.xnh2NBOGs4hcH9B3"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "actions",
+        "cost": "reaction"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:reflex",
+          "basic": true
+        }
+      },
+      "traditions": ["arcane", "primal"],
+      "damage": [
+        {
+          "key": "labxcsii8h8lkser",
+          "formula": "1d6",
+          "damageType": "fire",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 2,
+        "damage": [
+          {
+            "key": "labxcsii8h8lkser",
+            "formula": "1d6"
+          }
+        ]
+      }
+    }
+  }
+]

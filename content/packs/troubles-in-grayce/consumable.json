@@ -1,0 +1,616 @@
+[
+  {
+    "id": "72508b0c-7ca9-5d71-b777-cf2a52fbe83e",
+    "pack": "troubles-in-grayce",
+    "kind": "consumable",
+    "slug": "consumable:cinnamon-nostalgia-bun",
+    "name": "Cinnamon Nostalgia Bun",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "consumable", "processed"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "troubles-in-grayce"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A swirl of cinnamon, sugar, and butter is baked into this fluffy bun. Pulling apart and eating the bun evokes comforting memories of happier times, reducing the value of your frightened condition by 1. You can also attempt an immediate flat check to recover from a single source of persistent mental damage, with the DC reduction from appropriate assistance."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.cngyxKY271mvKySQ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 11
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "c79a875a-2f58-5d8a-95f4-95d34cf79874",
+    "pack": "troubles-in-grayce",
+    "kind": "consumable",
+    "slug": "consumable:guardian-rose",
+    "name": "Guardian Rose",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["consumable", "healing", "magical", "talisman"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "troubles-in-grayce"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You would be reduced to 0 Hit Points but not immediately killed."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This rose-shaped crystal brooch is a translucent bloodred. These talismans have saved the lives of many a soldier on the field of battle. When you activate a "
+          },
+          {
+            "type": "text",
+            "text": "guardian rose",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you avoid being knocked out and regain "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d8+5"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points. However, this puts a strain on your body and you are "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 1"
+          },
+          {
+            "type": "text",
+            "text": " until the end of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.MBKnfr5EW60lpWBL"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 20
+        }
+      },
+      "bulk": "negligible",
+      "category": "talisman",
+      "usage": {
+        "type": "affixed",
+        "to": "armor"
+      }
+    }
+  },
+  {
+    "id": "963ff022-99c8-5494-9ff1-893a214b1ecf",
+    "pack": "troubles-in-grayce",
+    "kind": "consumable",
+    "slug": "consumable:hagbane-biscuit",
+    "name": "Hagbane Biscuit",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "consumable", "processed"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "troubles-in-grayce"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This gingerbread biscuit is stamped in the shape of a menacing witch, her features decorated with anise and fennel seeds. When you eat the biscuit, its sharp spices warm your body for 10 minutes, granting you a +1 status bonus Perception checks to pierce a hag's disguise, to skill checks to "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": " about hags, and to saving throws made against hags' abilities and spells. During this time, weapons you wield count as cold iron for any physical attacks made against hags."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The biscuit tastes especially bitter to hags, changelings, and other hag-related creatures (such as a sorcerer with the hag bloodline). If such a creature attempts to eat the biscuit, they must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 18,
+            "options": ["inflicts:sickened"]
+          },
+          {
+            "type": "text",
+            "text": " save or it fails and wastes the action (and is "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": " on a critical failure)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ZY0XGD1LFFSh3VNO"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "18bfb3dc-5500-5ea8-ac5a-5d6dd521436a",
+    "pack": "troubles-in-grayce",
+    "kind": "consumable",
+    "slug": "consumable:last-word-stone",
+    "name": "Last Word Stone",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["consumable", "divine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "troubles-in-grayce"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This small, palm-sized smooth crystal has a translucent gray coloration. But with a whisper from the lips of the desperate, a "
+          },
+          {
+            "type": "text",
+            "text": "last word stone",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can be filled with a spark of memory, changing its appearance to an opaque, polished stone that is strangely warm to the touch. These divinely infused objects were initially created by Pharasmin priests to preserve a dying person's last moment of life should loved ones be delayed in their arrival at the dying person's side. But with the tragedy of Lastwall, "
+          },
+          {
+            "type": "text",
+            "text": "last word stones",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " have gained a new, more desperate purpose. Here, along the Gravelands border regions, refugees and adventurers have taken to using "
+          },
+          {
+            "type": "text",
+            "text": "last word stones",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to impart important details to recipients outside of endangered places when it seems likely they won't survive to spread the news themselves."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Capture Memory",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate, mental)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "last word stone",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " doesn't contain a memory"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You press an empty "
+          },
+          {
+            "type": "text",
+            "text": "last word stone",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to an adjacent willing creature's head. The stone fills with an important memory from the creature's mind, then becomes opaque in appearance. The memory is duplicated, and remains in the target creature's thoughts, but no indication of what type of memory is held within the stone is discernible to anyone else. Which memory is placed in the "
+          },
+          {
+            "type": "text",
+            "text": "last word stone",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is chosen by the creature from whom the memory is copied, and once a memory is stored, the stone can't be used again to Capture Memory. A stored memory can't contain much information beyond a single emotion and a hazy mental picture that, taken together, convey a short message of no more than 10 words—typically enough to impart final words of comfort to a loved one, or to warn one of a specific location that might be trapped, or to impart a bit of news about a noteworthy event. The limit of 10 words represents the hazy and sometimes confusing nature of the mental image."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Reveal Memory",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate, mental)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "last word stone",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " contains a memory"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You hold the "
+          },
+          {
+            "type": "text",
+            "text": "last word stone",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to your head and concentrate on its contents. A moment later, the stored memory plays out in your mind and the "
+          },
+          {
+            "type": "text",
+            "text": "last word stone",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " crumbles to dust in your hand."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.tAGWI3br9PO4It6R"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 8
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "7a007e00-93e7-5bc2-afa7-69e4bab73522",
+    "pack": "troubles-in-grayce",
+    "kind": "consumable",
+    "slug": "consumable:tearaway-paper-doll",
+    "name": "Tearaway Paper Doll",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "troubles-in-grayce"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A humanoid shape has been cut out of a single sheet of colored paper with a face and clothes drawn on. The face looks slightly worried, as if the doll knows what it was made for. You hold up the paper doll in two hands and rip it half, focusing your thoughts on a creature within 20 feet that you can see. That creature takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d6",
+                "damageType": "slashing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 18,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save) as the tears of the paper doll are mimicked on its body."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.zoW4lVigBoxl73Eg"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 11
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  }
+]

@@ -47,6 +47,14 @@ export const FOUNDRY_IMPORTS: readonly FoundryImport[] = [
   imported('high-seas'),
   imported('season-of-ghosts'),
   imported('hellbreakers'),
+  imported('gatewalkers'),
+  imported('myth-speakers'),
+  imported('revenge-of-the-runelords'),
+  imported('secrets-of-the-unlit-star'),
+  imported('troubles-in-grayce'),
+  imported('hells-destiny'),
+  imported('bastion-of-blasphemies'),
+  imported('the-dead-gods-hand'),
 ];
 
 /** The release's page on GitHub. */

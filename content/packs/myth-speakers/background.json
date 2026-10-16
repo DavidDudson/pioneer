@@ -1,0 +1,606 @@
+[
+  {
+    "id": "df67600f-f79b-561e-878d-6d1d5811e935",
+    "pack": "myth-speakers",
+    "kind": "background",
+    "slug": "background:beast-seeker",
+    "name": "Beast Seeker",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "From jagged reefs to trackless forests to volcanoes dusted by snow even at this low latitude, Iblydos is home to fearsome creatures willing to eat civilians and snap ships in half. There might be no greater place to test one's monster-hunting credentials than this archipelago, much as countless hero-gods have done over the millennia. Perhaps you traveled here to learn how to slay leviathans and better defend your homeland from some bestial threat. You might instead value the esoteric properties of the slain creatures, knowing the alchemical potential of a hydra's eye or a medusa's venom. Whatever your motivation, you have honed tactics to trip and even tackle massive monsters."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Strength",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Dexterity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in either the Athletics or Thievery skill, as well as the Legendary Beast Lore skill. If you choose Athletics, you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "60f109bd-d3e9-52d7-b081-85d51399020d"
+          },
+          {
+            "type": "text",
+            "text": " skill feat. If you choose Thievery, you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "88af3edf-2b57-5a2f-9a0d-4e7f540fc2ef"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:legendary-beast",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.J0SCT6yZgdf0DTTD"
+    },
+    "data": {
+      "boosts": [
+        ["dex", "str"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "8f907a4d-5243-50ee-9b79-a313d48a3200",
+    "pack": "myth-speakers",
+    "kind": "background",
+    "slug": "background:child-of-the-polis",
+    "name": "Child of the Polis",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're a longtime Kardaji Bay resident. Rather than explore distant lands, you've strengthened your connection to Iblydos, learning its little-known secrets and making friends in every port. You know the cadence and body language needed to set strangers at ease and communicate belonging, making it easy to track down deals and leads. Who needs wealth and glory when they can revel in Iblydos's eclectic culture? That said, if anything threatens the isles, you'll be ready to rally your neighbors and fight back."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Constitution",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in either the Diplomacy or Society skill, as well as the Lore skill associated with one Iblydan city-state (Pol-Bailax or Pol-Dhuraxilis is recommended). If you choose Diplomacy, you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "6421ce8e-13cd-5e56-a029-3a0d51a158af"
+          },
+          {
+            "type": "text",
+            "text": " skill feat. If you choose Society, you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "7f7011f1-61c2-5cbd-8d5a-29a2b81efc13"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.ovDOXEuRumNhMU5T"
+    },
+    "data": {
+      "boosts": [
+        ["con", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "68b244e9-372b-5626-a7cd-f8af1d2d452c",
+    "pack": "myth-speakers",
+    "kind": "background",
+    "slug": "background:glory-hound",
+    "name": "Glory Hound",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Eventually, even the greatest hero-god must die. Yet many live eternally through song, poetry, shrines, and art. Even though Iblydos isn't producing new hero-gods, its people know how to appreciate and commemorate a real hero. You hope to seize that same immortality through exceptional deeds and a little luck. If everything goes to plan, you'll retire rich and famous, looking good all the while. If the fates turn against you, at the very least you know tales of your exploits will dazzle audiences for ages."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Strength",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in either the Intimidation or Performance skill, as well as the Games Lore skill. If you choose Intimidation, you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "83871ce2-c4f9-5a77-af0a-7d7f0708b5f0"
+          },
+          {
+            "type": "text",
+            "text": " skill feat. If you choose Performance, you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "73f460e2-feec-5d78-983c-ecf0c7a4b1e8"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:games",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.Lue29rc3ZDt64iyL"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "str"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "82cf3045-7f35-55b0-bb25-4c32ee87e4f2",
+    "pack": "myth-speakers",
+    "kind": "background",
+    "slug": "background:kartaji-epicurean",
+    "name": "Kartaji Epicurean",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each city-state hides enough secrets to occupy an adventurer for a lifetime. Even so, many seek the varied experiences and sites at each of Iblydos's eminent cities. You have toured much of Kardaji Bay and the Iblydan archipelago, be that as a trader, an envoy, or a tourist. Along the way, you've incorporated local idioms, idiosyncrasies, and ingredients into your cosmopolitan lifestyle. You've most recently reached Bailax, ready for new adventures."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Constitution",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in either the Crafting or Society skill and the Cooking Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "50ac17a9-a644-58e8-8ee0-ce4c6cfbf17b"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "skill",
+        "choices": [
+          {
+            "value": "crafting",
+            "label": "Crafting"
+          },
+          {
+            "value": "society",
+            "label": "Society"
+          }
+        ],
+        "prompt": "Select a skill."
+      },
+      {
+        "key": "Proficiency",
+        "selector": {
+          "choice": "skill",
+          "prefix": "skill"
+        },
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:cooking",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "50ac17a9-a644-58e8-8ee0-ce4c6cfbf17b"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.UTqLL3df0thC36QK"
+    },
+    "data": {
+      "boosts": [
+        ["con", "int"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "d90227d8-2ded-598d-b90b-8089fe26a17c",
+    "pack": "myth-speakers",
+    "kind": "background",
+    "slug": "background:obari-wanderer",
+    "name": "Obari Wanderer",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For millennia, the Obari Crossing has been the lifeblood of Iblydos's economy. You're no stranger to these waters, having traveled the route before and learned to feel the currents' pulse. Did you begin your career far to the west in the Impossible Lands before sailing in search of fortune? Perhaps your first voyage involved a hold full of Vudran spices, textiles, and artwork bound for Absalom's markets or beyond. You might have even grown up in Iblydos, learning to ply the Obari Ocean and guide incoming merchants past treacherous reefs. Whatever the case, you're at home at sea—a priceless boon in this scattered archipelago."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Dexterity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in either the Acrobatics or Survival skill, as well as the Sailing Lore skill. If you choose Acrobatics, you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "c3a8f7dc-3aca-50df-8358-827d0e215f7c"
+          },
+          {
+            "type": "text",
+            "text": " skill feat. If you choose Survival, you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "57542da4-3edc-5464-9143-2236defe9f0e"
+          },
+          {
+            "type": "text",
+            "text": " skill feat (aquatic or forest terrain is recommended)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:sailing",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.KrlSyOoVcND109iT"
+    },
+    "data": {
+      "boosts": [
+        ["dex", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "8f43ffbc-dd21-53b5-82cb-80e576d9de9c",
+    "pack": "myth-speakers",
+    "kind": "background",
+    "slug": "background:student-of-apotheosis",
+    "name": "Student of Apotheosis",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "From subjects of worship to forces of nature that literally reshaped the region, hero-gods are central to Iblydan identity. While every child learns at least a little about their city-state's divinities from the past and present, you have devoured these legends. Do you long to have witnessed their miracles firsthand? Have you studied this topic as an academic, archivist, or priest? Perhaps you just love a good story. Whatever the case, these legends speak to you on an ineffable level. Are the fates hinting at some secret destiny: perhaps you're becoming a hero-god of old?"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in either the Occultism or Religion skill, as well as the Hero-God Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "9af0ef5d-db0e-50b7-9268-c185e544e0f0"
+          },
+          {
+            "type": "text",
+            "text": " action. Replace this with the "
+          },
+          {
+            "type": "ref",
+            "id": "a4b66521-f6de-55c0-a5fe-8f04ccc2c694"
+          },
+          {
+            "type": "text",
+            "text": " action when you gain a mythic calling."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "skill",
+        "choices": [
+          {
+            "value": "occultism",
+            "label": "Occultism"
+          },
+          {
+            "value": "religion",
+            "label": "Religion"
+          }
+        ],
+        "prompt": "Select a skill."
+      },
+      {
+        "key": "Proficiency",
+        "selector": {
+          "choice": "skill",
+          "prefix": "skill"
+        },
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "9af0ef5d-db0e-50b7-9268-c185e544e0f0"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:hero-god",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.pZg3dGKD5jAfcJ0E"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "int"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  }
+]

@@ -1,0 +1,790 @@
+[
+  {
+    "id": "0849abe6-a1ae-5dbf-b944-a27798a4c283",
+    "pack": "hells-destiny",
+    "kind": "equipment",
+    "slug": "equipment:amulet-of-the-slumberer",
+    "name": "Amulet of the Slumberer",
+    "level": 21,
+    "rarity": "unique",
+    "traits": ["artifact", "invested", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Companion Item to "
+          },
+          {
+            "type": "ref",
+            "id": "b85d19aa-40ec-5310-904a-ab73d0309b3b"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Only one such amulet can exist at any given time, and the artifact can grow a new one in 10 minutes if the original is destroyed. The Eye's abilities that require a saving throw use the higher of the amulet wearer's spell DC or class DC."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.an9xWmkKH87Vbnkq"
+    },
+    "data": {
+      "bulk": "light",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "52f61d2f-d1b5-581f-bf9d-6d11622d3c1e",
+    "pack": "hells-destiny",
+    "kind": "equipment",
+    "slug": "equipment:banner-of-common-cause",
+    "name": "Banner of Common Cause",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["aura", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Embroidered with symbols of unity, this banner inspires even the meekest warrior to step up and lead when circumstances demand."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Pass the Banner",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (fortune)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're knocked "
+          },
+          {
+            "type": "ref",
+            "id": "e1a78dad-4887-518e-9120-e58b7009ebfd"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're leading a troop"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A member of the troop you're leading picks up and displays the banner, maintaining the troop's cohesion. When attempting its rout check due to losing its leader, the troop rolls its Will save twice and uses the better result."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Stand Firm",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (emotion, mental, visual)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A frightened ally begins their turn within your banner's aura"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Reduce the ally's frightened condition by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.PyBc9ZIKHXdwvkoO"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 350
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "pass-the-banner",
+          "name": "Pass the Banner",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        },
+        {
+          "slug": "stand-firm",
+          "name": "Stand Firm",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "b85d19aa-40ec-5310-904a-ab73d0309b3b",
+    "pack": "hells-destiny",
+    "kind": "equipment",
+    "slug": "equipment:the-eye-of-the-slumberer",
+    "name": "The Eye of the Slumberer",
+    "level": 21,
+    "rarity": "unique",
+    "traits": ["artifact", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The "
+          },
+          {
+            "type": "text",
+            "text": "Eye of the Slumberer",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is an alghollthu relic resembling a tangle of barnacle-encrusted tentacles. Though the orb is too large to move easily, the artifact's owner (referred to as the bearer) can activate its powers by wearing the "
+          },
+          {
+            "type": "text",
+            "text": "Amulet of the Slumberer",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", a companion item shaped like a barnacle-encrusted cephalopod eye; this is a worn item that has the invested and occult traits. Only one such amulet can exist at any given time, and the artifact can grow a new one in 10 minutes if the original is destroyed. The Eye's abilities that require a saving throw use the higher of the amulet wearer's spell DC or class DC."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As one of the alghollthus' ancient contingencies to control their servitors, the "
+          },
+          {
+            "type": "text",
+            "text": "Eye",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " absorbs thoughts—especially those of pain and anguish—storing them like a battery. On command, it can unleash the stored energy, potentially stunning whole ecosystems. Each time a creature with the aquatic, amphibious, or water trait falls asleep or otherwise passes the night within 1 mile of the "
+          },
+          {
+            "type": "text",
+            "text": "Eye of the Slumberer",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", it dreams fitfully of the artifact; creatures that don't dream are immune to this effect. When it awakens, the creature must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 45
+          },
+          {
+            "type": "text",
+            "text": " save or become friendly toward the bearer (or helpful on a critical failure) until the next time it rests; this is an emotion and mental effect. The "
+          },
+          {
+            "type": "text",
+            "text": "Amulet",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "'s bearer isn't automatically aware of creatures influenced in this fashion, but they can identify such creatures on sight."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Open the Eye",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate, occult)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are wearing the "
+          },
+          {
+            "type": "text",
+            "text": "Amulet of the Slumberer",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " and are within 100 feet of the "
+          },
+          {
+            "type": "text",
+            "text": "Eye of the Slumberer",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The amulet's eye opens and absorbs fears from creatures within a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 20
+          },
+          {
+            "type": "text",
+            "text": ", subjecting them to nightmare as if they'd spent a night under the influence of the spell. Additionally, each creature with the dream or incorporeal trait within 500 feet of the "
+          },
+          {
+            "type": "text",
+            "text": "Eye of the Slumberer",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "20d6",
+                "damageType": "force"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 45,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Vortex",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (occult, water)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're wearing the "
+          },
+          {
+            "type": "text",
+            "text": "Amulet of the Slumberer",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you're within 100 feet of the "
+          },
+          {
+            "type": "text",
+            "text": "Eye of the Slumberer",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", and the "
+          },
+          {
+            "type": "text",
+            "text": "Eye",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is within water"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The water around the "
+          },
+          {
+            "type": "text",
+            "text": "Eye",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " churns violently in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": ", becoming difficult terrain for swimming creatures that don't have the water trait. You can use this action again to Dismiss this effect."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Destruction",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "Eye of the Slumberer",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is destroyed if it's brought to the Dreamlands and either fed to a Great Old One or encircled by joyful celebrants for 101 days, during which time none of the dancers can experiences despair."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.L6HpgX8EsBWCRJ3u"
+    },
+    "data": {
+      "bulk": 50,
+      "activations": [
+        {
+          "slug": "open-the-eye",
+          "name": "Open the Eye",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "0e9e360a-b98d-5d13-9123-6a0c67946733",
+    "pack": "hells-destiny",
+    "kind": "equipment",
+    "slug": "equipment:warpriests-cascade",
+    "name": "Warpriest's Cascade",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This iron thurible—originally crafted by a Caydenite priest to disperse symbolic libations—swings from the end of an extendable shaft, allowing you to sprinkle the contents over an entire troop."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The thurible's container can hold a magical potion up to the item level of the warpriest's cascade, dispersing its contents over an entire troop over the course of 1 minute. However, spreading out the potion lessens its duration. Potions with a duration of 1 hour or more affect a troop for only 10 minutes, and potions with a duration of 8 hours or more affect a troop for only 1 hour. Potions with a duration less than 1 hour don't work inside of a warpriest's cascade."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.g9JXE1u023zcmXxk"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 145
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "157a5a54-3b9c-5ea7-8f77-c53a97ca5ea1",
+    "pack": "hells-destiny",
+    "kind": "equipment",
+    "slug": "equipment:warpriests-cascade-greater",
+    "name": "Warpriest's Cascade (Greater)",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This iron thurible—originally crafted by a Caydenite priest to disperse symbolic libations—swings from the end of an extendable shaft, allowing you to sprinkle the contents over an entire troop."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The thurible's container can hold a magical potion up to the item level of the warpriest's cascade, dispersing its contents over an entire troop over the course of 1 minute. However, spreading out the potion lessens its duration. Potions with a duration of 1 hour or more affect a troop for only 10 minutes, and potions with a duration of 8 hours or more affect a troop for only 1 hour. Potions with a duration less than 1 hour don't work inside of a warpriest's cascade."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.uU0CpaUyUVnVmTab"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 900
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "c39c3a5b-9691-51be-b8c0-3e251422493e",
+    "pack": "hells-destiny",
+    "kind": "equipment",
+    "slug": "equipment:warpriests-cascade-major",
+    "name": "Warpriest's Cascade (Major)",
+    "level": 15,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This iron thurible—originally crafted by a Caydenite priest to disperse symbolic libations—swings from the end of an extendable shaft, allowing you to sprinkle the contents over an entire troop."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The thurible's container can hold a magical potion up to the item level of the warpriest's cascade, dispersing its contents over an entire troop over the course of 1 minute. However, spreading out the potion lessens its duration. Potions with a duration of 1 hour or more affect a troop for only 10 minutes, and potions with a duration of 8 hours or more affect a troop for only 1 hour. Potions with a duration less than 1 hour don't work inside of a warpriest's cascade."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.2570LATnOPLMXonm"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5500
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

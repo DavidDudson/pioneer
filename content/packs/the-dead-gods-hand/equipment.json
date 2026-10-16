@@ -1,0 +1,1311 @@
+[
+  {
+    "id": "6ed65ab0-90b8-5b1f-9dd4-118c0d3d7323",
+    "pack": "the-dead-gods-hand",
+    "kind": "equipment",
+    "slug": "equipment:aeon-stone-eastern-star",
+    "name": "Aeon Stone (Eastern Star)",
+    "level": 7,
+    "rarity": "rare",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "the-dead-gods-hand"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This red crystal is cut in the shape of a five-pointed star. An eastern star aeon stone must be activated to provide a benefit. The resonant power grants you a +1 item bonus to Diplomacy checks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Absorb Language",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You touch a creature who spoke a common language in your presence within the previous minute. The eastern star aeon stone becomes infused with this language, granting you the ability to understand, speak, and write that language. This activation persists until you activate it again."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy"],
+        "type": "item",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.WvZkoHotuLzcoxrL"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 350
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "absorb-language",
+          "name": "Absorb Language",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "c5fc89fb-7732-5fda-a9a7-3aa44829d6c9",
+    "pack": "the-dead-gods-hand",
+    "kind": "equipment",
+    "slug": "equipment:aeon-stone-western-star",
+    "name": "Aeon Stone (Western Star)",
+    "level": 3,
+    "rarity": "rare",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "the-dead-gods-hand"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This blue crystal is cut in the shape of a five-pointed star. A western star aeon stone must be activated to provide a benefit. The resonant power grants you a +1 item bonus to Deception checks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Illusory Disguise",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, illusion, manipulate, visual)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The western star aeon stone casts a 1st-rank "
+          },
+          {
+            "type": "ref",
+            "id": "adcc4c8f-05ae-5440-83d0-9e88ad22209b"
+          },
+          {
+            "type": "text",
+            "text": " to your specifications. If you so choose, the disguise obscures any aeon stones orbiting your head, rendering them invisible until the activation ends."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "item",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.V5kv7e1r2qV2k3lf"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 150
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "illusory-disguise",
+          "name": "Illusory Disguise",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "85834e2a-8034-56ab-8240-08aab611bc19",
+    "pack": "the-dead-gods-hand",
+    "kind": "equipment",
+    "slug": "equipment:deravons-helm",
+    "name": "Deravon's Helm",
+    "level": 4,
+    "rarity": "unique",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "the-dead-gods-hand"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Deravon's helm",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is crafted with crown-like embellishments to give it an unmistakable air of authority. Crafted of gold with silver filigree incorporating images of swords, jewels, and most of all, the Eye of Aroden (from which the tines of the crown extend), Deravon's helm is much lighter than would be expected. Downward swooping guards adorn the sides of the helm while leaving the face fully visible. It grants you a +1 item bonus to Intimidation checks made to Demoralize."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Bow Before Aroden",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (auditory, concentrate, linguistic, mental)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You issue a command to a humanoid within 30 feet to bow down before Aroden's glory. The targeted creature must make a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 18
+          },
+          {
+            "type": "text",
+            "text": " save to resist being compelled to drop "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": " as its first action on their next turn (on a critical failure, the target must spend all three actions on its next turn remaining prone). If the target is a human, they take a –1 status penalty to the save."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:intimidation"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["action:demoralize"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.lrqWKtJrjb55iHtw"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 90
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "bow-before-aroden",
+          "name": "Bow Before Aroden",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "headwear"
+      }
+    }
+  },
+  {
+    "id": "8c6439e8-973c-5419-a26b-65ae7cefc536",
+    "pack": "the-dead-gods-hand",
+    "kind": "equipment",
+    "slug": "equipment:heart-of-sarnax",
+    "name": "Heart of Sarnax",
+    "level": 6,
+    "rarity": "unique",
+    "traits": ["arcane", "artifact"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "the-dead-gods-hand"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This fist-sized ruby would be close to priceless even if it weren't a magical artifact. So large and heavy for a ruby that most merchants would take it for a fake anyway, the Heart of Sarnax pulses like a heartbeat whenever the wielder speaks aloud the name \"Sarnax.\""
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Two Hearts as One",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You hold forth the Heart of Sarnax, targeting a living creature within 60 feet, then give the huge ruby a firm squeeze. The Heart of Sarnax begins pounding in your grip, like a heart racing in panic or exertion, and the targeted creature feels their own heart speed up to match. Choose one of the following effects to apply to the targeted creature."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Bestow Vim",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target creature becomes "
+          },
+          {
+            "type": "ref",
+            "id": "6517bbf2-8085-534b-be6a-187d52739fa0"
+          },
+          {
+            "type": "text",
+            "text": ", and it can use the extra action to Stride, Strike, or attempt an Athletics check that resolves as a single action. Any Strikes made during this action are not affected by the creature's current multiple attack penalty, and any Athletics checks made during this action gain a +2 item bonus. If the creature uses the action to Stride, it gains a +10-foot item bonus to its Speed. This effect lasts for 1 minute, after which the target creature becomes "
+          },
+          {
+            "type": "ref",
+            "id": "5e3582c3-701c-5169-9c69-4221096722c2"
+          },
+          {
+            "type": "text",
+            "text": " for 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Crush Heart",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (death) The target creature feels its heart pounding harder, and then suddenly feels it stop as its life essence is crushed. The creature takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "7d6",
+                "damageType": "spirit"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 20
+          },
+          {
+            "type": "text",
+            "text": " save. A creature reduced to 0 HP by this damage is slain."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes no damage, but is "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " until the end of its next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes half damage and is off-guard until the end of its next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes full damage, is off-guard until the end of its next turn, and is "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes double damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+            "label": "Stunned 3"
+          },
+          {
+            "type": "text",
+            "text": ". When it recovers from being stunned, it is "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 2"
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Destruction",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " By transforming the Heart of Sarnax into a ruby version of Sarnax and then destroying the construct, the Heart of Sarnax shatters into valuable but non-magical fragments."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.jOR6jSXqgEXc1Src"
+    },
+    "data": {
+      "bulk": 3,
+      "activations": [
+        {
+          "slug": "two-hearts-as-one",
+          "name": "Two Hearts as One",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "18f7db3d-6389-56f8-b40a-f0df9a6d82a9",
+    "pack": "the-dead-gods-hand",
+    "kind": "equipment",
+    "slug": "equipment:lookouts-spyglass",
+    "name": "Lookout's Spyglass",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "the-dead-gods-hand"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This brass and wood spyglass is typically decorated with etchings of distant landscapes seen on the horizon of a vast body of water. When the spyglass is extended for use, the etchings of distant-appearing horizons appear to grow closer. A "
+          },
+          {
+            "type": "text",
+            "text": "lookout's spyglass",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can be used as a typical spyglass to see eight times farther than normal, but it also has the following activation."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Seek Significance",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You spend a minute observing your surroundings in all directions through the lookout's spyglass, taking in the features of the terrain while the spyglass sharpens your senses of observation. Once you complete the activation, the next time within the next hour that you roll Perception for initiative, you gain a +1 item bonus on the roll if you're still carrying the lookout's spyglass on your person."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.amPRfrE5PROymWtp"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 35
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "seek-significance",
+          "name": "Seek Significance",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "a3bc3bb7-403b-5d80-90b2-2c737fea6700",
+    "pack": "the-dead-gods-hand",
+    "kind": "equipment",
+    "slug": "equipment:mantle-of-far-horizons",
+    "name": "Mantle of Far Horizons",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "the-dead-gods-hand"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The mantle of far horizons helps to bring comfort and a sense of security while traveling, filling you with confidence and bolstering your energy during long journeys. In areas where you can see the horizon, you gain a +1 item bonus to Survival checks made to Sense Direction."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Gaze upon the Horizon",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You raise the mantle's hood to augment your ability to see over large distances or through adverse weather. For the next hour, or until you lower your hood (whichever comes first), you gain a +1 item bonus to Perception checks made to observe things more than 500 feet away, or while in weather-related conditions that penalize your Perception checks (such as fog or precipitation)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Listen to the World",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You lower the mantle's hood to focus on the world's natural sounds rather than other distractions. For the next minute, or until you raise the mantle's hood (whichever comes first), you gain a +1 item bonus to saving throws against auditory effects."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:survival"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["action:sense-direction"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.A6ah2uq7xhTvMo3b"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 60
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "gaze-upon-the-horizon",
+          "name": "Gaze upon the Horizon",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        },
+        {
+          "slug": "listen-to-the-world",
+          "name": "Listen to the World",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "cloak"
+      }
+    }
+  },
+  {
+    "id": "d1a90bb8-7a40-5557-9094-e2875abb0953",
+    "pack": "the-dead-gods-hand",
+    "kind": "equipment",
+    "slug": "equipment:throneglass-shard",
+    "name": "Throneglass Shard",
+    "level": 0,
+    "rarity": "rare",
+    "traits": ["precious"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "the-dead-gods-hand"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Throneglass is an incredibly rare resource created during the violence of Earthfall 10,000 years ago, when the impact of falling stars enhanced certain shattered panes of green glass built into the architecture of important buildings in Azlant—particularly the Imperial Palace. As a material, throneglass is as strong as steel, but the ancient methods of crafting it into weapons have long been lost. Low-grade throneglass offers no additional benefit to a weapon crafted from it other than the cosmetic and intrinsic value of the precious material, but standard-grade and high-grade throneglass can retain psychic power and then release it through a strike."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When a creature wielding a standard-grade or high-grade throneglass weapon succeeds at a saving throw against a mental effect, the weapon stores some of that energy and holds it for a future attack. A standard-grade weapon can hold this energy for 1 round before it dissipates harmlessly, while a high-grade one can hold the energy for 1 minute. The next time you Strike a creature with a throneglass weapon with stored energy, the creature struck must attempt a Will save (DC 24 for standard-grade throneglass, or DC 35 for high-grade throneglass) to avoid becoming "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round (or "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 2"
+          },
+          {
+            "type": "text",
+            "text": " on a critical failure)."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Throneglass Items"
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Throneglass Items"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "Hardness"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "HP"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "BT"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "Thin Items",
+                "marks": ["strong"]
+              }
+            ],
+            [],
+            [],
+            []
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Low-grade"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "20"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "10"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Standard-grade"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "7"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "28"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "14"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "High-grade"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "10"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "40"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "20"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Items",
+                "marks": ["strong"]
+              }
+            ],
+            [],
+            [],
+            []
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Low-grade"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "9"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "36"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "18"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Standard-grade"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "11"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "44"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "22"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "High-grade"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "14"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "56"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "28"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Structure",
+                "marks": ["strong"]
+              }
+            ],
+            [],
+            [],
+            []
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Low-grade"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "18"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "72"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "36"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Standard-grade"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "22"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "88"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "44"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "High-grade"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "28"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "112"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "56"
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.A6atgoOfZxQgVMk0"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

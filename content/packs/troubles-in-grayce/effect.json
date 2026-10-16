@@ -1,0 +1,78 @@
+[
+  {
+    "id": "bf410f84-a08a-5c9e-a4ef-15490c9ddf6c",
+    "pack": "troubles-in-grayce",
+    "kind": "effect",
+    "slug": "effect:effect-phantom-hands",
+    "name": "Effect: Phantom Hands",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "troubles-in-grayce"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –2 status penalty to your initiative"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-phantom-hands",
+        "choices": [
+          {
+            "value": "critical-failure",
+            "label": "Critical Failure"
+          },
+          {
+            "value": "failure",
+            "label": "Failure"
+          },
+          {
+            "value": "success",
+            "label": "Success"
+          }
+        ],
+        "prompt": "Select the degree of success.",
+        "rollOption": "phantom-hands"
+      },
+      {
+        "key": "GrantItem",
+        "item": "64278392-4910-5a32-b819-56f6e54952dd",
+        "predicate": [
+          {
+            "or": ["phantom-hands:critical-failure", "phantom-hands:failure"]
+          }
+        ]
+      },
+      {
+        "key": "RollTwice",
+        "selectors": ["skill-check", "unarmed-attack-roll"],
+        "keep": "lower",
+        "predicate": ["phantom-hands:critical-failure", "action:escape"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.aBtlxHM9ChGywyrH"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  }
+]

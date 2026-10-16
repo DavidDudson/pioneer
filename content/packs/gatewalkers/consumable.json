@@ -1,0 +1,512 @@
+[
+  {
+    "id": "c2f67924-0741-5441-87a6-2d46d1ca6389",
+    "pack": "gatewalkers",
+    "kind": "consumable",
+    "slug": "consumable:bottled-omen",
+    "name": "Bottled Omen",
+    "level": 4,
+    "rarity": "rare",
+    "traits": ["consumable", "fortune", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This potion holds a tiny, tightly wrapped scroll and tastes like paper. Upon drinking it, you gain a burst of insight into your immediate future—and how to potentially avoid it. When you attempt a saving throw, you can roll twice and use the better result. The potion's magic ends when you make use of this effect, or after 1 minute. You then become immune to "
+          },
+          {
+            "type": "text",
+            "text": "bottled omen",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " potions for 24 hours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "82111938-c18a-5217-b0b2-0ed48b46175f"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.nUaNtynMzD1DpHkB"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 20
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "62d11feb-b3fb-57d1-ad76-3ff067cf9d34",
+    "pack": "gatewalkers",
+    "kind": "consumable",
+    "slug": "consumable:draft-of-stellar-radiance",
+    "name": "Draft of Stellar Radiance",
+    "level": 3,
+    "rarity": "rare",
+    "traits": ["consumable", "light", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This potion's bottle glows softly with shimmering silver light. Upon drinking this potion, you're surrounded by a nimbus of blazing starlight that lasts for 1 minute. You emanate a field of bright light with a 20-foot radius (and dim light for another 20 feet, like a torch). You take a –20 penalty to Stealth checks. Any creature that targets you with an attack or an ability must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 17
+          },
+          {
+            "type": "text",
+            "text": " save or be "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round. A creature who succeeds at this save is immune to the effect for 24 hours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "a77c2e91-dab5-53fe-a61d-90e99e5f344d"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.OzSfVy1SoKzCWG8q"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 12
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "b8248109-5404-5f26-aa99-ef5993a15f10",
+    "pack": "gatewalkers",
+    "kind": "consumable",
+    "slug": "consumable:oil-of-corpse-restoration",
+    "name": "Oil of Corpse Restoration",
+    "level": 9,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical", "oil"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute (Interact)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Adlet spiritual leaders create this thick purple gel so that the dead can temporarily assume their appearance in life during ancestral worship ceremonies. Spreading it over the bones of an undead creature or a lifeless corpse causes the gel to congeal, forming a cosmetic layer that covers or restores any missing or compromised flesh until the body mimics its appearance in life. The dead creature's flesh looks healthy and whole. It gains a +2 circumstance bonus on Deception checks to look like a living creature. The gel does not restore life or Hit Points and the flesh quickly rots away 8 hours after application."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "c78e51bc-9a92-5ada-a6cc-b79d3eada19f"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Ja0KlgXV8DsOEkif"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 150
+        }
+      },
+      "bulk": "light",
+      "category": "oil",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "e6e8f160-8b40-5545-9008-332566e2d12d",
+    "pack": "gatewalkers",
+    "kind": "consumable",
+    "slug": "consumable:psychic-colors-elixir",
+    "name": "Psychic Colors Elixir",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "consumable", "elixir"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This orange liquid lets you visibly detect the psychic energies that enable telekinesis and telepathy. For the next minute, you can sense if a creature you can see is using a telepathic or telekinetic ability, such as the telepathy monster ability, a spell like "
+          },
+          {
+            "type": "ref",
+            "id": "ed1f3941-7c08-5015-b12a-2017b44f68e3"
+          },
+          {
+            "type": "text",
+            "text": ", or similar abilities. You also can sense if an object or creature you can see is being manipulated or contacted by such an ability. Both the user and the target of the ability are outlined in faint shimmers of matching color."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.KsAygNRyR2FdwuOm"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 100
+        }
+      },
+      "bulk": "light",
+      "category": "elixir",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "2e14e45e-6dde-5119-b0eb-b9ad00a20aeb",
+    "pack": "gatewalkers",
+    "kind": "consumable",
+    "slug": "consumable:star-of-cynosure",
+    "name": "Star of Cynosure",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical", "talisman"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You attempt a Will save against a mental spell, but you haven't rolled yet"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have master proficiency in Will saves."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Found throughout Golarion, these star-shaped talismans of whalebone scrimshaw are carved by the Erutaki people from the Crown of the World. They are popular with adherents to the cult of Desna, who believe the talismans protect their dreams."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you activate this talisman, you gain a +2 status bonus to saves against spells with the mental trait for 1 minute. On the triggering save, if the outcome of the roll is a failure, you get a success instead, or if the outcome is a critical failure, you get a failure instead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "35cdff9e-48e5-5573-ae6d-4ea0dd21276b"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.LDiF0GRYAiW2mool"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 175
+        }
+      },
+      "bulk": "negligible",
+      "category": "talisman",
+      "usage": {
+        "type": "affixed",
+        "to": "armor"
+      }
+    }
+  },
+  {
+    "id": "cb9bff5d-6ab3-52c0-b491-ea10d891549b",
+    "pack": "gatewalkers",
+    "kind": "consumable",
+    "slug": "consumable:vat-grown-brain",
+    "name": "Vat-Grown Brain",
+    "level": 10,
+    "rarity": "rare",
+    "traits": ["alchemical", "consumable"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A malformed, artificial brain pulses with alchemical life inside a nutrient-rich vat. When the vat-grown brain is activated, it attempts to counteract one condition of your choice that was gained from an ability with the mental trait, which it does by drawing the negative mental impressions into itself. However, the artificial brain is not robust, and the strain of the transfer quickly destroys it. The vat-grown brain has a counteract rank of 5 and a +17 modifier on the roll."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.IzniYBi8QYxHnffr"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 190
+        }
+      },
+      "bulk": 1,
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  }
+]

@@ -1,0 +1,1211 @@
+{
+  "pin": {
+    "tag": "pf2e-8.6.0",
+    "sha256": "d9c4c1f6bbf9bd907ec0acbaea9b8d4e8b0d049758a8616829f07c1b4ee81342"
+  },
+  "backlog": [
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "background:beast-seeker",
+      "foundry": "Compendium.pf2e.backgrounds.Item.J0SCT6yZgdf0DTTD",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "label": "PF2E.Skill.Athletics",
+                "value": {
+                  "feat": "Compendium.pf2e.feats-srd.Item.Titan Wrestler",
+                  "skill": "athletics"
+                }
+              },
+              {
+                "label": "PF2E.Skill.Thievery",
+                "value": {
+                  "feat": "Compendium.pf2e.feats-srd.Item.Dirty Trick",
+                  "skill": "thievery"
+                }
+              }
+            ],
+            "flag": "choice",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Skill"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.skills.{item|flags.system.rulesSelections.choice.skill}.rank",
+            "value": 1
+          }
+        },
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "key": "GrantItem",
+            "uuid": "{item|flags.system.rulesSelections.choice.feat}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "background:child-of-the-polis",
+      "foundry": "Compendium.pf2e.backgrounds.Item.ovDOXEuRumNhMU5T",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "label": "PF2E.Skill.Diplomacy",
+                "value": {
+                  "feat": "Compendium.pf2e.feats-srd.Item.Bargain Hunter",
+                  "skill": "diplomacy"
+                }
+              },
+              {
+                "label": "PF2E.Skill.Society",
+                "value": {
+                  "feat": "Compendium.pf2e.feats-srd.Item.Streetwise",
+                  "skill": "society"
+                }
+              }
+            ],
+            "flag": "choice",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Skill"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.skills.{item|flags.system.rulesSelections.choice.skill}.rank",
+            "value": 1
+          }
+        },
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "key": "GrantItem",
+            "uuid": "{item|flags.system.rulesSelections.choice.feat}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "background:glory-hound",
+      "foundry": "Compendium.pf2e.backgrounds.Item.Lue29rc3ZDt64iyL",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "label": "PF2E.Skill.Intimidation",
+                "value": {
+                  "feat": "Compendium.pf2e.feats-srd.Item.Intimidating Glare",
+                  "skill": "intimidation"
+                }
+              },
+              {
+                "label": "PF2E.Skill.Performance",
+                "value": {
+                  "feat": "Compendium.pf2e.feats-srd.Item.Impressive Performance",
+                  "skill": "performance"
+                }
+              }
+            ],
+            "flag": "choice",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Skill"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.skills.{item|flags.system.rulesSelections.choice.skill}.rank",
+            "value": 1
+          }
+        },
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "key": "GrantItem",
+            "uuid": "{item|flags.system.rulesSelections.choice.feat}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "background:obari-wanderer",
+      "foundry": "Compendium.pf2e.backgrounds.Item.KrlSyOoVcND109iT",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "label": "PF2E.Skill.Acrobatics",
+                "value": {
+                  "feat": "Compendium.pf2e.feats-srd.Item.Cat Fall",
+                  "skill": "acrobatics"
+                }
+              },
+              {
+                "label": "PF2E.Skill.Survival",
+                "value": {
+                  "feat": "Compendium.pf2e.feats-srd.Item.Terrain Expertise",
+                  "skill": "survival"
+                }
+              }
+            ],
+            "flag": "choice",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Skill"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.skills.{item|flags.system.rulesSelections.choice.skill}.rank",
+            "value": 1
+          }
+        },
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "key": "GrantItem",
+            "uuid": "{item|flags.system.rulesSelections.choice.feat}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "class-feature:plunderer-of-the-hives-riches",
+      "foundry": "Compendium.pf2e.classfeatures.Item.YL3yActlXBpXrSBl",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "label": "PF2E.TraitPoison",
+                "value": "poison"
+              },
+              {
+                "label": "PF2E.TraitSonic",
+                "value": "sonic"
+              }
+            ],
+            "flag": "energizedSpark",
+            "key": "ChoiceSet"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "key": "GrantItem",
+            "preselectChoices": {
+              "energizedSpark": "{item|flags.system.rulesSelections.energizedSpark}"
+            },
+            "uuid": "Compendium.pf2e.feats-srd.Item.Energized Spark"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.Exemplar.Epithet.Label",
+            "mergeable": true,
+            "option": "epithet",
+            "suboptions": [
+              {
+                "label": "{item|name}",
+                "value": "plunderer-of-the-hives-riches"
+              }
+            ],
+            "toggleable": true
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:trait:transcendence", "divine-spark", "epithet:plunderer-of-the-hives-riches"],
+            "property": "description",
+            "value": [
+              {
+                "divider": true,
+                "text": "PF2E.SpecificRule.Exemplar.Epithet.PlundererOfTheHivesRiches.Description"
+              }
+            ]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "CriticalSpecialization",
+          "raw": {
+            "key": "CriticalSpecialization",
+            "predicate": ["epithet-critical-specialization"]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "CriticalSpecialization",
+          "raw": {
+            "alternate": true,
+            "key": "CriticalSpecialization",
+            "predicate": ["epithet-critical-specialization"],
+            "text": "PF2E.SpecificRule.Exemplar.Epithet.PlundererOfTheHivesRiches.CriticalSpecialization"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "class-feature:trespasser-in-deaths-realm",
+      "foundry": "Compendium.pf2e.classfeatures.Item.rNsdp5wDGQT5SZgf",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "label": "PF2E.TraitVitality",
+                "value": "vitality"
+              },
+              {
+                "label": "PF2E.TraitVoid",
+                "value": "void"
+              }
+            ],
+            "flag": "energizedSpark",
+            "key": "ChoiceSet"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "key": "GrantItem",
+            "preselectChoices": {
+              "energizedSpark": "{item|flags.system.rulesSelections.energizedSpark}"
+            },
+            "uuid": "Compendium.pf2e.feats-srd.Item.Energized Spark"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.Exemplar.Epithet.Label",
+            "mergeable": true,
+            "option": "epithet",
+            "suboptions": [
+              {
+                "label": "{item|name}",
+                "value": "trespasser-in-deaths-realm"
+              }
+            ],
+            "toggleable": true
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:trait:transcendence", "divine-spark", "epithet:trespasser-in-deaths-realm"],
+            "property": "description",
+            "value": [
+              {
+                "divider": true,
+                "text": "PF2E.SpecificRule.Exemplar.Epithet.TrespasserInDeathsRealm.Description"
+              }
+            ]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "CriticalSpecialization",
+          "raw": {
+            "key": "CriticalSpecialization",
+            "predicate": ["epithet-critical-specialization"]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "CriticalSpecialization",
+          "raw": {
+            "alternate": true,
+            "key": "CriticalSpecialization",
+            "predicate": ["epithet-critical-specialization"],
+            "text": "PF2E.SpecificRule.Exemplar.Epithet.TrespasserInDeathsRealm.CriticalSpecialization"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "effect:effect-inhale-light",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.ANZPiu3eb3byDRUk",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "exceptions": [
+              {
+                "definition": ["damage:material:bronze"],
+                "label": "PF2E.IWR.Custom.Bronze"
+              }
+            ],
+            "key": "Resistance",
+            "type": "physical",
+            "value": 2
+          }
+        },
+        {
+          "type": "rule",
+          "key": "AdjustStrike",
+          "raw": {
+            "key": "AdjustStrike",
+            "mode": "add",
+            "property": "weapon-traits",
+            "value": "reach-10"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "effect:spell-effect-ash-strewn-ending",
+      "foundry": "Compendium.pf2e.spell-effects.Item.AocUY91Tpy1QCdyu",
+      "gaps": [
+        {
+          "type": "link",
+          "entry": "myth-speakers/ritual:ash-strewn-ending",
+          "element": {
+            "type": "ref",
+            "id": "7c5c4a97-35f1-5a74-8bab-eebc0c9cd1d6"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "effect:spell-effect-funeral-flames",
+      "foundry": "Compendium.pf2e.spell-effects.Item.NRGAkp9i7j0sWeM7",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": {
+              "ownedItems": true,
+              "predicate": ["item:group:club"],
+              "types": ["weapon"]
+            },
+            "flag": "weapon",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Weapon"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|flags.system.rulesSelections.weapon}",
+            "key": "ItemAlteration",
+            "mode": "upgrade",
+            "property": "runes-potency",
+            "value": 1
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "weapon",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:id:{item|flags.system.rulesSelections.weapon}"],
+            "property": "traits",
+            "value": "versatile-fire"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "DamageDice",
+          "raw": {
+            "damageType": "fire",
+            "diceNumber": "ceil(@item.level/2)",
+            "dieSize": "d6",
+            "key": "DamageDice",
+            "predicate": ["dismiss-funeral-flames"],
+            "selector": "{item|flags.system.rulesSelections.weapon}-damage",
+            "slug": "funeral-flames"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "upgrade",
+            "predicate": ["target:mode:undead"],
+            "property": "dice-faces",
+            "selectors": ["{item|flags.system.rulesSelections.weapon}-damage"],
+            "slug": "funeral-flames",
+            "value": "8"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "effect:spell-effect-rite-of-cleansing-flame-critical-success",
+      "foundry": "Compendium.pf2e.spell-effects.Item.j7A1QXHJNxt1d1ED",
+      "gaps": [
+        {
+          "type": "link",
+          "entry": "myth-speakers/ritual:rite-of-cleansing-flame",
+          "element": {
+            "type": "ref",
+            "id": "a423445c-7852-56be-b8a5-7b43a33eac7f"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "effect:spell-effect-rite-of-cleansing-flame-failure",
+      "foundry": "Compendium.pf2e.spell-effects.Item.KhBRuP0Wl2P5okGo",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Weakness",
+          "raw": {
+            "key": "Weakness",
+            "type": ["cold", "unholy"],
+            "value": 5
+          }
+        },
+        {
+          "type": "link",
+          "entry": "myth-speakers/ritual:rite-of-cleansing-flame",
+          "element": {
+            "type": "ref",
+            "id": "a423445c-7852-56be-b8a5-7b43a33eac7f"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "equipment:vortex-pouch",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.HfQLNzRcQNMUL6Ux",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "feat:follow-the-threads-of-fate",
+      "foundry": "Compendium.pf2e.feats-srd.Item.KlqL2QCGvcf6vbta",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": "flags.system.exemplar.ikons",
+            "flag": "ikon",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Exemplar.Ikon.Prompt"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "property": "other-tags",
+            "value": "chosen-ikon:{item|flags.system.rulesSelections.ikon}"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Embed"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "feat:forward-gaze-into-life",
+      "foundry": "Compendium.pf2e.feats-srd.Item.ix1fhe9ttnvFLgmi",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "feat:griefs-fury",
+      "foundry": "Compendium.pf2e.feats-srd.Item.S6X3zFOCLVgRY2gd",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "feat:hero-gods-bond",
+      "foundry": "Compendium.pf2e.feats-srd.Item.j9TEwIPFOUTZfVn3",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "feat:martyrs-parry",
+      "foundry": "Compendium.pf2e.feats-srd.Item.fGwd5g6yHzcyeCG1",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "feat:riddle-the-sphinx",
+      "foundry": "Compendium.pf2e.feats-srd.Item.iyZC5hdOpfQhQQhn",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": "flags.system.exemplar.ikons",
+            "flag": "ikon",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Exemplar.Ikon.Prompt"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "property": "other-tags",
+            "value": "chosen-ikon:{item|flags.system.rulesSelections.ikon}"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Embed"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "feat:shield-of-stone",
+      "foundry": "Compendium.pf2e.feats-srd.Item.6piAFd27zoIXvM9Q",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": "flags.system.exemplar.ikons",
+            "flag": "ikon",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Exemplar.Ikon.Prompt"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "property": "other-tags",
+            "value": "chosen-ikon:{item|flags.system.rulesSelections.ikon}"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Embed"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "ritual:ash-strewn-ending",
+      "foundry": "Compendium.pf2e.spells-srd.Item.QqMlN9VSHfD2v4Qv",
+      "leftOut": {
+        "reason": "no-kind-data",
+        "detail": ""
+      },
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "ritual.primary.check",
+          "raw": "Religion (mythic) or Performance (mythic)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "ritual.secondary.checks",
+          "raw": "Crafting, Pharasma Lore, or Survival"
+        }
+      ],
+      "document": {
+        "_id": "QqMlN9VSHfD2v4Qv",
+        "name": "Ash-Strewn Ending",
+        "type": "spell",
+        "system": {
+          "publication": {
+            "title": "Pathfinder #218: Titanbane",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 4
+          },
+          "traits": {
+            "value": ["death", "mythic"],
+            "rarity": "rare",
+            "traditions": []
+          },
+          "description": {
+            "value": "<p>Lo, speak of the hero-gods and their ash-strewn endings! Sing of their might as it falls on the land! Taste the bone and char that binds their life to yours! This ritual focuses on the burning of a mythic creature's corpse on a pyre in an outdoor location. Once the corpse has been reduced to ashes, the wind scatters those ashes across a 1,000-foot radius. As the ash lands on creatures within this radius, a fragment of the dead creature's mythic power flows into them.</p><hr /><p><strong>Critical Success</strong> Death has a lessened claim upon those in the ritual's area of effect. All creatures that were of a level equal to or lower than the level of the mythic creature incinerated as part of the ritual gain resistance 10 to void damage and a +2 status bonus to saving throws against death effects and to recovery checks.</p>\n<p><strong>Success</strong> As critical success, but only as long as the creature remains in the ritual's area.</p>\n<p><strong>Failure</strong> The ritual has no effect.</p>\n<p><strong>Critical Failure</strong> Grief washes over the area, and the threat of death looms more closely over the casters, who all gain weakness 10 to void damage and a –2 status penalty to saving throws against death effects and to recovery checks. This is a curse effect.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Ash-Strewn Ending]</p><hr /><p><strong>Heightened (6th)</strong> The area increases to a 1-mile radius, the duration increases to 1 month, the void resistance (or weakness) increases to 15, and the status bonus (or penalty) increases to +3.</p>\n<p><strong>Heightened (8th)</strong> The area increases to 10 miles, the duration increases to 1 year, the void resistance (or weakness) increases to 20, and the status bonus (or penalty) increases to +4.</p>\n<p><strong>Heightened (10th)</strong> As 8th rank, but one GM-selected non-mythic creature in the area becomes mythic. This creature's attitude and personality is favorable toward the primary caster.</p>"
+          },
+          "rules": [],
+          "area": {
+            "type": "burst",
+            "value": 1000
+          },
+          "cost": {
+            "value": ""
+          },
+          "counteraction": false,
+          "damage": {},
+          "defense": null,
+          "duration": {
+            "sustained": false,
+            "value": "1 week"
+          },
+          "range": {
+            "value": "10 feet"
+          },
+          "requirements": "",
+          "ritual": {
+            "primary": {
+              "check": "Religion (mythic) or Performance (mythic)"
+            },
+            "secondary": {
+              "casters": 3,
+              "checks": "Crafting, Pharasma Lore, or Survival"
+            }
+          },
+          "target": {
+            "value": ""
+          },
+          "time": {
+            "value": "8 hours"
+          }
+        },
+        "folder": "6JF73zNhT8zbp1qC"
+      }
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "ritual:footholds-and-foothills",
+      "foundry": "Compendium.pf2e.spells-srd.Item.QGfVFyQhoalZbE9s",
+      "leftOut": {
+        "reason": "no-kind-data",
+        "detail": ""
+      },
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "heightening",
+          "raw": {
+            "area": 20,
+            "damage": {},
+            "interval": 1,
+            "type": "interval"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "target.value",
+          "raw": "area that doesn't contain any structures"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "ritual.primary.check",
+          "raw": "Athletics (mythic) or Nature (mythic)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "ritual.secondary.checks",
+          "raw": "Athletics, Acrobatics, Nature, or Survival"
+        }
+      ],
+      "document": {
+        "_id": "QGfVFyQhoalZbE9s",
+        "name": "Footholds and Foothills",
+        "type": "spell",
+        "system": {
+          "publication": {
+            "title": "Pathfinder #218: Titanbane",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 5
+          },
+          "traits": {
+            "value": ["mythic"],
+            "rarity": "rare",
+            "traditions": []
+          },
+          "description": {
+            "value": "<p>The physical world resists changes, but this can be subdued like any other foe. The hero-god of movement and mountains, the sure-footed Helidys, found the islands of Iblydos stubborn and unwilling to bend to his will. He asked a sandbar to lower itself so his ship could pass, but it refused. He asked again, and the sandbar told him to wait for the tides to change. On his third ask, he didn't wait for a response, and instead leapt from his ship and wrestled with it. The sandbar pushed and pulled with the currents, but Helidys succeeded and flattened the sandbar into a ribbon with his bare hands.</p>\n<p>When you cast this ritual, select to add, remove, roughen, or smooth out the area.</p>\n<p><strong>Add</strong> You create new terrain, selecting earth, stone, or water when you cast this ritual. Any creature within the newly created terrain's area moves to the closest available space. The new terrain can be created in a space that would not typically support it, such as a floating island.</p>\n<p><strong>Remove</strong> You create a 30-foot-deep crater-like depression in the area. Unless otherwise specified, the terrain immediately beneath the destroyed area is the same type. Water flows into the crater if such is present along the area's circumference. Creatures standing on the destroyed terrain can attempt to @UUID[Compendium.pf2e.actionspf2e.Item.Grab an Edge] if they are adjacent to a non-destroyed space. Otherwise, they use the typical rules for falling.</p>\n<p><strong>Roughen</strong> You transform the area into difficult terrain. If the area was already difficult terrain, it becomes greater difficult terrain.</p>\n<p><strong>Smooth</strong> You transform an area of difficult terrain into normal terrain, or an area of greater difficult terrain into difficult terrain.</p><hr /><p><strong>Critical Success</strong> You transform the area of your choice permanently.</p>\n<p><strong>Success</strong> You transform the area for the ritual's duration.</p>\n<p><strong>Failure</strong> You fail to transform the area.</p>\n<p><strong>Critical Failure</strong> The ritual backfires, and now the land knows how to easily beat you. For the next week, the primary caster treats all instances of the terrain they attempted to manipulate as difficult terrain (or difficult terrain as greater difficult terrain).</p><hr /><p><strong>Heightened (+1)</strong> The area increases by 20 feet.</p>"
+          },
+          "rules": [],
+          "area": {
+            "type": "burst",
+            "value": 30
+          },
+          "cost": {
+            "value": ""
+          },
+          "counteraction": false,
+          "damage": {},
+          "defense": null,
+          "duration": {
+            "sustained": false,
+            "value": "1 week"
+          },
+          "heightening": {
+            "area": 20,
+            "damage": {},
+            "interval": 1,
+            "type": "interval"
+          },
+          "range": {
+            "value": "120 feet"
+          },
+          "requirements": "",
+          "ritual": {
+            "primary": {
+              "check": "Athletics (mythic) or Nature (mythic)"
+            },
+            "secondary": {
+              "casters": 2,
+              "checks": "Athletics, Acrobatics, Nature, or Survival"
+            }
+          },
+          "target": {
+            "value": "area that doesn't contain any structures"
+          },
+          "time": {
+            "value": "1 day"
+          }
+        },
+        "folder": "6JF73zNhT8zbp1qC"
+      }
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "ritual:labyrinthine-prison",
+      "foundry": "Compendium.pf2e.spells-srd.Item.WRRbNyGam4ytTRgr",
+      "leftOut": {
+        "reason": "no-kind-data",
+        "detail": ""
+      },
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "target.value",
+          "raw": "1 creature of up to 8th level"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "ritual.secondary.checks",
+          "raw": "Art Lore (trained), Crafting (trained), or Thievery (trained)"
+        }
+      ],
+      "document": {
+        "_id": "WRRbNyGam4ytTRgr",
+        "name": "Labyrinthine Prison",
+        "type": "spell",
+        "system": {
+          "publication": {
+            "title": "Pathfinder #217: Death Sails a Wine-Dark Sea",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 3
+          },
+          "traits": {
+            "value": ["mythic", "teleportation"],
+            "rarity": "rare",
+            "traditions": []
+          },
+          "description": {
+            "value": "<p>This ritual was developed by a long-dead minotaur hero-god whose cult trained to hunt and trap evil beings. It creates a maze of ever-shifting warped space woven from intertwined demiplanes that twist in ways few can solve.</p>\n<p>You and the secondary casters draw a maze of twisted space into being with the target at its center. An unwilling target must be @UUID[Compendium.pf2e.conditionitems.Item.Immobilized], @UUID[Compendium.pf2e.conditionitems.Item.Unconscious], or otherwise prevented from leaving the area for the entire casting time, or the ritual fails. An unwilling target can attempt a Will save to resist the ritual; on a critical success, treat the result as critically failing to cast the ritual. While the target is trapped within the labyrinthine prison, they cannot escape it, as even abilities that give access to other planes are subject to being twisted into the maze. Instead the only way to escape is by succeeding at a Maze Lore, Perception, or Survival check against the labyrinthine prison's DC. This check can be attempted once per week, and the first check can only be attempted after a week has passed. If all casters spend one Mythic Point each, this interval changes to one year, and the DC uses the primary caster's mythic proficiency.</p><hr /><p><strong>Critical Success</strong> As success, and the twisted space renders the target @UUID[Compendium.pf2e.conditionitems.Item.Stupefied]{Stupefied 2} while within.</p>\n<p><strong>Success</strong> The target is trapped within the labyrinthine prison for the duration of ritual.</p>\n<p><strong>Failure</strong> The ritual fails to trap the target.</p>\n<p><strong>Critical Failure</strong> As failure, and the casters are all @UUID[Compendium.pf2e.conditionitems.Item.Stupefied]{Stupefied 4} for 1 week.</p><hr /><p><strong>Heightened (4th)</strong> The maximum level of the target is 10. The cost is the target's level (minimum 1) × 40 gp. The interval becomes 1 month, and spending Mythic Points increases it to 5 years.</p>\n<p><strong>Heightened (5th)</strong> The maximum level of the target is 12. The cost is the target's level (minimum 1) × 75 gp. The interval becomes 2 months, and spending Mythic Points increases it to 10 years.</p>\n<p><strong>Heightened (6th)</strong> The maximum level of the target is 14. The cost is the target's level (minimum 1) × 125 gp. The interval becomes 6 months, and spending Mythic Points increases it to 30 years.</p>\n<p><strong>Heightened (7th)</strong> The maximum level of the target is 16. The cost is the target's level (minimum 1) × 200 gp. The interval becomes 1 year, and spending Mythic Points increases it to 50 years.</p>\n<p><strong>Heightened (8th)</strong> The maximum level of the target is 18. The cost is the target's level (minimum 1) × 300 gp. The interval becomes 2 years, and spending Mythic Points increases it to 100 years.</p>\n<p><strong>Heightened (9th)</strong> The maximum level of the target is 20. The cost is the target's level (minimum 1) × 600 gp. The interval becomes 5 years, and spending Mythic Points increases it to 200 years.</p>"
+          },
+          "rules": [],
+          "area": null,
+          "cost": {
+            "value": "fine paper and ink worth a total value of the target's level × 25 gp"
+          },
+          "counteraction": false,
+          "damage": {},
+          "defense": null,
+          "duration": {
+            "sustained": false,
+            "value": "varies"
+          },
+          "range": {
+            "value": "60 feet"
+          },
+          "requirements": "",
+          "ritual": {
+            "primary": {
+              "check": "Deception (expert), Maze Lore (trained), or Religion (expert)"
+            },
+            "secondary": {
+              "casters": 2,
+              "checks": "Art Lore (trained), Crafting (trained), or Thievery (trained)"
+            }
+          },
+          "target": {
+            "value": "1 creature of up to 8th level"
+          },
+          "time": {
+            "value": "1 day"
+          }
+        },
+        "folder": "6JF73zNhT8zbp1qC"
+      }
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "ritual:rite-of-cleansing-flame",
+      "foundry": "Compendium.pf2e.spells-srd.Item.KwDyrUIlnOrpdxYi",
+      "leftOut": {
+        "reason": "no-kind-data",
+        "detail": ""
+      },
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "target.value",
+          "raw": "The city-state of Pol-Bailax"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "duration",
+          "raw": {
+            "value": "instantaneous",
+            "sustained": false
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "ritual.secondary.checks",
+          "raw": "DC 18 Acrobatics, Nature, or Performance"
+        }
+      ],
+      "document": {
+        "_id": "KwDyrUIlnOrpdxYi",
+        "name": "Rite of Cleansing Flame",
+        "type": "spell",
+        "system": {
+          "publication": {
+            "title": "Pathfinder #216: The Acropolis Pyre",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 2
+          },
+          "traits": {
+            "value": ["consecration", "fire"],
+            "rarity": "rare",
+            "traditions": []
+          },
+          "description": {
+            "value": "<p>Drawing on the latent power suffused within Pol-Bailax by its phoenix patron, you and the secondary casters send an ephemeral rush of cleansing energy through the city. Those within the area when the ritual successfully concludes are immediately cured of all detrimental emotion and mental effects; affected creatures cease any current hostilities as though they'd failed a save against calm, though this doesn't control their future actions.</p><hr /><p><strong>Critical Success</strong> The ritual's power lingers within its casters, granting them a +1 status bonus against emotion and mental effects for 1 month.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Rite of Cleansing Flame (Critical Success)]</p>\n<p><strong>Success</strong> The ritual succeeds.</p>\n<p><strong>Failure</strong> The ritual has its intended effect, but alters its casters' forms as they fail to contain the phoenix's power. All casters develop a feature reminiscent of a phoenix, such as feathers, glowing red eyes, or talons, and gain weakness 5 to cold and unholy. This is a curse effect.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Rite of Cleansing Flame (Failure)]</p>\n<p><strong>Critical Failure</strong> As failure, but each caster must succeed at a @Check[fortitude|dc:17] save or be permanently @UUID[Compendium.pf2e.conditionitems.Item.Drained]{Drained 1} for as long as they have the phoenix features.</p>"
+          },
+          "rules": [],
+          "area": null,
+          "cost": {
+            "value": "rare incense worth 300 gp and 1 Mythic Point from the primary caster"
+          },
+          "counteraction": false,
+          "damage": {},
+          "defense": null,
+          "duration": {
+            "sustained": false,
+            "value": "instantaneous"
+          },
+          "range": {
+            "value": ""
+          },
+          "requirements": "",
+          "ritual": {
+            "primary": {
+              "check": "DC 20 Religion or Occultism"
+            },
+            "secondary": {
+              "casters": 3,
+              "checks": "DC 18 Acrobatics, Nature, or Performance"
+            }
+          },
+          "target": {
+            "value": "The city-state of Pol-Bailax"
+          },
+          "time": {
+            "value": "8 hours"
+          }
+        },
+        "folder": "6JF73zNhT8zbp1qC"
+      }
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "shield:worldscale-shield",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.EwZS3HoywMMJwnBZ",
+      "leftOut": {
+        "reason": "no-kind-data",
+        "detail": ""
+      },
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "invalid-data",
+          "field": "hardness",
+          "raw": {
+            "price": {
+              "coins": {
+                "gp": 500
+              }
+            },
+            "bulk": "light",
+            "acBonus": 2
+          }
+        }
+      ],
+      "document": {
+        "_id": "EwZS3HoywMMJwnBZ",
+        "name": "Worldscale Shield",
+        "type": "shield",
+        "system": {
+          "publication": {
+            "title": "Pathfinder #218: Titanbane",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 8
+          },
+          "traits": {
+            "value": ["magical", "mythic"],
+            "rarity": "rare",
+            "integrated": null
+          },
+          "description": {
+            "value": "<p>It's believed that four <em>worldscale shields</em> (Hardness 9, HP 60, BT 30) exist, each made from the scale of one of the four worldscale serpents rumored to burrow through the heart of the world. When a hero-god went to slay one of these serpents, they found that they first needed to tear a scale from the beast's body to reveal the vulnerable flesh beneath. These four scales removed became the four <em>worldscale shields</em>.</p>\n<p><strong>Activate—Absorb Blow</strong> <span class=\"action-glyph\">f</span></p>\n<p><strong>Trigger</strong> You would take physical damage (bludgeoning, piercing, or slashing) from an attack and you have your <em>worldscale shield</em> Raised</p><hr /><p><strong>Effect</strong> Spend 1 Mythic Point. The <em>worldscale shield</em> completely absorbs the blow, preventing all damage that you would have taken from the attack. The <em>worldscale shield</em> breaks. If it was already broken, it is destroyed.</p>"
+          },
+          "rules": [],
+          "acBonus": 2,
+          "baseItem": null,
+          "bulk": {
+            "value": 0.1
+          },
+          "containerId": null,
+          "grade": null,
+          "hardness": 0,
+          "hp": {
+            "max": 0,
+            "value": 0
+          },
+          "material": {
+            "grade": null,
+            "type": null
+          },
+          "price": {
+            "value": {
+              "gp": 500
+            }
+          },
+          "quantity": 1,
+          "runes": {
+            "reinforcing": 0
+          },
+          "size": "med",
+          "speedPenalty": 0
+        }
+      }
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "spell:funeral-flames",
+      "foundry": "Compendium.pf2e.spells-srd.Item.5KmyO4YSGEAUdgAS",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "target.value",
+          "raw": "one club or staff you're wielding"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "weapon:hydra-head-club",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.nWUx4zEGOE8Uot1g",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "DamageDice",
+          "raw": {
+            "diceNumber": 1,
+            "dieSize": "d6",
+            "key": "DamageDice",
+            "predicate": ["reactive-snap"],
+            "selector": "{item|id}-damage"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "weapon:protectors-final-gift",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.D9vU4fADTYSaZpM9",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[traits]"
+        }
+      ]
+    },
+    {
+      "type": "vocabulary",
+      "kind": "damage-type",
+      "slug": "untyped",
+      "reason": "unmapped-value",
+      "detail": "untyped"
+    }
+  ]
+}

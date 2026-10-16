@@ -1,0 +1,1246 @@
+[
+  {
+    "id": "39c67c07-08a7-50e6-9884-3ddb9fead684",
+    "pack": "myth-speakers",
+    "kind": "effect",
+    "slug": "effect:effect-aura-of-sophistry-holy",
+    "name": "Effect: Aura of Sophistry (Holy)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to check to Recall Knowledge and resistance 4 to mental damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "status",
+        "value": 1,
+        "predicate": ["action:recall-knowledge"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["mental"],
+        "value": 4
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.dgZYRgGzwdWyZFOh"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "ac515dd5-ed70-5714-8f3e-79ed8ba80b23",
+    "pack": "myth-speakers",
+    "kind": "effect",
+    "slug": "effect:effect-aura-of-sophistry-unholy",
+    "name": "Effect: Aura of Sophistry (Unholy)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –1 penalty to checks to "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": " and gain the effects of the "
+          },
+          {
+            "type": "ref",
+            "id": "ea6c8962-0fc5-5db6-8fbd-0ad99296eae2"
+          },
+          {
+            "type": "text",
+            "text": " feat when Recalling Knowledge; whenever an affected creature Recalls Knowledge, they become "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 1"
+          },
+          {
+            "type": "text",
+            "text": " and gain weakness 4 to mental damage for 1d4 rounds."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "untyped",
+        "value": -1,
+        "predicate": ["action:recall-knowledge"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["skill-check"],
+        "title": "Effect: Aura of Sophistry (Unholy)",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "When you fail (but don't critically fail) a Recall Knowledge check using any skill, you learn the correct answer and an erroneous answer, but you don't have any way to differentiate which is which."
+              }
+            ]
+          }
+        ],
+        "outcome": ["failure"],
+        "predicate": ["action:recall-knowledge"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["skill-check"],
+        "title": "Effect: Aura of Sophistry (Unholy)",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You become Stupefied 1 and gain weakness 4 to mental damage for 1d4 rounds."
+              }
+            ]
+          }
+        ],
+        "predicate": ["action:recall-knowledge"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.JksGGYzQqsNqeTQj"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "df6c9803-cc81-551a-93de-99f06ab62222",
+    "pack": "myth-speakers",
+    "kind": "effect",
+    "slug": "effect:effect-aura-of-sophistry-weakness",
+    "name": "Effect: Aura of Sophistry (Weakness)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You become "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 1"
+          },
+          {
+            "type": "text",
+            "text": " and gain weakness 4 to mental damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Weakness",
+        "type": ["mental"],
+        "value": 4
+      },
+      {
+        "key": "GrantItem",
+        "item": "9e1dad43-36fe-5629-923f-2df63c12d90f"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.Rr4stNn2zqzspjQu"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 4,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "72c37a35-56ff-546a-bc7d-a4ea2f4a1838",
+    "pack": "myth-speakers",
+    "kind": "effect",
+    "slug": "effect:effect-aura-of-the-all-seeing-eye",
+    "name": "Effect: Aura of the All-Seeing Eye",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to saving throws against spells."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 1,
+        "predicate": ["item:type:spell"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.LHRl8n9SQIWHrnis"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "1ec5d2b2-0f4b-5377-9f16-208440e87349",
+    "pack": "myth-speakers",
+    "kind": "effect",
+    "slug": "effect:effect-dragonhide",
+    "name": "Effect: Dragonhide",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to AC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.okDw1dRcrQafunTV"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "8a4baa30-86f2-5c4d-9336-a3bfb02763ae",
+    "pack": "myth-speakers",
+    "kind": "effect",
+    "slug": "effect:effect-engaging-duel",
+    "name": "Effect: Engaging Duel",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to Strike attack rolls and DCs against the marked creature. You take a –1 circumstance penalty to all checks and DCs against any creature other than the marked creature."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["strike-attack-roll", "reflex-dc", "fortitude-dc", "will-dc"],
+        "type": "circumstance",
+        "value": 1,
+        "slug": "engaging-duel",
+        "predicate": [
+          {
+            "or": ["target:mark:engaging-duel", "origin:mark:engaging-duel"]
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack", "skill-check", "saving-throw"],
+        "type": "circumstance",
+        "value": -1,
+        "slug": "engaging-duel-other",
+        "predicate": [
+          {
+            "nor": ["target:mark:engaging-duel", "origin:mark:engaging-duel"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.Lingp4fGpZuj9eJB"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "7af545a0-4cb6-55d8-9da4-dacf2b62a3d4",
+    "pack": "myth-speakers",
+    "kind": "effect",
+    "slug": "effect:effect-engaging-duel-unengaged-target",
+    "name": "Effect: Engaging Duel (Unengaged Target)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The bonus from engaging duel increases to +2."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["all"],
+        "slug": "engaging-duel",
+        "mode": "upgrade",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.lgXXJFF0JstWTwom"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "c203339f-8bc4-59f7-9d50-bedae3f9ea02",
+    "pack": "myth-speakers",
+    "kind": "effect",
+    "slug": "effect:effect-griefs-fury",
+    "name": "Effect: Grief's Fury",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "94a19979-1c68-5f43-93fc-2b26b7c736a8"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 status bonus to attack rolls against any creature that attacked or dealt damage to your bonded partner."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:griefs-fury",
+        "toggleable": true,
+        "display": {
+          "label": "Grief's Fury — Target dealt damage to your bonded partner"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["option:griefs-fury"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.ko1fCuxWxBKErSfr"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "ce280b8e-09eb-5f5b-9909-dd0a565102b8",
+    "pack": "myth-speakers",
+    "kind": "effect",
+    "slug": "effect:effect-inhale-light",
+    "name": "Effect: Inhale Light",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The torcheater gains a reach of 10 feet, a +5 foot status bonus to Speed, and fast healing 2. Its resistance to physical damage reduces to 2."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "status",
+        "value": 5
+      },
+      {
+        "key": "FastHealing",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.ANZPiu3eb3byDRUk"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 6,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "355246fb-6be1-52c1-bd32-33fe703f5748",
+    "pack": "myth-speakers",
+    "kind": "effect",
+    "slug": "effect:effect-martyrs-parry",
+    "name": "Effect: Martyr's Parry",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "ffe15fdf-393c-54f3-98d8-c35b71731444"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to your AC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.5r7uhVQJQoyk6s4i"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "turn",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "5ba6c4f7-d086-5a8f-b675-b4a35fdffe24",
+    "pack": "myth-speakers",
+    "kind": "effect",
+    "slug": "effect:effect-matting-paint",
+    "name": "Effect: Matting Paint",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You become Clumsy 1 and take a –5-foot circumstance penalty to your Speed."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "69f88e3c-d871-5fb9-82c6-120348a7c0e8"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "circumstance",
+        "value": -5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.qrsvaUIMdC0Uq9fQ"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "dd8cb36f-7b16-506f-ab64-84d197b0ffd9",
+    "pack": "myth-speakers",
+    "kind": "effect",
+    "slug": "effect:effect-rage-of-the-sky-father",
+    "name": "Effect: Rage of the Sky Father",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the electricity trait, immunity to electricity damage, and your attacks deal an additional 1d6 electricity damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ActorTraits",
+        "add": ["electricity"]
+      },
+      {
+        "key": "Immunity",
+        "type": ["electricity"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "electricity"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.drh6p7VWdByUvRlf"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "3af0d208-d3d3-5f2d-9fcb-921d7c7eb1fd",
+    "pack": "myth-speakers",
+    "kind": "effect",
+    "slug": "effect:effect-sparking-pepper-string",
+    "name": "Effect: Sparking Pepper String",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "24c99867-c392-594e-bb74-36095e193539"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can choose to have a strike deal an additional 1d6 electricity damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "electricity"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.DlG2V9RklmeukTvF"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "a3253f82-da19-545a-84e8-02dce13e6fb8",
+    "pack": "myth-speakers",
+    "kind": "effect",
+    "slug": "effect:effect-tempest-rage",
+    "name": "Effect: Tempest Rage",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Akki gains 5 temporary Hit Points and deals an additional 1d4 electricity damage with her weapon Strikes."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": 5
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 1,
+        "dieSize": "d4",
+        "damageType": "electricity"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.u9b233QynLAPKPty"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "6ef4c29c-189d-533d-aaaf-807054054710",
+    "pack": "myth-speakers",
+    "kind": "effect",
+    "slug": "effect:effect-wild-calm",
+    "name": "Effect: Wild Calm",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus on saves against emotion effects."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["item:trait:emotion"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.iE8dnbDLiAFcaOT8"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "100a0858-7808-5ee3-90c2-8ad32f0951d4",
+    "pack": "myth-speakers",
+    "kind": "effect",
+    "slug": "effect:effect-xenia-spirit-grand-feast",
+    "name": "Effect: Xenia Spirit Grand Feast",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The Xenia Spirit takes a –2 penalty to its attack, AC, DCs, Perception, and skill modifiers."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["all"],
+        "type": "untyped",
+        "value": -2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.campaign-effects.Item.2Co7H8w20nOwCCoN"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "08c0cd1e-6720-5d1e-8615-34dd38b757c9",
+    "pack": "myth-speakers",
+    "kind": "effect",
+    "slug": "effect:spell-effect-ash-strewn-ending",
+    "name": "Spell Effect: Ash-Strewn Ending",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "text",
+            "text": "Ash-Strewn Ending"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance to void damage and a status bonus to saving throws against death effects. If the ritual was a critical failure you gain weakness and a penalty to these checks instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "spell-effect-ash-strewn-ending",
+        "choices": [
+          {
+            "value": "success",
+            "label": "Success"
+          },
+          {
+            "value": "critical-failure",
+            "label": "Critical Failure"
+          }
+        ],
+        "rollOption": "ash-strewn-ending"
+      },
+      {
+        "key": "Resistance",
+        "type": ["void"],
+        "value": "ternary(gte(@item.level, 8), 20, ternary(gte(@item.level, 6), 15, 10))",
+        "predicate": ["ash-strewn-ending:success"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["void"],
+        "value": "ternary(gte(@item.level, 8), 20, ternary(gte(@item.level, 6), 15, 10))",
+        "predicate": ["ash-strewn-ending:critical-failure"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": "ternary(gte(@item.level, 8), 4, ternary(gte(@item.level, 6), 3, 2))",
+        "slug": "ash-strewn-ending",
+        "predicate": ["item:trait:death"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["saving-throw"],
+        "slug": "ash-strewn-ending",
+        "mode": "multiply",
+        "value": -1,
+        "predicate": ["ash-strewn-ending:critical-failure"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.AocUY91Tpy1QCdyu"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 7,
+        "unit": "day",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "9e2fc63f-fa5b-5de9-847e-431d16b97254",
+    "pack": "myth-speakers",
+    "kind": "effect",
+    "slug": "effect:spell-effect-crown-of-prophets",
+    "name": "Spell Effect: Crown of Prophets",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "ce4415e6-2f84-58fe-b0a3-b2328b1d0c0b"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a fangs unarmed attack that deals 1d6 piercing damage and has the agile, finesse, and versatile poison traits."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "fangs",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["unarmed", "finesse", "agile", "versatile-poison"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "piercing"
+        },
+        "display": {
+          "label": "Fangs"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.C2jiokGoehvLu0fi"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start",
+        "sustained": true
+      }
+    }
+  },
+  {
+    "id": "aa6db74d-f0a5-517a-9882-b21448e00ad4",
+    "pack": "myth-speakers",
+    "kind": "effect",
+    "slug": "effect:spell-effect-funeral-flames",
+    "name": "Spell Effect: Funeral Flames",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "55fe2364-ea6b-5aec-8c5e-c7221e5eaf5d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While you wield the target weapon, it becomes a +1 weapon, gains the versatile fire trait, and sheds light as brightly as a torch. Whenever you successfully Strike a creature with the weapon, you can Dismiss the spell as a free action to deal 1d6 persistent fire damage to the target; if the target is undead, increase the persistent damage dice to d8s."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:dismiss-funeral-flames",
+        "toggleable": true,
+        "display": {
+          "label": "Dismiss Funeral Flames"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.NRGAkp9i7j0sWeM7"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "4278966e-0f89-5739-ad0b-a74caac0bc19",
+    "pack": "myth-speakers",
+    "kind": "effect",
+    "slug": "effect:spell-effect-rite-of-cleansing-flame-critical-success",
+    "name": "Spell Effect: Rite of Cleansing Flame (Critical Success)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "text",
+            "text": "Rite of Cleansing Flame"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus against emotion and mental effects."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["item:trait:emotion", "item:trait:mental"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.j7A1QXHJNxt1d1ED"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 30,
+        "unit": "day",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "88d1edc2-b2be-5ed6-b609-6467cf8c4a62",
+    "pack": "myth-speakers",
+    "kind": "effect",
+    "slug": "effect:spell-effect-rite-of-cleansing-flame-failure",
+    "name": "Spell Effect: Rite of Cleansing Flame (Failure)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "text",
+            "text": "Rite of Cleansing Flame"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain weakness 5 to cold and unholy."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.KhBRuP0Wl2P5okGo"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  }
+]

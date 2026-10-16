@@ -1,0 +1,173 @@
+[
+  {
+    "id": "6c2542a1-9991-53c3-b8cc-c4a4fe6d0bea",
+    "pack": "myth-speakers",
+    "kind": "shield",
+    "slug": "shield:shield-of-snakes",
+    "name": "Shield of Snakes",
+    "level": 10,
+    "rarity": "unique",
+    "traits": ["magical", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "shield of snakes",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " (Hardness 10, HP 90, BT 45) is built to resemble a withering tangle of snakes. These serpents slither and hiss whenever you Raise the Shield."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Snap Up",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You roll initiative"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "shield of snakes",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " moves into position, allowing you to Raise the Shield."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Snakebite",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (attack)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You thrust one of the snake heads at a target, attempting a shield spikes Strike. If you spend 1 Mythic Point, you attempt this Strike at mythic proficiency. On a hit, you inflict damage normally, and then the snakes poison the target, inflicting an additional "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 27,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.SwcWlWyN1IZPDnZ5"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": "light",
+      "hardness": 10,
+      "hitPoints": 90,
+      "acBonus": 2
+    }
+  }
+]

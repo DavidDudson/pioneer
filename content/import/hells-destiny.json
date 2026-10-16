@@ -1,0 +1,529 @@
+{
+  "pin": {
+    "tag": "pf2e-8.6.0",
+    "sha256": "d9c4c1f6bbf9bd907ec0acbaea9b8d4e8b0d049758a8616829f07c1b4ee81342"
+  },
+  "backlog": [
+    {
+      "type": "entry",
+      "pack": "hells-destiny",
+      "slug": "action:seek-and-destroy",
+      "foundry": "Compendium.pf2e.actionspf2e.Item.h3NqgU6MEEF7mgzH",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hells-destiny",
+      "slug": "action:shadows-in-the-moonlight",
+      "foundry": "Compendium.pf2e.actionspf2e.Item.EZcykqDJzQyZmJ7E",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hells-destiny",
+      "slug": "action:special-forces-composite-bows",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.RbUQXGU4JjBLXp8P",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "upgrade",
+            "property": "dice-faces",
+            "selectors": ["short-salvo-inline-damage"],
+            "slug": "base",
+            "value": 10
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hells-destiny",
+      "slug": "action:special-forces-dirty-fighting",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.Rew6JSMbOsbx1pY0",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[against]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hells-destiny",
+      "slug": "action:special-forces-mounted-marauders",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.sNRLmAcKLm1lwMRo",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "system.movement.terrain.difficult.ignored",
+            "phase": "afterDerived",
+            "predicate": ["terrain:land"],
+            "value": {
+              "environment": "all",
+              "feature": "all"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hells-destiny",
+      "slug": "action:special-forces-quick-formation",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.QcP0PgtdLXNYhXu9",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "RollOption",
+          "raw": {
+            "key": "RollOption",
+            "option": "change-formation",
+            "suboptions": [
+              {
+                "label": "PF2E.NPCAbility.ChangeFormation.Loose.Label",
+                "predicate": [
+                  {
+                    "not": "special-forces-shielded"
+                  }
+                ],
+                "value": "loose"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeFormation.TurtleShell.Label",
+                "predicate": ["special-forces-shielded"],
+                "value": "turtle-shell"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeFormation.Wedge.Label",
+                "value": "wedge"
+              }
+            ],
+            "toggleable": true
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              "change-formation:loose",
+              {
+                "not": "item:slug:change-formation"
+              }
+            ],
+            "property": "description",
+            "value": [
+              {
+                "text": "PF2E.NPCAbility.ChangeFormation.Loose.Drawback"
+              }
+            ]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Weakness",
+          "raw": {
+            "key": "Weakness",
+            "mode": "remove",
+            "predicate": ["change-formation:loose"],
+            "type": ["area-damage", "splash-damage"],
+            "value": 0
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[bestiary-ability-glossary-srd] Pathfinder NPC Core"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hells-destiny",
+      "slug": "action:special-forces-shielded",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.fFuXJyklCDreob4t",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "key": "GrantItem",
+            "uuid": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.Shield Block"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[bestiary-ability-glossary-srd] Pathfinder Monster Core"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hells-destiny",
+      "slug": "action:special-forces-sprinting-charge",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.OHVoUpZUyio2jdKA",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hells-destiny",
+      "slug": "background:anti-thrune-saboteur",
+      "foundry": "Compendium.pf2e.backgrounds.Item.0tVUXurNRQEyXKfs",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "label": "PF2E.Skill.Deception",
+                "value": {
+                  "feat": "Compendium.pf2e.feats-srd.Item.Lengthy Diversion",
+                  "slug": "deception"
+                }
+              },
+              {
+                "label": "PF2E.Skill.Thievery",
+                "value": {
+                  "feat": "Compendium.pf2e.feats-srd.Item.Dirty Trick",
+                  "slug": "thievery"
+                }
+              }
+            ],
+            "flag": "skill",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Skill"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "key": "GrantItem",
+            "uuid": "{item|flags.system.rulesSelections.skill.feat}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hells-destiny",
+      "slug": "effect:effect-hellfire-hydra-heads",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.QigGoOYUG7BHuvE4",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FastHealing",
+          "raw": {
+            "deactivatedBy": [],
+            "key": "FastHealing",
+            "type": "regeneration",
+            "value": "@item.system.badge.value * 5"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hells-destiny",
+      "slug": "effect:effect-mark-of-fate-asmodeus",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.CtSpaB1PXAkMunj5",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Weakness",
+          "raw": {
+            "key": "Weakness",
+            "type": "unholy",
+            "value": 15
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hells-destiny",
+      "slug": "effect:effect-soused-ruse",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.Z0aDpqGq715rZXJg",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hells-destiny",
+      "slug": "equipment:banner-of-common-cause",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.PyBc9ZIKHXdwvkoO",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "usage",
+          "raw": "affixed-or-held-in-one-hand"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hells-destiny",
+      "slug": "equipment:the-eye-of-the-slumberer",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.L6HpgX8EsBWCRJ3u",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hells-destiny",
+      "slug": "feat:aristocratic-arms",
+      "foundry": "Compendium.pf2e.feats-srd.Item.eLpxaSwzmoUqNrfY",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "CriticalSpecialization",
+          "raw": {
+            "key": "CriticalSpecialization",
+            "predicate": [
+              "chelaxian-noble-house:charthagnion",
+              {
+                "gte": ["item:proficiency:rank", 2]
+              },
+              {
+                "or": ["item:trait:disarm", "item:trait:parry"]
+              }
+            ]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "CriticalSpecialization",
+          "raw": {
+            "key": "CriticalSpecialization",
+            "predicate": [
+              "chelaxian-noble-house:elliendo",
+              {
+                "gte": ["item:proficiency:rank", 2]
+              },
+              {
+                "or": ["item:group:brawling", "item:group:knife"]
+              }
+            ]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "CriticalSpecialization",
+          "raw": {
+            "key": "CriticalSpecialization",
+            "predicate": [
+              "chelaxian-noble-house:henderthane",
+              {
+                "gte": ["item:proficiency:rank", 2]
+              },
+              {
+                "or": ["item:group:hammer", "item:group:pick"]
+              }
+            ]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "CriticalSpecialization",
+          "raw": {
+            "key": "CriticalSpecialization",
+            "predicate": [
+              "chelaxian-noble-house:jeggare",
+              "item:group:sword",
+              "item:usage:hands:1",
+              {
+                "gte": ["item:proficiency:rank", 2]
+              }
+            ]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "CriticalSpecialization",
+          "raw": {
+            "key": "CriticalSpecialization",
+            "predicate": [
+              "chelaxian-noble-house:leroung",
+              {
+                "gte": ["item:proficiency:rank", 2]
+              },
+              {
+                "or": ["item:group:club", "item:type:shield"]
+              }
+            ]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "CriticalSpecialization",
+          "raw": {
+            "key": "CriticalSpecialization",
+            "predicate": [
+              "chelaxian-noble-house:narikopolus",
+              {
+                "gte": ["item:proficiency:rank", 2]
+              },
+              "item:group:bow"
+            ]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "CriticalSpecialization",
+          "raw": {
+            "key": "CriticalSpecialization",
+            "predicate": [
+              "chelaxian-noble-house:sarini",
+              {
+                "gte": ["item:proficiency:rank", 2]
+              },
+              "item:group:flail"
+            ]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "CriticalSpecialization",
+          "raw": {
+            "key": "CriticalSpecialization",
+            "predicate": [
+              "chelaxian-noble-house:thrune",
+              {
+                "gte": ["item:proficiency:rank", 2]
+              },
+              {
+                "or": ["item:group:club", "item:group:crossbow"]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hells-destiny",
+      "slug": "feat:as-on-the-board-so-on-the-battlefield",
+      "foundry": "Compendium.pf2e.feats-srd.Item.UhIQ1lgwwtoeHFmf",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hells-destiny",
+      "slug": "feat:improvise-strategy",
+      "foundry": "Compendium.pf2e.feats-srd.Item.XbMfMJq2sCQHdo1w",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[against]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hells-destiny",
+      "slug": "feat:patronize-the-arts",
+      "foundry": "Compendium.pf2e.feats-srd.Item.5lGNRo5QarJHrkaA",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hells-destiny",
+      "slug": "feat:stoic-as-hell",
+      "foundry": "Compendium.pf2e.feats-srd.Item.9Co9SUJmey3LrlLl",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hells-destiny",
+      "slug": "feat:tactical-acumen",
+      "foundry": "Compendium.pf2e.feats-srd.Item.d2opppdcH19LrAgy",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]][skill]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hells-destiny",
+      "slug": "spell:wish-market",
+      "foundry": "Compendium.pf2e.spells-srd.Item.cYW9M2yE16dTTnCF",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        },
+        {
+          "type": "markup",
+          "markup": "table[class]"
+        }
+      ]
+    },
+    {
+      "type": "vocabulary",
+      "kind": "damage-type",
+      "slug": "untyped",
+      "reason": "unmapped-value",
+      "detail": "untyped"
+    }
+  ]
+}

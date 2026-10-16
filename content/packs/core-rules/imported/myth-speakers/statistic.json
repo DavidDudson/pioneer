@@ -1,0 +1,74 @@
+[
+  {
+    "id": "0ee13828-a0d0-5398-aef9-8008395edf59",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:hero-god-lore",
+    "name": "Hero-God Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:hero-god",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.hero-god",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "b601a888-ef6f-5d3a-94ad-115f422deb2d",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:legendary-beast-lore",
+    "name": "Legendary Beast Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:legendary-beast",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.legendary-beast",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "85118626-e624-5468-ab5e-835d7642845d",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:maze-lore",
+    "name": "Maze Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:maze",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.maze",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  }
+]

@@ -1,0 +1,1438 @@
+[
+  {
+    "id": "6d1ec6b8-00dc-566f-a4ac-4239f15b343f",
+    "pack": "myth-speakers",
+    "kind": "consumable",
+    "slug": "consumable:champions-laurels-amateur",
+    "name": "Champion's Laurels (Amateur)",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical", "talisman"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are about to roll an Acrobatics or Athletics check, and you are trained or better in the skill"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can perceive at least 12 allies or friendly bystanders encouraging you."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This elegant crown of laurels can be worn on the head, atop a helmet, or even wrapped around the neck as a torc, signaling the wearer's athletic achievements in a past competition. When you Activate the laurels, you draw strength from your adoring crowd and gain a +1 status bonus to the triggering check. If you critically succeed at the check, you gain 2 temporary Hit Points that last for 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.0WIzDXaihyzPERdn"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6
+        }
+      },
+      "bulk": "negligible",
+      "category": "talisman",
+      "usage": {
+        "type": "affixed",
+        "to": "armor"
+      }
+    }
+  },
+  {
+    "id": "6cdf94be-8d7a-5343-bfc1-8a13f5ba3e75",
+    "pack": "myth-speakers",
+    "kind": "consumable",
+    "slug": "consumable:champions-laurels-professional",
+    "name": "Champion's Laurels (Professional)",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical", "talisman"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are about to roll an Acrobatics or Athletics check, and you are trained or better in the skill"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can perceive at least 12 allies or friendly bystanders encouraging you."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This elegant crown of laurels can be worn on the head, atop a helmet, or even wrapped around the neck as a torc, signaling the wearer's athletic achievements in a past competition. When you Activate the laurels, you draw strength from your adoring crowd and gain a +2 status bonus to the triggering check. If you critically succeed at the check, you gain 10 temporary Hit Points that last for 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.5w7BqWBjsmPVpGyB"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 160
+        }
+      },
+      "bulk": "negligible",
+      "category": "talisman",
+      "usage": {
+        "type": "affixed",
+        "to": "armor"
+      }
+    }
+  },
+  {
+    "id": "50589707-9aea-599f-b5f3-f2584b2ab3b1",
+    "pack": "myth-speakers",
+    "kind": "consumable",
+    "slug": "consumable:champions-laurels-renowned",
+    "name": "Champion's Laurels (Renowned)",
+    "level": 18,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical", "talisman"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are about to roll an Acrobatics or Athletics check, and you are trained or better in the skill"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can perceive at least 12 allies or friendly bystanders encouraging you."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This elegant crown of laurels can be worn on the head, atop a helmet, or even wrapped around the neck as a torc, signaling the wearer's athletic achievements in a past competition. When you Activate the laurels, you draw strength from your adoring crowd and gain a +3 status bonus to the triggering check. If you critically succeed at the check, you gain 18 temporary Hit Points that last for 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.H7MTPfM3PsK6H26n"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3200
+        }
+      },
+      "bulk": "negligible",
+      "category": "talisman",
+      "usage": {
+        "type": "affixed",
+        "to": "armor"
+      }
+    }
+  },
+  {
+    "id": "7287d5a4-e52b-5861-be63-45bfe07e3dba",
+    "pack": "myth-speakers",
+    "kind": "consumable",
+    "slug": "consumable:hero-killer",
+    "name": "Hero Killer",
+    "level": 9,
+    "rarity": "rare",
+    "traits": ["alchemical", "consumable", "injury", "mythic", "poison"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Crafted from nightshade plants that grow near sites of mythic power, this poison wreaks havoc on those with a mythic calling."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Saving Throw",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 28
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Onset",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 round"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Maximum Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 5 rounds"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and lose 1 Mythic Point (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 4d6 poison and "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 1"
+          },
+          {
+            "type": "text",
+            "text": " (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 3",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 2"
+          },
+          {
+            "type": "text",
+            "text": ", and lose all Mythic Points (1 round)"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.tdwPBrchFga79M9Q"
+    },
+    "data": {
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "c8657816-32fe-5c87-902f-361b90f52eb1",
+    "pack": "myth-speakers",
+    "kind": "consumable",
+    "slug": "consumable:mythotoxin",
+    "name": "Mythotoxin",
+    "level": 8,
+    "rarity": "rare",
+    "traits": ["alchemical", "consumable", "injury", "mythic", "poison"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Mythotoxin is exceedingly difficult to produce, as it requires fresh venom from a mythic creature that must then be distilled into a more concentrated form. Mythic creatures take a –2 circumstance penalty to saves against mythotoxin."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Saving Throw",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 26
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Maximum Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 6 rounds"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d8",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 3",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d10"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and lose 1 Mythic Point, or become "
+          },
+          {
+            "type": "ref",
+            "id": "cd164d22-2d8e-5fd2-b8b2-03e1360df1e7",
+            "label": "Doomed 1"
+          },
+          {
+            "type": "text",
+            "text": " if you have no Mythic Points to lose (1 round; doomed condition value has normal duration)"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.i5DbxSLYu0LE52CV"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 100
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "3127cae1-5eed-5710-85cd-69d0768e1db5",
+    "pack": "myth-speakers",
+    "kind": "consumable",
+    "slug": "consumable:pyrefeather-token",
+    "name": "Pyrefeather Token",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical", "talisman", "vitality"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You succeed at, fail, or critically fail a recovery check while "
+          },
+          {
+            "type": "ref",
+            "id": "c0cd649a-7029-5174-a5b4-678f51598dec"
+          },
+          {
+            "type": "text",
+            "text": " by 1."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This pyrefowl feather, accentuated with beadwork, stores a spark of the bird's self-healing power. When you Activate the token, you reduce the triggering recovery check's DC by 1, potentially improving your check's degree of success. You also gain 5 temporary Hit Points that last for 1 minute. You can Activate this talisman even while "
+          },
+          {
+            "type": "ref",
+            "id": "e1a78dad-4887-518e-9120-e58b7009ebfd"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.iSwJvnJ6LuoQUi8f"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "usage": {
+        "type": "affixed",
+        "to": "armor"
+      }
+    }
+  },
+  {
+    "id": "a8d4ab41-8ed5-5c32-a023-ebe35fa56a7a",
+    "pack": "myth-speakers",
+    "kind": "consumable",
+    "slug": "consumable:soldiers-syrup-greater",
+    "name": "Soldier's Syrup (Greater)",
+    "level": 12,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This thick syrup sweetens potions and creates a distinctive, metallic flavor associated with the festival days in Dhuraxilis. Partygoers are fond of mixing "
+          },
+          {
+            "type": "text",
+            "text": "soldier's syrup",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " with potions to extend their release."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activating a dose of "
+          },
+          {
+            "type": "text",
+            "text": "soldier's syrup",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " requires you to combine it with another consumable potion that takes 1 action to activate. After swirling the mixture for a few moments, you must either imbibe the augmented potion within 1 minute, or the potion reverts to its unaugmented state. The potion's level cannot exceed that of the "
+          },
+          {
+            "type": "text",
+            "text": "soldier's syrup",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " it is mixed with, otherwise the syrup is wasted."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When consumed, a "
+          },
+          {
+            "type": "text",
+            "text": "soldier's syrup",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "–augmented potion does not immediately grant its benefits to you. Instead, you can activate the potion within the next hour as a single action, which has the concentrate trait. You can have only one "
+          },
+          {
+            "type": "text",
+            "text": "soldier's syrup",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "–augmented potion consumed at a time; consuming a second one renders the first one inert. If you do not activate the potion within 1 hour, the potion spoils inside you, and you become "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 1"
+          },
+          {
+            "type": "text",
+            "text": " for 24 hours."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.qnBpdjITfJFSO7T8"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 400
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "66d6fcc7-7693-5e94-a1a4-226e5487e7f5",
+    "pack": "myth-speakers",
+    "kind": "consumable",
+    "slug": "consumable:soldiers-syrup-lesser",
+    "name": "Soldier's Syrup (Lesser)",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This thick syrup sweetens potions and creates a distinctive, metallic flavor associated with the festival days in Dhuraxilis. Partygoers are fond of mixing "
+          },
+          {
+            "type": "text",
+            "text": "soldier's syrup",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " with potions to extend their release."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activating a dose of "
+          },
+          {
+            "type": "text",
+            "text": "soldier's syrup",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " requires you to combine it with another consumable potion that takes 1 action to activate. After swirling the mixture for a few moments, you must either imbibe the augmented potion within 1 minute, or the potion reverts to its unaugmented state. The potion's level cannot exceed that of the "
+          },
+          {
+            "type": "text",
+            "text": "soldier's syrup",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " it is mixed with, otherwise the syrup is wasted."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When consumed, a "
+          },
+          {
+            "type": "text",
+            "text": "soldier's syrup",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "–augmented potion does not immediately grant its benefits to you. Instead, you can activate the potion within the next hour as a single action, which has the concentrate trait. You can have only one "
+          },
+          {
+            "type": "text",
+            "text": "soldier's syrup",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "–augmented potion consumed at a time; consuming a second one renders the first one inert. If you do not activate the potion within 1 hour, the potion spoils inside you, and you become "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 1"
+          },
+          {
+            "type": "text",
+            "text": " for 24 hours."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.5AD7oDOGBd7CrqL5"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 12
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "e238f012-9415-5a97-a379-916864851966",
+    "pack": "myth-speakers",
+    "kind": "consumable",
+    "slug": "consumable:soldiers-syrup-major",
+    "name": "Soldier's Syrup (Major)",
+    "level": 18,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This thick syrup sweetens potions and creates a distinctive, metallic flavor associated with the festival days in Dhuraxilis. Partygoers are fond of mixing "
+          },
+          {
+            "type": "text",
+            "text": "soldier's syrup",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " with potions to extend their release."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activating a dose of "
+          },
+          {
+            "type": "text",
+            "text": "soldier's syrup",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " requires you to combine it with another consumable potion that takes 1 action to activate. After swirling the mixture for a few moments, you must either imbibe the augmented potion within 1 minute, or the potion reverts to its unaugmented state. The potion's level cannot exceed that of the "
+          },
+          {
+            "type": "text",
+            "text": "soldier's syrup",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " it is mixed with, otherwise the syrup is wasted."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When consumed, a "
+          },
+          {
+            "type": "text",
+            "text": "soldier's syrup",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "–augmented potion does not immediately grant its benefits to you. Instead, you can activate the potion within the next hour as a single action, which has the concentrate trait. You can have only one "
+          },
+          {
+            "type": "text",
+            "text": "soldier's syrup",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "–augmented potion consumed at a time; consuming a second one renders the first one inert. If you do not activate the potion within 1 hour, the potion spoils inside you, and you become "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 1"
+          },
+          {
+            "type": "text",
+            "text": " for 24 hours."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.lgQK6qzBkEZOUr7k"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5000
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "6f87c29c-0b35-5c24-8487-f5876e2023d1",
+    "pack": "myth-speakers",
+    "kind": "consumable",
+    "slug": "consumable:soldiers-syrup-minor",
+    "name": "Soldier's Syrup (Minor)",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This thick syrup sweetens potions and creates a distinctive, metallic flavor associated with the festival days in Dhuraxilis. Partygoers are fond of mixing "
+          },
+          {
+            "type": "text",
+            "text": "soldier's syrup",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " with potions to extend their release."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activating a dose of "
+          },
+          {
+            "type": "text",
+            "text": "soldier's syrup",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " requires you to combine it with another consumable potion that takes 1 action to activate. After swirling the mixture for a few moments, you must either imbibe the augmented potion within 1 minute, or the potion reverts to its unaugmented state. The potion's level cannot exceed that of the "
+          },
+          {
+            "type": "text",
+            "text": "soldier's syrup",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " it is mixed with, otherwise the syrup is wasted."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When consumed, a "
+          },
+          {
+            "type": "text",
+            "text": "soldier's syrup",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "–augmented potion does not immediately grant its benefits to you. Instead, you can activate the potion within the next hour as a single action, which has the concentrate trait. You can have only one "
+          },
+          {
+            "type": "text",
+            "text": "soldier's syrup",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "–augmented potion consumed at a time; consuming a second one renders the first one inert. If you do not activate the potion within 1 hour, the potion spoils inside you, and you become "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 1"
+          },
+          {
+            "type": "text",
+            "text": " for 24 hours."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.6VbMcDOjk4OHzEfx"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "8e20e960-0e96-5869-87a2-24df3f3c2f12",
+    "pack": "myth-speakers",
+    "kind": "consumable",
+    "slug": "consumable:soldiers-syrup-moderate",
+    "name": "Soldier's Syrup (Moderate)",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This thick syrup sweetens potions and creates a distinctive, metallic flavor associated with the festival days in Dhuraxilis. Partygoers are fond of mixing "
+          },
+          {
+            "type": "text",
+            "text": "soldier's syrup",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " with potions to extend their release."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activating a dose of "
+          },
+          {
+            "type": "text",
+            "text": "soldier's syrup",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " requires you to combine it with another consumable potion that takes 1 action to activate. After swirling the mixture for a few moments, you must either imbibe the augmented potion within 1 minute, or the potion reverts to its unaugmented state. The potion's level cannot exceed that of the "
+          },
+          {
+            "type": "text",
+            "text": "soldier's syrup",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " it is mixed with, otherwise the syrup is wasted."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When consumed, a "
+          },
+          {
+            "type": "text",
+            "text": "soldier's syrup",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "–augmented potion does not immediately grant its benefits to you. Instead, you can activate the potion within the next hour as a single action, which has the concentrate trait. You can have only one "
+          },
+          {
+            "type": "text",
+            "text": "soldier's syrup",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "–augmented potion consumed at a time; consuming a second one renders the first one inert. If you do not activate the potion within 1 hour, the potion spoils inside you, and you become "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 1"
+          },
+          {
+            "type": "text",
+            "text": " for 24 hours."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Vnl0tgVKGKsqHvny"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "24c99867-c392-594e-bb74-36095e193539",
+    "pack": "myth-speakers",
+    "kind": "consumable",
+    "slug": "consumable:sparking-pepper-string",
+    "name": "Sparking Pepper String",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "consumable", "electricity", "processed"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Vendors sell these strings of roasted peppers on festival nights in Dhuraxilis. Their spiciness cuts through the fatty meats that are also popular during late nights, and the sparks from the peppers serve as a pick-me-up to maintain the energy for a party. After you eat a sparking pepper string, your body bristles with electricity until the end of your next turn. When you successfully Strike a target with an unarmed attack or a metal weapon, you can end this effect as a free action to have the attack deal an additional 1d6 electricity damage. If not expended before the duration ends, the electricity dissipates harmlessly."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "3af0d208-d3d3-5f2d-9fcb-921d7c7eb1fd"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.JE2PATrlNNz23yaF"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

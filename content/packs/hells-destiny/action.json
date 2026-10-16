@@ -1,0 +1,1547 @@
+[
+  {
+    "id": "ef00ea79-753b-5441-8731-36428ea0420f",
+    "pack": "hells-destiny",
+    "kind": "action",
+    "slug": "action:corpse-crenellation",
+    "name": "Corpse Crenellation",
+    "rarity": "common",
+    "traits": ["commander", "tactic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "With methodical, shocking efficiency, some Chelaxian and Hellknight squads can turn the corpses of their slain foes into temporary earthworks. Signal up to two squadmates within the aura of your commander's banner. These squadmates can Stride up to half their Speed and attempt a melee or ranged Strike against one enemy you designate as a reaction. If the enemy is reduced to 0 Hit Points by these Strikes, the enemy's body provides lesser cover to all squadmates in or adjacent to the enemy's space until the end of your next turn or until the enemy is no longer "
+          },
+          {
+            "type": "ref",
+            "id": "e1a78dad-4887-518e-9120-e58b7009ebfd"
+          },
+          {
+            "type": "text",
+            "text": " or dead. During this time, any squadmate who Takes Cover can also first Stride up to half their Speed, but they must end this movement in or adjacent to the fallen enemy's space. A squadmate who's at least two sizes smaller than the fallen enemy instead gains standard cover."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If one of your squadmates knows or has prepared a cantrip that deals damage and requires 2 or fewer actions to cast, they can cast it targeting the designated enemy instead of taking the other actions normally granted by this tactic, gaining all other listed benefits."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.yT2A0CxSA5nJ8e7n"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "ten-minutes"
+      }
+    }
+  },
+  {
+    "id": "77ee559c-1e51-5101-8c0e-b408f1b265d3",
+    "pack": "hells-destiny",
+    "kind": "action",
+    "slug": "action:for-my-house",
+    "name": "For My House!",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per minute"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You announce your house affiliation, either by declaring it aloud (giving this ability the auditory trait) or openly displaying your house heraldry (giving this ability the visual trait). Until the beginning of your next turn, your weapon Strikes and spells deal an additional 1 damage to any creature that witnessed the display. If you're an expert in Cheliax Lore, Genealogy Lore, Heraldry Lore, Performance, or Warfare Lore, the additional damage increases to 2. The damage increases to 3 if you're a master in the skill or 4 if you're legendary in the skill."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.DRHtgPhncTSs7Sdd"
+    },
+    "data": {
+      "cost": "free",
+      "category": "defensive",
+      "frequency": {
+        "max": 1,
+        "per": "minute"
+      }
+    }
+  },
+  {
+    "id": "8f612ac0-307f-599e-8090-dceaba3bc216",
+    "pack": "hells-destiny",
+    "kind": "action",
+    "slug": "action:for-talmandor-for-freedom",
+    "name": "For Talmandor! For Freedom!",
+    "rarity": "common",
+    "traits": ["brandish", "commander", "tactic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You raise your banner high with a reminder of what you and your allies truly fight for, granting them unshakable conviction. For yourself and each squadmate in your banner's aura when you use this tactic, you can attempt to counteract one effect affecting that creature. Your counteract modifier is your Warfare Lore modifier. The effect must have the mental trait or impose the clumsy, controlled, "
+          },
+          {
+            "type": "ref",
+            "id": "f7fea8f9-c457-5b9f-9283-f567fa557184"
+          },
+          {
+            "type": "text",
+            "text": ", frightened, "
+          },
+          {
+            "type": "ref",
+            "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "7802f1d9-5ced-5b9b-8a08-98ec0adb9947"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "b374c4c9-d230-5167-8878-38e08932a071"
+          },
+          {
+            "type": "text",
+            "text": ", slowed, or stunned condition."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.2U7V8K0zSFGyZHrP"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
+    }
+  },
+  {
+    "id": "171ace5b-c247-5ac6-9b81-da731985e8c3",
+    "pack": "hells-destiny",
+    "kind": "action",
+    "slug": "action:relentless-assault",
+    "name": "Relentless Assault",
+    "rarity": "common",
+    "traits": ["fortune"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature would succeed or critically succeed at a saving throw against the offensive ability of a troop you command"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " With an encouraging command, you direct your troop to make a few additional attacks. The triggering creature rerolls its saving throw and uses the worse result."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.9d9pexfcsyS9yFVT"
+    },
+    "data": {
+      "cost": "free",
+      "category": "offensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A creature would succeed or critically succeed at a saving throw against the offensive ability of a troop you command"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "05792f63-a0f3-5cae-8ded-e85d281c594e",
+    "pack": "hells-destiny",
+    "kind": "action",
+    "slug": "action:scrappy-defiance",
+    "name": "Scrappy Defiance",
+    "rarity": "common",
+    "traits": ["mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your turn begins, and you are commanding a troop"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You encourage your followers to persevere against all hardships. The troop you command gains temporary Hit Points equal to twice your level which last for 1 minutes. If your troop's size would be reduced due to damage, you can attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 16
+          },
+          {
+            "type": "text",
+            "text": "; on a success, your troop's size isn't reduced at that threshold until the end of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.85f4wG1ALCXBMwaC"
+    },
+    "data": {
+      "cost": "free",
+      "category": "interaction",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your turn begins, and you are commanding a troop"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "263ed93e-fcff-5004-b048-4f3834eef12b",
+    "pack": "hells-destiny",
+    "kind": "action",
+    "slug": "action:seek-and-destroy",
+    "name": "Seek and Destroy",
+    "rarity": "common",
+    "traits": ["commander", "tactic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You direct your team to uncover hidden foes and exploit newly discovered weaknesses. Signal up to two squadmates within the aura of your commander's banner; they can immediately Seek as a free action. Afterward, each can spend a reaction to either Point Out an enemy, Stride toward an enemy they're observing, or attempt to Strike an enemy they're observing. Each of the squadmates deals additional precision damage equal to half your level with their next successful Strike before the end of your next turn against a creature that has become observed by them from a successful Perception check to Seek."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.h3NqgU6MEEF7mgzH"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "ten-minutes"
+      }
+    }
+  },
+  {
+    "id": "8f99cae9-fa16-5885-8779-5a3f6f88df91",
+    "pack": "hells-destiny",
+    "kind": "action",
+    "slug": "action:shadows-in-the-moonlight",
+    "name": "Shadows in the Moonlight",
+    "rarity": "common",
+    "traits": ["commander", "tactic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your commands help your team evade notice. Signal all squadmates within your banner's aura; until the end of your next turn, you and each ally count as Following the Expert for any checks to Hide or Sneak and can ignore the noisy trait on any armor you wear. If you spend 2 actions to use this tactic, up to two squadmates within your banner's aura can also either Hide or Sneak as a free action."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If you have this tactic prepared, you can use Warfare Lore in place of Stealth for checks you attempt to Hide and Sneak."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.EZcykqDJzQyZmJ7E"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "9ded4f3c-a352-52e1-acff-afc1204898b5",
+    "pack": "hells-destiny",
+    "kind": "action",
+    "slug": "action:special-forces-combat-medicine",
+    "name": "(Special Forces) Combat Medicine",
+    "rarity": "common",
+    "traits": ["healing"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The special forces unit counts many battle medics among its number. The troop attempts a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:lore:warfare",
+            "dc": 40
+          },
+          {
+            "type": "text",
+            "text": " check. On a success, the troop and its commander regain "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d8+30"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points. On a critical success, this healing increases to "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d8+50"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.mgN3gKfdR2jPb4ge"
+    },
+    "data": {
+      "cost": "two",
+      "category": "defensive",
+      "frequency": {
+        "max": 1,
+        "per": "hour"
+      }
+    }
+  },
+  {
+    "id": "ec1be573-a7f5-5165-b74f-6940571d83eb",
+    "pack": "hells-destiny",
+    "kind": "action",
+    "slug": "action:special-forces-composite-bows",
+    "name": "(Special Forces) Composite Bows",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The special forces unit has trained snipers in its ranks. Increase the range of its Short Salvo ability to 120 feet and its damage to 5d10 piercing damage. Troops with these bows can't be war mages, can't have shields, and can't be mounted."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.RbUQXGU4JjBLXp8P"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "fced4ca8-3e7b-52a4-bc71-41d200718ad0",
+    "pack": "hells-destiny",
+    "kind": "action",
+    "slug": "action:special-forces-dirty-fighting",
+    "name": "(Special Forces) Dirty Fighting",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The special forces unit tries to disrupt the enemy's ability to fight back by disarming their weapons, kicking dust in their eyes, and so on. Attempt an "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:athletics"
+          },
+          {
+            "type": "text",
+            "text": " check against the Reflex DC of every enemy within a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 5
+          },
+          {
+            "type": "text",
+            "text": ". On a success, that enemy takes a –2 circumstance penalty to attack rolls for 1 round, or if affecting a troop, a –2 circumstance penalty to that troop's DCs for damaging effects for 1 round. On a critical success, this penalty lasts for 2 rounds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "f3f2f3c1-7682-585c-b9fb-6f8f2eab45ed"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "5bb55906-852e-54da-b6d8-6b022dc7ddbc"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.Rew6JSMbOsbx1pY0"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "ae817307-7e94-5003-a41c-5964431831f8",
+    "pack": "hells-destiny",
+    "kind": "action",
+    "slug": "action:special-forces-mounted-marauders",
+    "name": "(Special Forces) Mounted Marauders",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These special forces soldiers are mounted. Increase their Speed to 40 feet. While moving on land, this troop ignores difficult terrain. Effects that target only animals or humanoids might not work on this troop, subject to GM discretion. Mounted troops can't also have composite bows."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:land",
+        "mode": "upgrade",
+        "value": 40
+      },
+      {
+        "key": "RollOption",
+        "option": "terrain:land",
+        "toggleable": true,
+        "display": {
+          "label": "On Land"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.sNRLmAcKLm1lwMRo"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "e3f69346-53e8-5e28-9a3b-16f58eb1ea98",
+    "pack": "hells-destiny",
+    "kind": "action",
+    "slug": "action:special-forces-no-retreat",
+    "name": "(Special Forces) No Retreat",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These soldiers have been extensively trained to hold their ground no matter what the situation. If any effect would force the special forces unit to move, reduce the distance by 10 feet. Any time they would be affected by the "
+          },
+          {
+            "type": "ref",
+            "id": "f7fea8f9-c457-5b9f-9283-f567fa557184"
+          },
+          {
+            "type": "text",
+            "text": " condition, the special forces unit is instead "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 2"
+          },
+          {
+            "type": "text",
+            "text": " for the same duration."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.6sfDwa3T85ufsjES"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "83c0932e-34e2-57d7-9712-9e3a0f452230",
+    "pack": "hells-destiny",
+    "kind": "action",
+    "slug": "action:special-forces-planar-hunters",
+    "name": "(Special Forces) Planar Hunters",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The special forces unit is trained in dealing with outer planar threats. They gain a +4 circumstance bonus to Short Salvo and Slashing Blades damage rolls made against daemons, demons, and devils."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.7AItioCBC7VAMlFZ"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "36195c68-feef-5dfe-9413-ec301e7d5a13",
+    "pack": "hells-destiny",
+    "kind": "action",
+    "slug": "action:special-forces-punitive-attack",
+    "name": "(Special Forces) Punitive Attack",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An enemy within 5 feet of the special forces unit uses a manipulate action or a move action, makes a ranged attack, or leaves a square during a move action it's using"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The special forces troops swing their weapons. The triggering enemy takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "5d6+10",
+                "damageType": "slashing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 34,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save). If the creature critically fails its saving throw and the trigger was a manipulate action, the troop disrupts that action."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.T0xCX9ccpdkiMtlx"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "offensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "An enemy within 5 feet of the special forces unit uses a manipulate action or a move action, makes a ranged attack, or leaves a square during a move action it's using"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "63ea7de1-e5f2-5525-867d-f92c3f9a68de",
+    "pack": "hells-destiny",
+    "kind": "action",
+    "slug": "action:special-forces-quick-formation",
+    "name": "(Special Forces) Quick Formation",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per round"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The special forces unit uses Change Formation. Special forces units typically know the loose and wedge formations. If the troops are shielded, they instead know the turtle shell and wedge formations."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The troop reconfigures to assume one of the formations below they know. Using this action again ends any previous formation, and the troop can also use this action to revert to its default formation, ending any benefits and drawbacks."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Loose",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Members of the troop fan out to cover more ground. "
+                },
+                {
+                  "type": "text",
+                  "text": "Benefit",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Any weaknesses the troop has to area and splash damage are suppressed. "
+                },
+                {
+                  "type": "text",
+                  "text": "Drawback",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Enemies' saving throws against the troop's damaging effects are one degree of success better than they roll."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Marching Column",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " This formation traverses long distances more rapidly. "
+                },
+                {
+                  "type": "text",
+                  "text": "Benefit",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The troop gains a +10 foot circumstance bonus to all its Speeds. "
+                },
+                {
+                  "type": "text",
+                  "text": "Drawback",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The troop is "
+                },
+                {
+                  "type": "ref",
+                  "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+                },
+                {
+                  "type": "text",
+                  "text": " and takes a –2 penalty to Reflex saves."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Turtle Shell",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The troop interlocks their shields. Only a group with shields can use this formation. "
+                },
+                {
+                  "type": "text",
+                  "text": "Benefit",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The troop gains a +2 circumstance bonus to AC against ranged attacks and to Reflex saves. "
+                },
+                {
+                  "type": "text",
+                  "text": "Drawback",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The troop takes a –10-foot penalty to all its Speeds."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Wedge",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The troop aligns itself behind a powerful commander. "
+                },
+                {
+                  "type": "text",
+                  "text": "Benefit",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The troop chooses an adjacent allied creature without the troop trait to fall in behind. Each time the chosen creature Strides, the troop follows as a free action, Striding to keep the chosen creature adjacent. "
+                },
+                {
+                  "type": "text",
+                  "text": "Drawback",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The troop loses some of their autonomy. They're slowed 1 and can't voluntarily move away from their leader."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 2,
+        "slug": "turtle-shell-ac-bonus",
+        "predicate": ["item:ranged", "change-formation:turtle-shell"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:reflex"],
+        "type": "circumstance",
+        "value": 2,
+        "slug": "turtle-shell-reflex-bonus",
+        "predicate": ["change-formation:turtle-shell"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "untyped",
+        "value": -10,
+        "predicate": ["change-formation:turtle-shell"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+        "predicate": ["change-formation:wedge"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.QcP0PgtdLXNYhXu9"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "round"
+      }
+    }
+  },
+  {
+    "id": "3cdd3ef1-3f5e-5812-a257-39f7e39f70ab",
+    "pack": "hells-destiny",
+    "kind": "action",
+    "slug": "action:special-forces-shielded",
+    "name": "(Special Forces) Shielded",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The special forces unit is equipped with large, heavy shields. This allows the troop to Raise its Shields, giving it and its commander a +2 circumstance bonus to AC until the start of its next turn. Additionally, this gives the troop the Shield Block reaction. Shielded troops can't also have composite bows or pikes."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:special-forces-shielded"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.fFuXJyklCDreob4t"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "77061155-72a6-5dfa-8f1d-7ecd78f740b4",
+    "pack": "hells-destiny",
+    "kind": "action",
+    "slug": "action:special-forces-sprinting-charge",
+    "name": "(Special Forces) Sprinting Charge",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The special forces unit charges forward with ferocity. It Strides up to twice its Speed. At the end of its movement, each enemy within a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 5
+          },
+          {
+            "type": "text",
+            "text": " takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6+7",
+                "damageType": "slashing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 34,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.OHVoUpZUyio2jdKA"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "a9941e8e-ac93-5df3-a754-b9883fb51f3e",
+    "pack": "hells-destiny",
+    "kind": "action",
+    "slug": "action:special-forces-swords-for-pikes",
+    "name": "(Special Forces) Swords for Pikes",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The special forces unit has elongated pikes as their primary weapon. Change the range of their Slashing Blades to a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": ", and change the damage from slashing to piercing. Troops with pikes can't also have shields."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageAlteration",
+        "selectors": ["slashing-blades-inline-damage"],
+        "slug": "base",
+        "property": "damage-type",
+        "mode": "override",
+        "value": "piercing"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.0yF0DTf0LbtwAMYi"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "a45b3c0c-4dca-5745-ba6d-1dad2a4930c4",
+    "pack": "hells-destiny",
+    "kind": "action",
+    "slug": "action:special-forces-war-mages",
+    "name": "(Special Forces) War Mages",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This special forces unit has some battle mages among their number. War mages can't also have composite bows. The unit loses their Short Salvo ability but gains the following:"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Arcane Prepared Spells",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " DC 34, attack +26"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "7th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "56b4d7c9-6277-5134-9f36-3eb0511762f2"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "35c8fba6-ef32-549e-a849-34d6e599b4d6"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "6th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "e5e87724-011c-5872-99d7-0b9e343c82e6"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "088c1f48-de0f-5b8a-83b3-24ce61a928bc"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "062680d1-edd9-5d3d-b358-fc861d29d3ff"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "5th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "08432692-cd15-5da6-a49b-6f27a80307b3"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "989ec875-261d-5d4f-a181-fedf889f9d4b"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "f97e48c5-f8dc-5888-83c8-67ed63b03f23"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Cantrips (8th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "c91ac947-a9ec-5f07-b5f9-a054617eb571"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "b0b84836-b7a0-59ca-9379-6efdfb022f9e"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "138a5162-8591-58ac-96a6-23587e9dd75e"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.ZipAXUBS1NrIKwrX"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "2ec1e97c-a9d0-5652-b1c7-9fbce1592ec1",
+    "pack": "hells-destiny",
+    "kind": "action",
+    "slug": "action:wait-for-it",
+    "name": "Wait For It...",
+    "rarity": "common",
+    "traits": ["commander", "tactic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your team intuitively keeps their guard up even while waiting for the ideal moment to act. Signal up to two squadmates within the aura of your commander's banner; while these squadmates Delay or Ready an action, they gain a +1 circumstance bonus to AC and saving throws. A squadmate's bonus lasts until the end of your next turn, until they stop Delaying, or until the end of the current creature's turn when the squadmate uses the designated action they Readied, whichever happens first. In addition, you can grant one of the squadmates an extra reaction from your drilled reactions class feature, but it can be used only to perform a designated action they Readied."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.5stdIykWux9WHqce"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  }
+]

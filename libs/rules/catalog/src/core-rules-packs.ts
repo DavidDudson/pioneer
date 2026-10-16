@@ -61,6 +61,10 @@ function laterVocabulary(): readonly JsonFile[] {
     json(import('@pioneer/content/packs/core-rules/imported/gm-core/trait.json')),
     json(import('@pioneer/content/packs/core-rules/imported/season-of-ghosts/statistic.json')),
     json(import('@pioneer/content/packs/core-rules/imported/season-of-ghosts/trait.json')),
+    json(import('@pioneer/content/packs/core-rules/imported/myth-speakers/statistic.json')),
+    json(import('@pioneer/content/packs/core-rules/imported/revenge-of-the-runelords/trait.json')),
+    json(import('@pioneer/content/packs/core-rules/imported/bastion-of-blasphemies/statistic.json')),
+    json(import('@pioneer/content/packs/core-rules/imported/the-dead-gods-hand/statistic.json')),
   ];
 }
 

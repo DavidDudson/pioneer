@@ -1,0 +1,851 @@
+{
+  "pin": {
+    "tag": "pf2e-8.6.0",
+    "sha256": "d9c4c1f6bbf9bd907ec0acbaea9b8d4e8b0d049758a8616829f07c1b4ee81342"
+  },
+  "backlog": [
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "action:hunt-runelord",
+      "foundry": "Compendium.pf2e.actionspf2e.Item.I6gG9rqTTLkzrhKF",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "armor:sorshens-scintillating-garment",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.TYs0oqRjEa9wBJ7N",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "apex",
+          "raw": {
+            "attribute": "cha"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "background:heroic-ancestry",
+      "foundry": "Compendium.pf2e.backgrounds.Item.COUnnZRnoNb8bzan",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "effect:effect-bolster-flesh",
+      "foundry": "Compendium.pf2e.equipment-effects.Item.gKnoF5VKTCyl4JaN",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:sihedron-medallion",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Sihedron Medallion"
+              },
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:sihedron-medallion-greater",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Sihedron Medallion (Greater)"
+              },
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:sihedron-medallion-major",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Sihedron Medallion (Major)"
+              }
+            ],
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
+            "rollOption": "sihedron-medallion"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "effect:effect-pall-of-silence",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.k3P0APls0jHEYdHz",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Note",
+          "raw": {
+            "key": "Note",
+            "predicate": [
+              {
+                "or": ["item:trait:sonic", "item:damage:type:sonic"]
+              }
+            ],
+            "selector": ["attack-roll", "attack-damage"],
+            "text": "{item|description}",
+            "title": "{item|name}"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": [
+                  "item:trait:auditory",
+                  {
+                    "and": ["item:trait:attack", "item:trait:sonic"]
+                  }
+                ]
+              }
+            ],
+            "property": "description",
+            "value": [
+              {
+                "text": "{item|description}"
+              }
+            ]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "feat",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": [
+                  "item:trait:auditory",
+                  {
+                    "and": ["item:trait:attack", "item:trait:sonic"]
+                  }
+                ]
+              }
+            ],
+            "property": "description",
+            "value": [
+              {
+                "text": "{item|description}"
+              }
+            ]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "not": "item:trait:subtle"
+              }
+            ],
+            "property": "description",
+            "value": [
+              {
+                "text": "{item|description}"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "effect:effect-runelord-researcher",
+      "foundry": "Compendium.pf2e.feat-effects.Item.Ny6kEKDxr9GhLoTC",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "label": "PF2E.TraitAcid",
+                "value": "acid"
+              },
+              {
+                "label": "PF2E.TraitCold",
+                "predicate": ["thassilonian-school:wrath"],
+                "value": "cold"
+              },
+              {
+                "label": "PF2E.TraitElectricity",
+                "predicate": ["thassilonian-school:wrath"],
+                "value": "electricity"
+              },
+              {
+                "label": "PF2E.TraitFire",
+                "predicate": ["thassilonian-school:wrath"],
+                "value": "fire"
+              },
+              {
+                "label": "PF2E.TraitSonic",
+                "predicate": ["thassilonian-school:wrath"],
+                "value": "sonic"
+              }
+            ],
+            "flag": "damageType",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.DamageType"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": [
+              {
+                "or": [
+                  {
+                    "and": ["thassilonian-school:envy", "item:trait:incapacitation"]
+                  },
+                  {
+                    "and": [
+                      "thassilonian-school:gluttony",
+                      {
+                        "or": ["item:trait:death", "item:trait:void"]
+                      }
+                    ]
+                  },
+                  {
+                    "and": [
+                      "thassilonian-school:greed",
+                      {
+                        "or": ["item:trait:polymorph", "inflicts:enfeebled", "inflicts:clumsy", "inflicts:petrified"]
+                      }
+                    ]
+                  },
+                  {
+                    "and": ["thassilonian-school:lust", "item:trait:emotion"]
+                  },
+                  {
+                    "and": ["thassilonian-school:pride", "item:trait:illusion"]
+                  },
+                  {
+                    "and": [
+                      "thassilonian-school:sloth",
+                      {
+                        "or": ["inflicts:paralyzed", "inflicts:slowed", "inflicts:stunned", "inflicts:speed-penalty"]
+                      }
+                    ]
+                  },
+                  {
+                    "and": [
+                      "thassilonian-school:wrath",
+                      "item:damage:type:{item|flags.system.rulesSelections.damageType}"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "selector": "saving-throw",
+            "slug": "runelord-scholar",
+            "type": "status",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "effect:effect-weaponsight",
+      "foundry": "Compendium.pf2e.feat-effects.Item.bBzZgiW1FGh6eOcb",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.flanking.flankable",
+            "value": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "equipment:apocalypse-seed",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.JsRaJz8Lo1FE1R0P",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "equipment:paradigm-cube",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.zZwpFG8FY0Qwgz7e",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "description.frequency",
+          "raw": "six times per day (but only once per day per color)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "feat:avenging-runelord-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.Af7vcTToxetHThj4",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "system.build.languages.granted",
+            "value": {
+              "slug": "thassilonian",
+              "source": "{item|name}"
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "MartialProficiency",
+          "raw": {
+            "definition": [
+              "item:category:martial",
+              {
+                "or": ["item:group:polearm", "item:group:spear"]
+              }
+            ],
+            "key": "MartialProficiency",
+            "label": "PF2E.SpecificRule.MartialProficiency.MartialPolearmsAndSpears",
+            "sameAs": "simple"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "feat:craft-runewell",
+      "foundry": "Compendium.pf2e.feats-srd.Item.gbBUxaWSD4nA9X7d",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[spells-srd] Pathfinder War of Immortals"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "feat:doomsayers-calling",
+      "foundry": "Compendium.pf2e.classfeatures.Item.Gsltv71YQJc55XSS",
+      "leftOut": {
+        "reason": "no-kind-data",
+        "detail": ""
+      },
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "category",
+          "raw": "calling"
+        }
+      ],
+      "document": {
+        "_id": "Gsltv71YQJc55XSS",
+        "name": "Doomsayer's Calling",
+        "type": "feat",
+        "system": {
+          "publication": {
+            "title": "Pathfinder Revenge of the Runelords Player's Guide",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 1
+          },
+          "traits": {
+            "value": ["calling", "mythic"],
+            "rarity": "rare"
+          },
+          "description": {
+            "value": "<p>As long as people have dwelt in the world, there have been those who foresaw, feared, or worked toward that world's end. You know all things must end and have long felt that at some point in your life, you would stand on the precipice of Golarion's final fate—not to usher it along, but to deny the agents of this doomsday the satisfaction of seeing your world end. Until then, you'll do your best to keep the world and your allies in shape to face these ultimate threats. When you attempt a check to Repair, Administer First Aid, or Treat Wounds (but not when you use @UUID[Compendium.pf2e.feats-srd.Item.Battle Medicine]), you can spend a Mythic Point to attempt the check at mythic proficiency. The first time each day that you critically succeed on a check to Repair or Administer First Aid, you regain a Mythic Point.</p><hr /><p><strong>Edicts</strong> help to prevent (or at least forestall) doomsday by keeping allies (and their gear) in good health (or repair), console those who are despondent</p>\n<p><strong>Anathema</strong> knowingly aid in any plot to end the world, mock or deride those who predict the end of the world</p>"
+          },
+          "rules": [
+            {
+              "key": "GrantItem",
+              "uuid": "Compendium.pf2e.actionspf2e.Item.Rewrite Fate"
+            }
+          ],
+          "actionType": {
+            "value": "passive"
+          },
+          "actions": {
+            "value": null
+          },
+          "category": "calling",
+          "prerequisites": {
+            "value": []
+          },
+          "subfeatures": {
+            "proficiencies": {},
+            "senses": {},
+            "suppressedFeatures": []
+          }
+        },
+        "folder": "oepc0znkPUF8JkVh"
+      }
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "feat:dreamers-calling",
+      "foundry": "Compendium.pf2e.classfeatures.Item.HnUzQqmAphx9nXDt",
+      "leftOut": {
+        "reason": "no-kind-data",
+        "detail": ""
+      },
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "category",
+          "raw": "calling"
+        }
+      ],
+      "document": {
+        "_id": "HnUzQqmAphx9nXDt",
+        "name": "Dreamer's Calling",
+        "type": "feat",
+        "system": {
+          "publication": {
+            "title": "Pathfinder Revenge of the Runelords Player's Guide",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 1
+          },
+          "traits": {
+            "value": ["calling", "mythic"],
+            "rarity": "rare"
+          },
+          "description": {
+            "value": "<p>Your dreams have always felt more real than reality itself, and upon learning of the Dimension of Dreams you weren't surprised—indeed, you've often found yourself entering these Dreamlands when you sleep. You've long felt that something in the Dreamlands has been calling to you, and that some great rescue or revelation awaits in a dream you've yet to experience. In the meantime, your dreams remain a potent source of inspiration and power, and the ability to draw from them to affect the waking world is something you've always been able to do. When you attempt an Arcana, Nature, Religion, or Occultism check to @UUID[Compendium.pf2e.actionspf2e.Item.Recall Knowledge], or when you attempt a check to Craft any work of art, you can spend a Mythic Point to attempt the check at mythic proficiency. The first time each day that you critically succeed at a check to Craft or at a Recall Knowledge check about a subject associated with dreaming or the Dreamlands, you regain a Mythic Point.</p><hr /><p><strong>Edicts</strong> share your dreams with your friends and take interest if they share their dreams with you, take inspiration from your dreams when you create</p>\n<p><strong>Anathema</strong> deny a creature (including yourself) the chance to sleep long enough to dream, deride those who have ambitions that they're unlikely to ever achieve</p>"
+          },
+          "rules": [
+            {
+              "key": "GrantItem",
+              "uuid": "Compendium.pf2e.actionspf2e.Item.Rewrite Fate"
+            }
+          ],
+          "actionType": {
+            "value": "passive"
+          },
+          "actions": {
+            "value": null
+          },
+          "category": "calling",
+          "prerequisites": {
+            "value": []
+          },
+          "subfeatures": {
+            "proficiencies": {},
+            "senses": {},
+            "suppressedFeatures": []
+          }
+        },
+        "folder": "oepc0znkPUF8JkVh"
+      }
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "feat:fracture-timeflow",
+      "foundry": "Compendium.pf2e.feats-srd.Item.iUEYGMjvveC9sfUu",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["criticalSuccess"],
+            "selector": ["strike-attack-roll"],
+            "text": "{item|description}",
+            "title": "{item|name}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "feat:heroic-scion-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.JbE823xBNt12IAD5",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "feat:runelords-calling",
+      "foundry": "Compendium.pf2e.classfeatures.Item.5M7ybjAyttZHAdtT",
+      "leftOut": {
+        "reason": "no-kind-data",
+        "detail": ""
+      },
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "category",
+          "raw": "calling"
+        }
+      ],
+      "document": {
+        "_id": "5M7ybjAyttZHAdtT",
+        "name": "Runelord's Calling",
+        "type": "feat",
+        "system": {
+          "publication": {
+            "title": "Pathfinder Revenge of the Runelords Player's Guide",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 1
+          },
+          "traits": {
+            "value": ["calling", "mythic"],
+            "rarity": "rare"
+          },
+          "description": {
+            "value": "<p>Even before Karzoug rose, you felt something tugging to you from beyond. Strange memories, sudden insights, vivid dreams, or wild hunches that lead to discoveries or unexpected successes have been the norm for you. Once knowledge of the legacies of Thassilon began to spread anew into the modern world after Karzoug rose from slumber, you've increasingly come to realize these visions and inspirations come to you from the past—maybe even one of your past lives—and that something from the time before Earthfall in ancient Thassilon is linked to your soul. When you attempt a check to Identify Magic, Learn a Spell, or cast a ritual, you can spend a Mythic Point to attempt the check at mythic proficiency. The first time each day that you critically succeed at an Arcana, Nature, Occultism, or Religion check to Identify Magic, you regain a Mythic Point.</p><hr /><p><strong>Edicts</strong> seek out rare magic spells and items from ancient Thassilon, learn knowledge about Thassilon that has been forgotten</p>\n<p><strong>Anathema</strong> willingly destroy ancient texts or other forms of written knowledge without first preserving that lore in some way, treat another's convictions or beliefs as fantasy or delusion</p>"
+          },
+          "rules": [
+            {
+              "key": "GrantItem",
+              "uuid": "Compendium.pf2e.actionspf2e.Item.Rewrite Fate"
+            }
+          ],
+          "actionType": {
+            "value": "passive"
+          },
+          "actions": {
+            "value": null
+          },
+          "category": "calling",
+          "prerequisites": {
+            "value": []
+          },
+          "subfeatures": {
+            "proficiencies": {},
+            "senses": {},
+            "suppressedFeatures": []
+          }
+        },
+        "folder": "oepc0znkPUF8JkVh"
+      }
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "feat:sagas-calling",
+      "foundry": "Compendium.pf2e.classfeatures.Item.BJQt9j4HAwic5AST",
+      "leftOut": {
+        "reason": "no-kind-data",
+        "detail": ""
+      },
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "category",
+          "raw": "calling"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ],
+      "document": {
+        "_id": "BJQt9j4HAwic5AST",
+        "name": "Saga's Calling",
+        "type": "feat",
+        "system": {
+          "publication": {
+            "title": "Pathfinder Revenge of the Runelords Player's Guide",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 1
+          },
+          "traits": {
+            "value": ["calling", "mythic"],
+            "rarity": "rare"
+          },
+          "description": {
+            "value": "<p>The Saga Lands do not come by that appellation lightly, for the storied legacies of this region predate Earthfall and have roots in worlds far beyond Golarion. Whether you were born in these lands or drawn there, those storied legacies have resonated with you on a supernatural level. It seems like each time you learn of some new legend or tale of this land passed down through the generations, there's something in it that directly applies to your life. You've taken to relying upon these legends—be they ancient or modern—as guideposts for your own life's course, knowing full well that they're calling to you and that you're destined to be the focus of one yourself. When you attempt a Performance check or a check to [[/act gather-information]], you can spend a Mythic Point to attempt the check at mythic proficiency. The first time each day that you critically succeed at a check to Gather Information, you regain a Mythic Point.</p><hr /><p><strong>Edicts</strong> do what you can to protect the people of the Saga Lands, preserve legends and myths in writing or other forms of art for future generations to enjoy and learn from</p>\n<p><strong>Anathema</strong> allow those in the Saga Lands who need aid to suffer if there's something you can do to help them, regard your own saga as more important than anyone else's, since your tale has yet to be fully told—and not even you know its ending</p>"
+          },
+          "rules": [
+            {
+              "key": "GrantItem",
+              "uuid": "Compendium.pf2e.actionspf2e.Item.Rewrite Fate"
+            }
+          ],
+          "actionType": {
+            "value": "passive"
+          },
+          "actions": {
+            "value": null
+          },
+          "category": "calling",
+          "prerequisites": {
+            "value": []
+          },
+          "subfeatures": {
+            "proficiencies": {},
+            "senses": {},
+            "suppressedFeatures": []
+          }
+        },
+        "folder": "oepc0znkPUF8JkVh"
+      }
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "feat:shining-runes",
+      "foundry": "Compendium.pf2e.feats-srd.Item.OZmR9ZSAZyPoJuDj",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "gte": ["item:cast:actions", 2]
+              }
+            ],
+            "property": "description",
+            "value": [
+              {
+                "text": "PF2E.SpecificRule.AvengingRunelord.ShiningRunes.Note"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "feat:timewracked-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.yrlwMnjLgKaWtq74",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "feat:warshard-warrior-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.GtohZQvFVZaIQD0S",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "ritual:raise-runelord",
+      "foundry": "Compendium.pf2e.spells-srd.Item.fr1AGcQo7WuvLvUi",
+      "leftOut": {
+        "reason": "no-kind-data",
+        "detail": ""
+      },
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "target.value",
+          "raw": "1 dead runelord who is not already active as a risen runelord"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "ritual.primary.check",
+          "raw": "Arcana (mythic)"
+        }
+      ],
+      "document": {
+        "_id": "fr1AGcQo7WuvLvUi",
+        "name": "Raise Runelord",
+        "type": "spell",
+        "system": {
+          "publication": {
+            "title": "Pathfinder #219: Lord of the Trinity Star",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 6
+          },
+          "traits": {
+            "value": ["dream", "illusion", "mythic"],
+            "rarity": "rare",
+            "traditions": []
+          },
+          "description": {
+            "value": "<p>By drawing upon fragments of physical remains or treasured objects of a dead runelord and upon remnant energies of each runelord that live on after their deaths in the Dreamlands, this ritual creates a physical illusion of a long-dead runelord. There can only exist a limited number of risen runelords at a time, since each must be created from one of the finite number of dead runelords, although there's no limit as to how many times a risen runelord can be created to replace one who was destroyed. Risen runelords cannot be made from living or undead runelords. This leaves 32 potential risen runelords in the world at any one time as of the start of Revenge of the Runelords. This ritual creates an 11th-level risen runelord associated with the original runelord's sin, but the duration of that runelord's life depends on the ritual's result. As long as this ritual's inventor, Runelord Xanderghul, still lives, any attempt to cast this ritual by any other creature can never achieve a greater success than failure.</p><hr /><p><strong>Critical Success</strong> You create a risen runelord with a lifespan of decades, if not more.</p>\n<p><strong>Success</strong> You create a risen runelord with a lifespan of 10 days.</p>\n<p><strong>Failure</strong> You fail to create the risen runelord.</p>\n<p><strong>Critical Failure</strong> You fail to create a risen runelord but also attract the attention of vengeful psychopomps who manifest in place of the risen runelord. This should be a severe encounter of a level equal to the primary caster against a mix of psychopomps, who attack at once and fight to the death.</p><hr /><p><strong>Heightened (7th)</strong> You can create a 14th-level risen runelord, and the cost is 3,000 gp.</p>\n<p><strong>Heightened (8th)</strong> You can create a 16th-level risen runelord, and the cost is 5,000 gp.</p>\n<p><strong>Heightened (9th)</strong> You can create an 18th-level risen runelord, and the cost is 10,000 gp.</p>\n<p><strong>Heightened (10th)</strong> You can create a 20th-level risen runelord, and the cost is 20,000 gp.</p>"
+          },
+          "rules": [],
+          "area": null,
+          "cost": {
+            "value": "gemstones worth 1,500 gp, fragments or significant items associated with the dead runelord"
+          },
+          "counteraction": false,
+          "damage": {},
+          "defense": null,
+          "duration": {
+            "sustained": false,
+            "value": ""
+          },
+          "range": {
+            "value": ""
+          },
+          "requirements": "",
+          "ritual": {
+            "primary": {
+              "check": "Arcana (mythic)"
+            },
+            "secondary": {
+              "casters": 2,
+              "checks": "Religion, Occultism, Society"
+            }
+          },
+          "target": {
+            "value": "1 dead runelord who is not already active as a risen runelord"
+          },
+          "time": {
+            "value": "1 day"
+          }
+        },
+        "folder": "6JF73zNhT8zbp1qC"
+      }
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "weapon:belimariuss-invidious-halberd",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.H23XWSdTgBV1UhBq",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "runes.property",
+          "raw": "spellStoring"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "weapon:sorshens-sinuous-guisarme",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.yYVbgyLGfhRJaNEY",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "description.frequency",
+          "raw": "once per day per spell"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "runes.property",
+          "raw": "spellStoring"
+        }
+      ]
+    },
+    {
+      "type": "vocabulary",
+      "kind": "damage-type",
+      "slug": "untyped",
+      "reason": "unmapped-value",
+      "detail": "untyped"
+    }
+  ]
+}

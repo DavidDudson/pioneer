@@ -1,0 +1,344 @@
+[
+  {
+    "id": "035a2ac1-8d34-5cd3-8e4d-1bfa0404e186",
+    "pack": "hells-destiny",
+    "kind": "archetype",
+    "slug": "archetype:chelaxian-scion",
+    "name": "Chelaxian Scion",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When Taldor's Seventh Army of Exploration swept across southeast Avistan more than two millennia ago, the growing empire established hundreds of minor nobles to develop and pacify the new territory. Over time, many of these noble lineages faded from the records, went bankrupt, or were absorbed by stronger neighbors, coalescing to form powerful noble houses that ruled over entire counties. With the Even-Tongued Conquest beginning in 4081 ar, these noble houses joined in Cheliax's secession and supported their new king, Aspex the Even-Tongued. With loyalty came legitimacy; Aspex formalized each house's domains, legitimized titles, and doled out wealth to reward his followers. Yet he never quashed the houses' competitive maneuvering, knowing that if the nobles fought among themselves, they would never unify against him or his dynasty."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "That infighting set the stage for Cheliax's civil war in 4608 ar, when King Gaspodar lost control of the empire following Aroden's death. Generations of old grudges and limited advancement boiled over, sending the myriad houses into civil war as they vied for dominance. Ultimately, House Thrune prevailed and, much as Aspex had done centuries earlier, Queen Abrogail I rewarded the houses that supported her by expanding their realms and granting them hitherto unimagined prestige. Yet, like Aspex, she also maintained the cutthroat politics of old."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Cheliax today boasts a handful of major houses that dominate politics and control entire duchies or counties. At least a hundred other minor houses exist, typically relegated to smaller estates or cities. These minor houses rarely survive long without protection, and most have bound their fates to a major house that can guarantee their safety."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A promising youth growing up in a Chelaxian noble house often receives specialized training to master the house's traditional arts, fight effectively, and survive court intrigue. Such a Chelaxian scion can select from the archetype's feats. Each house also provides access to additional feats that function as archetype feats, with levels that sometimes differ from those of the original feats."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats (Charthagnion): 4th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Predictable!; "
+          },
+          {
+            "type": "text",
+            "text": "8th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Knowledge is Power; 12th Reason Rapidly; "
+          },
+          {
+            "type": "text",
+            "text": "12th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Master Spotter; "
+          },
+          {
+            "type": "text",
+            "text": "14th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Sense the Unseen"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats (Elliendo): 4th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Combat Assessment, Safe House; "
+          },
+          {
+            "type": "text",
+            "text": "8th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Predictive Purchase"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats (Henderthane): 4th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Exacting Strike; "
+          },
+          {
+            "type": "text",
+            "text": "6th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Reactive Striker; "
+          },
+          {
+            "type": "text",
+            "text": "10th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Certain Strike"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats (Jeggare): 4th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Dueling Parry; "
+          },
+          {
+            "type": "text",
+            "text": "8th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Dueling Riposte; "
+          },
+          {
+            "type": "text",
+            "text": "12th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Dueling Dance, Improved Dueling Riposte"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats (Leroung): 4th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Ongoing Investigation, Knowledge is Power; "
+          },
+          {
+            "type": "text",
+            "text": "6th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Thorough Research; "
+          },
+          {
+            "type": "text",
+            "text": "10th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Inspired Stratagem"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats (Narikopolus): 4th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Point-Blank Stance, Double Shot; "
+          },
+          {
+            "type": "text",
+            "text": "8th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Triple Shot; "
+          },
+          {
+            "type": "text",
+            "text": "12th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Debilitating Shot"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats (Sarini): 4th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Exploit Blunder; "
+          },
+          {
+            "type": "text",
+            "text": "6th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Anthemic Performance; "
+          },
+          {
+            "type": "text",
+            "text": "8th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Dirge of Doom; "
+          },
+          {
+            "type": "text",
+            "text": "12th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " House of Imaginary Walls"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats (Thrune): 4th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Dread Striker, You're Next; "
+          },
+          {
+            "type": "text",
+            "text": "8th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Interrogate; "
+          },
+          {
+            "type": "text",
+            "text": "16th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cognitive Loophole"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.QeaXNBRtVo8SZBhS"
+    },
+    "data": {
+      "dedication": "3a0502d3-770d-5b61-aa80-a63ee0fdeb7c"
+    }
+  }
+]

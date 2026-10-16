@@ -1,0 +1,549 @@
+[
+  {
+    "id": "cb51d973-c210-5a1b-9b8f-db4e0c338dbf",
+    "pack": "revenge-of-the-runelords",
+    "kind": "armor",
+    "slug": "armor:hollow-robes",
+    "name": "Hollow Robes",
+    "level": 13,
+    "rarity": "rare",
+    "traits": ["comfort", "illusion", "invested", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These heavy cloth garments function as a set of "
+          },
+          {
+            "type": "text",
+            "text": "+2 resilient explorer's clothing",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". They feature multiple stylish layers, voluminous sleeves, and long strings of Thassilonian runes along the hems. The robes employ potent illusion magic, sufficient to convince the wearer and any attackers that a devastating blow is nothing more than a flesh wound."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Empty Robes",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentration)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The wearer becomes "
+          },
+          {
+            "type": "ref",
+            "id": "53cf375b-c3fa-5d92-afde-135a3c001674"
+          },
+          {
+            "type": "text",
+            "text": " inside the robes for one minute. Since the wearer's gear (including the robes) remain visible, they don't become "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": ", but they can't be visually identified unless the viewer can see invisible creatures. The unsettling nature of this effect grants the wearer a +2 item bonus to Intimidation checks made while the robes appear to be empty."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Hollow Target",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentration)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Empty Robes is in effect"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take persistent damage or a critical hit from a Strike"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Spend 1 Mythic Point. You momentarily transform yourself into an illusory duplicate, rendering yourself \"hollow\" to the triggering damage or Strike. The damage from a critical hit Strike is reduced to 0. All persistent damage you're currently taking ends."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Unseen Magic",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (spellshape)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Empty Robes is in effect"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If your next action is to Cast a Spell that doesn't have the manipulate trait, that spell gains the subtle trait."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You must be a mythic arcane spellcaster capable of casting invisibility."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.NYLdJKlM44kgqlUx"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3000
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "empty-robes",
+          "name": "Empty Robes",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "category": "unarmored",
+      "group": "cloth",
+      "baseItem": "explorers-clothing",
+      "acBonus": 0,
+      "dexCap": 5,
+      "runes": {
+        "potency": 2,
+        "resilient": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "c2cd2503-dc44-508c-a133-21f551684925",
+    "pack": "revenge-of-the-runelords",
+    "kind": "armor",
+    "slug": "armor:robes-of-xin-edasseril",
+    "name": "Robes of Xin-Edasseril",
+    "level": 19,
+    "rarity": "unique",
+    "traits": ["comfort", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These robes, the traditional raiment of the runelord of envy, function as "
+          },
+          {
+            "type": "text",
+            "text": "+3 greater resilient antimagic greater energy-resistant explorer's clothing",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". The energy resistance granted by these robes can be selected from acid, cold, electricity, or fire when you perform your daily preparations—without these preparations, the robes default to cold resistance. The robe's pockets function as a "
+          },
+          {
+            "type": "ref",
+            "id": "17c3b1f8-351b-5033-b68f-0a0db52f0503"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Yzsxn8w4Uuf9awBy"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 40000
+        }
+      },
+      "bulk": "light",
+      "category": "unarmored",
+      "group": "cloth",
+      "baseItem": "explorers-clothing",
+      "acBonus": 0,
+      "dexCap": 5,
+      "runes": {
+        "potency": 3,
+        "resilient": 2,
+        "property": ["551c84b5-e785-5d8f-b2f8-8c9073b8ebc7", "abd6dd1c-4436-567f-861f-f1ad0decda68"],
+        "propertyEnergy": {
+          "abd6dd1c-4436-567f-861f-f1ad0decda68": "cold"
+        }
+      }
+    }
+  },
+  {
+    "id": "74082473-4496-5e32-83c1-acc64137673d",
+    "pack": "revenge-of-the-runelords",
+    "kind": "armor",
+    "slug": "armor:sorshens-scintillating-garment",
+    "name": "Sorshen's Scintillating Garment",
+    "level": 20,
+    "rarity": "unique",
+    "traits": ["apex", "artifact", "comfort", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The traditional robes of Sorshen, Runelord of Lust, this garment combines a powerful artifact with a sign of office, as with many runelords' accoutrements. Woven of the finest silks and accented with precious stones, the garment is light and easy to move in. Sorshen created, then expanded on the artifact throughout her time as the runelord of lust, adding to it during much of the Age of Legend."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This ever-shifting garment of silk and gems subtly reshapes itself in response to its wearer, adopting an appearance most flattering to their form. It's a set of "
+          },
+          {
+            "type": "text",
+            "text": "+3 greater resilient explorer's clothing",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". The garment's four pockets each function as separate "
+          },
+          {
+            "type": "ref",
+            "id": "424684d2-314a-5101-bf41-12a4ee094cca",
+            "label": "Spacious Pouches (Type IV)"
+          },
+          {
+            "type": "text",
+            "text": ". While wearing the garment, you're immune to mental effects unless you choose otherwise. When you invest "
+          },
+          {
+            "type": "text",
+            "text": "Sorshen's Scintillating Garment",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you increase your Charisma modifier by 1, or increase it to +4, whichever would give you a higher value."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Scintillating Colors",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (arcane, aura, visual)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Sorshen's Scintillating Garment",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " casts "
+          },
+          {
+            "type": "ref",
+            "id": "ce5ba457-89bd-5a85-8d45-2faa300f9d49"
+          },
+          {
+            "type": "text",
+            "text": " (DC 41), heightened to 10th rank, to your specifications. If you spend 1 Mythic Point as part of this activation, the spell's area changes to a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 20
+          },
+          {
+            "type": "text",
+            "text": ", and you can designate any number of creatures in that area to be immune to the spell's effects, and the spell loses the incapacitation trait."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Destruction",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Sorshen's Scintillating Garment",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is destroyed if it's immersed in the waters of a destroyed "
+          },
+          {
+            "type": "text",
+            "text": "Runewell of Lust",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.TYs0oqRjEa9wBJ7N"
+    },
+    "data": {
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "scintillating-colors",
+          "name": "Scintillating Colors",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "category": "unarmored",
+      "group": "cloth",
+      "baseItem": "explorers-clothing",
+      "acBonus": 0,
+      "dexCap": 5,
+      "runes": {
+        "potency": 3,
+        "resilient": 2,
+        "property": []
+      }
+    }
+  }
+]

@@ -1,0 +1,1807 @@
+[
+  {
+    "id": "eeae3b9f-d05b-54d4-bec8-02f306d569c9",
+    "pack": "gatewalkers",
+    "kind": "effect",
+    "slug": "effect:effect-all-consuming-hunger",
+    "name": "Effect: All-Consuming Hunger",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "70af2e20-4c3e-52ea-98eb-8185d27c269e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The emptiness within you is a hunger that pushes at your mind to fill it, causing you to fixate powerfully on a potential source of energy near you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Mild Backlash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You glimpse the thrum of energy—the heat of a body, the flickering of synapses, the light of a soul—in a beautiful, captivating dance. You become "
+          },
+          {
+            "type": "ref",
+            "id": "88ca1b7b-d5de-5978-9ff4-258c9aadef1a"
+          },
+          {
+            "type": "text",
+            "text": " with one creature you just affected with your deviant ability; if multiple creatures would qualify, the GM chooses. This fascination lasts for 1 minute or until the target uses a hostile action against you or your allies, as normal."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Moderate Backlash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your fascination with the target causes you to forget your allies. As mild backlash, but you don't treat anyone as your ally (though they might still treat you as theirs), meaning that the fascination ends only if your target uses a hostile action against you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Severe Backlash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your mind is filled with the single, all-consuming desire to feed upon the target. You become "
+          },
+          {
+            "type": "ref",
+            "id": "6f53a234-670f-5b02-a986-7cce57585fc8"
+          },
+          {
+            "type": "text",
+            "text": ", except that your target is always the creature affected by your deviant ability, as long as you can perceive them."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.AdUcSxWFj7IVcVma"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "day",
+        "expiry": "turn-start"
+      },
+      "badge": {
+        "type": "counter",
+        "value": 1,
+        "labels": ["Mild", "Moderate", "Severe"],
+        "loop": false
+      }
+    }
+  },
+  {
+    "id": "444bd5de-5ff0-5d4f-99a9-a3abf7744f94",
+    "pack": "gatewalkers",
+    "kind": "effect",
+    "slug": "effect:effect-aura-of-good-cheer",
+    "name": "Effect: Aura of Good Cheer",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Allies within the aura gain a +1 status bonus to Will saves against emotion effects."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:will"],
+        "type": "status",
+        "value": 1,
+        "predicate": ["item:trait:emotion"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.xOD3ufpzA8H7W4sP"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "82111938-c18a-5217-b0b2-0ed48b46175f",
+    "pack": "gatewalkers",
+    "kind": "effect",
+    "slug": "effect:effect-bottled-omen",
+    "name": "Effect: Bottled Omen",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "c2f67924-0741-5441-87a6-2d46d1ca6389"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you attempt a saving throw, you can roll twice and use the better result."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollTwice",
+        "selectors": ["saving-throw"],
+        "keep": "higher",
+        "predicate": ["option:bottled-omen"]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:bottled-omen",
+        "toggleable": true,
+        "display": {
+          "label": "Use your omen"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.pmWJxDjz3gqL29OM"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "768c5f17-b962-5e17-8fae-8fd7d1845ffe",
+    "pack": "gatewalkers",
+    "kind": "effect",
+    "slug": "effect:effect-cooperative-hunting",
+    "name": "Effect: Cooperative Hunting",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to your next strike attack roll."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.FngohajUtnPe9vmJ"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "8a246c4a-d457-566c-8429-f76090fe9405",
+    "pack": "gatewalkers",
+    "kind": "effect",
+    "slug": "effect:effect-desynchronized-motions",
+    "name": "Effect: Desynchronized Motions",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "f8fadf6b-ec7c-5f61-90b1-a6bbf870102f"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As your body speeds faster and faster, you risk falling out of sync with reality, as the world slows around you to the point that your interactions with it become strange and unpredictable."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Mild Backlash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The friction of your motion through a slower world sets you alight. You take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(2+floor(@level/5))d4",
+                "damageType": "fire",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. At 5th level, and every 5 levels after, the persistent fire damage increases by 1d4. You take this persistent fire damage even if in a liquid environment, such as underwater, as your motion simply surrounds you in boiling water."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Moderate Backlash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fall out of phase with nearby matter, becoming trapped in the process. You take the mild backlash effects, catching on fire, and your legs also partially phase into the ground, making you "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": ". You can attempt to "
+          },
+          {
+            "type": "ref",
+            "id": "2ae74030-e87a-55ee-955c-fb9870392d44"
+          },
+          {
+            "type": "text",
+            "text": " against your deviation DC, or you can slowly extract yourself without attempting a check over the course of 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Severe Backlash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your body accelerates to such a degree that your senses and impulses cannot keep up. You become trapped in your own mind for what seems like an eternity, taking 1d4 nonlethal mental damage for each level you have ("
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(@level)d4",
+                "damageType": "mental"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "). When you return, you are "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 3"
+          },
+          {
+            "type": "text",
+            "text": " for 10 minutes, and then "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 1"
+          },
+          {
+            "type": "text",
+            "text": " until your next daily preparation. Your body ages one year during this time."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.nvYBuNuu0pfCQPPt"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "day",
+        "expiry": "turn-start"
+      },
+      "badge": {
+        "type": "counter",
+        "value": 1,
+        "labels": ["Mild", "Moderate", "Severe"],
+        "loop": false
+      }
+    }
+  },
+  {
+    "id": "a77c2e91-dab5-53fe-a61d-90e99e5f344d",
+    "pack": "gatewalkers",
+    "kind": "effect",
+    "slug": "effect:effect-draft-of-stellar-radiance",
+    "name": "Effect: Draft of Stellar Radiance",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "62d11feb-b3fb-57d1-ad76-3ff067cf9d34"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You emanate a field of bright light with a 20-foot radius (and dim light for another 20 feet, like a torch). You take a –20 penalty to Stealth checks."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "untyped",
+        "value": -20
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.XKsqQrabRlg9klGp"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "501d0b2b-89d6-57ce-9e2b-0c6a103f20e8",
+    "pack": "gatewalkers",
+    "kind": "effect",
+    "slug": "effect:effect-encroaching-presence",
+    "name": "Effect: Encroaching Presence",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "4c9661a3-c6d5-543f-9144-9ef5dd13d60f"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Mild Backlash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You become "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 3"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Moderate Backlash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " All creatures become "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " to you as they are covered in visual distortions only you can see."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Severe Backlash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You become "
+          },
+          {
+            "type": "ref",
+            "id": "cd164d22-2d8e-5fd2-b8b2-03e1360df1e7",
+            "label": "Doomed 1"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 2"
+          },
+          {
+            "type": "text",
+            "text": " until your next daily preparations."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.cqgbTZCvqaSvtQdz"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      },
+      "badge": {
+        "type": "counter",
+        "value": 1,
+        "labels": ["Mild", "Moderate", "Severe"],
+        "loop": false
+      }
+    }
+  },
+  {
+    "id": "8dc5e316-48c0-5f43-a314-ddef5ee495d8",
+    "pack": "gatewalkers",
+    "kind": "effect",
+    "slug": "effect:effect-guardians-embrace",
+    "name": "Effect: Guardian's Embrace",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "f0a0f3b0-52f3-5a8a-979d-5018a9e52c2e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 status bonus to AC against physical attacks and can use a reaction to gain resistance 10 to physical damage dealt by that attack, which ends this effect."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:guardians-embrace-ac",
+        "toggleable": true,
+        "display": {
+          "label": "Guarding Against a Physical Attack"
+        }
+      },
+      {
+        "key": "RollOption",
+        "option": "option:guardians-embrace-resist",
+        "toggleable": true,
+        "display": {
+          "label": "Gain Resistance to Physical Attack"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["option:guardians-embrace-ac"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["physical"],
+        "value": 10,
+        "predicate": ["option:guardians-embrace-resist"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.X19XgqqItqZ4tfmq"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "0a4a9f9f-a154-5e60-92a6-965054eeb230",
+    "pack": "gatewalkers",
+    "kind": "effect",
+    "slug": "effect:effect-guided-skill",
+    "name": "Effect: Guided Skill",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "8855c6bd-e766-5115-87c6-f9877d39beb1"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 status bonus to checks made using Acrobatics, Occultism, Stealth, or Survival."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:acrobatics", "skill:occultism", "skill:stealth", "skill:survival"],
+        "type": "status",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.iaZ6P59YVhdnFIN8"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "840a8c3d-b787-59d8-9ab6-237df74edb98",
+    "pack": "gatewalkers",
+    "kind": "effect",
+    "slug": "effect:effect-invigorating-breath",
+    "name": "Effect: Invigorating Breath",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "74be9203-ef00-57fc-86e3-ac2de3f34542"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain 20 temporary Hit Points. At 15th level, you instead gain 30 temporary Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "ternary(gte(@level, 15), 30, 20)"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.tl94WHJ2Hg0akK2o"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "c78e51bc-9a92-5ada-a6cc-b79d3eada19f",
+    "pack": "gatewalkers",
+    "kind": "effect",
+    "slug": "effect:effect-oil-of-corpse-restoration",
+    "name": "Effect: Oil of Corpse Restoration",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "b8248109-5404-5f26-aa99-ef5993a15f10"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus on Deception checks to look like a living creature."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["action:disguise", "option:disguise-as-living"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.xiG3kmPJBpX2KA7l"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 8,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "88ec23d5-5d25-5e71-8bfa-7d7866044feb",
+    "pack": "gatewalkers",
+    "kind": "effect",
+    "slug": "effect:effect-overclock-senses",
+    "name": "Effect: Overclock Senses",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "aa9dd28b-7568-5532-9ea4-33b9606583aa"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to your AC against ranged attacks and to Reflex saving throws."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["item:ranged"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:reflex"],
+        "type": "circumstance",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.feQwOL1QfZDfVrt8"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "3476d7af-fd4a-5f07-b2a9-9953f7f29cbf",
+    "pack": "gatewalkers",
+    "kind": "effect",
+    "slug": "effect:effect-pickled-demon-tongue-armor",
+    "name": "Effect: Pickled Demon Tongue - Armor",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "4629953b-db42-5076-bf23-0cfeacdacc25"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "0c326c98-a9ea-59db-8227-de5838291b10"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "675e1e32-b052-53d6-ac39-2bd4b41c1459"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance to acid and attacks by demons."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["acid"],
+        "value": 2,
+        "predicate": ["pickled-demon-tongue:pickled-demon-tongue"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["acid"],
+        "value": 5,
+        "predicate": ["pickled-demon-tongue:pickled-demon-tongue-greater"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["acid"],
+        "value": 10,
+        "predicate": ["pickled-demon-tongue:pickled-demon-tongue-major"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.WRvZ2Nq3wquisD4Y"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "286c48ad-6405-5dee-af45-e93779cfa36b",
+    "pack": "gatewalkers",
+    "kind": "effect",
+    "slug": "effect:effect-pickled-demon-tongue-weapon",
+    "name": "Effect: Pickled Demon Tongue - Weapon",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "4629953b-db42-5076-bf23-0cfeacdacc25"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "0c326c98-a9ea-59db-8227-de5838291b10"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "675e1e32-b052-53d6-ac39-2bd4b41c1459"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Strikes with the weapon deal additional acid damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.LbaYzs0dQuFj8FXJ"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "5661e269-0a9e-5f1a-aafd-4086b641cadb",
+    "pack": "gatewalkers",
+    "kind": "effect",
+    "slug": "effect:effect-polished-demon-horn-armor",
+    "name": "Effect: Polished Demon Horn - Armor",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "5f73884f-0cc9-5aa8-b8aa-ae17a3b96fb2"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "19928ae9-2710-5b91-92c5-7cfda4700ad1"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "93a3178d-2cb8-5e16-aeac-d798917d89cd"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance to unholy."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.ft5LjQSa8mZkklhM"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "9e9d256e-8457-511b-b528-01fec03b1967",
+    "pack": "gatewalkers",
+    "kind": "effect",
+    "slug": "effect:effect-polished-demon-horn-weapon",
+    "name": "Effect: Polished Demon Horn - Weapon",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "5f73884f-0cc9-5aa8-b8aa-ae17a3b96fb2"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "19928ae9-2710-5b91-92c5-7cfda4700ad1"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "93a3178d-2cb8-5e16-aeac-d798917d89cd"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your Strikes with the chosen weapon deal additional mental damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.WARLTi8unmPgmnNw"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "e375de02-8f37-5a97-b821-27e8a82ddfc3",
+    "pack": "gatewalkers",
+    "kind": "effect",
+    "slug": "effect:effect-spirit-guide-form",
+    "name": "Effect: Spirit Guide Form",
+    "level": 14,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "8c210356-34d0-5b1e-8846-14976ec6843e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You fuse with your spirit guide, becoming a hybrid being with enhanced physical and spiritual power. This effect lasts 1 minute; you can end it early as a free action. During this time, you can't use any other actions granted by this archetype. You gain the following statistics and abilities, regardless of your type of spirit guide."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You become incorporeal."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You gain resistance 10 to all damage (except force, "
+                },
+                {
+                  "type": "text",
+                  "text": "ghost touch",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": ", or spirit; double resistance vs. non-magical)."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Darkvision."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "An unarmed melee attack of the same type as your spirit guide (either claws or jaws), which is the only attack you can Strike with. You're trained with this attack. Your attack modifier is +29 or your normal unarmed attack modifier, whichever is higher. You use the listed statistics for the unarmed attack type:"
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Claws",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " (agile, backstabber, finesse) "
+                      },
+                      {
+                        "type": "action-cost",
+                        "cost": "one"
+                      },
+                      {
+                        "type": "text",
+                        "text": ", "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Damage",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " 3d6+5 slashing plus 1d6 force;"
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Jaws",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " (forceful) "
+                      },
+                      {
+                        "type": "action-cost",
+                        "cost": "one"
+                      },
+                      {
+                        "type": "text",
+                        "text": ", "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Damage",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " 3d10+5 piercing plus 1d6 force."
+                      }
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "spirit-guide-form",
+        "choices": [
+          {
+            "value": "claw",
+            "label": "Claw"
+          },
+          {
+            "value": "jaws",
+            "label": "Jaws"
+          }
+        ],
+        "prompt": "Select an unarmed attack.",
+        "rollOption": "spirit-guide-form"
+      },
+      {
+        "key": "ActorTraits",
+        "add": ["incorporeal"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.KanP6trNwPOggb7P"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "7a63737a-2a35-5dcc-b871-05d76becfad7",
+    "pack": "gatewalkers",
+    "kind": "effect",
+    "slug": "effect:effect-stalk-goggles",
+    "name": "Effect: Stalk Goggles",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "99aad228-784d-5d03-9a1d-3f13108e8b83"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "7cb431ed-b67f-5325-aa73-5bb351b6cf15"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "c3038d64-e974-5296-b758-d66f867657c8"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain all-around vision and can't be flanked, gain an item bonus to Perception checks involving sight ("
+          },
+          {
+            "type": "text",
+            "text": "greater",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "text",
+            "text": "major",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "), and gain low-light vision ("
+          },
+          {
+            "type": "text",
+            "text": "major",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ")."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "item",
+        "value": 1,
+        "slug": "stalk-goggles-bonus",
+        "predicate": [
+          {
+            "or": ["stalk-goggles:stalk-goggles-greater", "stalk-goggles:stalk-goggles-major"]
+          },
+          "item:trait:visual"
+        ]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["perception"],
+        "slug": "stalk-goggles-bonus",
+        "mode": "upgrade",
+        "value": 2,
+        "predicate": ["stalk-goggles:stalk-goggles-major"]
+      },
+      {
+        "key": "Sense",
+        "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c",
+        "predicate": ["stalk-goggles:stalk-goggles-major"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.g8JS6wsw5sRWOJLg"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "35cdff9e-48e5-5573-ae6d-4ea0dd21276b",
+    "pack": "gatewalkers",
+    "kind": "effect",
+    "slug": "effect:effect-star-of-cynosure",
+    "name": "Effect: Star of Cynosure",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "2e14e45e-6dde-5119-b0eb-b9ad00a20aeb"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 status bonus to saves against spells with the mental trait."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:will"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["item:trait:mental", "item:type:spell"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.TM0LFTy30FG2wwI2"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "d9cd8aaf-6098-5084-bb07-160a69923b63",
+    "pack": "gatewalkers",
+    "kind": "effect",
+    "slug": "effect:effect-starlight-armor",
+    "name": "Effect: Starlight Armor",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "f5c70805-db20-5f16-92a9-ce34f1d0dd5d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance 7 to piercing, bludgeoning, and slashing damage. You also shed bright light for 20 feet (and dim light for the next 20 feet)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you reach 17th level, the resistance increases to 10."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["piercing", "slashing", "bludgeoning"],
+        "value": "ternary(gte(@level, 17), 10, 7)"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.Y96a1OedsU8PVf7z"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "e29a90de-04a4-510b-b4b8-f63b4bbf8582",
+    "pack": "gatewalkers",
+    "kind": "effect",
+    "slug": "effect:effect-vengeful-fibers",
+    "name": "Effect: Vengeful Fibers",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The target takes a –10-foot circumstance penalty to Speed"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "circumstance",
+        "value": -10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.zNOomUXHZHcc1PWD"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "7aaa0d7f-6536-5890-be93-f8f9e5a51833",
+    "pack": "gatewalkers",
+    "kind": "effect",
+    "slug": "effect:spell-effect-lashuntas-life-bubble",
+    "name": "Spell Effect: Lashunta's Life Bubble",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "8d7710b9-e81e-5c39-a41f-ba712d9a02f8"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a status bonus to saves against inhaled dangers."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": "ternary(gte(@item.level, 8), 2, 1)",
+        "predicate": [
+          {
+            "or": [
+              "item:slug:toxic-cloud",
+              {
+                "and": ["item:trait:poison", "item:trait:inhaled"]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.nUJSdm4fy6fcwsvv"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 8,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  }
+]

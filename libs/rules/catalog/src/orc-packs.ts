@@ -188,3 +188,105 @@ export async function hellbreakersPack(): Promise<PackContents> {
     json(import('@pioneer/content/packs/hellbreakers/weapon.json')),
   ]);
 }
+
+export async function gatewalkersPack(): Promise<PackContents> {
+  return pack(import('@pioneer/content/packs/gatewalkers/pack.json'), [
+    json(import('@pioneer/content/packs/gatewalkers/action.json')),
+    json(import('@pioneer/content/packs/gatewalkers/archetype.json')),
+    json(import('@pioneer/content/packs/gatewalkers/class-feature.json')),
+    json(import('@pioneer/content/packs/gatewalkers/consumable.json')),
+    json(import('@pioneer/content/packs/gatewalkers/effect.json')),
+    json(import('@pioneer/content/packs/gatewalkers/equipment.json')),
+    json(import('@pioneer/content/packs/gatewalkers/feat.json')),
+    json(import('@pioneer/content/packs/gatewalkers/ritual.json')),
+    json(import('@pioneer/content/packs/gatewalkers/spell.json')),
+    json(import('@pioneer/content/packs/gatewalkers/weapon.json')),
+  ]);
+}
+
+export async function mythSpeakersPack(): Promise<PackContents> {
+  return pack(import('@pioneer/content/packs/myth-speakers/pack.json'), [
+    json(import('@pioneer/content/packs/myth-speakers/action.json')),
+    json(import('@pioneer/content/packs/myth-speakers/background.json')),
+    json(import('@pioneer/content/packs/myth-speakers/class-feature.json')),
+    json(import('@pioneer/content/packs/myth-speakers/consumable.json')),
+    json(import('@pioneer/content/packs/myth-speakers/deity.json')),
+    json(import('@pioneer/content/packs/myth-speakers/effect.json')),
+    json(import('@pioneer/content/packs/myth-speakers/equipment.json')),
+    json(import('@pioneer/content/packs/myth-speakers/feat.json')),
+    json(import('@pioneer/content/packs/myth-speakers/shield.json')),
+    json(import('@pioneer/content/packs/myth-speakers/spell.json')),
+    json(import('@pioneer/content/packs/myth-speakers/weapon.json')),
+  ]);
+}
+
+export async function revengeOfTheRunelordsPack(): Promise<PackContents> {
+  return pack(import('@pioneer/content/packs/revenge-of-the-runelords/pack.json'), [
+    json(import('@pioneer/content/packs/revenge-of-the-runelords/action.json')),
+    json(import('@pioneer/content/packs/revenge-of-the-runelords/armor.json')),
+    json(import('@pioneer/content/packs/revenge-of-the-runelords/background.json')),
+    json(import('@pioneer/content/packs/revenge-of-the-runelords/consumable.json')),
+    json(import('@pioneer/content/packs/revenge-of-the-runelords/effect.json')),
+    json(import('@pioneer/content/packs/revenge-of-the-runelords/equipment.json')),
+    json(import('@pioneer/content/packs/revenge-of-the-runelords/feat.json')),
+    json(import('@pioneer/content/packs/revenge-of-the-runelords/weapon.json')),
+  ]);
+}
+
+export async function secretsOfTheUnlitStarPack(): Promise<PackContents> {
+  return pack(import('@pioneer/content/packs/secrets-of-the-unlit-star/pack.json'), [
+    json(import('@pioneer/content/packs/secrets-of-the-unlit-star/action.json')),
+    json(import('@pioneer/content/packs/secrets-of-the-unlit-star/consumable.json')),
+    json(import('@pioneer/content/packs/secrets-of-the-unlit-star/equipment.json')),
+    json(import('@pioneer/content/packs/secrets-of-the-unlit-star/heritage.json')),
+    json(import('@pioneer/content/packs/secrets-of-the-unlit-star/weapon.json')),
+  ]);
+}
+
+export async function troublesInGraycePack(): Promise<PackContents> {
+  return pack(import('@pioneer/content/packs/troubles-in-grayce/pack.json'), [
+    json(import('@pioneer/content/packs/troubles-in-grayce/action.json')),
+    json(import('@pioneer/content/packs/troubles-in-grayce/consumable.json')),
+    json(import('@pioneer/content/packs/troubles-in-grayce/effect.json')),
+    json(import('@pioneer/content/packs/troubles-in-grayce/equipment.json')),
+  ]);
+}
+
+export async function hellsDestinyPack(): Promise<PackContents> {
+  return pack(import('@pioneer/content/packs/hells-destiny/pack.json'), [
+    json(import('@pioneer/content/packs/hells-destiny/action.json')),
+    json(import('@pioneer/content/packs/hells-destiny/archetype.json')),
+    json(import('@pioneer/content/packs/hells-destiny/background.json')),
+    json(import('@pioneer/content/packs/hells-destiny/class-feature.json')),
+    json(import('@pioneer/content/packs/hells-destiny/consumable.json')),
+    json(import('@pioneer/content/packs/hells-destiny/effect.json')),
+    json(import('@pioneer/content/packs/hells-destiny/equipment.json')),
+    json(import('@pioneer/content/packs/hells-destiny/feat.json')),
+    json(import('@pioneer/content/packs/hells-destiny/spell.json')),
+    json(import('@pioneer/content/packs/hells-destiny/weapon.json')),
+  ]);
+}
+
+export async function bastionOfBlasphemiesPack(): Promise<PackContents> {
+  return pack(import('@pioneer/content/packs/bastion-of-blasphemies/pack.json'), [
+    json(import('@pioneer/content/packs/bastion-of-blasphemies/action.json')),
+    json(import('@pioneer/content/packs/bastion-of-blasphemies/background.json')),
+    json(import('@pioneer/content/packs/bastion-of-blasphemies/consumable.json')),
+    json(import('@pioneer/content/packs/bastion-of-blasphemies/effect.json')),
+    json(import('@pioneer/content/packs/bastion-of-blasphemies/equipment.json')),
+    json(import('@pioneer/content/packs/bastion-of-blasphemies/weapon.json')),
+  ]);
+}
+
+export async function theDeadGodsHandPack(): Promise<PackContents> {
+  return pack(import('@pioneer/content/packs/the-dead-gods-hand/pack.json'), [
+    json(import('@pioneer/content/packs/the-dead-gods-hand/armor.json')),
+    json(import('@pioneer/content/packs/the-dead-gods-hand/background.json')),
+    json(import('@pioneer/content/packs/the-dead-gods-hand/consumable.json')),
+    json(import('@pioneer/content/packs/the-dead-gods-hand/effect.json')),
+    json(import('@pioneer/content/packs/the-dead-gods-hand/equipment.json')),
+    json(import('@pioneer/content/packs/the-dead-gods-hand/feat.json')),
+    json(import('@pioneer/content/packs/the-dead-gods-hand/ritual.json')),
+    json(import('@pioneer/content/packs/the-dead-gods-hand/weapon.json')),
+  ]);
+}

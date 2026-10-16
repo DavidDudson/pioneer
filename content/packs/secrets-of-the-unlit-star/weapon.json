@@ -1,0 +1,425 @@
+[
+  {
+    "id": "e1115cee-f20d-568f-aeb2-bb6e410a5853",
+    "pack": "secrets-of-the-unlit-star",
+    "kind": "weapon",
+    "slug": "weapon:glacier-hammer",
+    "name": "Glacier Hammer",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["shove"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-the-unlit-star"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frost covers the head of this "
+          },
+          {
+            "type": "text",
+            "text": "+1 magic maul",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". Any hit with this maul deals 1 extra cold damage. You can use a special action to transform the frost into giant icicles."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Grow Icicles",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Until the end of your turn, the maul deals 1d6 extra cold damage instead of just 1. After you activate the glacier hammer, you can't activate it again for 10 minutes."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:grow-icicles",
+        "toggleable": true,
+        "display": {
+          "label": "Glacier Hammer — Grow Icicles"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.eWe4x49kdih5vWyG"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 60
+        }
+      },
+      "bulk": 2,
+      "category": "martial",
+      "group": "hammer",
+      "baseItem": "maul",
+      "damage": {
+        "dice": 1,
+        "die": "d12",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "fce6bf77-e573-5511-aa12-7015eae38462",
+    "pack": "secrets-of-the-unlit-star",
+    "kind": "weapon",
+    "slug": "weapon:hunters-bow",
+    "name": "Hunter's Bow",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["deadly-d10", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-the-unlit-star"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stealthy hunters can use this +1 magic shortbow to attack from hiding. If you use this bow to Strike a target that can't see you and you get a critical hit, the target takes an extra 1d6 damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:hunters-bow-extra-dice",
+        "toggleable": true,
+        "display": {
+          "label": "Hunter's Bow — Target can't see you"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.RapaDb10oJZOjujo"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 60
+        }
+      },
+      "bulk": 1,
+      "category": "martial",
+      "group": "bow",
+      "baseItem": "shortbow",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing"
+      },
+      "range": 60,
+      "reload": 0,
+      "ammunition": {
+        "type": "arrows"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one-plus"
+      },
+      "runes": {
+        "potency": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "e3e6f0b4-3d0f-5444-a206-70a087fbce21",
+    "pack": "secrets-of-the-unlit-star",
+    "kind": "weapon",
+    "slug": "weapon:poisonous-dagger",
+    "name": "Poisonous Dagger",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["agile", "finesse", "magical", "poison", "thrown-10", "versatile-s"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-the-unlit-star"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking dagger",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " has an image of a snake emblazoned on its blade. When you critically succeed at an attack roll with the dagger, magical fangs emerge and poison the target, dealing 1d4 persistent poison damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.hK5xPjOFd2hb81mi"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 150
+        }
+      },
+      "bulk": "light",
+      "category": "simple",
+      "group": "knife",
+      "baseItem": "dagger",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "2d15081e-7015-5065-9760-b9984eb851ea",
+    "pack": "secrets-of-the-unlit-star",
+    "kind": "weapon",
+    "slug": "weapon:restorative-handwraps",
+    "name": "Restorative Handwraps",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["invested"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-the-unlit-star"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Glowing runes cover these "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking handwraps of mighty blows",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". When you critically hit an enemy with a Strike as part of a Flurry of Blows, you can regain "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4",
+                "damageType": "vitality"
+              }
+            ],
+            "healing": true,
+            "label": "4 Hit Points"
+          },
+          {
+            "type": "text",
+            "text": ". This is a healing vitality effect. The handwraps can heal you only once every 10 minutes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.rGkm6yrclVx7Ogir"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 150
+        }
+      },
+      "bulk": "negligible",
+      "category": "unarmed",
+      "group": "brawling",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "worn",
+        "slot": "gloves"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "13c2d4c9-7569-5520-98bd-4dd5ca547b77",
+    "pack": "secrets-of-the-unlit-star",
+    "kind": "weapon",
+    "slug": "weapon:smoking-sword",
+    "name": "Smoking Sword",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["fire", "magical", "versatile-p"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-the-unlit-star"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Smoke constantly belches from this +1 magic longsword. Any successful Strike with this sword deals 1 extra fire damage. You can use a special action to make the blade's edges light on fire."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Stoke Flames",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Until the end of your turn, the blade deals 1d6 extra fire damage instead of just 1. After you use this action, you can't use it again for 10 minutes."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:stoke-flames",
+        "toggleable": true,
+        "display": {
+          "label": "Smoking Sword — Stoke Flames"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.onFxlajKyWpHZcXt"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 60
+        }
+      },
+      "bulk": 1,
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "longsword",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 1,
+        "property": []
+      }
+    }
+  }
+]

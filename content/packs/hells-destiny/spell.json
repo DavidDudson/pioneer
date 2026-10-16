@@ -1,0 +1,182 @@
+[
+  {
+    "id": "ad52a937-2361-53d1-a080-ff1f437ff4f2",
+    "pack": "hells-destiny",
+    "kind": "spell",
+    "slug": "spell:wish-market",
+    "name": "Wish Market",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["animist", "focus"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You signal your willingness to make a deal, attracting ghostly merchants that eagerly and silently wave contracts for your consideration while demanding an esoteric price. When you Cast this Spell, you accept an offer from the merchants. You gain a +1 status bonus to Perception checks and your choice of Acrobatics, Athletics, Nature, Occultism, or Religion checks for the spell's duration, and you can either "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": " or Seek as a free action. However, you also pay a random price; roll 1d4 on the table below. The first time each round you Sustain the spell, you can either Recall Knowledge or Seek as a free action or haggle with the merchant to suppress the price's penalty for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "1d4"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "Effect"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "1"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Your Social Graces",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": ": For the spell's duration, you take a –2 status penalty to Diplomacy and Society checks."
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Your Guile",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": ": For the spell's duration, you take a –2 status penalty to Deception and Stealth checks."
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "3"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Your Manual Dexterity",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": ": For the spell's duration, you take a –2 status penalty to Crafting and Thievery checks."
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "4"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Your Higher Reasoning",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": ": For the spell's duration, you take a –2 status penalty to Arcana and Medicine checks."
+              }
+            ]
+          ]
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (4th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The status bonus increases to +2."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (7th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The status bonus increases to +3."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.cYW9M2yE16dTTnCF"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "traditions": [],
+      "damage": []
+    }
+  }
+]

@@ -1,0 +1,1155 @@
+[
+  {
+    "id": "1c39bba6-2694-5829-b7ca-200c66787f78",
+    "pack": "revenge-of-the-runelords",
+    "kind": "effect",
+    "slug": "effect:effect-bolster-flesh",
+    "name": "Effect: Bolster Flesh",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "bd472793-066c-5e08-b12f-3293d024f680"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "979b020d-c600-51a5-b3e1-9289fdc85bfb"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "fa330987-27e5-5a6a-9032-316ffe66065a"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary hit points and an item bonus to saving throws for the "
+          },
+          {
+            "type": "text",
+            "text": "greater",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "text",
+            "text": "major",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " versions."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": 10,
+        "predicate": ["sihedron-medallion:sihedron-medallion"]
+      },
+      {
+        "key": "TempHP",
+        "value": 16,
+        "predicate": ["sihedron-medallion:sihedron-medallion-greater"]
+      },
+      {
+        "key": "TempHP",
+        "value": 25,
+        "predicate": ["sihedron-medallion:sihedron-medallion-major"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "item",
+        "value": 1,
+        "slug": "sihedron-medallion-bonus",
+        "predicate": [
+          {
+            "or": ["sihedron-medallion:sihedron-medallion-greater", "sihedron-medallion:sihedron-medallion-major"]
+          }
+        ]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["saving-throw"],
+        "slug": "sihedron-medallion-bonus",
+        "mode": "upgrade",
+        "value": 2,
+        "predicate": ["sihedron-medallion:sihedron-medallion-major"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.gKnoF5VKTCyl4JaN"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 8,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "52f38ba5-7ac5-547d-bbeb-9b2617e77a1d",
+    "pack": "revenge-of-the-runelords",
+    "kind": "effect",
+    "slug": "effect:effect-distant-traveler",
+    "name": "Effect: Distant Traveler",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "c165dcf0-84a6-5cbd-ae16-634a79f3f8f3"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to Will saves."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:will"],
+        "type": "status",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.6jjIDZ2ezcoWTJ1p"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 8,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "0fd6d4fb-68db-5746-8e7e-1d1a1706ba73",
+    "pack": "revenge-of-the-runelords",
+    "kind": "effect",
+    "slug": "effect:effect-favor-of-a-future-ally",
+    "name": "Effect: Favor of a Future Ally",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –3 penalty to AC, and a –5 penalty to strike attack rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "untyped",
+        "value": -3
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["strike-attack-roll"],
+        "type": "untyped",
+        "value": -5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.campaign-effects.Item.rjQyiAqxvVzYUpqV"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "0b3d5c46-a6fd-5f2b-945c-f2d7ee039514",
+    "pack": "revenge-of-the-runelords",
+    "kind": "effect",
+    "slug": "effect:effect-favor-of-a-past-benefactor",
+    "name": "Effect: Favor of a Past Benefactor",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –5 penalty to your spell DC and attack modifier."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["spell-attack-dc"],
+        "type": "untyped",
+        "value": -5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.campaign-effects.Item.G8YANJEFkHebehZh"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "2190da31-e532-51a5-a9c2-3800e4a18294",
+    "pack": "revenge-of-the-runelords",
+    "kind": "effect",
+    "slug": "effect:effect-favor-of-a-present-foe",
+    "name": "Effect: Favor of a Present Foe",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –4 penalty to skill checks, saving throws, and perception."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check", "saving-throw", "perception"],
+        "type": "untyped",
+        "value": -4
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.campaign-effects.Item.HTPJ0ciyeaIgrPzQ"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "35f32757-fbca-5e96-b703-57587308cfd4",
+    "pack": "revenge-of-the-runelords",
+    "kind": "effect",
+    "slug": "effect:effect-favor-of-the-oliphaunt",
+    "name": "Effect: Favor of the Oliphaunt",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your max HP is reduced by 110."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["hp"],
+        "type": "untyped",
+        "value": -110
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.campaign-effects.Item.WWevYlEmHFDBiOLe"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "aa2ed7ae-9e10-5db2-8a4f-d297dbc9fe1b",
+    "pack": "revenge-of-the-runelords",
+    "kind": "effect",
+    "slug": "effect:effect-hunt-runelord",
+    "name": "Effect: Hunt Runelord",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "e5049860-e063-5632-9692-67f18a06b79f"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose a Thassilonian rune school. You gain a +2 circumstance bonus to Perception checks when you seek a creature that serves these ideals and a +2 circumstance bonus to Intimidation checks made to Demoralize such creatures. Your Strikes also deal 1d4 extra precision to these creatures when they're frightened."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-hunt-runelord",
+        "choices": [
+          {
+            "value": "envy",
+            "label": "Envy"
+          },
+          {
+            "value": "gluttony",
+            "label": "Gluttony"
+          },
+          {
+            "value": "greed",
+            "label": "Greed"
+          },
+          {
+            "value": "lust",
+            "label": "Lust"
+          },
+          {
+            "value": "pride",
+            "label": "Pride"
+          },
+          {
+            "value": "sloth",
+            "label": "Sloth"
+          },
+          {
+            "value": "wrath",
+            "label": "Wrath"
+          }
+        ],
+        "prompt": "Select a Thassilonian school",
+        "rollOption": "thassilonian-school"
+      },
+      {
+        "key": "RollOption",
+        "option": "option:hunt-runelord",
+        "toggleable": true
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception", "skill:intimidation"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": [
+          "option:hunt-runelord",
+          {
+            "or": ["action:seek", "action:demoralize"]
+          }
+        ]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 1,
+        "dieSize": "d4",
+        "category": "precision",
+        "predicate": ["option:hunt-runelord", "target:condition:frightened"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.s7qDwnyVqMqDaFal"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "day",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "b119f22a-b8a5-5c13-9df1-993c56b9901e",
+    "pack": "revenge-of-the-runelords",
+    "kind": "effect",
+    "slug": "effect:effect-never-enough",
+    "name": "Effect: Never Enough",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your spell DC increases by 1, and your spell attacks gain a +1 circumstance bonus."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["spell-dc"],
+        "type": "untyped",
+        "value": 1
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["spell-attack"],
+        "type": "circumstance",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.UzaM1jejUKNpVfoA"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "41a6fca4-9317-51b7-a0a7-942d660e9cdb",
+    "pack": "revenge-of-the-runelords",
+    "kind": "effect",
+    "slug": "effect:effect-numbing-strike",
+    "name": "Effect: Numbing Strike",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You become clumsy 1 and take a –10 foot status penalty to all your Speeds."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "69f88e3c-d871-5fb9-82c6-120348a7c0e8"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "status",
+        "value": -10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.cBxjqExA5RZ4UNAz"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "2358eb19-4434-5e9c-9ada-ce0e68f497ba",
+    "pack": "revenge-of-the-runelords",
+    "kind": "effect",
+    "slug": "effect:effect-pall-of-silence",
+    "name": "Effect: Pall of Silence",
+    "level": 14,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can't use sonic attacks, use auditory actions, or Cast a Spell without the subtle trait."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.k3P0APls0jHEYdHz"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "d2c8e46c-04ad-5cd8-8609-f2e4eb9d5203",
+    "pack": "revenge-of-the-runelords",
+    "kind": "effect",
+    "slug": "effect:effect-queen-sorshens-aid-aid-ally",
+    "name": "Effect: Queen Sorshen's Aid (Aid Ally)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +4 circumstance bonus to attack rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack"],
+        "type": "circumstance",
+        "value": 4
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.MNITD4PrcyRCqPbK"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "cc7fd55f-c3ed-5a72-b14f-6c897ef1b67f",
+    "pack": "revenge-of-the-runelords",
+    "kind": "effect",
+    "slug": "effect:effect-queen-sorshens-aid-indulgent-arcana",
+    "name": "Effect: Queen Sorshen's Aid (Indulgent Arcana)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The next spell you cast with the mental trait has its save DC increased by 2 and removes the incapacitation trait, if any."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["spell-dc"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["item:trait:mental"]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:trait:mental"],
+        "property": "traits",
+        "mode": "remove",
+        "value": "incapacitation"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.KFmJLxZAFQ2Q7C1N"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "15278935-1c6e-5c7c-a6c4-dc213de43883",
+    "pack": "revenge-of-the-runelords",
+    "kind": "effect",
+    "slug": "effect:effect-runelord-researcher",
+    "name": "Effect: Runelord Researcher",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "e32e9367-81b3-587d-87c8-6759358cc59f"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to saving throws against the chosen effect."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Envy",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " any effect that has the incapacitation trait (against foes who are higher level than you, the status bonus increases to +2)"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Gluttony",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " death effects and void"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Greed",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " polymorph and effects that can cause the following conditions: enfeebled, clumsy, or petrified"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Lust",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " emotion"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Pride",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " illusion"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Sloth",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " effects that cause paralysis, slow, stun, or that grant penalties to your Speed"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Wrath",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " effects that cause acid, cold, electricity, fire, or sonic damage (choose one)"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-runelord-researcher",
+        "choices": [
+          {
+            "value": "envy",
+            "label": "Envy"
+          },
+          {
+            "value": "gluttony",
+            "label": "Gluttony"
+          },
+          {
+            "value": "greed",
+            "label": "Greed"
+          },
+          {
+            "value": "lust",
+            "label": "Lust"
+          },
+          {
+            "value": "pride",
+            "label": "Pride"
+          },
+          {
+            "value": "sloth",
+            "label": "Sloth"
+          },
+          {
+            "value": "wrath",
+            "label": "Wrath"
+          }
+        ],
+        "prompt": "Select a Thassilonian school",
+        "rollOption": "thassilonian-school"
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["saving-throw"],
+        "slug": "runelord-scholar",
+        "mode": "upgrade",
+        "value": 2,
+        "predicate": [
+          "thassilonian-school:envy",
+          {
+            "gte": ["origin:level", "self:level"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.Ny6kEKDxr9GhLoTC"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 8,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "062906a8-58fc-568f-a7fb-0f468fab1e7b",
+    "pack": "revenge-of-the-runelords",
+    "kind": "effect",
+    "slug": "effect:effect-spiteful-eye",
+    "name": "Effect: Spiteful Eye",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.Hjb8iwGGxkyhiz7E"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "a40c1934-425f-5640-a71e-f7571458c258",
+    "pack": "revenge-of-the-runelords",
+    "kind": "effect",
+    "slug": "effect:effect-ten-days-breath",
+    "name": "Effect: Ten Day's Breath",
+    "level": 15,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "976ddc9b-dba7-5018-a98d-d79dae02b86c"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +3 status bonus to saves against inhaled effects."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Adjust duration if using a Mythic Point.",
+            "marks": ["emphasis"]
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 3,
+        "predicate": ["item:trait:inhaled"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.l2hTQ0IxgF2F64C8"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "day",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "0643b599-1b63-597d-ae40-cd73868ecc73",
+    "pack": "revenge-of-the-runelords",
+    "kind": "effect",
+    "slug": "effect:effect-the-kardosian-fragments-temporary-hit-points",
+    "name": "Effect: The Kardosian Fragments (Temporary Hit Points)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "7ae5684a-1467-58ba-ad0b-c16086e6cb45"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a number of temporary Hit Points equal to your level × 3."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "3 * @level"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.m4DFGd0gUTJsNBxa"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "838e2308-ec1d-5906-a616-4ca72ece39c3",
+    "pack": "revenge-of-the-runelords",
+    "kind": "effect",
+    "slug": "effect:effect-weaponsight",
+    "name": "Effect: Weaponsight",
+    "level": 14,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "7ee314b7-f993-50dc-805d-2714d3335565"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can't be flanked."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.bBzZgiW1FGh6eOcb"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  }
+]

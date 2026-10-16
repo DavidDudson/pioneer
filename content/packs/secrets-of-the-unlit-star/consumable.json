@@ -1,0 +1,78 @@
+[
+  {
+    "id": "5660cc70-d087-529f-b05a-c40d1de3fb82",
+    "pack": "secrets-of-the-unlit-star",
+    "kind": "consumable",
+    "slug": "consumable:horned-dragon-breath-potion",
+    "name": "Horned Dragon Breath Potion",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "poison", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-the-unlit-star"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This liquid contains blood from a juvenile horned dragon. For 1 hour after you drink the potion, you can breathe out a magical cloud of poison. Exhaling this dragon breath uses a single action. The cloud of poison deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": ", and each creature in the area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 19,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save. After you use the dragon breath, you can't do so again for 1d4 rounds."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.GNy0YEusxjcGMCNn"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 30
+        }
+      },
+      "bulk": "negligible",
+      "category": "potion",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

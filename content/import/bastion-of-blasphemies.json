@@ -1,0 +1,682 @@
+{
+  "pin": {
+    "tag": "pf2e-8.6.0",
+    "sha256": "d9c4c1f6bbf9bd907ec0acbaea9b8d4e8b0d049758a8616829f07c1b4ee81342"
+  },
+  "backlog": [
+    {
+      "type": "entry",
+      "pack": "bastion-of-blasphemies",
+      "slug": "action:spiritual-scar",
+      "foundry": "Compendium.pf2e.actionspf2e.Item.f8vqWQktvmtSRpUb",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "definition": ["origin:trait:fiend", "damage:type:spirit"],
+            "key": "Resistance",
+            "label": "PF2E.IWR.Custom.SpiritFromFiends",
+            "predicate": ["spiritual-scar"],
+            "type": "custom",
+            "value": "@actor.abilities.cha.mod + 2*@actor.level"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "bastion-of-blasphemies",
+      "slug": "background:blooded-by-the-dead",
+      "foundry": "Compendium.pf2e.backgrounds.Item.kW9aZ5uxAuACeYRL",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[bestiary-family-ability-glossary] Pathfinder Monster Core"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "bastion-of-blasphemies",
+      "slug": "background:curse-marked",
+      "foundry": "Compendium.pf2e.backgrounds.Item.rj7GmKFnHbT48hmA",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": ["item:trait:curse"],
+            "selector": ["counteract-check", "saving-throw"],
+            "slug": "curse-marked",
+            "tags": ["curse-marked"],
+            "type": "circumstance",
+            "value": 2
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": [
+              {
+                "or": ["origin:trait:curse", "item:trait:curse"]
+              },
+              "disable-hazard"
+            ],
+            "selector": ["skill-check"],
+            "slug": "curse-marked-skill",
+            "tags": ["curse-marked"],
+            "type": "circumstance",
+            "value": 2
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "bastion-of-blasphemies",
+      "slug": "background:once-possessed",
+      "foundry": "Compendium.pf2e.backgrounds.Item.UNSqgs20cSmCMGBT",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Embed"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "bastion-of-blasphemies",
+      "slug": "effect:effect-art-collector",
+      "foundry": "Compendium.pf2e.feat-effects.Item.DXXhDkXQ6AdBty1G",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "label": "PF2E.UI.RuleElements.ChoiceSet.YesLabel",
+                "value": 1
+              },
+              {
+                "label": "PF2E.UI.RuleElements.ChoiceSet.NoLabel",
+                "value": 2
+              }
+            ],
+            "flag": "artCollector",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.BastionOfBlasphemies.Background.ArtCollector.Prompt"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": ["item:trait:mental"],
+            "selector": ["saving-throw"],
+            "type": "circumstance",
+            "value": "@item.flags.system.rulesSelections.artCollector"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "bastion-of-blasphemies",
+      "slug": "effect:effect-blooded-by-the-dead",
+      "foundry": "Compendium.pf2e.feat-effects.Item.52owimBcCQNBuNfM",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "condition",
+            "key": "ItemAlteration",
+            "mode": "subtract",
+            "predicate": ["item:damage:type:bleed", "blooded-by-the-dead:bolster-the-blood"],
+            "property": "pd-recovery-dc",
+            "value": 2
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "bastion-of-blasphemies",
+      "slug": "effect:effect-bolster-life",
+      "foundry": "Compendium.pf2e.equipment-effects.Item.iiQSTRA8EVCvlfDQ",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": [
+              {
+                "label": "PF2E.GenericLabel.Time.Daytime",
+                "value": 2
+              },
+              {
+                "label": "PF2E.GenericLabel.Time.Nighttime",
+                "value": 1
+              }
+            ],
+            "flag": "soulheartTemp",
+            "key": "ChoiceSet"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:soulheart",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Soulheart"
+              },
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:soulheart-greater",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Soulheart (Greater)"
+              },
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:soulheart-major",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Soulheart (Major)"
+              }
+            ],
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
+            "rollOption": "soulheart"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "TempHP",
+          "raw": {
+            "key": "TempHP",
+            "predicate": ["soulheart:soulheart"],
+            "value": "3*@item.flags.pf2e.rulesSelections.soulheartTemp"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "TempHP",
+          "raw": {
+            "key": "TempHP",
+            "predicate": ["soulheart:soulheart-greater"],
+            "value": "6*@item.flags.pf2e.rulesSelections.soulheartTemp"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "TempHP",
+          "raw": {
+            "key": "TempHP",
+            "predicate": ["soulheart:soulheart-major"],
+            "value": "9*@item.flags.pf2e.rulesSelections.soulheartTemp"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "TempHP",
+          "raw": {
+            "key": "TempHP",
+            "predicate": ["soulheart:soulheart-pure"],
+            "value": "9*@item.flags.pf2e.rulesSelections.soulheartTemp"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "bastion-of-blasphemies",
+      "slug": "effect:effect-bully-the-bully-critical-success",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.WoU5RKBuin0DOmcT",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:bullying-command"],
+            "property": "description",
+            "value": [
+              {
+                "text": "PF2E.NPCAbility.AugstenArudora.BullyTheBully.BullyingCommand"
+              }
+            ]
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "bastion-of-blasphemies",
+      "slug": "effect:effect-commanders-signet",
+      "foundry": "Compendium.pf2e.equipment-effects.Item.DTflIrRmXIZzaP5Z",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:commanders-signet",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Commander's Signet"
+              },
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:generals-signet",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.General's Signet"
+              }
+            ],
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
+            "rollOption": "commanders-signet"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "AdjustModifier",
+          "raw": {
+            "key": "AdjustModifier",
+            "mode": "upgrade",
+            "predicate": ["commanders-signet:generals-signet"],
+            "relabel": "PF2E.SpecificRule.Equipment.CommandersSignet.General.Label",
+            "selectors": ["attack-roll", "perception", "saving-throw", "skill-check"],
+            "slug": "commanders-signet",
+            "value": 2
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "predicate": ["commanders-signet:generals-signet"],
+            "property": "name",
+            "value": "PF2E.SpecificRule.Equipment.CommandersSignet.General.EffectLabel"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "bastion-of-blasphemies",
+      "slug": "effect:effect-meditate-among-the-stones-critical-success",
+      "foundry": "Compendium.pf2e.campaign-effects.Item.xmyDVehI5PmteRUX",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "removeAfterRoll": "if-enabled",
+            "selector": ["int-skill-check"],
+            "type": "circumstance",
+            "value": 2
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "bastion-of-blasphemies",
+      "slug": "effect:effect-meditate-among-the-stones-success",
+      "foundry": "Compendium.pf2e.campaign-effects.Item.NRWqw3wosKAnoWPl",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "removeAfterRoll": "if-enabled",
+            "selector": ["int-skill-check"],
+            "type": "circumstance",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "bastion-of-blasphemies",
+      "slug": "effect:effect-pallid-curse-failure",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.iZgvkZJ14Su7jWNE",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": [
+              {
+                "label": "PF2E.Check.Result.Degree.Check.failure",
+                "value": 5
+              },
+              {
+                "label": "PF2E.Check.Result.Degree.Check.criticalFailure",
+                "value": 10
+              }
+            ],
+            "flag": "pallidCurse",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.DegreeOfSuccess"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "alterations": [
+              {
+                "mode": "override",
+                "property": "badge-value",
+                "value": 2
+              }
+            ],
+            "key": "GrantItem",
+            "onDeleteActions": {
+              "granter": "detach"
+            },
+            "uuid": "Compendium.pf2e.conditionitems.Item.Sickened"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Weakness",
+          "raw": {
+            "key": "Weakness",
+            "type": "void",
+            "value": "@item.flags.system.rulesSelections.pallidCurse"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "bastion-of-blasphemies",
+      "slug": "effect:effect-pallid-curse-success",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.mJCiOTLp9eLxxsjb",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "key": "GrantItem",
+            "onDeleteActions": {
+              "granter": "detach"
+            },
+            "uuid": "Compendium.pf2e.conditionitems.Item.Sickened"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "bastion-of-blasphemies",
+      "slug": "effect:effect-poets-fritter",
+      "foundry": "Compendium.pf2e.equipment-effects.Item.gpsTtIhD8wk2MwbW",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:poets-fritter-lesser",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Poet's Fritter (Lesser)"
+              },
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:poets-fritter-moderate",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Poet's Fritter (Moderate)"
+              },
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:poets-fritter-greater",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Poet's Fritter (Greater)"
+              }
+            ],
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
+            "rollOption": "poets-fritter"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "bastion-of-blasphemies",
+      "slug": "equipment:graverose-garland",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.FeTIulA91s33rExI",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[traits]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "bastion-of-blasphemies",
+      "slug": "equipment:illusionists-hat",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.27huDHK9waL4V3jA",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "bastion-of-blasphemies",
+      "slug": "equipment:kindler-cameo",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.RLNM5W7ZtiozXtuf",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Damage[traits]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "bastion-of-blasphemies",
+      "slug": "equipment:vile-remnant",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.JmlPFAbjPvbhhKeu",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "hideIfDisabled": true,
+            "key": "FlatModifier",
+            "predicate": ["item:trait:curse"],
+            "requiresEquipped": false,
+            "selector": ["saving-throw"],
+            "slug": "vile-remnant-bonus",
+            "type": "item",
+            "value": 1
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": ["deplorable-influences"],
+            "requiresEquipped": false,
+            "selector": ["saving-throw"],
+            "slug": "vile-remnant-penalty",
+            "type": "item",
+            "value": "-@item.system.quantity"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[traits]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "bastion-of-blasphemies",
+      "slug": "equipment:whispering-remnant",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.14kIZ6GRkAW8vZw8",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": ["item:trait:curse"],
+            "requiresEquipped": false,
+            "selector": ["saving-throw"],
+            "slug": "whispering-remnant-bonus",
+            "type": "item",
+            "value": 3
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": ["deplorable-influences"],
+            "requiresEquipped": false,
+            "selector": ["saving-throw"],
+            "slug": "whispering-remnant-penalty",
+            "type": "item",
+            "value": -9
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[traits]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "bastion-of-blasphemies",
+      "slug": "weapon:fearcutter",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.w7usWIc20eklVVXT",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["criticalSuccess"],
+            "predicate": ["target:trait:unholy"],
+            "selector": ["{item|id}-attack"],
+            "text": "PF2E.SpecificRule.Equipment.Fearcutter.Note",
+            "title": "{item|name}"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "runes.property",
+          "raw": "disrupting"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[traits]"
+        }
+      ]
+    },
+    {
+      "type": "vocabulary",
+      "kind": "damage-type",
+      "slug": "untyped",
+      "reason": "unmapped-value",
+      "detail": "untyped"
+    }
+  ]
+}

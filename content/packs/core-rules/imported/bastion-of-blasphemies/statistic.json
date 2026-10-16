@@ -1,0 +1,50 @@
+[
+  {
+    "id": "317eaf28-2257-57b9-9963-c98265476b49",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:fiend-lore",
+    "name": "Fiend Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:fiend",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.fiend",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "8cf5110a-8ec0-5f98-9e46-620011ebd9fe",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:vampire-lore",
+    "name": "Vampire Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:vampire",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.vampire",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  }
+]

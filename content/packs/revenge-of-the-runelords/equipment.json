@@ -1,0 +1,5262 @@
+[
+  {
+    "id": "496fcad6-a0b3-5b8a-b698-81144017917f",
+    "pack": "revenge-of-the-runelords",
+    "kind": "equipment",
+    "slug": "equipment:apocalypse-seed",
+    "name": "Apocalypse Seed",
+    "level": 20,
+    "rarity": "unique",
+    "traits": ["artifact", "magical", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When the runelord of greed Gimmel summoned and briefly controlled the Oliphaunt of Jandelay, he set into motion events he couldn't have guessed, and the aftermath of the visitation would forever change Golarion. Neither the forces of Azlant nor Thassilon could challenge the Oliphaunt once it broke free of Gimmel's control, but that doesn't mean it didn't leave behind some small part of itself—a fragment of one of its teeth that served as a sort of seed, promising an eventual apocalypse in the land's far future. It was this tooth fragment that first drew the Ashen Man's attention to Golarion so long ago."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The "
+          },
+          {
+            "type": "text",
+            "text": "Apocalypse Seed",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " might be but a fragment of one of the Oliphaunt's teeth, but it's still as large as a barrel. The huge chunk of ivory retains a jagged edge on the side where it broke off. Otherwise, it's unblemished and of an unsettling yellow tint in coloration. Sometimes, when caught on the edge of one's peripheral vision, the surface seems covered with writhing spiral sigils, but they fade from view if directly observed. The first time a creature touches the "
+          },
+          {
+            "type": "text",
+            "text": "Apocalypse Seed",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", they hear phantom sounds of titanic footsteps and the far-off trumpet of annihilation, drawing inexorably closer for a few moments before the sensation fades, never to be repeated for that creature again."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Oliphaunt's Cry",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate, sonic)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Spend 1 Mythic Point. You summon the echo of the Oliphaunt's trumpeting blast, creating a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 120
+          },
+          {
+            "type": "text",
+            "text": " of sound. Each creature in the area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 45
+          },
+          {
+            "type": "text",
+            "text": " save with the following effects."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "5d10",
+                "damageType": "sonic"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "4271da2e-7225-5aa7-9807-c499d8af6a5a"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10d10",
+                "damageType": "sonic"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, is "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " for 2 rounds, and is deafened for 2 rounds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "20d10",
+                "damageType": "sonic"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, is "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 2"
+          },
+          {
+            "type": "text",
+            "text": " for 2 rounds, and is deafened for 4 rounds."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Destruction",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "Apocalypse Seed",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is destroyed if it's returned to Jandelay and thrown into the Oliphaunt's mouth. This lifts the promised apocalypse from Golarion and makes it impossible for the Oliphaunt to ever return to this world unless a new "
+          },
+          {
+            "type": "text",
+            "text": "Apocalypse Seed",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is created and buried somewhere on Golarion."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.JsRaJz8Lo1FE1R0P"
+    },
+    "data": {
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "12118b53-9785-50a5-b9ee-7d7b63b5572c",
+    "pack": "revenge-of-the-runelords",
+    "kind": "equipment",
+    "slug": "equipment:beloveds-bracelets",
+    "name": "Beloved's Bracelets",
+    "level": 16,
+    "rarity": "rare",
+    "traits": ["invested", "magical", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The mightiest wizards of Eurythnia, the realm of lust, would sometimes share one of these pairs of bracelets—the silver, most often—with their closest confidantes and most trusted apprentices, while keeping the golden one for themselves."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Grant Mythic Power",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Both bracelets are invested and the silver bracelet is not already imbued with mythic power"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The wearer of the golden bracelet imbues the silver bracelet with a portion of their mythic power by spending 1 Mythic Point. Until the silver bracelet is no longer imbued with mythic power, the maximum number of Mythic Points the wearer of the golden bracelet can have is reduced by 1. Whenever the wearer of the silver bracelet would attempt a skill check, they can choose to make the check at mythic proficiency. If they do, the silver bracelet loses its mythic power and the wearer of the golden bracelet is immediately aware of this, regardless of the distance between the two bracelets, even if they are on different planes of existence. If the creature who had invested in the silver bracelet dies before expending the mythic power in it, the silver bracelet immediately teleports into the possession of the wearer of the golden bracelet regardless of the distance between them, even if they are on different planes of existence."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.kbQVI1VS6yekJe86"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10000
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "b79efc18-bdbf-5ac7-bafe-0468ce893d96",
+    "pack": "revenge-of-the-runelords",
+    "kind": "equipment",
+    "slug": "equipment:chromatic-robe",
+    "name": "Chromatic Robe",
+    "level": 16,
+    "rarity": "rare",
+    "traits": ["invested", "magical", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The fabric of this robe is infused with ever-shifting magical energy. The robe grants resistance 5 to acid, cold, electricity, and fire damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Align Energy",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Spend 1 Mythic Point. You align the robe's magical energies to provide heightened protection against a specific damage type, at the expense of all the others. Choose acid, cold, electricity, or fire. The robe grants resistance 15 to the chosen damage type but no resistance to the remaining three types. The effect lasts until the next time you make your daily preparations (at which point the robe returns to normal) or until you use this activation again."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ONjmHKPfUOmQt9bC"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 9500
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "b7b177e3-0d0f-5132-8702-1002858be2b1",
+    "pack": "revenge-of-the-runelords",
+    "kind": "equipment",
+    "slug": "equipment:chromatic-robe-greater",
+    "name": "Chromatic Robe (Greater)",
+    "level": 20,
+    "rarity": "rare",
+    "traits": ["invested", "magical", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The fabric of this robe is infused with ever-shifting magical energy. The robe grants resistance 10 to acid, cold, electricity, and fire damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Align Energy",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Spend 1 Mythic Point. You align the robe's magical energies to provide heightened protection against a specific damage type, at the expense of all the others. Choose acid, cold, electricity, or fire. The robe grants resistance 20 to the chosen damage type but no resistance to the remaining three types. The effect lasts until the next time you make your daily preparations (at which point the robe returns to normal) or until you use this activation again."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.MoL5LLA4Cuxz27h7"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 65000
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "9e34cf61-ec38-55fc-aeb6-a8f9a891f91b",
+    "pack": "revenge-of-the-runelords",
+    "kind": "equipment",
+    "slug": "equipment:cyrusian-wand-1st-rank-spell",
+    "name": "Cyrusian Wand (1st-Rank Spell)",
+    "level": 4,
+    "rarity": "rare",
+    "traits": ["arcane", "mythic", "wand"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Runelord Xanderghul often crafted "
+          },
+          {
+            "type": "text",
+            "text": "Cyrusian wands",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to bolster his access to his favorite illusion spells. All "
+          },
+          {
+            "type": "text",
+            "text": "Cyrusian wands",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " look different but equally audacious in their coloration, shape, and glittering gemstone adornments."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "Cyrusian wand",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " only ever contains an arcane spell with the illusion trait."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day, plus overcharge"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Cast the Spell at the indicated rank. If you spend 1 Mythic Point as part of this activation, resolve the spell's effects at mythic proficiency."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Presume Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail the "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 10
+          },
+          {
+            "type": "text",
+            "text": " when you overcharge the wand"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You disbelieve your failure, willing the check to success. Spend 1 Mythic Point and reroll the flat check, then resolve the spell's effects at mythic proficiency."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You must be a mythic arcane spellcaster capable of supplying a casting of the spell at the listed rank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.qEPyzpoZOygWRn09"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 100
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "cyrusian-wand-1st-rank-spell",
+          "name": "Cyrusian Wand (1st-Rank Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "overcharge": true
+        },
+        {
+          "slug": "presume-success",
+          "name": "Presume Success",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "3324b520-80f8-509b-b8ec-6a449ce06ee9",
+    "pack": "revenge-of-the-runelords",
+    "kind": "equipment",
+    "slug": "equipment:cyrusian-wand-2nd-rank-spell",
+    "name": "Cyrusian Wand (2nd-Rank Spell)",
+    "level": 6,
+    "rarity": "rare",
+    "traits": ["arcane", "mythic", "wand"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Runelord Xanderghul often crafted "
+          },
+          {
+            "type": "text",
+            "text": "Cyrusian wands",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to bolster his access to his favorite illusion spells. All "
+          },
+          {
+            "type": "text",
+            "text": "Cyrusian wands",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " look different but equally audacious in their coloration, shape, and glittering gemstone adornments."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "Cyrusian wand",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " only ever contains an arcane spell with the illusion trait."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day, plus overcharge"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Cast the Spell at the indicated rank. If you spend 1 Mythic Point as part of this activation, resolve the spell's effects at mythic proficiency."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Presume Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail the "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 10
+          },
+          {
+            "type": "text",
+            "text": " when you overcharge the wand"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You disbelieve your failure, willing the check to success. Spend 1 Mythic Point and reroll the flat check, then resolve the spell's effects at mythic proficiency."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You must be a mythic arcane spellcaster capable of supplying a casting of the spell at the listed rank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ZWroGcapvICFAQZt"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "cyrusian-wand-2nd-rank-spell",
+          "name": "Cyrusian Wand (2nd-Rank Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "overcharge": true
+        },
+        {
+          "slug": "presume-success",
+          "name": "Presume Success",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "dc1db89a-a0c3-5f23-960a-b0412472caa1",
+    "pack": "revenge-of-the-runelords",
+    "kind": "equipment",
+    "slug": "equipment:cyrusian-wand-3rd-rank-spell",
+    "name": "Cyrusian Wand (3rd-Rank Spell)",
+    "level": 8,
+    "rarity": "rare",
+    "traits": ["arcane", "mythic", "wand"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Runelord Xanderghul often crafted "
+          },
+          {
+            "type": "text",
+            "text": "Cyrusian wands",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to bolster his access to his favorite illusion spells. All "
+          },
+          {
+            "type": "text",
+            "text": "Cyrusian wands",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " look different but equally audacious in their coloration, shape, and glittering gemstone adornments."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "Cyrusian wand",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " only ever contains an arcane spell with the illusion trait."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day, plus overcharge"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Cast the Spell at the indicated rank. If you spend 1 Mythic Point as part of this activation, resolve the spell's effects at mythic proficiency."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Presume Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail the "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 10
+          },
+          {
+            "type": "text",
+            "text": " when you overcharge the wand"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You disbelieve your failure, willing the check to success. Spend 1 Mythic Point and reroll the flat check, then resolve the spell's effects at mythic proficiency."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You must be a mythic arcane spellcaster capable of supplying a casting of the spell at the listed rank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.paMCEopsN26PQLXb"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 500
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "cyrusian-wand-3rd-rank-spell",
+          "name": "Cyrusian Wand (3rd-Rank Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "overcharge": true
+        },
+        {
+          "slug": "presume-success",
+          "name": "Presume Success",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "27980b0b-5772-5c6f-8e0c-b3681d52799b",
+    "pack": "revenge-of-the-runelords",
+    "kind": "equipment",
+    "slug": "equipment:cyrusian-wand-4th-rank-spell",
+    "name": "Cyrusian Wand (4th-Rank Spell)",
+    "level": 10,
+    "rarity": "rare",
+    "traits": ["arcane", "mythic", "wand"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Runelord Xanderghul often crafted "
+          },
+          {
+            "type": "text",
+            "text": "Cyrusian wands",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to bolster his access to his favorite illusion spells. All "
+          },
+          {
+            "type": "text",
+            "text": "Cyrusian wands",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " look different but equally audacious in their coloration, shape, and glittering gemstone adornments."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "Cyrusian wand",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " only ever contains an arcane spell with the illusion trait."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day, plus overcharge"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Cast the Spell at the indicated rank. If you spend 1 Mythic Point as part of this activation, resolve the spell's effects at mythic proficiency."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Presume Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail the "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 10
+          },
+          {
+            "type": "text",
+            "text": " when you overcharge the wand"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You disbelieve your failure, willing the check to success. Spend 1 Mythic Point and reroll the flat check, then resolve the spell's effects at mythic proficiency."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You must be a mythic arcane spellcaster capable of supplying a casting of the spell at the listed rank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.goPuyEiD7614ZEet"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "cyrusian-wand-4th-rank-spell",
+          "name": "Cyrusian Wand (4th-Rank Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "overcharge": true
+        },
+        {
+          "slug": "presume-success",
+          "name": "Presume Success",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "c8dd0376-851b-5cad-af55-08e1b37cdc3c",
+    "pack": "revenge-of-the-runelords",
+    "kind": "equipment",
+    "slug": "equipment:cyrusian-wand-5th-rank-spell",
+    "name": "Cyrusian Wand (5th-Rank Spell)",
+    "level": 12,
+    "rarity": "rare",
+    "traits": ["arcane", "mythic", "wand"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Runelord Xanderghul often crafted "
+          },
+          {
+            "type": "text",
+            "text": "Cyrusian wands",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to bolster his access to his favorite illusion spells. All "
+          },
+          {
+            "type": "text",
+            "text": "Cyrusian wands",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " look different but equally audacious in their coloration, shape, and glittering gemstone adornments."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "Cyrusian wand",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " only ever contains an arcane spell with the illusion trait."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day, plus overcharge"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Cast the Spell at the indicated rank. If you spend 1 Mythic Point as part of this activation, resolve the spell's effects at mythic proficiency."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Presume Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail the "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 10
+          },
+          {
+            "type": "text",
+            "text": " when you overcharge the wand"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You disbelieve your failure, willing the check to success. Spend 1 Mythic Point and reroll the flat check, then resolve the spell's effects at mythic proficiency."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You must be a mythic arcane spellcaster capable of supplying a casting of the spell at the listed rank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.EGvqYHkEw3k7wGL8"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "cyrusian-wand-5th-rank-spell",
+          "name": "Cyrusian Wand (5th-Rank Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "overcharge": true
+        },
+        {
+          "slug": "presume-success",
+          "name": "Presume Success",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "8b1f73bf-908b-5601-9499-46f199ff5954",
+    "pack": "revenge-of-the-runelords",
+    "kind": "equipment",
+    "slug": "equipment:cyrusian-wand-6th-rank-spell",
+    "name": "Cyrusian Wand (6th-Rank Spell)",
+    "level": 14,
+    "rarity": "rare",
+    "traits": ["arcane", "mythic", "wand"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Runelord Xanderghul often crafted "
+          },
+          {
+            "type": "text",
+            "text": "Cyrusian wands",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to bolster his access to his favorite illusion spells. All "
+          },
+          {
+            "type": "text",
+            "text": "Cyrusian wands",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " look different but equally audacious in their coloration, shape, and glittering gemstone adornments."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "Cyrusian wand",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " only ever contains an arcane spell with the illusion trait."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day, plus overcharge"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Cast the Spell at the indicated rank. If you spend 1 Mythic Point as part of this activation, resolve the spell's effects at mythic proficiency."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Presume Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail the "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 10
+          },
+          {
+            "type": "text",
+            "text": " when you overcharge the wand"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You disbelieve your failure, willing the check to success. Spend 1 Mythic Point and reroll the flat check, then resolve the spell's effects at mythic proficiency."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You must be a mythic arcane spellcaster capable of supplying a casting of the spell at the listed rank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.jieJqVjtvIEo9IcC"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4500
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "cyrusian-wand-6th-rank-spell",
+          "name": "Cyrusian Wand (6th-Rank Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "overcharge": true
+        },
+        {
+          "slug": "presume-success",
+          "name": "Presume Success",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "0c384a19-e037-540b-a6d7-8e62665e996a",
+    "pack": "revenge-of-the-runelords",
+    "kind": "equipment",
+    "slug": "equipment:cyrusian-wand-7th-rank-spell",
+    "name": "Cyrusian Wand (7th-Rank Spell)",
+    "level": 16,
+    "rarity": "rare",
+    "traits": ["arcane", "mythic", "wand"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Runelord Xanderghul often crafted "
+          },
+          {
+            "type": "text",
+            "text": "Cyrusian wands",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to bolster his access to his favorite illusion spells. All "
+          },
+          {
+            "type": "text",
+            "text": "Cyrusian wands",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " look different but equally audacious in their coloration, shape, and glittering gemstone adornments."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "Cyrusian wand",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " only ever contains an arcane spell with the illusion trait."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day, plus overcharge"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Cast the Spell at the indicated rank. If you spend 1 Mythic Point as part of this activation, resolve the spell's effects at mythic proficiency."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Presume Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail the "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 10
+          },
+          {
+            "type": "text",
+            "text": " when you overcharge the wand"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You disbelieve your failure, willing the check to success. Spend 1 Mythic Point and reroll the flat check, then resolve the spell's effects at mythic proficiency."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You must be a mythic arcane spellcaster capable of supplying a casting of the spell at the listed rank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.DLqIHv0gvwKx8B0O"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "cyrusian-wand-7th-rank-spell",
+          "name": "Cyrusian Wand (7th-Rank Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "overcharge": true
+        },
+        {
+          "slug": "presume-success",
+          "name": "Presume Success",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "55bb13cf-934f-5638-8f13-933cc1a399d5",
+    "pack": "revenge-of-the-runelords",
+    "kind": "equipment",
+    "slug": "equipment:cyrusian-wand-8th-rank-spell",
+    "name": "Cyrusian Wand (8th-Rank Spell)",
+    "level": 18,
+    "rarity": "rare",
+    "traits": ["arcane", "mythic", "wand"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Runelord Xanderghul often crafted "
+          },
+          {
+            "type": "text",
+            "text": "Cyrusian wands",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to bolster his access to his favorite illusion spells. All "
+          },
+          {
+            "type": "text",
+            "text": "Cyrusian wands",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " look different but equally audacious in their coloration, shape, and glittering gemstone adornments."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "Cyrusian wand",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " only ever contains an arcane spell with the illusion trait."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day, plus overcharge"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Cast the Spell at the indicated rank. If you spend 1 Mythic Point as part of this activation, resolve the spell's effects at mythic proficiency."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Presume Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail the "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 10
+          },
+          {
+            "type": "text",
+            "text": " when you overcharge the wand"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You disbelieve your failure, willing the check to success. Spend 1 Mythic Point and reroll the flat check, then resolve the spell's effects at mythic proficiency."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You must be a mythic arcane spellcaster capable of supplying a casting of the spell at the listed rank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ZblyK929eFFcIZqB"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 24000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "cyrusian-wand-8th-rank-spell",
+          "name": "Cyrusian Wand (8th-Rank Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "overcharge": true
+        },
+        {
+          "slug": "presume-success",
+          "name": "Presume Success",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "3f005df5-3672-5ad1-a5fa-f793b00b3045",
+    "pack": "revenge-of-the-runelords",
+    "kind": "equipment",
+    "slug": "equipment:cyrusian-wand-9th-rank-spell",
+    "name": "Cyrusian Wand (9th-Rank Spell)",
+    "level": 20,
+    "rarity": "rare",
+    "traits": ["arcane", "mythic", "wand"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Runelord Xanderghul often crafted "
+          },
+          {
+            "type": "text",
+            "text": "Cyrusian wands",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to bolster his access to his favorite illusion spells. All "
+          },
+          {
+            "type": "text",
+            "text": "Cyrusian wands",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " look different but equally audacious in their coloration, shape, and glittering gemstone adornments."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "Cyrusian wand",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " only ever contains an arcane spell with the illusion trait."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day, plus overcharge"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Cast the Spell at the indicated rank. If you spend 1 Mythic Point as part of this activation, resolve the spell's effects at mythic proficiency."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Presume Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail the "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 10
+          },
+          {
+            "type": "text",
+            "text": " when you overcharge the wand"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You disbelieve your failure, willing the check to success. Spend 1 Mythic Point and reroll the flat check, then resolve the spell's effects at mythic proficiency."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You must be a mythic arcane spellcaster capable of supplying a casting of the spell at the listed rank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.jfMBFb7xTo5OK8v8"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 70000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "cyrusian-wand-9th-rank-spell",
+          "name": "Cyrusian Wand (9th-Rank Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "overcharge": true
+        },
+        {
+          "slug": "presume-success",
+          "name": "Presume Success",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "b1f79949-f2a9-596b-b28f-09af5c0a8633",
+    "pack": "revenge-of-the-runelords",
+    "kind": "equipment",
+    "slug": "equipment:doomsday-door",
+    "name": "Doomsday Door",
+    "level": 20,
+    "rarity": "rare",
+    "traits": ["artifact", "magical", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each "
+          },
+          {
+            "type": "text",
+            "text": "Doomsday Door",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " varies in appearance, yet all are gargantuan wooden portals affixed into a solid anchored arch. All "
+          },
+          {
+            "type": "text",
+            "text": "Doomsday Doors",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " have two methods of activation; both of these are downtime activities, and you can't pursue other downtime or exploration activities while using either activation."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Attune Door",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 week (concentrate, downtime)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You attune the "
+          },
+          {
+            "type": "text",
+            "text": "Doomsday Door",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to a location associated with destruction, such as the heart of an active volcano. You must know the location exists. If it is on a different plane, a planar key must be present."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each day you spend Attuning, you must spend 1 Mythic Point or your doomed condition's value increases by 1. A creature assisting you with the rite can spend a Mythic Point instead, and you can avoid spending a Mythic Point by making an appropriate sacrifice, as determined by the GM."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After seven days, the "
+          },
+          {
+            "type": "text",
+            "text": "Doomsday Door",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " attunes to your chosen location, then shuts. Until then, this activity can reattune to the door to a different location. You can also use this activation to negate a "
+          },
+          {
+            "type": "text",
+            "text": "Doomsday Door",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "'s current attunement."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Open Door",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 week (concentrate, downtime)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "Doomsday Door",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is attuned"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You perform an extended rite to open the "
+          },
+          {
+            "type": "text",
+            "text": "Doomsday Door",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". Each day you spend performing the rite, you must spend 1 Mythic Point or your doomed condition's value increases by 1. A creature assisting you with the rite can spend a Mythic Point instead, and you can avoid spending a Mythic Point by making an appropriate sacrifice, as determined by the GM."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After 7 days, the "
+          },
+          {
+            "type": "text",
+            "text": "Doomsday Door",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " opens, releasing an apocalypse related to the location to which the door is attuned. The consequences are determined by the GM but are always regional and far-reaching. A "
+          },
+          {
+            "type": "text",
+            "text": "Doomsday Door",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " attuned to the Void, for example, might release a burst of energy that causes the dead in a radius of hundreds of miles to rise from their graves."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Destruction",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A "
+          },
+          {
+            "type": "text",
+            "text": "Doomsday Door",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can be destroyed by using the Attune Door activation to attune it to a specific location of great creative potential, and then Opening the Door to let this antithesis of doom flow through the portal."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ViQm1sR7y0hRb4N9"
+    },
+    "data": {
+      "bulk": 48,
+      "usage": {
+        "type": "other"
+      }
+    }
+  },
+  {
+    "id": "d5e3a493-20ce-5528-b1c0-b37699f80a93",
+    "pack": "revenge-of-the-runelords",
+    "kind": "equipment",
+    "slug": "equipment:dream-hunters-lodge",
+    "name": "Dream Hunter's Lodge",
+    "level": 17,
+    "rarity": "rare",
+    "traits": ["dream", "magical", "mythic", "structure"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This miniature hunter's lodge fits comfortably into the palm of one's hand."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate–Expand Lodge",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You set the lodge on the ground, where it expands into a structure 40 feet long, 20 feet wide, and 20 feet high. The lodge is well-built, with a sturdy stone foundation, thick timber walls, and a peaked roof shingled with scraps of bark. The lodge's ground floor contains a dining hall on one end and a sitting area with a hearth surrounded by comfortable chairs on the other. A staircase connects the hall to the lodge's second floor, which consists of four simply furnished bedrooms. The lodge is decorated throughout with taxidermic beasts native to the Dimension of Dreams. If a creature inside the lodge spends 10 minutes studying these trophies, they gain a +3 item bonus to the next skill check they make in the next 24 hours to "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": " about any creature with the dream trait. Furnishings or decorations removed from the lodge disappear but return to their original locations inside the lodge with the next activation."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can Dismiss the dream hunter's lodge to return it to its miniature form."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate–Oneiric Expedition",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 10 minutes (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The dream hunter's lodge has been expanded and you are inside"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Spend 1 Mythic Point. You and all creatures inside the lodge fall into a magical slumber, and the lodge disappears from existence. After 8 hours, the lodge reappears in the Dimension of Dreams (or in the Universe, if the lodge was already in the Dimension of Dreams), as if transported there by an "
+          },
+          {
+            "type": "ref",
+            "id": "3e61b605-c274-5409-a4e1-9cb72132821d"
+          },
+          {
+            "type": "text",
+            "text": " spell. Upon arrival, creatures inside the lodge awaken, fully rested (but this effect does not increase the number of times per day you can do your daily preparations)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.VBCZuJMisbu0OXJK"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 13500
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "expand-lodge",
+          "name": "Expand Lodge",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        },
+        {
+          "slug": "oneiric-expedition",
+          "name": "Oneiric Expedition",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "other"
+      }
+    }
+  },
+  {
+    "id": "0d713580-9d4c-5351-8097-799760442103",
+    "pack": "revenge-of-the-runelords",
+    "kind": "equipment",
+    "slug": "equipment:fate-tempters-ring",
+    "name": "Fate Tempter's Ring",
+    "level": 18,
+    "rarity": "rare",
+    "traits": ["invested", "magical", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you invest this silver ring, choose a skill; you gain an item bonus to that skill equal to your doomed value."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Tempt Fate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your "
+          },
+          {
+            "type": "ref",
+            "id": "cd164d22-2d8e-5fd2-b8b2-03e1360df1e7"
+          },
+          {
+            "type": "text",
+            "text": " value would decrease"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You currently have fewer than 3 Mythic Points"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your doomed value doesn't decrease. You gain 1 Mythic Point."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.r3mVE6Lbkzv65A18"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 22000
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "tempt-fate",
+          "name": "Tempt Fate",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "489440e0-eef8-50f1-8639-9257427aa9f6",
+    "pack": "revenge-of-the-runelords",
+    "kind": "equipment",
+    "slug": "equipment:paradigm-cube",
+    "name": "Paradigm Cube",
+    "level": 14,
+    "rarity": "rare",
+    "traits": ["illusion", "invested", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "paradigm cube",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a perfect 5-inch-square cube of stone. Each side is inlaid with precious crystals of a different color: red, orange, yellow, green, blue, and indigo. When one activates a "
+          },
+          {
+            "type": "text",
+            "text": "paradigm cube",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", one of these sides is selected—it glows with the matching color and then darkens to a shade of violet once the activation ends, indicating that the magic from that particular side of the cube has been expended for the day."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Change Paradigm",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " six times per day (but only once per day per color)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Select one of the six colors of the cube that hasn't been activated today, then roll the cube on the ground at your feet and attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 11
+          },
+          {
+            "type": "text",
+            "text": ". On a success, your chosen color activates as detailed below. On a failure, roll 1d6 to randomly determine which effect manifests; if the result of the roll is a color that's already been activated today, no effect occurs. The "
+          },
+          {
+            "type": "text",
+            "text": "paradigm cube",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " then immediately returns to your hand. If you spend 1 Mythic Point as part of this activation, your chosen color automatically activates without requiring a flat check, and the chosen effect's mythic enhancement unlocks. Once activated, the illusion created fills a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 60
+          },
+          {
+            "type": "text",
+            "text": " from you and lasts for 1 minute. You can end the effect early by activating Change Paradigm again by tapping the currently active color."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "1—Red",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (emotion, mental, visual) Red is the color of anger and impatience. A crimson haze covers the area, setting everyone within the area on edge. Allies in the area gain a +2 item bonus to Intimidation checks to "
+          },
+          {
+            "type": "ref",
+            "id": "ed0f3425-17f0-51f3-bb5d-1ca7475499a5"
+          },
+          {
+            "type": "text",
+            "text": ". "
+          },
+          {
+            "type": "text",
+            "text": "Mythic Enhancement:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Allies' saving throws against mental and incapacitation effects are attempted at mythic proficiency."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "2—Orange",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (light, visual) Orange is the color of glory and opulence. The area becomes bedecked in elegant images, glamorous decor, and spectacular displays, and becomes brightly lit. Allies in the area gain a +2 item bonus to Performance checks, and allies who Rage in the area gain an additional 3 temporary Hit Points above what they would normally gain. "
+          },
+          {
+            "type": "text",
+            "text": "Mythic Enhancement:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Allies' Perception checks and Diplomacy checks to "
+          },
+          {
+            "type": "ref",
+            "id": "722e5346-27c0-5157-b5a9-e6018df94150"
+          },
+          {
+            "type": "text",
+            "text": " or Request are attempted at mythic proficiency."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "3—Yellow",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (emotion, fear, light, mental, visual) Yellow is the color of terror and discord. The area's illumination, if any, takes on an unnerving, murky yellow tinge and becomes dim light. Allies in the area gain a +2 item bonus to Intimidation checks to "
+          },
+          {
+            "type": "ref",
+            "id": "2a3671d0-7d0b-53db-8648-861d457f0175"
+          },
+          {
+            "type": "text",
+            "text": ". "
+          },
+          {
+            "type": "text",
+            "text": "Mythic Enhancement:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Enemy creatures in the area who gain the frightened condition become "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " as long as they remain frightened, as the yellow light seems to cling to them and slow their movements to a nightmarish crawl."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "4—Green",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (revelation, visual) Green is the color of logic and clarity. Visible text in the area becomes softly illuminated when read. Allies in the area gain a +2 item bonus to Lore checks to "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": ". "
+          },
+          {
+            "type": "text",
+            "text": "Mythic Enhancement:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Attempts made by allies to counteract or disbelieve illusions or to save against confusion effects are attempted at mythic proficiency."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "5—Blue",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (emotion, light, mental, visual) Blue is the color of debilitating sadness and fractures in one's emotional facade. Somber light replaces the normal lighting, filling the area with dim illumination, and moods darken. Allies in the area gain a +2 item bonus to Perception checks to "
+          },
+          {
+            "type": "ref",
+            "id": "775b68f2-1542-5f47-bc0d-87d5884d7baa"
+          },
+          {
+            "type": "text",
+            "text": ". "
+          },
+          {
+            "type": "text",
+            "text": "Mythic Enhancement:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An enemy in the area that fails an attack roll, saving throw, or skill check becomes "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 1"
+          },
+          {
+            "type": "text",
+            "text": " from sadness until the end of their next turn ("
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 2"
+          },
+          {
+            "type": "text",
+            "text": " on a critical failure)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "6—Indigo",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (darkness, shadow) Indigo is the color of ignorance and the unknown. The area becomes cloaked in darkness, as per the darkness spell heightened to 6th rank. Allies in the area gain a +2 item bonus to Stealth checks to Hide. "
+          },
+          {
+            "type": "text",
+            "text": "Mythic Enhancement:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Allies' saving throws against fear, curse, or visual effects are attempted at mythic proficiency."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You must be a mythic arcane spellcaster capable of attempting Crafting checks at mythic proficiency."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.zZwpFG8FY0Qwgz7e"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4500
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "b599d719-ae5b-58d7-b0e3-b5e5afd575f4",
+    "pack": "revenge-of-the-runelords",
+    "kind": "equipment",
+    "slug": "equipment:runewell-of-lust",
+    "name": "Runewell of Lust",
+    "level": 23,
+    "rarity": "unique",
+    "traits": ["artifact", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The Runewell of Lust is a potent artifact and was the first of its kind among the runelords. As with all runewells, the Runewell of Lust is immobile and located within a demiplane that's inexorably linked to it, but the anima focus that allows access to the demiplane and the runewell can be transported to new locations through a series of complex rites known only to Sorshen herself."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Originally, the Runewell of Lust could absorb soul fragments of those who served Sorshen upon their deaths, granting her an essentially limitless supply of magical power she could use to fund potent rituals or craft magical items, but she disabled this ability soon after she woke years ago and decided it was time for a change. The Runewell of Lust appears as a hot spring filled with soothing 3-foot-deep waters."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Exit the Eye",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " By splashing the runewell's water on yourself while you stand within it, you transport yourself back to a space of your choice within 30 feet of the anima focus, which is currently located in Sorshen's atrium."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Destruction",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If Sorshen is slain, the waters within the Runewell of Lust immediately become normal water, destroying the runewell in the process. The Eye of Desire is destroyed as well. Creatures not native to the Eye of Desire are immediately transported to the vicinity of the runewell's linked anima focus and become "
+          },
+          {
+            "type": "ref",
+            "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+            "label": "Stunned 3"
+          },
+          {
+            "type": "text",
+            "text": "; any foreign objects within the Eye of Desire at the time are similarly ejected."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.2gkG6hqPnSuPrdPD"
+    },
+    "data": {
+      "bulk": "light",
+      "usage": {
+        "type": "other"
+      }
+    }
+  },
+  {
+    "id": "2a67e5b4-4c98-549f-8fd8-43d52826242f",
+    "pack": "revenge-of-the-runelords",
+    "kind": "equipment",
+    "slug": "equipment:runic-skullcap",
+    "name": "Runic Skullcap",
+    "level": 15,
+    "rarity": "rare",
+    "traits": ["divine", "focused", "invested", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This silver skullcap is etched with snake patterns and a single Sihedron rune. The skullcap grants a +2 item bonus to Arcana and Religion checks. If a check is attempted to "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": " about rune magic or Lissala, the wearer treats the results of a failure or critical failure as one degree of success better."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Rewards of Service",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Gain 1 Focus Point, which you can spend only to cast a cleric domain spell for a domain belonging to Lissala. Lissala's domains are ambition, duty, fate, and knowledge. If you don't spend this point by the end of this turn, it is lost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Rewards of Rule",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have master or legendary proficiency in Arcana"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Spend 1 Mythic Point when you invest the runic skullcap. Until the next time you invest the skullcap, you can also use the Focus Point granted by Rewards of Service to cast a focus spell from the runelord wizard school."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Envy:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "7e41dfb1-29a6-5555-a31e-de3a3558b653"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Greed:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "78ead2e4-84bc-577c-886b-395e1d586658"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Sloth:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "a23ad364-04ce-547c-ad6d-1bc547b9b74f"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Gluttony:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "5fef44e8-5f50-5f17-aace-5ae953d8687a"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Lust:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "a6356de2-1f90-5876-8800-d7161c76bbc1"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Pride:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "b496a144-a706-5d46-a0b0-ee5d08604278"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Wrath:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "dd1436ef-9aff-53ac-883e-94af2611a7e3"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.5QE6CzD1DCnb6fLl"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6000
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "rewards-of-service",
+          "name": "Rewards of Service",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "headwear"
+      }
+    }
+  },
+  {
+    "id": "bd472793-066c-5e08-b12f-3293d024f680",
+    "pack": "revenge-of-the-runelords",
+    "kind": "equipment",
+    "slug": "equipment:sihedron-medallion",
+    "name": "Sihedron Medallion",
+    "level": 5,
+    "rarity": "rare",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These amulets once served as tokens of loyalty between the runelords and their favored agents. Though they vary in appearance, they all share a common design—a leather or metallic cord attached to a metal disc inscribed with the seven-pointed star known as the Sihedron. For original "
+          },
+          {
+            "type": "text",
+            "text": "Sihedron medallions",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " created before Earthfall, a runelord of old Thassilon (not a character with the runelord archetype) doesn't reduce the DC of any "
+          },
+          {
+            "type": "ref",
+            "id": "d86cf275-4547-59c7-87b4-41d84f69e524"
+          },
+          {
+            "type": "text",
+            "text": " spell they cast against a creature that wears a "
+          },
+          {
+            "type": "text",
+            "text": "Sihedron medallion",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " even if they have never met the target or are unaware of the target's identity. If such a runelord successfully scries on a creature wearing an original "
+          },
+          {
+            "type": "text",
+            "text": "Sihedron medallion",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", they can use the wearer's voice to issue messages to those in the vicinity. "
+          },
+          {
+            "type": "text",
+            "text": "Sihedron medallions",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " created in more modern times don't possess this disadvantage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A dead body that wears a "
+          },
+          {
+            "type": "text",
+            "text": "Sihedron medallion",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " doesn't decay, and bugs or other pests (such as maggots) are prevented from consuming the remains, but unlike the effects of "
+          },
+          {
+            "type": "ref",
+            "id": "2d4c6edd-9059-52d9-b547-c7da47a9c1c5"
+          },
+          {
+            "type": "text",
+            "text": ", this doesn't offer any protection against undeath, nor does it have an impact on spells that require the corpse to have died within a certain amount of time."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Bolster Flesh",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your flesh is augmented with magical vitality. You gain 10 temporary Hit Points for 8 hours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "1c39bba6-2694-5829-b7ca-200c66787f78"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.TkSY6tUfnsgd8xC7"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 160
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "bolster-flesh",
+          "name": "Bolster Flesh",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "979b020d-c600-51a5-b3e1-9289fdc85bfb",
+    "pack": "revenge-of-the-runelords",
+    "kind": "equipment",
+    "slug": "equipment:sihedron-medallion-greater",
+    "name": "Sihedron Medallion (Greater)",
+    "level": 9,
+    "rarity": "rare",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These amulets once served as tokens of loyalty between the runelords and their favored agents. Though they vary in appearance, they all share a common design—a leather or metallic cord attached to a metal disc inscribed with the seven-pointed star known as the Sihedron. For original "
+          },
+          {
+            "type": "text",
+            "text": "Sihedron medallions",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " created before Earthfall, a runelord of old Thassilon (not a character with the runelord archetype) doesn't reduce the DC of any "
+          },
+          {
+            "type": "ref",
+            "id": "d86cf275-4547-59c7-87b4-41d84f69e524"
+          },
+          {
+            "type": "text",
+            "text": " spell they cast against a creature that wears a "
+          },
+          {
+            "type": "text",
+            "text": "Sihedron medallion",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " even if they have never met the target or are unaware of the target's identity. If such a runelord successfully scries on a creature wearing an original "
+          },
+          {
+            "type": "text",
+            "text": "Sihedron medallion",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", they can use the wearer's voice to issue messages to those in the vicinity. "
+          },
+          {
+            "type": "text",
+            "text": "Sihedron medallions",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " created in more modern times don't possess this disadvantage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A dead body that wears a "
+          },
+          {
+            "type": "text",
+            "text": "Sihedron medallion",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " doesn't decay, and bugs or other pests (such as maggots) are prevented from consuming the remains, but unlike the effects of "
+          },
+          {
+            "type": "ref",
+            "id": "2d4c6edd-9059-52d9-b547-c7da47a9c1c5"
+          },
+          {
+            "type": "text",
+            "text": ", this doesn't offer any protection against undeath, nor does it have an impact on spells that require the corpse to have died within a certain amount of time."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Bolster Flesh",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your flesh is augmented with magical vitality. You gain a +1 item bonus to saving throws and 16 temporary Hit Points for 8 hours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "1c39bba6-2694-5829-b7ca-200c66787f78"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.UfzRhqqph3CtTaKT"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 700
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "bolster-flesh",
+          "name": "Bolster Flesh",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "fa330987-27e5-5a6a-9032-316ffe66065a",
+    "pack": "revenge-of-the-runelords",
+    "kind": "equipment",
+    "slug": "equipment:sihedron-medallion-major",
+    "name": "Sihedron Medallion (Major)",
+    "level": 15,
+    "rarity": "rare",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These amulets once served as tokens of loyalty between the runelords and their favored agents. Though they vary in appearance, they all share a common design—a leather or metallic cord attached to a metal disc inscribed with the seven-pointed star known as the Sihedron. For original "
+          },
+          {
+            "type": "text",
+            "text": "Sihedron medallions",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " created before Earthfall, a runelord of old Thassilon (not a character with the runelord archetype) doesn't reduce the DC of any "
+          },
+          {
+            "type": "ref",
+            "id": "d86cf275-4547-59c7-87b4-41d84f69e524"
+          },
+          {
+            "type": "text",
+            "text": " spell they cast against a creature that wears a "
+          },
+          {
+            "type": "text",
+            "text": "Sihedron medallion",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " even if they have never met the target or are unaware of the target's identity. If such a runelord successfully scries on a creature wearing an original "
+          },
+          {
+            "type": "text",
+            "text": "Sihedron medallion",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", they can use the wearer's voice to issue messages to those in the vicinity. "
+          },
+          {
+            "type": "text",
+            "text": "Sihedron medallions",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " created in more modern times don't possess this disadvantage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A dead body that wears a "
+          },
+          {
+            "type": "text",
+            "text": "Sihedron medallion",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " doesn't decay, and bugs or other pests (such as maggots) are prevented from consuming the remains, but unlike the effects of "
+          },
+          {
+            "type": "ref",
+            "id": "2d4c6edd-9059-52d9-b547-c7da47a9c1c5"
+          },
+          {
+            "type": "text",
+            "text": ", this doesn't offer any protection against undeath, nor does it have an impact on spells that require the corpse to have died within a certain amount of time."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Bolster Flesh",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your flesh is augmented with magical vitality. You gain a +2 item bonus to saving throws and 25 temporary Hit Points for 8 hours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "1c39bba6-2694-5829-b7ca-200c66787f78"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.SBaAJjHhZfZTqbz5"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6500
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "bolster-flesh",
+          "name": "Bolster Flesh",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "069bb4e6-5912-503f-a6af-173edaeac59f",
+    "pack": "revenge-of-the-runelords",
+    "kind": "equipment",
+    "slug": "equipment:sihedron-ring",
+    "name": "Sihedron Ring",
+    "level": 6,
+    "rarity": "rare",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Though simple in appearance, Sihedron rings are among the most treasured tokens a runelord would bestow on an agent in times past. Like the more common Sihedron medallion, Sihedron rings created by the original runelords allow for easier scrying of and speaking through those who wear them; Sihedron rings created in modern times don't have this disadvantage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As long as it's invested, a Sihedron ring protects its wearer from environmental extremes, rendering them immune to severe cold and heat. The ring also grants a +1 status bonus to AC against attacks made during reactions."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Costume Change",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You change the shape and appearance of any armor or clothing you wear to appear as ordinary or fancy clothing or armor of your imagining. The actual statistics for what you're wearing doesn't change. Only a creature that's benefiting from truesight or a similar effect can attempt to disbelieve this illusion, with a DC of 20."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.gXxplAToptbrUS3D"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "c430c2e8-73e5-5b6d-b6d6-a9c0deda5fb4",
+    "pack": "revenge-of-the-runelords",
+    "kind": "equipment",
+    "slug": "equipment:sihedron-ring-greater",
+    "name": "Sihedron Ring (Greater)",
+    "level": 12,
+    "rarity": "rare",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Though simple in appearance, Sihedron rings are among the most treasured tokens a runelord would bestow on an agent in times past. Like the more common Sihedron medallion, Sihedron rings created by the original runelords allow for easier scrying of and speaking through those who wear them; Sihedron rings created in modern times don't have this disadvantage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As long as it's invested, a Sihedron ring protects its wearer from environmental extremes, rendering them immune to severe cold and heat. The ring also grants a +2 status bonus to AC against attacks made during reactions."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Costume Change",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You change the shape and appearance of any armor or clothing you wear to appear as ordinary or fancy clothing or armor of your imagining. The actual statistics for what you're wearing doesn't change. Only a creature that's benefiting from truesight or a similar effect can attempt to disbelieve this illusion, with a DC of 29."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.RnSXwckGSwOnHz7F"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2000
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "51dd3110-010c-5055-b2d7-28128555a853",
+    "pack": "revenge-of-the-runelords",
+    "kind": "equipment",
+    "slug": "equipment:spindle-key",
+    "name": "Spindle Key",
+    "level": 17,
+    "rarity": "rare",
+    "traits": ["mythic", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This foot-long, spindle-shaped puzzle box is made of otherworldly metal inlaid with a finely traced labyrinth pattern. By manipulating the key's length, the wider spindle can be caused to open, unfold, and move up and down along the shaft, often in ways that defy geometry."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Every spindle key is attuned to one of the prison-spires that float above the Oubliette Plains in the Dreamlands. As a 10-minute activity, a creature can solve a spindle key by attempting a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:occultism",
+            "dc": 37
+          },
+          {
+            "type": "text",
+            "text": " check. On a success, that PC can thereafter use both of the spindle key's activations. On a critical failure, the key's magic plays havoc with the creature's spatial awareness. The creature becomes "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": " for 24 hours (which can't be reduced by any means) and can't attempt to solve the spindle key again until the effect ends."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Align Spindle",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate, occult)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You rotate the sections of the spindle key into an arrangement of your liking. As you do, the corresponding steel separators between floors of Liralarue's Oubliette spin to match that arrangement. If a creature is within the ten-foot-space between floors at this time, they take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10d6",
+                "damageType": "bludgeoning"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 37,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save) from being crushed and are then pushed into one of the adjoining rooms at random as the rotation seals it up."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Breach",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate, occult)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You harness the key's occult geometry to bypass a lock within 30 feet. You attempt to Pick the Lock, using Occultism instead of Thievery for the check. You can spend a Mythic Point to attempt the check at mythic proficiency."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.GSVzDZFbnreVWGRD"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 14000
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "breach",
+          "name": "Breach",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "7ae5684a-1467-58ba-ad0b-c16086e6cb45",
+    "pack": "revenge-of-the-runelords",
+    "kind": "equipment",
+    "slug": "equipment:the-kardosian-fragments",
+    "name": "The Kardosian Fragments",
+    "level": 16,
+    "rarity": "rare",
+    "traits": ["arcane", "artifact"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In preparation for Earthfall, Runelord Zutha bound his soul to the "
+          },
+          {
+            "type": "text",
+            "text": "Gluttonous Tome",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "—an expansive work that contained the entirety of the runelord's knowledge. To ensure the tome survived the oncoming apocalypse, Zutha divided the book into three parts: the "
+          },
+          {
+            "type": "text",
+            "text": "Kardosian Codex",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", the "
+          },
+          {
+            "type": "text",
+            "text": "Black Book",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", and the "
+          },
+          {
+            "type": "text",
+            "text": "Bone Grimoire",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". Heroes used the "
+          },
+          {
+            "type": "text",
+            "text": "Bone Grimoire",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " on the risen isle of Xin 7 years ago to finally defeat Zutha, and in doing so, triggered the destruction of the three parts of the "
+          },
+          {
+            "type": "text",
+            "text": "Gluttonous Tome",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Over the centuries, copies of portions of each book have been made, but these copies lacked any of the original artifacts' powers. One such copy, though, now lies under lock and key in Korvosa's Acadamae: the "
+          },
+          {
+            "type": "text",
+            "text": "Kardosian Fragments",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". Originally an incomplete copy of the "
+          },
+          {
+            "type": "text",
+            "text": "Kardosian Codex",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", some time after Zutha's defeat, fragments of the destroyed original ended up the property of the Acadamae, and industrious wizardly professors painstakingly restored what they could, pasting these fragments into their incomplete copy of the book. The result is the "
+          },
+          {
+            "type": "text",
+            "text": "Kardosian Fragments",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", a potent item that, while only a shadow of the power of the original, remains as dangerous as it is useful."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The "
+          },
+          {
+            "type": "text",
+            "text": "Kardosian Fragments",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " isn't a spellbook, but it does contain extensive notes on several spells that can be referenced to Learn a Spell. When used in this way, the cost of learning the spell is ignored, as the fragments themselves fulfill this need through remnants of arcane magic that still linger within. The spells that can be learned include "
+          },
+          {
+            "type": "ref",
+            "id": "18377ab1-5227-575a-9895-fa1920850f0d"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "5acfec50-394e-5699-9d71-1b03aa194da5"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "d67d6680-3ff4-55d5-87da-65012569387d"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "b346ac8d-e3aa-5131-af4a-9cbae1f72ff8"
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "ref",
+            "id": "2a6f1cc9-99b9-5354-a4d0-56e69c15ff17"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the "
+          },
+          {
+            "type": "text",
+            "text": "Kardosian Fragments",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " are referenced as part of any attempt to "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": " on subjects associated with its contents, it grants a +3 item bonus to the skill check."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Embrace the Void",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are not currently "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If your next action this round is to Cast a Spell that has the void trait and you're holding the "
+          },
+          {
+            "type": "text",
+            "text": "Kardosian Fragments",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you gain a number of temporary Hit Points equal to your level × 3. These temporary Hit Points last for 1 hour. When the temporary Hit Points are gone, you become "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 1"
+          },
+          {
+            "type": "text",
+            "text": " if you aren't undead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "0643b599-1b63-597d-ae40-cd73868ecc73"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Destruction",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The text in the "
+          },
+          {
+            "type": "text",
+            "text": "Kardosian Fragments",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " fades away and the book itself becomes a nonmagical tome if an arcane spellcaster of at least 17th level and who follows the envy or lust schools of Thassilonian rune magic spends a year painstakingly refuting, redacting, and revising the contents of this book."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "item",
+        "value": 3,
+        "predicate": ["action:recall-knowledge", "option:the-kardosian-fragments"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.dP5OmTGy0NJl4a1D"
+    },
+    "data": {
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "embrace-the-void",
+          "name": "Embrace the Void",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

@@ -1,0 +1,464 @@
+[
+  {
+    "id": "99b600db-ee27-592f-bb2a-513a89708954",
+    "pack": "hells-destiny",
+    "kind": "background",
+    "slug": "background:anti-thrune-saboteur",
+    "name": "Anti-Thrune Saboteur",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "House Thrune has cast its tyrannical shadow over Cheliax for over 80 years, and you long to topple the dynasty and free southwest Avistan from its grip. You might be a spy for Andoran or another active combatant in the ongoing war, or perhaps you're a rebellious soul who grew up under Thrune's thumb and dreams of a better future. Whatever the case, you're a versed saboteur ready to destroy Cheliax's armies from behind enemy lines."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Dexterity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in either Deception or Thievery, as well as either the Cheliax Lore or Engineering Lore skill. If you chose Deception, you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "01050454-6c64-5943-a636-4934e12b479d"
+          },
+          {
+            "type": "text",
+            "text": " skill feat. If you chose Thievery, you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "88af3edf-2b57-5a2f-9a0d-4e7f540fc2ef"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": {
+          "choice": "skill",
+          "prefix": "skill"
+        },
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.0tVUXurNRQEyXKfs"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "dex"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "1e19e3a8-d030-507f-bbb3-253e141a7afc",
+    "pack": "hells-destiny",
+    "kind": "background",
+    "slug": "background:defiant-noble",
+    "name": "Defiant Noble",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Any Chelaxian aristocrat is trained to acknowledge House Thrune's power and sing its praises, lest their entire dynasty be devastated and absorbed by a stronger house. You grew up among the Cheliax's upper crust and learned to play its game, all the while harboring secret dreams of reform—if not outright rebellion. The ongoing war would be an opportunity to win glory and accolades on the battlefield in Thrune's name. But while others are distracted, you'd rather undermine your rivals, aid the secessionist ambitions of Cheliax's vassals, or even overthrow House Thrune itself! At least outwardly, your family will denounce your action, even if they might silently pray for your success."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Strength",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Society skill and either the Cheliax Lore or Legal Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "6da557f7-550b-5b33-890f-47f75d6e5650"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:society",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "6da557f7-550b-5b33-890f-47f75d6e5650"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.wxtkVuSuMEbgJjwD"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "str"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "74a06c00-eece-5906-8516-b7fe97bef6c3",
+    "pack": "hells-destiny",
+    "kind": "background",
+    "slug": "background:embargo-survivor",
+    "name": "Embargo Survivor",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Soon after the outbreak of war, Cheliax sealed one of its greatest chokepoints: the Arch of Aroden, which spans the lone western entrance to the Inner Sea. A Chelaxian armada guards the strait and has prohibited nearly all traffic into or out of the nearby port of Corentyn. You might be a longtime Corentyn resident versed in shipping or a traveler whose ship became trapped by the sudden embargo, trapping you in the city. Whatever the case, you've had to learn quickly how to survive under martial law in an increasingly claustrophobic city with dwindling supplies and desperate civilians looking to you for leadership."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Constitution",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in Survival and either the Sailing Lore or Warfare Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "05792f63-a0f3-5cae-8ded-e85d281c594e"
+          },
+          {
+            "type": "text",
+            "text": " action."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "05792f63-a0f3-5cae-8ded-e85d281c594e"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:survival",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.r4yOHXixQjgmmTcf"
+    },
+    "data": {
+      "boosts": [
+        ["con", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "99879d67-5732-5a3c-862e-6e839d0980d4",
+    "pack": "hells-destiny",
+    "kind": "background",
+    "slug": "background:hell-hunted",
+    "name": "Hell-Hunted",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Cheliax's vengeance and Hellknights' reach aren't limited to southern Avistan. Whether you committed a grievous crime or have been targeted for disproportionate justice for a minor wrong, you're in a tyrant's crosshairs and have been on the run from the law. You might not have made it beyond Corentyn before realizing you'd never make it past the naval blockade alone. Perhaps you have trekked across continents while being hounded by Hellknights, and you've determined that the only way to end this twisted game is to confront Cheliax and the Hellknights on their own turf. Whatever the case, your ordeal has left you toughened and wise to infernal tactics."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Dexterity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Constitution",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in Stealth and either the Devil Lore skill or Hellknight Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "64a7812f-3d66-543f-92ba-09b830326f80"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:stealth",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "64a7812f-3d66-543f-92ba-09b830326f80"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.lMVykHrbaxmB3Qc7"
+    },
+    "data": {
+      "boosts": [
+        ["con", "dex"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "64184117-8055-5549-9472-b83aea2bfa42",
+    "pack": "hells-destiny",
+    "kind": "background",
+    "slug": "background:scholar-of-battlefields",
+    "name": "Scholar of Battlefields",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Though you probably don't revel in the violence of war, you are fascinated by battlefield tactics and regional conflicts' effects on history. Perhaps you traveled to Cheliax to study its strategies, document its logistical innovations, and chronicle events. You might instead be an enterprising mercenary looking to sell your services in the conflict. No matter your original intentions, you've become mired in Corentyn's martial law, and the more that Cheliax harms its own citizens to maintain wartime compliance, the more eager you've become to aid its enemies."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Strength",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in Athletics and the Warfare Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "171ace5b-c247-5ac6-9b81-da731985e8c3"
+          },
+          {
+            "type": "text",
+            "text": " action."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "171ace5b-c247-5ac6-9b81-da731985e8c3"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:athletics",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:warfare",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.JQA9r8xvcim0qUA0"
+    },
+    "data": {
+      "boosts": [
+        ["int", "str"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  }
+]

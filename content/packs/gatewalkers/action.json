@@ -1,0 +1,386 @@
+[
+  {
+    "id": "d8706c70-e24c-5664-acd3-767553e6a09a",
+    "pack": "gatewalkers",
+    "kind": "action",
+    "slug": "action:blackfrost-dead-blackfrost",
+    "name": "(Blackfrost Dead) Blackfrost",
+    "rarity": "common",
+    "traits": ["cold", "curse", "disease", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This affliction can't be reduced below stage 1, nor the damage from it healed, until successfully treated with "
+          },
+          {
+            "type": "ref",
+            "id": "9495e90b-a69c-5eaf-a472-b6b536856f28"
+          },
+          {
+            "type": "text",
+            "text": " or a similar effect; the affliction can then be removed as a normal disease. A creature that dies from cold damage while cursed with blackfrost rises as a blackfrost dead after 24 hours. Blackfrost has a counteract rank of 10."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Saving Throw",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 27
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "cold"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (1 minute)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " weakness to cold 5 and "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 1"
+          },
+          {
+            "type": "text",
+            "text": " (1 day)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 3",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " weakness to cold 10 and "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 2"
+          },
+          {
+            "type": "text",
+            "text": " (1 day)"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.kLQ0eq18SvKEvggc"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "c26dcd18-c9a6-51cd-b810-a0c33c01bc47",
+    "pack": "gatewalkers",
+    "kind": "action",
+    "slug": "action:blackfrost-dead-blackfrost-breath",
+    "name": "(Blackfrost Dead) Blackfrost Breath",
+    "rarity": "common",
+    "traits": ["occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The blackfrost dead gasps sharply, then exhales a mist of dark-blue blackfrost particles in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 5
+          },
+          {
+            "type": "text",
+            "text": ". All creatures within the mist become "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": ", and all creatures outside the mist become concealed to creatures within it. The mist persists for 1 minute. A creature that ends its turn in the mist is exposed to blackfrost. The blackfrost dead can't use Blackfrost Breath again for 1d4 rounds."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.ydrDZ7lqioLPWRlB"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "98fca967-e8d7-5889-9a74-e0a7f5d13c7b",
+    "pack": "gatewalkers",
+    "kind": "action",
+    "slug": "action:blackfrost-dead-ice-climb",
+    "name": "(Blackfrost Dead) Ice Climb",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The blackfrost dead can climb on ice as though it had the listed climb Speed. It ignores difficult terrain and greater difficult terrain from ice and snow and doesn't risk falling when crossing ice."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.yR9VLXIjJ2iOX77z"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "08c22f13-95c1-5d66-b522-c5c1d4f54561",
+    "pack": "gatewalkers",
+    "kind": "action",
+    "slug": "action:blackfrost-dead-shattering-death",
+    "name": "(Blackfrost Dead) Shattering Death",
+    "rarity": "common",
+    "traits": ["cold"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When the blackfrost dead is destroyed, its body shatters like brittle ice, filling the air around it with a cloud of frigid, razor-sharp ice shards. Creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": " take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d8",
+                "damageType": "cold"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " per level of the blackfrost dead (minimum 3d8), with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "basic": true,
+            "options": ["inflicts:bleed"]
+          },
+          {
+            "type": "text",
+            "text": " save. Creatures that critically fail this save also take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "bleed"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.v14HanKkdPGQd7Km"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "8be3a5f9-a00f-5039-8599-55c5af1b3ce9",
+    "pack": "gatewalkers",
+    "kind": "action",
+    "slug": "action:spiritual-aid",
+    "name": "Spiritual Aid",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail a Reflex or Will saving throw"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You reroll the triggering saving throw. You must use the second result, even if it's worse. If you roll a success, you get a critical success instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:spiritual-aid",
+        "toggleable": true
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["save:reflex"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "predicate": ["option:spiritual-aid"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["save:will"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "predicate": ["option:spiritual-aid"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.GmqHs4NEhAjqyAze"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "offensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You fail a Reflex or Will saving throw"
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

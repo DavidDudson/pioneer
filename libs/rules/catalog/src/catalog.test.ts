@@ -33,6 +33,14 @@ const rivalAcademies = PackId.parse('rival-academies');
 const shiningKingdoms = PackId.parse('shining-kingdoms');
 const draconicCodex = PackId.parse('draconic-codex');
 const hellbreakers = PackId.parse('hellbreakers');
+const gatewalkers = PackId.parse('gatewalkers');
+const mythSpeakers = PackId.parse('myth-speakers');
+const revengeOfTheRunelords = PackId.parse('revenge-of-the-runelords');
+const secretsOfTheUnlitStar = PackId.parse('secrets-of-the-unlit-star');
+const troublesInGrayce = PackId.parse('troubles-in-grayce');
+const hellsDestiny = PackId.parse('hells-destiny');
+const bastionOfBlasphemies = PackId.parse('bastion-of-blasphemies');
+const theDeadGodsHand = PackId.parse('the-dead-gods-hand');
 const hellfireDispatches = PackId.parse('hellfire-dispatches');
 const highSeas = PackId.parse('high-seas');
 const seasonOfGhosts = PackId.parse('season-of-ghosts');
@@ -51,6 +59,7 @@ describe('content catalog', () => {
     const registry = new ContentRegistry();
     await Promise.all(contentCatalog.map(async (loader) => registry.load(loader)));
     expect(registry.packs.map((pack) => pack.id).toSorted()).toStrictEqual([
+      bastionOfBlasphemies,
       battlecry,
       characterGuide,
       chelaxInfernalInheritance,
@@ -58,25 +67,32 @@ describe('content catalog', () => {
       darkArchiveRemastered,
       divineMysteries,
       draconicCodex,
+      gatewalkers,
       gmCore,
       gunsAndGears,
       hellbreakers,
       hellfireDispatches,
+      hellsDestiny,
       highSeas,
       howlOfTheWild,
       impossibleLands,
       impossibleMagic,
       monsterCore,
       mwangiExpanse,
+      mythSpeakers,
       playerCore,
       playerCore2,
       rageOfElements,
+      revengeOfTheRunelords,
       rivalAcademies,
       seasonOfGhosts,
       secretsOfMagic,
+      secretsOfTheUnlitStar,
       shiningKingdoms,
+      theDeadGodsHand,
       tianXiaCharacterGuide,
       treasureVault,
+      troublesInGrayce,
       warOfImmortals,
     ]);
     const human = registry.ancestry(humanId);

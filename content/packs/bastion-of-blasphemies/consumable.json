@@ -1,0 +1,257 @@
+[
+  {
+    "id": "f999573c-a0da-5eaa-a917-cd80e50a68fd",
+    "pack": "bastion-of-blasphemies",
+    "kind": "consumable",
+    "slug": "consumable:bonebloom-rose",
+    "name": "Bonebloom Rose",
+    "level": 12,
+    "rarity": "rare",
+    "traits": ["consumable", "divine", "healing", "plant"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "bonebloom rose",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " appears as a blue-petaled rose, often found growing within the ribs of a skeleton buried in a grave under Pharasma's protection. These consumable items can also be crafted as any other item. When you activate a "
+          },
+          {
+            "type": "text",
+            "text": "bonebloom rose",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you inhale deeply from its petals while squeezing the stem hard enough that its thorns painfully (but otherwise harmlessly) pierce your flesh. The rose then withers and crumbles to dust, and you gain 40 temporary Hit Points for 1 hour. As long as you have at least 1 of these temporary Hit Points remaining (and they haven't been replaced by temporary Hit Points from a different source), your Strikes deal an additional 2 spirit damage to undead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "05fcd525-c660-54c6-b30a-a9736814af37"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.53dn4PNE8muEC8Ep"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 300
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "f727c03b-23b5-5ce2-9459-c1bb89219284",
+    "pack": "bastion-of-blasphemies",
+    "kind": "consumable",
+    "slug": "consumable:poets-fritter-greater",
+    "name": "Poet's Fritter (Greater)",
+    "level": 15,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "processed"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The flavor of the cinnamon apple pastry called a poet's fritter is more than delicious—it inspires the tongue to great acts of spoken eloquence. When eaten, a poet's fritter not only bolsters your knack at telling stories and entertaining with your voice, it also fills your thoughts with the ability to swiftly and adroitly defend your mind from unpleasant mental agonies. For 1 hour, you gain a +3 item bonus to Deception checks to Lie and to Performance checks made for vocal-based performances, and resistance 15 against mental damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "673b5f96-0baf-5b1e-b60f-779ee5dd8abc"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.CNkugF5infTbBDsF"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1200
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "8772c44d-7c6d-59f0-97ac-6db998902a12",
+    "pack": "bastion-of-blasphemies",
+    "kind": "consumable",
+    "slug": "consumable:poets-fritter-lesser",
+    "name": "Poet's Fritter (Lesser)",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "processed"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The flavor of the cinnamon apple pastry called a poet's fritter is more than delicious—it inspires the tongue to great acts of spoken eloquence. When eaten, a poet's fritter not only bolsters your knack at telling stories and entertaining with your voice, it also fills your thoughts with the ability to swiftly and adroitly defend your mind from unpleasant mental agonies. For 1 hour, you gain a +1 item bonus to Deception checks to Lie and to Performance checks made for vocal-based performances, and resistance 5 against mental damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "673b5f96-0baf-5b1e-b60f-779ee5dd8abc"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.QXW6txYvNIlQK0qE"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 65
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "8060be7b-c59f-5b51-bdc5-44c3ce3e6336",
+    "pack": "bastion-of-blasphemies",
+    "kind": "consumable",
+    "slug": "consumable:poets-fritter-moderate",
+    "name": "Poet's Fritter (Moderate)",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "processed"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The flavor of the cinnamon apple pastry called a poet's fritter is more than delicious—it inspires the tongue to great acts of spoken eloquence. When eaten, a poet's fritter not only bolsters your knack at telling stories and entertaining with your voice, it also fills your thoughts with the ability to swiftly and adroitly defend your mind from unpleasant mental agonies. For 1 hour, you gain a +2 item bonus to Deception checks to Lie and to Performance checks made for vocal-based performances, and resistance 10 against mental damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "673b5f96-0baf-5b1e-b60f-779ee5dd8abc"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.iWiKC10ojE0fiykT"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 275
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

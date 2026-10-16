@@ -1,0 +1,495 @@
+[
+  {
+    "id": "59c06e2b-ef0d-5778-848b-fb465733d55e",
+    "pack": "myth-speakers",
+    "kind": "action",
+    "slug": "action:brandish-the-gorgons-gaze",
+    "name": "Brandish the Gorgon's Gaze",
+    "rarity": "common",
+    "traits": ["earth", "transcendence", "visual"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You Raise your "
+          },
+          {
+            "type": "ref",
+            "id": "6304f0b8-2e47-5e8d-a5bb-a3b3d4caaf18"
+          },
+          {
+            "type": "text",
+            "text": ", though it seems to lose some of its usual luster in favor of the dull sheen of stone. If you "
+          },
+          {
+            "type": "ref",
+            "id": "4333cbb5-7f4c-5c8e-bbad-afa6b6f2043b"
+          },
+          {
+            "type": "text",
+            "text": " a melee attack with the mirrored aegis before the beginning of your next turn, the gorgon's eyes upon it flash at the triggering creature, who must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": {
+              "against": "class-dc"
+            },
+            "options": ["inflicts:slowed"]
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC. On a failure, they are "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute as their body partially petrifies. Regardless of the outcome, that creature is temporarily immune to this effect for 24 hours."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.5VbPhxZYfagIqE1z"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "26151845-7145-5379-b2dc-93985324e6c2",
+    "pack": "myth-speakers",
+    "kind": "action",
+    "slug": "action:makes-me-stronger",
+    "name": "Makes Me Stronger",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take damage from your heroic weakness and are not reduced to fewer than 1 Hit Point by the damage"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You make a show of powering through your weakness, be it by flexing your muscles, issuing a challenging roar, laughing off the pain, or simply acting as if the damage doesn't worry you in the slightest. Your spells gain a status bonus to damage against the triggering creature equal to twice their rank; this lasts until the next time you use this reaction. In addition, the creature that damaged you with your heroic weakness must attempt a Will save against your class or spellcasting DC, whichever is higher, to avoid becoming "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 1"
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 2"
+          },
+          {
+            "type": "text",
+            "text": " on a critical failure)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.k3Dbgb8iS73atDqB"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You take damage from your heroic weakness and are not reduced to fewer than 1 Hit Point by the damage"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "9af0ef5d-db0e-50b7-9268-c185e544e0f0",
+    "pack": "myth-speakers",
+    "kind": "action",
+    "slug": "action:my-legend-must-be-told",
+    "name": "My Legend Must Be Told",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your "
+          },
+          {
+            "type": "ref",
+            "id": "c0cd649a-7029-5174-a5b4-678f51598dec"
+          },
+          {
+            "type": "text",
+            "text": " value would reach an amount sufficient to kill you (typically 4)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You instead stabilize and increase your "
+          },
+          {
+            "type": "ref",
+            "id": "cd164d22-2d8e-5fd2-b8b2-03e1360df1e7"
+          },
+          {
+            "type": "text",
+            "text": " value by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.T8ZnkumXGAbqsOqt"
+    },
+    "data": {
+      "cost": "free",
+      "category": "offensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your Dying value would reach an amount sufficient to kill you (typically 4)"
+            }
+          ]
+        }
+      ],
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
+    }
+  },
+  {
+    "id": "a4b66521-f6de-55c0-a5fe-8f04ccc2c694",
+    "pack": "myth-speakers",
+    "kind": "action",
+    "slug": "action:mythic-echo",
+    "name": "Mythic Echo",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per game session"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You would fail or critically fail an attack, check, or saving throw to which you apply mythic proficiency"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You regain 1 Mythic Point."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.wdLdqMu0S90Kc7gj"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "offensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You would fail or critically fail an attack, check, or saving throw to which you apply mythic proficiency"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "e3eb2ecd-ec64-507b-9a61-70d3a869e655",
+    "pack": "myth-speakers",
+    "kind": "action",
+    "slug": "action:tangle-in-riddle",
+    "name": "Tangle in Riddle",
+    "rarity": "common",
+    "traits": ["auditory", "mental", "transcendence"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You speak a bizarre koan that transcends language and is understood by only one creature within 30 feet. The target must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "class-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC. It's then immune to this ability for 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is stupefied 1 for 1d4 rounds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is stupefied 1 and "
+          },
+          {
+            "type": "ref",
+            "id": "6f53a234-670f-5b02-a986-7cce57585fc8"
+          },
+          {
+            "type": "text",
+            "text": " for 1d4 rounds."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.cGCQkCz14sF238gE"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "57abe990-6fd6-5c86-878a-7a7d545c5b2e",
+    "pack": "myth-speakers",
+    "kind": "action",
+    "slug": "action:unravel-the-future",
+    "name": "Unravel the Future",
+    "rarity": "common",
+    "traits": ["fortune", "transcendence"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You pluck a single thread from your ikon, which ties itself in three loops about your wrist, where it remains for the next minute. If you fail an attack roll or skill check, and a +1 status bonus would change your failure into a success or your success into a critical success, you gain a +1 status bonus to this check retroactively, changing the outcome appropriately as the thread pulls you to the future you desire. The thread then falls from your wrist. You can have only one thread in existence at a time."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.TIIM35m8aDUEU4gF"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  }
+]
