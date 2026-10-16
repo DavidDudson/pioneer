@@ -20,6 +20,7 @@ function toBugReport(row: BugReportRow): BugReport {
     description: row.description,
     steps: row.steps,
     characterId: row.characterId ?? undefined,
+    snapshot: row.snapshot ?? undefined,
     status: row.status,
   };
 }

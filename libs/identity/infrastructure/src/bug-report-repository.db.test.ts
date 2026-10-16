@@ -1,7 +1,7 @@
 import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
 
 import { BugReportId, BugReportStatus, BugReportSubmission, DisplayName, UserId } from '@pioneer/identity/domain';
-import type { BugReport } from '@pioneer/identity/domain';
+import type { BugReport, CharacterSnapshot } from '@pioneer/identity/domain';
 import { newId, Temporal } from '@pioneer/shared/kernel';
 import type { Uuid } from '@pioneer/shared/kernel';
 import { rejection } from '@pioneer/shared/kernel/testing';
@@ -25,13 +25,21 @@ const SUBMISSION = BugReportSubmission.parse({
   steps: 'Open the sheet',
 });
 
-function reportBy(reporter: UserId, createdAt: Temporal.Instant, characterId?: Uuid): BugReport {
+/** What a test report varies: who filed it, when, and the character it names and carries. */
+interface Filed {
+  readonly characterId?: Uuid;
+  readonly snapshot?: CharacterSnapshot;
+}
+
+function reportBy(reporter: UserId, createdAt: Temporal.Instant, { characterId, snapshot }: Filed = {}): BugReport {
+  const { shareCharacter: _ignored, ...details } = SUBMISSION;
   return {
-    ...SUBMISSION,
+    ...details,
     id: BugReportId.parse(newId()),
     reporter,
     createdAt,
     characterId,
+    snapshot,
     status: BugReportStatus.Open,
   };
 }
@@ -45,7 +53,13 @@ describe.skipIf(adminUrl === undefined)('DrizzleBugReportRepository (postgres)',
     const id = UserId.parse(newId());
     const at = NOW.toString();
     const displayName = DisplayName.parse('Amiri');
-    await database.db.insert(users).values({ id, displayName, emailVerified: false, createdAt: at, updatedAt: at });
+    await database.db.insert(users).values({
+      id,
+      displayName,
+      emailVerified: false,
+      createdAt: at,
+      updatedAt: at,
+    });
     return id;
   }
 
@@ -59,7 +73,7 @@ describe.skipIf(adminUrl === undefined)('DrizzleBugReportRepository (postgres)',
   });
 
   test('a stored report reads back unchanged', async () => {
-    const stored = reportBy(await newUser(), NOW, newId());
+    const stored = reportBy(await newUser(), NOW, { characterId: newId() });
     await repository.insert(stored);
     expect(await repository.findById(stored.id)).toStrictEqual(stored);
   });
@@ -69,6 +83,27 @@ describe.skipIf(adminUrl === undefined)('DrizzleBugReportRepository (postgres)',
     await repository.insert(stored);
     const found = await repository.findById(stored.id);
     expect(found?.characterId).toBeUndefined();
+  });
+
+  test('a shared character snapshot reads back as the document that was stored', async () => {
+    const snapshot = {
+      format: 'pioneer-character',
+      formatVersion: 1,
+      character: { name: 'Amiri', level: 3 },
+    };
+    const stored = reportBy(await newUser(), NOW, {
+      characterId: newId(),
+      snapshot,
+    });
+    await repository.insert(stored);
+    expect(await repository.findById(stored.id)).toStrictEqual(stored);
+  });
+
+  test('a report without a snapshot reads back without one', async () => {
+    const stored = reportBy(await newUser(), NOW, { characterId: newId() });
+    await repository.insert(stored);
+    const found = await repository.findById(stored.id);
+    expect(found?.snapshot).toBeUndefined();
   });
 
   test('an unknown report is not found', async () => {

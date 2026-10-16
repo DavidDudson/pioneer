@@ -58,7 +58,9 @@
     "title": "Report a bug",
     "description": "Tell us what went wrong. We read the page you came from, your language and your browser along with it.",
     "attachedHeading": "Character attached",
-    "attached": "{{ name }} goes with this report as it is now, so we can see what you saw.",
+    "attached": "A copy of {{ name }} as it is now goes to the maintainers with this report, so we can see what you saw. Changing the character afterwards does not change the copy.",
+    "shareLabel": "Share {{ name }} with the maintainers",
+    "shareHint": "Untick to send the report without the character.",
     "descriptionLabel": "What went wrong?",
     "descriptionHint": "What you expected, and what happened instead.",
     "stepsLabel": "Steps to see it",
@@ -67,6 +69,7 @@
     "sending": "Sending",
     "sentLabel": "Sent",
     "sent": "Thanks. Your report was sent.",
+    "sentWithoutCharacter": "Thanks. Your report was sent, but without the character: it could not be copied.",
     "failed": "Could not send your report. Nothing was lost; try again.",
     "tooMany": "You have sent a lot of reports this hour. Try again later."
   }

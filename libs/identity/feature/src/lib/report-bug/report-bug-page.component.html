@@ -8,6 +8,11 @@
               'identity.reportBug.attachedHeading' | transloco
             }}</fr-heading>
             <fr-text>{{ 'identity.reportBug.attached' | transloco: { name: attached.name } }}</fr-text>
+            <fr-toggle-button-field
+              [label]="'identity.reportBug.shareLabel' | transloco: { name: attached.name }"
+              [hint]="'identity.reportBug.shareHint' | transloco"
+              [formField]="form.shareCharacter"
+            />
           </fr-stack>
         }
         <fr-text-area-field
@@ -24,7 +29,13 @@
         />
         <fr-stack direction="horizontal" justify="end" align="center" gap="sm">
           @if (sent()) {
-            <fr-message [tone]="successTone">{{ 'identity.reportBug.sent' | transloco }}</fr-message>
+            <fr-message [tone]="successTone">
+              @if (sentWithoutCharacter()) {
+                {{ 'identity.reportBug.sentWithoutCharacter' | transloco }}
+              } @else {
+                {{ 'identity.reportBug.sent' | transloco }}
+              }
+            </fr-message>
           }
           <fr-async-button
             type="submit"

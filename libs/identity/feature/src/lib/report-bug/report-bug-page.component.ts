@@ -14,6 +14,7 @@ import {
   Surface,
   Text,
   TextAreaField,
+  ToggleButtonField,
 } from '@pioneer/frontier';
 import { BugReporter } from '@pioneer/identity/data-access';
 import { BugReportParam, HttpStatus, Uuid } from '@pioneer/shared/kernel';
@@ -24,9 +25,15 @@ import { ReportBugForm } from './report-bug-form';
 interface ReportModel {
   readonly description: string;
   readonly steps: string;
+  readonly shareCharacter: boolean;
 }
 
-const EMPTY_REPORT: ReportModel = { description: '', steps: '' };
+/** Sharing starts ticked: the maintainers can only see what the reporter saw if the character comes along. */
+const EMPTY_REPORT: ReportModel = {
+  description: '',
+  steps: '',
+  shareCharacter: true,
+};
 
 /** The character a sheet attached, as the page shows it before submit. */
 interface AttachedCharacter {
@@ -36,8 +43,9 @@ interface AttachedCharacter {
 
 /**
  * Report a bug: what went wrong and the steps to see it. Opened from the account menu, or from a
- * character sheet, which attaches the character by name so the reporter sees what goes with the
- * report. Confirmation stays on the page, beside the form. The route, locale, build and browser are
+ * character sheet, which attaches the character by name. The reporter can untick sharing it; if it
+ * is shared, the server copies it as it is when the report is sent (and the page says so when it
+ * could not). Confirmation stays on the page, beside the form. The route, locale, build and browser are
  * read from the app, not asked for.
  */
 @Component({
@@ -53,6 +61,7 @@ interface AttachedCharacter {
     Surface,
     Text,
     TextAreaField,
+    ToggleButtonField,
     TranslocoPipe,
   ],
   templateUrl: './report-bug-page.component.html',
@@ -67,6 +76,8 @@ export class ReportBugPage {
 
   protected readonly successTone = MessageTone.Success;
   protected readonly sent = signal(false);
+  /** Set when the reporter asked to share the character and the server could not copy it. */
+  protected readonly sentWithoutCharacter = signal(false);
 
   /** The character from the sheet that linked here, if it sent a usable id. */
   protected readonly character = computed((): AttachedCharacter | undefined => {
@@ -83,8 +94,15 @@ export class ReportBugPage {
 
   protected readonly send = async (value: ReportModel): Promise<void> => {
     this.sent.set(false);
-    const report = ReportBugForm.parse(value);
-    await this.#reporter.submit({ ...report, characterId: this.character()?.id });
+    const { shareCharacter, ...report } = ReportBugForm.parse(value);
+    const characterId = this.character()?.id;
+    const wanted = characterId !== undefined && shareCharacter;
+    const receipt = await this.#reporter.submit({
+      ...report,
+      characterId,
+      shareCharacter: wanted,
+    });
+    this.sentWithoutCharacter.set(wanted && !receipt.snapshotTaken);
     this.sent.set(true);
     // The form starts over, so a second tap can't file the same report twice.
     this.form().reset(EMPTY_REPORT);
