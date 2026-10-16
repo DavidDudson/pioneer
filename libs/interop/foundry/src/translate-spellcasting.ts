@@ -3,6 +3,7 @@ import { RuleElementKey } from '@pioneer/rules/sdk';
 import { addRule, KindDataGapReason, report } from './kind-data-gaps';
 import type { KindInput } from './kind-data-gaps';
 import { focusSpellRules } from './translate-focus-spells';
+import { innateSpellRules } from './translate-innate-spells';
 import { poolSpellRules } from './translate-pool-spells';
 import { repertoireSpellRules } from './translate-repertoire-spells';
 import { SPELL_SLOTS } from './translate-spell-slots';
@@ -149,7 +150,7 @@ const UNKNOWN_TRADITION: ReadonlySet<string> = new Set([
 const FIELD = 'spellcasting';
 
 /**
- * Adds the spellcasting entry, rank raises, spell slots, pool spells and focus spells the entry gains, if any, to its
+ * Adds the spellcasting entry, rank raises, spell slots, pool spells, focus spells and innate spells the entry gains, if any, to its
  * rules.
  */
 export function spellcastingRules(input: KindInput): void {
@@ -159,6 +160,7 @@ export function spellcastingRules(input: KindInput): void {
     ...(SPELL_SLOTS.get(slug) ?? []),
     ...poolSpellRules(slug, pack),
     ...focusSpellRules(slug, pack),
+    ...innateSpellRules(slug),
     ...repertoireSpellRules(input),
   ];
   for (const element of elements) {

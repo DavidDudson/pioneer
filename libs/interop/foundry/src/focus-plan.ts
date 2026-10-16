@@ -54,7 +54,7 @@ export function isGrant(element: object | Grant): element is Grant {
 }
 
 /** A spell's id: `<slug>` in `pack`, or `<book>/<slug>` for a spell another book prints. */
-function spellId(pack: PackId, spell: string): string {
+export function spellId(pack: PackId, spell: string): string {
   const [book, slug] = spell.includes('/') ? spell.split('/') : [pack, spell];
   return contentId(PackId.parse(book), EntrySlug.parse(`spell:${slug}`));
 }
