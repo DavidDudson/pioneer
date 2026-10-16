@@ -10,7 +10,7 @@ import { ActionCount, AttackCount, QuickenedAction, TurnPhase } from './turn-sta
 import type { TurnState } from './turn-state';
 
 /** The action every test spend is of. */
-const ACTION = ContentId.parse('00000000-0000-4000-8000-000000000001');
+export const ACTION = ContentId.parse('00000000-0000-4000-8000-000000000001');
 
 /** Which spend of a test it is, from 1; it makes the spend's id. */
 export const Serial = Pg.smallint().min(1).brand<'Serial'>();

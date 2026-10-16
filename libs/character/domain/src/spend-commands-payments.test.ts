@@ -7,9 +7,10 @@ import type { CountedMaxima } from './counted-resources';
 import { InventoryItemId } from './inventory';
 import { applyPlayCommand, PlayCommandField } from './play-state';
 import type { PlayCommand, PlayLimits, PlayState } from './play-state';
+import { Resource } from './resources';
 import { ResourceCount } from './resource-count';
 import { spendRefusal, spentStaffOf } from './spend-commands';
-import { SpendProblem } from './spend-log';
+import { SpendCommandField, SpendProblem } from './spend-log';
 import type { SpendCommand } from './spend-log';
 import { ACTION, actions, OWN_TURN, playIn, Serial, spendId, spendOf, turnOf } from './spend-log-testing';
 import { StaffCommandField } from './staff-commands';
@@ -78,8 +79,8 @@ describe('a spend that records a staff cast', () => {
   });
 
   test('refuses a staff cast that also expends a slot or a Focus Point, so it never pays twice', () => {
-    const limits = { counted: staffLimits.counted, points: { 'focus-points': ONE } };
-    const twice = { ...cast, field: PlayCommandField.SpendAction } as SpendCommand;
+    const limits = { counted: staffLimits.counted, points: { [Resource.HeroPoints]: ONE, [Resource.FocusPoints]: ONE } };
+    const twice: SpendCommand = { ...cast, field: SpendCommandField.SpendAction };
     expect(spendRefusal(staffPlay(), { ...twice, slot: SLOT }, limits)).toBe(SpendProblem.PaymentConflict);
     expect(spendRefusal(staffPlay(), { ...twice, focus: true }, limits)).toBe(SpendProblem.PaymentConflict);
     expect(spendRefusal(staffPlay(), twice, limits)).toBeUndefined();

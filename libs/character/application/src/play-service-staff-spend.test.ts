@@ -53,9 +53,9 @@ describe('PlayService staff casts on the spend log', () => {
   const id = SpendId.parse(newId());
 
   /** The spend casting `spell` from the staff. */
-  function castSpend(spell: string): PlayCommand {
+  function castSpend(spell: string, spendId = id): PlayCommand {
     const staff = { item: STAFF, spell: staffSpellId(spell) };
-    return { field: PlayCommandField.SpendAction, id, action: staffSpellId(spell), cost: TWO_ACTIONS, staff };
+    return { field: PlayCommandField.SpendAction, id: spendId, action: staffSpellId(spell), cost: TWO_ACTIONS, staff };
   }
 
   async function patch(command: PlayCommand): Promise<CharacterPlay> {
@@ -106,7 +106,7 @@ describe('PlayService staff casts on the spend log', () => {
 
   test('refuses a cast the staff cannot pay for and writes nothing', async () => {
     await patch(castSpend('fireball'));
-    const other = { ...castSpend('breathe-fire'), id: SpendId.parse(newId()) };
+    const other = castSpend('breathe-fire', SpendId.parse(newId()));
     expect(await refused(other)).toBeInstanceOf(ValidationError);
     const stored = await repository.findPlay(ezren.id);
     expect(stored?.play.spendLog).toHaveLength(1);
