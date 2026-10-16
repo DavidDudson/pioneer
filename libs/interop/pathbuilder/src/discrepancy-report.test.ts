@@ -26,13 +26,22 @@ const STEP = 2;
 const CLASS_HP = 10;
 const HP_PER_LEVEL = 1;
 const CON_MODIFIER = 2;
-const TOTALS_COMPARED = 3;
+const TOTALS_COMPARED = 4;
 const MORDRED_AC = 34;
+/** 10 + Charisma 6 + expert 4 + level 12, from Mordred's divine focus. */
+const MORDRED_SPELL_DC = 32;
+const ORACLE_DC = Selector.parse('spell-dc:oracle');
 
 /** The values Pioneer derives, as maps the tests can change. */
 interface Values {
   readonly totals: Map<Selector, number>;
   readonly ranks: Map<Selector, Proficiency>;
+  readonly spellDcs: {
+    selector: Selector;
+    tradition: string;
+    attribute: string;
+    total: number;
+  }[];
 }
 
 /** Pioneer's values as Pathbuilder reports them: no statistic differs. */
@@ -45,6 +54,20 @@ function agreeing(): Values {
       [MAX_HIT_POINTS, (attributes?.ancestryhp ?? 0) + perLevel * mordred.level],
       [LAND_SPEED, attributes?.speed ?? 0],
     ]),
+    spellDcs: [
+      {
+        selector: Selector.parse('spell-dc:mortal-herald'),
+        tradition: 'occult',
+        attribute: 'cha',
+        total: 1,
+      },
+      {
+        selector: ORACLE_DC,
+        tradition: 'divine',
+        attribute: 'cha',
+        total: MORDRED_SPELL_DC,
+      },
+    ],
     ranks: new Map(
       Object.entries(RANKED_STATISTICS).map(([key, selector]) => [
         selector,
@@ -67,7 +90,31 @@ describe('discrepancyReport', () => {
     values.totals.set(ARMOR_CLASS, ac - 2);
     const { differences } = discrepancyReport(mordred, values);
     expect(differences).toStrictEqual([
-      { kind: DiscrepancyKind.Total, selector: ARMOR_CLASS, pathbuilder: ac, pioneer: ac - 2, difference: -2 },
+      {
+        kind: DiscrepancyKind.Total,
+        selector: ARMOR_CLASS,
+        pathbuilder: ac,
+        pioneer: ac - 2,
+        difference: -2,
+      },
+    ]);
+  });
+
+  test('names a spell DC that differs, for the engine entry with the focus tradition and attribute', () => {
+    const values = agreeing();
+    values.spellDcs = [
+      ...values.spellDcs.filter(({ selector }) => selector !== ORACLE_DC),
+      { selector: ORACLE_DC, tradition: 'divine', attribute: 'cha', total: MORDRED_SPELL_DC + 1 },
+    ];
+    const { differences } = discrepancyReport(mordred, values);
+    expect(differences).toStrictEqual([
+      {
+        kind: DiscrepancyKind.Total,
+        selector: ORACLE_DC,
+        pathbuilder: MORDRED_SPELL_DC,
+        pioneer: MORDRED_SPELL_DC + 1,
+        difference: 1,
+      },
     ]);
   });
 
@@ -88,7 +135,11 @@ describe('discrepancyReport', () => {
   });
 
   test('leaves out a statistic Pioneer cannot derive', () => {
-    const report = discrepancyReport(mordred, { totals: new Map(), ranks: new Map() });
+    const report = discrepancyReport(mordred, {
+      totals: new Map(),
+      ranks: new Map(),
+      spellDcs: [],
+    });
     expect(report).toStrictEqual({ compared: 0, differences: [] });
   });
 });

@@ -89,7 +89,10 @@ const Weapon = z.looseObject({
 });
 
 /** Pathbuilder's own folders for gear ("Magic Items", a backpack), keyed by the id equipment rows name. */
-const EquipmentContainer = z.looseObject({ containerName: Name, backpack: z.boolean().default(false) });
+const EquipmentContainer = z.looseObject({
+  containerName: Name,
+  backpack: z.boolean().default(false),
+});
 
 const SpellRankList = z.looseObject({
   spellLevel: z.int().min(0).max(SPELL_RANK_MAX),
@@ -114,7 +117,13 @@ const SpellCaster = z.looseObject({
 /** Per tradition, per attribute: the focus spells cast with it. */
 const FocusTradition = z.record(
   z.string(),
-  z.looseObject({ focusCantrips: Names, focusSpells: Names, proficiency: ProficiencyNumber.optional() }),
+  z.looseObject({
+    focusCantrips: Names,
+    focusSpells: Names,
+    proficiency: ProficiencyNumber.optional(),
+    abilityBonus: z.int().optional(),
+    itemBonus: z.int().optional(),
+  }),
 );
 
 const Familiar = z.looseObject({ name: Name, abilities: Names });
@@ -126,7 +135,12 @@ const AcTotal = z.looseObject({
   acTotal: z.int(),
 });
 
-const Money = z.looseObject({ cp: Count.default(0), sp: Count.default(0), gp: Count.default(0), pp: Count.default(0) });
+const Money = z.looseObject({
+  cp: Count.default(0),
+  sp: Count.default(0),
+  gp: Count.default(0),
+  pp: Count.default(0),
+});
 
 export const PathbuilderBuild = z.looseObject({
   name: Name.min(1),
