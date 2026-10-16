@@ -7,6 +7,7 @@ import type { SlotCountKey } from './counted-resources';
 import type { InventoryItem, InventoryItemId } from './inventory';
 import type { ItemContent } from './inventory-content';
 import { CarryState } from './item-carry';
+import type { ResourceCount } from './resource-count';
 import { characterSpellcasting } from './spellcasting-build';
 import type { StaffChoice, StaffSlot } from './staff-charges';
 import { isStaff } from './staff-items';
@@ -19,6 +20,8 @@ export interface StaffLimits {
   readonly highestRank: SpellRank | undefined;
   /** The slots a prepared caster may expend: the own slots of its prepared entries. */
   readonly expendable: ReadonlySet<SlotCountKey>;
+  /** The charges the staff cast being made spends, or undefined when the edit is no staff cast. */
+  readonly castCost?: ResourceCount | undefined;
 }
 
 /** No staves and no spellcasting, for a character that has none and for edits that don't read them. */

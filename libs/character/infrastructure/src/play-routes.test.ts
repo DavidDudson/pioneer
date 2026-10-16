@@ -9,7 +9,7 @@ import {
   ResourceCount,
   untypedDamage,
 } from '@pioneer/character/domain';
-import { hitPointsContent, humanAncestryId } from '@pioneer/character/domain/testing';
+import { hitPointsContent, humanAncestryId, staffSpellId } from '@pioneer/character/domain/testing';
 import { DegreeOfSuccess, HitPoints } from '@pioneer/rules/sdk';
 import { fixedContent } from '@pioneer/rules/sdk/testing';
 import { fixedClock, newId, nextVersion, UserId } from '@pioneer/shared/kernel';
@@ -134,6 +134,22 @@ describe('play routes', () => {
       request('PATCH', path, { as: amiri, body: { expectedRevision: 1, command: bad } }),
     );
     expect(refusedRoll.status).toBe(422);
+  });
+
+  test('a staff cast for a staff the character does not hold is refused, as is a slot that is no key', async () => {
+    const { api, path } = await setUp();
+    const item = newId();
+    const spell = staffSpellId('fireball');
+    const absent = { field: PlayCommandField.CastStaff, item, spell };
+    const refusedCast = await api.handle(
+      request('PATCH', path, { as: amiri, body: { expectedRevision: 1, command: absent } }),
+    );
+    expect(refusedCast.status).toBe(422);
+    const bad = { ...absent, field: PlayCommandField.UncastStaff, slot: '' };
+    const refusedSlot = await api.handle(
+      request('PATCH', path, { as: amiri, body: { expectedRevision: 1, command: bad } }),
+    );
+    expect(refusedSlot.status).toBe(422);
   });
 
   test("signed out is 401; someone else's character is 404", async () => {

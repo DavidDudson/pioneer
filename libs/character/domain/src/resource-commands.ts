@@ -7,7 +7,10 @@ import { stabilised } from './death-track';
 import type { DeathTrack } from './death-track';
 import { heldIn, regainPoints, Resource, ResourceCount, ResourceSchema, setPoints, spendPoints } from './resources';
 import type { Pools, ResourceMaxima, ResourcesSpent } from './resources';
+import { isStaffCommand, StaffCommandField, StaffCommandSchema, staffResourcesAfter } from './staff-commands';
+import type { StaffCommand } from './staff-commands';
 import { WandCommandField, WandCommandSchema, wandUsesAfter } from './wand-commands';
+import type { WandCommand } from './wand-commands';
 
 const NO_POINTS = ResourceCount.parse(0);
 
@@ -26,6 +29,8 @@ export const ResourceCommandField = {
   RefundUse: 'refundUse',
   /** A held wand cast, or overcharged after the day's cast (`wand-commands.ts`). */
   ...WandCommandField,
+  /** A spell cast from a held staff, or such a cast taken back (`staff-commands.ts`). */
+  ...StaffCommandField,
 } as const;
 export type ResourceCommandField = ValueOf<typeof ResourceCommandField>;
 
@@ -38,6 +43,7 @@ export const ResourceCommandSchema = z.discriminatedUnion('field', [
   z.object({ field: z.literal(ResourceCommandField.SpendUse), use: UseCountKey }),
   z.object({ field: z.literal(ResourceCommandField.RefundUse), use: UseCountKey }),
   ...WandCommandSchema.options,
+  ...StaffCommandSchema.options,
 ]);
 export type ResourceCommand = z.infer<typeof ResourceCommandSchema>;
 
@@ -66,10 +72,23 @@ function afterSpending(play: ResourcePlay, pools: Pools, { resource, amount }: S
   return resource === Resource.HeroPoints && emptied ? { ...spent, ...stabilised(spent) } : spent;
 }
 
+/** `play` after a wand cast, or a staff cast or its undoing: the uses spent, or the charges and the slot. */
+function applyItemCommand(
+  play: ResourcePlay,
+  command: WandCommand | StaffCommand,
+  { counted, staffCost }: Pick<ResourceLimits, 'counted' | 'staffCost'>,
+): ResourcePlay {
+  return isStaffCommand(command)
+    ? { ...play, resources: staffResourcesAfter({ resources: play.resources, counted, command, cost: staffCost }) }
+    : withCounts(play, { uses: wandUsesAfter(play.resources.uses, counted, command) });
+}
+
 /** What bounds a pool edit: the points each pool holds at most, and the slots and uses the build and content give. */
 export interface ResourceLimits {
   readonly points: ResourceMaxima;
   readonly counted: CountedMaxima;
+  /** The charges the staff cast being made spends, worked out from the staff's content; 0 for any other edit. */
+  readonly staffCost: ResourceCount;
 }
 
 /**
@@ -79,7 +98,7 @@ export interface ResourceLimits {
 export function applyResourceCommand(
   play: ResourcePlay,
   command: ResourceCommand,
-  { points, counted }: ResourceLimits,
+  { points, counted, staffCost }: ResourceLimits,
 ): ResourcePlay {
   const pools: Pools = { spent: play.resources, maxima: points };
   switch (command.field) {
@@ -113,8 +132,10 @@ export function applyResourceCommand(
       });
     }
     case ResourceCommandField.CastWand:
-    case ResourceCommandField.OverchargeWand: {
-      return withCounts(play, { uses: wandUsesAfter(play.resources.uses, counted, command) });
+    case ResourceCommandField.OverchargeWand:
+    case ResourceCommandField.CastStaff:
+    case ResourceCommandField.UncastStaff: {
+      return applyItemCommand(play, command, { counted, staffCost });
     }
     default: {
       return command satisfies never;

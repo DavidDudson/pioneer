@@ -1,0 +1,19 @@
+@let line = spell();
+<fr-stack gap="3xs">
+  <fr-stack direction="horizontal" gap="xs" align="center" wrap>
+    <pio-entry-hover [entry]="line.id">
+      <fr-text tabindex="0" [tone]="line.blocked ? 'subtle' : 'default'">{{ line.name }}</fr-text>
+    </pio-entry-hover>
+    <fr-badge>
+      @if (line.rank === cantrip) {
+        {{ Message.Cantrip | transloco }}
+      } @else {
+        {{ Message.Cost | transloco: { charges: line.charges } }}
+      }
+    </fr-badge>
+  </fr-stack>
+  @if (line.blocked; as blocked) {
+    <fr-text variant="caption" tone="subtle">{{ blocks[blocked] | transloco: { rank: line.rank } }}</fr-text>
+  }
+  <pio-staff-cast-buttons [spell]="line" [busy]="busy()" (cast)="cast.emit($event)" />
+</fr-stack>

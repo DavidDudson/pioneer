@@ -28,6 +28,7 @@ import {
   restHealing,
   restRecovery,
   slotContent,
+  isStaffCommand,
   isWandCommand,
   wandInventoryAfter,
   wandOutcome,
@@ -63,6 +64,7 @@ import type { CharacterContentSource } from './character-content';
 import { mayAccessCharacter } from './character-policy';
 import type { CharacterRepository, PlayWrite } from './character-repository';
 import { checkCondition, checkEffect, checkStaff, isDailyPreparations } from './play-checks';
+import { checkStaffCast } from './play-staff';
 
 /** The maximum handed to edits that don't read it, so none has to be derived for them. */
 const NO_MAX_HIT_POINTS = HitPoints.parse(0);
@@ -170,6 +172,19 @@ export class PlayService {
       : character.withInventory(wandInventoryAfter(inventory, command.item, outcome), this.#clock.now());
   }
 
+  /** The staves a play edit reads: daily preparations prepares one, and a staff cast is checked, which gives its cost. */
+  async #staffLimits(character: Character, play: PlayState, command: PlayCommand): Promise<StaffLimits> {
+    const prepared = isDailyPreparations(command) ? await this.#staff(character) : NO_STAFF;
+    checkStaff(command, prepared);
+    if (!isStaffCommand(command)) {
+      return prepared;
+    }
+    const registry = await this.#contentOf(character).registry();
+    const slots = await this.#slotContent(character, registry);
+    const counted = await this.#counted(character);
+    return { ...prepared, castCost: checkStaffCast(command, { character, play, registry, slots, counted }) };
+  }
+
   /**
    * Temporary Hit Points and the death track need no maximum, so a character without one can still use them. Each
    * limit is derived only for the edits that read it.
@@ -178,8 +193,7 @@ export class PlayService {
     const hitPoints = needsMaxHitPoints(command) ? await this.#maxHitPoints(character, play) : NO_MAX_HIT_POINTS;
     const resources = needsResourceMaxima(command) ? await this.#resourceMaxima(character) : NO_RESOURCES;
     const counted = needsResourceMaxima(command) ? await this.#counted(character) : NO_COUNTED;
-    const staff = isDailyPreparations(command) ? await this.#staff(character) : NO_STAFF;
-    checkStaff(command, staff);
+    const staff = await this.#staffLimits(character, play, command);
     const valued = needsConditionContent(command) ? await this.#valued(character) : NO_VALUED;
     checkCondition(play, command, valued);
     const effects = needsEffectContent(command) ? await this.#effects(character) : NO_EFFECTS;

@@ -24,6 +24,7 @@ export const Prepared: StaffSpellsStory = {
         key: 'staff-of-fire',
         name: 'Staff of Fire',
         charges: { left: 3, max: 4 },
+        undo: undefined,
         spells: [
           {
             key: 'produce-flame',
@@ -32,6 +33,8 @@ export const Prepared: StaffSpellsStory = {
             rank: STAFF_CANTRIP,
             charges: 0,
             blocked: undefined,
+            options: [{ slot: undefined, charges: 0, slotRank: undefined }],
+            heightenedTo: SpellRank.parse(1),
           },
           {
             key: 'burning-hands',
@@ -40,6 +43,8 @@ export const Prepared: StaffSpellsStory = {
             rank: SpellRank.parse(1),
             charges: 1,
             blocked: undefined,
+            options: [{ slot: undefined, charges: 1, slotRank: undefined }],
+            heightenedTo: undefined,
           },
           {
             key: 'fireball',
@@ -48,6 +53,8 @@ export const Prepared: StaffSpellsStory = {
             rank: SpellRank.parse(3),
             charges: 3,
             blocked: StaffSpellBlock.RankTooHigh,
+            options: [],
+            heightenedTo: undefined,
           },
         ],
       },
@@ -59,6 +66,61 @@ export const Prepared: StaffSpellsStory = {
     await expect(canvas.getByText('3 of 4 charges')).toBeVisible();
     await expect(canvas.getByText('Cantrip, no charges')).toBeVisible();
     await expect(canvas.getByText('You cast no spell of 3rd rank yet')).toBeVisible();
+    await expect(canvas.getByRole('button', { name: 'Cast, 1 charge' })).toBeVisible();
+  },
+};
+
+/** A spontaneous caster picks between paying the rank in charges and paying 1 charge with a slot. */
+export const CostPicker: StaffSpellsStory = {
+  args: {
+    staves: [
+      {
+        key: 'staff-of-fire',
+        name: 'Staff of Fire',
+        charges: { left: 4, max: 4 },
+        undo: undefined,
+        spells: [
+          {
+            key: 'fireball',
+            id: spellId('fireball'),
+            name: 'Fireball',
+            rank: SpellRank.parse(3),
+            charges: 3,
+            blocked: undefined,
+            options: [
+              { slot: undefined, charges: 3, slotRank: undefined },
+              { slot: 'sorcerer:3', charges: 1, slotRank: SpellRank.parse(3) },
+              { slot: 'sorcerer:4', charges: 1, slotRank: SpellRank.parse(4) },
+            ],
+            heightenedTo: undefined,
+          },
+        ],
+      },
+    ],
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByRole('button', { name: 'Cast, 3 charges' })).toBeVisible();
+    await expect(canvas.getByRole('button', { name: 'Cast, 1 charge and a 4th-rank slot' })).toBeVisible();
+  },
+};
+
+/** The last cast offers to be taken back. */
+export const Undoable: StaffSpellsStory = {
+  args: {
+    staves: [
+      {
+        key: 'staff-of-fire',
+        name: 'Staff of Fire',
+        charges: { left: 1, max: 4 },
+        undo: { spell: 'Fireball', charges: 3, slotRank: undefined },
+        spells: [],
+      },
+    ],
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByRole('button', { name: 'Undo Fireball' })).toBeVisible();
   },
 };
 
@@ -70,6 +132,7 @@ export const Unavailable: StaffSpellsStory = {
         key: 'staff-of-healing',
         name: 'Staff of Healing',
         charges: undefined,
+        undo: undefined,
         spells: [
           {
             key: 'heal',
@@ -78,6 +141,8 @@ export const Unavailable: StaffSpellsStory = {
             rank: SpellRank.parse(1),
             charges: 1,
             blocked: StaffSpellBlock.NotOnList,
+            options: [],
+            heightenedTo: undefined,
           },
         ],
       },

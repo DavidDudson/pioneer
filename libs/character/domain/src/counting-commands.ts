@@ -5,11 +5,15 @@ import type { EffectCommand } from './effect-commands';
 import type { ActiveEffect, EffectContent } from './effects';
 import { applyResourceCommand, ResourceCommandField } from './resource-commands';
 import type { ResourceCommand } from './resource-commands';
+import { ResourceCount } from './resource-count';
 import { applyRestCommand } from './rest-actions';
 import { isRestCommand } from './rest-types';
 import type { RestCommand, RestLimits, RestPlay } from './rest-types';
 import { applyToggleCommand, isToggleCommand } from './toggle-commands';
 import type { ToggleCommand, Toggles } from './toggle-commands';
+
+/** The charges an edit spends from a staff when it is no staff cast. */
+const NO_CHARGES = ResourceCount.parse(0);
 
 /** The edits that move pools, slots and uses, change conditions, set toggles or restore resources. */
 export type CountingCommand = ResourceCommand | ConditionCommand | EffectCommand | RestCommand | ToggleCommand;
@@ -58,5 +62,12 @@ export function applyCountingCommand<Play extends CountingPlay>(
   if (isConditionCommand(command)) {
     return { ...play, conditions: [...applyConditionCommand(play.conditions, command)] };
   }
-  return { ...play, ...applyResourceCommand(play, command, { points: limits.resources, counted: limits.counted }) };
+  return {
+    ...play,
+    ...applyResourceCommand(play, command, {
+      points: limits.resources,
+      counted: limits.counted,
+      staffCost: limits.staff.castCost ?? NO_CHARGES,
+    }),
+  };
 }
