@@ -66,3 +66,31 @@ relax a rule without a reason recorded beside it. Rules that trip agents most:
 
 `just db-up` for Postgres, then `bun run affected` and `bun run lint:workspace` before every PR; CI runs
 `bun run check` split across parallel jobs (the `ci:*` scripts); a new `check` target goes in one of them too.
+
+### Formatters and linters
+
+Run these in the devshell (`nix develop -c bash -c '<cmd>'`). Hooks (`just hooks`, `prek.toml`) run the file-level
+ones on staged files; `bun run lint:workspace` runs the whole-repo ones. **Never run Prettier**, with `bunx prettier`
+or any other way: the formatter is `oxfmt`, and one Prettier pass rewrites unrelated files.
+
+| Tool                                                   | Owns                                                   | Check                                                                   | Fix                                       |
+| ------------------------------------------------------ | ------------------------------------------------------ | ----------------------------------------------------------------------- | ----------------------------------------- |
+| oxfmt                                                  | Formatting: TS, HTML, JSON, MD, CSS                    | `bun run format:check`                                                  | `bun run format`, or `bunx oxfmt <files>` |
+| oxlint                                                 | TypeScript lint, incl. `pioneer/*` rules               | `bunx nx run <project>:lint`                                            | `bunx oxlint --fix <files>`               |
+| ESLint                                                 | Angular templates (`.html`)                            | `bunx nx run <project>:lint-templates`                                  | `bunx eslint --fix <files>`               |
+| Biome                                                  | CSS lint only                                          | `bunx biome lint --error-on-warnings`                                   | `bunx biome lint --write <files>`         |
+| taplo                                                  | TOML format and lint                                   | `taplo check && taplo fmt --check`                                      | `taplo fmt`                               |
+| rumdl                                                  | Markdown lint                                          | `rumdl check .`                                                         | `rumdl check --fix .`                     |
+| typos                                                  | Spelling                                               | `typos`                                                                 | `typos -w`                                |
+| knip                                                   | Unused files, exports, dependencies                    | `bunx knip`                                                             | Delete the export, or the file            |
+| hadolint, `tofu fmt`                                   | `Dockerfile`, `infra/`                                 | `hadolint Dockerfile`, `tofu fmt -check -recursive infra`               | `tofu fmt -recursive infra`               |
+| `check:messages`, `check:components`, `check:contrast` | Message keys, component coverage, token contrast       | `bun run check:messages` (and the others)                               | Fix the keys, stories or tokens           |
+| committed                                              | Conventional Commit subjects, 72 characters at most    | Runs in the `commit-msg` hook                                           | Reword the commit                         |
+| tsc                                                    | Types                                                  | `bunx nx run <project>:typecheck`                                       | Fix the code                              |
+| bun test, vitest                                       | Tests: `bun test` for libs and API, vitest for Angular | `bunx nx run <project>:test`; one spec: `--include="**/<name>.spec.ts"` | Fix the code                              |
+
+| Scope                              | Command                           |
+| ---------------------------------- | --------------------------------- |
+| Projects your change touches       | `bun run affected`                |
+| Repo-wide linters and format check | `bun run lint:workspace`          |
+| Everything CI runs                 | `bun run check` (or `just check`) |
