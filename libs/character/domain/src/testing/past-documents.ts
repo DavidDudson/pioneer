@@ -72,6 +72,12 @@ const VERSION_6 = {
   schemaVersion: 6,
 };
 
+/** Version 7, before repertoire swaps (#594): `build` had no `repertoireSwaps`. */
+const VERSION_7 = {
+  ...VERSION_6,
+  schemaVersion: 7,
+};
+
 /**
  * One stored document of every past schema version, in the shape that version wrote. A new upgrade step adds the
  * shape it upgrades from; `character-document.test.ts` fails until it does.
@@ -83,4 +89,5 @@ export const PAST_DOCUMENTS: ReadonlyMap<CharacterSchemaVersion, unknown> = new 
   [CharacterSchemaVersion.parse(VERSION_4.schemaVersion), VERSION_4],
   [CharacterSchemaVersion.parse(VERSION_5.schemaVersion), VERSION_5],
   [CharacterSchemaVersion.parse(VERSION_6.schemaVersion), VERSION_6],
+  [CharacterSchemaVersion.parse(VERSION_7.schemaVersion), VERSION_7],
 ]);

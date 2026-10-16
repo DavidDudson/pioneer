@@ -402,6 +402,7 @@
     "unknownSpell": "That spell is not available to prepare. Choose another.",
     "spellAccessCommon": "That spell is common, so every caster of its tradition has access to it already.",
     "spellAccessFull": "This character has access to {maximum} uncommon, rare and unique spells already, the most a build lists. Remove one first.",
+    "repertoireSwapUsed": "This character has swapped a repertoire spell at level {level} already. Only one spell can be swapped each time they level up; the rest take retraining.",
     "noMaxHitPoints": "This character's maximum Hit Points can't be worked out until it has an ancestry and a class. Choose them first.",
     "conditionUnknown": "That condition isn't in the loaded content. Choose another.",
     "conditionValue": "A condition with a value needs one, and a condition without a value takes none.",

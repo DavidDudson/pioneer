@@ -8,12 +8,14 @@ import { payCost } from './purse';
 
 /**
  * What the caller works out for an edit: the id an added item takes, the lines an added kit expands into (`kitItems`),
- * and what a purchase costs (`purchaseCost`).
+ * what a purchase costs (`purchaseCost`), and whether a slot edit is a repertoire swap (`countsAsSwap`).
  */
 export interface EditInputs {
   readonly newItemId?: InventoryItemId | undefined;
   readonly kitItems?: readonly NewItem[] | undefined;
   readonly cost?: CopperValue | undefined;
+  /** The slot edit is the level's repertoire swap, which it records (#594). */
+  readonly countsAsSwap?: boolean | undefined;
 }
 
 /** The edits that add an item from content: a gift, or a purchase. */

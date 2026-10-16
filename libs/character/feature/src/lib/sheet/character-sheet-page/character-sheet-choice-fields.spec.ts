@@ -23,6 +23,7 @@ function cleric(choices: Readonly<Record<string, string>> = {}): object {
     build: {
       choices: { ...MERISIEL.build.choices, class: playerCoreClassId('cleric'), deity: SARENRAE, ...choices },
       spellAccess: [],
+      repertoireSwaps: [],
     },
   };
 }

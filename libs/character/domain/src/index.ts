@@ -531,3 +531,4 @@ export {
 } from './turn-events';
 export { reevaluateBadges, type Reevaluation, startTurn, type TurnInputs, type TurnOutcome } from './turn-start';
 export { endTurn, type EndTurnInputs } from './turn-end';
+export { RepertoireSwap, repertoireSwap, repertoireSwapRefusal } from './repertoire-swaps';

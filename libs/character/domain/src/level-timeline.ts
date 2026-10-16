@@ -108,6 +108,11 @@ function spellPlacements(document: CharacterDocument, content: SlotContent): Pla
   return [...placed.values()];
 }
 
+/** The level a spell slot first opens at, or undefined when the class never gives the character it. */
+export function spellSlotOpensAt(document: CharacterDocument, content: SlotContent, slot: SlotKey): Level | undefined {
+  return spellPlacements(document, content).find((each) => each.slot.key === slot)?.level;
+}
+
 /**
  * One row per level from 1st to 20th (#491): the slots the class and ancestry progression open there, as
  * `characterSlots` reads them, so an empty slot is open or planned, a pick is filled, and a pick that no longer holds

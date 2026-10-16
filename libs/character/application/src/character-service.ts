@@ -9,6 +9,9 @@ import {
   characterSlots,
   PATCH_COMMANDS,
   slotContent,
+  RepertoireSwap,
+  repertoireSwap,
+  repertoireSwapRefusal,
   slotRefusal,
   SPELL_ACCESS_MAX,
   SpellAccessProblem,
@@ -169,7 +172,10 @@ export class CharacterService {
   ): Promise<PatchedCharacter> {
     const current = await this.get(actor, id);
     await this.#assertAllowed(current, expectedVersion, patch);
-    const inputs = await editInputs(this.#contentOf(current), current, patch);
+    const inputs = {
+      ...(await editInputs(this.#contentOf(current), current, patch)),
+      countsAsSwap: (await this.#swapOf(current, patch)) === RepertoireSwap.Counts,
+    };
     const now = this.#clock.now();
     const edited = current.apply(patch, now, inputs);
     const cleared = await this.#unfitPicks(current, edited, patch);
@@ -194,6 +200,9 @@ export class CharacterService {
     }
     if (patch.field === CharacterPatchField.SelectSlot) {
       await this.#assertSlotOffers(current, patch);
+    }
+    if (patch.field === CharacterPatchField.SelectSlot || patch.field === CharacterPatchField.ClearSlot) {
+      await this.#assertSwapAllowed(current, patch);
     }
     if (patch.field === CharacterPatchField.GrantSpellAccess) {
       await this.#assertSpellNeedsAccess(current, patch.spell);
@@ -227,6 +236,29 @@ export class CharacterService {
     }
     const content = await this.#contentOf(before).registry();
     return unfitPicks(before.document, after.document, await this.#slotContent(before, content));
+  }
+
+  /** What a slot edit costs in repertoire swaps: nothing for any other edit (#594). */
+  async #swapOf(character: Character, patch: CharacterPatch): Promise<RepertoireSwap> {
+    if (patch.field !== CharacterPatchField.SelectSlot && patch.field !== CharacterPatchField.ClearSlot) {
+      return RepertoireSwap.Free;
+    }
+    const content = await this.#slotContent(character, await this.#contentOf(character).registry());
+    const selection = patch.field === CharacterPatchField.SelectSlot ? patch.selection : undefined;
+    return repertoireSwap(character.document, content, { slot: patch.slot, selection });
+  }
+
+  /** Refuses a slot edit that would be a second repertoire swap at the character's level. */
+  async #assertSwapAllowed(character: Character, patch: CharacterPatch): Promise<void> {
+    if (patch.field !== CharacterPatchField.SelectSlot && patch.field !== CharacterPatchField.ClearSlot) {
+      return;
+    }
+    const content = await this.#slotContent(character, await this.#contentOf(character).registry());
+    const selection = patch.field === CharacterPatchField.SelectSlot ? patch.selection : undefined;
+    const refusal = repertoireSwapRefusal(character.document, content, { slot: patch.slot, selection });
+    if (refusal !== undefined) {
+      throw new ValidationError([{ path: ['patch', refusal.field], message: refusal.message }]);
+    }
   }
 
   /**

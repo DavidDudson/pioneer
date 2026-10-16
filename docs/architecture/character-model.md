@@ -262,6 +262,14 @@ signature pick the repertoire no longer knows at its rank reads invalid (`rules.
 The sheet lists a spontaneous entry's repertoire rank by rank as "Spell repertoire", each rank's signature picker
 after its spells and a note saying where the signature spell is cast, or that the rank's spells come first.
 
+A spontaneous caster swaps one repertoire spell for another each time they level up (#594). The build keeps
+`repertoireSwaps`, the slot swapped at each level; replacing or emptying a repertoire slot that opened below the
+character's level and holds another spell is that level's swap, and a second slot the same level is refused
+(`character.validation.repertoireSwapUsed`) until retraining (#515) exists. Filling an empty slot, or changing one that
+opened at the character's level, costs nothing, and the swapped slot can change again. A signature pick that held the
+spell swapped out moves to the one that replaces it, at the rank it was learned; emptying a slot leaves the signature
+pick reading invalid until it is picked again. Lowering the level and swapping there records a swap at that level too.
+
 A `RepertoireSpells` element ([ADR-0062](../adr/0062-repertoire-spells-are-a-rule-element.md)) fills the first
 repertoire slot of a rank with a spell the entry must know: a sorcerer's bloodline gift, an oracle's granted
 spell. The slot reads filled and `granted` in the character read, offers that spell alone, and shows on the
