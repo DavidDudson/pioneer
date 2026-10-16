@@ -15,6 +15,9 @@ import type { AnyElysia } from 'elysia';
 import { characters } from './characters';
 import { seedOfficialContent } from './content';
 
+/** Time to seed every official pack, which the default five seconds of a test is too little for on a shared runner. */
+const SEED_TIMEOUT_MS = 30_000;
+
 /**
  * The character routes as the composition root wires them, against content seeded into a throwaway Postgres database
  * (see createTestDatabase). Skipped when TEST_DATABASE_URL is unset; CI always sets it.
@@ -51,26 +54,34 @@ describe.skipIf(adminUrl === undefined)('character routes on seeded content (pos
     await database.drop();
   });
 
-  test('content seeded after the routes started is served without a restart', async () => {
-    const unseeded = await api.handle(request('/characters', { name: 'Ezren', ancestry: humanAncestryId }));
-    expect(unseeded.status).toBe(422);
-    const problem = (await unseeded.json()) as Problem;
-    expect(problem.message).toStrictEqual({ key: 'problem.validation' });
+  test(
+    'content seeded after the routes started is served without a restart',
+    async () => {
+      const unseeded = await api.handle(request('/characters', { name: 'Ezren', ancestry: humanAncestryId }));
+      expect(unseeded.status).toBe(422);
+      const problem = (await unseeded.json()) as Problem;
+      expect(problem.message).toStrictEqual({ key: 'problem.validation' });
 
-    await seedOfficialContent(database.db, clock, ignore);
+      await seedOfficialContent(database.db, clock, ignore);
 
-    const created = await api.handle(request('/characters', { name: 'Ezren', ancestry: humanAncestryId }));
-    expect(created.status).toBe(200);
-    expect(Character.codec.parse(await created.json()).ancestry).toBe(humanAncestryId);
-  });
+      const created = await api.handle(request('/characters', { name: 'Ezren', ancestry: humanAncestryId }));
+      expect(created.status).toBe(200);
+      expect(Character.codec.parse(await created.json()).ancestry).toBe(humanAncestryId);
+    },
+    SEED_TIMEOUT_MS,
+  );
 
-  test('a Pathbuilder import resolves its ancestry against the seeded packs', async () => {
-    await seedOfficialContent(database.db, clock, ignore);
+  test(
+    'a Pathbuilder import resolves its ancestry against the seeded packs',
+    async () => {
+      await seedOfficialContent(database.db, clock, ignore);
 
-    const response = await api.handle(request('/characters/import/pathbuilder', mordredExport));
+      const response = await api.handle(request('/characters/import/pathbuilder', mordredExport));
 
-    expect(response.status).toBe(200);
-    const { character } = (await response.json()) as { character: unknown };
-    expect(Character.codec.parse(character).ancestry).toBe(humanAncestryId);
-  });
+      expect(response.status).toBe(200);
+      const { character } = (await response.json()) as { character: unknown };
+      expect(Character.codec.parse(character).ancestry).toBe(humanAncestryId);
+    },
+    SEED_TIMEOUT_MS,
+  );
 });
