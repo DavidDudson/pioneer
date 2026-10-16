@@ -1,0 +1,38 @@
+<div role="group" [class]="barClasses" [attr.aria-label]="'frontier.filterBar.label' | transloco">
+  <div [class]="rowClasses">
+    @for (chip of chips(); track chip.index) {
+      <div [class]="chipClasses">
+        <fr-button
+          [size]="Size.Sm"
+          [variant]="ButtonVariant.Ghost"
+          [ariaLabel]="'frontier.filterBar.edit' | transloco: { filter: chip.phrase }"
+          (pressed)="edit(chip.index)"
+        >
+          <fr-text>{{ chip.field }}</fr-text>
+          <fr-text>{{ chip.operator }}</fr-text>
+          <fr-text>{{ chip.values }}</fr-text>
+        </fr-button>
+        <fr-button
+          iconOnly
+          [size]="Size.Sm"
+          [variant]="ButtonVariant.Ghost"
+          [ariaLabel]="'frontier.filterBar.remove' | transloco: { filter: chip.phrase }"
+          (pressed)="remove(chip.index)"
+        >
+          <fr-icon [icon]="closeIcon" />
+        </fr-button>
+      </div>
+    }
+    <fr-button [size]="Size.Sm" [variant]="ButtonVariant.Secondary" (pressed)="add()">{{
+      'frontier.filterBar.add' | transloco
+    }}</fr-button>
+    @if (chips().length > 0) {
+      <fr-button [size]="Size.Sm" [variant]="ButtonVariant.Ghost" (pressed)="clear()">{{
+        'frontier.filterBar.clearAll' | transloco
+      }}</fr-button>
+    }
+  </div>
+  @if (open()) {
+    <fr-filter-editor [fields]="fields()" [initial]="initial()" (applied)="apply($event)" (cancelled)="close()" />
+  }
+</div>

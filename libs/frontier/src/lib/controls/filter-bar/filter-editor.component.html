@@ -1,0 +1,35 @@
+<div role="group" [class]="panelClasses" [attr.aria-label]="'frontier.filterBar.editor' | transloco">
+  <div role="group" [class]="rowClasses" [attr.aria-label]="'frontier.filterBar.field' | transloco">
+    @for (candidate of fields(); track candidate.id) {
+      <fr-button
+        [size]="Size.Sm"
+        [variant]="ButtonVariant.Toggle"
+        [toggled]="candidate.id === field()?.id"
+        (pressed)="pickField(candidate.id)"
+        >{{ candidate.label }}</fr-button
+      >
+    }
+  </div>
+  @if (field(); as chosen) {
+    <div role="group" [class]="rowClasses" [attr.aria-label]="'frontier.filterBar.operator.label' | transloco">
+      @for (candidate of operators(); track candidate) {
+        <fr-button
+          [size]="Size.Sm"
+          [variant]="ButtonVariant.Toggle"
+          [toggled]="candidate === operator()"
+          (pressed)="pickOperator(candidate)"
+          >{{ operatorLabels[candidate] | transloco }}</fr-button
+        >
+      }
+    </div>
+    <fr-filter-values [field]="chosen" [operator]="valueOperator()" [(values)]="values" />
+  }
+  <div [class]="rowClasses">
+    <fr-button [size]="Size.Sm" [disabled]="!complete()" (pressed)="apply()">{{
+      'frontier.filterBar.apply' | transloco
+    }}</fr-button>
+    <fr-button [size]="Size.Sm" [variant]="ButtonVariant.Ghost" (pressed)="cancelled.emit()">{{
+      'frontier.filterBar.cancel' | transloco
+    }}</fr-button>
+  </div>
+</div>

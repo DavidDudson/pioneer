@@ -37,6 +37,16 @@ const EXEMPTIONS: Readonly<Record<string, Exemption>> = {
     spec: 'controls/picker/picker.component.spec.ts',
     story: 'controls/picker/picker.stories.ts',
   },
+  'controls/filter-bar/filter-editor.component.ts': {
+    reason: 'The panel of fr-filter-bar where a filter is made or changed.',
+    spec: 'controls/filter-bar/filter-bar.component.spec.ts',
+    story: 'controls/filter-bar/filter-bar.stories.ts',
+  },
+  'controls/filter-bar/filter-values.component.ts': {
+    reason: "The value half of fr-filter-bar's panel.",
+    spec: 'controls/filter-bar/filter-bar.component.spec.ts',
+    story: 'controls/filter-bar/filter-bar.stories.ts',
+  },
   'data/table/column-chooser/column-chooser.component.ts': {
     reason: "The table's Columns panel; it only renders above a table.",
     story: 'data/table/table.stories.ts',

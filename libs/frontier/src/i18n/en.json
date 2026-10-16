@@ -19,7 +19,11 @@
     "drawer": {
       "close": "Close {title}",
       "resize": "Resize {title}",
-      "width": { "narrow": "Narrow", "default": "Default width", "wide": "Wide" }
+      "width": {
+        "narrow": "Narrow",
+        "default": "Default width",
+        "wide": "Wide"
+      }
     },
     "table": {
       "columns": "Columns",
@@ -61,6 +65,34 @@
     "inlineEdit": {
       "conflict": "Changed elsewhere. Showing the latest version.",
       "saveFailed": "Could not save. Try again."
+    },
+    "filterBar": {
+      "label": "Filters",
+      "add": "Add filter",
+      "clearAll": "Clear all",
+      "edit": "Edit filter: {filter}",
+      "remove": "Remove filter: {filter}",
+      "editor": "Filter",
+      "field": "Field",
+      "apply": "Apply",
+      "cancel": "Cancel",
+      "min": "Minimum",
+      "max": "Maximum",
+      "value": "Value",
+      "any": "Any",
+      "optionCount": "{label} ({count})",
+      "operator": {
+        "label": "Operator",
+        "is": "is",
+        "isNot": "is not",
+        "isAnyOf": "is any of",
+        "between": "is between"
+      },
+      "range": {
+        "between": "{min} to {max}",
+        "from": "from {value}",
+        "upTo": "up to {value}"
+      }
     }
   }
 }
