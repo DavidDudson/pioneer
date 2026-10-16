@@ -1,0 +1,37 @@
+@if (open()) {
+  <aside [attr.aria-label]="title()" [class]="panelClasses">
+    <div
+      role="separator"
+      tabindex="0"
+      aria-orientation="vertical"
+      aria-valuemin="0"
+      [class]="handleClasses"
+      [attr.aria-label]="'frontier.drawer.resize' | transloco: { title: title() }"
+      [attr.aria-valuemax]="widths.length - 1"
+      [attr.aria-valuenow]="widthIndex()"
+      [attr.aria-valuetext]="widthLabel() | transloco"
+      (keydown)="resizeFromKeyboard($event)"
+      (pointerdown)="startResize($event)"
+      (pointermove)="dragResize($event)"
+      (pointerup)="endResize($event)"
+      (pointercancel)="endResize($event)"
+    ></div>
+    <div [class]="contentClasses">
+      <div [class]="headerClasses">
+        <div #heading tabindex="-1" [class]="headingClasses">
+          <fr-heading variant="subheading" [level]="2">{{ title() }}</fr-heading>
+        </div>
+        <fr-button
+          iconOnly
+          size="sm"
+          [ariaLabel]="'frontier.drawer.close' | transloco: { title: title() }"
+          [variant]="ButtonVariant.Ghost"
+          (pressed)="close()"
+        >
+          <fr-icon [icon]="closeIcon" />
+        </fr-button>
+      </div>
+      <ng-content />
+    </div>
+  </aside>
+}

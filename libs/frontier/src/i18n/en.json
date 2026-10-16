@@ -16,6 +16,11 @@
       "saved": "Saved",
       "revert": "Revert"
     },
+    "drawer": {
+      "close": "Close {title}",
+      "resize": "Resize {title}",
+      "width": { "narrow": "Narrow", "default": "Default width", "wide": "Wide" }
+    },
     "breadcrumbs": {
       "label": "Breadcrumb"
     },
