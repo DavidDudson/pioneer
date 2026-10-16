@@ -21,6 +21,7 @@ export {
   type Problem,
   ProblemType,
   ProblemSchema,
+  RateLimitedError,
   UnauthorizedError,
   ValidationError,
   VersionConflictError,

@@ -1,4 +1,19 @@
 export {
+  BUG_REPORT_APP_VERSION_MAX_LENGTH,
+  BUG_REPORT_ROUTE_MAX_LENGTH,
+  BUG_REPORT_TEXT_MAX_LENGTH,
+  BUG_REPORT_USER_AGENT_MAX_LENGTH,
+  BugReport,
+  BugReportStatus,
+  BugReportStatusSchema,
+  BugReportSubmission,
+  AppVersion,
+  ReportDescription,
+  ReportedRoute,
+  ReportText,
+  UserAgent,
+} from './bug-report';
+export {
   ACCOUNT_PATH,
   AuthPath,
   IdentityContract,
@@ -9,6 +24,7 @@ export {
 } from './identity-contract';
 export {
   AvatarUrl,
+  BugReportId,
   DISPLAY_NAME_MAX_LENGTH,
   DisplayName,
   EmailAddress,
