@@ -1,6 +1,7 @@
 import {
   abilityFrequencies,
   applyPlayCommand,
+  applyTurnCommand,
   characterCounted,
   characterFocus,
   characterGrants,
@@ -27,8 +28,10 @@ import {
   resourceMaxima,
   restHealing,
   restRecovery,
+  turnCommandInputs,
   slotContent,
   isStaffCommand,
+  isTurnCommand,
   isWandCommand,
   wandInventoryAfter,
   wandOutcome,
@@ -41,21 +44,23 @@ import type {
   Character,
   CharacterId,
   CharacterPlay,
+  PatchedPlay,
   PatchPlayBody,
   ConditionValued,
   EffectContent,
   PlayCommand,
   PlayLimits,
-  RecoveryConditions,
   SlotContent,
   PlayState,
   ResourceMaxima,
   CountedMaxima,
   StaffLimits,
+  TurnCommand,
+  TurnOutcome,
   WandCommand,
 } from '@pioneer/character/domain';
-import { HitPoints } from '@pioneer/rules/sdk';
-import type { ContentRegistry, ContentSource } from '@pioneer/rules/sdk';
+import { cryptoRandom } from '@pioneer/rules/dice';
+import type { ContentRegistry, ContentSource, HitPoints } from '@pioneer/rules/sdk';
 import { message, NotFoundError, ValidationError, VersionConflictError } from '@pioneer/shared/kernel';
 import type { Clock, UserId } from '@pioneer/shared/kernel';
 
@@ -64,31 +69,9 @@ import type { CharacterContentSource } from './character-content';
 import { mayAccessCharacter } from './character-policy';
 import type { CharacterRepository, PlayWrite } from './character-repository';
 import { checkCondition, checkEffect, checkStaff, isDailyPreparations } from './play-checks';
+import { NO_MAX_HIT_POINTS, NO_REST, NO_VALUED, turnLimits, WAND_MESSAGES } from './play-defaults';
+import type { RestContent } from './play-defaults';
 import { checkStaffCast } from './play-staff';
-
-/** The maximum handed to edits that don't read it, so none has to be derived for them. */
-const NO_MAX_HIT_POINTS = HitPoints.parse(0);
-
-/** The condition content handed to edits that don't read it. */
-const NO_VALUED: ConditionValued = new Map();
-
-/** What Rest reads from the build and the content. */
-interface RestContent {
-  readonly healing: HitPoints;
-  readonly recovery: RecoveryConditions;
-}
-
-/** The Rest content handed to edits that don't read it. */
-const NO_REST: RestContent = { healing: NO_MAX_HIT_POINTS, recovery: new Map() };
-
-const WAND_MESSAGES = {
-  [WandProblem.NotHeld]: 'character.validation.wandNotHeld',
-  [WandProblem.Broken]: 'character.validation.wandBroken',
-  [WandProblem.NotCastable]: 'character.validation.wandNotCastable',
-  [WandProblem.UseSpent]: 'character.validation.wandUseSpent',
-  [WandProblem.UseLeft]: 'character.validation.wandUseLeft',
-  [WandProblem.RollMissing]: 'character.validation.wandRollMissing',
-} as const satisfies Record<WandProblem, string>;
 
 /**
  * A character's play state (#343): read and edited apart from its build, with its own revision, so a play edit never
@@ -123,14 +106,16 @@ export class PlayService {
     actor: UserId,
     id: CharacterId,
     { expectedRevision, command }: PatchPlayBody,
-  ): Promise<CharacterPlay> {
+  ): Promise<PatchedPlay> {
     const character = await this.#accessible(actor, id);
     const current = await this.#stored(id);
     if (current.revision !== expectedRevision) {
       throw new VersionConflictError('CharacterPlay', id);
     }
     const wanded = isWandCommand(command) ? await this.#wanded(character, current.play, command) : undefined;
-    const play = await this.#applied(character, current.play, command);
+    const { play, events } = isTurnCommand(command)
+      ? await this.#turned(character, current.play, command)
+      : { play: await this.#applied(character, current.play, command), events: [] };
     const write: PlayWrite = {
       id,
       play,
@@ -138,9 +123,11 @@ export class PlayService {
       audit: { actor, command: PLAY_COMMANDS[command.field] },
       now: this.#clock.now(),
     };
-    return wanded === undefined
-      ? this.#characters.updatePlay(write)
-      : this.#characters.updatePlayAndCharacter(write, wanded, character.version);
+    const saved =
+      wanded === undefined
+        ? await this.#characters.updatePlay(write)
+        : await this.#characters.updatePlayAndCharacter(write, wanded, character.version);
+    return { ...saved, events: [...events] };
   }
 
   /**
@@ -183,6 +170,20 @@ export class PlayService {
     const slots = await this.#slotContent(character, registry);
     const counted = await this.#counted(character);
     return { ...prepared, castCost: checkStaffCast(command, { character, play, registry, slots, counted }) };
+  }
+
+  /**
+   * A turn-cycle edit: Start turn or End turn run their bookkeeping with the server's dice, and say what it did; leaving
+   * the encounter does nothing else. The maximum Hit Points and the content are derived from the build, as for any edit.
+   */
+  async #turned(character: Character, play: PlayState, command: TurnCommand): Promise<TurnOutcome> {
+    const registry = await this.#contentOf(character).registry();
+    const variants = await variantRulesOfCharacter(this.#content, character, registry);
+    const slots = slotContent(registry, variants);
+    const inputs = characterStatisticInputs(registry, character.document, slots);
+    const limits = turnLimits(await this.#maxHitPoints(character, play), await this.#effects(character));
+    const turn = turnCommandInputs({ registry, slots, inputs, variants }, character.document, limits);
+    return applyTurnCommand(play, command, { inputs: turn, random: cryptoRandom });
   }
 
   /**

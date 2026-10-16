@@ -90,6 +90,12 @@ and the turn's spend log are play state.
   condition rolls its damage, applied through IWR, then its DC 15 flat check (lower with assisted recovery) to end
   it. Then frightened decreases and effects ending at the end of the turn expire.
 
+Start turn, End turn and Leave encounter are play commands (`startTurn`, `endTurn`, `leaveEncounter`). The server
+runs the bookkeeping with its own dice and answers the PATCH with the play state and the events in order, so the turn
+bar words them and shows a roll card for each persistent damage roll; the events are not stored. The turn in play
+state is the phase, the ordinary actions left, the quickened action left with the restriction its condition carries,
+and whether the reaction is spent. Spending actions, the spend log and undo come with the stories that spend them.
+
 #### Durations, sustaining and dismissing
 
 - **Countdown**: Start turn counts down every active effect with a `time` duration by one round (a minute is 10

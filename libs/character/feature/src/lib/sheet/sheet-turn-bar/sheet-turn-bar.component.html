@@ -1,0 +1,50 @@
+<fr-async-region>
+  <ng-template frAsyncPending><fr-skeleton width="md" /></ng-template>
+  <ng-template [frAsyncData]="playQuery">
+    @if (bar(); as bar) {
+      <fr-stack gap="xs">
+        <fr-stack direction="horizontal" align="center" gap="xs" wrap>
+          <fr-text weight="semibold">{{ 'character.sheet.turn.label' | transloco }}</fr-text>
+          <fr-badge [tone]="bar.canEnd ? badgeTone.Accent : badgeTone.Neutral">
+            {{ phaseKey(bar.phase) | transloco }}
+          </fr-badge>
+          @for (pip of bar.pips; track $index) {
+            <fr-badge [tone]="pipTone(pip)">
+              {{ pipKey(pip) | transloco: { restriction: pip.restriction } }}
+            </fr-badge>
+          }
+          <fr-badge [tone]="bar.reactionUsed ? badgeTone.Neutral : badgeTone.Success">
+            {{
+              (bar.reactionUsed ? 'character.sheet.turn.reactionSpent' : 'character.sheet.turn.reactionReady')
+                | transloco
+            }}
+          </fr-badge>
+        </fr-stack>
+        <fr-stack direction="horizontal" align="center" gap="xs" wrap>
+          <fr-async-button size="sm" [action]="startTurn" [disabled]="!bar.canStart" [describeError]="describeError">
+            {{ 'character.sheet.turn.start' | transloco }}
+          </fr-async-button>
+          <fr-async-button size="sm" [action]="endTurn" [disabled]="!bar.canEnd" [describeError]="describeError">
+            {{ 'character.sheet.turn.end' | transloco }}
+          </fr-async-button>
+          <fr-async-button
+            size="sm"
+            [action]="leaveEncounter"
+            [disabled]="!bar.canLeave"
+            [describeError]="describeError"
+          >
+            {{ 'character.sheet.turn.leave' | transloco }}
+          </fr-async-button>
+        </fr-stack>
+        @for (line of log(); track $index) {
+          <fr-stack gap="2xs">
+            <fr-text>{{ worded(line) }}</fr-text>
+            @if (line.roll; as roll) {
+              <pio-roll-card [roll]="roll" />
+            }
+          </fr-stack>
+        }
+      </fr-stack>
+    }
+  </ng-template>
+</fr-async-region>

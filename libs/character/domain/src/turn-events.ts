@@ -1,11 +1,12 @@
-import type { DamageApplication, DieFace, RollResult } from '@pioneer/rules/dice';
-import { FastHealingType } from '@pioneer/rules/sdk';
-import type { ContentId, Dc, HitPoints, ConditionValue } from '@pioneer/rules/sdk';
-import { message } from '@pioneer/shared/kernel';
-import type { MessageDescriptor, ValueOf } from '@pioneer/shared/kernel';
+import { DamageApplication, DieFace, RollResult } from '@pioneer/rules/dice';
+import { ConditionValue, ContentId, Dc, FastHealingType, HitPoints } from '@pioneer/rules/sdk';
+import { message, MessageDescriptorSchema } from '@pioneer/shared/kernel';
+import type { ValueOf } from '@pioneer/shared/kernel';
+import * as z from 'zod';
 
-import type { ActiveCondition, ConditionInstanceId } from './conditions';
-import type { EffectInstanceId } from './effects';
+import { ConditionInstanceId } from './conditions';
+import type { ActiveCondition } from './conditions';
+import { EffectInstanceId } from './effects';
 
 /** What happened to a character as a turn started or ended: the turn bar, the spend log and triggered abilities read these. */
 export const TurnEventKind = {
@@ -37,52 +38,54 @@ export type TurnMessage = ValueOf<typeof TurnMessage>;
  * One thing that happened at a turn boundary. Each carries the message that words it; the effect and condition events
  * name the content by id, as the domain knows no names, so the sheet words them from the content it holds.
  */
-export type TurnEvent =
-  | { readonly kind: typeof TurnEventKind.TurnStart; readonly message: MessageDescriptor }
-  | {
-      readonly kind: typeof TurnEventKind.Healed;
-      readonly type: ValueOf<typeof FastHealingType>;
-      readonly gained: HitPoints;
-      readonly message: MessageDescriptor;
-    }
-  | {
-      readonly kind: typeof TurnEventKind.EffectExpired;
-      readonly effect: ContentId;
-      readonly instance: EffectInstanceId;
-      readonly message: MessageDescriptor;
-    }
-  | {
-      readonly kind: typeof TurnEventKind.ConditionEnded;
-      readonly condition: ContentId;
-      readonly instance: ConditionInstanceId;
-      readonly message: MessageDescriptor;
-    }
-  | {
-      readonly kind: typeof TurnEventKind.ConditionLowered;
-      readonly condition: ContentId;
-      readonly instance: ConditionInstanceId;
-      readonly value: ConditionValue;
-      readonly message: MessageDescriptor;
-    }
-  | {
-      readonly kind: typeof TurnEventKind.PersistentDamage;
-      readonly condition: ContentId;
-      readonly instance: ConditionInstanceId;
-      /** The dice rolled, for the roll card. */
-      readonly roll: RollResult;
-      /** The roll applied to the character's defences, as any damage is. */
-      readonly damage: DamageApplication;
-      readonly message: MessageDescriptor;
-    }
-  | {
-      readonly kind: typeof TurnEventKind.FlatCheck;
-      readonly condition: ContentId;
-      readonly instance: ConditionInstanceId;
-      readonly die: DieFace;
-      readonly dc: Dc;
-      readonly passed: boolean;
-      readonly message: MessageDescriptor;
-    };
+export const TurnEventSchema = z.discriminatedUnion('kind', [
+  z.object({ kind: z.literal(TurnEventKind.TurnStart), message: MessageDescriptorSchema }),
+  z.object({
+    kind: z.literal(TurnEventKind.Healed),
+    type: z.enum(FastHealingType),
+    gained: HitPoints,
+    message: MessageDescriptorSchema,
+  }),
+  z.object({
+    kind: z.literal(TurnEventKind.EffectExpired),
+    effect: ContentId,
+    instance: EffectInstanceId,
+    message: MessageDescriptorSchema,
+  }),
+  z.object({
+    kind: z.literal(TurnEventKind.ConditionEnded),
+    condition: ContentId,
+    instance: ConditionInstanceId,
+    message: MessageDescriptorSchema,
+  }),
+  z.object({
+    kind: z.literal(TurnEventKind.ConditionLowered),
+    condition: ContentId,
+    instance: ConditionInstanceId,
+    value: ConditionValue,
+    message: MessageDescriptorSchema,
+  }),
+  z.object({
+    kind: z.literal(TurnEventKind.PersistentDamage),
+    condition: ContentId,
+    instance: ConditionInstanceId,
+    /** The dice rolled, for the roll card. */
+    roll: RollResult,
+    /** The roll applied to the character's defences, as any damage is. */
+    damage: DamageApplication,
+    message: MessageDescriptorSchema,
+  }),
+  z.object({
+    kind: z.literal(TurnEventKind.FlatCheck),
+    condition: ContentId,
+    instance: ConditionInstanceId,
+    die: DieFace,
+    dc: Dc,
+    passed: z.boolean(),
+    message: MessageDescriptorSchema,
+  }),
+]);
+export type TurnEvent = z.infer<typeof TurnEventSchema>;
 
 /** The turn has started. */
 export function turnStarted(): TurnEvent {

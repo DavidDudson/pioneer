@@ -29,6 +29,8 @@ import { ResourcesSpentSchema } from './resources';
 import { RestCommandField, RestCommandSchema } from './rest-types';
 import type { RestLimits } from './rest-types';
 import { ToggleCommandField, ToggleCommandSchema, TogglesSchema } from './toggle-commands';
+import { TurnEventSchema } from './turn-events';
+import { OUT_OF_ENCOUNTER, TurnCommandSchema, TurnStateSchema } from './turn-state';
 
 const NONE = HitPoints.parse(0);
 
@@ -61,6 +63,7 @@ export const PlayStateSchema = z.strictObject({
   conditions: ActiveConditionsSchema,
   effects: ActiveEffectsSchema,
   toggles: TogglesSchema,
+  turn: TurnStateSchema.default(OUT_OF_ENCOUNTER),
   ...DeathTrackSchema.shape,
 });
 export type PlayState = z.infer<typeof PlayStateSchema>;
@@ -119,10 +122,17 @@ export const PlayCommandSchema = z.discriminatedUnion('field', [
 ]);
 export type PlayCommand = z.infer<typeof PlayCommandSchema>;
 
+/** Every edit the play endpoint takes: the sheet's edits, and the turn cycle, which also roll dice and say what they did. */
+export const PlayEditSchema = z.discriminatedUnion('field', [
+  ...PlayCommandSchema.options,
+  ...TurnCommandSchema.options,
+]);
+export type PlayEdit = z.infer<typeof PlayEditSchema>;
+
 /** PATCH body for play state: the edit plus the revision the client last saw. */
 export const PatchPlayBody = z.object({
   expectedRevision: Version,
-  command: PlayCommandSchema,
+  command: PlayEditSchema,
 });
 export type PatchPlayBody = z.infer<typeof PatchPlayBody>;
 
@@ -132,6 +142,10 @@ export const CharacterPlay = z.object({
   play: PlayStateSchema,
 });
 export type CharacterPlay = z.infer<typeof CharacterPlay>;
+
+/** What a play edit answers with: the play state it left, and what the turn cycle did on the way (none for other edits). */
+export const PatchedPlay = CharacterPlay.extend({ events: z.array(TurnEventSchema).default([]) });
+export type PatchedPlay = z.infer<typeof PatchedPlay>;
 
 /** What bounds a play edit, as the build and the rules give it. */
 export interface PlayLimits extends RestLimits {

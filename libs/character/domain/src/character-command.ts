@@ -2,6 +2,7 @@ import type { ValueOf } from '@pioneer/shared/kernel';
 
 import { CharacterPatchField } from './character-patch';
 import { PlayCommandField } from './play-state';
+import { TurnCommandField } from './turn-state';
 
 /** Every command that writes a character, as named in `audit.log.command`. */
 export const CharacterCommand = {
@@ -65,6 +66,9 @@ export const CharacterCommand = {
   Refocus: 'refocus',
   StartSession: 'startSession',
   SetToggle: 'setToggle',
+  StartTurn: 'startTurn',
+  EndTurn: 'endTurn',
+  LeaveEncounter: 'leaveEncounter',
   SetAppearance: 'setAppearance',
   SetPersonality: 'setPersonality',
 } as const;
@@ -130,4 +134,7 @@ export const PLAY_COMMANDS = {
   [PlayCommandField.Refocus]: CharacterCommand.Refocus,
   [PlayCommandField.StartSession]: CharacterCommand.StartSession,
   [PlayCommandField.SetToggle]: CharacterCommand.SetToggle,
-} as const satisfies Record<PlayCommandField, CharacterCommand>;
+  [TurnCommandField.StartTurn]: CharacterCommand.StartTurn,
+  [TurnCommandField.EndTurn]: CharacterCommand.EndTurn,
+  [TurnCommandField.LeaveEncounter]: CharacterCommand.LeaveEncounter,
+} as const satisfies Record<PlayCommandField | TurnCommandField, CharacterCommand>;
