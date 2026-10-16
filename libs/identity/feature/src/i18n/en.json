@@ -72,5 +72,40 @@
     "sentWithoutCharacter": "Thanks. Your report was sent, but without the character: it could not be copied.",
     "failed": "Could not send your report. Nothing was lost; try again.",
     "tooMany": "You have sent a lot of reports this hour. Try again later."
+  },
+  "bugReports": {
+    "title": "Bug reports",
+    "description": "What people have reported, newest first. Open one to read it, set where it stands and take its character.",
+    "empty": "No bug reports yet.",
+    "loadError": "Could not load the bug reports.",
+    "reporterGone": "an account that is gone",
+    "hasCharacter": "Character shared",
+    "status": {
+      "open": "Open",
+      "confirmed": "Confirmed",
+      "fixed": "Fixed",
+      "declined": "Declined"
+    }
+  },
+  "bugReport": {
+    "title": "Bug report",
+    "back": "All bug reports",
+    "loadError": "Could not load this bug report.",
+    "descriptionHeading": "What went wrong",
+    "stepsHeading": "Steps to see it",
+    "noSteps": "No steps given.",
+    "route": "Page",
+    "build": "Build and language",
+    "browser": "Browser",
+    "reporter": "Reported by",
+    "statusHeading": "Where it stands",
+    "markOpen": "Open",
+    "markConfirmed": "Confirm",
+    "markFixed": "Fixed",
+    "markDeclined": "Decline",
+    "characterHeading": "Character",
+    "characterHint": "A frozen copy of the character as it was when the report was sent. Save it, then open it with Import on the characters page: it becomes a copy of your own.",
+    "saveCharacter": "Save character file",
+    "noCharacter": "The reporter did not share a character."
   }
 }

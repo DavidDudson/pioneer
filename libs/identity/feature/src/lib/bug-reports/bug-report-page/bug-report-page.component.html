@@ -1,0 +1,92 @@
+<fr-page>
+  <fr-page-header [title]="'identity.bugReport.title' | transloco">
+    <fr-link frPageBreadcrumbs [to]="listPath">{{ 'identity.bugReport.back' | transloco }}</fr-link>
+  </fr-page-header>
+  <fr-page-body>
+    <fr-surface>
+      <fr-async-region [errorMessage]="'identity.bugReport.loadError' | transloco">
+        <ng-template frAsyncPending>
+          <fr-stack gap="sm">
+            <fr-skeleton width="lg" />
+            <fr-skeleton width="md" />
+          </fr-stack>
+        </ng-template>
+        <ng-template let-found [frAsyncData]="report">
+          <fr-stack gap="lg">
+            <fr-stack gap="2xs">
+              <fr-heading variant="subheading" [level]="2">{{
+                'identity.bugReport.descriptionHeading' | transloco
+              }}</fr-heading>
+              <fr-text element="p">{{ found.description }}</fr-text>
+            </fr-stack>
+            <fr-stack gap="2xs">
+              <fr-heading variant="subheading" [level]="2">{{
+                'identity.bugReport.stepsHeading' | transloco
+              }}</fr-heading>
+              @if (found.steps === '') {
+                <fr-text element="p" tone="muted">{{ 'identity.bugReport.noSteps' | transloco }}</fr-text>
+              } @else {
+                <fr-text element="p">{{ found.steps }}</fr-text>
+              }
+            </fr-stack>
+            <fr-stack gap="2xs">
+              <fr-text variant="caption" tone="muted"
+                >{{ 'identity.bugReport.route' | transloco }}: {{ found.route }}</fr-text
+              >
+              <fr-text variant="caption" tone="muted"
+                >{{ 'identity.bugReport.build' | transloco }}: {{ found.appVersion }}, {{ found.locale }}</fr-text
+              >
+              <fr-text variant="caption" tone="muted"
+                >{{ 'identity.bugReport.browser' | transloco }}: {{ found.userAgent }}</fr-text
+              >
+              <fr-text variant="caption" tone="muted">
+                {{ 'identity.bugReport.reporter' | transloco }}:
+                {{ found.reporterName ?? ('identity.bugReports.reporterGone' | transloco) }},
+                <fr-date format="datetime" [value]="found.createdAt" />
+              </fr-text>
+            </fr-stack>
+            <fr-stack gap="xs">
+              <fr-heading variant="subheading" [level]="2">{{
+                'identity.bugReport.statusHeading' | transloco
+              }}</fr-heading>
+              <pio-bug-report-status [status]="found.status" />
+              <fr-stack direction="horizontal" gap="sm" wrap>
+                <fr-async-button size="sm" variant="ghost" [disabled]="found.status === 'open'" [action]="markOpen">{{
+                  'identity.bugReport.markOpen' | transloco
+                }}</fr-async-button>
+                <fr-async-button
+                  size="sm"
+                  variant="ghost"
+                  [disabled]="found.status === 'confirmed'"
+                  [action]="markConfirmed"
+                  >{{ 'identity.bugReport.markConfirmed' | transloco }}</fr-async-button
+                >
+                <fr-async-button size="sm" variant="ghost" [disabled]="found.status === 'fixed'" [action]="markFixed">{{
+                  'identity.bugReport.markFixed' | transloco
+                }}</fr-async-button>
+                <fr-async-button
+                  size="sm"
+                  variant="ghost"
+                  [disabled]="found.status === 'declined'"
+                  [action]="markDeclined"
+                  >{{ 'identity.bugReport.markDeclined' | transloco }}</fr-async-button
+                >
+              </fr-stack>
+            </fr-stack>
+            <fr-stack gap="xs" align="start">
+              <fr-heading variant="subheading" [level]="2">{{
+                'identity.bugReport.characterHeading' | transloco
+              }}</fr-heading>
+              @if (found.snapshot) {
+                <fr-text element="p" tone="muted">{{ 'identity.bugReport.characterHint' | transloco }}</fr-text>
+                <fr-button (pressed)="save(found)">{{ 'identity.bugReport.saveCharacter' | transloco }}</fr-button>
+              } @else {
+                <fr-text element="p" tone="muted">{{ 'identity.bugReport.noCharacter' | transloco }}</fr-text>
+              }
+            </fr-stack>
+          </fr-stack>
+        </ng-template>
+      </fr-async-region>
+    </fr-surface>
+  </fr-page-body>
+</fr-page>
