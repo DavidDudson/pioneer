@@ -157,7 +157,8 @@ describe('a staff cast', () => {
   test('costs charges equal to the spell rank', () => {
     const at = table([WIZARD], 4);
     expect(problemOf(at, cast(THIRD))).toBeUndefined();
-    expect(Number(costOf(at, cast(THIRD)))).toBe(3);
+    const cost = costOf(at, cast(THIRD));
+    expect(Number(cost)).toBe(3);
     const spent = apply(at, cast(THIRD));
     expect(chargesLeft(spent)).toBe(1);
   });
@@ -165,7 +166,8 @@ describe('a staff cast', () => {
   test('costs a cantrip nothing, even from a staff that is not prepared', () => {
     const at = table([WIZARD], undefined);
     expect(problemOf(at, cast(CANTRIP))).toBeUndefined();
-    expect(Number(costOf(at, cast(CANTRIP)))).toBe(0);
+    const cost = costOf(at, cast(CANTRIP));
+    expect(Number(cost)).toBe(0);
     expect(apply(at, cast(CANTRIP)).resources).toEqual(at.resources);
   });
 
