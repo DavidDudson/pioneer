@@ -32,6 +32,8 @@ const UPGRADES: readonly UpgradeStep[] = [
   (document) => document,
   /** 7 → 8: the repertoire slot swapped at each level (#594). A version 7 build has swapped none. */
   (document) => document,
+  /** 8 → 9: where an inventory line came from (#921). A version 8 line has no `origin`, which reads as the player's. */
+  (document) => document,
 ];
 
 /** The version a chain of steps upgrades to: one past the last step. */

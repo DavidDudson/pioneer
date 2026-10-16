@@ -8,6 +8,7 @@ import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { EntryHover } from '../../entry-preview/entry-hover.component';
+import { InventoryBreaks } from '../inventory-breaks/inventory-breaks.component';
 import type { InventoryLine } from '../inventory-line';
 import { BULK_WEIGHT_MESSAGES, InventoryMessage } from '../inventory-messages';
 import { injectRunedName } from '../rune-name';
@@ -42,7 +43,7 @@ interface ShownLine {
  */
 @Component({
   selector: 'pio-inventory-row',
-  imports: [EntryHover, List, ListItem, NgTemplateOutlet, Stack, Text, TranslocoPipe],
+  imports: [EntryHover, InventoryBreaks, List, ListItem, NgTemplateOutlet, Stack, Text, TranslocoPipe],
   templateUrl: './inventory-row.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

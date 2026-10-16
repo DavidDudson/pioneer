@@ -356,6 +356,7 @@ export {
   ONE_HAND,
   STOWED,
 } from './item-carry';
+export { ItemOrigin } from './item-origin';
 export { type ActiveItem, activeItems } from './active-items';
 export {
   type EquippedInputs,

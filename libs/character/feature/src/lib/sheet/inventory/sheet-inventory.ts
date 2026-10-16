@@ -1,4 +1,12 @@
-import { CarryState, hasRunes, INVENTORY_KINDS, isContainer, isSpecific, itemRunes } from '@pioneer/character/domain';
+import {
+  CarryState,
+  hasRunes,
+  INVENTORY_KINDS,
+  inventoryViolations,
+  isContainer,
+  isSpecific,
+  itemRunes,
+} from '@pioneer/character/domain';
 import type {
   Inventory,
   InventoryItem,
@@ -12,6 +20,8 @@ import type { SelectOption } from '@pioneer/frontier';
 import { ContentKind, FundamentalRune } from '@pioneer/rules/sdk';
 import { InventoryPlacement } from '@pioneer/rules/ui';
 import type { GradedRune, GradedRuneLine, InventoryGroup, InventoryLine, LineRunes } from '@pioneer/rules/ui';
+
+import { reasonsByItem } from './sheet-violations';
 
 /** The kinds the inventory section reads: those a character carries, and the runes etched onto them. */
 export const INVENTORY_CONTENT_KINDS: readonly ContentKind[] = [...INVENTORY_KINDS, ContentKind.Rune];
@@ -76,6 +86,7 @@ export function lineRunes(
  */
 export function sheetInventory(inventory: Inventory, { items, runes }: RunedContent): readonly InventoryGroup[] {
   const contents = contentsByContainer(inventory.items);
+  const breaks = reasonsByItem(inventoryViolations(inventory, { items, runes }), runes);
   const lineOf = (item: InventoryItem): InventoryLine => {
     const entry = items.get(item.item);
     return {
@@ -89,6 +100,7 @@ export function sheetInventory(inventory: Inventory, { items, runes }: RunedCont
       hands: item.carry.state === CarryState.Held ? item.carry.hands : undefined,
       invested: item.invested === true,
       runes: lineRunes(item, entry, runes),
+      breaks: breaks.get(item.id) ?? [],
       contents: (contents.get(item.id) ?? []).map((inside) => lineOf(inside)),
     };
   };

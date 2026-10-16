@@ -892,6 +892,7 @@
       "unknownItem": "An item no loaded content has",
       "hands": "{count, plural, one {in # hand} other {in # hands}}",
       "invested": "Invested",
+      "ruleBreaking": "Breaks a rule",
       "runedName": "{runes} {name}"
     },
     "runes": {

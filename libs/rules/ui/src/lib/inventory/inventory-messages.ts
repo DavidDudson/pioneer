@@ -13,6 +13,7 @@ export const InventoryMessage = {
   UnknownItem: 'rules.inventory.unknownItem',
   Hands: 'rules.inventory.hands',
   Invested: 'rules.inventory.invested',
+  RuleBreaking: 'rules.inventory.ruleBreaking',
 } as const;
 
 export const PLACEMENT_MESSAGES: Readonly<Record<InventoryPlacement, string>> = {
