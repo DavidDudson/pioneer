@@ -1,0 +1,19 @@
+@if (columns().length > 0) {
+  <fr-disclosure>
+    <fr-text frDisclosureSummary>{{ 'frontier.table.columns' | transloco }}</fr-text>
+    <div [class]="listClasses">
+      @for (column of columns(); track column.id) {
+        <fr-toggle-button
+          [size]="Size.Sm"
+          [value]="column.visible"
+          [disabled]="column.locked"
+          (valueChange)="chosen.emit({ id: column.id, visible: $event })"
+          >{{ column.label }}</fr-toggle-button
+        >
+      }
+      <fr-button size="sm" [variant]="ButtonVariant.Ghost" [disabled]="atDefault()" (pressed)="defaulted.emit()">{{
+        'frontier.table.resetColumns' | transloco
+      }}</fr-button>
+    </div>
+  </fr-disclosure>
+}

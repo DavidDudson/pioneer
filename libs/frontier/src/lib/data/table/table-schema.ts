@@ -20,6 +20,10 @@ export interface ColumnOptions {
   readonly sortable?: boolean;
   /** Width in `fr-picker`, where rows are not a table; `fr-table` ignores it. Defaults to `md`. */
   readonly width?: Size;
+  /** Lets the table's *Columns* panel hide it. Off unless set (a table with no such column has no panel); `defaultHidden` implies it. A table always keeps one column visible. */
+  readonly hideable?: boolean;
+  /** Hidden until shown, when the table has no remembered choice. */
+  readonly defaultHidden?: boolean;
 }
 
 /** A column whose cells are a component, for content richer than text. */
@@ -57,13 +61,18 @@ export interface TagColumn<TRow extends RowData> extends ColumnOptions {
   readonly value: (row: TRow) => TagCell;
 }
 
-/** A column's `meta` option: its width, or nothing when the column has none. */
-interface WidthMeta {
+/** The TanStack options a column's width, hiding and default visibility become. */
+interface ColumnExtras {
   readonly meta?: FrontierColumnMeta;
 }
 
-function widthMeta(options: ColumnOptions): WidthMeta {
-  return options.width === undefined ? {} : { meta: { width: options.width } };
+function widthMeta(options: ColumnOptions): ColumnExtras {
+  const meta: FrontierColumnMeta = {
+    ...(options.width === undefined ? {} : { width: options.width }),
+    ...(options.hideable === undefined ? {} : { hideable: options.hideable }),
+    ...(options.defaultHidden === undefined ? {} : { defaultHidden: options.defaultHidden }),
+  };
+  return Object.keys(meta).length === 0 ? {} : { meta };
 }
 
 /** A column of any value type, before `columns()` unifies it with the rest. */
@@ -112,6 +121,8 @@ export class TableSchema<TRow extends RowData> {
       header: options.header,
       ...(options.sortable === undefined ? {} : { sortable: options.sortable }),
       ...(options.width === undefined ? {} : { width: options.width }),
+      ...(options.hideable === undefined ? {} : { hideable: options.hideable }),
+      ...(options.defaultHidden === undefined ? {} : { defaultHidden: options.defaultHidden }),
       sortValue: (row) => options.value(row).toString(),
       component: DateDisplay,
       inputs: (row) => ({ value: options.value(row), format }),
@@ -125,6 +136,8 @@ export class TableSchema<TRow extends RowData> {
       header: options.header,
       ...(options.sortable === undefined ? {} : { sortable: options.sortable }),
       ...(options.width === undefined ? {} : { width: options.width }),
+      ...(options.hideable === undefined ? {} : { hideable: options.hideable }),
+      ...(options.defaultHidden === undefined ? {} : { defaultHidden: options.defaultHidden }),
       sortValue: (row) => options.value(row).label,
       component: Tag,
       inputs: (row) => {
