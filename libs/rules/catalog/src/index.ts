@@ -20,17 +20,25 @@ import {
 } from './json-packs';
 import { characterGuidePack, impossibleLandsPack } from './ogl-packs';
 import {
+  bastionOfBlasphemiesPack,
   battlecryPack,
   chelaxInfernalInheritancePack,
   draconicCodexPack,
+  gatewalkersPack,
   gunsAndGearsPack,
   hellbreakersPack,
   hellfireDispatchesPack,
+  hellsDestinyPack,
   highSeasPack,
   impossibleMagicPack,
+  mythSpeakersPack,
+  revengeOfTheRunelordsPack,
   rivalAcademiesPack,
   seasonOfGhostsPack,
+  secretsOfTheUnlitStarPack,
   shiningKingdomsPack,
+  theDeadGodsHandPack,
+  troublesInGraycePack,
 } from './orc-packs';
 import { checkPackSources } from './source-check';
 
@@ -105,6 +113,14 @@ export const officialPacks: readonly PackContentsLoader[] = [
   checkedLoader('high-seas', highSeasPack),
   checkedLoader('season-of-ghosts', seasonOfGhostsPack),
   checkedLoader('hellbreakers', hellbreakersPack),
+  checkedLoader('gatewalkers', gatewalkersPack),
+  checkedLoader('myth-speakers', mythSpeakersPack),
+  checkedLoader('revenge-of-the-runelords', revengeOfTheRunelordsPack),
+  checkedLoader('secrets-of-the-unlit-star', secretsOfTheUnlitStarPack),
+  checkedLoader('troubles-in-grayce', troublesInGraycePack),
+  checkedLoader('hells-destiny', hellsDestinyPack),
+  checkedLoader('bastion-of-blasphemies', bastionOfBlasphemiesPack),
+  checkedLoader('the-dead-gods-hand', theDeadGodsHandPack),
   checkedLoader('gm-core', gmCorePack),
 ];
 

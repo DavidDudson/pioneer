@@ -1,0 +1,143 @@
+[
+  {
+    "id": "b50cf3ab-75e6-509e-935e-011fa3ee0f35",
+    "pack": "troubles-in-grayce",
+    "kind": "action",
+    "slug": "action:restore-the-mausoleum",
+    "name": "Restore the Mausoleum",
+    "rarity": "common",
+    "traits": ["downtime", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "troubles-in-grayce"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The first step to restoring the mausoleum is to spend four days cleaning areas "
+          },
+          {
+            "type": "text",
+            "text": "A10–A12",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", repairing minor damage, touching up paint and, perhaps most significantly, clearing the stairs leading up to the graveyard from area "
+          },
+          {
+            "type": "text",
+            "text": "A11",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ". Each additional PC who aids in cleaning reduces the time it takes to clean the mausoleum by 1 day, to a minimum of 1 day. No skill check is required to complete this first task, but if no one has yet found the hidden treasure in area "
+          },
+          {
+            "type": "text",
+            "text": "A11",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", it's discovered automatically during this time period."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The PCs could delegate this task to locals, but if they do this task themselves, the process of getting their hands dirty and spending so much time working in the mausoleum bolsters their spirits and grants each PC a +1 circumstance bonus to any skill checks made on the following steps."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Once the mausoleum is cleaned, a PC can spend a day physical repairing damage to the spiral wards in area "
+          },
+          {
+            "type": "text",
+            "text": "A10",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or the statue in area "
+          },
+          {
+            "type": "text",
+            "text": "A11",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", or praying for Pharasma's blessings over the spiral wards in area "
+          },
+          {
+            "type": "text",
+            "text": "A10",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or the sarcophagi in area "
+          },
+          {
+            "type": "text",
+            "text": "A12",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ". These are "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:religion",
+            "dc": 18
+          },
+          {
+            "type": "text",
+            "text": " checks or "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:crafting",
+            "dc": 20
+          },
+          {
+            "type": "text",
+            "text": " checks made to earn victory points. Once the PCs reach a total of 8 Victory Points, Pharasma, Arazni, and any of the PCs' deities take note of their work; at this point the mausoleum has been restored and can be the focus of a consecrate ritual (a task that likely falls to a local priest at a later date), but of more immediate note to any PC who took part in the restoration is the favor of the gods."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each PC gains a divine intercession from a specific deity once the mausoleum is restored. The effect granted is that of Pharasma's minor boon, which grants the PC a one-time +2 status bonus to a single check that can be applied after the check's result is determined (this can potentially change the degree of success). If a particularly devout PC worships a different deity, you could instead give them their deity's minor boon."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.IXuhShJXqH4Tw1cf"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  }
+]

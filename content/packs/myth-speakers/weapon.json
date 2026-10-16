@@ -1,0 +1,1339 @@
+[
+  {
+    "id": "19dd8f10-d388-5278-b210-3fb305839069",
+    "pack": "myth-speakers",
+    "kind": "weapon",
+    "slug": "weapon:aerekostes",
+    "name": "Aerekostes",
+    "level": 8,
+    "rarity": "unique",
+    "traits": ["divine", "fatal-d12", "intelligent", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Perception",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +16; precise vision 60 feet, imprecise hearing 60 feet"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Communication",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " telepathy"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Skills",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Arcana +18, Religion +16"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Int",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +6, "
+          },
+          {
+            "type": "text",
+            "text": "Wis",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +4, "
+          },
+          {
+            "type": "text",
+            "text": "Cha",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +3"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Will",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +16"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Aerekostes",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking shifting falcata",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". Though unable to move on their own, "
+          },
+          {
+            "type": "text",
+            "text": "Aerekostes",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can flex, adjust their center of mass, and make other adjustments to adapt to a chosen wielder's fighting style. For the purposes of proficiency, class abilities, and feats (except those that would increase the weapon's damage die size), a wielder that "
+          },
+          {
+            "type": "text",
+            "text": "Aerekostes",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " approves of can treat "
+          },
+          {
+            "type": "text",
+            "text": "Aerekostes",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " as a martial weapon that belongs to their choice of the axe, brawling, club, knife, pick, spear, or sword weapon group. "
+          },
+          {
+            "type": "text",
+            "text": "Aerekostes",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " does not actually change form and their critical specialization effect does not change. As a hero-god, "
+          },
+          {
+            "type": "text",
+            "text": "Aerekostes",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a mythic being who starts each session with their own pool of 3 Mythic Points. Whenever their wielder would regain 2 or more Mythic Points, "
+          },
+          {
+            "type": "text",
+            "text": "Aerekostes",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " regains 1 Mythic Point."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Forward Planning",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, fortune)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per minute"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Aerekostes",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " studies the ongoing combat and myriad ways an upcoming attack might resolve. On the next attack made using "
+          },
+          {
+            "type": "text",
+            "text": "Aerekostes",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " before the end of their next turn, their wielder rolls twice and takes the better result."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Spell Reserve",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Aerekostes",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " channels their mythic power into a minor miracle. They spend 1 Mythic Point, then casts one of the following as a 3rd-rank spell (DC 24 save as appropriate): "
+          },
+          {
+            "type": "ref",
+            "id": "42ecad5f-026b-577a-9b47-b97ae76568c9"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "bd1e2643-132f-5c7c-8b60-b97e26a01266"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "749d15ad-5bf7-53bd-a646-cbbec6452867"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "24b5f720-8567-5cc4-8158-2f175d6dc42b"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "d54ee3a3-6742-53c8-9070-17edcb0cae19"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "e0681ca0-8a1d-5d21-a033-813e782d04b5"
+          },
+          {
+            "type": "text",
+            "text": ". "
+          },
+          {
+            "type": "text",
+            "text": "Aerekostes",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can use their actions to Sustain spells."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.c4PSK2Q7ikF8jgrm"
+    },
+    "data": {
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "forward-planning",
+          "name": "Forward Planning",
+          "frequency": {
+            "max": 1,
+            "per": "minute"
+          }
+        }
+      ],
+      "category": "advanced",
+      "group": "sword",
+      "baseItem": "falcata",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": ["ef5cd06c-2a43-5c3b-bb92-137af16e574e"]
+      }
+    }
+  },
+  {
+    "id": "524bc3a7-0c35-55a2-af0b-634dc196bf13",
+    "pack": "myth-speakers",
+    "kind": "weapon",
+    "slug": "weapon:hydra-head-club",
+    "name": "Hydra Head Club",
+    "level": 6,
+    "rarity": "rare",
+    "traits": ["magical", "modular", "thrown-10"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This spine and skull of a slain hydra has been picked clean by a carrion bird and crafted into this "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking club",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". In addition to its normal traits, the "
+          },
+          {
+            "type": "text",
+            "text": "hydra head club",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " also has the modular P trait, as it can be manipulated to cause the jaws to spring open. Even in death, its head twitches independently. The creature's famed regenerative powers are still present, despite the creature's death; if damaged, the "
+          },
+          {
+            "type": "text",
+            "text": "hydra head club",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " repairs itself at the rate of 1 Hit Point per minute, unless it has been completed destroyed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Reactive Snap",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (attack)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You attempt a Strike as a Reaction"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "hydra head club",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " snaps with a momentary burst of its former glory. Your Strike attempt deals an additional 1d6 damage. If your Strike misses, the activation does not count against the "
+          },
+          {
+            "type": "text",
+            "text": "hydra head club's",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " activation frequency."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You must supply a skull and spine of a hydra when crafting this weapon."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:reactive-snap",
+        "toggleable": true,
+        "display": {
+          "label": "Hydra Head Club — Reactive Snap"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.nWUx4zEGOE8Uot1g"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 225
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "reactive-snap",
+          "name": "Reactive Snap",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "simple",
+      "group": "club",
+      "baseItem": "club",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "51af844d-64fc-5aab-9ebe-acdaafcce5fd",
+    "pack": "myth-speakers",
+    "kind": "weapon",
+    "slug": "weapon:hydra-spear",
+    "name": "Hydra Spear",
+    "level": 8,
+    "rarity": "unique",
+    "traits": ["magical", "reach"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking longspear",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " of polished white bone features a tip of layered reptilian scales, compressed to form a sharp edge. Akki crafted this spear herself after she and her allies tangled with a hydra plaguing the marshes outside Aelyosos. She pressed the scales of the creature down into a spearpoint mostly through sheer stubbornness, granting it a unique ability."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Hydra Swipe",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The spearhead unravels and elongates into a group of snake heads. Make up to three melee Strikes with the "
+          },
+          {
+            "type": "text",
+            "text": "Hydra Spear",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", each at a different creature within 20 feet. These attacks do not count toward your multiple attack penalty until all attacks have been resolved."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.DA3hZ45tpmBuPkKZ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 465
+        }
+      },
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "hydra-swipe",
+          "name": "Hydra Swipe",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "category": "simple",
+      "group": "spear",
+      "baseItem": "longspear",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "e6a7df96-0a64-535e-a7a2-3f71dd45f8dd",
+    "pack": "myth-speakers",
+    "kind": "weapon",
+    "slug": "weapon:preordained-spear",
+    "name": "Preordained Spear",
+    "level": 9,
+    "rarity": "rare",
+    "traits": ["magical", "monk", "mythic", "thrown-20"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking spear",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " seems to know when its wielder is about to die. Its wooden body bears countless carvings, leaving it thinner than most spears. While you are "
+          },
+          {
+            "type": "ref",
+            "id": "cd164d22-2d8e-5fd2-b8b2-03e1360df1e7"
+          },
+          {
+            "type": "text",
+            "text": ", a "
+          },
+          {
+            "type": "text",
+            "text": "preordained spear",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " glows with a faint red light that gives you a haunted look and sheds dim light within 5 feet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Delay Doom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your name is not on the spear, and you have the doomed condition"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your name appears on the shaft of the "
+          },
+          {
+            "type": "text",
+            "text": "preordained spear",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". Your doomed value decreases by 1, and you regain 1 Mythic Point. Your name fades from the spear the next time you make your daily preparations."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.FHZHhetgkhVvGiwv"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 700
+        }
+      },
+      "bulk": 1,
+      "category": "simple",
+      "group": "spear",
+      "baseItem": "spear",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "1b56577b-9e47-5587-8a17-e36ed476793e",
+    "pack": "myth-speakers",
+    "kind": "weapon",
+    "slug": "weapon:protectors-final-gift",
+    "name": "Protector's Final Gift",
+    "level": 5,
+    "rarity": "rare",
+    "traits": ["deadly-d8", "disarm", "finesse", "poison"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Within hives of giant bees, some become protectors of their hive and etch runes onto their stingers via dance. Upon such a bee's death, its stinger can be removed from its body and used as "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking rapier",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", though a hilt often needs to be attached for skilled swordsmanship. The imbued magic allows the stinger to slowly renew a small bit of its venom supply. The wielder can gather this and deliver it during a Strike. The victim is made to see prophetic flashes of their future as it courses through their system."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Apiprophecy Sting",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "protector's final gift",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " secrets apiprophecy venom, which coats the blade and affects the next creature successfully struck with the blade within the next minute."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Apiprophecy Venom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (poison)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Saving Throw",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 20
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Maximum Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 4 rounds"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "mental"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.D9vU4fADTYSaZpM9"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 150
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "apiprophecy-sting",
+          "name": "Apiprophecy Sting",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "rapier",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "db7df289-c87d-5056-a3ab-fda5164ca9ac",
+    "pack": "myth-speakers",
+    "kind": "weapon",
+    "slug": "weapon:staff-of-the-ruling-beast",
+    "name": "Staff of the Ruling Beast",
+    "level": 9,
+    "rarity": "unique",
+    "traits": ["magical", "monk", "staff", "two-hand-d8"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The Staff of the Ruling Beast appears as though it's made of myriad organic materials crudely woven together, from sinew and hide to bone and scales. The staff serves as a ceremonial sign of Iapholi's authority, and on rare occasions, she loans it to favored allies to speak in her name. Even then, she expects the staff will be returned at the task's conclusion, sending ferocious bounty hunters to retrieve it, if necessary."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Overwhelming Sound",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (auditory, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " With three sharp taps on the ground, the Staff of the Ruling Beast casts "
+          },
+          {
+            "type": "ref",
+            "id": "427481f6-06b8-5e15-9f76-a87a84b28d01"
+          },
+          {
+            "type": "text",
+            "text": " as a 5th-rank cantrip, affecting you so long as you hold the staff. While affected, you can make your words rumble with palpable force, allowing creatures (including those who cannot hear) to feel your speech and identify your location as if they were using an imprecise sense."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You expend a number of charges from the staff to cast a spell from its list."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Cantrip",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "904dd564-8ba8-5960-80eb-6f5c1ed7fd17"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "1st",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "15904512-5f17-5bba-b1a0-1f892989912c"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "600c3684-32bc-5dbc-8b49-99924728c1cd"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "2nd",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "35e13fee-4d0a-5aca-a41d-01306797c215"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "1e8fd2ab-ffb3-5b91-af85-43e5911b8652"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "3rd",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "d6b0d1ae-f695-5de3-a7ba-b3eef2060313"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "ed8ad89d-b5e6-5f93-9e80-1368a1e0b8dc"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply one casting of all listed ranks of all listed spells."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.8RQDeP3MtVLELlAn"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 700
+        }
+      },
+      "bulk": 1,
+      "category": "simple",
+      "group": "club",
+      "baseItem": "staff",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

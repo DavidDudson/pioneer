@@ -1,0 +1,164 @@
+[
+  {
+    "id": "744579e3-3be0-5b5e-9b5f-a682a74f9f03",
+    "pack": "the-dead-gods-hand",
+    "kind": "consumable",
+    "slug": "consumable:toilers-gruel",
+    "name": "Toiler's Gruel",
+    "level": 3,
+    "rarity": "rare",
+    "traits": ["alchemical", "consumable", "ingested", "poison"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "the-dead-gods-hand"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The primary ingredient of this chalky, plain-tasting blue gruel is the memory-altering cytillesh fungus so prized by deros. Hryngars favor toiler's gruel as a primary source of food for their captives, for those who ingest it are robbed of their memories and grow more compliant. Toiler's gruel resets its maximum duration if ingested by a creature already under its effects. Subsequent exposure makes the memory loss of stage 3 cumulative."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Saving Throw",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 19
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Maximum Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 3 days"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 1"
+          },
+          {
+            "type": "text",
+            "text": " (10 minutes)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " stupefied 1, and memories of the previous hour are forever eliminated from the victim's consciousness (1 hour)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 3",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " stupefied 1, and the mold dulls memories of the previous day, forcing the victim to make a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 19
+          },
+          {
+            "type": "text",
+            "text": " save to recall all but the most simple and routine events during that period (1 day)"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.agT3mN20ZHaR3eBS"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "light",
+      "category": "poison",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

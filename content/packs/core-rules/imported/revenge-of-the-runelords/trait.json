@@ -1,0 +1,36 @@
+[
+  {
+    "id": "add77ced-f889-5f28-99a6-a94e75c15612",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:dream",
+    "name": "Dream",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "condition",
+        "consumable",
+        "creature",
+        "effect",
+        "equipment",
+        "feat",
+        "heritage",
+        "ritual",
+        "spell"
+      ]
+    }
+  }
+]

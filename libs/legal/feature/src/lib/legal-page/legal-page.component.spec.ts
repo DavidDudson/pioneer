@@ -98,6 +98,14 @@ describe('LegalPage', () => {
       'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
       'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
       'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
+      'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
+      'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
+      'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
+      'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
+      'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
+      'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
+      'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
+      'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
       'https://github.com/foundryvtt/pf2e',
     ]);
   });
@@ -132,6 +140,14 @@ describe('LegalPage', () => {
       'Lost Omens High Seas',
       'Season of Ghosts',
       'Hellbreakers',
+      'Gatewalkers',
+      'Myth-Speakers',
+      'Revenge of the Runelords',
+      'Secrets of the Unlit Star',
+      'Troubles in Grayce',
+      "Hell's Destiny",
+      'Bastion of Blasphemies',
+      "The Dead God's Hand",
     ]);
     const licenses = books.map((book) => /Paizo · (?<license>.+)$/u.exec(book.textContent.trim())?.groups?.['license']);
     expect(licenses).toStrictEqual([
@@ -141,6 +157,14 @@ describe('LegalPage', () => {
       'ORC License',
       'Open Game License 1.0a',
       'Open Game License 1.0a',
+      'ORC License',
+      'ORC License',
+      'ORC License',
+      'ORC License',
+      'ORC License',
+      'ORC License',
+      'ORC License',
+      'ORC License',
       'ORC License',
       'ORC License',
       'ORC License',
@@ -185,6 +209,14 @@ describe('LegalPage', () => {
       expect.stringMatching(/^Lost Omens High Seas\s*Foundry release pf2e-8\.6\.0$/u),
       expect.stringMatching(/^Season of Ghosts\s*Foundry release pf2e-8\.6\.0$/u),
       expect.stringMatching(/^Hellbreakers\s*Foundry release pf2e-8\.6\.0$/u),
+      expect.stringMatching(/^Gatewalkers\s*Foundry release pf2e-8\.6\.0$/u),
+      expect.stringMatching(/^Myth-Speakers\s*Foundry release pf2e-8\.6\.0$/u),
+      expect.stringMatching(/^Revenge of the Runelords\s*Foundry release pf2e-8\.6\.0$/u),
+      expect.stringMatching(/^Secrets of the Unlit Star\s*Foundry release pf2e-8\.6\.0$/u),
+      expect.stringMatching(/^Troubles in Grayce\s*Foundry release pf2e-8\.6\.0$/u),
+      expect.stringMatching(/^Hell's Destiny\s*Foundry release pf2e-8\.6\.0$/u),
+      expect.stringMatching(/^Bastion of Blasphemies\s*Foundry release pf2e-8\.6\.0$/u),
+      expect.stringMatching(/^The Dead God's Hand\s*Foundry release pf2e-8\.6\.0$/u),
     ]);
     expect(foundry.textContent).toContain('then corrected and enriched by Pioneer contributors');
   });

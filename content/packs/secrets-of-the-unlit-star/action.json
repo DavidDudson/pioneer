@@ -1,0 +1,214 @@
+[
+  {
+    "id": "2a462c64-30d1-5f31-b91e-b2d1fbe14cb5",
+    "pack": "secrets-of-the-unlit-star",
+    "kind": "action",
+    "slug": "action:diminish-shadow",
+    "name": "Diminish Shadow",
+    "rarity": "common",
+    "traits": ["divine", "light"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-the-unlit-star"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You use the magic of the "
+          },
+          {
+            "type": "text",
+            "text": "unlit star",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to decrease the power of nearby shadows. The shadow gargoyle's resistances are lowered by 2 until the start of your next turn. Additionally, the shadow gargoyle must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 17
+          },
+          {
+            "type": "text",
+            "text": " saving throw. On a failure, the shadow gargoyle must stop flying immediately and land in the nearest open space below it. You can use Diminish Shadow only once per turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.iV6LLQ9BRtLoINf8"
+    },
+    "data": {
+      "cost": "one",
+      "category": "interaction",
+      "frequency": {
+        "max": 1,
+        "per": "turn"
+      }
+    }
+  },
+  {
+    "id": "74d39108-321e-5d7c-bd00-0319036b4a50",
+    "pack": "secrets-of-the-unlit-star",
+    "kind": "action",
+    "slug": "action:restore-the-orrery",
+    "name": "Restore the Orrery",
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-the-unlit-star"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You attempt to return pieces of the "
+          },
+          {
+            "type": "text",
+            "text": "unlit star",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to their appropriate place within the Orrery of Light. Doing so requires a skill check against DC 18. You can attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:athletics",
+            "dc": 18
+          },
+          {
+            "type": "text",
+            "text": " check to force a piece back into an appropriate place; a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:arcana",
+            "dc": 18
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:nature",
+            "dc": 18
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:occultism",
+            "dc": 18
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:religion",
+            "dc": 18
+          },
+          {
+            "type": "text",
+            "text": " check to attune the pieces to the orrery's magic, or a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:thievery",
+            "dc": 18
+          },
+          {
+            "type": "text",
+            "text": " check to modify the orrery's mechanisms to accept pieces. The number of pieces you're able to return are based on your result."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You return 4 pieces to the orrery."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You return 2 pieces to the orrery."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You return only 1 piece to the orrery."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're unable to make any progress and return no pieces to the orrery."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.4JohOQpxHFTNBLa6"
+    },
+    "data": {
+      "cost": "two",
+      "category": "interaction"
+    }
+  }
+]

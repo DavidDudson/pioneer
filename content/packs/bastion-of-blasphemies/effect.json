@@ -1,0 +1,1186 @@
+[
+  {
+    "id": "a8864ce0-df2e-5c0a-945c-3d7c44001fff",
+    "pack": "bastion-of-blasphemies",
+    "kind": "effect",
+    "slug": "effect:effect-art-collector",
+    "name": "Effect: Art 'Collector'",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "f3530885-ce78-5eb8-a164-f1a0e882b500"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to saving throws against mental effects if this is the first time you've chosen a piece of artwork as your inspiration, or a +1 circumstance bonus if you've chosen that artwork more than once."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.DXXhDkXQ6AdBty1G"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 24,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "ed6f47a7-fcd5-5e1d-afe4-a0e7deb01e43",
+    "pack": "bastion-of-blasphemies",
+    "kind": "effect",
+    "slug": "effect:effect-blooded-by-the-dead",
+    "name": "Effect: Blooded by the Dead",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "7b9d4061-4a43-5751-968a-c6e240616d3a"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can choose one of the following benefits"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Bolster the Blood:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You gain resistance to persistent bleed 2, and whenever you attempt a flat check to end persistent bleed damage, reduce the DC of the check by 2."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Bolster the Fury:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You deal 2 additional damage with melee Strikes that deal piercing damage against vampires or creatures that drink blood."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Bolster the Mind:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You treat your level as 2 higher than it is to determine the effects of mental effects with the incapacitation trait utilized against you, and gain a +2 circumstance bonus to Will saving throws against a vampire's Dominate ability."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-blooded-by-the-dead",
+        "choices": [
+          {
+            "value": "bolster-the-blood",
+            "label": "Bolster the Blood"
+          },
+          {
+            "value": "bolster-the-fury",
+            "label": "Bolster the Fury"
+          },
+          {
+            "value": "bolster-the-mind",
+            "label": "Bolster the Mind"
+          }
+        ],
+        "rollOption": "blooded-by-the-dead"
+      },
+      {
+        "key": "Resistance",
+        "type": ["bleed"],
+        "value": 2,
+        "predicate": ["blooded-by-the-dead:bolster-the-blood"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["melee-strike-damage"],
+        "type": "untyped",
+        "value": 2,
+        "damageType": "piercing",
+        "predicate": [
+          {
+            "or": ["target:trait:vampire", "option:blood-drinker"]
+          },
+          "blooded-by-the-dead:bolster-the-fury",
+          "item:damage:type:piercing"
+        ]
+      },
+      {
+        "key": "Note",
+        "selectors": ["saving-throw"],
+        "title": "Bolster the Mind",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You treat your level as 2 higher than it is to determine the effects of mental effects with the incapacitation trait utilized against you."
+              }
+            ]
+          }
+        ],
+        "predicate": ["blooded-by-the-dead:bolster-the-fury", "item:trait:incapacitation"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:will"],
+        "type": "untyped",
+        "value": 2,
+        "predicate": ["blooded-by-the-dead:bolster-the-mind", "item:slug:dominate", "origin:trait:vampire"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.52owimBcCQNBuNfM"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 24,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "a3c6ce2e-f308-518e-bedf-8aab21cbbf29",
+    "pack": "bastion-of-blasphemies",
+    "kind": "effect",
+    "slug": "effect:effect-bolster-life",
+    "name": "Effect: Bolster Life",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "1bb21bfe-740c-5fa0-895c-6bf108eaad4b"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "4e5d3224-83eb-55df-9ab8-1781f58ccddb"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "6beb933d-8651-577d-9224-37b7118a1500"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.iiQSTRA8EVCvlfDQ"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 8,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "05fcd525-c660-54c6-b30a-a9736814af37",
+    "pack": "bastion-of-blasphemies",
+    "kind": "effect",
+    "slug": "effect:effect-bonebloom-rose",
+    "name": "Effect: Bonebloom Rose",
+    "level": 12,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "f999573c-a0da-5eaa-a917-cd80e50a68fd"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain 40 temporary Hit Points. As long as you have at least 1 of these temporary Hit Points remaining, your Strikes deal an additional 2 spirit damage to undead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": 40
+      },
+      {
+        "key": "RollOption",
+        "option": "option:bonebloom-rose-temp-hp",
+        "toggleable": true,
+        "value": true,
+        "display": {
+          "label": "Bonebloom Rose — At least 1 temporary Hit Point left"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["strike-damage"],
+        "type": "untyped",
+        "value": 2,
+        "damageType": "spirit",
+        "predicate": ["option:bonebloom-rose-temp-hp", "target:mode:undead"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.dQfUsEqT87Ib7tpn"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "3f9116a8-2f8b-5f14-93eb-a79a34c596f7",
+    "pack": "bastion-of-blasphemies",
+    "kind": "effect",
+    "slug": "effect:effect-bully-the-bully-critical-failure",
+    "name": "Effect: Bully the Bully (Critical Failure)",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 status bonus to all damage rolls against the marked creature."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["damage"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["target:mark:bully-the-bully"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.QpJ9P61zME3DYDsV"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 24,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "8dbf8ab8-04fb-5faf-add3-b396f5f8051e",
+    "pack": "bastion-of-blasphemies",
+    "kind": "effect",
+    "slug": "effect:effect-bully-the-bully-critical-success",
+    "name": "Effect: Bully the Bully (Critical Success)",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Augsten is cut deep by your teasing! He becomes "
+          },
+          {
+            "type": "ref",
+            "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+            "label": "Stunned 1"
+          },
+          {
+            "type": "text",
+            "text": " by his rage, and is "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " to your attacks for the next 24 hours. During this time, he takes a –4 circumstance penalty to all attempts to use Demoralize on any target, and can't use Bullying Command."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:intimidation"],
+        "type": "circumstance",
+        "value": -4,
+        "predicate": ["action:demoralize"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.WoU5RKBuin0DOmcT"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 24,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "5fe67374-7f6e-508c-a7a2-2abf8bbc46a4",
+    "pack": "bastion-of-blasphemies",
+    "kind": "effect",
+    "slug": "effect:effect-commanders-signet",
+    "name": "Effect: Commander's Signet",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "1e02b8f5-93d1-5d33-8081-07910b077fcc"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "a469efea-ba85-57d2-b001-b070d6c5e49d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a status bonus to attack rolls, Perception checks, saving throws, and skill checks. The status bonus is doubled for saving throws made against fear effects."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll", "perception", "saving-throw", "skill-check"],
+        "type": "status",
+        "value": 1,
+        "slug": "commanders-signet"
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["saving-throw"],
+        "mode": "multiply",
+        "value": 2,
+        "predicate": ["item:trait:fear"],
+        "priority": 50
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.DTflIrRmXIZzaP5Z"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "c7bec40e-8043-5846-8506-30871c8e782f",
+    "pack": "bastion-of-blasphemies",
+    "kind": "effect",
+    "slug": "effect:effect-kindler-cameo",
+    "name": "Effect: Kindler Cameo",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "e4486036-50be-5ea4-8cb7-72696bc31601"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 status bonus to Will saves."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:will"],
+        "type": "status",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.WBA8VOIbJJv93EB7"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "ce5b89b0-85f4-520f-93a1-7ba3404a3ee6",
+    "pack": "bastion-of-blasphemies",
+    "kind": "effect",
+    "slug": "effect:effect-meditate-among-the-stones-critical-success",
+    "name": "Effect: Meditate Among the Stones (Critical Success)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "183c884b-18df-5d22-b743-93ef9765b907"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to your next Intelligence-based skill check."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.campaign-effects.Item.xmyDVehI5PmteRUX"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 7,
+        "unit": "day",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "2f476394-e17c-5c43-8488-4f0a3305bcc4",
+    "pack": "bastion-of-blasphemies",
+    "kind": "effect",
+    "slug": "effect:effect-meditate-among-the-stones-success",
+    "name": "Effect: Meditate Among the Stones (Success)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "183c884b-18df-5d22-b743-93ef9765b907"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to your next Intelligence-based skill check."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.campaign-effects.Item.NRWqw3wosKAnoWPl"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 24,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "bd18855d-1fa3-5fb0-96b5-d2f126b901d0",
+    "pack": "bastion-of-blasphemies",
+    "kind": "effect",
+    "slug": "effect:effect-pallid-curse-failure",
+    "name": "Effect: Pallid Curse (Failure)",
+    "level": 12,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You becomes sickened 2 and gains weakness to void 5 (weakness 10 on a critical failure)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.iZgvkZJ14Su7jWNE"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "751f9904-a223-541a-bb68-6bd1fe164c74",
+    "pack": "bastion-of-blasphemies",
+    "kind": "effect",
+    "slug": "effect:effect-pallid-curse-success",
+    "name": "Effect: Pallid Curse (Success)",
+    "level": 12,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You become sickened 1 and gain weakness to void 5."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Weakness",
+        "type": ["void"],
+        "value": 5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.mJCiOTLp9eLxxsjb"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "673b5f96-0baf-5b1e-b60f-779ee5dd8abc",
+    "pack": "bastion-of-blasphemies",
+    "kind": "effect",
+    "slug": "effect:effect-poets-fritter",
+    "name": "Effect: Poet's Fritter",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "8772c44d-7c6d-59f0-97ac-6db998902a12"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "8060be7b-c59f-5b51-bdc5-44c3ce3e6336"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "f727c03b-23b5-5ce2-9459-c1bb89219284"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain an item bonus to Deception checks to Lie and to Performance checks made for vocal-based performances, and resistance against mental damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception", "skill:performance"],
+        "type": "item",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["action:lie", "action:perform:singing", "option:vocal-performance"]
+          }
+        ]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["deception", "performance"],
+        "slug": "poets-fritter",
+        "mode": "upgrade",
+        "value": 2,
+        "predicate": ["poets-fritter:poets-fritter-moderate"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["deception", "performance"],
+        "slug": "poets-fritter",
+        "mode": "upgrade",
+        "value": 3,
+        "predicate": ["poets-fritter:poets-fritter-greater"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["mental"],
+        "value": 5,
+        "predicate": ["poets-fritter:poets-fritter-lesser"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["mental"],
+        "value": 10,
+        "predicate": ["poets-fritter:poets-fritter-moderate"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["mental"],
+        "value": 15,
+        "predicate": ["poets-fritter:poets-fritter-greater"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.gpsTtIhD8wk2MwbW"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "77acad8c-6696-5e34-a41b-e36a276490f2",
+    "pack": "bastion-of-blasphemies",
+    "kind": "effect",
+    "slug": "effect:effect-sheriffs-blessing",
+    "name": "Effect: Sheriff's Blessing",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to all saving throws against fear effects. At rank 2, you treat any success on a saving throw against a fear effect as a critical success instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-sheriff-s-blessing",
+        "choices": [
+          {
+            "value": "1",
+            "label": "One"
+          },
+          {
+            "value": "2",
+            "label": "Two"
+          },
+          {
+            "value": "3",
+            "label": "Three"
+          }
+        ],
+        "prompt": "Select a support rank.",
+        "rollOption": "sheriffs-blessing"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 1,
+        "predicate": ["item:trait:fear"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["saving-throw"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "predicate": [
+          "item:trait:fear",
+          {
+            "gte": ["option:sheriffs-blessing", 2]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.dzBuNTGOChte8kWp"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "day",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "1ae261d4-6cbe-5efd-9fb1-969df4384dbc",
+    "pack": "bastion-of-blasphemies",
+    "kind": "effect",
+    "slug": "effect:effect-soul-wrenching-warbling",
+    "name": "Effect: Soul-Wrenching Warbling",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain weakness 5 to spirit damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Weakness",
+        "type": ["spirit"],
+        "value": 5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.rIyN5x93mvV28dC1"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "c6c4592f-3ae4-5809-b79d-0f8578009d62",
+    "pack": "bastion-of-blasphemies",
+    "kind": "effect",
+    "slug": "effect:effect-velicarns-cursed-coin",
+    "name": "Effect: Velicarn's Cursed Coin",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "0e0caa85-966d-58b2-afbe-57cb4d418513"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the result is heads, you become immune to fear effects. If the result is tails, you take a –2 item penalty against fear saves."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-velicarn-s-cursed-coin",
+        "choices": [
+          {
+            "value": "heads",
+            "label": "Heads"
+          },
+          {
+            "value": "tails",
+            "label": "Tails"
+          }
+        ],
+        "rollOption": "velicarns-cursed-coin"
+      },
+      {
+        "key": "Immunity",
+        "type": ["fear-effects"],
+        "predicate": ["velicarns-cursed-coin:heads"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "item",
+        "value": -2,
+        "predicate": ["velicarns-cursed-coin:tails", "item:trait:fear"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.a2DB0gqfriXhU1PU"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 24,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "2c4aae61-f9f5-5f21-9a2f-a71c33a81750",
+    "pack": "bastion-of-blasphemies",
+    "kind": "effect",
+    "slug": "effect:effect-watchful-presence",
+    "name": "Effect: Watchful Presence",
+    "level": 13,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 status bonus to Perception checks but take a –2 penalty to saving throws against fear effects."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "status",
+        "value": 2
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "untyped",
+        "value": -2,
+        "predicate": ["item:trait:fear"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.92AQMrhyd4QmygcE"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  }
+]

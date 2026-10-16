@@ -1,0 +1,1087 @@
+[
+  {
+    "id": "64bdc835-7b63-5a33-8c55-e4061a6eea8b",
+    "pack": "revenge-of-the-runelords",
+    "kind": "weapon",
+    "slug": "weapon:belimariuss-invidious-halberd",
+    "name": "Belimarius's Invidious Halberd",
+    "level": 17,
+    "rarity": "unique",
+    "traits": ["reach", "versatile-s"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Perception",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +29; darkvision, imprecise hearing within 60 feet"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Communication",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " speech (Azlanti, Elven, Thassilonian)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Skills",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Arcana +33, Deception +29, Society +31"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Int",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +8, "
+          },
+          {
+            "type": "text",
+            "text": "Wis",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +6, "
+          },
+          {
+            "type": "text",
+            "text": "Cha",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +4"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Will",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +31"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Belimarius's Invidious Halberd",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a "
+          },
+          {
+            "type": "text",
+            "text": "+3 greater striking keen spell reservoir high-grade dawnsilver halberd",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " (at this time, their spell reservoir contains "
+          },
+          {
+            "type": "ref",
+            "id": "cfa1a3f3-2450-52eb-95d6-875232fd5219"
+          },
+          {
+            "type": "text",
+            "text": "). As the halberd passed from the hands of one runelord of envy to the next, the halberd's self-loathing and hatred of the arcane spellcasters they were forced to serve grew. Their own limited arcane magic paled in comparison to their powerful wielders, after all, and the halberd seethed at this perceived inequality. They only grudgingly abide their wielders—runelord or otherwise—and are only truly happy when they're used to cut down those who can cast arcane spells. The halberd can use 3 actions per turn, acting on their wielder's turn, and has a reaction. These actions and reaction don't count against their wielder's."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Absorb Arcana",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (arcane, concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The halberd damages a creature capable of casting arcane spells"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The halberd attempts to absorb one of the creature's prepared arcane spells or arcane spell slots. If the creature struck fails a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 37
+          },
+          {
+            "type": "text",
+            "text": " save, it loses an arcane spell (or lose an unused arcane spell slot) as if it'd cast that spell. The spell or slot lost is randomly determined from the highest rank available, starting at 6th rank and working down. The halberd passes this absorbed energy on to their wielder, who becomes "
+          },
+          {
+            "type": "ref",
+            "id": "6517bbf2-8085-534b-be6a-187d52739fa0"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round and can use the extra action only to Strike with the halberd."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Detonate Magic",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (arcane, concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The halberd casts "
+          },
+          {
+            "type": "ref",
+            "id": "2ba1a22a-6c4c-53c2-96ed-c1f5393a02b4"
+          },
+          {
+            "type": "text",
+            "text": " (DC 37)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Manipulate Mind",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (arcane, concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The halberd casts a 9th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "1f048683-4c42-51f0-afdc-351f5fe3af2c"
+          },
+          {
+            "type": "text",
+            "text": " (DC 37)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Shattermind",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (arcane, concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The halberd critically hits a creature capable of casting arcane spells"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature struck is targeted with a 9th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "1ca1f242-df46-5466-a3e1-3ae1e1069c1f"
+          },
+          {
+            "type": "text",
+            "text": " spell (DC 37)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Destruction",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Belimarius's Invidious Halberd",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is destroyed if it's hurled under the feet of the Oliphaunt of Jandelay while there's no current runelord of envy living in the world."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.H23XWSdTgBV1UhBq"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2
+        }
+      },
+      "bulk": 2,
+      "material": {
+        "type": "dawnsilver",
+        "grade": "high"
+      },
+      "activations": [
+        {
+          "slug": "detonate-magic",
+          "name": "Detonate Magic",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        },
+        {
+          "slug": "manipulate-mind",
+          "name": "Manipulate Mind",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "polearm",
+      "baseItem": "halberd",
+      "damage": {
+        "dice": 1,
+        "die": "d10",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 3,
+        "striking": 2,
+        "property": ["bc974552-c0c5-57ac-9924-d474d2bdf9a0"]
+      }
+    }
+  },
+  {
+    "id": "ce0d691a-c61a-52f7-8e15-a5eacfe2c05c",
+    "pack": "revenge-of-the-runelords",
+    "kind": "weapon",
+    "slug": "weapon:sorshens-sinuous-guisarme",
+    "name": "Sorshen's Sinuous Guisarme",
+    "level": 23,
+    "rarity": "unique",
+    "traits": ["artifact", "intelligent", "magical", "mythic", "reach", "trip"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Perception",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +37; precise vision 300 feet, imprecise hearing 300 feet, darkvision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Communication",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " telepathy (Aklo, Azlanti, Chthonian, and Thassilonian)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Skills",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Arcana +43, Occultism +38, Society +36"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Int",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +6, "
+          },
+          {
+            "type": "text",
+            "text": "Wis",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +6, "
+          },
+          {
+            "type": "text",
+            "text": "Cha",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +8"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Will",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +37"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sorshen's Sinuous Guisarme",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a "
+          },
+          {
+            "type": "text",
+            "text": "+4 mythic striking keen quickstrike shifting spell reservoir high-grade dawnsilver guisarme",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". The weapon's unique double-bladed design combined with her magical nature grants her the twin weapon trait. Her spell reservoir rune typically contains blindness. Her power and intelligence are derived from a magical gemstone containing 13 of Sorshen's dreams, all so outlandish or salacious that most would consider them to be nightmares—although these dreams have been transforming into less horrific visions as Sorshen's changing philosophies continue to influence her weapon. The guisarme can use 3 actions per turn, acting on her wielder's turn. These actions don't count against her wielder's."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Arcane Shift",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You activate the guisarme's shifting rune to Shift Weapon"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The guisarme transforms into a "
+          },
+          {
+            "type": "ref",
+            "id": "8e51b7b6-db6c-55ce-9934-7327e819e363"
+          },
+          {
+            "type": "text",
+            "text": " with 10 charges. If you spend 1 Mythic Point when you Cast a Spell from this staff and expend 10 charges, the spell is heightened to 10th rank, and its save DC and attack rolls are calculated at mythic proficiency. While in major staff of control form, none of the guisarme's weapon runes are active, nor can she Impose Will, but she remains a high-grade dawnsilver item and retains her intelligence—she can use her actions to Cast a Spell from the staff but can't spend Mythic Points to heighten spells to 10th rank. She automatically reverts to guisarme form once all her charges are expended or if you command the staff to revert to guisarme form by using Shift Weapon again."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Impose Will",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day per spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Sorshen's Sinuous Guisarme",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " casts one of the following spells, heightened to 10th rank, to your specifications: "
+          },
+          {
+            "type": "ref",
+            "id": "a3738cb8-aa5d-5084-b250-86fe19b7498d"
+          },
+          {
+            "type": "text",
+            "text": " (DC 45), "
+          },
+          {
+            "type": "ref",
+            "id": "57a0b3be-ec46-56cd-99e6-c5c0988b0285"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "72597ff4-3a09-5802-9fd2-d42b78034487"
+          },
+          {
+            "type": "text",
+            "text": " (DC 45). The guisarme can use this activation. If you use this activation and spend 1 Mythic Point, the save DC for the spell increases to DC 50."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Destruction",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Sorshen's Sinuous Guisarme",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can be destroyed if it's hurled under the crushing feet of the Oliphaunt of Jandelay, but only if there's no current runelord of lust living in the world. Note that when Sorshen took on the mantle of ruler of New Thassilon, she abandoned her role as runelord of lust, so at this time, half of this destruction requirement is already fulfilled. Of course, a PC who decides to toss this weapon under the Oliphaunt's feet during the course of this adventure will likely disappoint—or perhaps even enrage—Queen Sorshen, who might seek retaliation in the future."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.yYVbgyLGfhRJaNEY"
+    },
+    "data": {
+      "bulk": 2,
+      "material": {
+        "type": "dawnsilver",
+        "grade": "high"
+      },
+      "activations": [
+        {
+          "slug": "arcane-shift",
+          "name": "Arcane Shift",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "polearm",
+      "baseItem": "guisarme",
+      "damage": {
+        "dice": 1,
+        "die": "d10",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 4,
+        "striking": 4,
+        "property": [
+          "bc974552-c0c5-57ac-9924-d474d2bdf9a0",
+          "dd06f261-aa49-55df-aa1b-52807ce2dedd",
+          "ef5cd06c-2a43-5c3b-bb92-137af16e574e"
+        ]
+      }
+    }
+  },
+  {
+    "id": "4fd8dcfb-9734-525a-8cc2-fadb97cbb11d",
+    "pack": "revenge-of-the-runelords",
+    "kind": "weapon",
+    "slug": "weapon:timeflaying-blade",
+    "name": "Timeflaying Blade",
+    "level": 20,
+    "rarity": "rare",
+    "traits": ["magical", "mythic", "two-hand-d12"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Timeflaying blades",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " are forged around shards of collapsed paradoxes. Their existence is largely an enigma. In the furthest corners of esoteric scholarship, they're mentioned in passing or simply alluded to without ever being named outright. They're associated with Stethelos, the legendary city said to lie at the heart of the Dimension of Time, though it's unclear if they were made there, were discovered there, or are bound to return there at the end of time itself."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "timeflaying blade",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a "
+          },
+          {
+            "type": "text",
+            "text": "+3 greater striking greater corrosive keen quickstrike orichalcum bastard sword",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". Acid damage caused by a "
+          },
+          {
+            "type": "text",
+            "text": "timeflaying blade",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " appears not to be caused by liquid, but by the act of material simply eroding away into dust as if thousands of years passed in an instant (this doesn't impact a creature or object's acid immunity, resistance, or weakness, though)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Flay Time",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, incapacitation, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per minute"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Spend 1 Mythic Point. You swing the "
+          },
+          {
+            "type": "text",
+            "text": "timeflaying blade",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " through the air as if slicing something while you attempt to sever a creature within 120 feet from time itself. The creature must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 43
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is hurled 1d4 rounds into the future. They disappear in a flash of white light, only to reappear in the same space on their initiative after the duration. If that space is occupied, the creature is shunted harmlessly aside to the closest unoccupied space."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but the creature is hurled forward in time 1d4 minutes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but the creature is hurled into an entirely alternate timeline. At your discretion, the creature's gear is left behind in your timeline. Whether or not the creature will ever return to your timeline depends on the GM's whim, but at the very least, it should never return within the span of a year's passing."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.8MD6Fwjjgb9cMXQb"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 68000
+        }
+      },
+      "bulk": 1,
+      "material": {
+        "type": "orichalcum",
+        "grade": "high"
+      },
+      "activations": [
+        {
+          "slug": "flay-time",
+          "name": "Flay Time",
+          "frequency": {
+            "max": 1,
+            "per": "minute"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "bastard-sword",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 3,
+        "striking": 2,
+        "property": [
+          "5050ed53-adbb-5208-b463-94fd353f8413",
+          "bc974552-c0c5-57ac-9924-d474d2bdf9a0",
+          "dd06f261-aa49-55df-aa1b-52807ce2dedd"
+        ]
+      }
+    }
+  }
+]

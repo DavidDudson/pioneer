@@ -1,0 +1,966 @@
+[
+  {
+    "id": "ce326d78-4315-555a-8504-3462ec7135cb",
+    "pack": "troubles-in-grayce",
+    "kind": "equipment",
+    "slug": "equipment:floppy-rag-doll",
+    "name": "Floppy Rag Doll",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "troubles-in-grayce"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This simple doll is made with scraps of cloth tied or sewn together into a basic humanoid shape, but its appearance belies its strange power over the actions of others. The head and limbs of the doll constantly droop and sway slightly, never able to remain in one position for very long. Whoever holds a "
+          },
+          {
+            "type": "text",
+            "text": "floppy rag doll",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can feel it squirming in their grasp."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Loose Limbs",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate, visual)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You brandish the "
+          },
+          {
+            "type": "text",
+            "text": "floppy rag doll",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " at a creature within 30 feet who can see you and shake it about. The creature's own limbs begin moving wildly in a similar fashion, and they must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 19,
+            "options": ["inflicts:clumsy"]
+          },
+          {
+            "type": "text",
+            "text": " saving throw."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target can't use reactions until the end your turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": " and can't use reactions until the beginning of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 2"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.0cfFotzRil7uxEeG"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 75
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "loose-limbs",
+          "name": "Loose Limbs",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "2261a1fe-1025-5a08-b561-a263cf9fed4d",
+    "pack": "troubles-in-grayce",
+    "kind": "equipment",
+    "slug": "equipment:lucky-copper",
+    "name": "Lucky Copper",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["fortune", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "troubles-in-grayce"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These coins—copper, silver, or gold depending on their potency—were not minted for circulation. Rather, friendly fey helped to create them as wards against the abilities of some gremlins, namely pugwampis. The coins are said to protect the bearer against misfortunes of all stripes, though, not merely those of gremlins and have come to be seen as good luck charms the world over. Each coin, regardless of the metal used to mint it, has a canine face on both sides; on one side, the face's mouth is open in a wide smile, while the other shows the face snarling."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Guarded Fortune",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (fortune, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail a skill check due to a misfortune effect"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Flip the coin. If it lands on the smiling face, reroll the triggering check; since this activation has the fortune effect, any misfortune effect is canceled out for this check. You must use the new result, even if it's worse. If it lands on the snarling face, nothing happens. Either way, you're temporarily immune to Guarded Fortune for 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Any checks made to craft this item while under a misfortune effect are automatic critical failures."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.awtacA9swoKxH8fY"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 30
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "9ae5c168-b465-5f58-94ed-fc2028fdadb2",
+    "pack": "troubles-in-grayce",
+    "kind": "equipment",
+    "slug": "equipment:lucky-gold",
+    "name": "Lucky Gold",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["fortune", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "troubles-in-grayce"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These coins—copper, silver, or gold depending on their potency—were not minted for circulation. Rather, friendly fey helped to create them as wards against the abilities of some gremlins, namely pugwampis. The coins are said to protect the bearer against misfortunes of all stripes, though, not merely those of gremlins and have come to be seen as good luck charms the world over. Each coin, regardless of the metal used to mint it, has a canine face on both sides; on one side, the face's mouth is open in a wide smile, while the other shows the face snarling."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Guarded Fortune",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (fortune, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail a skill check, a saving throw, or an attack roll due to a misfortune effect"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Flip the coin. If it lands on the smiling face, reroll the triggering check; since this activation has the fortune effect, any misfortune effect is canceled out for this check. You must use the new result, even if it's worse. If it lands on the snarling face, nothing happens. Either way, you're temporarily immune to Guarded Fortune for 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Any checks made to craft this item while under a misfortune effect are automatic critical failures."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.PFkSHCwfrQq3GrOy"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 450
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "91aff603-d76c-5736-b36a-9764b90d0c1d",
+    "pack": "troubles-in-grayce",
+    "kind": "equipment",
+    "slug": "equipment:lucky-silver",
+    "name": "Lucky Silver",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["fortune", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "troubles-in-grayce"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These coins—copper, silver, or gold depending on their potency—were not minted for circulation. Rather, friendly fey helped to create them as wards against the abilities of some gremlins, namely pugwampis. The coins are said to protect the bearer against misfortunes of all stripes, though, not merely those of gremlins and have come to be seen as good luck charms the world over. Each coin, regardless of the metal used to mint it, has a canine face on both sides; on one side, the face's mouth is open in a wide smile, while the other shows the face snarling."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Guarded Fortune",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (fortune, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail a skill check or a saving throw due to a misfortune effect"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Flip the coin. If it lands on the smiling face, reroll the triggering check; since this activation has the fortune effect, any misfortune effect is canceled out for this check. You must use the new result, even if it's worse. If it lands on the snarling face, nothing happens. Either way, you're temporarily immune to Guarded Fortune for 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Any checks made to craft this item while under a misfortune effect are automatic critical failures."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.4FnFyFOEigjTFs3W"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 140
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "05ce5e42-2d2e-518d-8a9a-c93b2c06f6e3",
+    "pack": "troubles-in-grayce",
+    "kind": "equipment",
+    "slug": "equipment:sweet-hags-eye",
+    "name": "Sweet Hag's Eye",
+    "level": 4,
+    "rarity": "rare",
+    "traits": ["occult", "scrying"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "troubles-in-grayce"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This item appears to be a normal, if admittedly macabre, piece of hard peppermint candy the size and shape of a human eyeball. That's because it is actually the eye of a sweet hag, removed and painstakingly replaced with a mix of enchantment and cookery. It is typically mounted on a piece of jewelry or stored in a small sack worn on a cord."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The eye provides no direct benefit for the wearer, but the hag whose eye it once was can peer through it using the Seek action, and cast the "
+          },
+          {
+            "type": "ref",
+            "id": "c319a7b8-ee8e-5f50-97c7-16151916ad80"
+          },
+          {
+            "type": "text",
+            "text": " cantrip through it onto the creature carrying the eye. Both these effects have no range limited, provided the hag is on the same plane."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Any damage to the eye destroys it. The sweet hag can also choose to destroy the eye remotely using Meltaway Mint. The eye can also be eaten, but a creature who attempts this is exposed to sickeningly sweet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Meltaway Mint",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The hag causes the eye to melt away under a brief flare of intense heat. If a creature is holding the eye, they must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 18
+          },
+          {
+            "type": "text",
+            "text": " save. On a failure, they take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d4",
+                "damageType": "fire",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage as the boiling hot candy remains stick to and burn their skin."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sickeningly Sweet",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (ingested, poison) The sickened condition caused by this poison can't be ended until the poison's effects end"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Saving Throw",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 20,
+            "options": ["inflicts:sickened"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Onset",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Maximum Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 10 minutes;"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": " (1 minute)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d8",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 2"
+          },
+          {
+            "type": "text",
+            "text": " (1 minute)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 3",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d8",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 3"
+          },
+          {
+            "type": "text",
+            "text": " (1 minute)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You must be a sweet hag."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.HNzFnmRfpt2oz5qQ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 75
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "b8dc8fc6-22b2-5fda-8f2d-b781b78f0e04",
+    "pack": "troubles-in-grayce",
+    "kind": "equipment",
+    "slug": "equipment:vagabonds-teapot",
+    "name": "Vagabond's Teapot",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "troubles-in-grayce"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These ceramic teapots are highly valued by travelers. While the teapot is filled with water, a creature can use a single action with the concentrate trait to instantly heat the water to boiling, at which point the kettle whistles and the water inside begins to cool at a normal rate. While the water remains heated, it is piping hot, and a creature splashed with it takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d4",
+                "damageType": "fire"
+              }
+            ],
+            "label": "1d4 nonlethal fire damage"
+          },
+          {
+            "type": "text",
+            "text": ". Instead of filling the teapot with water, you can pour an elixir of 4th level or lower into the pot and use the following activation."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Share Brew",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 10 minutes (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The teapot magically increases the volume of the inserted elixir to produce four uses of the same elixir. Once an elixir has been brewed in the teapot in this way, further attempts that day to brew another elixir spoil the inserted liquid. Any brewed elixir not consumed by the time it cools (typically 10 minutes) loses its alchemical properties."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.RgHt3SB3HZ9gAQob"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "share-brew",
+          "name": "Share Brew",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

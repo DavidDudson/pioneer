@@ -1,0 +1,908 @@
+[
+  {
+    "id": "70af2e20-4c3e-52ea-98eb-8185d27c269e",
+    "pack": "gatewalkers",
+    "kind": "class-feature",
+    "slug": "class-feature:all-consuming-hunger",
+    "name": "All-Consuming Hunger",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The emptiness within you is a hunger that pushes at your mind to fill it, causing you to fixate powerfully on a potential source of energy near you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "eeae3b9f-d05b-54d4-bec8-02f306d569c9"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Mild Backlash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You glimpse the thrum of energy—the heat of a body, the flickering of synapses, the light of a soul—in a beautiful, captivating dance. You become "
+          },
+          {
+            "type": "ref",
+            "id": "88ca1b7b-d5de-5978-9ff4-258c9aadef1a"
+          },
+          {
+            "type": "text",
+            "text": " with one creature you just affected with your deviant ability; if multiple creatures would qualify, the GM chooses. This fascination lasts for 1 minute or until the target uses a hostile action against you or your allies, as normal."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Moderate Backlash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your fascination with the target causes you to forget your allies. As mild backlash, but you don't treat anyone as your ally (though they might still treat you as theirs), meaning that the fascination ends only if your target uses a hostile action against you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Severe Backlash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your mind is filled with the single, all-consuming desire to feed upon the target. You become "
+          },
+          {
+            "type": "ref",
+            "id": "6f53a234-670f-5b02-a986-7cce57585fc8"
+          },
+          {
+            "type": "text",
+            "text": ", except that your target is always the creature affected by your deviant ability, as long as you can perceive them."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.hWzk8C4Kujel050h"
+    },
+    "data": {}
+  },
+  {
+    "id": "f8fadf6b-ec7c-5f61-90b1-a6bbf870102f",
+    "pack": "gatewalkers",
+    "kind": "class-feature",
+    "slug": "class-feature:desynchronized-motions",
+    "name": "Desynchronized Motions",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As your body speeds faster and faster, you risk falling out of sync with reality, as the world slows around you to the point that your interactions with it become strange and unpredictable."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "8a246c4a-d457-566c-8429-f76090fe9405"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Mild Backlash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The friction of your motion through a slower world sets you alight. You take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(2+floor(@level/5))d4",
+                "damageType": "fire",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. At 5th level, and every 5 levels after, the persistent fire damage increases by 1d4. You take this persistent fire damage even if in a liquid environment, such as underwater, as your motion simply surrounds you in boiling water."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Moderate Backlash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fall out of phase with nearby matter, becoming trapped in the process. You take the mild backlash effects, catching on fire, and your legs also partially phase into the ground, making you "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": ". You can attempt to "
+          },
+          {
+            "type": "ref",
+            "id": "2ae74030-e87a-55ee-955c-fb9870392d44"
+          },
+          {
+            "type": "text",
+            "text": " against your deviation DC, or you can slowly extract yourself without attempting a check over the course of 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Severe Backlash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your body accelerates to such a degree that your senses and impulses cannot keep up. You become trapped in your own mind for what seems like an eternity, taking 1d4 nonlethal mental damage for each level you have ("
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(@level)d4",
+                "damageType": "mental"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "). When you return, you are "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 3"
+          },
+          {
+            "type": "text",
+            "text": " for 10 minutes, and then "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 1"
+          },
+          {
+            "type": "text",
+            "text": " until your next daily preparation. Your body ages one year during this time."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.ZhYJhcOeZlh96wFh"
+    },
+    "data": {}
+  },
+  {
+    "id": "4c9661a3-c6d5-543f-9144-9ef5dd13d60f",
+    "pack": "gatewalkers",
+    "kind": "class-feature",
+    "slug": "class-feature:encroaching-presence",
+    "name": "Encroaching Presence",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Seeing and touching the beyond leaves you open to its alien influence, warping your perceptions and thoughts."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "501d0b2b-89d6-57ce-9e2b-0c6a103f20e8"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Mild Backlash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Something inexplicable touches your mind, leaving you with lingering horror. You become "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 3"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Moderate Backlash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Disorienting visions and figments cover your vision, as if you're seeing through another set of alien senses. For 10 minutes, all creatures become "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " to you as they are covered in visual distortions only you can see."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Severe Backlash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your life force is siphoned away as the presence tugs your soul to wherever it resides. You become "
+          },
+          {
+            "type": "ref",
+            "id": "cd164d22-2d8e-5fd2-b8b2-03e1360df1e7",
+            "label": "Doomed 1"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 2"
+          },
+          {
+            "type": "text",
+            "text": " until your next daily preparations."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.6RAHnACKReBW68Sa"
+    },
+    "data": {}
+  },
+  {
+    "id": "a9478002-ca8d-514e-9214-395f185516c7",
+    "pack": "gatewalkers",
+    "kind": "class-feature",
+    "slug": "class-feature:energetic-meltdown",
+    "name": "Energetic Meltdown",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As you channel energy through your deviant abilities, some of it turns back on you, spiking your body temperature or dancing across your skin."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "46b034cf-c343-5001-b919-320127363c7d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Mild Backlash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take damage equal to your level as energy scours your body."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Moderate Backlash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Energy wracks your body. After taking the damage, you gain weakness to the energy type of your backlash until your next daily preparations. The weakness is equal to one-third of your level. You also lose immunity to the energy type if you had it, until your next daily preparations."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Severe Backlash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Whatever furnace or well within you that provides the energy for your deviation overloads completely, cascading out of you in an uncontrolled burst. You deal 1d6 damage per level to all creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": {
+              "against": "class-or-spell-dc"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save. You automatically take full damage without attempting a save."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.8PjTI21Mif26XWY7"
+    },
+    "data": {}
+  },
+  {
+    "id": "986c2379-d0b4-5876-9b40-6e416d9d3fcc",
+    "pack": "gatewalkers",
+    "kind": "class-feature",
+    "slug": "class-feature:flicker-deviant-classification",
+    "name": "Flicker Deviant Classification",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whether due to an artificially accelerated metabolism or the lingering effects of temporal phenomena, the end result of the flicker classification is largely the same—abilities that result in the perception of higher-than-average speed, kinetic acuity, and reflexes."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Backlash"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "f8fadf6b-ec7c-5f61-90b1-a6bbf870102f"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As your body speeds faster and faster, you risk falling out of sync with reality, as the world slows around you to the point that your interactions with it become strange and unpredictable."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Mild Backlash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The friction of your motion through a slower world sets you alight. You take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(2+floor(@level/5))d4",
+                "damageType": "fire",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. At 5th level, and every 5 levels after, the persistent fire damage increases by 1d4. You take this persistent fire damage even if in a liquid environment, such as underwater, as your motion simply surrounds you in boiling water."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Moderate Backlash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fall out of phase with nearby matter, becoming trapped in the process. You take the mild backlash effects, catching on fire, and your legs also partially phase into the ground, making you "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": ". You can attempt to "
+          },
+          {
+            "type": "ref",
+            "id": "2ae74030-e87a-55ee-955c-fb9870392d44"
+          },
+          {
+            "type": "text",
+            "text": " against your deviation DC, or you can slowly extract yourself without attempting a check over the course of 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Severe Backlash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your body accelerates to such a degree that your senses and impulses cannot keep up. You become trapped in your own mind for what seems like an eternity, taking 1d4 nonlethal mental damage for each level you have ("
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(@level)d4",
+                "damageType": "mental"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "). When you return, you are "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 3"
+          },
+          {
+            "type": "text",
+            "text": " for 10 minutes, and then "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 1"
+          },
+          {
+            "type": "text",
+            "text": " until your next daily preparation. Your body ages one year during this time."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Flicker Deviant Feats"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "aa9dd28b-7568-5532-9ea4-33b9606583aa"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "0ed3f60c-5263-53f1-a39c-4e0a0e07c857"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "c938b112-93f5-5737-975e-cc0a486b5b1b"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "6db93326-df54-5370-8671-224a5c90931a"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Universal Deviant Feats"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "2eec0fad-69f6-5c39-8df7-1355a8b97764"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "86231d26-904a-5c33-9556-060dd203eff0"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "f8fadf6b-ec7c-5f61-90b1-a6bbf870102f",
+        "allowDuplicate": false
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.rHfZWy3hzhV71F0Q"
+    },
+    "data": {}
+  },
+  {
+    "id": "2bd3f370-5798-5ef1-aeb6-802a1b60bb91",
+    "pack": "gatewalkers",
+    "kind": "class-feature",
+    "slug": "class-feature:leech-deviant-classification",
+    "name": "Leech Deviant Classification",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While deviations are often thought of as a gained ability—increased muscle mass, a well of unstable power, new senses—it's just as common that the events that cause a deviation result in loss. With a fundamental part of the subject's self stripped away, an absence remains. Though generally fatal, these events can rarely result in leech-type classifications, characterized by abilities that draw in energy and matter in a futile attempt to fill the void within."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Backlash"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "70af2e20-4c3e-52ea-98eb-8185d27c269e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The emptiness within you is a hunger that pushes at your mind to fill it, causing you to fixate powerfully on a potential source of energy near you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Mild Backlash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You glimpse the thrum of energy—the heat of a body, the flickering of synapses, the light of a soul—in a beautiful, captivating dance. You become "
+          },
+          {
+            "type": "ref",
+            "id": "88ca1b7b-d5de-5978-9ff4-258c9aadef1a"
+          },
+          {
+            "type": "text",
+            "text": " with one creature you just affected with your deviant ability; if multiple creatures would qualify, the GM chooses. This fascination lasts for 1 minute or until the target uses a hostile action against you or your allies, as normal."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Moderate Backlash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your fascination with the target causes you to forget your allies. As mild backlash, but you don't treat anyone as your ally (though they might still treat you as theirs), meaning that the fascination ends only if your target uses a hostile action against you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Severe Backlash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your mind is filled with the single, all-consuming desire to feed upon the target. You become "
+          },
+          {
+            "type": "ref",
+            "id": "6f53a234-670f-5b02-a986-7cce57585fc8"
+          },
+          {
+            "type": "text",
+            "text": ", except that your target is always the creature affected by your deviant ability, as long as you can perceive them."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Leech Deviant Feats"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "c558ae94-181c-510c-886d-0dc27bb2f376"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "e4f4109c-e7ae-5e5e-bd33-f1d2c71603c7"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "8f27ea47-924c-5b85-83d2-30f8eee0b788"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "663773c6-a0e4-571f-b912-be36fb5ee27b"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Universal Deviant Feats"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "2eec0fad-69f6-5c39-8df7-1355a8b97764"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "86231d26-904a-5c33-9556-060dd203eff0"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "70af2e20-4c3e-52ea-98eb-8185d27c269e",
+        "allowDuplicate": false
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.WuX4ZzsE0ezQfIVS"
+    },
+    "data": {}
+  }
+]

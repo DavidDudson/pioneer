@@ -1,0 +1,144 @@
+{
+  "pin": {
+    "tag": "pf2e-8.6.0",
+    "sha256": "d9c4c1f6bbf9bd907ec0acbaea9b8d4e8b0d049758a8616829f07c1b4ee81342"
+  },
+  "backlog": [
+    {
+      "type": "entry",
+      "pack": "troubles-in-grayce",
+      "slug": "effect:effect-gluttons-feast-aezar",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.LWFDNwi3iJuf476A",
+      "leftOut": {
+        "reason": "no-kind-data",
+        "detail": ""
+      },
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "invalid-data",
+          "field": "badge.formula",
+          "raw": {
+            "category": "other",
+            "duration": {
+              "type": "time",
+              "count": 1,
+              "unit": "minute",
+              "expiry": "turn-start"
+            },
+            "badge": {
+              "type": "formula",
+              "formula": "(@actor.flags.system.gluttonsFeast)d6"
+            }
+          }
+        }
+      ],
+      "document": {
+        "_id": "LWFDNwi3iJuf476A",
+        "name": "Effect: Glutton's Feast (Aezar)",
+        "type": "effect",
+        "system": {
+          "publication": {
+            "title": "Pathfinder Adventures: Troubles in Grayce",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 5
+          },
+          "traits": {
+            "value": []
+          },
+          "description": {
+            "value": "<p>You gain temporary Hit Points.</p>"
+          },
+          "rules": [
+            {
+              "key": "TempHP",
+              "value": "@item.badge.value"
+            }
+          ],
+          "badge": {
+            "evaluate": true,
+            "labels": null,
+            "reevaluate": null,
+            "type": "formula",
+            "value": "(@actor.flags.system.gluttonsFeast)d6"
+          },
+          "duration": {
+            "expiry": "turn-start",
+            "sustained": false,
+            "unit": "minutes",
+            "value": 1
+          },
+          "fromSpell": false,
+          "start": {
+            "initiative": null,
+            "value": 0
+          },
+          "tokenIcon": {
+            "show": true
+          }
+        }
+      }
+    },
+    {
+      "type": "entry",
+      "pack": "troubles-in-grayce",
+      "slug": "effect:effect-phantom-hands",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.aBtlxHM9ChGywyrH",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "removeAfterRoll": ["phantom-hands:success"],
+            "selector": ["initiative"],
+            "type": "status",
+            "value": 2
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "troubles-in-grayce",
+      "slug": "equipment:sweet-hags-eye",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.HNzFnmRfpt2oz5qQ",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[traits]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "troubles-in-grayce",
+      "slug": "equipment:vagabonds-teapot",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.RgHt3SB3HZ9gAQob",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Damage[traits]"
+        }
+      ]
+    },
+    {
+      "type": "vocabulary",
+      "kind": "damage-type",
+      "slug": "untyped",
+      "reason": "unmapped-value",
+      "detail": "untyped"
+    }
+  ]
+}

@@ -1,0 +1,272 @@
+[
+  {
+    "id": "628bebcc-bc69-5d68-849e-b8401ec896cb",
+    "pack": "hells-destiny",
+    "kind": "weapon",
+    "slug": "weapon:warmasters-baton",
+    "name": "Warmaster's Baton",
+    "level": 10,
+    "rarity": "rare",
+    "traits": ["magical", "shove"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This double-ended silver baton functions as a mundane silver mace. Its shining surface glimmers in the light, making it easy to signal and inspire troops."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Rally Forth",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An enemy triggers a reaction from a troop you're currently commanding, but that troop has already used its reaction this turn"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The troop under your command gains a second reaction that they must immediately use against the triggering enemy."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.gUlsLMYHZriqYyYK"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 850
+        }
+      },
+      "bulk": 1,
+      "material": {
+        "type": "silver",
+        "grade": "standard"
+      },
+      "activations": [
+        {
+          "slug": "rally-forth",
+          "name": "Rally Forth",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "simple",
+      "group": "club",
+      "baseItem": "mace",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "33d32bf4-6a88-5e85-8b9b-8ccfc165508b",
+    "pack": "hells-destiny",
+    "kind": "weapon",
+    "slug": "weapon:warmasters-baton-greater",
+    "name": "Warmaster's Baton (Greater)",
+    "level": 16,
+    "rarity": "rare",
+    "traits": ["magical", "shove"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This double-ended silver baton functions as a mundane silver mace. Its shining surface glimmers in the light, making it easy to signal and inspire troops."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Rally Forth",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An enemy triggers a reaction from a troop you're currently commanding, but that troop has already used its reaction this turn"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The troop under your command gains a second reaction that they must immediately use against the triggering enemy."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.vWpchgC4NSR6Z5vd"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 8500
+        }
+      },
+      "bulk": 1,
+      "material": {
+        "type": "silver",
+        "grade": "standard"
+      },
+      "activations": [
+        {
+          "slug": "rally-forth",
+          "name": "Rally Forth",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "category": "simple",
+      "group": "club",
+      "baseItem": "mace",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

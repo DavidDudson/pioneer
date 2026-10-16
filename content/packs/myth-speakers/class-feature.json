@@ -1,0 +1,911 @@
+[
+  {
+    "id": "a30534e5-78af-5ef0-be37-d283567144ee",
+    "pack": "myth-speakers",
+    "kind": "class-feature",
+    "slug": "class-feature:plunderer-of-the-hives-riches",
+    "name": "Plunderer of the Hive's Riches",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["exemplar"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take what's yours, even if an army should stand in your way. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "d52c641b-03fd-5652-8dd8-3ff51291144e"
+          },
+          {
+            "type": "text",
+            "text": " feat, with your choice of either poison or sonic damage. When you critically succeed at a Strike, the taste of honey fills your mouth as you plunder part of your foe's vitality for yourself, gaining temporary Hit Points equal to half the creature's level that last for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you Spark Transcendence, a mass of buzzing insects fill the air around you, granting you "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1",
+            "label": "Concealment"
+          },
+          {
+            "type": "text",
+            "text": " until the beginning of your next turn. You can't use this concealment to "
+          },
+          {
+            "type": "ref",
+            "id": "5a86b7d0-fc0e-52a6-9b0d-fb58ed15233d"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "7e4e48de-b626-5513-9518-73261c58b5f4"
+          },
+          {
+            "type": "text",
+            "text": ", as normal for concealment when your position is still obvious."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:epithet-critical-specialization",
+        "toggleable": true,
+        "priority": 51,
+        "display": {
+          "label": "Use epithet critical specialization effect"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.YL3yActlXBpXrSBl"
+    },
+    "data": {
+      "tags": ["exemplar-dominion-epithet"]
+    }
+  },
+  {
+    "id": "8a0eb336-cc39-5e4e-beb3-649032ec311e",
+    "pack": "myth-speakers",
+    "kind": "class-feature",
+    "slug": "class-feature:shepherd-of-errant-winds",
+    "name": "Shepherd of Errant Winds",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["animist"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Often spun from eddies in the wake of air elementals, a shepherd of errant winds delights in movement and freedom. They might seek animists in breezy canyons or aboard ships cruising the trade winds, after which the apparition follows an animist to less airy locales. However, a shepherd of errant winds chafes at idleness and stirs up trouble if its surroundings seem too still."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Apparition Skill",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Sailing Lore, Scouting Lore"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Apparition Spells",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Cantrip",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "138a5162-8591-58ac-96a6-23587e9dd75e"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "1st",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "b7d21825-2e85-5035-8646-0fdbc7c00e05"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "2nd",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "71dc1082-2810-511d-bd4f-bf8f29ac0a2b"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "3rd",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "ad0650c3-31d5-51c2-8226-045ac8442ae8"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "4th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "1bf15f4b-9369-5136-b3f1-cd18d01b9233"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "5th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "2897020f-b34e-5315-9369-d501cd903968"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "6th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "64000c62-eeaa-5b2e-a340-0a6842e50a1e"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "7th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "58f5410e-1cd7-5af4-b121-75f15609c1c3"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "8th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "fa4648c3-40b3-54fb-8364-de0af610cd8a"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "9th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "05d5f598-dca0-5144-b846-56f387c85245"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Vessel Spell",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "a7bbcea9-f827-5ac9-a49f-e7f991f77ced"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Avatar",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Avatar Will of the Winds",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " Speed 40 feet, fly 70 feet, ignore difficult terrain and greater difficult terrain"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Melee",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " air blast (air, reach 20 feet), "
+          },
+          {
+            "type": "text",
+            "text": "Damage",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 6d8+6 bludgeoning"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ranged",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " thunderclap (electricity, range 120 feet, versatile sonic), "
+          },
+          {
+            "type": "text",
+            "text": "Damage",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 6d6+3 electricity"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.aFVxfp7uQ0ac87GN"
+    },
+    "data": {
+      "tags": ["animist-apparition"]
+    }
+  },
+  {
+    "id": "1e607e8d-52bc-5e70-b7da-949f3d568cc3",
+    "pack": "myth-speakers",
+    "kind": "class-feature",
+    "slug": "class-feature:speaker-in-sibilance",
+    "name": "Speaker in Sibilance",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["animist"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whether witnessed in hissing serpents or the whisper of pungent fumes wafting up from a forlorn cave, a speaker in sibilance offers forbidden knowledge and revels in the anguish of an unprepared mind. These apparitions often take medusa-like forms, each serpent providing different (and often contradictory) advice."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Apparition Skill",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Fortune-Telling Lore, Mountain Lore"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Apparition Spells",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Cantrip",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "0ab09bd7-3636-56c8-872d-c9d75380c5db"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "1st",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "4f616729-3f27-5aee-a02e-426f121c6fa3"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "2nd",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "8a83becc-07c0-52c9-92ce-77546175cc07"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "3rd",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "22b62dab-5ef5-5d09-8c09-2f7bcfc88be1"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "4th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "d7ec85ac-ef3e-51e9-8180-0ba0df6a899a"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "5th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "f97e48c5-f8dc-5888-83c8-67ed63b03f23"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "6th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "86c529b1-5a2f-5bac-9c74-674544b5bd32"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "7th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "c4f7f267-8526-5dd9-9ff8-2ef5d29ac387"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "8th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "5cd8e86f-9a06-59b4-a2fd-7a1cc14b4c3e"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "9th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "3997d8f7-14a9-5f54-869a-920fa859cd44"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Vessel Spell",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "ce4415e6-2f84-58fe-b0a3-b2328b1d0c0b"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Avatar",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Medusa of Merciless Mysteries",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " Speed 60 feet, climb 60 feet"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Melee",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " biting hair (poison, reach 15 feet), "
+          },
+          {
+            "type": "text",
+            "text": "Damage",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 6d6+6 piercing plus 2d6 persistent poison"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ranged",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " jarring prophecy (mental, range 120 feet, versatile sonic), "
+          },
+          {
+            "type": "text",
+            "text": "Damage",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 6d6+3 mental"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.2XlUg9JXtwnSbWOY"
+    },
+    "data": {
+      "tags": ["animist-apparition"]
+    }
+  },
+  {
+    "id": "6894a4af-b395-55b2-bd6e-7b769054019f",
+    "pack": "myth-speakers",
+    "kind": "class-feature",
+    "slug": "class-feature:trespasser-in-deaths-realm",
+    "name": "Trespasser In Death's Realm",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["exemplar"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You slide through death's realm, not caring that death is jealous of those who escape. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "d52c641b-03fd-5652-8dd8-3ff51291144e"
+          },
+          {
+            "type": "text",
+            "text": " feat, with your choice of either vitality or void damage. When you critically succeed at a Strike, you pull your target closer to death from your stolen connection. The target must attempt a Will saving against your class DC. On a failure, they become "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute. This has the curse trait."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you Spark Transcendence, your divine spark draws part of death closer to you. Until the start of your next turn, any living enemy that starts it turns adjacent to you or enters a space adjacent to you takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "void"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:epithet-critical-specialization",
+        "toggleable": true,
+        "priority": 51,
+        "display": {
+          "label": "Use epithet critical specialization effect"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.rNsdp5wDGQT5SZgf"
+    },
+    "data": {
+      "tags": ["exemplar-dominion-epithet"]
+    }
+  }
+]

@@ -1,0 +1,49 @@
+[
+  {
+    "id": "10d2ef14-53ea-57fa-89d8-8e7cc6e3b8ac",
+    "pack": "the-dead-gods-hand",
+    "kind": "feat",
+    "slug": "feat:asp-stance",
+    "name": "Asp Stance",
+    "level": 6,
+    "rarity": "rare",
+    "traits": ["monk", "stance"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "the-dead-gods-hand"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You adopt a fluid, sinuous stance, swaying your body, twisting your arms, and shimmying your legs in a way that you seem almost to glide over the ground. While in this stance, your unarmed Strikes deal piercing damage, and you gain poison resistance equal to half your level. When you target the same creature with two Strikes from Flurry of Blows, if at last one is a critical hit, the target is "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.tan8sBy1tjCggnSu"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "one",
+        "selfEffect": "2459d9cd-4da9-539c-b456-32613303035c"
+      }
+    }
+  }
+]

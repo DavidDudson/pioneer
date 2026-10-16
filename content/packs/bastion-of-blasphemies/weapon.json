@@ -1,0 +1,282 @@
+[
+  {
+    "id": "f40b235f-746a-5aa8-995f-18b150b1eee5",
+    "pack": "bastion-of-blasphemies",
+    "kind": "weapon",
+    "slug": "weapon:fearcutter",
+    "name": "Fearcutter",
+    "level": 12,
+    "rarity": "unique",
+    "traits": ["versatile-p"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In his days as an adventurer, Eragayl Arudora made a name for himself as a champion of Shelyn. Devoted to the cause of grandeur, Eragayl eschewed the typical glaive of her champions and instead focused his skills on the longsword and shield. It was his shield that gained Shelyn's blessings, but by the time he retired and began building Castle Arudora, Eragayl's sword, "
+          },
+          {
+            "type": "text",
+            "text": "Fearcutter",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", was arguably his most legendary belonging. With this blade, he slew countless undead and fiends, including the monstrous sahkil Vormingundur, who for many years tormented a dozen small settlements along the southwest border of Varno before meeting his end on this blade's edge."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Fearcutter",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a "
+          },
+          {
+            "type": "text",
+            "text": "+2 striking astral vitalizing longsword",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " that grants a +2 item bonus to saving throws against fear effects while you carry it unsheathed. When you critically hit a creature with the unholy trait with "
+          },
+          {
+            "type": "text",
+            "text": "Fearcutter",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", the target becomes "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Cut Fear",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (divine, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per round"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You swing "
+          },
+          {
+            "type": "text",
+            "text": "Fearcutter",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " through the air near a frightened creature. Reduce that creature's frightened value by 1."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Cut Cruelty",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (divine, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You brandish "
+          },
+          {
+            "type": "text",
+            "text": "Fearcutter",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " forcefully, and the sword casts a 5th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "52e6a91e-087f-5216-962c-d8cde645e96c"
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 29,
+            "options": ["item:type:spell"]
+          },
+          {
+            "type": "text",
+            "text": " save) at an unholy target in range."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["item:trait:fear"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.w7usWIc20eklVVXT"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2000
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "cut-fear",
+          "name": "Cut Fear",
+          "frequency": {
+            "max": 1,
+            "per": "round"
+          }
+        },
+        {
+          "slug": "cut-cruelty",
+          "name": "Cut Cruelty",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "longsword",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 1,
+        "property": ["b9d62e90-8419-502f-854f-121a45b1d1e0"]
+      }
+    }
+  }
+]

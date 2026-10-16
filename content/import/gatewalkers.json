@@ -1,0 +1,1482 @@
+{
+  "pin": {
+    "tag": "pf2e-8.6.0",
+    "sha256": "d9c4c1f6bbf9bd907ec0acbaea9b8d4e8b0d049758a8616829f07c1b4ee81342"
+  },
+  "backlog": [
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "action:blackfrost-dead-blackfrost",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.kLQ0eq18SvKEvggc",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.BlackfrostDead.Blackfrost.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "action:blackfrost-dead-blackfrost-breath",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.ydrDZ7lqioLPWRlB",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.BlackfrostDead.BlackfrostBreath.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "action:blackfrost-dead-ice-climb",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.yR9VLXIjJ2iOX77z",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.BlackfrostDead.IceClimb.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "action:blackfrost-dead-shattering-death",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.v14HanKkdPGQd7Km",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.BlackfrostDead.ShatteringDeath.Name"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "deathNote",
+          "raw": true
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[dc]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "class-feature:energetic-meltdown",
+      "foundry": "Compendium.pf2e.classfeatures.Item.8PjTI21Mif26XWY7",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/r]][formula]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "class-feature:flicker-deviant-classification",
+      "foundry": "Compendium.pf2e.classfeatures.Item.rHfZWy3hzhV71F0Q",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "flags.system.deviantAbilities.awakenedChoices",
+            "priority": 10,
+            "value": {
+              "greater": [],
+              "lesser": []
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.deviantAbilities.awakenedChoices.lesser",
+            "value": {
+              "label": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.SonicDashSonicBoom",
+              "predicate": [
+                {
+                  "not": "awakening:sonic-dash:sonic-boom"
+                },
+                "feat:sonic-dash"
+              ],
+              "value": "sonic-dash:sonic-boom"
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.deviantAbilities.awakenedChoices.lesser",
+            "value": {
+              "label": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.SonicDashSlipstream",
+              "predicate": [
+                {
+                  "not": "awakening:sonic-dash:slipstream"
+                },
+                "feat:sonic-dash"
+              ],
+              "value": "sonic-dash:slipstream"
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.deviantAbilities.awakenedChoices.greater",
+            "value": {
+              "label": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.SonicDashSonicBoom",
+              "predicate": [
+                {
+                  "not": "awakening:sonic-dash:sonic-boom"
+                },
+                "feat:sonic-dash"
+              ],
+              "value": "sonic-dash:sonic-boom"
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.deviantAbilities.awakenedChoices.greater",
+            "value": {
+              "label": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.SonicDashSlipstream",
+              "predicate": [
+                {
+                  "not": "awakening:sonic-dash:slipstream"
+                },
+                "feat:sonic-dash"
+              ],
+              "value": "sonic-dash:slipstream"
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.deviantAbilities.awakenedChoices.lesser",
+            "value": {
+              "label": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.OverclockSensesFocus",
+              "predicate": [
+                {
+                  "not": "awakening:overclock-senses:focus"
+                },
+                "feat:overclock-senses"
+              ],
+              "value": "overclock-senses:focus"
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.deviantAbilities.awakenedChoices.lesser",
+            "value": {
+              "label": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.OverclockSensesReact",
+              "predicate": [
+                {
+                  "not": "awakening:overclock-senses:react"
+                },
+                "feat:overclock-senses"
+              ],
+              "value": "overclock-senses:react"
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.deviantAbilities.awakenedChoices.greater",
+            "value": {
+              "label": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.OverclockSensesFocus",
+              "predicate": [
+                {
+                  "not": "awakening:overclock-senses:focus"
+                },
+                "feat:overclock-senses"
+              ],
+              "value": "overclock-senses:focus"
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.deviantAbilities.awakenedChoices.greater",
+            "value": {
+              "label": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.OverclockSensesReact",
+              "predicate": [
+                {
+                  "not": "awakening:overclock-senses:react"
+                },
+                "feat:overclock-senses"
+              ],
+              "value": "overclock-senses:react"
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.deviantAbilities.awakenedChoices.greater",
+            "value": {
+              "label": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.UnstableGearshiftBlur",
+              "predicate": [
+                {
+                  "not": "awakening:unstable-gearshift:blur"
+                },
+                "feat:unstable-gearshift"
+              ],
+              "value": "unstable-gearshift:blur"
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.deviantAbilities.awakenedChoices.greater",
+            "value": {
+              "label": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.UnstableGearshiftPhaseOut",
+              "predicate": [
+                {
+                  "not": "awakening:unstable-gearshift:phase-out"
+                },
+                "feat:unstable-gearshift"
+              ],
+              "value": "unstable-gearshift:phase-out"
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.deviantAbilities.awakenedChoices.greater",
+            "value": {
+              "label": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.LightspeedAssaultTeleport",
+              "predicate": [
+                {
+                  "not": "awakening:lightspeed-assault:teleport"
+                },
+                "feat:lightspeed-assault"
+              ],
+              "value": "lightspeed-assault:teleport"
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.deviantAbilities.awakenedChoices.greater",
+            "value": {
+              "label": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.LightspeedAssaultFlankingAssault",
+              "predicate": [
+                {
+                  "not": "awakening:lightspeed-assault:flanking-assault"
+                },
+                "feat:lightspeed-assault"
+              ],
+              "value": "lightspeed-assault:flanking-assault"
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "SpecialStatistic",
+          "raw": {
+            "extends": "class-spell",
+            "key": "SpecialStatistic",
+            "label": "PF2E.SpecificRule.DeviantAbilities.Label",
+            "slug": "deviant",
+            "type": "attack-roll"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "class-feature:leech-deviant-classification",
+      "foundry": "Compendium.pf2e.classfeatures.Item.WuX4ZzsE0ezQfIVS",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "flags.system.deviantAbilities.awakenedChoices",
+            "priority": 10,
+            "value": {
+              "greater": [],
+              "lesser": []
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.deviantAbilities.awakenedChoices.lesser",
+            "value": {
+              "label": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.DrainingTouchClumsyTouch",
+              "predicate": [
+                {
+                  "not": "awakening:draining-touch:clumsy"
+                },
+                "feat:draining-touch"
+              ],
+              "value": "draining-touch:clumsy"
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.deviantAbilities.awakenedChoices.lesser",
+            "value": {
+              "label": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.DrainingTouchDrainSpirit",
+              "predicate": [
+                {
+                  "not": "awakening:draining-touch:drain-spirit"
+                },
+                "feat:draining-touch"
+              ],
+              "value": "draining-touch:drain-spirit"
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.deviantAbilities.awakenedChoices.greater",
+            "value": {
+              "label": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.DrainingTouchClumsyTouch",
+              "predicate": [
+                {
+                  "not": "awakening:draining-touch:clumsy"
+                },
+                "feat:draining-touch"
+              ],
+              "value": "draining-touch:clumsy"
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.deviantAbilities.awakenedChoices.greater",
+            "value": {
+              "label": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.DrainingTouchDrainSpirit",
+              "predicate": [
+                {
+                  "not": "awakening:draining-touch:drain-spirit"
+                },
+                "feat:draining-touch"
+              ],
+              "value": "draining-touch:drain-spirit"
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.deviantAbilities.awakenedChoices.lesser",
+            "value": {
+              "label": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.BorrowedAbilityBorrowDefense",
+              "predicate": [
+                {
+                  "not": "awakening:borrowed-ability:borrow-defense"
+                },
+                "feat:borrowed-ability"
+              ],
+              "value": "borrowed-ability:borrow-defense"
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.deviantAbilities.awakenedChoices.lesser",
+            "value": {
+              "label": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.BorrowedAbilityLingeringLink",
+              "predicate": [
+                {
+                  "not": "awakening:borrowed-ability:lingering-link"
+                },
+                "feat:borrowed-ability"
+              ],
+              "value": "borrowed-ability:lingering-link"
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.deviantAbilities.awakenedChoices.greater",
+            "value": {
+              "label": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.BorrowedAbilityBorrowDefense",
+              "predicate": [
+                {
+                  "not": "awakening:borrowed-ability:borrow-defense"
+                },
+                "feat:borrowed-ability"
+              ],
+              "value": "borrowed-ability:borrow-defense"
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.deviantAbilities.awakenedChoices.greater",
+            "value": {
+              "label": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.BorrowedAbilityLingeringLink",
+              "predicate": [
+                {
+                  "not": "awakening:borrowed-ability:lingering-link"
+                },
+                "feat:borrowed-ability"
+              ],
+              "value": "borrowed-ability:lingering-link"
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.deviantAbilities.awakenedChoices.greater",
+            "value": {
+              "label": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.KineticDampeningSafeHaven",
+              "predicate": [
+                {
+                  "not": "awakening:kinetic-dampening:safe-haven"
+                },
+                "feat:kinetic-dampening"
+              ],
+              "value": "kinetic-dampening:safe-haven"
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.deviantAbilities.awakenedChoices.greater",
+            "value": {
+              "label": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.KineticDampeningWavelengthExpansion",
+              "predicate": [
+                {
+                  "not": "awakening:kinetic-dampening:wavelength-expansion"
+                },
+                "feat:kinetic-dampening"
+              ],
+              "value": "kinetic-dampening:wavelength-expansion"
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.deviantAbilities.awakenedChoices.greater",
+            "value": {
+              "label": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.FeedTheVoidFeedOnSpirit",
+              "predicate": [
+                {
+                  "not": "awakening:feed-the-void:feed-on-spirit"
+                },
+                "feat:feed-the-void"
+              ],
+              "value": "feed-the-void:feed-on-spirit"
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.deviantAbilities.awakenedChoices.greater",
+            "value": {
+              "label": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.FeedTheVoidFeedOnHeat",
+              "predicate": [
+                {
+                  "not": "awakening:feed-the-void:feed-on-heat"
+                },
+                "feat:feed-the-void"
+              ],
+              "value": "feed-the-void:feed-on-heat"
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "SpecialStatistic",
+          "raw": {
+            "extends": "class-spell",
+            "key": "SpecialStatistic",
+            "label": "PF2E.SpecificRule.DeviantAbilities.Label",
+            "slug": "deviant",
+            "type": "attack-roll"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "effect:effect-cooperative-hunting",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.FngohajUtnPe9vmJ",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "removeAfterRoll": true,
+            "selector": "strike-attack-roll",
+            "type": "circumstance",
+            "value": 2
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "effect:effect-pickled-demon-tongue-armor",
+      "foundry": "Compendium.pf2e.equipment-effects.Item.WRvZ2Nq3wquisD4Y",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:pickled-demon-tongue",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Pickled Demon Tongue"
+              },
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:pickled-demon-tongue-greater",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Pickled Demon Tongue (Greater)"
+              },
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:pickled-demon-tongue-major",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Pickled Demon Tongue (Major)"
+              }
+            ],
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
+            "rollOption": "pickled-demon-tongue"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "definition": ["origin:action:trait:attack", "origin:trait:demon"],
+            "key": "Resistance",
+            "label": "PF2E.IWR.Custom.AttacksDemons",
+            "predicate": ["pickled-demon-tongue:pickled-demon-tongue"],
+            "type": "custom",
+            "value": 2
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "definition": ["origin:action:trait:attack", "origin:trait:demon"],
+            "key": "Resistance",
+            "label": "PF2E.IWR.Custom.AttacksDemons",
+            "predicate": ["pickled-demon-tongue:pickled-demon-tongue-greater"],
+            "type": "custom",
+            "value": 5
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "definition": ["origin:action:trait:attack", "origin:trait:demon"],
+            "key": "Resistance",
+            "label": "PF2E.IWR.Custom.AttacksDemons",
+            "predicate": ["pickled-demon-tongue:pickled-demon-tongue-major"],
+            "type": "custom",
+            "value": 10
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "effect:effect-pickled-demon-tongue-weapon",
+      "foundry": "Compendium.pf2e.equipment-effects.Item.LbaYzs0dQuFj8FXJ",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:pickled-demon-tongue",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Pickled Demon Tongue"
+              },
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:pickled-demon-tongue-greater",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Pickled Demon Tongue (Greater)"
+              },
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:pickled-demon-tongue-major",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Pickled Demon Tongue (Major)"
+              }
+            ],
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
+            "rollOption": "pickled-demon-tongue"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": {
+              "includeHandwraps": true,
+              "ownedItems": true,
+              "types": ["weapon"]
+            },
+            "flag": "weapon",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Weapon"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "DamageDice",
+          "raw": {
+            "damageType": "acid",
+            "diceNumber": 1,
+            "dieSize": "d4",
+            "hideIfDisabled": true,
+            "key": "DamageDice",
+            "predicate": ["pickled-demon-tongue:pickled-demon-tongue"],
+            "selector": "{item|flags.system.rulesSelections.weapon}-damage"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "DamageDice",
+          "raw": {
+            "damageType": "acid",
+            "diceNumber": 1,
+            "dieSize": "d6",
+            "hideIfDisabled": true,
+            "key": "DamageDice",
+            "predicate": ["pickled-demon-tongue:pickled-demon-tongue-greater"],
+            "selector": "{item|flags.system.rulesSelections.weapon}-damage"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "DamageDice",
+          "raw": {
+            "damageType": "acid",
+            "diceNumber": 1,
+            "dieSize": "d8",
+            "hideIfDisabled": true,
+            "key": "DamageDice",
+            "predicate": ["pickled-demon-tongue:pickled-demon-tongue-major"],
+            "selector": "{item|flags.system.rulesSelections.weapon}-damage"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "effect:effect-polished-demon-horn-armor",
+      "foundry": "Compendium.pf2e.equipment-effects.Item.ft5LjQSa8mZkklhM",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:polished-demon-horn",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Polished Demon Horn"
+              },
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:polished-demon-horn-greater",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Polished Demon Horn (Greater)"
+              },
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:polished-demon-horn-major",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Polished Demon Horn (Major)"
+              }
+            ],
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
+            "rollOption": "polished-demon-horn"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "key": "Resistance",
+            "predicate": ["polished-demon-horn:polished-demon-horn"],
+            "type": "unholy",
+            "value": 2
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "key": "Resistance",
+            "predicate": ["polished-demon-horn:polished-demon-horn-greater"],
+            "type": "unholy",
+            "value": 5
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "key": "Resistance",
+            "predicate": ["polished-demon-horn:polished-demon-horn-major"],
+            "type": "unholy",
+            "value": 10
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "effect:effect-polished-demon-horn-weapon",
+      "foundry": "Compendium.pf2e.equipment-effects.Item.WARLTi8unmPgmnNw",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:polished-demon-horn",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Polished Demon Horn"
+              },
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:polished-demon-horn-greater",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Polished Demon Horn (Greater)"
+              },
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:polished-demon-horn-major",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Polished Demon Horn (Major)"
+              }
+            ],
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
+            "rollOption": "polished-demon-horn"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": {
+              "includeHandwraps": true,
+              "ownedItems": true,
+              "types": ["weapon"]
+            },
+            "flag": "weapon",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Weapon"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "DamageDice",
+          "raw": {
+            "damageType": "mental",
+            "diceNumber": 1,
+            "dieSize": "d4",
+            "key": "DamageDice",
+            "predicate": ["polished-demon-horn:polished-demon-horn"],
+            "selector": "{item|flags.system.rulesSelections.weapon}-damage"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "DamageDice",
+          "raw": {
+            "damageType": "mental",
+            "diceNumber": 1,
+            "dieSize": "d6",
+            "key": "DamageDice",
+            "predicate": ["polished-demon-horn:polished-demon-horn-greater"],
+            "selector": "{item|flags.system.rulesSelections.weapon}-damage"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "DamageDice",
+          "raw": {
+            "damageType": "mental",
+            "diceNumber": 1,
+            "dieSize": "d8",
+            "key": "DamageDice",
+            "predicate": ["polished-demon-horn:polished-demon-horn-major"],
+            "selector": "{item|flags.system.rulesSelections.weapon}-damage"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "effect:effect-spirit-guide-form",
+      "foundry": "Compendium.pf2e.feat-effects.Item.KanP6trNwPOggb7P",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "DamageDice",
+          "raw": {
+            "damageType": "force",
+            "diceNumber": 1,
+            "dieSize": "d6",
+            "key": "DamageDice",
+            "selector": "{item|_id}-damage"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "doubleVs": ["non-magical"],
+            "exceptions": ["force", "ghost-touch", "spirit"],
+            "key": "Resistance",
+            "type": "all-damage",
+            "value": 10
+          }
+        },
+        {
+          "type": "rule",
+          "key": "DamageDice",
+          "raw": {
+            "damageType": "force",
+            "diceNumber": 1,
+            "dieSize": "d6",
+            "key": "DamageDice",
+            "selector": "{item|_id}-damage"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Strike",
+          "raw": {
+            "attackModifier": 29,
+            "category": "unarmed",
+            "damage": {
+              "base": {
+                "damageType": "piercing",
+                "dice": 3,
+                "die": "d10",
+                "modifier": 5
+              }
+            },
+            "group": "brawling",
+            "key": "Strike",
+            "label": "PF2E.Weapon.Base.jaws",
+            "predicate": ["spirit-guide-form:jaws"],
+            "range": null,
+            "replaceAll": true,
+            "slug": "jaws",
+            "traits": ["forceful", "unarmed"]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Strike",
+          "raw": {
+            "attackModifier": 29,
+            "category": "unarmed",
+            "damage": {
+              "base": {
+                "damageType": "piercing",
+                "dice": 3,
+                "die": "d6",
+                "modifier": 5
+              }
+            },
+            "group": "brawling",
+            "key": "Strike",
+            "label": "PF2E.Weapon.Base.claw",
+            "predicate": ["spirit-guide-form:claw"],
+            "range": null,
+            "replaceAll": true,
+            "slug": "claw",
+            "traits": ["agile", "backstabber", "finesse", "unarmed"]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "effect:effect-stalk-goggles",
+      "foundry": "Compendium.pf2e.equipment-effects.Item.g8JS6wsw5sRWOJLg",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:stalk-goggles",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Stalk Goggles"
+              },
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:stalk-goggles-greater",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Stalk Goggles (Greater)"
+              },
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:stalk-goggles-major",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Stalk Goggles (Major)"
+              }
+            ],
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
+            "rollOption": "stalk-goggles"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.flanking.flankable",
+            "value": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "equipment:astrolabe-of-the-falling-stars",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.NZJkdq4AezyeUvGi",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "equipment:cloak-of-devouring-thorns",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.jYQy2jFxbQL5y36L",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "equipment:cloak-of-gnawing-leaves",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.RxBVbQEd4DArkpKl",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "equipment:cloak-of-thirsty-fronds",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.TxB1a2DrhRZABRjV",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "equipment:pickled-demon-tongue-greater",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.HnOWpyuCHwewPZMu",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[traits]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "equipment:pickled-demon-tongue-major",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Ug0lQVTJlGKrHQgQ",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[traits]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "equipment:polished-demon-horn",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.rtfpj9WJHMnMtfuG",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[traits]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "equipment:polished-demon-horn-greater",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.62oxvKUCReo7Iah7",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[traits]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "equipment:polished-demon-horn-major",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.eRlOMigJjx5jAEKw",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[traits]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "feat:disarming-smile",
+      "foundry": "Compendium.pf2e.feats-srd.Item.ZGgFrQAQWk0keaFW",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[against]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "feat:feed-the-void",
+      "foundry": "Compendium.pf2e.feats-srd.Item.F8rtjsojGLaRuU5l",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "feat:oatia-skysage-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.mrxAX7h5ya9Z7QV9",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "feat:scion-of-domora-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.R56DLSqoBG8dX4Zv",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "feat:sonic-dash",
+      "foundry": "Compendium.pf2e.feats-srd.Item.SC5oZbyvLO5CQwhl",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[against:deviant]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "feat:spiritual-strike",
+      "foundry": "Compendium.pf2e.feats-srd.Item.9DWxzEavOeymc6Ql",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "DamageDice",
+          "raw": {
+            "diceNumber": "ternary(gte(@weapon.system.damage.dice,4),3,2)",
+            "dieSize": "d6",
+            "key": "DamageDice",
+            "predicate": ["spiritual-strike"],
+            "selector": "strike-damage"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "feat:twilight-speaker-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.uBr7wHtOS6KIhHnd",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.skills.society.rank",
+            "value": "ternary(gte(@actor.level,15),4,ternary(gte(@actor.level,7),3,2))"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]][skill]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "ritual:phantom-ship",
+      "foundry": "Compendium.pf2e.spells-srd.Item.oOFilBgsXTVIbJpN",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "target.value",
+          "raw": "1 ship no more than 175 feet long"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "spell:lashing-rope",
+      "foundry": "Compendium.pf2e.spells-srd.Item.sbTxe4CGP4tn6y51",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "target.value",
+          "raw": "up to 50 feet of unattended rope or an inanimate rope-like object"
+        }
+      ]
+    },
+    {
+      "type": "vocabulary",
+      "kind": "damage-type",
+      "slug": "untyped",
+      "reason": "unmapped-value",
+      "detail": "untyped"
+    }
+  ]
+}

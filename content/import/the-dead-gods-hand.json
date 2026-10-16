@@ -1,0 +1,136 @@
+{
+  "pin": {
+    "tag": "pf2e-8.6.0",
+    "sha256": "d9c4c1f6bbf9bd907ec0acbaea9b8d4e8b0d049758a8616829f07c1b4ee81342"
+  },
+  "backlog": [
+    {
+      "type": "entry",
+      "pack": "the-dead-gods-hand",
+      "slug": "equipment:deravons-helm",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.lrqWKtJrjb55iHtw",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "the-dead-gods-hand",
+      "slug": "equipment:throneglass-shard",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.A6atgoOfZxQgVMk0",
+      "gaps": [
+        {
+          "type": "markup",
+          "markup": "table[class]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "the-dead-gods-hand",
+      "slug": "weapon:chimeras-claw",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.uLPTj8MCrJNIC8IV",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "weapon",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["chimeras-claw:dragon-head", "item:id:{item|id}"],
+            "property": "traits",
+            "value": "sweep"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "weapon",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["chimeras-claw:dragon-head", "item:id:{item|id}"],
+            "property": "traits",
+            "value": "versatile-s"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "critical": false,
+            "damageCategory": "persistent",
+            "damageType": "poison",
+            "key": "FlatModifier",
+            "predicate": ["chimeras-claw:dragon-head"],
+            "selector": ["{item|id}-damage"],
+            "value": 2
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "weapon",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["chimeras-claw:cat-head", "item:id:{item|id}"],
+            "property": "traits",
+            "value": "backstabber"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "weapon",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["chimeras-claw:cat-head", "item:id:{item|id}"],
+            "property": "traits",
+            "value": "versatile-b"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "weapon",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["chimeras-claw:goat-head", "item:id:{item|id}"],
+            "property": "traits",
+            "value": "shove"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "weapon",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["chimeras-claw:goat-head", "item:id:{item|id}"],
+            "property": "traits",
+            "value": "versatile-p"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "vocabulary",
+      "kind": "damage-type",
+      "slug": "untyped",
+      "reason": "unmapped-value",
+      "detail": "untyped"
+    }
+  ]
+}

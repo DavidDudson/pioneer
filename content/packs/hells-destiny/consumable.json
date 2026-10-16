@@ -1,0 +1,116 @@
+[
+  {
+    "id": "6209ae91-8654-54cc-acbd-f5f07fee1fda",
+    "pack": "hells-destiny",
+    "kind": "consumable",
+    "slug": "consumable:golden-liberators-feather",
+    "name": "Golden Liberator's Feather",
+    "level": 19,
+    "rarity": "rare",
+    "traits": ["consumable", "divine", "magical", "talisman"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You don't have the unholy trait."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This pristine feather is plucked from a mighty celestial, such as Talmandor. When you activate the talisman, you sprout feathery wings until the end of your turn, granting you a fly Speed of 50 feet and a +4 circumstance bonus to AC against reactions triggered by your movement. You then Fly. If you activate the talisman with 1 action, the wings buffet adjacent enemies either before or after you Fly, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "8d8",
+                "damageType": "spirit"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 41,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.rmcgeto8lTgAQAuO"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5400
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "affixed",
+        "to": "armor"
+      }
+    }
+  }
+]

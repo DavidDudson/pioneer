@@ -1,0 +1,1273 @@
+[
+  {
+    "id": "ca1771e2-d588-53f7-9620-91f97cff42a1",
+    "pack": "revenge-of-the-runelords",
+    "kind": "action",
+    "slug": "action:aegis-of-envy",
+    "name": "Aegis of Envy",
+    "rarity": "common",
+    "traits": ["arcane", "concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Spend 1 Mythic Point. The spirits of eight runelords of envy (Naaft, Tannaris, Ivamura, Jurah, Chalsardra, Esedrea, Zarve, Desamelia, and Phirandi) swirl about you for 1 minute. While at least one of the spirits remains, whenever you take damage, you can use a reaction that has the concentrate trait to gain resistance 10 to that damage, or resistance 20 if the damage was dealt by Xanderghul, the runelord of pride. Each time you use this feat to gain resistance, one of the spirits disappears."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.OHzBFzMQp7MLlk5W"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
+    }
+  },
+  {
+    "id": "0ae7c940-d5e8-5255-a109-bdbc11e59a99",
+    "pack": "revenge-of-the-runelords",
+    "kind": "action",
+    "slug": "action:call-to-hand",
+    "name": "Call to Hand",
+    "rarity": "common",
+    "traits": ["arcane", "manipulate", "teleportation"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "With a simple flourish of your hand, you cause your autonomous spear or polearm to teleport into your grip, provided you're on the same plane as your weapon. If you're level 20, you can call to hand your weapon regardless of where it's located. If your weapon is wielded by a mythic creature that's higher level than you, you must spend a Mythic Point to Call to Hand the weapon, otherwise this action fails—you know why it failed, but you don't learn who has control of your weapon."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.Ghx29M00zTSXDxnU"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "825ede57-e494-5641-8995-97a9f8459312",
+    "pack": "revenge-of-the-runelords",
+    "kind": "action",
+    "slug": "action:call-warshard-weapon",
+    "name": "Call Warshard Weapon",
+    "rarity": "common",
+    "traits": ["magical", "manipulate", "teleportation"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are not holding your warshard weapon, and you have a hand or hands free to be able to wield your warshard weapon"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your warshard weapon teleports into your hand, as long as you and your warshard weapon are on the same planet. At 15th level, you need only be on the same plane as your warshard weapon to call it, and at 18th level, you can call your warshard weapon across any distance. If your warshard weapon is in the possession of a mythic creature that's higher level than you or placed in an area where teleportation magic doesn't function, attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 16
+          },
+          {
+            "type": "text",
+            "text": ". On a success, your warshard weapon still teleports to your hand."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.a8d5iIf1up9W0gVg"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You are not holding your warshard weapon, and you have a hand or hands free to be able to wield your warshard weapon"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "6a220b46-7272-5ab0-b5b2-957706137dd7",
+    "pack": "revenge-of-the-runelords",
+    "kind": "action",
+    "slug": "action:convocation-of-greed",
+    "name": "Convocation of Greed",
+    "rarity": "common",
+    "traits": ["arcane", "concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Spend 1 Mythic Point. The spirits of the eight runelords of greed (Kaladurnae, Fethryr, Gimmel, Ligniya, Mazmiranna, Aethusa, Haphrama, and Karzoug) appear and bolster the armaments of you and your companions. For each of the spirits, one creature of your choice within 60 feet gains a +2 item bonus to AC, attack rolls, or saving throws (chosen by the creature) for 1 minute. These bonuses increase to +4 while the creature is within 100 feet of Xanderghul, the Runelord of Pride. A creature can receive bonuses from multiple runelords at once (gaining bonuses to both AC and attack rolls, for example), but the bonuses aren't cumulative."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.6uHxON55vtaperC2"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
+    }
+  },
+  {
+    "id": "df263dca-5b7d-563e-a95a-0cb6ecc826a6",
+    "pack": "revenge-of-the-runelords",
+    "kind": "action",
+    "slug": "action:draw-from-the-pages",
+    "name": "Draw From the Pages",
+    "rarity": "common",
+    "traits": ["manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " you are holding your spellbook"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Spend a Mythic Point, and then Cast a Spell directly from your spellbook. The spell you cast must be one that takes one or two actions to cast, and it's automatically heightened to a rank equal to half your level. Use mythic proficiency to determine any attack rolls or spell DCs."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.rJTg9cKnBF0jsGbr"
+    },
+    "data": {
+      "cost": "three",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "you are holding your spellbook"
+            }
+          ]
+        }
+      ],
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
+    }
+  },
+  {
+    "id": "4daa336b-9d47-5590-8520-def922c9d32d",
+    "pack": "revenge-of-the-runelords",
+    "kind": "action",
+    "slug": "action:enter-runewell",
+    "name": "Enter Runewell",
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate", "teleportation"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "10 minutes. You and up to 6 willing creatures you're touching are instantly transported into your "
+          },
+          {
+            "type": "text",
+            "text": "runewell",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", regardless of any distance between you and your anima focus."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.8PuITkuyl9swzWWq"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "5975009e-a75a-5302-bd82-139775fc82b9",
+    "pack": "revenge-of-the-runelords",
+    "kind": "action",
+    "slug": "action:flash-of-memory",
+    "name": "Flash of Memory",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Spend a Mythic Point and attempt an Incarnation Lore check at mythic proficiency to "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": " in place of making any other Lore check (other than Incarnation Lore)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.ZI4jRoVdz9YLtKlv"
+    },
+    "data": {
+      "cost": "free",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "98806414-60d6-5f83-ba1c-b38f8092e9c2",
+    "pack": "revenge-of-the-runelords",
+    "kind": "action",
+    "slug": "action:gluttonous-feast",
+    "name": "Gluttonous Feast",
+    "rarity": "common",
+    "traits": ["arcane", "concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Spend 1 Mythic Point. The spirits of four runelords of gluttony (Kaliphesta, Atharend, Aethusa, and Goparlis) briefly appear in spaces within 60 feet of you. Each living creature adjacent to at least one of the spirits takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "void"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage per adjacent spirit, to a maximum of "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "16d6",
+                "damageType": "void"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage if they are adjacent to all four spirits. Each target receives a basic Fortitude save against the damage, against the higher of your class DC or spell DC, but Xanderghul, the Runelord of Pride, treats the result of his saving throw as one degree of success worse."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary Hit Points equal to half the damage a single creature takes from this effect; calculate these temporary Hit Points using the creature that took the most damage. These temporary Hit Points last 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.JjSNVfQO7qc4bgz1"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
+    }
+  },
+  {
+    "id": "4f752497-9482-56d1-a5ee-39934e46567c",
+    "pack": "revenge-of-the-runelords",
+    "kind": "action",
+    "slug": "action:host-of-wrath",
+    "name": "Host of Wrath",
+    "rarity": "common",
+    "traits": ["arcane", "concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Spend 1 Mythic Point. The spirits of four runelords of wrath (Angothane, Xiren, Thybidos, and Alaznist) swirl around you for 1 minute. While the spirits remain, whenever you hit or critically hit with a Reactive Strike, the target takes an additional 5 spirit damage, or 10 spirit damage if the target of your Reactive Strike is Xanderghul, the Runelord of Pride."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.a1FVA0l58GOEq6xP"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
+    }
+  },
+  {
+    "id": "e5049860-e063-5632-9692-67f18a06b79f",
+    "pack": "revenge-of-the-runelords",
+    "kind": "action",
+    "slug": "action:hunt-runelord",
+    "name": "Hunt Runelord",
+    "rarity": "common",
+    "traits": ["concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You designate one of the seven schools of Thassilonian magic—envy, gluttony, greed, lust, pride, sloth, or wrath—and focus your need for revenge against those who serve these ideals. You do not need to be able to see a creature that serves these ideals to make this designation. The designation lasts until your next daily preparations."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to Perception checks when you Seek a creature that serves these ideals (including an actual runelord, a wizard who follows that school of Thassilonian magic, or any creature you know or suspect serves the interests of that school's particular sin—subject to GM's approval), and a +2 circumstance bonus to Intimidation checks made to Demoralize such creatures. Your Strikes also deal 1d4 extra precision to these creatures when they're "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.I6gG9rqTTLkzrhKF"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      },
+      "selfEffect": "aa2ed7ae-9e10-5db2-8a4f-d297dbc9fe1b"
+    }
+  },
+  {
+    "id": "cc9817f0-eb2c-56d1-b571-8aaaaa76bccd",
+    "pack": "revenge-of-the-runelords",
+    "kind": "action",
+    "slug": "action:instant-recovery",
+    "name": "Instant Recovery",
+    "rarity": "common",
+    "traits": ["concentrate", "healing", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Spend a Mythic Point. You regain Hit Points equal to your Constitution modifier (minimum 1) × your level and remove the "
+          },
+          {
+            "type": "ref",
+            "id": "5e3582c3-701c-5169-9c69-4221096722c2"
+          },
+          {
+            "type": "text",
+            "text": " condition. If you're suffering from any recurring affliction such as poison or disease, attempt a saving throw against the affliction at mythic proficiency to see if you reduce the affliction's stage. This saving throw cannot increase your affliction's stage, nor does it change the affliction's maximum duration."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.8UJaVPsT5FA8XH87"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
+    }
+  },
+  {
+    "id": "6c3fb165-0a4e-5a1d-87da-a78ba5b1d9cd",
+    "pack": "revenge-of-the-runelords",
+    "kind": "action",
+    "slug": "action:restore-the-moment",
+    "name": "Restore the Moment",
+    "rarity": "common",
+    "traits": ["mythic", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your turn begins"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Spend a Mythic Point. Take the same actions in the same order, using the same die roll results to resolve those actions, as you did in the preserved moment, and apply modifiers to those rolls as they currently exist (not as they were when you recorded the loop), but at mythic proficiency. The exact details of how you accomplish your restored actions can change—you need not move in the exact same pattern or distance with a repeated Stride, for example, nor must you make a repeated Strike against the same foe you attacked in the first set of actions, but you do need to use the same type of movement when you Stride, and you do need to use the same type of weapon to Strike. If at any point during your turn you are unable to take the next action in the loop, your turn ends and you become "
+          },
+          {
+            "type": "ref",
+            "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+            "label": "Stunned 1"
+          },
+          {
+            "type": "text",
+            "text": ". For example, if you restored the above example against the firewyrm in a round where you were fighting an ogre and you weren't able to attempt a Strike with a longsword against the ogre as your second action, you would become stunned 1. Likewise, if at the end of your turn there was nothing for you to try to Climb, you would become stunned 1. You can preserve and restore a Cast a Spell action, but if you don't cast the same spell when you Restore the Moment, you become stunned 1 (you can Cast the Spell at a different rank, though)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.0jJQglG57R6ss04M"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your turn begins"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "e7977886-b1d8-5816-8960-93078ab55529",
+    "pack": "revenge-of-the-runelords",
+    "kind": "action",
+    "slug": "action:runelords-response",
+    "name": "Runelord's Response",
+    "rarity": "common",
+    "traits": ["arcane", "concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature deals damage to you with a spell"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain a measure of revenge immediately by twisting the magic used by the triggering creature. Spend a Mythic Point. The triggering creature takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d8",
+                "damageType": "force"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "class-or-spell-dc"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " saving throw against either your class DC or spell DC using mythic proficiency, whichever is higher. At 14th level, and every 2 levels thereafter, this damage increases by 1d8."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.rPefHA2zqmUvGXQ7"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A creature deals damage to you with a spell"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "9f166c68-36de-565e-b273-ef881505912b",
+    "pack": "revenge-of-the-runelords",
+    "kind": "action",
+    "slug": "action:share-deaths-promises",
+    "name": "Share Death's Promises",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your turn begins"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are gaining a bonus to damage from Let Death Be My Weapon"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Spend a Mythic Point. You gain a status bonus to damage equal to double the bonus you're receiving from Let Death Be My Weapon that lasts for 1 minute. During this time, this status bonus doesn't decrease or increase if the value of your doomed, dying, or wounded condition decreases or increases."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.bwXH0zItp8p8sSjn"
+    },
+    "data": {
+      "cost": "free",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You are gaining a bonus to damage from Let Death Be My Weapon"
+            }
+          ]
+        }
+      ],
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your turn begins"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "c41411b6-2e41-56a5-9496-bc1342c9657d",
+    "pack": "revenge-of-the-runelords",
+    "kind": "action",
+    "slug": "action:sidestep-through-time",
+    "name": "Sidestep Through Time",
+    "rarity": "common",
+    "traits": ["concentrate", "occult", "teleportation"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are about to attempt a Reflex saving throw against an area effect"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You slip through time to avoid a dangerous outcome. Teleport up to 10 feet in any direction. If this would take you outside of the area's effect, you don't need to attempt the Reflex save against it. You are then "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.gCVox3KLuKFXCUqZ"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You are about to attempt a Reflex saving throw against an area effect"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "d915436b-7ae1-507d-8fb5-e45e6d06b267",
+    "pack": "revenge-of-the-runelords",
+    "kind": "action",
+    "slug": "action:sorshens-devotion",
+    "name": "Sorshen's Devotion",
+    "rarity": "common",
+    "traits": ["arcane", "concentrate", "healing"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You or an ally within 60 feet uses "
+          },
+          {
+            "type": "ref",
+            "id": "bd9c6ece-e891-5dd9-8e17-2ccbb1a76e18"
+          },
+          {
+            "type": "text",
+            "text": " to reroll a saving throw"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Spend 1 Mythic Point. The triggering creature regains "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "7d10+28"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points. The amount of healing increases to "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10d10+40"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points if Xanderghul, the Runelord of Pride, was the source of the triggering effect."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.ZEsBPUmxNJ0nod2Z"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "offensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You or an ally within 60 feet uses Rewrite Fate to reroll a saving throw"
+            }
+          ]
+        }
+      ],
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
+    }
+  },
+  {
+    "id": "5f5f8ba3-2aed-513f-ab95-b9dcce35589c",
+    "pack": "revenge-of-the-runelords",
+    "kind": "action",
+    "slug": "action:summon-sloth",
+    "name": "Summon Sloth",
+    "rarity": "common",
+    "traits": ["arcane", "concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Spend 1 Mythic Point. You summon the spirit of one of the seven runelords of sloth (Xirie, Ilthyrius, Azeradni, Zalelet, Krenlith, Ivarinna, or Krune) into an unoccupied space within 30 feet. Allies can move through a space occupied by one of these spirits, but a spirit's space is greater difficult terrain for your enemies."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For the next minute, you can use a two-action activity with the concentrate trait to summon another runelord spirit in a different space within 30 feet, to a maximum of seven spirits. While you are within 120 feet of Xanderghul, the Runelord of Pride, you can summon an additional spirit as a single action (instead of as a two-action activity). At the end of the each of your turns, each spirit fires arcane energy at a different enemy of your choice within 120 feet of it (or does nothing if no enemy is within range), dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d4+2",
+                "damageType": "force"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. After 1 minute, all spirits disappear."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.S2WNjzwdnwziZSee"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
+    }
+  },
+  {
+    "id": "7ee314b7-f993-50dc-805d-2714d3335565",
+    "pack": "revenge-of-the-runelords",
+    "kind": "action",
+    "slug": "action:weaponsight",
+    "name": "Weaponsight",
+    "rarity": "common",
+    "traits": ["concentrate", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Close your eyes and concentrate on your warshard weapon. You perceive the world as if you were observing it from your weapon rather than your own eyes. You can see in all directions simultaneously and therefore can't be flanked. If you're not holding your weapon, this ability fails if your warshard weapon is on a different plane than you. If you spend a Mythic Point as part of this action, you attempt saving throws against visual effects at mythic proficiency while observing through your warshard weapon. You can observe through your weapon for up to 1 minute or until you open your eyes as a free action, whichever comes first."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.nYR1q5D1jLiJj4JM"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "selfEffect": "838e2308-ec1d-5906-a616-4ca72ece39c3"
+    }
+  }
+]

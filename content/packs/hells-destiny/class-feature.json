@@ -1,0 +1,381 @@
+[
+  {
+    "id": "f11c5ae8-6c08-52ba-89eb-00e112cdbda7",
+    "pack": "hells-destiny",
+    "kind": "class-feature",
+    "slug": "class-feature:lamentation-of-sinister-deals",
+    "name": "Lamentation of Sinister Deals",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["animist"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Lamentations of sinister deals linger where mortals sold their integrity, loyalties, or even their souls in pursuit of short-term gain. While some of these apparitions lurk near corrupt courthouses or fey marketplaces, the greatest concentration emanates from Cheliax's Whisperwood, where Abrogail I penned a baleful bargain with Hell. These apparitions coach an animist in crafting their own deals, though the same apparition often harbors an inconsolable fear of a specific contract type, such as infernal contracts or real estate deeds. Some lamentations of sinister deals might actually be damned souls that have narrowly avoided the River of Souls, knowing they'll be dragged to Hell once they arrive. Theoretically, an animist could earn the apparition's loyalty if they could unravel whatever contract cursed the apparition in the first place."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A lamentation of sinister deals tempts the animist with deals of its own, granting minor wishes with its spirit magic to impart momentary knowledge or power if the animist simply signs on the figurative line."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Apparition Skill",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Legal Lore, Scribing Lore"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Apparition Spells",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Cantrip",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "c319a7b8-ee8e-5f50-97c7-16151916ad80"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "1st",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "566a10d1-097c-5ee1-b473-4e0ab1475228"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "2nd",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "35e13fee-4d0a-5aca-a41d-01306797c215"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "3rd",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "22b62dab-5ef5-5d09-8c09-2f7bcfc88be1"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "4th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "55e77e9d-6ce5-5891-b707-4dd41cb99017"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "5th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "4a5766e0-5406-55a9-8b98-36cc6238824d"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "6th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "62a0c957-b651-51d6-b4f5-c2f4718aed35"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "7th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "43055a38-2f08-5fbf-b5bc-4766acc9cd14"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "8th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "dc60bdf3-ddf1-5c4a-8919-7ef3688f5f7a"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "9th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "0c07289f-ca48-58ac-a9e3-3ff2cc46c5f1"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Vessel Spell",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "ad52a937-2361-53d1-a080-ff1f437ff4f2"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Avatar",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Cosmic Notary",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " Speed 30 feet, fly 50 feet"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Melee",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " burning pen (agile, reach 15 feet, versatile fire), Damage "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d6+6",
+                "damageType": "piercing"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ranged",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " exacting language (fatal d10, mental, range 60 feet), Damage "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d6+6",
+                "damageType": "mental"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.QWkvHt0godCcBAxG"
+    },
+    "data": {
+      "tags": ["animist-apparition"]
+    }
+  }
+]

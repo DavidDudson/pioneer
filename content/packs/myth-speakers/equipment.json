@@ -1,0 +1,1168 @@
+[
+  {
+    "id": "cfacc02e-1444-5980-9559-b64836471d9a",
+    "pack": "myth-speakers",
+    "kind": "equipment",
+    "slug": "equipment:death-tusk-helm",
+    "name": "Death Tusk Helm",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Slivers of boar tusk are sewn into this leather cap, creating a scaled helmet that channels dozens of boars' ferocity into the wearer."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Boar's Last Stand",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (auditory, concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your turn begins"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have a doomed or wounded value of 1 or higher"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You unleash a fearsome roar. 1 creature of your choice within 30 feet must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 16
+          },
+          {
+            "type": "text",
+            "text": " save or become "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 1"
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 2"
+          },
+          {
+            "type": "text",
+            "text": " on a critical failure). Increase this DC by the sum of your "
+          },
+          {
+            "type": "ref",
+            "id": "cd164d22-2d8e-5fd2-b8b2-03e1360df1e7"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "6c4e09a7-469d-5668-8c1b-92f87de94d27"
+          },
+          {
+            "type": "text",
+            "text": " values (maximum DC 20). You then gain 5 temporary Hit Points that last 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.8l3IEK409fDYgRR9"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 55
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "boars-last-stand",
+          "name": "Boar's Last Stand",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "headwear"
+      }
+    }
+  },
+  {
+    "id": "05e4f541-78b2-5f9a-b39c-fb5cb2479500",
+    "pack": "myth-speakers",
+    "kind": "equipment",
+    "slug": "equipment:gift-of-olives",
+    "name": "Gift of Olives",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["magical", "plant"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This expertly trimmed olive branch remains lush and vibrant, even months after being ritually harvested. With a little soil and patience, it can quickly grow into a sheltering tree that later bestows the user with a new "
+          },
+          {
+            "type": "text",
+            "text": "gift of olives",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Sew the Cutting",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (healing, manipulate, plant)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are outside and standing atop an unoccupied 5-foot square with some soil"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You drive one end of the cutting into the soil. The cutting immediately grows into an olive tree whose boughs shelter a 15-foot-diameter area. Creatures in the sheltered area gain resistance 3 to any environmental damage, gain a +1 status bonus to saving throws against environmental hazards, and gain a +1 status bonus to Survival checks to Subsist. After 10 minutes, the tree sprouts 8 olives, each of which can be eaten as an action to restore 1 Hit Point and nourish the eater as if they had consumed a full meal. After 8 hours, the olives lose their potency, and the "
+          },
+          {
+            "type": "text",
+            "text": "gift of olives",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " cutting detaches from the tree and falls harmlessly to the ground. The olive tree loses its protective abilities and becomes a normal, non-magical olive tree that survives so long as it's growing in a suitable location."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.jt5WnZXTPR39epV7"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 48
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "sew-the-cutting",
+          "name": "Sew the Cutting",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "438c303e-1541-57b2-8a32-005b77e53097",
+    "pack": "myth-speakers",
+    "kind": "equipment",
+    "slug": "equipment:mask-of-shifting-monstrosity",
+    "name": "Mask of Shifting Monstrosity",
+    "level": 7,
+    "rarity": "rare",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This mask's features shift between various non-human elements, with each version reveling in grotesque and monstrous variations. During the festivals in Dhuraxilis, these masks are worn by influential and rich humans (or human-appearing populations) to better blend in with the monstrous crowds as they join in the revelry. While wearing the mask, you gain a +1 item bonus to Deception checks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Monstrosity Meld",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, polymorph)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take on the general appearance of a type of non-humanoid creature that you can see, with the transformation lasting for 8 hours. Activating this effect doesn't change your traits or statistics, nor does it grant any of the special abilities of the creature you're imitating. It does not change your size, so a Medium creature that assumes the shape of a manticore remains Medium sized. This effect uses the same rules as the Impersonate activity of Deception. Onlookers always assume you're the chosen type of creature unless they're actively Seeking. You gain a +4 item bonus to your Deception DC against such Perception checks and add your level even if untrained."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "item",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.hKT6sixKQhu8f5zJ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 360
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "monstrosity-meld",
+          "name": "Monstrosity Meld",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "mask"
+      }
+    }
+  },
+  {
+    "id": "d5eeeae8-1b4e-5521-8ed1-c7ac5611d1d4",
+    "pack": "myth-speakers",
+    "kind": "equipment",
+    "slug": "equipment:pyrefeather-cloak",
+    "name": "Pyrefeather Cloak",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The red and dark-orange feathers of a pyrefowl have been woven into a beautiful cloak."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Deflect Flame",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You would be affected by a fire effect"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You flourish the cloak, using the feathers to reduce the incoming heat. You gain fire resistance 5 and a +1 circumstance bonus to saving throws against the triggering effect until the beginning of your next turn. If you are taking persistent fire damage, you can immediately attempt a flat check to end the persistent damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.eqrqkIdQHYzueKmj"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "deflect-flame",
+          "name": "Deflect Flame",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "cloak"
+      }
+    }
+  },
+  {
+    "id": "91488763-1ca0-5a15-8ab3-00ad53f11647",
+    "pack": "myth-speakers",
+    "kind": "equipment",
+    "slug": "equipment:strand-of-the-seven-births",
+    "name": "Strand of the Seven Births",
+    "level": 7,
+    "rarity": "rare",
+    "traits": ["divine", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This strand of charms depicts the legendary harpy Ekriathe and her six reincarnated successors. Each charm can be removed and activated. When all of the charms are consumed, the strand becomes inert."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Hero-God's Whisper",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (auditory, interact, light)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You detach a charm, which creates a glowing ghostly image of the hero-god depicted on it. This image sheds bright light in a 20-foot radius (and dim light for the next 20 feet) for 1 hour. Allies within the image's bright light hear the constant whispers of Ekriathe or her successor's voice, and they gain a +2 status bonus to saving throws against auditory effects. Enemies entering or ending their term in the image's radius of bright light must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 23
+          },
+          {
+            "type": "text",
+            "text": " save. On a failure, the target is "
+          },
+          {
+            "type": "ref",
+            "id": "88ca1b7b-d5de-5978-9ff4-258c9aadef1a"
+          },
+          {
+            "type": "text",
+            "text": " and takes a –2 status penalty to auditory-based Perception checks while they remain in the radius. Creatures that succeed against this effect are temporarily immune for the next 24 hours."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.XPcTty0E1jh4OIzT"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 300
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "1565560a-dea9-550e-b246-966877207b68",
+    "pack": "myth-speakers",
+    "kind": "equipment",
+    "slug": "equipment:successor-doll",
+    "name": "Successor Doll",
+    "level": 5,
+    "rarity": "rare",
+    "traits": ["divine", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This reversible doll shows Iapholi on one side and the harpy Ekriathe who preceded her in her line of reincarnation on the other. Non-magical successor dolls are popular gifts for children, and Iapholi often distributes them (including a handful of magical versions) on her birthday. Magical successor dolls sometimes frown, smile, or wink as if aware of their surroundings and nearby conversations."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Big Eyes, Pleading Face",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, emotion, mental, visual)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail or critically fail to "
+          },
+          {
+            "type": "ref",
+            "id": "bd7385d5-c754-542c-9518-060942de3701"
+          },
+          {
+            "type": "text",
+            "text": " a favor"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The doll's eyes grow large as its lips quiver, expressing adorable disappointment. Roll 1d4 and add the result to your Diplomacy check as a circumstance bonus, which might improve the degree of success."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Fierce Gaze, Approving Smile",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, emotion, mental, visual)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You succeed or critically succeed when "
+          },
+          {
+            "type": "ref",
+            "id": "ed0f3425-17f0-51f3-bb5d-1ca7475499a5",
+            "label": "Coercing"
+          },
+          {
+            "type": "text",
+            "text": " a creature"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The doll smugly smirks at the creature, either reinforcing how wise it is to heed your demands or innocently reminding it how much happier it is for complying. After the creature finishes following your directives, it must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 21
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature's fond memory of the doll's approval overwhelms any hard feelings the creature has toward you; it doesn't act against you as a result of your coercion unless your demands were truly shocking (such as forcing them to violate any anathema they have or betray a close ally)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.6ZM8fiFi6QF7RNxM"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 150
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "big-eyes-pleading-face",
+          "name": "Big Eyes, Pleading Face",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        },
+        {
+          "slug": "fierce-gaze-approving-smile",
+          "name": "Fierce Gaze, Approving Smile",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "65926cec-d7f8-5f77-9fa1-aec6108c71c4",
+    "pack": "myth-speakers",
+    "kind": "equipment",
+    "slug": "equipment:vortex-pouch",
+    "name": "Vortex Pouch",
+    "level": 6,
+    "rarity": "rare",
+    "traits": ["air", "magical", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When empty, the "
+          },
+          {
+            "type": "text",
+            "text": "vortex pouch",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "'s net seems too loose to hold much. However, when used to catch the wind, it stretches to hold the air. With nowhere for the wind to go, the air inside it swirls violently. If the caught wind includes a storm, clouds, fog, or similar effect, it's visible among the whirlwind."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Catch Wind",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (air, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "vortex pouch",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is empty"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gather the nearby air and wind within the "
+          },
+          {
+            "type": "text",
+            "text": "vortex pouch",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". Creatures within a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 20
+          },
+          {
+            "type": "text",
+            "text": " must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 20
+          },
+          {
+            "type": "text",
+            "text": " save or be moved 5 feet closer toward you as the air rushes into the pouch. Targets that critically fail the save are moved 10 feet. You can Sustain the activation once per round, up to 1 minute, to continue Catching Wind. If you spend a Mythic Point when Catching Wind, the "
+          },
+          {
+            "type": "text",
+            "text": "vortex pouch",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " gathers air in a 10-mile radius; though the vortex is only strong enough to forcibly suck in creatures within the original "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 20
+          },
+          {
+            "type": "text",
+            "text": ", weaker creatures with the air trait and creatures associated with the sky in the 10-mile radius will know your general direction and feel a sense of unease, granting you a +2 status bonus to Intimidation checks against those creatures for 1 week. When you end the activation, the "
+          },
+          {
+            "type": "text",
+            "text": "vortex pouch",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " becomes 1 Bulk and you can empty it using Release Wind."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Release Wind",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (air, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "vortex pouch",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " contains air or wind"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Wind rushes out of the "
+          },
+          {
+            "type": "text",
+            "text": "vortex pouch",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": ". All creatures in the cone take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "8d6",
+                "damageType": "bludgeoning"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 20,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save). Creatures that fail their saving throw are pushed 5 feet away from you; creatures that critically fail are pushed 10 feet. If the caught wind included weather that might deal a different type of damage, Release Wind deals this damage instead (for instance, dealing electricity damage if it caught a thundercloud or cold damage if it caught a blizzard)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.HfQLNzRcQNMUL6Ux"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 240
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

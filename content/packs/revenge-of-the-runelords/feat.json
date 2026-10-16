@@ -1,0 +1,4851 @@
+[
+  {
+    "id": "4a83a89b-4f04-58c7-88e1-e2348b5d059b",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:advanced-runelord-magic",
+    "name": "Advanced Runelord Magic",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your ability to use magic associated with your chosen sin grows. You gain the ability to cast one more arcane spell as an innate spell. This spell must be chosen from those available with Expanded Runelord Magic, in addition to foresight, unrelenting observation, or any spell from your chosen sin's school. You can cast this spell as an arcane innate spell once per day. The spell is automatically heightened to a spell rank equal to half your level rounded up. Use mythic proficiency to determine any attack rolls or spell DCs."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.JL8t7JFnv1xygVrU"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Expanded Runelord Magic"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "f2e41113-0a7f-5eeb-b90a-66af38c4994a",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:apocalyptic-visions",
+    "name": "Apocalyptic Visions",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["arcane", "mental", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your runelord may not have lived long enough to need to retreat into hiding in the face of Earthfall, but the apocalyptic echoes of this event nevertheless reached their soul all the way in the Boneyard. You've learned to endure the invasive thoughts of this empire-ending event, but now you can project that despair into the minds of others. Spend a Mythic Point and target up to 10 creatures within 60 feet that you can sense. You force images into their minds of Earthfall, forcing them to endure a vision of the end of the world and all they hold dear. The creatures must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "class-or-spell-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC or spell DC using mythic proficiency, whichever is higher."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is so distracted by the visions that they are "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is slowed 1 and "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 2"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 2"
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute. In addition, the creature suffers the effects of the spell nightmare the next time it rests. If the creature fails or critically fails against this effect, the effect repeats each time the creature attempts to sleep until it succeeds on its save or 6 days have passed. You do not need to know the creature's name or remain on the same planet for the creature to experience these nightmares."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.ghiZ4DhdmHlBAeU0"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Avenging Runelord Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "two",
+        "frequency": {
+          "max": 1,
+          "per": "day"
+        }
+      }
+    }
+  },
+  {
+    "id": "213a9b68-55eb-5899-b702-99ef4a24d66a",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:athletes-ally",
+    "name": "Athlete's Ally",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["magical", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're wielding your warshard weapon."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You channel the power of your warshard through your weapon to better perform athletic maneuvers. Spend a Mythic Point. For 1 minute, when you attempt Athletics checks to "
+          },
+          {
+            "type": "ref",
+            "id": "ef57a555-f9e9-53cc-b09b-b7432156cbf1"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "380d34f1-f6f6-5820-b9dd-c01ee4e19fd5"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "2f5bb1a4-2a45-5c29-ad6a-7feba044cfaa"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "082b982f-3ed4-5d9c-9722-9ab10198523a"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "6257c7f0-f483-53d3-a791-d73a616cbce4"
+          },
+          {
+            "type": "text",
+            "text": " with your warshard weapon, you do so at mythic proficiency. Note that this ability doesn't grant additional weapon traits to your weapon, so your options for which of these maneuvers you can attempt might be limited by your weapon's existing traits."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.ja2HDuEC42mpxMVP"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Warshard Warrior Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You're wielding your warshard weapon."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "0c3f9ad1-a68f-59e2-af05-e1d7869764c4",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:autonomous-arms",
+    "name": "Autonomous Arms",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A portion of the ancient grasping spirit that infuses your being spills over into a spear or polearm you carry. When you perform your daily preparations, choose one spear or polearm you own. This weapon becomes infused with arcane magic and fragments of thought—it doesn't become fully intelligent, but it instinctually recognizes you as its wielder and denies its abilities to any other wielder while you live. If your weapon doesn't possess it already, it gains the effects of the animated property rune. This does not count against the maximum number of property runes your weapon can have at one time. You also gain the "
+          },
+          {
+            "type": "ref",
+            "id": "0ae7c940-d5e8-5255-a109-bdbc11e59a99"
+          },
+          {
+            "type": "text",
+            "text": " action."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "0ae7c940-d5e8-5255-a109-bdbc11e59a99"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.S817U6nx0ayhM5Rn"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Avenging Runelord Dedication; expert proficiency in a spear or polearm"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "3824f075-14ce-551b-9f0a-b20a9c413a28",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:avenger-of-envy",
+    "name": "Avenger of Envy",
+    "level": 14,
+    "rarity": "rare",
+    "traits": ["mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've become the champion of the runelords of envy. Their support gives you a heightened awareness of your own failings, but you can call their spirits to your side to protect you from harm. The first time each day you critically fail a skill check or saving throw, you gain 1 Mythic Point. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "ca1771e2-d588-53f7-9620-91f97cff42a1"
+          },
+          {
+            "type": "text",
+            "text": " activity."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "ca1771e2-d588-53f7-9620-91f97cff42a1"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.tlt6Q0uPqtFxOijg"
+    },
+    "data": {
+      "category": "class"
+    }
+  },
+  {
+    "id": "a86e151d-6a47-5b9f-9588-09c0d518bbb2",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:avenger-of-gluttony",
+    "name": "Avenger of Gluttony",
+    "level": 14,
+    "rarity": "rare",
+    "traits": ["mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've become the champion of the runelords of gluttony, and their hungry spirits are always near you. Whenever a spell or other magical effect restores Hit Points to you, you can choose to reduce the number of Hit Points you regain by any amount. The first time each day you reduce the Hit Points by an amount equal to your level, you gain 1 Mythic Point. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "98806414-60d6-5f83-ba1c-b38f8092e9c2"
+          },
+          {
+            "type": "text",
+            "text": " activity."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "98806414-60d6-5f83-ba1c-b38f8092e9c2"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.exKu8ddKy2UhjZEK"
+    },
+    "data": {
+      "category": "class"
+    }
+  },
+  {
+    "id": "9c21ca7c-0c2c-548b-b38e-82d2e1e3d24b",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:avenger-of-greed",
+    "name": "Avenger of Greed",
+    "level": 14,
+    "rarity": "rare",
+    "traits": ["mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've become a champion of the runelords of greed. Their whispers encourage you to prepare for disasters that might never come to pass. The first time each day you touch an object worth at least 2,000 gp that you've never touched before, you gain 1 Mythic Point. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "6a220b46-7272-5ab0-b5b2-957706137dd7"
+          },
+          {
+            "type": "text",
+            "text": " activity."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "6a220b46-7272-5ab0-b5b2-957706137dd7"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.8zejSGmHi353ZtpL"
+    },
+    "data": {
+      "category": "class"
+    }
+  },
+  {
+    "id": "7dc33d46-de1b-5545-8eed-fe7fb63a7b6d",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:avenger-of-lust",
+    "name": "Avenger of Lust",
+    "level": 14,
+    "rarity": "rare",
+    "traits": ["mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've become a favorite of Sorshen, the Runelord of Lust. She watches over you wherever you go, protecting you and your companions in times of need. The first time each day you either cast or are the target of a spell of 6th rank or higher that has the emotion or healing trait, you gain 1 Mythic Point. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "d915436b-7ae1-507d-8fb5-e45e6d06b267"
+          },
+          {
+            "type": "text",
+            "text": " reaction."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "d915436b-7ae1-507d-8fb5-e45e6d06b267"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.FRCcuxb604l6PfAC"
+    },
+    "data": {
+      "category": "class"
+    }
+  },
+  {
+    "id": "a9719c70-18d3-5194-afb3-d5b2be289310",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:avenger-of-sloth",
+    "name": "Avenger of Sloth",
+    "level": 14,
+    "rarity": "rare",
+    "traits": ["mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've become a champion of the runelords of sloth. They spur you toward idleness, and their spirits are slow to come to your aid. Once they arrive, however, their combined might is undeniable. The first time each day you spend 10 minutes resting, you gain 1 Mythic Point. During this time, you don't need to sleep, but you can't perform activities like Refocus or "
+          },
+          {
+            "type": "ref",
+            "id": "18c1b923-595b-5203-a0be-010205e51c44"
+          },
+          {
+            "type": "text",
+            "text": ". You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "5f5f8ba3-2aed-513f-ab95-b9dcce35589c"
+          },
+          {
+            "type": "text",
+            "text": " activity."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "5f5f8ba3-2aed-513f-ab95-b9dcce35589c"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.4TWrnzTzVnHU8MGz"
+    },
+    "data": {
+      "category": "class"
+    }
+  },
+  {
+    "id": "0bb141c4-5955-5f71-80f4-436b1acdb113",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:avenger-of-wrath",
+    "name": "Avenger of Wrath",
+    "level": 14,
+    "rarity": "rare",
+    "traits": ["mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've become a champion of the runelords of wrath. You gain the Reactive Strike reaction. The first time each day you score a critical hit with a Reactive Strike, you gain 1 Mythic Point. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "4f752497-9482-56d1-a5ee-39934e46567c"
+          },
+          {
+            "type": "text",
+            "text": " activity."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "4f752497-9482-56d1-a5ee-39934e46567c"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.kIqMLraYuE8y5F4A"
+    },
+    "data": {
+      "category": "class"
+    }
+  },
+  {
+    "id": "79f1a27c-d2ab-5b7e-8440-907fdf174c81",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:avenging-runelord-dedication",
+    "name": "Avenging Runelord Dedication",
+    "level": 12,
+    "rarity": "rare",
+    "traits": ["destiny", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The call of a long dead runelord has infected your soul and transformed your fate. Choose one of the following sins: envy, gluttony, greed, sloth, or wrath. You become trained in Arcana. If you are already trained in Arcana, you become trained in the skill of your choice. At 14th level, you gain expert proficiency in Arcana. At 16th level, if you gain master proficiency in Arcana."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have familiarity with weapons in the polearm and spear weapon groups—for the purposes of proficiency, you treat any of these that are martial weapons as simple weapons and any that are advanced weapons as martial weapons. You learn the Thassilonian language."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the ability to cast an arcane spell as an innate spell. This spell must be chosen from the following list: "
+          },
+          {
+            "type": "ref",
+            "id": "6bcf1643-218b-5e08-9fa5-62ff7c800b72"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "7c5ef7d9-d7ac-5654-b88c-5504257ec3f7"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "0326fd8f-6c36-5184-940b-a36b47e8c4a8"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "1e70918d-066f-5a32-938b-48362d1d669e"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "52cd674f-3e49-5527-b0c9-8a4137bc9c08"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "3c2ab746-3091-512f-9309-804440742c21"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "ec6df711-1ab8-5f9d-8e01-6827c947eeff"
+          },
+          {
+            "type": "text",
+            "text": "; alternatively, you can choose any spell of 6th rank or lower from the sin spells listed for your chosen sin. You can cast this spell as an arcane innate spell once per day. The spell is automatically heightened to a spell rank equal to half your level rounded up. Use mythic proficiency to determine any attack rolls or spell DCs."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your obsession with revenge allows you to reflexively lash out at those who harm you with blasts of arcane magic. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "e7977886-b1d8-5816-8960-93078ab55529"
+          },
+          {
+            "type": "text",
+            "text": " reaction."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Avenging Runelord (Rare)"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "e7977886-b1d8-5816-8960-93078ab55529"
+      },
+      {
+        "key": "MartialProficiency",
+        "slug": "advanced-runelord-weapons",
+        "definition": [
+          "item:category:advanced",
+          {
+            "or": ["item:group:polearm", "item:group:spear"]
+          }
+        ],
+        "sameAs": "martial",
+        "display": {
+          "label": "Martial Polearms & Spears"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.Af7vcTToxetHThj4"
+    },
+    "data": {
+      "category": "class"
+    }
+  },
+  {
+    "id": "1f1b193c-2bbe-52d9-a8b1-b63bf0788edf",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:avoid-fates-gaze",
+    "name": "Avoid Fate's Gaze",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your past and current enemies may know you by reputation, but spying on you with magic is much more difficult. Whenever you attempt a saving throw against a scrying or effect, you do so at mythic proficiency. Scrying effects that attempt to observe you that don't allow saving throws to resist (such as "
+          },
+          {
+            "type": "ref",
+            "id": "137e9f3a-3af5-5004-9a32-dba8fdaff034"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "9d2d34b7-d94e-51d0-b169-e6cb9f4f0b2a"
+          },
+          {
+            "type": "text",
+            "text": ") treat you as if you were "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " and actively trying to Hide or "
+          },
+          {
+            "type": "ref",
+            "id": "7e4e48de-b626-5513-9518-73261c58b5f4"
+          },
+          {
+            "type": "text",
+            "text": " unless they are mythic as well."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.ImXaHm8KjL9lPfLT"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Heroic Scion Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "d0027e3a-b875-5497-b448-58c84a4054ce",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:be-right-back",
+    "name": "Be Right Back",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate", "mythic", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Cost",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " the Price of the chosen item"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can manipulate time to produce an item in a seemingly impossible fashion. You flicker a few times as you make adjustments to your gear, then solidify again with a specific needed item that you purchased from an alternate timeline using coin you have on your person. This allows you to purchase a single common item with a level no higher than your level and its Bulk must be low enough that carrying it wouldn't have made you encumbered. You must spend the standard amount to purchase the item, and this money must be carried on your person. You can be wearing or holding the item, as long as you have the required number of hands free, and if the item has the invested trait, you have already Invested in it, provided you haven't reached your limit of invested items."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.WLtyRMV2phyW9Mu2"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Timewracked Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "three",
+        "frequency": {
+          "max": 1,
+          "per": "day"
+        }
+      }
+    }
+  },
+  {
+    "id": "63bdcc25-6942-58bb-ac54-6886647bc383",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:bolstered-recovery",
+    "name": "Bolstered Recovery",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["healing", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whenever you rest, you recover with remarkable speed. Double the number of Hit Points you regain and the amount by which condition values are reduced from a full night's rest. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "cc9817f0-eb2c-56d1-b571-8aaaaa76bccd"
+          },
+          {
+            "type": "text",
+            "text": " action."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "cc9817f0-eb2c-56d1-b571-8aaaaa76bccd"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.Bb5Z9qpVom5fcrnh"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Timewracked Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "215ce2e8-23db-55b8-9965-dd6baba93ab8",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:craft-runewell",
+    "name": "Craft Runewell",
+    "level": 20,
+    "rarity": "common",
+    "traits": ["mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Even if the runelord whose soul influences you never did so themselves, you know how to create your own "
+          },
+          {
+            "type": "text",
+            "text": "runewell",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "—an artifact that grants you a measure of immortality. You learn the Create Demiplane ritual. To create your "
+          },
+          {
+            "type": "text",
+            "text": "runewell",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you must cast "
+          },
+          {
+            "type": "text",
+            "text": "create demiplane",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " heightened to 10th-rank. When you do so, you also create an anima focus (an immobile object like a statue or fortification with an appearance you design) at the location you cast the ritual, connecting your other-worldly home to this location. Once you create your "
+          },
+          {
+            "type": "text",
+            "text": "runewell",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you cannot create another unless the current one is destroyed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While you are located on the same plane that your anima focus is located on, or while you are within your "
+          },
+          {
+            "type": "text",
+            "text": "runewell",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", any doomed value you gain stops at "
+          },
+          {
+            "type": "ref",
+            "id": "cd164d22-2d8e-5fd2-b8b2-03e1360df1e7",
+            "label": "Doomed 3"
+          },
+          {
+            "type": "text",
+            "text": ". The only way an adversary can destroy your anima focus or "
+          },
+          {
+            "type": "text",
+            "text": "runewell",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is to reduce you to 0 Hit Points and doomed 3 and then reduce your anima focus to 0 Hit Points using arcane magic (or an agent affected by arcane magic) from one of the schools in opposition to your specialized sin chosen when you took Avenging Runelord Dedication. Your anima focus has Hardness equal to twice your level and Hit Points equal to your own. Your anima focus has fast healing equal to twice your Intelligence modifier."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your anima focus is associated with the same sin as your chosen avenging runelord sin. As long as at least one sizable settlement in which this sin is prevalent (subject to the GM's discretion) is within a hundred miles of it, your anima focus absorbs energy from these sins. As long as it does so and you are on the same plane as the anima focus, you do not age and are immune to effects that rob you of your mental abilities (such as the never mind spell or the "
+          },
+          {
+            "type": "ref",
+            "id": "6f53a234-670f-5b02-a986-7cce57585fc8"
+          },
+          {
+            "type": "text",
+            "text": " and stupefied conditions)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Other creatures cannot enter your "
+          },
+          {
+            "type": "text",
+            "text": "runewell",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " unless they possess a planar key you created and gave to them, or unless they're adjacent to your anima focus. Your "
+          },
+          {
+            "type": "text",
+            "text": "runewell",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " has an exit that allows adjacent creatures within to activate with an Interact action; when they do so, they exit the "
+          },
+          {
+            "type": "text",
+            "text": "runewell",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " and appear adjacent to your anima focus. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "4daa336b-9d47-5590-8520-def922c9d32d"
+          },
+          {
+            "type": "text",
+            "text": " activity."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "4daa336b-9d47-5590-8520-def922c9d32d"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.gbBUxaWSD4nA9X7d"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Avenging Runelord Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "4d8f3859-ecf4-5697-863f-d4e6b5d721b9",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:daunting-spell",
+    "name": "Daunting Spell",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["concentrate", "mythic", "spellshape"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your enemies feel the inevitability of defeat once they feel the potency of your magic. If your next action is to Cast a Spell that allows a saving throw, your spell gains the emotion, fear, and mental traits. The spell gains the following success and failure effects in addition to any other effects it would normally have. If the target is your nemesis or an ally of your nemesis, use mythic proficiency to determine your spell's attack bonus and save DC; if the spell has multiple targets, all targets must be your nemesis or allied with your nemesis for you to use mythic proficiency."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected by the daunting spell."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 2"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 1"
+          },
+          {
+            "type": "text",
+            "text": " for as long as they remain frightened. If the daunting spell has a duration, the affected creature can't reduce their frightened condition from this effect below 1 until the spell's duration ends."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 3"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 2"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.7v6dG5QvXCmtm9FS"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Heroic Scion Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "c0f7bf74-b608-55e4-845a-c2618cbdf7b3",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:divide-and-conquer",
+    "name": "Divide and Conquer",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are wielding a melee warshard weapon."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you face multiple foes, you wield your warshard weapon with vigor. Spend 1 Mythic Point, then Step to a space where you threaten at least two opponents with your warshard weapon. Attempt two Strikes at mythic proficiency, each against a different target. If you hit with both Strikes, you gain an additional effect based on the type of damage you inflict with your weapon. Both attacks count toward your multiple attack penalty, but the penalty doesn't increase until after you've made both of them. If your weapon doesn't deal one of these three damage types, you can't use it to Divide and Conquer, and if you deal two different types of damage to each target, you don't gain any additional effect."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Bludgeoning",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You knock your enemies around. Each damaged target becomes "
+                },
+                {
+                  "type": "ref",
+                  "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+                },
+                {
+                  "type": "text",
+                  "text": " until the start of your next turn."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Piercing",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Your strikes punch through your enemies, leaving bloody wounds. Each damaged target takes "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "1d8",
+                      "damageType": "bleed",
+                      "category": "persistent"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Slashing",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Your slashes leave particularly painful wounds. Each damaged target becomes "
+                },
+                {
+                  "type": "ref",
+                  "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+                  "label": "Sickened 2"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.C10L7NG6dgsCqKG8"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Warshard Warrior Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "two",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are wielding a melee warshard weapon."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "b650869d-c0d7-5e83-8320-e20d8fc11bfa",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:echoing-fury",
+    "name": "Echoing Fury",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You cheat the rules of time to co-locate during your attack. When you use Temporal Fury, your Step can be up to 15 feet. If your second Strike is against the same creature as your first Strike, your second Strike deals an additional die of weapon damage; if both Strikes hit, you combine their damage for the purpose of resistances and weaknesses."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.0gOT5o3RfUfYKj8z"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Temporal Fury"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "ee8f6005-c8f9-55bc-9693-b17ac95b37df",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:eternal-hero",
+    "name": "Eternal Hero",
+    "level": 20,
+    "rarity": "common",
+    "traits": ["mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You might be protected by divine intervention or the necessity of cosmic balance. You might be watched over by agents of destiny or fate. You could even be simply someone whose luck and skill have always worked together to ensure your triumph, no matter the odds you might face. Whatever the explanation, you're almost impossible to kill. You reduce the DC of recovery checks by 1 (this is cumulative with the reduction from the Heroic Scion Dedication feat). Whenever your doomed condition would increase to 4 or more, it doesn't increase. The first time each day you would be reduced to 0 Hit Points or outright killed by magical means, you instead remain at 1 Hit Point and become immune to all damage until the end of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you finally do die, you can spend a Mythic Point as a free action to immediately reincarnate—manifesting in a new body with the same statistics (save for potential changes to your ancestry and ancestry feats) within 15 feet of where your death occurred. Each time you repeat this reincarnation, the cost to do so increases by 1, so that after your third reincarnation, you can no longer swiftly return (as no mythic character can ever have more than 3 Mythic Points at one time)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.kmoigPZgEsJ2jsmp"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Heroic Scion Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "174073c5-907c-516c-a655-657744803272",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:expanded-runelord-magic",
+    "name": "Expanded Runelord Magic",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your ability to use magic associated with your chosen sin grows. You gain the ability to cast one more arcane spell as an innate spell. This spell must be chosen from those listed in Avenging Runelord Dedication above, as well as "
+          },
+          {
+            "type": "ref",
+            "id": "43055a38-2f08-5fbf-b5bc-4766acc9cd14"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "35c8fba6-ef32-549e-a849-34d6e599b4d6"
+          },
+          {
+            "type": "text",
+            "text": ", or any 7th-rank spell from your chosen sin's school. You can cast this spell as an arcane innate spell once per day. The spell is automatically heightened to a spell rank equal to half your level rounded up. Use mythic proficiency to determine any attack rolls or spell DCs."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.UTgVD8LwSjFVMlqc"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Avenging Runelord Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "53403412-0428-56e8-b075-1ad0edd37bba",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:final-shot-knows-the-way",
+    "name": "Final Shot Knows the Way",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["mythic", "press"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are wielding a ranged warshard weapon and used it to make a ranged Strike against a foe this round."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You judge a foe's defenses after attacking them and channel that knowledge into your warshard weapon and its ammunition. Spend a Mythic Point, then Stride twice. At any point during this movement, attempt a ranged Strike at mythic proficiency with your warshard weapon against the same foe you already attacked this round. This Strike ignores any modifiers from cover or concealment the target may have, as the ammunition weaves and twists through the air in an impossible flight. All penalties from range increments are negated during this Strike. If this shot hits its target, the target is so astounded by the shot that they become "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " until the end of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.BndS11cLoHSIZc49"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Warshard Warrior Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "two",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are wielding a ranged warshard weapon and used it to make a ranged Strike against a foe this round."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "5aee411e-909f-5468-b6c6-c30699b690cf",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:fracture-timeflow",
+    "name": "Fracture Timeflow",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["incapacitation", "mythic", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your ability to interact with and even observe the flow of time allows you to fracture it slightly in a localized place whenever you land a particularly solid blow on a foe. Whenever you achieve a critical success with a Strike, the target of that Strike must also attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "class-or-spell-dc"
+            },
+            "options": ["inflicts:slowed", "inflicts:stunned"]
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC or spell DC, whichever is higher."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected by the fractured timeflow."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 2"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+            "label": "Stunned 3"
+          },
+          {
+            "type": "text",
+            "text": ", then slowed 2 for 1 round after they recover from being stunned."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.iUEYGMjvveC9sfUu"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Timewracked Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "14dc8246-77f5-5249-8519-dde7be60be3a",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:heroic-scion-dedication",
+    "name": "Heroic Scion Dedication",
+    "level": 12,
+    "rarity": "rare",
+    "traits": ["destiny", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Destiny calls, and the soul of a dead hero reincarnates to take up the fight! Either an old enemy resumes their efforts to affect chaos and violence, or a new threat arises and you feel compelled to stand against it. You've stood against evil before, and the time is nigh for you to do so once again."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you select this mythic destiny, work with your GM to determine the best choice for which previous PC or NPC serves as the source of your reincarnation. For the Revenge of the Runelords Adventure Path in particular, any PC who played a role in the Rise of the Runelords, Shattered Star, or Return of the Runelords Adventure Paths makes for a perfect fit—as would any allied NPC who, in your previous campaign, perished before the end."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A heroic scion comes into the world when a nemesis from their old adventures returns. In the case of this campaign, the heroic scion's nemesis are the ancient runelords of Thassilon. In other campaigns, this nemesis can be a specific individual, a coterie of rivals, or an organization you're destined to oppose. You instinctively know when your nemesis is active in the world. This knowledge may begin as nightmares or a feeling of inevitable conflict but grows stronger and more specific as you contemplate further. You also know when this entity or group has been fully defeated and ceases to operate at all. You gain a +2 circumstance bonus to Perception checks to "
+          },
+          {
+            "type": "ref",
+            "id": "d45207be-e539-50ce-9463-f4edc3671076"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "775b68f2-1542-5f47-bc0d-87d5884d7baa"
+          },
+          {
+            "type": "text",
+            "text": " whenever an ally or servant of your nemesis attempts to Lie to you, escape your notice, or Impersonate someone else."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Fate has deemed you incredibly hard to kill. You reduce the DC of recovery checks by 1."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose one skill that's not a Lore skill, based on the themes of your reincarnated heroic source. Your GM can help you determine a list of appropriate skills to choose from. When you employ an action using that skill, you may spend a Mythic Point to attempt the associated check at mythic proficiency."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Finally, you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "50ac17a9-a644-58e8-8ee0-ce4c6cfbf17b"
+          },
+          {
+            "type": "text",
+            "text": " feat for a special Lore skill subcategory—Incarnation Lore. This Lore skill allows you to become aware of or recall your past exploits. When you increase your proficiency in Incarnation Lore, you remember more about your previous adventures. Certain heroic scion feats require you to attempt an Incarnation Lore check, such as when you attempt the "
+          },
+          {
+            "type": "ref",
+            "id": "5975009e-a75a-5302-bd82-139775fc82b9"
+          },
+          {
+            "type": "text",
+            "text": " activity granted you by this feat."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heroic Scion (Rare)"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "50ac17a9-a644-58e8-8ee0-ce4c6cfbf17b"
+      },
+      {
+        "key": "GrantItem",
+        "item": "5975009e-a75a-5302-bd82-139775fc82b9"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.JbE823xBNt12IAD5"
+    },
+    "data": {
+      "category": "class"
+    }
+  },
+  {
+    "id": "1d362ba8-86ca-5b20-be89-10a57338a62b",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:i-am-the-weapon",
+    "name": "I am the Weapon",
+    "level": 20,
+    "rarity": "common",
+    "traits": ["mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your supernatural bond with your weapon infuses it with a powerful echo of your sentience, your memory, and even fragments of your very soul. When you would be killed while wielding your warshard weapon, you instead disappear and your warshard weapon falls to the ground. You reappear adjacent to your warshard weapon as soon as any sapient creature picks it up. If the creature is a close ally (such as another PC), you return to life with only 1 Hit Point. However, if a stranger does so, you return to life with full Hit Points. At your discretion, you can delay your return to life for up to 24 hours after a creature picks up the weapon, but you still return to life adjacent to your weapon (or as close to it as possible). If no one picks up your weapon within a week of your death, your soul enters the River of Souls, and you can be brought back to life using other means. No matter how you're brought back to life, you can Call Warshard Weapon as a free action as soon as you regain consciousness."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Alternatively, if no one picks up your warshard weapon within a week of your death, you can choose to fuse with your weapon rather than entering the River of Souls. You can no longer be brought back to life, but your soul remains bound to the weapon, and together you are an intelligent item, gaining the same Perception modifier, senses, communication, languages, attribute modifiers, and Will save as you. You retain the same Intelligence-, Wisdom-, and Charisma-based skills. You must still be carried and wielded, and your options are now limited to actions you can take as an intelligent item. You no longer gain or can spend Mythic Points, but as a weapon, you are still mythic. You can spend your actions to attack using the attack modifier with your warshard weapon you had in life, but your damage bonus uses the Strength modifier of your wielder instead of the Strength modifier you had in life. You gain the Impart Martial Wisdom action below, and you might gain other powers at the GM's discretion, such as the ability to influence or even control your wielder. If you're destroyed in this weapon form, your soul moves on to the River of Souls and you can be brought back to life using other means, but you must designate a new warshard weapon normally thereafter."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Impart Martial Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, mythic, prediction)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You call upon your experience in battle to see how best to attack a foe and give that knowledge to your wielder. Your wielder makes a Strike against a creature within reach or within your first range increment at mythic proficiency. This Strike ignores circumstance penalties to the attack roll and any flat check required due to the target being "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "d851e3ca-be0d-55a7-a4d1-d7ed8b7ecafa"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.meZTsonAlueXihQU"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Warshard Warrior Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "b8bc5a5e-4386-5d65-83fb-668efed8b35d",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:indomitable-shot",
+    "name": "Indomitable Shot",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["attack", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are wielding a ranged warshard weapon."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can fire a single shot that penetrates multiple foes. Spend 1 Mythic Point, then fire a single shot from your ranged warshard weapon. You inflict your weapon's damage on all creatures in a line, to a maximum distance equal to your weapon's maximum range or until the line hits a solid object that's either thicker than 5 feet or has a Hardness in excess of 20, whichever comes first. Each creature in the area attempts a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": {
+              "against": "class-or-spell-dc"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC or spell DC, whichever is higher, calculated at mythic proficiency. For each range increment beyond the first, a creature gains a cumulative +2 circumstance bonus to their Reflex save. This ability counts as two attacks when calculating your multiple attack penalty."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.XrvIHz2bkgdpJ8rI"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Warshard Warrior Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "two",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are wielding a ranged warshard weapon."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "6107450c-ecf6-53c4-a202-00a3452ab15e",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:internal-dialogue",
+    "name": "Internal Dialogue",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["fortune", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail a skill check."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Past experiences or even past selves whisper words of advice and encouragement when you need them. Roll an Incarnation Lore check and use that result instead of your failed skill check result."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.VB1UK3KA5uZcxC05"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Heroic Scion Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You fail a skill check."
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "ten-minutes"
+        }
+      }
+    }
+  },
+  {
+    "id": "e1507a2c-6643-54b7-9e24-6786a9273962",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:ive-been-here-before",
+    "name": "I've Been Here Before",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["exploration", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You adapt quickly to new settings and terrains. When you make your daily preparations in a region you've never visited before (such as a city, geographical region, or small demiplane, but not in a dungeon, structure, or other location that focuses on encounter mode play), you spend part of that time introspectively digging into the memories of your past life to get a feel for the adventure that awaits."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose one of the following Exploration activities: "
+          },
+          {
+            "type": "ref",
+            "id": "c51e323a-8364-5dc1-89f7-4f3216a699a8"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "458bac10-0f7a-5c68-bd88-7a8a1137f71d"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "5622ac34-dc8a-55c1-a468-595b67780746"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "5d960085-3b5f-54fa-8aa2-99ae536e8d4b"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "5aa8b556-60af-556b-bfe9-85e6667f9a09"
+          },
+          {
+            "type": "text",
+            "text": ". You perform that exploration activity at full speed rather than at half speed, and any skill check you attempt as a result of this Exploration activity is made at mythic proficiency."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These benefits end as soon as you enter a new region, as determined by the GM."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.zjizIGArUSdE7hx8"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Heroic Scion Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "b07c6426-4e3c-5893-8da5-013e7213dae7",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:let-death-be-my-weapon",
+    "name": "Let Death be my Weapon",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You recall your death in vivid detail, and the fear, pain, and uncertainty you suffered are blunted by the truth of your reincarnation. Pain and agony brought on by your foes can be endured and even turned back upon them when you feel yourself at death's door. Whenever you have the doomed, dying, or wounded condition, you gain that condition's value as a status bonus to damage rolls when you make melee or ranged weapon Strikes. If you have multiple conditions, only the highest value condition counts for setting the amount of this damage bonus. You also gain the "
+          },
+          {
+            "type": "ref",
+            "id": "9f166c68-36de-565e-b273-ef881505912b"
+          },
+          {
+            "type": "text",
+            "text": " free action."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "9f166c68-36de-565e-b273-ef881505912b"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.nxoSp0GDiQ288BJa"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Heroic Scion Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "063e843f-69ab-5fae-bd00-88b3d8d892bf",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:lightless-sight",
+    "name": "Lightless Sight",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain darkvision as long as you wield your warshard weapon; if you already have darkvision, it becomes greater darkvision. You also gain the "
+          },
+          {
+            "type": "ref",
+            "id": "7ee314b7-f993-50dc-805d-2714d3335565"
+          },
+          {
+            "type": "text",
+            "text": " ability."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "7ee314b7-f993-50dc-805d-2714d3335565"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.DgnUXfkcufJotxN9"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Warshard Warrior Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "6df8f625-2e8e-5aa5-8d91-1b5c4e3a925b",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:live-off-borrowed-time",
+    "name": "Live Off Borrowed Time",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["mythic", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per minute"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your turn begins."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You tap into the future to steal a bit of time from yourself a few seconds from now that you can use immediately. You become "
+          },
+          {
+            "type": "ref",
+            "id": "6517bbf2-8085-534b-be6a-187d52739fa0"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round, and can use the extra action to take any basic or specialty basic 1-action action. You gain this extra action immediately and can use it this turn. At the end of your turn, you become "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " and are immune to the quickened condition until the end of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.keCkeRzBANPgUG8M"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Timewracked Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "free",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Your turn begins."
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "minute"
+        }
+      }
+    }
+  },
+  {
+    "id": "57f669d4-1663-5c97-806a-f4627bfc16da",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:momentary-respite",
+    "name": "Momentary Respite",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["healing", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You lose Hit Points from persistent damage. Your sense of destiny manifests as rapid physical healing. Spend a Mythic Point. You regain 8d8 Hit Points and remove any persistent damage condition affecting you. Until the end of your next turn, you're immune to persistent damage (though you would take any other effects of an attack or spell that would also give you persistent damage)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.IyWtJ1KSd6TTvfYQ"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Heroic Scion Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You lose Hit Points from persistent damage. Your sense of destiny manifests as rapid physical healing. Spend a Mythic Point. You regain 8d8 Hit Points and remove any persistent damage condition affecting you. Until the end of your next turn, you're immune to persistent damage (though you would take any other effects of an attack or spell that would also give you persistent damage)."
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "day"
+        }
+      }
+    }
+  },
+  {
+    "id": "97aaf107-319d-55e8-896d-e9475544f6a0",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:my-reputation-precedes-me",
+    "name": "My Reputation Precedes Me",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Long years of brave exploits haven't gone unnoticed. Whether you know just the right things to say or those you're speaking with recognize you as a reincarnated hero, you gain a +2 circumstance bonus to Diplomacy checks made to Gather Information or Make An Impression, and to Intimidation checks made to "
+          },
+          {
+            "type": "ref",
+            "id": "ed0f3425-17f0-51f3-bb5d-1ca7475499a5"
+          },
+          {
+            "type": "text",
+            "text": ". At 18th level, these circumstance bonuses increase to +3. If you spend a Mythic point when you attempt such a check, you do so at mythic proficiency."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.lcsfw4H9U6KofFtG"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Heroic Scion Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "27c37256-53dd-5057-8747-7884174d5ca2",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:not-this-time",
+    "name": "Not This Time",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["mythic", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature targets you with a single-target spell or ability that you defend against with a saving throw or your AC."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You reflexively attempt to cycle a creature's timeline briefly to a reality where it's less able to succeed. Spend a Mythic Point. The creature that targets you must then attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "class-or-spell-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC or spell DC at mythic proficiency, whichever is higher."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The spell or ability affects you normally."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature's attempt to target you is slightly hindered. If your AC is being targeted, you gain a +2 circumstance bonus to your AC. If you need to attempt a saving throw, you gain a +2 circumstance bonus to the save."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature's attempt to target you is significantly hindered. If your AC is being targeted, you gain a +2 circumstance bonus to your AC, and a critical hit against you becomes a normal hit. If you need to attempt a saving throw, you gain a +2 circumstance bonus to the save, and if you critically fail, you fail instead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature's attempt to target you fails, and the actions it used to make the attempt are wasted."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.mdc30s4CuxR7HL3k"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Timewracked Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "A creature targets you with a single-target spell or ability that you defend against with a saving throw or your AC."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "ace843f0-f9c5-537b-8780-3182a4d3092a",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:now-you-see-me",
+    "name": "Now You See Me",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["flourish", "mythic", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You flash through several possible timelines as you move. Stride up to your Speed. This movement doesn't provoke reactions, and you are "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " until the end of your turn. All creatures are "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " to you until the end of your turn. You can use Now You See Me while Burrowing, Climbing, Flying, or Swimming instead of Striding if you have the corresponding movement type."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.IAnUKY3QI8K32yJw"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Timewracked Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one"
+      }
+    }
+  },
+  {
+    "id": "60a48494-9a17-54a0-a5d4-f1f6e6b86c91",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:on-my-best-day",
+    "name": "On My Best Day",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Be they in your current life or your previous one, you've had many heroic moments that continue to inspire you. Even past failures or humiliations can become a source of inspiration—or at least, an opportunity to make up for a past error on this new day. Attempt an Incarnation Lore check against a very hard DC of your level."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain a +3 status bonus to AC and resistance to physical damage equal to your level until the end of your next turn. You can Sustain this effect for up to 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As critical success, but the status bonus is +2 and the resistance is equal to half your level."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain a +1 status bonus to AC until the end of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain a +1 status bonus to AC against the next attack made against you until the end of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.lFNyIFWPPXpS0qRM"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Heroic Scion Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "frequency": {
+          "max": 1,
+          "per": "hour"
+        }
+      }
+    }
+  },
+  {
+    "id": "bc8ab03f-fdd9-52e0-9f5b-cced52505881",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:prescient-parry",
+    "name": "Prescient Parry",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["manipulate", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are wielding your warshard weapon."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are targeted by a melee or ranged Strike with a weapon."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Spend a Mythic Point. Your warshard weapon intervenes at the last second, rising to deflect the incoming blow. For this attack, calculate your AC at mythic proficiency, then add any item bonus from your weapon to that value. If the attack misses and the target is within your reach, or if your warshard weapon is a ranged weapon and the target is within the weapon's first range increment, you can Strike the creature who made the triggering attack with your warshard weapon."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.WYMbOaEvuAS5zCjH"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Warshard Warrior Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are wielding your warshard weapon."
+              }
+            ]
+          }
+        ],
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are targeted by a melee or ranged Strike with a weapon."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "15fca10a-aaf6-5f43-a603-f128d94f9fbf",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:preserve-the-moment",
+    "name": "Preserve the Moment",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["mythic", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your turn ends."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sometimes, your actions are so successful and impressive that it's worth going back to them. Note the actions you took during the turn that just ended (excepting the reaction you used to trigger Preserve the Moment), including the die roll results (not the actual check results). Die rolls you made as a result of others' actions on you or from the environment are not recorded. For example, if you Stride up to a firewyrm, roll a basic Reflex save against its intense heat aura, then Strike the firewyrm with a longsword, and then Climb up an adjacent wall, when you activate Preserve the Moment you record only the Stride action, the Strike action (and the die roll result you roll for the Strike), and the Climb action (and the die roll result you roll for the Athletics check to do so); you do not record your Reflex save against the aura's effects. Preserve the Moment works best, as a result, when the actions you take are relatively standard and when rolls associated with those are high rolls."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "6c3fb165-0a4e-5a1d-87da-a78ba5b1d9cd"
+          },
+          {
+            "type": "text",
+            "text": " reaction, which you can use once during the next 24 hours."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "6c3fb165-0a4e-5a1d-87da-a78ba5b1d9cd"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.vqgklLExo3HAVAm9"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Timewracked Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Your turn ends."
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "day"
+        }
+      }
+    }
+  },
+  {
+    "id": "f08261ef-215c-528c-93a2-850d5e0ea111",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:reincarnated-companion",
+    "name": "Reincarnated Companion",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're not alone in having a legendary past life—so too does your companion. This previous life might be the return of an animal companion or familiar a previous PC of yours had that perished, or it could be the reincarnation of an entirely different legendary creature. It could even be the returning spirit of a close friend or ally who stood by your side. If you have an animal companion, it gains one specialization of your choice. If you have a familiar, it gains two additional familiar abilities. If your fated companion is slain, you can replace it at no cost when you perform your daily preparations."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.z74e0oQxRSiviC91"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Heroic Scion Dedication; familiar or nimble or savage animal companion"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "bb2cc46e-8ba7-5864-97ba-f31794990280",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:reliable-magic",
+    "name": "Reliable Magic",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Magic stored in written form or within wands is more reliable in your capable hands. Whenever you overcharge a wand, reduce the DC of the flat check to avoid destroying the wand by 4. It still gains the broken condition on a success."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you Cast a Spell from a scroll you can spend a Mythic Point as a free action. The spell is cast at mythic proficiency. Once you cast the spell using this ability, attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 11
+          },
+          {
+            "type": "text",
+            "text": ". If this check is successful, the scroll is not destroyed, and instead glows with light equivalent to that of a candle for 10 minutes. You can Cast a Spell from this scroll again, but if you do so you cannot enhance it in any way (such as by using this feat), and the scroll is destroyed. If not used before the end of the 10 minutes, the scroll is destroyed."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.HKGO65wfxlBnobHN"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Avenging Runelord Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "38894294-d0a7-576c-84bb-a734c8931558",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:second-sight",
+    "name": "Second Sight",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["mythic", "prediction"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You peer into the next several seconds to watch the potential timelines around a nearby creature unfold. Spend a Mythic Point, then make a check to "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": " at mythic proficiency about a creature you can see. This check gains the following additional effects."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You learn all the actions the creature will take on its next turn (or in the first round of combat if combat hasn't begun), such as \"Stride toward Seelah\" or \"Cast shield.\" These actions are locked in and the creature must attempt them, even if the situation changes, though it need not perform the actions in the order stated. For instance, if the creature locked in the actions \"Stride toward Seelah,\" \"Make a longsword Strike against Seelah,\" and \"Raise a shield,\" and Seelah spent her turn moving adjacent to the creature, the creature can make the longsword Strike as its first action if it wishes. If the creature is unable to fulfill an action it committed to, it loses that action as it reels from a temporal paradox."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain one additional piece of information about the creature, as if you had critically succeeded at the Recall Knowledge check. If the situation changes drastically (perhaps Seelah becomes invisible and the creature is unaware where Seelah is), the GM determines what happens."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.GBFHOgMDZlNas6DF"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Timewracked Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one"
+      }
+    }
+  },
+  {
+    "id": "d2fe5f80-40ad-59a4-98b5-b871b3253d0f",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:shining-runes",
+    "name": "Shining Runes",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whenever you Cast a Spell that requires more than one action to cast, the signature Thassilonian runes you trace in the air flicker with light and command attention. They may blaze brightly, leave lingering fog, create discordant noise, or fill the air with an overwhelming scent, such that their presence obfuscates you from onlookers. You gain "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1",
+            "label": "Concealment"
+          },
+          {
+            "type": "text",
+            "text": " from enemy creatures until the beginning of your next turn. The DC to identify your spells as you cast them is 2 higher than normal."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.OZmR9ZSAZyPoJuDj"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Avenging Runelord Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "00b79811-6a86-564f-abc4-6f346305e02e",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:steadfast-grip",
+    "name": "Steadfast Grip",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The connection you have with your warshard weapon strengthens it and assists you in maintaining your grip on it in battle. Your DCs against attempts made to "
+          },
+          {
+            "type": "ref",
+            "id": "ef57a555-f9e9-53cc-b09b-b7432156cbf1"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "4722e9b3-995d-5553-8034-087950993837"
+          },
+          {
+            "type": "text",
+            "text": ", or otherwise remove your warshard weapon from your possession are calculated at mythic proficiency. When you designate a warshard weapon, its Hardness increases by an amount equal to half your level, and its Hit Points increase by an amount equal to your level for as long as it is your warshard weapon."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.CmE9DKaqA4p9uYfQ"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Warshard Warrior Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "18ae2265-3564-5d90-b789-e0774a988aa9",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:subjugation",
+    "name": "Subjugation",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["concentrate", "incapacitation", "mental", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have managed to gain a degree of control over the runelord's ancient soul within your mind, enough that you can project this invasive influence into the minds of others. Spend a Mythic Point. You attempt to send your runelord's influence into the mind of a creature you can sense within 30 feet. The creature attempts a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "class-or-spell-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC or spell DC, whichever is higher. Giants take a –2 status penalty to this saving throw. Regardless of the result, the target is temporarily immune to this ability for 24 hours once the Subjugation ends."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " as it fights off your runelord's influence. You gain awareness of its abilities and weaknesses as if you achieved a critical success on a "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": " check to identify the creature."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature relinquishes control of its faculties and abilities. You gain awareness of its abilities and weaknesses as success. You control the creature until the end of its next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but you control the creature for 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.KYmr5eXZinLPevhm"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Avenging Runelord Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "two"
+      }
+    }
+  },
+  {
+    "id": "655669a6-7e6c-5c79-a2ef-1ddec34e85b9",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:telling-blow",
+    "name": "Telling Blow",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["flourish", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your determination empowers a telling blow to defeat your most powerful enemies. Spend a Mythic Point. Make a Strike at mythic proficiency. If the Strike hits, you deal an extra die of weapon damage. You can spend additional Mythic Points after determining the outcome of the attack to deal one more die of weapon damage per extra Mythic Point spent. If the target of your attack is your nemesis or an ally of your nemesis, you gain two die of weapon damage per extra Mythic Point spent."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you have no Mythic Points remaining after using this ability, you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "5e3582c3-701c-5169-9c69-4221096722c2"
+          },
+          {
+            "type": "text",
+            "text": " condition."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.QufAglrest3fr1iz"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Heroic Scion Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one"
+      }
+    }
+  },
+  {
+    "id": "d9c76d13-cdf9-507c-82b1-10221567e862",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:temporal-fury",
+    "name": "Temporal Fury",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["mythic", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You shift and skip through time, vanishing during your movement to appear in unexpected and advantageous locations for combat. Spend a Mythic Point. Strike, then Step up to 10 feet. This movement is affected normally by barriers and difficult terrain; you still move physically through the area, just so swiftly that it appears that you've teleported. Then, make another Strike. Apply your multiple attack penalty to both Strikes normally, but this second Strike is made at mythic proficiency and your target is "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " against it."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.eXPJTsu80nOYgzI3"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Timewracked Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "two"
+      }
+    }
+  },
+  {
+    "id": "2d498577-fb8c-5405-bb7d-d35ccd7e6443",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:throw-and-catch",
+    "name": "Throw and Catch",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are wielding a melee warshard weapon."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You hurl your warshard weapon at an opponent, even though the weapon isn't designed to be thrown. Spend a Mythic Point. Your weapon gains the thrown trait with a range increment of 40 feet; if your weapon already has the thrown trait, increase its range increment by 40 feet. Make a ranged Strike at mythic proficiency at an opponent within range. For this ranged Strike, apply your full Strength modifier to the damage, as if it were a melee Strike. After the Strike resolves, the weapon flies back to your hand, and you can then attempt a melee Strike (at your normal proficiency, not mythic proficiency) against a target in reach of your weapon. Both attacks count toward your multiple attack penalty, but the penalty doesn't increase until after you've made both attacks."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.nbwHIS38AgSDquNu"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Warshard Warrior Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "three",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are wielding a melee warshard weapon."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4e3af9ce-95e6-5f43-87e3-7b26ec530c07",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:timelessness",
+    "name": "Timelessness",
+    "level": 20,
+    "rarity": "common",
+    "traits": ["mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Time travelers are rare, but even among them your isolation from time is unique. As long as you remain timewracked, you do not age and cannot die of natural causes. You're immune to hostile spells and effects related to time or aging, as well as the slowed condition (except for when you gain the slowed condition through this mythic destiny). You reduce the DC of recovery checks by 1. Whenever you roll a flat check to end persistent damage, you roll twice and choose your desired result; this is a fortune effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In addition, your intimate knowledge of the flow of time gives you a measure of influence over the attempt of another to manipulate it. Whenever an enemy creature that you are aware of and who is within 60 feet of you gains the "
+          },
+          {
+            "type": "ref",
+            "id": "6517bbf2-8085-534b-be6a-187d52739fa0"
+          },
+          {
+            "type": "text",
+            "text": " condition, you gain the quickened condition for 1 round. The actions available to you from the acquired condition are the same as those granted by the ability that quickens your enemy."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.cSI344GrI2K2XMae"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Timewracked Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "92f978f9-e4ee-5651-934d-571c55b06756",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:timewracked-dedication",
+    "name": "Timewracked Dedication",
+    "level": 12,
+    "rarity": "rare",
+    "traits": ["destiny", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The current of time shifts subtly in your field of view. You have learned to tread these temporal eddies, moving forward and pushing backward in small strokes—sometimes even gaining the ability to move your allies and enemies through time as you choose. Whether or not you'll ever be fully restored to your proper timeline, you can't predict—but until then you continue to manipulate your estrangement from time to move unseen, defy your opponents in combat, and occupy future or past versions of yourself to escape distress. With practice you could gain the ability to rehearse a speech at the same tie you deliver it or attack distant foes without spending the time to move between them. Eventually, you might gain the power to vanish from existence altogether while you hop forward and backward in time or even become immortal."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your Speed increases by 5 feet for each mode of movement available to you. You can spend a Mythic Point to roll any check made to determine your initiative at mythic proficiency. If your initiative roll result is tied with an opponent's initiative roll, you can choose to go first. In addition, you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "c41411b6-2e41-56a5-9496-bc1342c9657d"
+          },
+          {
+            "type": "text",
+            "text": " reaction."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Timewracked (Rare)"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "c41411b6-2e41-56a5-9496-bc1342c9657d"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.yrlwMnjLgKaWtq74"
+    },
+    "data": {
+      "category": "class"
+    }
+  },
+  {
+    "id": "a8286620-95f8-56f4-bf0b-0d7c6e400932",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:to-me",
+    "name": "To Me!",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["auditory", "emotion", "mental", "mythic", "visual"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Two lives spent in adventuring groups has given you a special gift for bolstering party morale and pushing your allies to achieve greater ends when they work as a team. Spend a Mythic Point to rally your allies to your side to regroup or push your advantage. Stride and then make a melee Strike. As soon as your turn is over, your allies within 30 feet who can see and hear you may Stride in your direction as a free action, but don't have to. Your allies control their own movement and may move in such a way as to avoid obstacles or creatures, but if they Stride, they must be at least 5 feet closer to you than where they were when they started by the end of this movement. If yours or an ally's movement this round triggers reactions, you or your ally uses mythic proficiency to determine their AC or to attempt a saving throw to resist the reaction."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If an ally is within melee range of the target of the Strike you made with this ability, that ally may also make a melee Strike against that enemy as a reaction instead of Striding toward you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Any Strikes from To Me! made against your nemesis, be they Strikes you make or Strikes made by allies, use mythic proficiency."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.vb8DsfARkJGWd0GT"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Heroic Scion Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "two",
+        "frequency": {
+          "max": 1,
+          "per": "day"
+        }
+      }
+    }
+  },
+  {
+    "id": "dcc61aaa-bb93-5245-af11-2ea7a5050519",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:to-thine-own-self",
+    "name": "To Thine Own Self",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail a saving throw against an effect that would alter your memory or cause you to become controlled by another creature."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Awareness of your past perils protects you from those who would manipulate your thoughts. Attempt to counteract the triggering effect using your Incarnation Lore modifier as your counteract modifier and half your level as your counteract rank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.kJ3d0aFkddkbsJ0k"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Heroic Scion Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You fail a saving throw against an effect that would alter your memory or cause you to become controlled by another creature."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "7019df46-e602-5381-b3d5-3e825a95ea26",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:transmute-weapon",
+    "name": "Transmute Weapon",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you choose a warshard weapon during daily preparations, you can transform the material it's composed of so that the weapon is made of a precious material (like adamantine, dawnsilver, or cold iron). The material and quality of the material you select must be of a level equal to or less than your character level. You can transmute the weapon into a standard-grade item of that material only if the weapon is at least level 9. You can transmute the weapon into high-grade item of that material only if the weapon is at least level 15."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.n7a7ltuY9C4qcAiT"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Warshard Warrior Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "ed60bc71-8d3f-52a2-aacf-0e624d74a9ee",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:vigorous-victor",
+    "name": "Vigorous Victor",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Long years of success have not only shown you where your limits lie, they've expanded them. You gain a +2 circumstance bonus to saving throws against effects that would cause you to become "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "5e3582c3-701c-5169-9c69-4221096722c2"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e"
+          },
+          {
+            "type": "text",
+            "text": ". Whenever you attempt such a save, you can spend a Mythic Point do so at mythic proficiency. The bonus increases to +3 at 18th level."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.SOXivCy3ko3jDewI"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Heroic Scion Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "48af1625-2c49-5fea-adf9-511b3c4a3cf0",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:vindictive-thoughts",
+    "name": "Vindictive Thoughts",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["arcane", "mental", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You attempt a saving throw against a spell."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Those who seek to do you personal harm with magic must suffer the same misfortune. Before you attempt your saving throw, spend a Mythic Point. You make this saving throw at mythic proficiency. On any result but a critical failure, the spell's caster takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10d6",
+                "damageType": "mental"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "class-or-spell-dc"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC or spell DC using mythic proficiency, whichever is higher). At 18th level, the mental damage increases to 11d6, and at 20th level, the mental damage increases to 12d6."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.pDkIUYQh5GGW50r3"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Avenging Runelord Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You attempt a saving throw against a spell."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "779928ec-1f0c-5d45-9959-b68660edf0d8",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:warshard-rune",
+    "name": "Warshard Rune",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you choose a warshard weapon during your daily preparations, you can empower it with an additional magical effect. Choose one common weapon property rune that's of a level equal to or lower than your level. That rune is applied to your warshard weapon as if it were etched onto it normally, but this weapon property does not count against the normal maximum number of property runes a weapon can have. If you empower a weapon with a property rune of the same type, only the highest-level one applies. This additional rune functions only when you wield your warshard weapon and have at least 1 unspent Mythic Point; otherwise, the rune becomes dormant until these conditions are met."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.MsNPLqPsWgOO0dqh"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Warshard Warrior Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "005822b7-7204-5635-90c8-a2208a17aa36",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:warshard-warrior-dedication",
+    "name": "Warshard Warrior Dedication",
+    "level": 12,
+    "rarity": "rare",
+    "traits": ["destiny", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you became infused with a shard of the god of war, you knew in your gut that your destiny would be one for the ages—yet you may not, at first, know the exact way such a destiny would play out. If you still carry the warshard that empowered you, you might carry it as a token or wear it as jewelry—if indeed it's not simply embedded into your body. Regardless, the warshard itself no longer has any intrinsic power of its own, and even if you toss the warshard aside, its gifts do not leave you, nor can another benefit from them. If you throw the warshard away or lose it, your destiny remains unaltered; you have, in effect, become the warshard itself. This power manifests through a weapon you wield."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you make your daily preparations, choose one weapon in your possession in which you have at least expert proficiency. That weapon becomes your warshard weapon until you choose a different weapon in your possession during another of your daily preparations. You can choose a mundane nonmagical weapon, a weapon with magical runes, one made of an unusual material, or even a specific magic weapon such as a storm flash or a bloodletting kukri, but not an intelligent weapon or an artifact like the bastard sword Serithtial or one of the seven swords of sin. While you don't lose access to your warshard warrior feats if your warshard weapon is taken from you or destroyed, note that several of this destiny's feats require you to be wielding your warshard weapon. You can etch or remove runes from a warshard weapon normally. You can have only one warshard weapon at a time."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your gain the "
+          },
+          {
+            "type": "ref",
+            "id": "ce4b9ee1-5e64-5519-88af-78633d3d4bcf"
+          },
+          {
+            "type": "text",
+            "text": " feat, but you can only use it with your warshard weapon. Whenever you make a Strike with your warshard weapon at mythic proficiency, you double the amount of additional damage you deal with the weapon specialization class feature. When you make Crafting checks to Repair your warshard weapon, your treat your proficiency rank in Crafting as legendary for determining how many Hit Points you restore to the item; in addition, if your Crafting result is a critical failure, you get a failure instead. You also gain the Call "
+          },
+          {
+            "type": "ref",
+            "id": "825ede57-e494-5641-8995-97a9f8459312",
+            "label": "Warshard Weapon"
+          },
+          {
+            "type": "text",
+            "text": " action."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Warshard Warrior (Rare)"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "825ede57-e494-5641-8995-97a9f8459312"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.GtohZQvFVZaIQD0S"
+    },
+    "data": {
+      "category": "class"
+    }
+  },
+  {
+    "id": "4d869f48-0f12-5ad2-b0e0-73e190423606",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:willing-runes",
+    "name": "Willing Runes",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Magical markings of every kind seem eager to aid your endeavors. Whenever you read text, be it mundane or magical, the writing itself seems to almost to leap into your thoughts. You gain a +2 status bonus to checks to Decipher Writing, Identify Magic, Learn a Spell, or any Research check or "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": " check involving reading."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 status bonus to saving throws and to your AC against effects from hazards that involve reading, such as those created by a rune trap ritual. If you were the one who triggered the hazard by reading the triggering runes, the status bonus increases to +4."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you prepare spells from a spellbook, you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "df263dca-5b7d-563e-a95a-0cb6ecc826a6"
+          },
+          {
+            "type": "text",
+            "text": " activity."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "df263dca-5b7d-563e-a95a-0cb6ecc826a6"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.0eo9ESm9Rmd2ndQ6"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Avenging Runelord Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "77e7079d-445f-5fff-996e-6c3b9948f325",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:writhing-runelord-weapon",
+    "name": "Writhing Runelord Weapon",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["arcane", "flourish", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are wielding a polearm or spear."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your prowess with long-hafted weapons catches your opponents by surprise, as it bends or elongates in an obviously supernatural manner. Spend a Mythic Point. Your weapon gains the reach trait until the end of your turn, if it doesn't have it already. You can Stride and Strike twice, in any order. The movement from your Stride doesn't provoke reactions. Your Strikes are made at mythic proficiency and gain the critical specialization effect of the weapon. Apply your multiple attack penalty to your Strikes as normal, but the target of your second Strike is "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " to it."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.ABobcAdaA8p1nHRV"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Avenging Runelord Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "two",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are wielding a polearm or spear."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+]

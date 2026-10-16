@@ -1,0 +1,50 @@
+[
+  {
+    "id": "7f47d068-64ea-5301-8b15-063ee09490a2",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:absalom-lore",
+    "name": "Absalom Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "the-dead-gods-hand"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:absalom",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.absalom",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "8ad970f9-1ce1-5efb-8f83-bd475015e787",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:aroden-lore",
+    "name": "Aroden Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "the-dead-gods-hand"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:aroden",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.aroden",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  }
+]

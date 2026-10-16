@@ -1,0 +1,135 @@
+[
+  {
+    "id": "a123c8ff-16f6-5fee-98a2-f0d443906016",
+    "pack": "the-dead-gods-hand",
+    "kind": "ritual",
+    "slug": "ritual:beckon-the-blasphemous-brethren",
+    "name": "Beckon the Blasphemous Brethren",
+    "level": 3,
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "the-dead-gods-hand"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This lower-level variant of planar servitor was created by a secret society known as the Blasphemous Brotherhood, a fraternity of debased alien scholars wise in the profane knowledge of the lower planes. With this ritual (and others akin to it), the Blasphemous Brotherhood tempted and empowered those who lacked the resources or skill to perform planar servitor with options for calling upon the sinister powers of Abaddon to gain the temporary service of a daemonic acolyte. Those normally unable to cast beckon the blasphemous brethren are often provided with self-destructive methods of sacrifice where they can offer fragments of their power (temporarily) and souls (not temporarily) in order to have a chance at success in performing this beckoning ritual."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When performing this ritual, the secondary casters entreat a chosen evil god and the Brotherhood itself for aid, explaining what sort of assistance is required. This specific beckoning ritual manifests aid in the form of a venedaemon, a tentacle-armed humanoid monstrosity clothed in voluminous black robes and steeped in forbidden secrets and eldritch lore."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The venedaemon manifests and serves you for 1d4+1 days."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The venedaemon manifests and serves you for 1 day."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The Blasphemous Brotherhood rejects your entreaties for aid."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The venedaemon manifests but is enraged at being interrupted from more important studies. It immediately attacks you."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.DPjhtfAjFQVQwZH2"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "duration": {
+        "type": "varies"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "rare incense and offerings worth a total value of 20 gp"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:occultism", "skill:religion"],
+        "proficiency": "expert"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:occultism", "skill:religion"]
+          }
+        ],
+        "casters": 4
+      }
+    }
+  }
+]

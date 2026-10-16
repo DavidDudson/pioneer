@@ -1,0 +1,1313 @@
+[
+  {
+    "id": "89bec57d-9528-5499-ac0d-283b57d60bd9",
+    "pack": "bastion-of-blasphemies",
+    "kind": "action",
+    "slug": "action:entertain-the-fishers",
+    "name": "Entertain the Fishers",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each PC goes one at a time in an order of the party's choosing, with every activity taking 5 minutes to perform. The skill checks required for either option vary, but the results for them are all the same."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Drink and Boast:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A PC who chooses this option drinks a tankard of potent Arudora ale, then attempts to delight the gathering with a rousing tale of fishing or hunting. First, the PC must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 24
+          },
+          {
+            "type": "text",
+            "text": " save to avoid becoming "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 2"
+          },
+          {
+            "type": "text",
+            "text": " on a critical failure) by the drink, and next, they must immediately begin their story without taking time to retch or recover from any sickened condition they might have gained. The gathered fishers enjoy hyperbole and stretched truths more than factual accounts, so the PC can either attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:deception",
+            "dc": 22
+          },
+          {
+            "type": "text",
+            "text": " check (to spin a tall tale) or a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:survival",
+            "dc": 26
+          },
+          {
+            "type": "text",
+            "text": " check (to tell a legitimate story)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Brawl with Arth:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A PC who chooses this option spends several minutes boasting about their strength and fighting prowess, then tangles with Arth in a short exhibition match fought not to the death, but to humiliation. The PC must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:athletics",
+            "dc": 24
+          },
+          {
+            "type": "text",
+            "text": " check to beat Arth fair and square or a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:intimidation",
+            "dc": 26
+          },
+          {
+            "type": "text",
+            "text": " check to match and exceed Arth's challenges."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Regardless of the option chosen, each skill check has the following results."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The PC entertains 6 of the fishers."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The PC entertains 3 of the fishers."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The PC fails to entertain any of the fishers."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The PC bores the fishers. If there are any fishers currently entertained, 3 of them are no longer entertained. If the PC was attempting to Drink and Boast, something in the ale lingers, and they become "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 1"
+          },
+          {
+            "type": "text",
+            "text": " for 24 hours. If the PC was attempting to Brawl with Arth, they pull a muscle and become "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 1"
+          },
+          {
+            "type": "text",
+            "text": " for 24 hours."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.276zNoegM7xXuEIw"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "c1bbe736-493f-5268-9ebc-11eb6ba7ff5e",
+    "pack": "bastion-of-blasphemies",
+    "kind": "action",
+    "slug": "action:escape-mums-embrace",
+    "name": "Escape Mum's Embrace",
+    "rarity": "common",
+    "traits": ["exploration", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You spend a minute attempting to escape from Danrasteian's device even as the contraption works to tighten its bindings and twist you into increasingly uncomfortable positions. Attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:thievery",
+            "dc": 24
+          },
+          {
+            "type": "text",
+            "text": " check to manipulate connectors and fasteners on the device to degrade their hold, a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:acrobatics",
+            "dc": 25
+          },
+          {
+            "type": "text",
+            "text": " check to contort yourself into a more advantageous position, a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:athletics",
+            "dc": 26
+          },
+          {
+            "type": "text",
+            "text": " check to tug at the bindings and loosen their grip, or a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 29
+          },
+          {
+            "type": "text",
+            "text": " save to simply wriggle and stretch in an attempt to squirm free, with the following results. (Any bonus that applies to any attempt to Escape applies to these checks.) Once you earn 3 Freedom Points, you escape!"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You make significant progress toward escaping and earn 2 Freedom Points."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're on the way to escaping and earn 1 Freedom Point."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail to make any progress toward escaping and take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d8",
+                "damageType": "bludgeoning"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage from being twisted up."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d8",
+                "damageType": "bludgeoning"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. In addition, you must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 24,
+            "options": ["inflicts:drained"]
+          },
+          {
+            "type": "text",
+            "text": " save to resist having your "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b"
+          },
+          {
+            "type": "text",
+            "text": " condition value increase by 1 as your bones begin to break and your joints start to dislocate."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.lsrjaHoc5KZs177E"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "183c884b-18df-5d22-b743-93ef9765b907",
+    "pack": "bastion-of-blasphemies",
+    "kind": "action",
+    "slug": "action:meditate-among-the-stones",
+    "name": "Meditate Among the Stones",
+    "rarity": "common",
+    "traits": ["concentrate", "exploration"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You spend an hour meditating within the ring of standing stones, absorbing the power they contain in an attempt to focus and sharpen your mind. At the end of the hour, attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 20
+          },
+          {
+            "type": "text",
+            "text": " save with the following results (this becomes a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 25
+          },
+          {
+            "type": "text",
+            "text": " save if the standing stones haven't been cleared of fungus). Once you Meditate Among the Stones, you cannot attempt to do so again for 1 week, regardless of your results."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your mind sharpens and your thoughts clear. The next time you attempt an Intelligence-based skill check over the course of the following week, you gain a +2 circumstance bonus to the check."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "ce5b89b0-85f4-520f-93a1-7ba3404a3ee6"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As critical success, but a +1 circumstance bonus, and the check must be made in the next 24 hours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "2f476394-e17c-5c43-8488-4f0a3305bcc4"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You meditate and relax, but achieve no enlightenment. If the stones haven't been cleared of fungus, treat this result instead as a critical failure."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but lingering influence from the Outer Rifts induces unnerving hallucinations that leave you "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 1"
+          },
+          {
+            "type": "text",
+            "text": " for 24 hours."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.j6MnMZ8ADhhEiUTA"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "e010f15f-4f22-5692-a4f9-c2abfd2cde78",
+    "pack": "bastion-of-blasphemies",
+    "kind": "action",
+    "slug": "action:play-fatesnatcher",
+    "name": "Play Fatesnatcher",
+    "rarity": "common",
+    "traits": ["concentrate", "exploration"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Prophet's Turn:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A game of Fatesnatcher plays out over several \"ages.\" During each age, every prophet takes a turn (the PCs can decide in what order they act) by drawing a card from the harrow deck and then using that card as inspiration to spin a fate to Pharasma (Mister Moxie) that catches them by surprise. (At your discretion, you can have the players draw actual harrow cards and use them—if you feel they were particularly creative in coming up with their fate, grant them a +1 circumstance bonus to their skill check to resolve their turn.) The PC then attempts a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:lore:games",
+            "dc": 22
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:deception",
+            "dc": 24
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:performance",
+            "dc": 26
+          },
+          {
+            "type": "text",
+            "text": " check with the following results."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The PC truly catches Pharasma off-guard. They keep their card and draw a second card from the deck to keep it as a bonus card. Once a PC has collected 10 cards, they win."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The PC catches Pharasma off-guard and keeps their card."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The PC fails to catch Pharasma off-guard. They shuffle their card into the deck and lose 2 omens. If at any point a PC has no omens left, they're out of the game."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The PC fails catastrophically; they shuffle their card into the deck and lose 1d4+1 omens."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Pharasma's Turn:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " At the end of each age after every prophet has taken their turn, Pharasma grows more fickle. Mister Moxie attempts a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:lore:games",
+            "dc": 24
+          },
+          {
+            "type": "text",
+            "text": " check with the following results. After adjusting DCs for the players as appropriate, play proceeds with the next age until all of the prophets have lost their omens or one prophet manages to achieve 10 fates (10 harrow cards)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The DCs for all checks to spin a fate increase by 2."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The DCs for all checks to spin a fate increase by 1."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The DCs to spin a fate do not change."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The DCs for all checks to spin a fate decrease by 1."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Losing the Game:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The PCs lose the game as soon as all of them are out of omens. In this case, Mister Moxie cackles in delight, his despair at the missing Mushfens Monster forgotten for a few hours, after which he returns to his gloom in the tent. He agrees to play another game of Fatesnatcher with the party after 24 hours have passed, but in the meantime, each PC who played the game must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 24
+          },
+          {
+            "type": "text",
+            "text": " save to avoid becoming "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 1"
+          },
+          {
+            "type": "text",
+            "text": " for 24 hours (or for an unlimited duration on a critical failure). This is a curse effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Winning the Game:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The PCs win the game if any of them ever achieve 10 fates (10 harrow cards) or if at any point during the game there are no harrow cards left to draw (you can ignore this win condition if you're not playing with a real harrow deck for PCs to keep track of their fates). Mister Moxie is surprised but then delighted. He offers the winning PC his harrow deck as a prize."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.4777eIkPMXyyyqC3"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "7163e70d-ce80-54a9-ac82-27af92385a5a",
+    "pack": "bastion-of-blasphemies",
+    "kind": "action",
+    "slug": "action:shelyns-grace",
+    "name": "Shelyn's Grace",
+    "rarity": "common",
+    "traits": ["concentrate", "divine", "healing"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You call upon Shelyn to manifest a tiny mote of her power through one of the three statues. The exact effects vary, depending on the statue you choose to activate, but regardless, Shelyn's Grace may be activated only once every 24 hours, and the specific effects have a counteract of 11th rank and a +17 modifier for any rolls made to counteract conditions."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Dancing Shelyn:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Shelyn's Grace casts a 6th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "a8c49cfe-ddcf-5319-9db1-3140799f7182"
+          },
+          {
+            "type": "text",
+            "text": " on all creatures in the room. For the next 8 hours, all creatures in area "
+          },
+          {
+            "type": "text",
+            "text": "C45",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " gain a +1 item bonus to Performance checks during daylight hours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Contemplative Shelyn:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Shelyn's Grace casts a 6th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "c441df15-0219-514f-a5f5-00da93a3e391"
+          },
+          {
+            "type": "text",
+            "text": " on all creatures in the room. For the next 8 hours, all creatures in area "
+          },
+          {
+            "type": "text",
+            "text": "C45",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " gain a +1 item bonus to Crafting checks during daylight hours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sleeping Shelyn:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Shelyn's Grace casts a 6th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "674398f3-e121-59fe-a086-423c20002dd1"
+          },
+          {
+            "type": "text",
+            "text": " on all creatures in the room. For the next 8 hours, all creatures in area "
+          },
+          {
+            "type": "text",
+            "text": "C45",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " gain a +1 item bonus to Athletics checks during daylight hours."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.8Ze3B6HWu2fyKETM"
+    },
+    "data": {
+      "cost": "one",
+      "category": "interaction",
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
+    }
+  },
+  {
+    "id": "24c90988-41ed-5430-9fc4-45748adb6387",
+    "pack": "bastion-of-blasphemies",
+    "kind": "action",
+    "slug": "action:sizzling-shenanigans",
+    "name": "Sizzling Shenanigans",
+    "rarity": "common",
+    "traits": ["concentrate", "exploration", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Grampa Sizzle spends 1 minute telling a short tale about fire, after which one of the PCs must attempt a skill check to act the scene out. If a PC augments the scene by creating a magical fire effect using their own resources, the PC making the skill check gains a +2 status bonus to their check; if they instead attempt to do so with an illusion and Grampa Sizzle disbelieves the illusion with a "
+          },
+          {
+            "type": "check",
+            "statistic": "perception"
+          },
+          {
+            "type": "text",
+            "text": " check, the associated skill check instead gains a –2 status penalty. All four scenes must be completed in the following order, but which PC attempts which check is up to the party."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Scene 1:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Grampa Sizzle tells the story of an aristocrat who sets his hat on fire when he tries to light his pipe ("
+                },
+                {
+                  "type": "check",
+                  "statistic": "skill:society",
+                  "dc": 24
+                },
+                {
+                  "type": "text",
+                  "text": " check or "
+                },
+                {
+                  "type": "check",
+                  "statistic": "skill:performance",
+                  "dc": 26
+                },
+                {
+                  "type": "text",
+                  "text": " check)."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Scene 2:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Grampa Sizzle tells the story of a goblin who tries to ignite a drunkard's breath, only to get a face full of fire when the drunkard suddenly belches ("
+                },
+                {
+                  "type": "check",
+                  "statistic": "skill:stealth",
+                  "dc": 24
+                },
+                {
+                  "type": "text",
+                  "text": " check or "
+                },
+                {
+                  "type": "check",
+                  "statistic": "skill:thievery",
+                  "dc": 26
+                },
+                {
+                  "type": "text",
+                  "text": " check)."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Scene 3:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Grampa Sizzle tells the story of a thief who sneaks into a giant's kitchen through an open window only to land on the giant's red-hot stovetop ("
+                },
+                {
+                  "type": "check",
+                  "statistic": "skill:acrobatics",
+                  "dc": 24
+                },
+                {
+                  "type": "text",
+                  "text": " check or "
+                },
+                {
+                  "type": "check",
+                  "statistic": "skill:athletics",
+                  "dc": 26
+                },
+                {
+                  "type": "text",
+                  "text": " check check)."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Scene 4:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Grampa Sizzle tells the story of a bard who flirts with a fiery ifrit genie—awkward romantic shenanigans ensue ("
+                },
+                {
+                  "type": "check",
+                  "statistic": "skill:performance",
+                  "dc": 24
+                },
+                {
+                  "type": "text",
+                  "text": " check or "
+                },
+                {
+                  "type": "check",
+                  "statistic": "skill:diplomacy",
+                  "dc": 26
+                },
+                {
+                  "type": "text",
+                  "text": " check). Regardless of the scene, the results of a PC's check are as follows. If a PC takes fire damage, they can defend against it with a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:reflex",
+                  "dc": 24,
+                  "basic": true
+                },
+                {
+                  "type": "text",
+                  "text": " save."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The PC depicts the scene with wit, style, and perfect comedic timing. The party earns 2 Laughter Points."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Entertainment achieved, but with slight burns. The PC takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, and the party earns 1 Laughter Point."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The PC bungles the attempt and gets a painful and not-so-entertaining burn for their troubles. The PC takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Catastrophic explosion or unexpected firestorm! Every PC takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "8d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, and the blast frightens the phantasmal crowd, causing the party to lose 1 Laughter Point."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.toGmgGDVDhjFruVK"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "ca2f8a25-ffb7-5dc8-9096-77bce2dc5c1a",
+    "pack": "bastion-of-blasphemies",
+    "kind": "action",
+    "slug": "action:spiritual-scar",
+    "name": "Spiritual Scar",
+    "rarity": "common",
+    "traits": ["concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You would take spirit damage from a fiend"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain resistance to spirit damage equal to twice your level plus your Charisma modifier against the triggering damage. If this resistance prevents you from taking any damage at all, the spiritual backlash against the fiend who attempted to damage you forces them to attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "class-dc"
+            },
+            "options": ["inflicts:slowed"]
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC to avoid being "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " for one round."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:spiritual-scar",
+        "toggleable": true
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.f8vqWQktvmtSRpUb"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You would take spirit damage from a fiend"
+            }
+          ]
+        }
+      ],
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
+    }
+  }
+]

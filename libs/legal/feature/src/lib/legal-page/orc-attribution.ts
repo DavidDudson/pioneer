@@ -45,6 +45,7 @@ export const ORC_ATTRIBUTION: readonly AttributionGroup[] = [
     'Pathfinder Lost Omens Draconic Codex © 2025, Paizo Inc.',
     'Pathfinder Lost Omens Hellfire Dispatches © 2026, Paizo Inc.',
     'Pathfinder Lost Omens High Seas © 2026, Paizo Inc.',
+    'Pathfinder Lost Omens Divine Mysteries Web Supplement © 2024, Paizo Inc.',
   ]),
   group('legal.orc.attribution.adventures', [
     "Wardens of Wildwood Player's Guide © 2024, Paizo Inc.; Author: John Compton and Michelle Y. Kim.",
@@ -66,6 +67,14 @@ export const ORC_ATTRIBUTION: readonly AttributionGroup[] = [
     'Pathfinder Free RPG Day Adventure 2024: The Great Toy Heist © 2024, Paizo Inc.; Author: Jason Keeley.',
     'Pathfinder Season of Ghosts © 2026, Paizo Inc.',
     'Pathfinder Hellbreakers © 2026, Paizo Inc.',
+    'Pathfinder Gatewalkers © 2025, Paizo Inc.',
+    'Pathfinder Myth-Speakers © 2025, Paizo Inc.',
+    'Pathfinder Revenge of the Runelords © 2025, Paizo Inc.',
+    'Pathfinder Secrets of the Unlit Star © 2026, Paizo Inc.',
+    'Pathfinder Troubles in Grayce © 2026, Paizo Inc.',
+    "Pathfinder Hell's Destiny © 2026, Paizo Inc.",
+    'Pathfinder Bastion of Blasphemies © 2026, Paizo Inc.',
+    "Pathfinder The Dead God's Hand © 2026, Paizo Inc.",
   ]),
   group('legal.orc.attribution.society', [
     "Pathfinder Society Quest #20: The Dacilane Academy's Show Must Go On © 2024, Paizo Inc.; Author: Lucas Servideo.",

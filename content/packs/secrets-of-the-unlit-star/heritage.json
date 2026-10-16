@@ -1,0 +1,206 @@
+[
+  {
+    "id": "fd7655fa-6692-537a-9a4a-a23e6be4f129",
+    "pack": "secrets-of-the-unlit-star",
+    "kind": "heritage",
+    "slug": "heritage:ambitious-human",
+    "name": "Ambitious Human",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-the-unlit-star"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're ambitious, having accomplished more than your peers and always moving forward. You get two class abilities earlier than you normally could. Because you gain these abilities early, you can't select them again at a later level. One ability is the "
+          },
+          {
+            "type": "ref",
+            "id": "5ad3008c-1737-5ffb-9df4-868ff7ef2926"
+          },
+          {
+            "type": "text",
+            "text": " general feat. The second ability depends on your class."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Barbarian:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "ea5d3cd9-e937-578e-b582-a0b622ad2e28"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Bard:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "9474d383-c501-5ac7-86cc-5a28e8cfdb9e"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Monk:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "d21fd9b4-22f0-5dd9-980e-fd02482e0bcf"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Sorcerer:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "79bb76d9-e8fc-5247-bd4f-6be4a54162c2"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Note: This heritage is from the Beginner Box and features non-standard heritage features",
+            "marks": ["emphasis"]
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "5ad3008c-1737-5ffb-9df4-868ff7ef2926"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.qiYOFL32pzWFJcDG"
+    },
+    "data": {
+      "ancestry": "58312ecf-5705-5e7d-b695-248d34618288"
+    }
+  },
+  {
+    "id": "d470d5ff-fe12-5b2c-9ef5-3752e6878c7d",
+    "pack": "secrets-of-the-unlit-star",
+    "kind": "heritage",
+    "slug": "heritage:battle-trained-human-bb",
+    "name": "Battle-Trained Human (BB)",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-the-unlit-star"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your family has trained for battle for generations, granting you advantages against your enemies. You gain a +1 bonus to initiative rolls. In addition, you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "730b86b0-c740-5759-ba8b-82ae1fede883"
+          },
+          {
+            "type": "text",
+            "text": " feat."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Note: This heritage is from the Beginner Box and features non-standard heritage features",
+            "marks": ["emphasis"]
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "730b86b0-c740-5759-ba8b-82ae1fede883"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["initiative"],
+        "type": "circumstance",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.d7NC4C19AgkspQQg"
+    },
+    "data": {
+      "ancestry": "58312ecf-5705-5e7d-b695-248d34618288"
+    }
+  }
+]

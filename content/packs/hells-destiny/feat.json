@@ -1,0 +1,1442 @@
+[
+  {
+    "id": "bbbd3d89-1711-5469-9e7e-3fd9e9d49ba3",
+    "pack": "hells-destiny",
+    "kind": "feat",
+    "slug": "feat:adventurous-outfitter",
+    "name": "Adventurous Outfitter",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["general", "skill"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You tinker, create, and repair gear as you adventure. You can spend part of your daily preparations adjusting your group's equipment. This allows you to attempt to Repair up to five items during that time."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain access to a new exploration activity: Tinker on the Go. So long as you have two free hands and have access to the necessary tools, you can make Crafting progress while out traveling. At the GM's discretion, you might not be able to Tinker on the Go for projects that require extensive infrastructure, such as a smithing forge. Otherwise, time spent exploring can count toward a day of crafting progress, as long as 8 hours of time get used in this way."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you lead a troop, you maintain their equipment in addition to your companions' gear. Once per day when you Command the troop in a skirmish encounter, you can increase the DC of their offensive actions by 1 until the beginning of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.A3j9m1aKDb9nErrM"
+    },
+    "data": {
+      "category": "skill",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "master in Crafting, Quick Repair"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "912a3a4a-0374-5a92-aff2-627977e7ff15",
+    "pack": "hells-destiny",
+    "kind": "feat",
+    "slug": "feat:aristocratic-arms",
+    "name": "Aristocratic Arms",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Through consistent (and often punishing) practice, you've learned how to use your house's preferred weapons. You have familiarity with either one martial weapon of your choice; two simple or martial weapons of your choice from your house's preferred weapons list; or one advanced weapon of your choice from your house's preferred weapons list. For the purpose of proficiency, treat any of these selections that are martial weapons as simple weapons and any that are advanced weapons as martial weapons. If you're at least an expert in one of the selected weapons, you get the critical specialization effect of that weapon when you get a critical hit with it."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Charthagnion:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Weapons with the disarm or parry trait"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Elliendo:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Brawling weapons and knives"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Henderthane:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Hammers and picks"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Jeggare:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " One-handed swords"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Leroung:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Clubs and shields"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Narikopolus:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Bows"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sarini:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Flails"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Thrune:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Clubs and crossbows"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In addition, you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "77ee559c-1e51-5101-8c0e-b408f1b265d3"
+          },
+          {
+            "type": "text",
+            "text": " action."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "MartialProficiency",
+        "slug": "charthagnion-weapons",
+        "definition": [
+          {
+            "or": ["item:trait:disarm", "item:trait:parry"]
+          }
+        ],
+        "sameAs": "simple",
+        "predicate": ["chelaxian-noble-house:charthagnion"],
+        "display": {
+          "label": "Charthagnion Weapon Familiarity"
+        }
+      },
+      {
+        "key": "MartialProficiency",
+        "slug": "elliendo-weapons",
+        "definition": [
+          {
+            "or": ["item:group:brawling", "item:group:knife"]
+          }
+        ],
+        "sameAs": "simple",
+        "predicate": ["chelaxian-noble-house:elliendo"],
+        "display": {
+          "label": "Elliendo Weapon Familiarity"
+        }
+      },
+      {
+        "key": "MartialProficiency",
+        "slug": "henderthane-weapons",
+        "definition": [
+          {
+            "or": ["item:group:hammer", "item:group:pick"]
+          }
+        ],
+        "sameAs": "simple",
+        "predicate": ["chelaxian-noble-house:henderthane"],
+        "display": {
+          "label": "Henderthane Weapon Familiarity"
+        }
+      },
+      {
+        "key": "MartialProficiency",
+        "slug": "jeggare-weapons",
+        "definition": ["item:group:sword", "item:usage:hands:1"],
+        "sameAs": "simple",
+        "predicate": ["chelaxian-noble-house:jeggare"],
+        "display": {
+          "label": "Jeggare Weapon Familiarity"
+        }
+      },
+      {
+        "key": "MartialProficiency",
+        "slug": "leroung-weapons",
+        "definition": [
+          {
+            "or": ["item:group:club", "item:type:shield"]
+          }
+        ],
+        "sameAs": "simple",
+        "predicate": ["chelaxian-noble-house:leroung"],
+        "display": {
+          "label": "Leroung Weapon Familiarity"
+        }
+      },
+      {
+        "key": "MartialProficiency",
+        "slug": "narikopolus-weapons",
+        "definition": ["item:group:bow"],
+        "sameAs": "simple",
+        "predicate": ["chelaxian-noble-house:narikopolus"],
+        "display": {
+          "label": "Narikopolus Weapon Familiarity"
+        }
+      },
+      {
+        "key": "MartialProficiency",
+        "slug": "sarini-weapons",
+        "definition": ["item:group:flail"],
+        "sameAs": "simple",
+        "predicate": ["chelaxian-noble-house:sarini"],
+        "display": {
+          "label": "Sarini Weapon Familiarity"
+        }
+      },
+      {
+        "key": "MartialProficiency",
+        "slug": "thrune-weapons",
+        "definition": [
+          {
+            "or": ["item:group:club", "item:group:crossbow"]
+          }
+        ],
+        "sameAs": "simple",
+        "predicate": ["chelaxian-noble-house:thrune"],
+        "display": {
+          "label": "Thrune Weapon Familiarity"
+        }
+      },
+      {
+        "key": "GrantItem",
+        "item": "77ee559c-1e51-5101-8c0e-b408f1b265d3"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.eLpxaSwzmoUqNrfY"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Chelaxian Scion Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "035a2ac1-8d34-5cd3-8e4d-1bfa0404e186"
+    }
+  },
+  {
+    "id": "68645ec6-3bf7-5332-845d-760839fbe7a5",
+    "pack": "hells-destiny",
+    "kind": "feat",
+    "slug": "feat:as-on-the-board-so-on-the-battlefield",
+    "name": "As On the Board, So On the Battlefield",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["general", "skill"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're a master of strategy games, able to translate strategies and mechanics from these games to the actual battles they were created to simulate. You can use your proficiency rank in Games Lore for anything that requires proficiency in Warfare Lore (such as prerequisites) and use your Games Lore modifier in place of your Warfare Lore modifier for checks. You can use Games Lore to Make an Impression on military professionals, such as mercenaries and commanders. Your reputation as a strategist opens up opportunities while you're in a military camp, near a battlefield, or somewhere else that has numerous non-hostile soldiers, allowing you to "
+          },
+          {
+            "type": "ref",
+            "id": "b03a543f-4d12-5c6b-a4f9-6afe141aa651"
+          },
+          {
+            "type": "text",
+            "text": " with Games Lore with a task level of at least your level –1."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you lead a troop and have had time to create a skirmish bond with them, you've also spent time going over the finer points of strategy and even played against many members of your troop. Once per day, you can roll Games Lore for initiative when leading this troop."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.UhIQ1lgwwtoeHFmf"
+    },
+    "data": {
+      "category": "skill",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "master in Games Lore"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "5a8cbf6b-f426-5c18-bea9-34cda4ae7bab",
+    "pack": "hells-destiny",
+    "kind": "feat",
+    "slug": "feat:burning-demand",
+    "name": "Burning Demand",
+    "level": 12,
+    "rarity": "uncommon",
+    "traits": ["auditory", "fire", "impulse", "kineticist", "linguistic", "overflow", "primal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You create a faintly glowing sigil (shedding normal light in a 5-foot radius) on the target's body, after which you command the target to approach you, run away (as if it had the "
+          },
+          {
+            "type": "ref",
+            "id": "f7fea8f9-c457-5b9f-9283-f567fa557184"
+          },
+          {
+            "type": "text",
+            "text": " condition), release what it's holding, drop "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": ", or stand in place. The target then attempts a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": {
+              "against": "class-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The sigil immediately vanishes, and the creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The sigil acts as a magnet for your fiery attacks, granting the creature a –1 penalty to its saves and AC against your fire impulses. The sigil lasts until the end of your next turn or until the creature spends at least 1 action obeying your command, whichever happens first."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " At the start of the creature's next turn, if it doesn't use their first action to obey the command, the sigil ignites as it vanishes, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "((@level/2)+2)d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(floor((@level -12)/2)+2)d6",
+                "damageType": "fire",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to the creature."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature must spend the first action of its next turn to obey your command; it can't Delay. The sigil vanishes at the end of its turn; it ignites if the creature didn't use all its remaining actions to continue to obey your command, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "((@level/2)+2)d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(floor((@level -12)/2)+2)d6",
+                "damageType": "fire",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to the creature."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Level (+2)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage increases by 1d6, and the persistent damage increases by 1d6."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.89pgMAnwGYbrJlWt"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "two"
+      }
+    }
+  },
+  {
+    "id": "3a0502d3-770d-5b61-aa80-a63ee0fdeb7c",
+    "pack": "hells-destiny",
+    "kind": "feat",
+    "slug": "feat:chelaxian-scion-dedication",
+    "name": "Chelaxian Scion Dedication",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["archetype", "dedication"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're an aristocrat or honored retainer from a Chelaxian noble house."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A noble house has invested in your training, imparting special techniques the family has honed over generations. You gain "
+          },
+          {
+            "type": "ref",
+            "id": "50ac17a9-a644-58e8-8ee0-ce4c6cfbf17b"
+          },
+          {
+            "type": "text",
+            "text": " as a skill feat, choosing from among Cheliax Lore, Devil Lore, Hell Lore, or a Lore associated with your house. In addition, you gain a +1 circumstance bonus to Deception checks, Diplomacy checks, Intimidation checks, and your Will DC against Chelaxian citizens and devils."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:chelaxian-scion",
+        "toggleable": true,
+        "display": {
+          "label": "Target is a Chelaxian citizen or devil"
+        }
+      },
+      {
+        "key": "GrantItem",
+        "item": "50ac17a9-a644-58e8-8ee0-ce4c6cfbf17b"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception", "skill:intimidation", "will-dc"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["option:chelaxian-scion", "target:trait:devil"]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "chelaxian-scion-dedication",
+        "choices": [
+          {
+            "value": "charthagnion",
+            "label": "Charthagnion"
+          },
+          {
+            "value": "elliendo",
+            "label": "Elliendo"
+          },
+          {
+            "value": "henderthane",
+            "label": "Henderthane"
+          },
+          {
+            "value": "jeggare",
+            "label": "Jeggare"
+          },
+          {
+            "value": "leroung",
+            "label": "Leroung"
+          },
+          {
+            "value": "narikopolus",
+            "label": "Narikopolus"
+          },
+          {
+            "value": "sarini",
+            "label": "Sarini"
+          },
+          {
+            "value": "thrune",
+            "label": "Thrune"
+          }
+        ],
+        "prompt": "Choose a Noble House.",
+        "rollOption": "chelaxian-noble-house"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.U6rhukKZTA3TLWvf"
+    },
+    "data": {
+      "category": "class",
+      "archetype": "035a2ac1-8d34-5cd3-8e4d-1bfa0404e186"
+    }
+  },
+  {
+    "id": "3cf0bea4-756e-5cc9-b1b5-720cffc2eec8",
+    "pack": "hells-destiny",
+    "kind": "feat",
+    "slug": "feat:drowning-mist",
+    "name": "Drowning Mist",
+    "level": 12,
+    "rarity": "uncommon",
+    "traits": ["impulse", "kineticist", "primal", "stance", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Though not unique to Chelaxian kineticists, this sarglagoninspired technique floods enemies' lungs. Your elemental gate exudes a faint mist that feels as thick as standing water. The moisture doesn't just tug at limbs; it forcibly seeps into the nostrils and lungs of air-breathing creatures. While in this stance, your aura is difficult terrain for any creature that doesn't have a swim Speed. Creatures that can't breathe water must hold their breath while in the aura, and when such creatures take an action that reduces their remaining air by 1 or more rounds, they must also attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": {
+              "against": "class-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC (maximum once per round). You're immune to the effects of your own Drowning Mist."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected and becomes temporarily immune to the effects of this impulse for 24 hours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Moisture seeps into the creature's lungs, making the creature "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 2"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.tMIz6B143mLMsTSI"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "two"
+      }
+    }
+  },
+  {
+    "id": "62460c65-fdda-5842-92ee-2e1d99bb42ba",
+    "pack": "hells-destiny",
+    "kind": "feat",
+    "slug": "feat:improvise-strategy",
+    "name": "Improvise Strategy",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["bravado", "concentrate", "general", "mental", "skill"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're a wild card on the battlefield, inventing unpredictable tactics and surprising foes. You employ one of these strategies, adding either your choice of the auditory or visual trait. Attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:lore:warfare"
+          },
+          {
+            "type": "text",
+            "text": " check against the Perception DC of a creature within 30 feet, after which the target becomes temporarily immune to further uses of Improvise Strategy for 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target gains one of the following conditions of your choice until the end of your next turn: "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 1"
+          },
+          {
+            "type": "text",
+            "text": ". The target can end the effect by using either a single action with the concentrate trait to regain their bearings (if your strategy had the auditory trait) or an Interact action to rub their eyes (if your strategy had the visual trait). In addition, the target isn't temporarily immune to further uses of Improvise Strategy."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As critical success, but the target is temporarily immune to further uses of Improvise Strategy."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target sees through the gambit, leaving you off-guard until the beginning of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Once per day, if you lead a troop that has a skirmish bond, you can Improvise Strategy to attempt a Warfare Lore check against a standard DC for your troop's level, rather than targeting a foe. If you succeed, your troop replaces its current skirmish bond with another of your choice until the end of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.XbMfMJq2sCQHdo1w"
+    },
+    "data": {
+      "category": "skill",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "master in Warfare Lore"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one"
+      }
+    }
+  },
+  {
+    "id": "a23e5858-8fb8-52cc-8e4f-2a95ab2a7e92",
+    "pack": "hells-destiny",
+    "kind": "feat",
+    "slug": "feat:liberating-dive",
+    "name": "Liberating Dive",
+    "level": 14,
+    "rarity": "uncommon",
+    "traits": ["air", "composite", "impulse", "kineticist", "metal", "primal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You sprout wings with steel feathers, resembling those of the celestial Talmandor. With a powerful flap, the wings propel you across the battlefield, slicing foes and restraints along your path. Until the end of your turn, you gain a fly Speed equal to your land Speed or 40 feet, whichever is greater. You then Fly up to your Speed, and this movement doesn't trigger reactions."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose one foe and one ally you're adjacent to at any point during this movement. Using one wing's sharpened edge, you can use a 1-action Elemental Blast as a melee Strike using the metal element against the foe. With the other wing, you can help the ally break free of an effect grabbing, restraining, immobilizing, or paralyzing them; they either attempt a new save against one such effect that allows a save, or they attempt to Escape as a free action. The ally can use your impulse attack modifier in place of their unarmed attack modifier or skill check modifier."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.aUhx6xKOhPuK9fEZ"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "two"
+      }
+    }
+  },
+  {
+    "id": "7c93c2e9-df84-5703-b5cd-338ac10e01ae",
+    "pack": "hells-destiny",
+    "kind": "feat",
+    "slug": "feat:patronize-the-arts",
+    "name": "Patronize the Arts",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An ally within 30 feet of you critically succeeds at an attack roll or skill check."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A true aristocrat knows how to encourage their best hirelings, ensuring loyalty and future excellence. You praise the triggering ally, granting them one of the following benefits. The ally is then immune to this ability for 1 day."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Eagerness:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Invigorated by praise, the ally can Feint, Interact with a nearby object, Leap, Reload, or Step as a reaction."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Persistence:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " For 1 minute, the ally gains temporary Hit Points equal to half your level plus your Charisma modifier."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Validation:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If the ally has the panache class feature, they gain panache."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.5lGNRo5QarJHrkaA"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Chelaxian Scion Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "An ally within 30 feet of you critically succeeds at an attack roll or skill check."
+              }
+            ]
+          }
+        ]
+      },
+      "archetype": "035a2ac1-8d34-5cd3-8e4d-1bfa0404e186"
+    }
+  },
+  {
+    "id": "05ea4ef1-052c-5a6e-81a4-466b35a83d8d",
+    "pack": "hells-destiny",
+    "kind": "feat",
+    "slug": "feat:seasoned-command",
+    "name": "Seasoned Command",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["auditory", "concentrate", "linguistic", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Allies intuitively follow your orders. Choose an ally within 30 feet and then attempt a Diplomacy or Intimidation check against a hard DC for that ally's level. This counts as a preparatory action to Aid that ally. Regardless of your result, the ally is then temporarily immune to your further uses of Seasoned Command for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You immediately gain an additional reaction that can be used only to Aid the chosen ally, and you gain a +1 circumstance bonus to your skill check or attack roll to Aid."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As critical success, but you don't gain the circumstance bonus."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You don't gain an additional reaction."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Once per hour, you can Take the Lead of a troop as a free action (rather than 2 actions). Outside of combat, you can establish leadership of a troop and grant a skirmish bond in half the normal time (5 minutes and 4 hours, respectively)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.c2hPWQ4zdc4CnrnZ"
+    },
+    "data": {
+      "category": "skill",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "master in either Diplomacy or Intimidation"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one"
+      }
+    }
+  },
+  {
+    "id": "8de93c6b-92f9-5962-bd59-0ccd34595113",
+    "pack": "hells-destiny",
+    "kind": "feat",
+    "slug": "feat:stoic-as-hell",
+    "name": "Stoic as Hell",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're targeted by an emotion effect or effect that would give you the "
+          },
+          {
+            "type": "ref",
+            "id": "3f5dc8b4-dcc0-5a99-8501-aff382e8d341"
+          },
+          {
+            "type": "text",
+            "text": " condition."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Like the archdevil Dispater, you maintain an unshakable poise even under impossible stress. You gain a +2 circumstance bonus to the triggering saving throw or to your Will DC against the triggering effect. If you critically succeed at the saving throw (or if the source of the effect critically fails its skill check, such as to "
+          },
+          {
+            "type": "ref",
+            "id": "2a3671d0-7d0b-53db-8648-861d457f0175"
+          },
+          {
+            "type": "text",
+            "text": " you), you gain temporary Hit Points equal to half your level until the end of the effect's source's next turn. If the effect originated from a creature, you can Demoralize that creature once as a free action on your next turn; if the creature was temporarily immune to your attempts to Demoralize it, it loses that immunity."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.9Co9SUJmey3LrlLl"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Chelaxian Scion Dedication; trained in Intimidation; expert in Will"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You're targeted by an emotion effect or effect that would give you the Controlled condition."
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "minute"
+        }
+      },
+      "archetype": "035a2ac1-8d34-5cd3-8e4d-1bfa0404e186"
+    }
+  },
+  {
+    "id": "50de4e32-63a9-54e8-ac5a-f70e13f19ba2",
+    "pack": "hells-destiny",
+    "kind": "feat",
+    "slug": "feat:tactical-acumen",
+    "name": "Tactical Acumen",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["general", "skill"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Even if you don't know much about its constituent creatures, you can always recognize a troop's capabilities through features like the formation they move in or even more subtle hints others might miss. You can always use Warfare Lore when you Recall Knowledge to identify a troop. This works like using an applicable Lore to identify a creature. If you're legendary in Warfare Lore, reduce any adjustment to the Recall Knowledge check's DC caused by the troop's rarity by 5."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you lead a troop, when you successfully use Warfare Lore to identify a troop, that troop takes a –1 circumstance penalty to saves against your troop's offensive abilities until the end of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.d2opppdcH19LrAgy"
+    },
+    "data": {
+      "category": "skill",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "expert in Warfare Lore"
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

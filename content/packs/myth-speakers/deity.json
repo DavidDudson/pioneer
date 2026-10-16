@@ -1,0 +1,2855 @@
+[
+  {
+    "id": "5b7d26a8-d236-5385-9c0d-74befcca8c99",
+    "pack": "myth-speakers",
+    "kind": "deity",
+    "slug": "deity:aerekostes",
+    "name": "Aerekostes",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When the behemoth Ousmariku ravaged western Iblydos, the hero-god Ximakter drew his curved blade and led a band of other mythic warriors against the beast. Ousmariku consumed Ximakter, sending his sword flying to lodge into the nearby beach. Within days of being recovered, the blade awoke with magical intelligence and mythic power. Recognizing this as a novel hero-god, Iblydans swiftly constructed a temple-armory for the divine blade. Known as Aerekostes, the sword has never confirmed the origin of its personality, be it the trapped soul of Ximakter or some spontaneously created entity."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Aerekostes doesn't just lend magical power; they lend themselves. Aspiring heroes can petition the sword for help, and Aerekostes occasionally agrees to accompany them for some worthy quest. However, if the quest goes awry, the sword sometimes disappears for weeks or even years before resurfacing."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Title",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The Mentor in Blades"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Areas of Concern",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " contingencies and intelligent items"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " make items, treat items well, prepare for many possibilities"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " destroy an intelligent item"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Religious Symbol",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " kopis encircled by mystical runes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sacred Animal",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " lungfish"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sacred Colors",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " blue and bronze"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.gndfKuUTVDOubob2"
+    },
+    "data": {
+      "category": "deity",
+      "domains": {
+        "primary": ["creation", "healing", "knowledge", "metal"],
+        "alternate": []
+      },
+      "font": ["harm", "heal"],
+      "attributes": ["con", "int"],
+      "skills": ["skill:crafting"],
+      "weapons": ["falcata"],
+      "spells": [
+        {
+          "rank": 1,
+          "spell": "982bfd2b-5f56-5940-983b-a1a9aba1bb98"
+        },
+        {
+          "rank": 2,
+          "spell": "1c15fce0-fed7-5364-96ca-a7ecabc1e318"
+        },
+        {
+          "rank": 7,
+          "spell": "43055a38-2f08-5fbf-b5bc-4766acc9cd14"
+        }
+      ]
+    }
+  },
+  {
+    "id": "802f73dd-a25d-506f-9fcd-6de0fd145621",
+    "pack": "myth-speakers",
+    "kind": "deity",
+    "slug": "deity:anras",
+    "name": "Anras",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Title",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Mother Sky"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Areas of Concern",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Astronomy, prediction, weather"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Seek new discoveries in the night sky, make weather predictions, help prepare locals for storms"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Attempt to control the weather, force a prediction to come true, curse the coming of bad weather"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Religious Symbol",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Parting clouds against a starry sky"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sacred Animal",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Mouse"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sacred Colors",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Black, silver"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.edfGQKkGBODi2BN0"
+    },
+    "data": {
+      "category": "deity",
+      "sanctification": {
+        "modal": "can",
+        "what": ["holy"]
+      },
+      "domains": {
+        "primary": ["air", "fate", "moon", "sun"],
+        "alternate": ["lightning"]
+      },
+      "font": ["heal"],
+      "attributes": ["dex", "int"],
+      "skills": ["skill:survival"],
+      "weapons": ["bo-staff"],
+      "spells": [
+        {
+          "rank": 1,
+          "spell": "16c68123-97c7-5b43-9789-d4983552b8d3"
+        },
+        {
+          "rank": 3,
+          "spell": "ad0650c3-31d5-51c2-8226-045ac8442ae8"
+        },
+        {
+          "rank": 6,
+          "spell": "088c1f48-de0f-5b8a-83b3-24ce61a928bc"
+        }
+      ]
+    }
+  },
+  {
+    "id": "c6eac474-b099-5aaf-ad67-7642dcce4bad",
+    "pack": "myth-speakers",
+    "kind": "deity",
+    "slug": "deity:belech",
+    "name": "Belech",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Title",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Brother Bold"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Areas of Concern",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Boasts, bravery, strength"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Participate in feats of strength, rally the fearful to fight, proclaim your prowess in colorful ways"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Be the first to flee a fight, mock someone for being weak, accuse another's boasting of lies without proof"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Religious Symbol",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Open palm glowing with gold light"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sacred Animal",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Leopard"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sacred Colors",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Bronze, gold"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.fbpYf8NcLTzuBjua"
+    },
+    "data": {
+      "category": "deity",
+      "sanctification": {
+        "modal": "can",
+        "what": ["holy"]
+      },
+      "domains": {
+        "primary": ["ambition", "confidence", "might", "zeal"],
+        "alternate": []
+      },
+      "font": ["harm", "heal"],
+      "attributes": ["str", "wis"],
+      "skills": ["skill:athletics"],
+      "weapons": ["maul"],
+      "spells": [
+        {
+          "rank": 1,
+          "spell": "2dc18e1c-6af3-5ac2-a3b2-dcac53230733"
+        },
+        {
+          "rank": 2,
+          "spell": "b76d119e-0d8d-52ad-8cca-1a224c3077ae"
+        },
+        {
+          "rank": 4,
+          "spell": "2e797ff1-fcb3-5e23-af04-bc8fc9271425"
+        }
+      ]
+    }
+  },
+  {
+    "id": "51d092c8-0a05-5d57-8bae-d5871984cc46",
+    "pack": "myth-speakers",
+    "kind": "deity",
+    "slug": "deity:chinostes",
+    "name": "Chinostes",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In a Sylirican raid on Pol-Reanphoros, the saddle-maker Chinostes took up his tack knife in a desperate attempt to defend his neighbors. His efforts killed the raid's leader and scattered the other warriors, awakening the first spark of his mythic power. Chinostes never abandoned his role as a humble, folk-hero vigilante, even as a hero-god. One day, he tracked and confronted a murderer, only to find this was no mortal foe, but a vampire, who overpowered Chinostes and turned him into one of their kind."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Even so, Chinostes retained his mythic abilities. He still stalks Reanphoros, most often fighting whatever threatens his city-state. However, the occasional citizen vanishes, only to reappear later, drained of blood—a grim price most citizens accept due to the worse evils he keeps at bay."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Two diametrically opposed cults venerate Chinostes. Those calling themselves Nightwardens celebrate his undead majesty and necessary evils. In contrast, the Redeemers keep the older faith, condemning the monster Chinostes has become. To the Redeemers, the greatest service they can ever perform for their hero-god is to drive a stake through his heart. Bizarrely, Chinostes grants spells to both groups, suggesting his tacit approval of both agendas."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Title",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The Fallen Blade"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Areas of Concern",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " tragedy and sacrifice"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts (Redeemer)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " aid your neighbors, wield humble weapons, destroy Chinostes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema (Redeemer)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " hog credit, create undead"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts (Nightwarden)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " aid your neighbors, sacrifice others for the greater good, leave cryptic calling cards of your actions"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema (Nightwarden)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " disparage others for seeking terrible power to achieve laudable goals"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Religious Symbol",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " heart pierced by two swords"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sacred Animal",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " horse"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sacred Colors",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " black and white"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.LidhlajmOHnmWDze"
+    },
+    "data": {
+      "category": "deity",
+      "sanctification": {
+        "modal": "can",
+        "what": ["holy", "unholy"]
+      },
+      "domains": {
+        "primary": ["cities", "death", "luck", "sorrow"],
+        "alternate": []
+      },
+      "font": ["harm", "heal"],
+      "attributes": ["cha", "dex"],
+      "skills": ["skill:acrobatics"],
+      "weapons": ["dagger"],
+      "spells": [
+        {
+          "rank": 1,
+          "spell": "69ad403d-0767-5998-bc5d-8071fbe3580b"
+        },
+        {
+          "rank": 2,
+          "spell": "252f0769-5c44-520c-a7ae-6837e4b3932b"
+        },
+        {
+          "rank": 7,
+          "spell": "ad19fa16-a5bd-513e-9a73-32f05671fb03"
+        }
+      ]
+    }
+  },
+  {
+    "id": "118f5ffe-9d8c-539f-9d6d-caa017c2a844",
+    "pack": "myth-speakers",
+    "kind": "deity",
+    "slug": "deity:cormion",
+    "name": "Cormion",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Title",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Brother Guile"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Areas of Concern",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cunning, schemes, trickery"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Participate in pranks, seek trickery as a solution to a fight, draw mazes or sketch trap schematics"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Insult another for attempting to trick you, reveal how a feat of legerdemain is performed, rush another person's plotting"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Religious Symbol",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Circular maze"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sacred Animal",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Magpie"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sacred Colors",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Orange, white"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.KMS0QEsoh4nzKkmu"
+    },
+    "data": {
+      "category": "deity",
+      "sanctification": {
+        "modal": "can",
+        "what": ["unholy"]
+      },
+      "domains": {
+        "primary": ["ambition", "luck", "secrecy", "trickery"],
+        "alternate": []
+      },
+      "font": ["heal"],
+      "attributes": ["dex", "cha"],
+      "skills": ["skill:deception"],
+      "weapons": ["hatchet"],
+      "spells": [
+        {
+          "rank": 1,
+          "spell": "adcc4c8f-05ae-5440-83d0-9e88ad22209b"
+        },
+        {
+          "rank": 4,
+          "spell": "55e77e9d-6ce5-5891-b707-4dd41cb99017"
+        },
+        {
+          "rank": 5,
+          "spell": "72597ff4-3a09-5802-9fd2-d42b78034487"
+        }
+      ]
+    }
+  },
+  {
+    "id": "5f4db38d-e93d-5ee9-9471-e6d3c2b1a2b5",
+    "pack": "myth-speakers",
+    "kind": "deity",
+    "slug": "deity:deshto",
+    "name": "Deshto",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Title",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The Merchant Maiden"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Areas of Concern",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Commerce, sea travel"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Spend time on board a ship at sea, seek new routes between areas, encourage trade and commerce"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Sabotage a seagoing vessel, knowingly fleece a customer, watch the sun set while at sea"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Religious Symbol",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Bar of gold on waves"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sacred Animal",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Dugong"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sacred Colors",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Gold, teal"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.w4aANcazJr1dSH0c"
+    },
+    "data": {
+      "category": "deity",
+      "sanctification": {
+        "modal": "can",
+        "what": ["holy", "unholy"]
+      },
+      "domains": {
+        "primary": ["cities", "travel", "water", "wealth"],
+        "alternate": ["toil"]
+      },
+      "font": ["heal"],
+      "attributes": ["con", "cha"],
+      "skills": ["skill:diplomacy"],
+      "weapons": ["scimitar"],
+      "spells": [
+        {
+          "rank": 1,
+          "spell": "b7d21825-2e85-5035-8646-0fdbc7c00e05"
+        },
+        {
+          "rank": 3,
+          "spell": "ed8ad89d-b5e6-5f93-9e80-1368a1e0b8dc"
+        },
+        {
+          "rank": 5,
+          "spell": "ccc96547-bee7-50d8-8de8-ce0748ee961d"
+        }
+      ]
+    }
+  },
+  {
+    "id": "a398454e-7c6a-5939-b5b7-75039e276ead",
+    "pack": "myth-speakers",
+    "kind": "deity",
+    "slug": "deity:drokalion",
+    "name": "Drokalion",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Hero-gods are supposed to have backstories, doctrines, myth-spoken origins, and even intelligible speech. Somehow, the lion known as Drokalion proved an exception. Though smarter than an average animal, Drokalion is nonetheless a fairly mundane lion with fairly mundane motivations, which seemingly includes no self-awareness of his hero-god status. Nevertheless, a hero-god he is. His small cult happily hunts along the periphery of Drokalion's territory and draws spellcasting from him, exulting in the no-nonsense lifestyle their unwitting patron teaches by example. Followers take special joy in Drokalion's attention, even though this attention almost always involves the lion charging at (and sometimes even eating) his faithful."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Title",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The Pridefather"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Areas of Concern",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " being a lion"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " embody a lion's hunting strategies, savor meat, be chased or eaten by Drokalion"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " back down from a fair challenge, cower to avoid harm, ruin Drokalion's hunt"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Religious Symbol",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " roaring lion"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sacred Animal",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " lion"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sacred Colors",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " brown, yellow"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.DUaWAIn8nUMx5AIE"
+    },
+    "data": {
+      "category": "deity",
+      "domains": {
+        "primary": ["family", "indulgence", "nature", "zeal"],
+        "alternate": []
+      },
+      "font": ["harm", "heal"],
+      "attributes": ["con", "str"],
+      "skills": ["skill:athletics"],
+      "weapons": ["jaws", "pick"],
+      "spells": [
+        {
+          "rank": 1,
+          "spell": "f94a3b5e-8e3c-5781-81a5-5eca9bd19421"
+        },
+        {
+          "rank": 2,
+          "spell": "cd4bcdfa-81d7-5e23-a964-0230a0f6cc94"
+        },
+        {
+          "rank": 5,
+          "spell": "15d2c843-348b-5e44-ac44-a25f1509880a"
+        }
+      ]
+    }
+  },
+  {
+    "id": "5a3c4127-bbb7-5a9c-bb6e-55e729743854",
+    "pack": "myth-speakers",
+    "kind": "deity",
+    "slug": "deity:etaris",
+    "name": "Etaris",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Title",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The Bride of Ydersius"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Areas of Concern",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Agriculture, civilization, secrets"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Tend to the needs of the weak as a means to accumulate strength and power, delve deep into the mysteries of the ancient past, band in great numbers to overwhelm the enemy, reclaim the past glory of the old Aishmayar civilization"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Bow down before an unworthy master, undermine the success of the heirs of the ancient Aishmayar civilization"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Religious Symbol",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " two serpents entwined around an ivory staff"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sacred Animal",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " snake"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sacred Colors",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " green, purple"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.AEj745gVsRehu2EL"
+    },
+    "data": {
+      "category": "deity",
+      "sanctification": {
+        "modal": "can",
+        "what": ["holy", "unholy"]
+      },
+      "domains": {
+        "primary": ["ambition", "confidence", "nature", "secrecy"],
+        "alternate": ["abomination", "sorrow"]
+      },
+      "font": ["heal"],
+      "attributes": ["wis", "cha"],
+      "skills": ["skill:society"],
+      "weapons": ["staff"],
+      "spells": [
+        {
+          "rank": 1,
+          "spell": "c7eb6251-286a-5188-a071-eabce4497407"
+        },
+        {
+          "rank": 2,
+          "spell": "8d18d9de-97ab-5626-af6e-b9c22eafc998"
+        },
+        {
+          "rank": 5,
+          "spell": "f97e48c5-f8dc-5888-83c8-67ed63b03f23"
+        }
+      ]
+    }
+  },
+  {
+    "id": "b7339648-8566-56d0-9fb6-d1fa5f36e1e9",
+    "pack": "myth-speakers",
+    "kind": "deity",
+    "slug": "deity:falayna",
+    "name": "Falayna",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Femininity, martial training, and rings are the purview of the Warrior's Ring. In the eyes of Falayna, there is as much grace and beauty in the martial arts as exists in any culture's definition of femininity. The strength of womanhood is a hallmark of femininity, and strength in arms reflects this, with the flourish and personality of a fighting style a vibrant means for selfexpression. Followers of Falayna learn to fight so they can both express their body and defend themselves if necessary, and strive to feel beautiful doing so, both in form and in dress. Falayna also enjoys rings, and as such she is associated with events in which rings are given or exchanged, such as weddings."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Title",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Warrior's Ring"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Areas of Concern",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Femininity, martial training, rings"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Wear and make beautiful things, train for combat, recover and return lost mementos"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Disrupt or destroy romantic unions, enforce a dress code, cower from fights"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Religious Symbol",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " sword held aloft"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sacred Animal",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " cat"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sacred Colors",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " silver, white"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.IXLzDSMGndFb5rGY"
+    },
+    "data": {
+      "category": "deity",
+      "sanctification": {
+        "modal": "can",
+        "what": ["holy"]
+      },
+      "domains": {
+        "primary": ["creation", "freedom", "might", "wealth"],
+        "alternate": ["family", "perfection"]
+      },
+      "font": ["heal"],
+      "attributes": ["str", "cha"],
+      "skills": ["skill:athletics"],
+      "weapons": ["longsword"],
+      "spells": [
+        {
+          "rank": 1,
+          "spell": "566a10d1-097c-5ee1-b473-4e0ab1475228"
+        },
+        {
+          "rank": 3,
+          "spell": "0474b135-7232-52c1-beff-221dccc82e78"
+        },
+        {
+          "rank": 5,
+          "spell": "f3e628e3-df4c-5e25-bf18-8feb9e7d8d25"
+        }
+      ]
+    }
+  },
+  {
+    "id": "a17cae32-861b-5ec2-af24-01f773c14172",
+    "pack": "myth-speakers",
+    "kind": "deity",
+    "slug": "deity:iapholi",
+    "name": "Iapholi",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Title",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Child of Bloodstone"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Areas of Concern",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " monstrous heritage and acceptance"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Develop unique strengths, ally with those who appear different than you do, defend monsters who have been falsely vilified"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " vilify a monster based on the reputation of their species, terrorize others for fun"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Religious Symbol",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " winged egg"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sacred Animal",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " hoatzin"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sacred Colors",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " crimson and green"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.bmOKsNOZymMijc4m"
+    },
+    "data": {
+      "category": "deity",
+      "sanctification": {
+        "modal": "can",
+        "what": ["unholy"]
+      },
+      "domains": {
+        "primary": ["confidence", "introspection", "might", "perfection"],
+        "alternate": []
+      },
+      "font": ["harm", "heal"],
+      "attributes": ["cha", "str"],
+      "skills": ["skill:intimidation"],
+      "weapons": ["war-flail"],
+      "spells": [
+        {
+          "rank": 1,
+          "spell": "566a10d1-097c-5ee1-b473-4e0ab1475228"
+        },
+        {
+          "rank": 2,
+          "spell": "2c68ae19-65ac-5aca-9ddd-082561d22353"
+        },
+        {
+          "rank": 8,
+          "spell": "c9e1a46f-ea98-5d01-935a-1d7035a3833b"
+        }
+      ]
+    }
+  },
+  {
+    "id": "f572c82e-95fa-5b7e-83dc-68998fc0ca6d",
+    "pack": "myth-speakers",
+    "kind": "deity",
+    "slug": "deity:moloch",
+    "name": "Moloch",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The general of Hell's armies, Moloch, embodies infernal discipline and incomparable destructive power. Across his ream of Malebolge, the sixth layer of Hell, the Ashen Bull trains countless legions of devils to wage unending war. He not only teaches obedience, he demands it, punishing every slightest misstep or insurrection with immediate, fiery retribution. Despite his harsh nature, Moloch is the most widely worshipped of the archdevils among mortals, as he is the most likely to answer supplicants' mundane pleas. In exchange, he asks only their souls to add to his endless armies—a price many are willing to pay."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Title",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The Ashen Bull"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Areas of Concern",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Fire, obedience, war"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Spread Hell's order through war, convert communities to sole worship of Moloch, sacrifice creatures in fire"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Defy a military superior, flee in battle (unless ordered to do so), lose your combat edge due to your vices"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Religious Symbol",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " bull's head with flame"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sacred Animal",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " bull"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sacred Colors",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " orange, yellow"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.g1VxllMjs2YRIJAm"
+    },
+    "data": {
+      "category": "deity",
+      "sanctification": {
+        "modal": "must",
+        "what": ["unholy"]
+      },
+      "domains": {
+        "primary": ["destruction", "duty", "fire", "might"],
+        "alternate": ["metal", "toil"]
+      },
+      "font": ["harm"],
+      "attributes": ["str", "con"],
+      "skills": ["skill:athletics"],
+      "weapons": ["whip"],
+      "spells": [
+        {
+          "rank": 1,
+          "spell": "14e2abdf-052f-5a62-a6a0-8b4191474b38"
+        },
+        {
+          "rank": 5,
+          "spell": "506a22a8-3a62-57d8-a83f-edb695d0e151"
+        },
+        {
+          "rank": 7,
+          "spell": "0f8f5ea1-c5bb-5a67-9a8f-9354c4348c25"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ca33731f-f83b-5997-998e-1a68a0bb73d3",
+    "pack": "myth-speakers",
+    "kind": "deity",
+    "slug": "deity:oathos",
+    "name": "Oathos",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Title",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The Ever-Lost"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Areas of Concern",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Chronic illness, compassion"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cure diseases, offer comfort to the downtrodden, create medicine and curatives"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Mock the unwell, knowingly spread disease, knowingly boast of your fortune and health in the presence of someone who is suffering"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Religious Symbol",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Aloe plant with radiant halo"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sacred Animal",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Beetle"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sacred Colors",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Green"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.Y6EnZjtBOHBs5O8D"
+    },
+    "data": {
+      "category": "deity",
+      "sanctification": {
+        "modal": "must",
+        "what": ["holy"]
+      },
+      "domains": {
+        "primary": ["healing", "passion", "protection", "travel"],
+        "alternate": ["duty", "repose"]
+      },
+      "font": ["heal"],
+      "attributes": ["con", "wis"],
+      "skills": ["skill:medicine"],
+      "weapons": ["staff"],
+      "spells": [
+        {
+          "rank": 1,
+          "spell": "272d555d-f777-5439-b02b-cc5325c0a648"
+        },
+        {
+          "rank": 2,
+          "spell": "18377ab1-5227-575a-9895-fa1920850f0d"
+        },
+        {
+          "rank": 4,
+          "spell": "e377968a-b6db-5100-a6fe-373caa017ce3"
+        }
+      ]
+    }
+  },
+  {
+    "id": "05299eff-cd70-5fa1-a2a8-53e4123c0d95",
+    "pack": "myth-speakers",
+    "kind": "deity",
+    "slug": "deity:ongalte",
+    "name": "Ongalte",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When cyclopes and Iblydans first joined forces, they lived as equals. However, humanity gradually overshadowed their giant colleagues, with cyclopes uplifting hero-gods but rarely becoming divine themselves. As she trained in the art of myth-speaking, the cyclops Ongalte became bitter at her species' decline and humans' ascendancy. Without change, her people would eventually dwindle and vanish entirely. She enacted her own myth-speaking, soon after which she collapsed the temple, crushing her and many others beneath the rubble. Yet moments later, she emerged unscathed and ascendant."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Since then, Ongalte has haunted Iblydos as a hero-god of deicide. She has killed at least three hero-gods, and she may have orchestrated others' demises without formally claiming responsibility. Her greatest obstacles are the city-states themselves; surviving hero-gods rarely leave their urban sanctuaries, so Ongalte relies on slander and disgrace to force these demigods into the open."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ongalte has only elevated one hero-god other than herself: her lieutenant Ytildos. His betrayal decades ago confirmed her belief that all hero-gods must die."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Title",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The Death of Divinity"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Areas of Concern",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " deicide"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " ruin the reputation of other hero-gods, aid those whom the hero-gods have wronged, kill gods"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " make a sincere prayer to any other hero-god, perform deeds that ultimately glorify another hero-god"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Religious Symbol",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " pierced skull of a cyclops"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sacred Animal",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " parasitic wasp"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sacred Colors",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " gray, red"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.tOXJ90TOPlzfNdql"
+    },
+    "data": {
+      "category": "deity",
+      "sanctification": {
+        "modal": "can",
+        "what": ["unholy"]
+      },
+      "domains": {
+        "primary": ["ambition", "destruction", "fate", "void"],
+        "alternate": []
+      },
+      "font": ["harm"],
+      "attributes": ["str", "wis"],
+      "skills": ["skill:survival"],
+      "weapons": ["greataxe"],
+      "spells": [
+        {
+          "rank": 1,
+          "spell": "566a10d1-097c-5ee1-b473-4e0ab1475228"
+        },
+        {
+          "rank": 2,
+          "spell": "5e8a7fe1-ca39-5254-b771-596bafa8dcd2"
+        },
+        {
+          "rank": 6,
+          "spell": "e4628be0-93e0-58ba-adb1-d9e656f43da5"
+        }
+      ]
+    }
+  },
+  {
+    "id": "f133b15b-22b8-5367-8bd1-bd9746265eec",
+    "pack": "myth-speakers",
+    "kind": "deity",
+    "slug": "deity:pharimia",
+    "name": "Pharimia",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For a divinity of clarity and light, Pharimia's origins are ironically murky; she has traveled the archipelago to build lighthouses, signal fires, and ports throughout living memory. She asks for little in return beyond respect for travelers and responsible infrastructure budgeting to maintain what she creates. In any other age, her mundane mission would be forgettable. However, as myth-speaking became unreliable and the pantheon dwindled, Pharimia has become a self-appointed defender of Iblydan hero-gods and their associated traditions. She's one of the few voices that can convince unholy demigods and righteous divinities to unite against common threats. Her priests seek similar challenges, serving as negotiators and leaders for ragtag coalitions whose members would otherwise stab each other in the back."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Title",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The Horizon Flame"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Areas of Concern",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " ports and lighthouses"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " guide others between places of safety, maintain travel infrastructure, unite contentious parties to achieve greater goals"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " deny directions to the lost, extinguish a lighthouse or similar beacon, bring destruction upon Iblydos"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Religious Symbol",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " three stars above a lighthouse"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sacred Animal",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " rattlesnake"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sacred Colors",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " red, yellow"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.0Hc2HqseslZifEk6"
+    },
+    "data": {
+      "category": "deity",
+      "domains": {
+        "primary": ["duty", "fire", "travel", "water"],
+        "alternate": []
+      },
+      "font": ["heal"],
+      "attributes": ["int", "wis"],
+      "skills": ["skill:survival"],
+      "weapons": ["ranseur"],
+      "spells": [
+        {
+          "rank": 1,
+          "spell": "b7d21825-2e85-5035-8646-0fdbc7c00e05"
+        },
+        {
+          "rank": 2,
+          "spell": "18659a99-19d9-5b85-b03e-fe697787662e"
+        },
+        {
+          "rank": 5,
+          "spell": "07ae3cd7-dcbd-519c-a9f0-6c9c385a5139"
+        }
+      ]
+    }
+  },
+  {
+    "id": "fb9d9254-d91d-5314-a510-df9db7021d12",
+    "pack": "myth-speakers",
+    "kind": "deity",
+    "slug": "deity:umarik",
+    "name": "Umarik",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Title",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Father Storm"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Areas of Concern",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Storms"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Spend time appreciating storms, support your family and close friends, seek places where lightning has struck"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Take shelter from rain when you are healthy, warn fools about upcoming storms, seek positions of political power"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Religious Symbol",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Silver storm clouds"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sacred Animal",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Toad"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sacred Colors",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Gray, silver"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.hUuM7HI7bw5aYUVr"
+    },
+    "data": {
+      "category": "deity",
+      "sanctification": {
+        "modal": "must",
+        "what": ["unholy"]
+      },
+      "domains": {
+        "primary": ["air", "destruction", "nature", "water"],
+        "alternate": ["cold", "lightning"]
+      },
+      "font": ["heal"],
+      "attributes": ["str", "cha"],
+      "skills": ["skill:nature"],
+      "weapons": ["trident"],
+      "spells": [
+        {
+          "rank": 1,
+          "spell": "e48e01db-df29-5558-b6a3-a78233bae1d1"
+        },
+        {
+          "rank": 5,
+          "spell": "03bdda38-13a1-546c-a4e9-871558602823"
+        },
+        {
+          "rank": 8,
+          "spell": "fa4648c3-40b3-54fb-8364-de0af610cd8a"
+        }
+      ]
+    }
+  },
+  {
+    "id": "f7596891-9bc7-52df-a409-063c970b5039",
+    "pack": "myth-speakers",
+    "kind": "deity",
+    "slug": "deity:upion-and-warrik",
+    "name": "Upion and Warrik",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When Upion received his myth-speaking, he politely thanked the cyclopes but refused to seek divinity or hear their whole prophecy. To do so would mean outliving his lover, Warrik, by decades or even centuries. Instead, the pair continued their military careers, believing it better to find immortality together on the front lines than chase some goal they couldn't share. Both appeared to perish in the Battle of Tesikon Heights, only to arise imbued with mythic power to turn the tide of battle. Since then, Upion and Warrik have acted as a single hero-god, seemingly able to grant spells only when together. The pair encourage camaraderie, neither expecting nor disparaging those whose loyalty develops into consensual romance."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Title",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The Shieldbrothers"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Areas of Concern",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " shield-bearers and promises"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " share stories that glorify your companions, guard your friends' backs, find joy in grim circumstances"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " betray a lover, flee battle before your companions have a chance to escape"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Religious Symbol",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " pair of overlapping circular shields"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sacred Animal",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " wolf"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sacred Colors",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " brown, orange"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.xDHJU43e9Bw7GwYm"
+    },
+    "data": {
+      "category": "deity",
+      "sanctification": {
+        "modal": "can",
+        "what": ["holy"]
+      },
+      "domains": {
+        "primary": ["family", "might", "passion", "protection"],
+        "alternate": []
+      },
+      "font": ["heal"],
+      "attributes": ["cha", "con"],
+      "skills": ["skill:performance"],
+      "weapons": ["shield-boss"],
+      "spells": [
+        {
+          "rank": 1,
+          "spell": "80b48120-353b-5f69-b1bb-3e35afc9066a"
+        },
+        {
+          "rank": 2,
+          "spell": "14ef4b6a-5640-523d-ae50-9e3f4fbf860b"
+        },
+        {
+          "rank": 6,
+          "spell": "062680d1-edd9-5d3d-b358-fc861d29d3ff"
+        }
+      ]
+    }
+  },
+  {
+    "id": "1254c034-5c41-540b-85fd-602273a99f15",
+    "pack": "myth-speakers",
+    "kind": "deity",
+    "slug": "deity:ytildos",
+    "name": "Ytildos",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In her efforts to kill other hero-gods, Ongalte performed an act of hypocrisy: she created a hero-god of her own. A marauder and iconoclast, the pirate Ytildos seemed like a perfect lieutenant who could hound Iblydos's pantheon from the sea. However, when Pharimia wounded Ongalte in battle, the cyclops fled and relied on Ytildos to guard her as she recuperated. He did… for a time. Greed and contrariness got the better of him, and he absconded with much of Ongalte's wealth, earning her eternal ire."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ytildos is an inconsistent divinity. One moment, he's encouraging his worshippers to cause and pilfer shipwrecks, only to become jealous of their newfound wealth. It's common for sailors to cast a portion of their wealth into the sea, hoping to assuage the hero-god's avarice. He drags the ships of any who fail to placate him onto reefs, delighting as the coral tears open a vessel's belly and spills its cargo into the sea."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Title",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The Tidefang"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Areas of Concern",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " reefs and shipwrecks"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " capitalize on others' misfortune for profit, subtly ruin navigation tools, set traps"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " despoil a coastal ecosystem, give away a treasure map for free"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Religious Symbol",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " a ship wrecked atop a reef"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sacred Animal",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " hermit crab"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sacred Colors",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " brown, orange"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.y1aoHudIXFqYwWXP"
+    },
+    "data": {
+      "category": "deity",
+      "sanctification": {
+        "modal": "can",
+        "what": ["unholy"]
+      },
+      "domains": {
+        "primary": ["delirium", "secrecy", "water", "wealth"],
+        "alternate": []
+      },
+      "font": ["harm"],
+      "attributes": ["dex", "int"],
+      "skills": ["skill:thievery"],
+      "weapons": ["macuahuitl"],
+      "spells": [
+        {
+          "rank": 1,
+          "spell": "34da213b-dfe6-5e19-b7f5-bfc627cadded"
+        },
+        {
+          "rank": 3,
+          "spell": "4acc8ee6-df02-5207-82aa-e6591e2ab9b7"
+        },
+        {
+          "rank": 8,
+          "spell": "240fd121-70b7-5355-9f4d-83129346adf0"
+        }
+      ]
+    }
+  },
+  {
+    "id": "5f45bd00-0500-5ef5-aa63-32ee8ce31cc2",
+    "pack": "myth-speakers",
+    "kind": "deity",
+    "slug": "deity:zeaki",
+    "name": "Zeaki",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The sea hags of Kardaji Bay's eastern coast are infamous for offering dangerous bargains. Whatever the sea hag Zeaki offered the cyclopes of Hoimpeia remains a mystery, yet apparently it was too good to refuse. In return, they enacted a myth-speaking on her behalf. The hero-god now haunts Itia, an island south of Dhuraxilis, where she listens to petitioners, hoards secrets, and offers extraordinary magic for a price. On occasion, she even joins and empowers other covens, though misfortune often befalls these partners before Zeaki returns home."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Like the ocean's tides, Zeaki's appearance varies from day to day and for each visitor, and she happily shares some of her shapeshifting magic with the dysmorphic. Despite her sinister reputation as a hag, Zeaki engages most visitors with an open mind. Those who reciprocate find she's a civil host and mostly fair bargainer. However, anyone who insults or attempts to cheat her earns a terrible enemy, with forgiveness rarely granted except by performing some great service for the hag. The unrepentant often find themselves transformed into witless beasts, cursed to roam Itia."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Title",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The Matron of Metamorphoses"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Areas of Concern",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " tides and transformation"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " inflict poetic justice upon those who wrong you, assist others' personal transformations, learn esoteric secrets that others might value"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " become complacent with your current self, offer aid to a stranger without exacting some price (even if the cost isn't obvious)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Religious Symbol",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " open hand with each finger from a different creature"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sacred Animal",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " hermit crab"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sacred Colors",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " brown, orange"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.v1HIqHBRvpUUbKgY"
+    },
+    "data": {
+      "category": "deity",
+      "domains": {
+        "primary": ["change", "fate", "magic", "moon"],
+        "alternate": []
+      },
+      "font": ["harm", "heal"],
+      "attributes": ["cha", "int"],
+      "skills": ["skill:occultism"],
+      "weapons": ["chakri"],
+      "spells": [
+        {
+          "rank": 1,
+          "spell": "4f616729-3f27-5aee-a02e-426f121c6fa3"
+        },
+        {
+          "rank": 2,
+          "spell": "ee216647-028c-5401-baf9-b40884284388"
+        },
+        {
+          "rank": 3,
+          "spell": "180df159-6732-56a6-858a-5dfbb9a88be2"
+        },
+        {
+          "rank": 4,
+          "spell": "79e90fac-94ea-5c87-b497-9b310bdd7106"
+        },
+        {
+          "rank": 5,
+          "spell": "c6cea9c6-25dd-5c7c-8056-4c7bac1dceba"
+        },
+        {
+          "rank": 6,
+          "spell": "9a703ca8-ffd2-5cfd-82c2-b323c835ac03"
+        },
+        {
+          "rank": 7,
+          "spell": "1748638c-efed-5899-a084-68570d86b128"
+        },
+        {
+          "rank": 8,
+          "spell": "e23d024e-ae69-5014-94ce-275ccbbb3c09"
+        },
+        {
+          "rank": 9,
+          "spell": "a38c5303-30ba-573f-ba85-624c5dc04dc1"
+        }
+      ]
+    }
+  }
+]

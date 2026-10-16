@@ -1,0 +1,2568 @@
+[
+  {
+    "id": "416dafa9-c51d-5ad5-9265-50f289037d72",
+    "pack": "bastion-of-blasphemies",
+    "kind": "equipment",
+    "slug": "equipment:alisendras-fan",
+    "name": "Alisendra's Fan",
+    "level": 14,
+    "rarity": "rare",
+    "traits": ["artifact", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.kasxhW2drfCOZZq1"
+    },
+    "data": {
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "53c1b5d6-e8c8-5801-8fb4-0b7441f5d6f7",
+    "pack": "bastion-of-blasphemies",
+    "kind": "equipment",
+    "slug": "equipment:augstens-cudgel",
+    "name": "Augsten's Cudgel",
+    "level": 14,
+    "rarity": "rare",
+    "traits": ["artifact", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Z3yVkW6v7hzuXJa2"
+    },
+    "data": {
+      "bulk": 1,
+      "size": "large",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "1e02b8f5-93d1-5d33-8081-07910b077fcc",
+    "pack": "bastion-of-blasphemies",
+    "kind": "equipment",
+    "slug": "equipment:commanders-signet",
+    "name": "Commander's Signet",
+    "level": 7,
+    "rarity": "rare",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "commander’s signet",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is typically a silver ring emblazoned with the coat of arms or heraldry of a wealthy noble family, or the insignia of a mercenary group. A badge of office often worn by soldiers during the Shining Crusade in Ustalav, many "
+          },
+          {
+            "type": "text",
+            "text": "commander’s signets",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " bear iconography associated with Aroden, Arazni, or Iomedae, but those found in this adventure bear the heraldry of the Arudora family. The signet grants a +1 item bonus to Diplomacy checks made to "
+          },
+          {
+            "type": "ref",
+            "id": "722e5346-27c0-5157-b5a9-e6018df94150"
+          },
+          {
+            "type": "text",
+            "text": " or to Intimidation checks made to "
+          },
+          {
+            "type": "ref",
+            "id": "ed0f3425-17f0-51f3-bb5d-1ca7475499a5"
+          },
+          {
+            "type": "text",
+            "text": ", and can be activated to bolster the morale of a nearby target."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Bolster Bravery",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate, mental)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fill a creature you touch with bravery and heroic conviction, granting it a +1 status bonus to attack rolls, Perception checks, saving throws, and skill checks for 1 minute. The status bonus is doubled for saving throws made against fear effects."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "5fe67374-7f6e-508c-a7a2-2abf8bbc46a4"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["action:make-an-impression"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:intimidation"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["action:coerce"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Mi9zCb0x3M40C0kL"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 360
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "bolster-bravery",
+          "name": "Bolster Bravery",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "8f7cad88-b260-5d45-876a-16ba1882c99b",
+    "pack": "bastion-of-blasphemies",
+    "kind": "equipment",
+    "slug": "equipment:dazeriens-thumbscrew",
+    "name": "Dazerien's Thumbscrew",
+    "level": 14,
+    "rarity": "rare",
+    "traits": ["artifact", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.HKSpj0db5owAuA1v"
+    },
+    "data": {
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "7fedf664-8fc4-5046-b5e8-2fb5fd7f8d70",
+    "pack": "bastion-of-blasphemies",
+    "kind": "equipment",
+    "slug": "equipment:evercursed-crystal",
+    "name": "Evercursed Crystal",
+    "level": 1,
+    "rarity": "rare",
+    "traits": ["cursed", "light", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As long as an "
+          },
+          {
+            "type": "text",
+            "text": "evercursed crystal",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " remains in a lantern, chandelier, sconce, or other mounting found in Bastardhall, it sheds light as an "
+          },
+          {
+            "type": "text",
+            "text": "everlight crystal",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". As soon as a creature removes an "
+          },
+          {
+            "type": "text",
+            "text": "evercursed crystal",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " from its mounting, though, the light it exudes forever changes to a dim, unnerving red glow the same strength as a candle."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "item",
+        "value": -1,
+        "predicate": ["item:trait:curse"]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:lit-evercursed-crystal",
+        "toggleable": true,
+        "display": {
+          "label": "Evercursed Crystal is lit"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.lfrhhbTG1nf0fNAQ"
+    },
+    "data": {
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "a469efea-ba85-57d2-b001-b070d6c5e49d",
+    "pack": "bastion-of-blasphemies",
+    "kind": "equipment",
+    "slug": "equipment:generals-signet",
+    "name": "General's Signet",
+    "level": 13,
+    "rarity": "rare",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "general’s signet",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is typically a silver ring emblazoned with the coat of arms or heraldry of a wealthy noble family, or the insignia of a mercenary group. A badge of office often worn by soldiers during the Shining Crusade in Ustalav, many "
+          },
+          {
+            "type": "text",
+            "text": "general’s signets",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " bear iconography associated with Aroden, Arazni, or Iomedae, but those found in this adventure bear the heraldry of the Arudora family. The signet grants a +2 item bonus to Diplomacy checks made to "
+          },
+          {
+            "type": "ref",
+            "id": "722e5346-27c0-5157-b5a9-e6018df94150"
+          },
+          {
+            "type": "text",
+            "text": " or to Intimidation checks made to "
+          },
+          {
+            "type": "ref",
+            "id": "ed0f3425-17f0-51f3-bb5d-1ca7475499a5"
+          },
+          {
+            "type": "text",
+            "text": ", and can be activated to bolster the morale of a nearby target."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Bolster Bravery",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate, mental)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fill a creature you touch with bravery and heroic conviction, granting it a +2 status bonus to attack rolls, Perception checks, saving throws, and skill checks for 1 minute. The status bonus is doubled for saving throws made against fear effects."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "5fe67374-7f6e-508c-a7a2-2abf8bbc46a4"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:intimidation"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["action:make-an-impression"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:intimidation"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["action:coerce"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.SxyhYuj3sl4CIxwJ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2700
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "bolster-bravery",
+          "name": "Bolster Bravery",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "795d51e3-fa57-5747-91db-e95a81bfab0c",
+    "pack": "bastion-of-blasphemies",
+    "kind": "equipment",
+    "slug": "equipment:graverose-garland",
+    "name": "Graverose Garland",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["divine", "invested"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This long, scarf-like garment appears to be made of living vines on which a dozen black roses bloom. While the vines appear to be thorny, they lack the capability to puncture or scratch, allowing the garland to be worn comfortably as a scarf or belt. The scent of the black roses evokes faint feelings of melancholy and nostalgia to the living, but undead find the odor to be unnerving and distracting. As long as you have a "
+          },
+          {
+            "type": "text",
+            "text": "graverose garland",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " invested, it grants a +1 item bonus to Deception and Intimidation checks against undead."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—To the Grave with You!",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (emotion, fear, manipulation, mental)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You lift some of the garland to your lips and blow, sending the scent of the black roses outward to target an undead creature you can see within 60 feet. The targeted undead becomes filled with the conviction that it belongs in its grave, and it must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 19,
+            "options": ["inflicts:off-guard", "inflicts:prone", "inflicts:frightened", "inflicts:fleeing"]
+          },
+          {
+            "type": "text",
+            "text": " save against the following effects."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The undead creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The undead creature becomes "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " until the start of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The undead creature becomes "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 2"
+          },
+          {
+            "type": "text",
+            "text": " and is off-guard as long as it remains frightened."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 3"
+          },
+          {
+            "type": "text",
+            "text": ", and the undead is also "
+          },
+          {
+            "type": "ref",
+            "id": "f7fea8f9-c457-5b9f-9283-f567fa557184"
+          },
+          {
+            "type": "text",
+            "text": " as long as it remains frightened. If the undead knows of a nearby empty grave, it must flee toward that grave—if it enters the grave, it drops "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": " into the grave and remains prone until it is no longer frightened."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception", "skill:intimidation"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["target:mode:undead"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.FeTIulA91s33rExI"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 160
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "to-the-grave-with-you",
+          "name": "To the Grave with You!",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "belt"
+      }
+    }
+  },
+  {
+    "id": "a0079012-ce5f-5bf9-b998-e4da9fc8e823",
+    "pack": "bastion-of-blasphemies",
+    "kind": "equipment",
+    "slug": "equipment:illusionists-hat",
+    "name": "Illusionist's Hat",
+    "level": 8,
+    "rarity": "rare",
+    "traits": ["invested", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The illusionist's hat appears as a tall, black hat with a wide brim and a colorful band around its base. Although popularly associated with themes of magic, this hat is more the province of the entertainer or even the charlatan than of a proper arcanist, and many wizards scoff at those who openly wear such items. You gain a +1 item bonus to Deception checks made to "
+          },
+          {
+            "type": "ref",
+            "id": "b905f68d-f05b-5179-8c61-b90a9c7d2bdb"
+          },
+          {
+            "type": "text",
+            "text": " and to Thievery checks made to Palm an Object."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—What's In My Hat?",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " With a flourish, you remove your hat and sweep it before you. The illusionist's hat casts a 3rd-rank "
+          },
+          {
+            "type": "ref",
+            "id": "0af1f62f-c028-5e01-ba52-4b9c00f83890"
+          },
+          {
+            "type": "text",
+            "text": " to your specifications, save that the creature created must be an animal. As long as you continue to hold your hat in one hand, you can Sustain this illusion as a free action. Unlike with most illusory creatures, you cannot use your actions to speak through the creature."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["action:create-a-diversion"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:thievery"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["action:palm-an-object"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.27huDHK9waL4V3jA"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 500
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "whats-in-my-hat",
+          "name": "What's In My Hat?",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "headwear"
+      }
+    }
+  },
+  {
+    "id": "c8551d0a-417d-559d-af6d-82d0abe1c28a",
+    "pack": "bastion-of-blasphemies",
+    "kind": "equipment",
+    "slug": "equipment:irrokciss-medallion",
+    "name": "Irrokcis's Medallion",
+    "level": 14,
+    "rarity": "rare",
+    "traits": ["artifact", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.0LrDMdMNqUb9cxSV"
+    },
+    "data": {
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "b392f4e6-3bb4-59dd-81e4-5c2d15d8fc91",
+    "pack": "bastion-of-blasphemies",
+    "kind": "equipment",
+    "slug": "equipment:jinniveres-riding-crop",
+    "name": "Jinnivere's Riding Crop",
+    "level": 14,
+    "rarity": "rare",
+    "traits": ["artifact", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.fZDL0jQQy1jQTg4c"
+    },
+    "data": {
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "e4486036-50be-5ea4-8cb7-72696bc31601",
+    "pack": "bastion-of-blasphemies",
+    "kind": "equipment",
+    "slug": "equipment:kindler-cameo",
+    "name": "Kindler Cameo",
+    "level": 7,
+    "rarity": "unique",
+    "traits": ["invested", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This small gold cameo in the shape of an oval hangs on a delicate silver chain. When opened, the cameo reveals tiny paintings of a man and a woman—Florin Kindler's parents. When the "
+          },
+          {
+            "type": "text",
+            "text": "Kindler cameo",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is invested, the images within shift in appearance to portray the two most important people in the wearer's life."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Recall Better Times",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You open the cameo and regard the images within of the two most important people in your life, bolstering yourself with fond memories. You regain "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d10+12"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points, and you gain a +2 status bonus to Will saves for 1 minute. You also immediately recover from any persistent damage you're currently taking."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "c7bec40e-8043-5846-8506-30871c8e782f"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Sense Soulheart",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are in Bastardhall while the castle is cursed"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " By clutching the closed cameo in a fist, shutting your eyes, and concentrating, the cameo's magic reaches out through Bastardhall toward the closest "
+          },
+          {
+            "type": "text",
+            "text": "soulheart",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". At the end of a minute of concentration, you know the direction and approximate distance to a nearby "
+          },
+          {
+            "type": "text",
+            "text": "soulheart",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " (this is typically, but not always, the closest "
+          },
+          {
+            "type": "text",
+            "text": "soulheart",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "). This activation doesn't discern between "
+          },
+          {
+            "type": "text",
+            "text": "soulhearts",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " whose locations you already know about or not, and as such, Activating this power while you or a nearby ally carry a "
+          },
+          {
+            "type": "text",
+            "text": "soulheart",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " isn't particularly helpful. The cameo can't detect a "
+          },
+          {
+            "type": "text",
+            "text": "soulheart",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " that's still within a section of Bastardhall that hasn't yet been unlocked. If no "
+          },
+          {
+            "type": "text",
+            "text": "soulhearts",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can be detected, you know this, but the activation's daily use is still consumed."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.RLNM5W7ZtiozXtuf"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 300
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "recall-better-times",
+          "name": "Recall Better Times",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        },
+        {
+          "slug": "sense-soulheart",
+          "name": "Sense Soulheart",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "13e4e758-3c8b-5316-9dd0-b33808341046",
+    "pack": "bastion-of-blasphemies",
+    "kind": "equipment",
+    "slug": "equipment:raudltzs-telescope",
+    "name": "Raudltz's Telescope",
+    "level": 14,
+    "rarity": "rare",
+    "traits": ["artifact", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.iPD5FDdwUmRG7Erl"
+    },
+    "data": {
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "3a58a9ed-5f95-595a-bbfa-a279d71a1cad",
+    "pack": "bastion-of-blasphemies",
+    "kind": "equipment",
+    "slug": "equipment:ryhasphineas-hourglass",
+    "name": "Ryhasphinea's Hourglass",
+    "level": 14,
+    "rarity": "rare",
+    "traits": ["artifact", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.3c9AEoBCXmdltdr2"
+    },
+    "data": {
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "1bb21bfe-740c-5fa0-895c-6bf108eaad4b",
+    "pack": "bastion-of-blasphemies",
+    "kind": "equipment",
+    "slug": "equipment:soulheart",
+    "name": "Soulheart",
+    "level": 5,
+    "rarity": "rare",
+    "traits": ["artifact", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "soulheart",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a crystallized sphere of red ectoplasm about the size of a human eye. When held by a living creature, a faint red light shimmers within the crystal, pulsating in a synchronized beat with the creature's heartbeat and providing illumination equivalent to that of a candle."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Bolster Life",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " When held to the chest and focused upon, the soul energy within the "
+          },
+          {
+            "type": "text",
+            "text": "soulheart",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " floods outward and bolsters your life force, granting you 6 temporary Hit Points (or 3 temporary Hit Points if it's nighttime). These temporary Hit Points last for 8 hours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "a3c6ce2e-f308-518e-bedf-8aab21cbbf29"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Bolster Maiserene Phantom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " When touched to a rank 0 Maiserene phantom, the "
+          },
+          {
+            "type": "text",
+            "text": "soulheart",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " flashes with bright red light and is destroyed. As it does so, it permanently increases the targeted phantom to rank 1, and increases each PC's maximum Hit Points by 1 for as long as they remain within Bastardhall while the castle remains cursed."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Destruction",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A "
+          },
+          {
+            "type": "text",
+            "text": "soulheart",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is destroyed when it is activated to Bolster Maiserene Phantom."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.8WxFFZm6OcBCCARR"
+    },
+    "data": {
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "bolster-life",
+          "name": "Bolster Life",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "5e052fb2-4408-5ba8-a303-96ab92014d75",
+    "pack": "bastion-of-blasphemies",
+    "kind": "equipment",
+    "slug": "equipment:soulheart-angelic",
+    "name": "Soulheart (Angelic)",
+    "level": 21,
+    "rarity": "rare",
+    "traits": ["artifact", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "soulheart",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a crystallized sphere of red ectoplasm about the size of a human eye. When held by a living creature, a faint red light shimmers within the crystal, pulsating in a synchronized beat with the creature's heartbeat and providing illumination equivalent to that of a candle."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Defy Charg",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Pharasma's favor (earned by restoring the temple clock tower in Bastardhall), Shelyn's favor (earned by restoring the gallery in Bastardhall's reception halls), and Caydserris Arudora is defeated"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " By presenting the "
+          },
+          {
+            "type": "text",
+            "text": "angelic soulheart",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to Charg at the climax of this Adventure Path, you can fully remove the Bastardhall Curse and free all of the souls trapped within!"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Destruction",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An "
+          },
+          {
+            "type": "text",
+            "text": "angelic soulheart",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is destroyed when it is activated to Defy Charg."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Y10KCgi8mOL2iAkS"
+    },
+    "data": {
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "4e5d3224-83eb-55df-9ab8-1781f58ccddb",
+    "pack": "bastion-of-blasphemies",
+    "kind": "equipment",
+    "slug": "equipment:soulheart-greater",
+    "name": "Soulheart (Greater)",
+    "level": 10,
+    "rarity": "rare",
+    "traits": ["artifact", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "soulheart",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a crystallized sphere of red ectoplasm about the size of a human eye. When held by a living creature, a faint red light shimmers within the crystal, pulsating in a synchronized beat with the creature's heartbeat and providing illumination equivalent to that of a candle."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Bolster Life",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " When held to the chest and focused upon, the soul energy within the "
+          },
+          {
+            "type": "text",
+            "text": "soulheart",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " floods outward and bolsters your life force, granting you 12 temporary Hit Points (or 6 temporary Hit Points if it's nighttime). These temporary Hit Points last for 8 hours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "a3c6ce2e-f308-518e-bedf-8aab21cbbf29"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Bolster Maiserene Phantom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " When touched to a rank 1 Maiserene phantom, the "
+          },
+          {
+            "type": "text",
+            "text": "soulheart",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " flashes with bright red light and is destroyed. As it does so, it permanently increases the targeted phantom to rank 2, and increases each PC's maximum Hit Points by 2 for as long as they remain within Bastardhall while the castle remains cursed."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Destruction",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A "
+          },
+          {
+            "type": "text",
+            "text": "soulheart",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is destroyed when it is activated to Bolster Maiserene Phantom."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.5nNs3OFkRXH8yU1D"
+    },
+    "data": {
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "bolster-life",
+          "name": "Bolster Life",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "6beb933d-8651-577d-9224-37b7118a1500",
+    "pack": "bastion-of-blasphemies",
+    "kind": "equipment",
+    "slug": "equipment:soulheart-major",
+    "name": "Soulheart (Major)",
+    "level": 15,
+    "rarity": "rare",
+    "traits": ["artifact", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "soulheart",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a crystallized sphere of red ectoplasm about the size of a human eye. When held by a living creature, a faint red light shimmers within the crystal, pulsating in a synchronized beat with the creature's heartbeat and providing illumination equivalent to that of a candle."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Bolster Life",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " When held to the chest and focused upon, the soul energy within the "
+          },
+          {
+            "type": "text",
+            "text": "soulheart",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " floods outward and bolsters your life force, granting you 18 temporary Hit Points (or 9 temporary Hit Points if it's nighttime). These temporary Hit Points last for 8 hours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "a3c6ce2e-f308-518e-bedf-8aab21cbbf29"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Bolster Maiserene Phantom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " When touched to a rank 2 Maiserene phantom, the "
+          },
+          {
+            "type": "text",
+            "text": "soulheart",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " flashes with bright red light and is destroyed. As it does so, it permanently increases the targeted phantom to rank 3, and increases each PC's maximum Hit Points by 3 for as long as they remain within Bastardhall while the castle remains cursed."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Destruction",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A "
+          },
+          {
+            "type": "text",
+            "text": "soulheart",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is destroyed when it is activated to Bolster Maiserene Phantom."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.05h3LWflr74iJiVg"
+    },
+    "data": {
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "bolster-life",
+          "name": "Bolster Life",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "33fe6a90-e555-5179-94f4-ec21ef2beb26",
+    "pack": "bastion-of-blasphemies",
+    "kind": "equipment",
+    "slug": "equipment:soulheart-pure",
+    "name": "Soulheart (Pure)",
+    "level": 20,
+    "rarity": "rare",
+    "traits": ["artifact", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "soulheart",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a crystallized sphere of red ectoplasm about the size of a human eye. When held by a living creature, a faint red light shimmers within the crystal, pulsating in a synchronized beat with the creature's heartbeat and providing illumination equivalent to that of a candle."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Restore Life",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " By holding a pure "
+          },
+          {
+            "type": "text",
+            "text": "soulheart",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " against the remains of a dead creature of 20th level or lower that has been dead for no more than a year and concentrating for one minute, the pure "
+          },
+          {
+            "type": "text",
+            "text": "soulheart",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " flashes with red light and is destroyed. The targeted dead creature is restored to life with 1 Hit Point, no spells prepared or spell slots available, no points in any pools or any other daily resources, and is still affected by any long-term debilitations of the old body."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Destruction",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A "
+          },
+          {
+            "type": "text",
+            "text": "pure soulheart",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is destroyed when it is activated to Restore Life."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.klQlruwrLO0xvPjl"
+    },
+    "data": {
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "0e0caa85-966d-58b2-afbe-57cb4d418513",
+    "pack": "bastion-of-blasphemies",
+    "kind": "equipment",
+    "slug": "equipment:velicarns-cursed-coin",
+    "name": "Velicarn's Cursed Coin",
+    "level": 7,
+    "rarity": "unique",
+    "traits": ["cursed", "invested", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Daring or Dread",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You flip the coin, with a 50/50 chance of getting heads or tails. If the result is heads, you become immune to fear effects for 1 hour. If the result is tails, you gain a –2 item penalty against fear saves for 24 hours. If it's after dark in Bastardhall when you activate "
+          },
+          {
+            "type": "text",
+            "text": "Velicarn's cursed coin",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you must twice check to determine if you get heads or tails, and you only get the heads result if both coin flips result in heads; otherwise, the result is tails."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "c6c4592f-3ae4-5809-b79d-0f8578009d62"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.nBSlq58UkK86jYOO"
+    },
+    "data": {
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "daring-or-dread",
+          "name": "Daring or Dread",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "4c289de9-7fea-5afc-ac4b-61dfc98c2d0a",
+    "pack": "bastion-of-blasphemies",
+    "kind": "equipment",
+    "slug": "equipment:vile-remnant",
+    "name": "Vile Remnant",
+    "level": 7,
+    "rarity": "rare",
+    "traits": ["artifact", "cursed", "occult", "unholy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Hear My Words",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "vile remnant",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " casts an "
+          },
+          {
+            "type": "ref",
+            "id": "ed8ad89d-b5e6-5f93-9e80-1368a1e0b8dc"
+          },
+          {
+            "type": "text",
+            "text": " spell ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 23,
+            "options": ["item:type:spell"]
+          },
+          {
+            "type": "text",
+            "text": ") to your specifications. Creatures that fail or critically fail to resist this spell perceive and remember the "
+          },
+          {
+            "type": "text",
+            "text": "vile remnant",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " in your hand as something commonplace to the region, such as a farming tool, book, or fresh-baked pie, for as long as they remain enthralled. If you don't take advantage of this to subtly guide any affected creatures toward undermining their society, the "
+          },
+          {
+            "type": "text",
+            "text": "vile remnant",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can't be activated to Hear My Words again by you for 1 week. Additionally, the next time you sleep, you endure horrific nightmares and must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 23,
+            "options": ["inflicts:stupefied"]
+          },
+          {
+            "type": "text",
+            "text": " save upon waking to avoid becoming "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 1"
+          },
+          {
+            "type": "text",
+            "text": " for 24 hours (this is a mental effect)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.JmlPFAbjPvbhhKeu"
+    },
+    "data": {
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "hear-my-words",
+          "name": "Hear My Words",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "26562fcc-5026-5b3a-8d43-bacedb26e3b2",
+    "pack": "bastion-of-blasphemies",
+    "kind": "equipment",
+    "slug": "equipment:whispering-remnant",
+    "name": "Whispering Remnant",
+    "level": 13,
+    "rarity": "rare",
+    "traits": ["artifact", "cursed", "occult", "unholy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bastion-of-blasphemies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Hear My Words",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "whispering remnant",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " casts an "
+          },
+          {
+            "type": "ref",
+            "id": "ed8ad89d-b5e6-5f93-9e80-1368a1e0b8dc"
+          },
+          {
+            "type": "text",
+            "text": " spell ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 30,
+            "options": ["item:type:spell"]
+          },
+          {
+            "type": "text",
+            "text": ") to your specifications. Creatures that fail or critically fail to resist this spell perceive and remember the "
+          },
+          {
+            "type": "text",
+            "text": "whispering remnant",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " in your hand as something commonplace to the region, such as a farming tool, book, or fresh-baked pie, for as long as they remain enthralled. If you don't take advantage of this to subtly guide any affected creatures toward undermining their society, the "
+          },
+          {
+            "type": "text",
+            "text": "whispering remnant",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can't be activated to Hear My Words again by you for 1 week. Additionally, the next time you sleep, you endure horrific nightmares and must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 30,
+            "options": ["inflicts:stupefied"]
+          },
+          {
+            "type": "text",
+            "text": " save upon waking to avoid becoming "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 1"
+          },
+          {
+            "type": "text",
+            "text": " for 24 hours (this is a mental effect)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.14kIZ6GRkAW8vZw8"
+    },
+    "data": {
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "hear-my-words",
+          "name": "Hear My Words",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

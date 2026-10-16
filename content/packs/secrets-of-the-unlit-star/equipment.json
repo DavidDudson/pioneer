@@ -1,0 +1,158 @@
+[
+  {
+    "id": "65174e31-a369-5075-8de5-457d401726de",
+    "pack": "secrets-of-the-unlit-star",
+    "kind": "equipment",
+    "slug": "equipment:belt-of-good-health",
+    "name": "Belt of Good Health",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-the-unlit-star"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you put on this belt, its silver buckle begins to glow, which slowly spreads into the heart-shaped jewel in the center. You increase your maximum Hit Points and current Hit Points by 4. If you remove the belt, you immediately decrease both your maximum and current HP by 4."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["hp"],
+        "type": "untyped",
+        "value": 4
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.AhvjU4QbinWPM9t3"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 85
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn",
+        "slot": "belt"
+      }
+    }
+  },
+  {
+    "id": "ee4791ee-f0ff-558e-83b6-c9aa3031f859",
+    "pack": "secrets-of-the-unlit-star",
+    "kind": "equipment",
+    "slug": "equipment:conductors-instrument",
+    "name": "Conductor's Instrument",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-the-unlit-star"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This item can be found in the form of any variety of handheld musical instruments. The instrument grants you a +1 item bonus to Performance checks while playing music with it. Once per day, you can use the following activity."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Command Performance",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You play a special tune on the instrument, causing it to cast a DC 17 "
+          },
+          {
+            "type": "ref",
+            "id": "15904512-5f17-5bba-b1a0-1f892989912c"
+          },
+          {
+            "type": "text",
+            "text": " bard spell."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:playing-conductors-instrument",
+        "toggleable": true,
+        "display": {
+          "label": "Playing Conductor's Instrument"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:performance"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["option:playing-conductors-instrument"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.HdJY04mJaRhwIkDx"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 60
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  }
+]

@@ -1,0 +1,1269 @@
+[
+  {
+    "id": "ada571bb-64c1-5e14-ad7d-ff1aaaabd5dc",
+    "pack": "the-dead-gods-hand",
+    "kind": "weapon",
+    "slug": "weapon:azlanti-diamond",
+    "name": "Azlanti Diamond",
+    "level": 8,
+    "rarity": "unique",
+    "traits": ["arcane", "artifact", "relic", "versatile-p"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "the-dead-gods-hand"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Aspects",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " celestial, mind"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The "
+          },
+          {
+            "type": "text",
+            "text": "Azlanti Diamond",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is among the most famous creations of the swordsmith (and eventual living god) Aroden. Initially forged to serve as a badge of office for the next emperor of Azlant, this plan fell apart when King Xeros failed to choose his successor from a field of fools and criminals. When he asked Aroden for aid in choosing, the Last Azlanti chose to keep the Azlanti Diamond for himself. Whether not this choice provoked the veiled masters into destroying Azlant with Earthfall or was the result of that doom forcing Aroden's hand has been lost to time—but PCs who take the Test of Aroden in this adventure have a good indication that it was a little bit of both! Following Earthfall, the Azlanti Diamond served Aroden for centuries. Now and then, he loaned the sword out to those he deemed worthy. Each time, the sword's power reset and then grew alongside its new carrier, eventually returning to Aroden's hand to begin the cycle anew. Some time after Aroden became a god and founded the city of Absalom, he bequeathed the sword to the caretakers of the Sanctum of Aroden, and for the past several thousand years it has remained therein."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The "
+          },
+          {
+            "type": "text",
+            "text": "Azlanti Diamond",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a +1 striking longsword. Its clear crystal blade is made of diamond, hardened to a strength equal to high-grade throneglass (although without the other qualities of high-grade throneglass). When first claimed by a character, it bonds with that character's soul, and as time passes the weapon's fundamental runes automatically grow in power, becoming a +2 greater striking longsword after 1 year and finally a +3 major striking longsword after it has been carried and wielded by the same person for 2 years. If the sword falls out of that character's possession it stops increasing in power until it is reclaimed, at which point the count begins where it left off. At your discretion, a PC can upgrade the weapon's fundamental runes normally, or they could even automatically progress not as time passes but as its wielder's level rises to match the corresponding fundamental runes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As long as the "
+          },
+          {
+            "type": "text",
+            "text": "Azlanti Diamond",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is carried, its wielder can speak and understand ancient Azlanti, and they gain a +1 item bonus to Arcana, Crafting, and Diplomacy checks. These item bonuses increase to +2 once the wielder is 9th level, then increase again to +3 once the wielder is 17th level."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Unlike the standard rules for a specific weapon, the Azlanti Diamond can be etched with weapon property runes. Etching a weapon property rune onto the Azlanti Diamond is free—it never costs money to etch a rune onto this artifact."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Minor Gifts:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " divine retribution, recalculate"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Major Gifts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ": psychic scream, sacred glow"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Grand Gift:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " mental bastion"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The "
+          },
+          {
+            "type": "text",
+            "text": "Azlanti Diamond",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is never less than an 8th-level item, and as its wielder gains levels, it gains levels to match—a wielder who is higher than 8th level causes the Azlanti Diamond to automatically rise in level to match. This means it always has its two minor gifts active. It gains its first major gift at 9th level, and its second at 13th level, then gains its grand gift at 17th level. These gifts are gained automatically, without the need to achieve any additional requirement."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Destruction",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The Azlanti Diamond is destroyed if it is used in an attempt to shatter the Starstone by a human who wasn't born as a human and has never heard of Aroden."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.SmTUq7RUlZAQQHzD"
+    },
+    "data": {
+      "bulk": 1,
+      "material": {
+        "type": "throneglass",
+        "grade": "high"
+      },
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "longsword",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "ca8083e9-a2e8-56a9-9ac0-7175f99954c9",
+    "pack": "the-dead-gods-hand",
+    "kind": "weapon",
+    "slug": "weapon:chimeras-claw",
+    "name": "Chimera's Claw",
+    "level": 4,
+    "rarity": "unique",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "the-dead-gods-hand"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+1 warhammer",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " has three stylized chimera carved into its gold-plated head: a scowling horned dragon, a snorting goat with mighty horns, and a fearsome great cat with its jaws open in a terrifying scream. By activating Chimera's Visage, you can select which of its three heads functions as its primary head, which in turn determines the weapon's capabilities."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Chimera's Visage",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate) You shift Chimera's Claw to change its primary head, allowing access to that head's weapon traits and secondary effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Horned Dragon Head",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The dragon head's horn deals piercing damage. In this mode, the warhammer has the sweep and versatile S weapon traits. Each time you damage a creature with this weapon, the dragon's flaring nostrils snort out a small cloud of cloying, acrid gas that deals an additional 2 persistent poison damage in addition to the weapon's normal damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Screaming Cat Head",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The screaming cat's brutal teeth deal slashing damage. In this mode, the warhammer has the backstabber and versatile B weapon traits. Tiny rubies inset into the eyes of the weapon's screaming cat face ignite as bright-red pinpoints, distracting foes with traces of crimson light as the weapon shifts and moves in combat. This grants you a +2 item bonus to Feint against a target you damaged with Chimera's Claw in the previous round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Snorting Goat Head",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The snorting goat's curled horns and heavy brow deal bludgeoning damage. In this mode, the warhammer has the shove and versatile P weapon traits. The goat head's long horns function as a levered crowbar."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:chimeras-claw",
+        "toggleable": true,
+        "suboptions": [
+          {
+            "value": "cat-head",
+            "label": "Screaming Cat Head"
+          },
+          {
+            "value": "dragon-head",
+            "label": "Horned Dragon Head"
+          },
+          {
+            "value": "goat-head",
+            "label": "Snorting Goat Head"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.uLPTj8MCrJNIC8IV"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 100
+        }
+      },
+      "bulk": 1,
+      "category": "martial",
+      "group": "hammer",
+      "baseItem": "warhammer",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "fe09ddd5-2a05-5c94-b644-c6091d1c688e",
+    "pack": "the-dead-gods-hand",
+    "kind": "weapon",
+    "slug": "weapon:destiny-blade",
+    "name": "Destiny Blade",
+    "level": 3,
+    "rarity": "rare",
+    "traits": ["versatile-p"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "the-dead-gods-hand"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A destiny blade is a "
+          },
+          {
+            "type": "text",
+            "text": "+1 throneglass longsword",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " crafted to appear as a replica of Aroden's legendary sword, the Azlanti Diamond, affording lower-ranking knights in his service an opportunity to carry a bit of history with them in battle. On a critical hit with a destiny blade, the magic absorbs a portion of the target's luck and passes it on to the wielder, enhancing their destiny while hampering the victim. The target takes a –1 status penalty to saving throws and the wielder gains a +1 status bonus to saving throws. This lasts for 1 minute or until the wielder succeeds or critically succeeds at any saving throw, whichever comes first. This is a fortune effect for the wielder and a misfortune effect for the target struck."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.qmplG3eR3UU2KtAH"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 60
+        }
+      },
+      "bulk": 1,
+      "material": {
+        "type": "throneglass",
+        "grade": "low"
+      },
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "longsword",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "d66627d5-52e1-5fc4-85c2-03fa2d3d89d6",
+    "pack": "the-dead-gods-hand",
+    "kind": "weapon",
+    "slug": "weapon:meloths-lifedrinker",
+    "name": "Meloth's Lifedrinker",
+    "level": 4,
+    "rarity": "unique",
+    "traits": ["artifact", "cursed", "divine", "intelligent", "versatile-p"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "the-dead-gods-hand"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Perception",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +11; precise darkvision 40 feet, imprecise hearing 30 feet"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Communication",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " telepathy (Azlanti, Chthonian, Common)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Skills",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Deception +13, Intimidation +11, Occultism +10, Religion +11"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Int",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +2, "
+          },
+          {
+            "type": "text",
+            "text": "Wis",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +3, "
+          },
+          {
+            "type": "text",
+            "text": "Cha",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +5"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Will",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +11"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Meloth's Lifedrinker",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a +1 longsword whose blade appears to be made of obsidian pitted with pocks and scars that, upon closer examination, are tiny images of screaming faces, their haunted visages twisted in pain and fear. It was once a much more powerful weapon, until Sarnax used it as a prison to contain the essence of its original wielder—a demon lord named Meloth. The magic that once granted the blade its power immediately transformed and refocused into the task of serving as a prison for the demon lord, leaving the sword a shadow of its prior glory and infusing it with an unnatural weight three times that of a typical longsword. Over the centuries, Meloth has become able to observe and manipulate the world around the blade"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Meloth's ability to influence the world around him via illusions is limited to those events detailed in the adventure, but a PC who ends up carrying the cursed sword for an extended length of time (beyond the scope of this adventure) might find similar illusions manifesting to further torment them, their companions, and anyone around them. Even then, Meloth won't directly communicate with his wielder unless he's fused to them."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A character who holds Meloth's Lifedrinker must make a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 18
+          },
+          {
+            "type": "text",
+            "text": " save to resist Meloth's influence at the end of every round they continue to hold the weapon (one can safely—but awkwardly—transport Meloth's Lifedrinker by picking it up, moving, and then dropping it before ending oneʼs turn)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The character is temporarily immune to Meloth's influence for 24 hours and can carry or wield the sword normally as a +1 longsword."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The character is unaffected by Meloth's influence this round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Meloth's Lifedrinker fuses with the character. As part of this bond, Meloth absorbs some of the character's life, reducing the character's maximum HP by 6 (to a minimum of 1) for as long as the character remains fused to the sword. Meloth now communicates with the fused character via telepathy—encouraging them through lies, coercion, and threats to commit more and more atrocities while seeking a way to somehow free him from this prison."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but it reduces the character's maximum HP by 12 (to a minimum of 1)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.HeJ7yOm1iybL2TjV"
+    },
+    "data": {
+      "bulk": 3,
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "longsword",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "e1daf3d6-0c70-5b74-bb5f-68b11a5e4f6d",
+    "pack": "the-dead-gods-hand",
+    "kind": "weapon",
+    "slug": "weapon:meloths-lifedrinker-level-7",
+    "name": "Meloth's Lifedrinker (Level 7)",
+    "level": 7,
+    "rarity": "unique",
+    "traits": ["artifact", "cursed", "divine", "intelligent", "versatile-p"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "the-dead-gods-hand"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Perception",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +11; precise darkvision 40 feet, imprecise hearing 30 feet"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Communication",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " telepathy (Azlanti, Chthonian, Common)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Skills",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Deception +13, Intimidation +11, Occultism +10, Religion +11"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Int",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +2, "
+          },
+          {
+            "type": "text",
+            "text": "Wis",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +3, "
+          },
+          {
+            "type": "text",
+            "text": "Cha",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +5"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Will",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +11"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Meloth's Lifedrinker",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a +1 longsword whose blade appears to be made of obsidian pitted with pocks and scars that, upon closer examination, are tiny images of screaming faces, their haunted visages twisted in pain and fear. It was once a much more powerful weapon, until Sarnax used it as a prison to contain the essence of its original wielder—a demon lord named Meloth. The magic that once granted the blade its power immediately transformed and refocused into the task of serving as a prison for the demon lord, leaving the sword a shadow of its prior glory and infusing it with an unnatural weight three times that of a typical longsword. Over the centuries, Meloth has become able to observe and manipulate the world around the blade"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Meloth's ability to influence the world around him via illusions is limited to those events detailed in the adventure, but a PC who ends up carrying the cursed sword for an extended length of time (beyond the scope of this adventure) might find similar illusions manifesting to further torment them, their companions, and anyone around them. Even then, Meloth won't directly communicate with his wielder unless he's fused to them."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A character who holds Meloth's Lifedrinker must make a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 18
+          },
+          {
+            "type": "text",
+            "text": " save to resist Meloth's influence at the end of every round they continue to hold the weapon (one can safely—but awkwardly—transport Meloth's Lifedrinker by picking it up, moving, and then dropping it before ending oneʼs turn)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The character is temporarily immune to Meloth's influence for 24 hours and can carry or wield the sword normally as a +1 longsword."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The character is unaffected by Meloth's influence this round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Meloth's Lifedrinker fuses with the character. As part of this bond, Meloth absorbs some of the character's life, reducing the character's maximum HP by 6 (to a minimum of 1) for as long as the character remains fused to the sword. Meloth now communicates with the fused character via telepathy—encouraging them through lies, coercion, and threats to commit more and more atrocities while seeking a way to somehow free him from this prison."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but it reduces the character's maximum HP by 12 (to a minimum of 1)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If during the first interlude of the Test of Aroden a PC allows Meloth to awaken the blade, the result empowers "
+          },
+          {
+            "type": "text",
+            "text": "Meloth's Lifedrinker",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " into a "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking wounding longsword",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". As long as a character carries Meloth's Lifedrinker, they can speak and understand Chthonian. In addition, this empowered version of the blade gains the following activations."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Lifedrink",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (death, divine, void)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Meloth's Lifedrinker",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " scores a critical hit on a living creature with a level equal to or higher than its wielder"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Meloth's Lifedrinker",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " inflicts 1d6 additional void damage to the living creature. If the creature struck by the critical hit is slain by its damage, the blade impales its victim. Black, oily energy like wet smoke pours from the victim's eyes and flows to the ebon sword, desiccating the corpse in an instant as all of its liquid seeps into the Lifedrinker, leaving the body a dried-out husk."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The first time this happens when its wielder is at least 10th level, "
+          },
+          {
+            "type": "text",
+            "text": "Meloth's Lifedrinker's +1 weapon potency",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rune permanently becomes a "
+          },
+          {
+            "type": "text",
+            "text": "+2 weapon potency",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rune. The first time this happens when its wielder is at least 12th level, "
+          },
+          {
+            "type": "text",
+            "text": "Meloth's Lifedrinker's",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " striking rune permanently becomes a greater striking rune. The first time this happens when its wielder is at least 16th level, "
+          },
+          {
+            "type": "text",
+            "text": "Meloth's Lifedrinker's",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "+2 weapon potency",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rune permanently becomes a "
+          },
+          {
+            "type": "text",
+            "text": "+3 weapon potency",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rune. And the first time this happens when its wielder is at least 19th level, "
+          },
+          {
+            "type": "text",
+            "text": "Meloth's Lifedrinker's",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "greater striking",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rune permanently becomes a "
+          },
+          {
+            "type": "text",
+            "text": "major striking rune",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Vision of Meloth",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, death, emotion, fear, mental)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Meloth's Lifedrinker",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " causes a creature within 60 feet to experience a harrowing vision in which Meloth, as he appeared in life (a vaguely humanoid horned demon not quite bat nor leech nor blood-drinking fly), leaps from the blade to surge forward and devour the target. The wielder of "
+          },
+          {
+            "type": "text",
+            "text": "Meloth's Lifedrinker",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " sees this as well, but no other observers do. The targeted creature takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d6",
+                "damageType": "mental"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with a Will save; the DC is equal to the wielder's class or spell DC, whichever is higher. If the target is reduced to 0 HP by this effect, the vision becomes reality and kills the target instantly. Onlookers see only the target swiftly and gorily consumed by unseen mouths over the course of a few seconds, after which a mutilated carcass drops to the ground, lifeless. As an intelligent weapon, "
+          },
+          {
+            "type": "text",
+            "text": "Meloth's Lifedrinker",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can activate this ability on a whim, and often does so when the sword senses a creature that would be likely to die as a result of this activation—be that creature friend or foe of the wielder."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes half damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes full damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 2"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes double damage, is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 4"
+          },
+          {
+            "type": "text",
+            "text": ", and is "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " as long as it remains frightened."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.raRbJELCqrzoiTzL"
+    },
+    "data": {
+      "bulk": 3,
+      "activations": [
+        {
+          "slug": "vision-of-meloth",
+          "name": "Vision of Meloth",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "longsword",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": ["2ed55af4-0d60-53f9-ad8e-ce9db657b9c0"]
+      }
+    }
+  }
+]

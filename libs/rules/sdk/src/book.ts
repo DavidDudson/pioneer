@@ -45,6 +45,14 @@ export const BOOK_TITLES: ReadonlyMap<BookId, BookLabel> = new Map([
   [BookId.parse('high-seas'), BookLabel.parse('rules.book.title.highSeas')],
   [BookId.parse('season-of-ghosts'), BookLabel.parse('rules.book.title.seasonOfGhosts')],
   [BookId.parse('hellbreakers'), BookLabel.parse('rules.book.title.hellbreakers')],
+  [BookId.parse('gatewalkers'), BookLabel.parse('rules.book.title.gatewalkers')],
+  [BookId.parse('myth-speakers'), BookLabel.parse('rules.book.title.mythSpeakers')],
+  [BookId.parse('revenge-of-the-runelords'), BookLabel.parse('rules.book.title.revengeOfTheRunelords')],
+  [BookId.parse('secrets-of-the-unlit-star'), BookLabel.parse('rules.book.title.secretsOfTheUnlitStar')],
+  [BookId.parse('troubles-in-grayce'), BookLabel.parse('rules.book.title.troublesInGrayce')],
+  [BookId.parse('hells-destiny'), BookLabel.parse('rules.book.title.hellsDestiny')],
+  [BookId.parse('bastion-of-blasphemies'), BookLabel.parse('rules.book.title.bastionOfBlasphemies')],
+  [BookId.parse('the-dead-gods-hand'), BookLabel.parse('rules.book.title.theDeadGodsHand')],
 ]);
 
 export const PUBLISHER_LABELS: Readonly<Record<Publisher, BookLabel>> = {

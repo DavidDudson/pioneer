@@ -1,0 +1,546 @@
+[
+  {
+    "id": "0c4ca8b4-2340-5a7b-95e0-67440204e10a",
+    "pack": "hells-destiny",
+    "kind": "effect",
+    "slug": "effect:effect-blood-in-the-water",
+    "name": "Effect: Blood in the Water",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Until the beginning of their next turn, the ulat-kini gains 9 temporary Hit Points and a +4 status bonus to their Strikes' damage rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": 9
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["strike-damage"],
+        "type": "status",
+        "value": 4
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.gnD8X7SpMaHet941"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "ef029252-d6d3-51e4-a115-68a74aef1e73",
+    "pack": "hells-destiny",
+    "kind": "effect",
+    "slug": "effect:effect-break-the-weak-link",
+    "name": "Effect: Break the Weak Link",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "All enemy troops within the aura take a –2 circumstance penalty to saves against emotion effects."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": -2,
+        "predicate": ["option:emotion"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.D8ppWzEIt853rlyW"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "698cef9a-d2f3-5a46-b830-cc34187c1c33",
+    "pack": "hells-destiny",
+    "kind": "effect",
+    "slug": "effect:effect-champions-aura-champion-of-asmodeus",
+    "name": "Effect: Champion's Aura (Champion of Asmodeus)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Enemies in the champion's aura take a –1 circumstance penalty to saving throws against fear. In addition, an enemy that ends its turn in champion's aura can't reduce the value of its frightened condition below 1."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": -1,
+        "predicate": ["option:fear"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.aVxksct3yToQUFAC"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "b51fc2e5-4b01-5b56-9eac-a84e02f46afc",
+    "pack": "hells-destiny",
+    "kind": "effect",
+    "slug": "effect:effect-consume-sacrifice",
+    "name": "Effect: Consume Sacrifice",
+    "level": 11,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to the DCs of your spells."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["spell-dc"],
+        "type": "circumstance",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.UucZXsOc07MsMyPj"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "5bb55906-852e-54da-b6d8-6b022dc7ddbc",
+    "pack": "hells-destiny",
+    "kind": "effect",
+    "slug": "effect:effect-dirty-fighting-critical-success",
+    "name": "Effect: Dirty Fighting (Critical Success)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –2 circumstance penalty to attack rolls, or if you're a troop, a –2 circumstance penalty to your DCs for damaging effects."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll"],
+        "type": "circumstance",
+        "value": -2,
+        "predicate": [
+          {
+            "not": "self:trait:troop"
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["inline-dc", "spell-dc"],
+        "type": "circumstance",
+        "value": -2,
+        "predicate": ["self:trait:troop"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.7Oet4xG6dzxRczer"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 2,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "f3f2f3c1-7682-585c-b9fb-6f8f2eab45ed",
+    "pack": "hells-destiny",
+    "kind": "effect",
+    "slug": "effect:effect-dirty-fighting-success",
+    "name": "Effect: Dirty Fighting (Success)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –2 circumstance penalty to attack rolls, or if you're a troop, a –2 circumstance penalty to your DCs for damaging effects."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll"],
+        "type": "circumstance",
+        "value": -2,
+        "predicate": [
+          {
+            "not": "self:trait:troop"
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["inline-dc", "spell-dc"],
+        "type": "circumstance",
+        "value": -2,
+        "predicate": ["self:trait:troop"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.G62fNtluvSHPdRdI"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "7e5cc80a-aca0-5559-a89f-b78676863805",
+    "pack": "hells-destiny",
+    "kind": "effect",
+    "slug": "effect:effect-hellfire-hydra-heads",
+    "name": "Effect: Hellfire Hydra Heads",
+    "level": 19,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The number of heads the hellfire hydra currently has."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.QigGoOYUG7BHuvE4"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      },
+      "badge": {
+        "type": "counter",
+        "value": 1,
+        "loop": false
+      }
+    }
+  },
+  {
+    "id": "bfd2c857-102d-5f10-abc0-328c2323231d",
+    "pack": "hells-destiny",
+    "kind": "effect",
+    "slug": "effect:effect-mark-of-fate-asmodeus",
+    "name": "Effect: Mark of Fate (Asmodeus)",
+    "level": 19,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain weakness 15 to unholy and take a –2 circumstance penalty to Charisma-based skill checks against followers of Asmodeus."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["cha-skill-check"],
+        "type": "circumstance",
+        "value": -2,
+        "predicate": ["option:asmodeus-follower"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.CtSpaB1PXAkMunj5"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "dfd63e82-0f40-5e5e-8dbd-f5f10e2efe7c",
+    "pack": "hells-destiny",
+    "kind": "effect",
+    "slug": "effect:effect-paracountesss-parry",
+    "name": "Effect: Paracountess's Parry",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Vorrea raises the wide hilt of her cutlass in a defensive posture, surrounded by arcane energies to defend herself. She gains a +2 circumstance bonus to her AC and resistance 5 to physical damage (except silver) until the start of her next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 2
+      },
+      {
+        "key": "Resistance",
+        "type": ["physical"],
+        "value": 5,
+        "exceptions": ["silver"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.Ahn0Nqsus9vyPiN9"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "445816ed-f4f9-58dc-9b14-fb0eee1ac2f9",
+    "pack": "hells-destiny",
+    "kind": "effect",
+    "slug": "effect:effect-soused-ruse",
+    "name": "Effect: Soused Ruse",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Urdun appears to become drunk (the same as succumbing to stage 1 of alcohol's poison) without suffering from the condition, and he gains a +2 circumstance bonus to Deception checks to Feint against creatures that assume he's intoxicated."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["action:feint"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.Z0aDpqGq715rZXJg"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "48dd938e-542e-5420-a06b-38dab5c6f4ca",
+    "pack": "hells-destiny",
+    "kind": "effect",
+    "slug": "effect:effect-spinning-shield",
+    "name": "Effect: Spinning Shield",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hells-destiny"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Rayhnne spins her flails rapidly in all directions, giving her a +2 circumstance bonus to her AC and Reflex saves until the start of her next turn. If she uses Reactive Strike while this ability is active, she adds 1d10 to her damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 1,
+        "dieSize": "d10"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "save:reflex"],
+        "type": "circumstance",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.8hznLlJ0wBazTw8n"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  }
+]
