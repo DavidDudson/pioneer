@@ -22,6 +22,7 @@ const EMPTY: CharacterImportReport = {
   unplacedBoosts: [],
   skillGaps: [],
   modifierDifferences: [],
+  discrepancies: { compared: 0, differences: [] },
 };
 
 async function render(report: CharacterImportReport): Promise<ComponentFixture<ImportResult>> {
@@ -56,6 +57,7 @@ describe(ImportResult, () => {
       unplacedBoosts: [],
       skillGaps: [],
       modifierDifferences: [],
+      discrepancies: { compared: 0, differences: [] },
     });
 
     expect(text(fixture)).toContain("weren't kept: Class features and Spells");

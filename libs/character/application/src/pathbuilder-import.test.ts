@@ -102,6 +102,11 @@ describe('PathbuilderImportService.importPathbuilder', () => {
     expect(report.modifierDifferences.map((difference) => difference.attribute)).toContain(Attribute.Charisma);
   });
 
+  test('compares nothing, and reports no false difference, while no statistics are loaded', async () => {
+    const { report } = await service.importPathbuilder(amiri, mordredExport);
+    expect(report.discrepancies).toStrictEqual({ compared: 0, differences: [] });
+  });
+
   test('the write runs as importPathbuilder, once', async () => {
     await service.importPathbuilder(amiri, mordredExport);
     expect(repository.audits).toStrictEqual([{ actor: amiri, command: CharacterCommand.ImportPathbuilder }]);

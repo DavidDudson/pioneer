@@ -1,7 +1,12 @@
 <fr-stack gap="lg">
   <pio-sheet-unenabled-content />
   @if (store.importReport(); as report) {
-    <pio-import-result [report]="report" (dismissed)="dismissImportReport()" />
+    <pio-import-result
+      [report]="report"
+      [statistics]="sheet.importStatistics()"
+      [entryNames]="entryNames()"
+      (dismissed)="dismissImportReport()"
+    />
   }
   @if (cleared().length > 0) {
     <fr-surface>

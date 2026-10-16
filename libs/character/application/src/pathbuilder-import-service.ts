@@ -28,6 +28,7 @@ import type { Clock, UserId } from '@pioneer/shared/kernel';
 
 import type { CharacterRepository } from './character-repository';
 import type { CharacterVariantRepository } from './character-variant-repository';
+import { importDiscrepancies } from './pathbuilder-discrepancies';
 import { dualClassVariant, importedCharacter, matchedAncestry, readExport } from './pathbuilder-import';
 import { importedInventory } from './pathbuilder-inventory';
 import type { InventoryContent } from './pathbuilder-inventory';
@@ -106,6 +107,11 @@ export class PathbuilderImportService {
       unplacedBoosts: unplaced,
       skillGaps,
       modifierDifferences: modifierDifferences(value.attributes, attributeModifiers(character.document, slots.boosts)),
+      discrepancies: importDiscrepancies(value, character, {
+        registry: content,
+        slots,
+        variants: dual === undefined ? [] : [dual],
+      }),
     });
     return { character: saved, report };
   }

@@ -127,6 +127,7 @@ export class SheetPlanTab {
   protected readonly ancestries = inject(AncestryOptions);
   protected readonly picks = this.sheet.picks;
   protected readonly registry = this.sheet.registry;
+  protected readonly entryNames = this.picks.entryNames;
   protected readonly levelMin = CHARACTER_LEVEL_MIN;
   protected readonly levelMax = CHARACTER_LEVEL_MAX;
   protected readonly sections = SHEET_SECTIONS;

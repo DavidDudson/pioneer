@@ -5,6 +5,7 @@ import * as z from 'zod';
 
 import { ModifierDifference, UnplacedBoost } from './boost-placement';
 import type { ContentLookup } from './content-lookup';
+import { DiscrepancyReport } from './discrepancy-report';
 import { ImportKind, ImportKindSchema, PathbuilderName } from './import-kind';
 import type { ImportedName } from './import-kind';
 import { buildImportReport, MatchStatus, Occurrences } from './import-report';
@@ -53,6 +54,7 @@ export const CharacterImportReport = z.object({
   unplacedBoosts: z.array(UnplacedBoost).readonly(),
   skillGaps: z.array(SkillGap).readonly(),
   modifierDifferences: z.array(ModifierDifference).readonly(),
+  discrepancies: DiscrepancyReport,
 });
 export type CharacterImportReport = z.infer<typeof CharacterImportReport>;
 
@@ -93,6 +95,7 @@ export interface ImportOutcome {
   readonly unplacedBoosts: readonly UnplacedBoost[];
   readonly skillGaps: readonly SkillGap[];
   readonly modifierDifferences: readonly ModifierDifference[];
+  readonly discrepancies: DiscrepancyReport;
 }
 
 /** The report shown on a character created from `value`. */

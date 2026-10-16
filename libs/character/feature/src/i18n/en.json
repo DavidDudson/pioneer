@@ -483,6 +483,9 @@
       "unplacedSummary": "{count, plural, one {# boost} other {# boosts}} found no slot",
       "skillGapsSummary": "{count, plural, one {# skill} other {# skills}} fell short of Pathbuilder",
       "skillGap": "Pathbuilder {wanted}, Pioneer {reached}",
+      "discrepanciesSummary": "{count, plural, one {# statistic differs} other {# statistics differ}} from Pathbuilder, of {compared, number} compared",
+      "discrepanciesMatch": "All {count, number} statistics Pathbuilder computed match Pioneer's.",
+      "discrepancyWhy": "Why Pioneer's value is what it is",
       "notCarried": "Characters can't hold these yet, so they weren't kept: {fields}.",
       "groupSummary": "{kind} · {count, number} not carried over",
       "allMatched": "Every name matched content you have loaded."

@@ -6,7 +6,7 @@ import type { Character, ResourceMaxima } from '@pioneer/character/domain';
 import type { RuleId, VitalsInPlay } from '@pioneer/rules/engine';
 import { FocusPoints, SpellPreparation } from '@pioneer/rules/sdk';
 import type { ContentRegistry, HitPoints, Selector } from '@pioneer/rules/sdk';
-import type { EntryPreviews, Investment, Vital } from '@pioneer/rules/ui';
+import type { EntryPreviews, Investment, NamedStatistic, Vital } from '@pioneer/rules/ui';
 
 import { CharacterStore } from '../data/character-store';
 import { CHARACTER_CONTENT_KINDS, injectContentRegistry } from '../data/content-registry-query';
@@ -23,7 +23,7 @@ import type { PlayedInputs } from './sheet-played';
 import { SPELL_CONTENT_KINDS } from './sheet-prepared-spells';
 import { claimSituation, NO_CLAIMS } from './sheet-situations';
 import type { SituationClaims } from './sheet-situations';
-import { sheetDerivation, sheetVitalsInPlay } from './sheet-statistics';
+import { namedStatistics, sheetDerivation, sheetVitalsInPlay } from './sheet-statistics';
 import { sheetVitals } from './sheet-vitals';
 
 /**
@@ -87,6 +87,20 @@ export class SheetState {
 
   /** The situations claimed for the next roll of each statistic (#537); a roll uses its own and lets them go. */
   public readonly claims: Signal<SituationClaims> = this.#claims.asReadonly();
+
+  /** What the engine derives for each statistic a Pathbuilder import reports as different, for its breakdown (#312). */
+  public readonly importStatistics: Signal<ReadonlyMap<Selector, NamedStatistic>> = computed(() => {
+    const report = this.store.importReport();
+    const registry = this.#engineRegistry();
+    const character = this.character();
+    return report === undefined || registry === undefined || character === undefined
+      ? new Map()
+      : namedStatistics(
+          registry,
+          character,
+          report.discrepancies.differences.map(({ selector }) => selector),
+        );
+  });
 
   /** The root slot, subclass and key attribute pickers, the build summary, and what the engine derives. */
   public readonly picks: BuildPicks = sheetBuildPicks({
