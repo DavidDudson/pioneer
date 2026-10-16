@@ -8,17 +8,22 @@ import { idOf, translate } from './testing/import-fixtures';
 import type { DocumentFixture } from './testing/import-fixtures';
 import {
   ADVANCED_DOMAIN,
+  ARCANE_SCHOOL_SPELL,
   CACKLE,
   COMPOSITION_SPELLS,
+  COUNTER_PERFORM,
   DOMAIN_INITIATE,
+  DRUID_DEDICATION,
   HEX_SPELLS,
   INITIATE_WARDEN,
   LESSON_OF_LIFE,
   ORDER_EXPLORER,
   ORDER_MAGIC,
+  ORDER_SPELL,
   SCHOOL_OF_BATTLE_MAGIC,
   THE_RESENTMENT,
   UNTAMED_ORDER,
+  WIZARD_DEDICATION,
   WIZARD_SPELLCASTING,
 } from './testing/spellcasting-fixtures';
 
@@ -112,12 +117,64 @@ describe('translateKindData: focus spells', () => {
     ]);
   });
 
+  test('Counter Perform teaches the bard archetype Counter Performance in a focus entry of the bard tradition', () => {
+    expect(keyed(SpellcastingEntry, 'counter-perform', COUNTER_PERFORM)).toEqual([
+      { key: SpellcastingEntry, slug: 'bard-focus', tradition: 'occult', attribute: 'cha', preparation: 'focus' },
+    ]);
+    expect(keyed(FocusSpells, 'counter-perform', COUNTER_PERFORM)).toEqual([
+      { key: FocusSpells, entry: 'bard-focus', spells: [spell('counter-performance')] },
+    ]);
+  });
+
+  test('Druid Dedication picks an order and grants its feature, and Order Spell gives that order spell', () => {
+    const [choice] = keyed(ChoiceSet, 'druid-dedication', DRUID_DEDICATION);
+
+    expect(choice).toMatchObject({ flag: 'order', rollOption: 'feat:druid-dedication' });
+    expect(valuesOf(choice)).toEqual(
+      ['animal', 'leaf', 'storm', 'untamed'].map((name) => idOf(`class-feature:${name}-order`)),
+    );
+    expect(keyed(RuleElementKey.GrantItem, 'druid-dedication', DRUID_DEDICATION)).toEqual([
+      { key: RuleElementKey.GrantItem, item: { choice: 'order' } },
+    ]);
+    expect(keyed(SpellcastingEntry, 'order-spell', ORDER_SPELL)).toEqual([
+      { key: SpellcastingEntry, slug: 'druid-focus', tradition: 'primal', attribute: 'wis', preparation: 'focus' },
+    ]);
+    expect(keyed(FocusSpells, 'order-spell', ORDER_SPELL)).toContainEqual({
+      key: FocusSpells,
+      entry: 'druid-focus',
+      spells: [spell('cornucopia')],
+      predicate: ['feat:druid-dedication:leaf-order'],
+    });
+  });
+
+  test('Wizard Dedication picks a school, and Arcane School Spell gives the initial spell of that school', () => {
+    const [choice] = keyed(ChoiceSet, 'wizard-dedication', WIZARD_DEDICATION);
+
+    expect(choice).toMatchObject({ flag: 'school', rollOption: 'feat:wizard-dedication' });
+    expect(choice?.['choices']).toContainEqual({ value: 'school-of-battle-magic', label: 'School of Battle Magic' });
+    expect(valuesOf(choice)).toHaveLength(7);
+    expect(keyed(SpellcastingEntry, 'arcane-school-spell', ARCANE_SCHOOL_SPELL)).toEqual([
+      { key: SpellcastingEntry, slug: 'wizard-focus', tradition: 'arcane', attribute: 'int', preparation: 'focus' },
+    ]);
+    expect(keyed(FocusSpells, 'arcane-school-spell', ARCANE_SCHOOL_SPELL)).toContainEqual({
+      key: FocusSpells,
+      entry: 'wizard-focus',
+      spells: [spell('force-bolt')],
+      predicate: ['feat:wizard-dedication:school-of-battle-magic'],
+    });
+  });
+
   test('every element it adds is a valid rule element, and a feature with none gets none', () => {
     for (const [name, fixture] of [
       ['composition-spells', COMPOSITION_SPELLS],
       ['domain-initiate', DOMAIN_INITIATE],
       ['advanced-domain', ADVANCED_DOMAIN],
       ['initiate-warden', INITIATE_WARDEN],
+      ['counter-perform', COUNTER_PERFORM],
+      ['druid-dedication', DRUID_DEDICATION],
+      ['order-spell', ORDER_SPELL],
+      ['wizard-dedication', WIZARD_DEDICATION],
+      ['arcane-school-spell', ARCANE_SCHOOL_SPELL],
     ] as const) {
       for (const rule of rulesIn(translate([fixture]), name)) {
         expect(RuleElement.safeParse(rule).success).toBe(true);
@@ -153,8 +210,8 @@ describe('translateKindData: focus spells', () => {
     );
   });
 
-  test("a druid's order gives its order spell, unless joined through Order Explorer", () => {
-    const predicate = [{ not: 'feat:order-explorer:untamed-order' }];
+  test("a druid's order gives its order spell, unless joined through Order Explorer or Druid Dedication", () => {
+    const predicate = [{ not: 'feat:order-explorer:untamed-order' }, { not: 'feat:druid-dedication:untamed-order' }];
 
     expect(keyed(SpellcastingEntry, 'untamed-order', UNTAMED_ORDER)).toEqual([
       {

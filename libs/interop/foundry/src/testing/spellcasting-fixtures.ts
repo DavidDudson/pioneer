@@ -262,3 +262,17 @@ export const ORDER_EXPLORER = classFeat({
   traits: ['druid'],
 });
 export const ORDER_MAGIC = classFeat({ id: 'sPeLlCaStInG0041', name: 'Order Magic', level: 4, traits: ['druid'] });
+export const DRUID_DEDICATION = archetypeFeat({
+  id: 'sPeLlCaStInG0042',
+  name: 'Druid Dedication',
+  level: 2,
+  traits: DEDICATION,
+});
+export const ORDER_SPELL = archetypeFeat({ id: 'sPeLlCaStInG0043', name: 'Order Spell', level: 4, traits: [] });
+export const ARCANE_SCHOOL_SPELL = archetypeFeat({
+  id: 'sPeLlCaStInG0044',
+  name: 'Arcane School Spell',
+  level: 4,
+  traits: [],
+});
+export const COUNTER_PERFORM = archetypeFeat({ id: 'sPeLlCaStInG0045', name: 'Counter Perform', level: 6, traits: [] });

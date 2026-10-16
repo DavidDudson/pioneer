@@ -3254,7 +3254,57 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellcastingEntry",
+        "slug": "wizard-focus",
+        "tradition": "arcane",
+        "attribute": "int",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "wizard-focus",
+        "spells": ["fef1ce77-5045-5330-845e-e3b0fb2c8fb1"],
+        "predicate": ["feat:wizard-dedication:school-of-ars-grammatica"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "wizard-focus",
+        "spells": ["de29237a-f0d9-5846-b61e-05728566d476"],
+        "predicate": ["feat:wizard-dedication:school-of-battle-magic"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "wizard-focus",
+        "spells": ["b3013de5-1da8-568b-bcea-f381a476a610"],
+        "predicate": ["feat:wizard-dedication:school-of-civic-wizardry"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "wizard-focus",
+        "spells": ["d933461f-9f96-5a68-9f81-eacbf5ff42ca"],
+        "predicate": ["feat:wizard-dedication:school-of-mentalism"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "wizard-focus",
+        "spells": ["e60321ec-64b1-50c3-9a7b-7cdbac1a20b3"],
+        "predicate": ["feat:wizard-dedication:school-of-protean-form"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "wizard-focus",
+        "spells": ["ab47e30a-7406-57da-aa0c-925ee0310ad0"],
+        "predicate": ["feat:wizard-dedication:school-of-the-boundary"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "wizard-focus",
+        "spells": ["f94cc7d2-307e-53da-b7cb-0d092570703d"],
+        "predicate": ["feat:wizard-dedication:school-of-unified-magical-theory"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.QrShJGrvmWPBj4oN"
     },
@@ -10819,7 +10869,20 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellcastingEntry",
+        "slug": "bard-focus",
+        "tradition": "occult",
+        "attribute": "cha",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "bard-focus",
+        "spells": ["275b73cd-5c8d-5062-924b-65eebeaa7bbc"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.t5zeg3m9rEnWnYXY"
     },
@@ -16032,6 +16095,36 @@
         "key": "Proficiency",
         "selector": "skill:nature",
         "rank": "trained"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "order",
+        "choices": [
+          {
+            "value": "567a2b38-46d0-50ae-8e95-4b3ef421239f",
+            "label": "Animal Order"
+          },
+          {
+            "value": "a789d72d-bbd5-5d23-a3f4-fcd3c7904199",
+            "label": "Leaf Order"
+          },
+          {
+            "value": "aab3afac-b9a3-539c-a0f9-bfd9b355e046",
+            "label": "Storm Order"
+          },
+          {
+            "value": "66b406b8-2953-5ec3-a2f7-98a5515db289",
+            "label": "Untamed Order"
+          }
+        ],
+        "prompt": "Select a druidic order.",
+        "rollOption": "feat:druid-dedication"
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "order"
+        }
       }
     ],
     "externalIds": {
@@ -36271,7 +36364,39 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellcastingEntry",
+        "slug": "druid-focus",
+        "tradition": "primal",
+        "attribute": "wis",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "druid-focus",
+        "spells": ["cec5d01b-a4d4-5eb5-9d47-20069a964fac"],
+        "predicate": ["feat:druid-dedication:animal-order"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "druid-focus",
+        "spells": ["3a58c6de-a5f2-5276-9f44-4ccb246152c5"],
+        "predicate": ["feat:druid-dedication:leaf-order"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "druid-focus",
+        "spells": ["61f84b31-8da0-5b2f-89a8-9ae353d08524"],
+        "predicate": ["feat:druid-dedication:storm-order"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "druid-focus",
+        "spells": ["a57b5d2f-8af8-51d0-8819-828f863e14f3"],
+        "predicate": ["feat:druid-dedication:untamed-order"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.TaoV7ArAuZjxpeQB"
     },
@@ -59673,6 +59798,42 @@
         "key": "Proficiency",
         "selector": "skill:arcana",
         "rank": "trained"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "school",
+        "choices": [
+          {
+            "value": "school-of-ars-grammatica",
+            "label": "School of Ars Grammatica"
+          },
+          {
+            "value": "school-of-battle-magic",
+            "label": "School of Battle Magic"
+          },
+          {
+            "value": "school-of-civic-wizardry",
+            "label": "School of Civic Wizardry"
+          },
+          {
+            "value": "school-of-mentalism",
+            "label": "School of Mentalism"
+          },
+          {
+            "value": "school-of-protean-form",
+            "label": "School of Protean Form"
+          },
+          {
+            "value": "school-of-the-boundary",
+            "label": "School of the Boundary"
+          },
+          {
+            "value": "school-of-unified-magical-theory",
+            "label": "School of Unified Magical Theory"
+          }
+        ],
+        "prompt": "Select a school.",
+        "rollOption": "feat:wizard-dedication"
       }
     ],
     "externalIds": {
