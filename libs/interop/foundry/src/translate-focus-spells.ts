@@ -32,6 +32,12 @@ import {
   ORDERS,
   order,
 } from './translate-druid-orders';
+import {
+  BASIC_BLOODLINE_SPELL_RULES,
+  BLOODLINES,
+  bloodline,
+  SORCERER_DEDICATION_RULES,
+} from './translate-sorcerer-bloodlines';
 import { ARCANE_SCHOOL_SPELL_RULES, school, SCHOOLS, WIZARD_DEDICATION_RULES } from './translate-wizard-schools';
 
 /**
@@ -241,6 +247,10 @@ const FOCUS: ReadonlyMap<string, Planned> = new Map([
   ['feat:counter-perform', [BARD_ENTRY, { entry: BARD, spells: ['counter-performance'] }]],
   ['feat:druid-dedication', DRUID_DEDICATION_RULES],
   ['feat:order-spell', ORDER_SPELL_RULES],
+  // Sorcerer: each bloodline's spells, the bloodline a dedication picks and the spell Basic Bloodline Spell gives.
+  ...BLOODLINES.map((each): [string, Planned] => [`class-feature:${each.slug}`, bloodline(each)]),
+  ['feat:sorcerer-dedication', SORCERER_DEDICATION_RULES],
+  ['feat:basic-bloodline-spell', BASIC_BLOODLINE_SPELL_RULES],
   // Champion: the devotion spell, and the archetypes that grant one.
   ['class-feature:devotion-spells', DEVOTION_SPELLS_RULES],
   ['feat:devout-magic', DEVOUT_MAGIC_RULES],

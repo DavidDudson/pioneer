@@ -18,6 +18,7 @@ export const CLERIC = 'cleric-focus';
 export const DRUID = 'druid-focus';
 export const RANGER = 'ranger-focus';
 export const WITCH = 'witch-focus';
+export const SORCERER = 'sorcerer-focus';
 export const WIZARD = 'wizard-focus';
 
 export const BARD_ENTRY = focusEntry({ slug: BARD, tradition: 'occult', attribute: 'cha' });

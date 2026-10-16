@@ -36,6 +36,11 @@ function keyed(key: string, { slug, fixture, spells }: Imported): Record<string,
   );
 }
 
+/** The sorcerer's spellcasting entries the feature gains, not its focus entry (translate-sorcerer-bloodlines.test.ts). */
+function sorcererEntries(feature: Imported): Record<string, unknown>[] {
+  return keyed(SpellcastingEntry, feature).filter(({ preparation }) => preparation !== 'focus');
+}
+
 const spell = (slug: string): string => idOf(`spell:${slug}`);
 
 const DEMONIC: Imported = {
@@ -75,7 +80,7 @@ const FLAMES: Imported = {
 
 describe('translateKindData: repertoire spells', () => {
   test("a bloodline gives the sorcerer's entry in its tradition and its sorcerous gifts, a cantrip then each rank", () => {
-    expect(keyed(SpellcastingEntry, DEMONIC)).toEqual([
+    expect(sorcererEntries(DEMONIC)).toEqual([
       { key: SpellcastingEntry, slug: 'sorcerer', tradition: 'divine', attribute: 'cha', preparation: 'spontaneous' },
     ]);
     const [gifts] = keyed(RepertoireSpells, DEMONIC);
@@ -96,7 +101,7 @@ describe('translateKindData: repertoire spells', () => {
 
   test("a draconic bloodline's exemplar picks the tradition and the 2nd, 5th and 8th gifts", () => {
     const [choice] = keyed(ChoiceSet, DRACONIC);
-    const entries = keyed(SpellcastingEntry, DRACONIC);
+    const entries = sorcererEntries(DRACONIC);
     const gifts = keyed(RepertoireSpells, DRACONIC);
     const ofDivine = gifts.find(({ predicate }) => String(predicate) === 'draconic-exemplar:divine');
 
@@ -127,7 +132,7 @@ describe('translateKindData: repertoire spells', () => {
   });
 
   test("an elemental bloodline's influence picks its cantrip, 1st, 3rd and 6th gifts, in the primal tradition", () => {
-    const [entry] = keyed(SpellcastingEntry, ELEMENTAL);
+    const [entry] = sorcererEntries(ELEMENTAL);
     const [choice] = keyed(ChoiceSet, ELEMENTAL);
     const gifts = keyed(RepertoireSpells, ELEMENTAL);
     const ofFire = gifts.find(({ predicate }) => String(predicate) === 'elemental-influence:fire');
