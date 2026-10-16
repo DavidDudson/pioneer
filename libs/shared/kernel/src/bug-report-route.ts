@@ -8,3 +8,6 @@ export const BugReportParam = {
   /** The character's name, shown before submit so the reporter sees what is attached. */
   CharacterName: 'name',
 } as const;
+
+/** The maintainers' list of reports, and (with the report's id after it) one report. */
+export const BUG_REPORTS_PATH = '/account/bug-reports';

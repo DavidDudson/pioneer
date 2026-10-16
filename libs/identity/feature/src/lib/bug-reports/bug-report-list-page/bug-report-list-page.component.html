@@ -1,0 +1,54 @@
+<fr-page>
+  <fr-page-header
+    [title]="'identity.bugReports.title' | transloco"
+    [description]="'identity.bugReports.description' | transloco"
+  />
+  <fr-page-body>
+    <fr-surface>
+      <fr-async-region [errorMessage]="'identity.bugReports.loadError' | transloco">
+        <ng-template frAsyncPending>
+          <fr-list gap="md">
+            @for (placeholder of placeholders; track placeholder) {
+              <fr-list-item>
+                <fr-stack gap="2xs">
+                  <fr-skeleton width="lg" />
+                  <fr-skeleton width="md" />
+                </fr-stack>
+              </fr-list-item>
+            }
+          </fr-list>
+        </ng-template>
+        <ng-template let-reports [frAsyncData]="desk.list">
+          @if (reports.length === 0) {
+            <fr-text element="p" tone="muted">{{ 'identity.bugReports.empty' | transloco }}</fr-text>
+          } @else {
+            <fr-list gap="md">
+              @for (report of reports; track report.id) {
+                <fr-list-item>
+                  <fr-stack direction="horizontal" justify="between" align="center" gap="sm" wrap>
+                    <fr-stack gap="2xs">
+                      <fr-link [to]="path(report.id)">{{ report.description }}</fr-link>
+                      <fr-text variant="caption" tone="muted">{{ report.route }}</fr-text>
+                      <fr-text variant="caption" tone="muted">
+                        {{ report.reporterName ?? ('identity.bugReports.reporterGone' | transloco) }},
+                        <fr-date format="datetime" [value]="report.createdAt" />
+                      </fr-text>
+                    </fr-stack>
+                    <fr-stack direction="horizontal" gap="sm" align="center">
+                      @if (report.hasSnapshot) {
+                        <fr-text variant="caption" tone="muted">{{
+                          'identity.bugReports.hasCharacter' | transloco
+                        }}</fr-text>
+                      }
+                      <pio-bug-report-status [status]="report.status" />
+                    </fr-stack>
+                  </fr-stack>
+                </fr-list-item>
+              }
+            </fr-list>
+          }
+        </ng-template>
+      </fr-async-region>
+    </fr-surface>
+  </fr-page-body>
+</fr-page>
