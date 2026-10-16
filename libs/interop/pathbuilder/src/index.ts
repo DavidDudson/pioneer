@@ -73,3 +73,12 @@ export {
   RankDiscrepancy,
   TotalDiscrepancy,
 } from './discrepancy-report';
+export type { ImportedCaster, ImportedSpellRank } from './read-spells';
+export {
+  placeSpells,
+  SpellGap,
+  SpellGapReason,
+  type SpellPicks,
+  type SpellPlacement,
+  type SpellPlacementContent,
+} from './spell-placement';

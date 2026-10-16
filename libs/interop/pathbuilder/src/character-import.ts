@@ -12,6 +12,7 @@ import { buildImportReport, MatchStatus, Occurrences } from './import-report';
 import type { ReportRow } from './import-report';
 import type { PathbuilderImport } from './read-pathbuilder-export';
 import { SkillGap } from './skill-placement';
+import { SpellGap } from './spell-placement';
 
 /** Why a name was not carried over. */
 export const UnmatchedReason = {
@@ -53,6 +54,7 @@ export const CharacterImportReport = z.object({
   notCarried: z.array(z.enum(UncarriedField)).readonly(),
   unplacedBoosts: z.array(UnplacedBoost).readonly(),
   skillGaps: z.array(SkillGap).readonly(),
+  spellGaps: z.array(SpellGap).readonly(),
   modifierDifferences: z.array(ModifierDifference).readonly(),
   discrepancies: DiscrepancyReport,
 });
@@ -94,6 +96,7 @@ export interface ImportOutcome {
   readonly notOffered: readonly ImportedName[];
   readonly unplacedBoosts: readonly UnplacedBoost[];
   readonly skillGaps: readonly SkillGap[];
+  readonly spellGaps: readonly SpellGap[];
   readonly modifierDifferences: readonly ModifierDifference[];
   readonly discrepancies: DiscrepancyReport;
 }

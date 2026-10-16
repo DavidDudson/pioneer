@@ -98,8 +98,8 @@ const ITEM_KINDS = [
 ] as const;
 
 /**
- * A lookup over the packs in a `ContentRegistry`: ancestries, and the heritages, backgrounds, classes, items, feats and
- * class features the packs hold as envelope entries. Pathbuilder lists some heritages, ancestry features and actions
+ * A lookup over the packs in a `ContentRegistry`: ancestries, and the heritages, backgrounds, classes, items, feats, spells,
+ * rituals and class features the packs hold as envelope entries. Pathbuilder lists some heritages, ancestry features and actions
  * among a character's feats and class features, so those kinds answer for them too. Every other kind reports as not
  * loaded until content storage (Epic 2.3) indexes it.
  */
@@ -111,6 +111,8 @@ export function registryLookup(registry: ContentRegistry): ContentLookup {
     [ImportKind.Class]: envelopeEntries(registry, ContentKind.Class),
     [ImportKind.Feat]: envelopeEntries(registry, ContentKind.Feat, ContentKind.Heritage),
     [ImportKind.Language]: envelopeEntries(registry, ContentKind.Language),
+    [ImportKind.Spell]: envelopeEntries(registry, ContentKind.Spell),
+    [ImportKind.Ritual]: envelopeEntries(registry, ContentKind.Ritual),
     [ImportKind.Item]: envelopeEntries(registry, ...ITEM_KINDS),
     [ImportKind.ClassFeature]: envelopeEntries(
       registry,

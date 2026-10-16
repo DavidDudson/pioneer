@@ -95,7 +95,7 @@ export class PathbuilderImportService {
     });
     const dual = dualClassVariant(value, content);
     const slots = slotContent(content, dual === undefined ? [] : [dual]);
-    const { character, unplaced, skillGaps, notOffered, dualClass } = importedCharacter(
+    const { character, unplaced, skillGaps, spellGaps, notOffered, dualClass } = importedCharacter(
       value,
       { lookup, slots },
       create,
@@ -106,6 +106,7 @@ export class PathbuilderImportService {
       notOffered,
       unplacedBoosts: unplaced,
       skillGaps,
+      spellGaps,
       modifierDifferences: modifierDifferences(value.attributes, attributeModifiers(character.document, slots.boosts)),
       discrepancies: importDiscrepancies(value, character, {
         registry: content,
