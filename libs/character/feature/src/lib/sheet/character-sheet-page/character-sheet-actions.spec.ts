@@ -1,3 +1,4 @@
+import { HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { SheetMode } from '@pioneer/character/domain';
 import { playerCoreClassId } from '@pioneer/character/domain/testing';
@@ -7,7 +8,7 @@ import { scriptedRandom } from '@pioneer/rules/dice/testing';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
-import { MERISIEL, openSheet, present } from '../../testing/sheet-page-harness';
+import { id, MERISIEL, openSheet, present } from '../../testing/sheet-page-harness';
 import { render, settle, textOf } from '../../testing/sheet-tabs-testing';
 import { cutTo } from '../../testing/test-packs';
 import { ACTION_CONTENT_KINDS } from '../sheet-actions';
@@ -95,5 +96,34 @@ describe('CharacterSheetPage actions', () => {
     render();
 
     expect(present(root.querySelector('pio-sheet-last-roll')).querySelector('pio-roll-card')).not.toBeNull();
+  });
+
+  it('spends the action from the turn when Use is pressed', async () => {
+    const turn = { phase: 'turn', actions: 3, quickened: 0, reactionUsed: false };
+    const play = { revision: 1, play: { hp: { damage: 0, temp: 0 }, turn, spendLog: [] } };
+    const { root } = await openSheet(FIGHTER, { tab: SheetMode.Encounter, packs: PACKS, play });
+    await vi.waitFor(() => {
+      expect(rowNames(root)).toContain('Stride');
+    });
+    const stride = present(
+      [...actionsSection(root).querySelectorAll('pio-action-row')].find(
+        (row) => textOf(present(row.querySelector('fr-text'))) === 'Stride',
+      ),
+    );
+    const use = [...stride.querySelectorAll('button')].find((button) => textOf(button) === 'Use');
+
+    present(use).click();
+
+    await vi.waitFor(() => {
+      const request = TestBed.inject(HttpTestingController).expectOne({
+        method: 'PATCH',
+        url: `/api/characters/${id}/play`,
+      });
+      expect(request.request.body).toMatchObject({
+        expectedRevision: 1,
+        command: { field: 'spendAction', cost: { kind: 'actions', count: 1 } },
+      });
+      request.flush({ ...play, events: [] });
+    });
   });
 });

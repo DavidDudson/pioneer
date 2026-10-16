@@ -1,8 +1,14 @@
-import { characterActionContext, characterActions } from '@pioneer/character/domain';
-import type { Character, ResourcesSpent } from '@pioneer/character/domain';
+import {
+  actionCosts,
+  characterActionContext,
+  characterActions,
+  SpendCount,
+  SpendKind,
+} from '@pioneer/character/domain';
+import type { Character, ResourcesSpent, SpendCost } from '@pioneer/character/domain';
 import { ActionOriginKind } from '@pioneer/rules/engine';
 import type { AvailableAction } from '@pioneer/rules/engine';
-import { ContentKind, Trait } from '@pioneer/rules/sdk';
+import { ACTION_COUNT, ActionCost, ContentKind, Trait } from '@pioneer/rules/sdk';
 import type { ContentEntry, ContentId, ContentRegistry } from '@pioneer/rules/sdk';
 import type { ActionLine } from '@pioneer/rules/ui';
 
@@ -43,6 +49,7 @@ export function sheetActions(
   const context = characterActionContext(character.document, sources);
   const entries = entriesById(registry);
   const traits = traitNames(registry);
+  const costs = actionCosts(registry);
   const priorities = new Map(context.first.map((id, place): [ContentId, number] => [id, place]));
   return actions.map((action: AvailableAction): ActionLine => ({
     id: action.action,
@@ -57,5 +64,24 @@ export function sheetActions(
     roll: action.roll,
     priority: priorities.get(action.action),
     dormant: context.dormant.has(action.action),
+    upTo: costs.get(action.action)?.upTo,
   }));
+}
+
+/**
+ * What using an action of `cost` spends from the turn: `actions` of them for a variable cost (else the cost's own
+ * count), the reaction, or nothing for a free action. Undefined for an action with no cost to spend.
+ */
+export function spendCostOf(cost: ActionCost | undefined, actions: number | undefined): SpendCost | undefined {
+  if (cost === undefined) {
+    return undefined;
+  }
+  if (cost === ActionCost.Reaction) {
+    return { kind: SpendKind.Reaction };
+  }
+  if (cost === ActionCost.Free) {
+    return { kind: SpendKind.Free };
+  }
+  const count = actions ?? ACTION_COUNT[cost];
+  return count === undefined ? undefined : { kind: SpendKind.Actions, count: SpendCount.parse(count) };
 }

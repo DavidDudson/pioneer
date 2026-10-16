@@ -94,7 +94,17 @@ Start turn, End turn and Leave encounter are play commands (`startTurn`, `endTur
 runs the bookkeeping with its own dice and answers the PATCH with the play state and the events in order, so the turn
 bar words them and shows a roll card for each persistent damage roll; the events are not stored. The turn in play
 state is the phase, the ordinary actions left, the quickened action left with the restriction its condition carries,
-and whether the reaction is spent. Spending actions, the spend log and undo come with the stories that spend them.
+and whether the reaction is spent.
+
+`spendAction` and `undoSpend` are play commands too. A spend names the action, spell or activation used by content id,
+its cost (a count of actions, the reaction or a free action) and, for an action with a frequency, the use it records.
+The server checks the cost against the action's content (a fixed cost allows only its own count, a variable one any
+count up to its `upTo`) and the turn, takes ordinary actions first and then the unrestricted quickened one, and logs the
+spend with the time it stamps and how much of it came out of the quickened action, so `undoSpend` gives back exactly
+what was taken: actions, quickened action, reaction and frequency use. A refused spend (too few actions, reaction spent,
+off-turn, no use left) writes nothing. Out of an encounter nothing is counted, so a spend only logs. Start turn and
+Leave encounter clear the log, and the actions of a spend cannot be undone once the turn is over. The log is play state
+and the actions left are the turn's, so the log never has to be summed.
 
 #### Durations, sustaining and dismissing
 
