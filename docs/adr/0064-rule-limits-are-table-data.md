@@ -1,6 +1,6 @@
 # 0064. Rule limits are table data
 
-- Status: Proposed
+- Status: Accepted
 - Date: 2026-10-16
 
 ## Context
