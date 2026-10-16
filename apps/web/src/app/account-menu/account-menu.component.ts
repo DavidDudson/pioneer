@@ -3,6 +3,7 @@ import { TranslocoPipe } from '@jsverse/transloco';
 import { AsyncButton, Button, Link, Stack } from '@pioneer/frontier';
 import { SessionStore } from '@pioneer/identity/data-access';
 import { ACCOUNT_PATH, SETTINGS_PATH } from '@pioneer/identity/domain';
+import { BUG_REPORT_PATH } from '@pioneer/shared/kernel';
 
 /**
  * The shell's account slot: sign in, or who is signed in (linking to their account), their
@@ -18,5 +19,6 @@ export class AccountMenu {
   protected readonly session = inject(SessionStore);
   protected readonly accountPath = ACCOUNT_PATH;
   protected readonly settingsPath = SETTINGS_PATH;
+  protected readonly reportBugPath = BUG_REPORT_PATH;
   protected readonly signOut = async (): Promise<void> => this.session.signOut();
 }

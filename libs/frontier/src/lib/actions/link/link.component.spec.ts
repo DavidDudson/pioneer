@@ -57,6 +57,11 @@ describe(Link, () => {
     expect(anchor.textContent.trim()).toBe('Valeros');
   });
 
+  it('adds query parameters to the page it links to', async () => {
+    const anchor = await render({ to: '/account/report-bug', queryParams: { character: 'abc', name: 'Valeros Rhys' } });
+    expect(anchor.getAttribute('href')).toBe('/account/report-bug?character=abc&name=Valeros%20Rhys');
+  });
+
   it('opens another site with rel="noopener"', async () => {
     const anchor = await render({ href: 'https://paizo.com' });
     expect(anchor.getAttribute('href')).toBe('https://paizo.com');

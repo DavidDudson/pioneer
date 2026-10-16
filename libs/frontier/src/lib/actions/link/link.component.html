@@ -24,6 +24,7 @@
     ariaCurrentWhenActive="page"
     [class]="classes()"
     [routerLink]="to()"
+    [queryParams]="queryParams()"
     [routerLinkActiveOptions]="activeOptions()"
     [attr.aria-label]="ariaLabel()"
     (isActiveChange)="setCurrent($event)"

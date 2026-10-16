@@ -378,7 +378,8 @@
       "modifier": "Modifier {modifier}",
       "go": "Roll",
       "cancel": "Cancel"
-    }
+    },
+    "reportBug": "Report a bug"
   },
   "validation": {
     "unknownAncestry": "That ancestry is not available. Choose another.",
