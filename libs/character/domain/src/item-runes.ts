@@ -5,6 +5,8 @@ import type * as z from 'zod';
 
 import type { InventoryItem } from './inventory';
 import type { ItemContent, ItemEntry } from './inventory-content';
+import { CORE_RULE_LIMITS } from './rule-limits';
+import type { RuleLimits } from './rule-limits';
 import { NO_RUNES } from './rune-etching';
 import type { ItemRunes } from './rune-etching';
 
@@ -28,6 +30,8 @@ export function runeContent(registry: ContentRegistry): RuneContent {
 export interface RunedContent {
   readonly items: ItemContent;
   readonly runes: RuneContent;
+  /** The limits the table holds items to; the core rules' when absent. */
+  readonly limits?: RuleLimits | undefined;
 }
 
 /** What an item's content is, as runes read it: a weapon, armour or a shield; undefined for anything else. */
@@ -117,16 +121,20 @@ export function hasRunes(runes: ItemRunes): boolean {
 export const PropertyRuneCount = Pg.smallint().nonnegative().brand<'PropertyRuneCount'>();
 export type PropertyRuneCount = z.infer<typeof PropertyRuneCount>;
 
-/** How many property runes `runes` holds room for: one per grade of its potency rune. */
-export function propertyRoom(runes: ItemRunes): PropertyRuneCount {
-  return PropertyRuneCount.parse(runes.potency ?? 0);
+/** How many property runes `runes` holds room for: the limit's per grade of its potency rune. */
+export function propertyRoom(runes: ItemRunes, limits: RuleLimits = CORE_RULE_LIMITS): PropertyRuneCount {
+  return PropertyRuneCount.parse((runes.potency ?? 0) * limits.propertyRunesPerGrade);
 }
 
 /**
  * The property runes that work on `item`. A specific item's all work; on any other, as many as its potency rune's
  * grade, first etched first. The rest stay etched, doing nothing, until a potency rune is etched high enough.
  */
-export function workingPropertyRunes(item: InventoryItem, entry: ItemEntry | undefined): readonly ContentId[] {
+export function workingPropertyRunes(
+  item: InventoryItem,
+  entry: ItemEntry | undefined,
+  limits: RuleLimits = CORE_RULE_LIMITS,
+): readonly ContentId[] {
   const runes = itemRunes(item, entry);
-  return isSpecific(entry) ? runes.property : runes.property.slice(0, propertyRoom(runes));
+  return isSpecific(entry) ? runes.property : runes.property.slice(0, propertyRoom(runes, limits));
 }

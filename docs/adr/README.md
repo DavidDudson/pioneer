@@ -68,6 +68,7 @@ Accepted. To change a decision, add a new ADR that supersedes the old one; do no
 | [0061](0061-variant-rules-are-enabled-per-campaign-and-character.md)    | Variant rules are enabled per campaign and per character, and read against the packs in force |
 | [0062](0062-repertoire-spells-are-a-rule-element.md)                    | Repertoire spells are a rule element: a bloodline or mystery fills the first slot of a rank   |
 | [0063](0063-repertoire-count-is-a-rule-element.md)                      | Repertoire count is a rule element: a 10th-rank repertoire is not sized by its slots          |
+| [0064](0064-rule-limits-are-table-data.md)                              | Rule limits are table data: an input to every check, with violations derived on read          |
 
 Template:
 

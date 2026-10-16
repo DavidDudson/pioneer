@@ -3,10 +3,12 @@ import type { ContentEntry, ContentId, ContentRegistry, KitData } from '@pioneer
 import { message } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
 
-import { INVENTORY_ITEMS_MAX, InventoryRefusalField, ItemQuantity } from './inventory';
+import { InventoryRefusalField, ItemQuantity } from './inventory';
 import type { Inventory, InventoryItemId, InventoryRefusal, NewItem } from './inventory';
 import { isContainer } from './inventory-content';
 import type { ItemContent } from './inventory-content';
+import { CORE_RULE_LIMITS } from './rule-limits';
+import type { RuleLimits } from './rule-limits';
 
 /** A kit content entry: the items it holds and what it costs as one purchase. */
 export type KitEntry = Extract<ContentEntry, { readonly kind: typeof ContentKind.Kit }>;
@@ -55,6 +57,8 @@ export function kitItems(
 export interface KitReads {
   readonly kits: KitContent;
   readonly items: ItemContent;
+  /** The limits the table holds items to; the core rules' when absent. */
+  readonly limits?: RuleLimits | undefined;
 }
 
 /** Why a kit can't be added whatever the inventory holds, as the message key that says so. */
@@ -89,7 +93,7 @@ export function isKitAddable(kit: KitData, items: ItemContent): boolean {
  * its items go is `inventoryRefusal`'s and `itemRefusal`'s to check.
  */
 export function kitRefusal(
-  { kits, items }: KitReads,
+  { kits, items, limits = CORE_RULE_LIMITS }: KitReads,
   inventory: Inventory,
   kit: ContentId,
 ): InventoryRefusal | undefined {
@@ -101,10 +105,10 @@ export function kitRefusal(
   if (unfit !== undefined) {
     return { field: InventoryRefusalField.Kit, message: message(unfit) };
   }
-  if (inventory.items.length + kitItemIds(entry.data).length > INVENTORY_ITEMS_MAX) {
+  if (inventory.items.length + kitItemIds(entry.data).length > limits.itemsMax) {
     return {
       field: InventoryRefusalField.Kit,
-      message: message('character.validation.kitOverfills', { maximum: INVENTORY_ITEMS_MAX }),
+      message: message('character.validation.kitOverfills', { maximum: limits.itemsMax }),
     };
   }
   return undefined;

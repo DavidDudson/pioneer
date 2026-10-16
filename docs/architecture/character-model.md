@@ -456,7 +456,9 @@ version 3, #472). `inventory.coins` holds platinum, gold, silver and copper, eac
   container stows it, and an item inside a container is always stowed. Removing a dropped
   container leaves what it held on the ground. The document holds no more than two hands' worth, and the server
   refuses holding past that (`handsFull`), wearing what isn't armour or worn (`notWearable`), a second suit of armour
-  (`armorWorn`) and a two-handed item in one hand (`needsTwoHands`).
+  (`armorWorn`) and a two-handed item in one hand (`needsTwoHands`). The limits (hands, invested, property runes per
+  grade, lines) are `RuleLimits`, the core rules' unless a table sets its own, and `inventoryViolations` derives the
+  rules an inventory breaks on every read ([ADR-0064](../adr/0064-rule-limits-are-table-data.md)).
 - **Investing.** `investItem { id, invested }` invests an item with the `invested` trait, or armour with runes
   (`notInvestable` otherwise), while it is worn or held as it is used (`investNotWorn`), at most 10
   (`investmentFull`). An invested item taken off stays invested and counts against the limit, but does nothing until
