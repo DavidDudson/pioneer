@@ -1,0 +1,364 @@
+[
+  {
+    "id": "92928bc8-64d3-5642-9cda-9bed3d49ec1f",
+    "pack": "draconic-codex",
+    "kind": "armor",
+    "slug": "armor:anti-dragon-barding",
+    "name": "Anti-Dragon Barding",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["companion", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Consisting of long steel spikes projecting from light barding, anti-dragon barding helps to protect vulnerable mounts and livestock from massive aerial predators, including dragons, griffons, and rocs."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An animal companion wearing anti-dragon barding gains a +2 item bonus to its Fortitude DC and Reflex DC against attempts to Grapple, Reposition, Shove, or Trip it, and a creature that successfully Grapples the animal companion takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d4",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["reflex-dc", "fortitude-dc"],
+        "type": "item",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["action:grapple", "action:reposition", "action:shove", "action:trip"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ZsMwDe78kIqZj5de"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 200
+        }
+      },
+      "bulk": "light",
+      "category": "light-barding",
+      "acBonus": 1,
+      "dexCap": 5,
+      "checkPenalty": 1,
+      "speedPenalty": 5,
+      "strength": 3
+    }
+  },
+  {
+    "id": "3ed09f43-b037-581b-beb6-10556832a9f6",
+    "pack": "draconic-codex",
+    "kind": "armor",
+    "slug": "armor:anti-dragon-barding-greater",
+    "name": "Anti-Dragon Barding (Greater)",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["companion", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Consisting of long steel spikes projecting from light barding, anti-dragon barding helps to protect vulnerable mounts and livestock from massive aerial predators, including dragons, griffons, and rocs."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An animal companion wearing anti-dragon barding gains a +4 item bonus to its Fortitude DC and Reflex DC against attempts to Grapple, Reposition, Shove, or Trip it, and a creature that successfully Grapples the animal companion takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d4",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["reflex-dc", "fortitude-dc"],
+        "type": "item",
+        "value": 4,
+        "predicate": [
+          {
+            "or": ["action:grapple", "action:reposition", "action:shove", "action:trip"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.YPnmDZMcGaMyCHpZ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1700
+        }
+      },
+      "bulk": "light",
+      "category": "light-barding",
+      "acBonus": 1,
+      "dexCap": 5,
+      "checkPenalty": 1,
+      "speedPenalty": 5,
+      "strength": 3
+    }
+  },
+  {
+    "id": "78ec91a7-0df9-5d84-be73-7d3952c3d2aa",
+    "pack": "draconic-codex",
+    "kind": "armor",
+    "slug": "armor:dragonauts-wingsuit",
+    "name": "Dragonaut's Wingsuit",
+    "level": 9,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+1 resilient leather armor",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is made from drake hide, and includes wing-like membranes that connect the limbs to one another. Originally designed to allow riders of aerial mounts to safely dismount if the need arises, such wingsuits remain uncommon but have gained some popularity among thrill-seeking adventurers and some mountain-dwelling communities."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Drake's Glide",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take 2 move actions, each of which can be a Fly or Stride. If you don't have a fly Speed, you gain a 20-foot fly Speed for Fly actions from this activation."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Descend",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're falling"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your fall slows to 60 feet per round for 1 minute, and if you reach the ground during this time you take no damage from the fall."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.5Ic9C7Rj8eJ35sD9"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 625
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "drakes-glide",
+          "name": "Drake's Glide",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        },
+        {
+          "slug": "descend",
+          "name": "Descend",
+          "frequency": {
+            "max": 1,
+            "per": "ten-minutes"
+          }
+        }
+      ],
+      "category": "light",
+      "group": "leather",
+      "baseItem": "leather-armor",
+      "acBonus": 1,
+      "dexCap": 4,
+      "checkPenalty": 1,
+      "strength": 0,
+      "runes": {
+        "potency": 1,
+        "resilient": 1,
+        "property": []
+      }
+    }
+  }
+]

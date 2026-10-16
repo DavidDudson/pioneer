@@ -1,0 +1,5583 @@
+[
+  {
+    "id": "3d6cdef5-7876-58bc-b0cb-dd3703ef39f3",
+    "pack": "rival-academies",
+    "kind": "class-feature",
+    "slug": "class-feature:baba-yaga",
+    "name": "Baba Yaga",
+    "level": 1,
+    "rarity": "rare",
+    "traits": ["witch"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your patron is Baba Yaga, the Queen of Witches. You are most likely a young woman who has been thrown into events far above your head, though you might also be a young man or a brave knight who has sworn your loyalty to the old witch. You may have demanded Baba Yaga's aid, and somehow escaped unscathed for your audacity. She may have reached out to you by sending a messenger in the form of an animated object, such as a mortar that had grown legs. She may have instead appeared before you herself, demanding you aid her with some nigh-impossible chore. While many fail these tasks and end up becoming a meal for Baba Yaga or meet even worse fates, you prevailed and earned her respect. Her gift to you is her patronage (and your life)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Spell List",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " occult"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Patron Skill",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Occultism"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Lesson of Baba's Understanding",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Baba Yaga teaches you to be more like her, allowing you to transfer spirits into objects and freeze your foes. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "3a73cf54-f607-5a32-b874-e79af4a6ea00"
+          },
+          {
+            "type": "text",
+            "text": " hex cantrip and your familiar learns "
+          },
+          {
+            "type": "ref",
+            "id": "a3d53fc9-c4f7-562e-ac49-db710e6199e3"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Familiar of Obscuring Snowfall",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your familiar is always covered in a thin layer of snow, which it sheds as needed. When you Cast or Sustain a hex, you can cause clinging snow to fall in a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 5
+          },
+          {
+            "type": "text",
+            "text": " centered on a square of your familiar's space. This snowfall remains until the start of your next turn, and enemies that enter these squares during that period are "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " until the start of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:occultism",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.VVMMJdIWL7fAsQf3"
+    },
+    "data": {
+      "tags": ["witch-patron"]
+    }
+  },
+  {
+    "id": "357d7d54-f0dd-544b-83e9-f6431e493025",
+    "pack": "rival-academies",
+    "kind": "class-feature",
+    "slug": "class-feature:cascade-bearers",
+    "name": "Cascade Bearers",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Cascade Bearers spend considerable time studying the qualities of magic itself as they seek to advance magical theory. They prize imagination and often bring a sense of playful curiosity to what would otherwise be intense inquiries at the borders of known magic. Of all the branches, these students are most likely to become teachers and to continue their research after graduation. In fact, some Cascade Bearers never leave the Magaambya, whether or not they attain an official teaching or research post. Their coursework draws broadly across the uses of magic, including attacking, protecting, manipulating objects, and seeing through matter."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Curriculum",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "cantrips:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "ed1f3941-7c08-5015-b12a-2017b44f68e3"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "1st:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "1c97409b-bd67-5df2-a7d3-a49aff4d3896"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "7c5ef7d9-d7ac-5654-b88c-5504257ec3f7"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "2nd:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "35f9dc96-eeca-54f3-b920-7ae0733594a8"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "3rd:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "daa245e0-fdd6-582d-888d-f47865223c52"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "4th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "57a0b3be-ec46-56cd-99e6-c5c0988b0285"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "5th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "a0d8d75b-39a6-5671-a6cf-1fc2713753f4"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "6th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "9a703ca8-ffd2-5cfd-82c2-b323c835ac03"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "7th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "43055a38-2f08-5fbf-b5bc-4766acc9cd14"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "a3f9a255-5673-5df8-91ea-24b02bb4d503"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "8th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "6acb56d4-91ce-5efb-b591-d1c2aa5af766"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "9th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "2ba1a22a-6c4c-53c2-96ed-c1f5393a02b4"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.4fmks2barqWlLtik"
+    },
+    "data": {}
+  },
+  {
+    "id": "80868290-cd4a-5258-b71f-1fbdebe176ad",
+    "pack": "rival-academies",
+    "kind": "class-feature",
+    "slug": "class-feature:cobyslarni",
+    "name": "Cobyslarni",
+    "level": 1,
+    "rarity": "rare",
+    "traits": ["witch"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Though Cobyslarni doesn't often interact directly with mortals these days, your quest for wisdom has drawn his attention. You studied at his academy, encountered him on his travels throughout the planes, or responded to his strange psychic call. However your meeting occurred, Cobyslarni empowered your studies. Though Cobyslarni rarely demands anything directly from his witches, you may receive visions of danger to the academy or its students in times of dire need."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Most witches chosen by Cobyslarni, if they're not already students at the academy, make their way there at some point. Some who follow these nudges remain at the academy indefinitely, but most eventually move on to experience their own journeys or even establish their own schools."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Spell List",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " occult;"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Patron Skill",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Occultism"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Lesson of Wandering Mind",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cobyslarni has taught you to keep an open mind and seek knowledge in all things, sifting through an array of facts that others would find bewildering. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "1c96d16c-37e7-54e8-8538-e19817e02e6d"
+          },
+          {
+            "type": "text",
+            "text": " hex cantrip and your familiar learns "
+          },
+          {
+            "type": "ref",
+            "id": "cfd348d1-c3dd-55bd-a814-5ad8a11e26a2"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Familiar of Insightful Observation",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your familiar boasts a third eye upon their head or body, resembling the one set in Cobyslarni's forehead. When you Cast or Sustain a hex, your familiar can attempt a check to Recall Knowledge as a free action with any skill in which you are trained or better, using your bonus, and psychically transmit the information to you."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:occultism",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.CxvLFkrV5LlADQkx"
+    },
+    "data": {
+      "tags": ["witch-patron"]
+    }
+  },
+  {
+    "id": "982c1594-f7d1-5ab2-8ed3-52ef4b4e0a39",
+    "pack": "rival-academies",
+    "kind": "class-feature",
+    "slug": "class-feature:emerald-boughs",
+    "name": "Emerald Boughs",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Emerald Boughs value the societies and natural communities of the present day, seeking to understand the world as it is and how magic operates therein. Emphasizing camaraderie and sociality, these students tend to be the ones that most eagerly embrace the Magaambya's \"practical magic\" curriculum where they leave campus and work within communities. While some of these students have been accused of spying for the school, espionage is not an official part of their curriculum. Magic that can serve or sway others—as well as magic that reveals knowledge or allows access to it—is, instead, at the heart of this curriculum."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Curriculum",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "cantrips:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "51e8ae51-66a8-530c-8c80-1332c8626cec"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "1st:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "a3738cb8-aa5d-5084-b250-86fe19b7498d"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "3d63b411-a7ae-5d54-bcc3-b6426386412e"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "2nd:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "3597aeb0-883c-562a-82ca-37e92210633d"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "3rd:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "bd03779f-21b9-55bd-8656-887b25c8f8dd"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "4th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "f16d1dce-4fec-5ce3-982c-beead5f20615"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "5th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "2897020f-b34e-5315-9369-d501cd903968"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "6th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "d86cf275-4547-59c7-87b4-41d84f69e524"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "7th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "ad19fa16-a5bd-513e-9a73-32f05671fb03"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "8th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "c162b2c7-aa54-5201-ab21-a2909f5790b3"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "9th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "fb2cc36e-8e1c-5149-a202-43938814f46a"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.JhczMKRuy53BxqBi"
+    },
+    "data": {}
+  },
+  {
+    "id": "3d546a02-888d-52f2-a9b3-7837f06cdb86",
+    "pack": "rival-academies",
+    "kind": "class-feature",
+    "slug": "class-feature:envy",
+    "name": "Envy",
+    "level": 1,
+    "rarity": "rare",
+    "traits": ["wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The Cutting Eye reveals weaknesses in yourself and others, creating those weaknesses when you need to humble those who dare surpass you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Use your magic to cause harm with the elements or void."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sin Spells",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "cantrips:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "6dee4f5d-f584-5402-af2a-d3738ec685b3"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "5ad9a64e-8b2e-5db4-8526-bc713e07778c"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "1st:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "d8784fda-dc4e-5e95-b4e6-3d2cd5fd54a0"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "cfa16eeb-cd33-54aa-904d-2c72742cd3ac"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "2nd:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "b434b2d9-47e5-519e-a542-6dae12c51157"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "8a83becc-07c0-52c9-92ce-77546175cc07"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "3rd:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "3cddd734-8a89-5de8-9c13-65748a0c7c32"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "4071937b-1eb3-5508-a4d1-3271ce3fc01d"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "4th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "810878b5-e264-5dff-a417-e8ee5bbe60ea"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "0dfae2cc-8da3-54ef-87be-016eadc92505"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "5th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "b2355f5f-2795-58d8-a713-df34a0257e46"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "6680332a-1cdd-5960-bf8d-fa9bac34fc35"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "6th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "9a703ca8-ffd2-5cfd-82c2-b323c835ac03"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "ef577445-0666-5e29-869e-6783ca9b096a"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "7th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "49df8d74-a119-5bf7-a977-c5b5bc8f0224"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "8845ac04-b934-5119-92b8-e7831092fe04"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "8th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "9cbca3a7-5a5f-55f3-b53c-29e1dabc9ac2"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "9th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "2ba1a22a-6c4c-53c2-96ed-c1f5393a02b4"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Initial School Spell",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "7e41dfb1-29a6-5555-a31e-de3a3558b653"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.Fh5Khtx5bgGpBeOu"
+    },
+    "data": {}
+  },
+  {
+    "id": "f5bd6bae-fa4c-5f09-ac50-733d69aee850",
+    "pack": "rival-academies",
+    "kind": "class-feature",
+    "slug": "class-feature:gluttony",
+    "name": "Gluttony",
+    "level": 1,
+    "rarity": "rare",
+    "traits": ["wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The All-Encompassing invokes a deep emptiness in its users, encouraging them to consume and consume, with nothing ever feeling like enough."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Use your magic to protect others or manipulate minds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sin Spells",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "cantrips:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "5448a3aa-c872-5662-9382-c4039b0b21d5"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "bb65f478-400b-518d-a697-75f634f6dbc1"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "1st:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "c9d16d82-fcfd-5431-9d05-06caca157602"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "d67d6680-3ff4-55d5-87da-65012569387d"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "2nd:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "35b74c87-60dd-5bfe-8ede-6996b9af8bd9"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "1b2795d4-f0b4-554e-9bb6-21eaabb59b60"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "3rd:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "21a80879-9160-5bdf-810e-1f12dbf466e3"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "2a6f1cc9-99b9-5354-a4d0-56e69c15ff17"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "4th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "bbe99dfe-9c98-5d6d-b637-abcffa6240e2"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "eeac645d-55c6-53b3-8843-5a6ff6edb2f1"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "5th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "867de67b-b3d3-5c80-9a68-0c8dcdf18f46"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "f97e48c5-f8dc-5888-83c8-67ed63b03f23"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "6th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "e4628be0-93e0-58ba-adb1-d9e656f43da5"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "b346ac8d-e3aa-5131-af4a-9cbae1f72ff8"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "7th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "3985531f-73d9-57ca-9297-3588467eb3ce"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "56b4d7c9-6277-5134-9f36-3eb0511762f2"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "8th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "0ffdc954-c422-5590-a4f2-c72d060baf98"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "9th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "3c286698-36f2-5124-bba1-f2d740ffa9ca"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Initial School Spell",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "5fef44e8-5f50-5f17-aace-5ae953d8687a"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.hzATJ1FV3lTPgeG9"
+    },
+    "data": {}
+  },
+  {
+    "id": "97555159-5994-5e12-a40c-ce733e0a18e2",
+    "pack": "rival-academies",
+    "kind": "class-feature",
+    "slug": "class-feature:greed",
+    "name": "Greed",
+    "level": 1,
+    "rarity": "rare",
+    "traits": ["wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The Precious Gleam carries knowledge that the world's problems are far beyond one's current form and resources. But forms can change and resources can be hoarded with the help of this rune's magic."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Use your magic to affect the mind or perception rather than physical reality."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sin Spells",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "cantrips:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "3a393564-d44c-59e4-8abe-092117c6a5d1"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "02c769dd-dba8-5437-8189-28b9800afaac"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "1st:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "2dc18e1c-6af3-5ac2-a3b2-dcac53230733"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "cf79d691-52cb-5343-b5d0-e6480a997025"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "2nd:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "b76d119e-0d8d-52ad-8cca-1a224c3077ae"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "513a293d-bfa9-5a6c-acaa-d37223df997f"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "3rd:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "82b08e7f-45f7-5928-ab63-d207273019ee"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "97c2cffe-087b-5c94-8e99-7f104bd682ad"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "4th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "2a6fa0af-fee4-5103-ac4c-460c30e51918"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "2f24aa2e-a10d-5cf8-ae46-3f7e52a4fe6d"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "5th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "877e8c19-8f14-5568-8d0b-4b9c520e07ea"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "efcbeb7d-28bc-5644-abad-cbccad85de79"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "6th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "ba683a40-46d3-584b-b74a-ddc1370a9916"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "86c529b1-5a2f-5bac-9c74-674544b5bd32"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "7th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "7780efd3-320f-5e1d-a701-d95d84255bc6"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "ea0b986c-facd-554e-b56b-8d4f2e4d8ab3"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "8th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "c9e1a46f-ea98-5d01-935a-1d7035a3833b"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "9th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "a38c5303-30ba-573f-ba85-624c5dc04dc1"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Initial School Spell",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "78ead2e4-84bc-577c-886b-395e1d586658"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.COMhWWNBJOdaJqp7"
+    },
+    "data": {}
+  },
+  {
+    "id": "7dcdbac6-63de-5a10-9168-922327e46e9b",
+    "pack": "rival-academies",
+    "kind": "class-feature",
+    "slug": "class-feature:lesson-of-memory",
+    "name": "Lesson of Memory",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["witch"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Cobyslarni has untold years of memories, which he's learned how to shape, recalling information—or obliterating it. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "87a3ac31-57a0-5757-93bb-e379463a6867"
+          },
+          {
+            "type": "text",
+            "text": " hex, and your familiar learns "
+          },
+          {
+            "type": "ref",
+            "id": "22b62dab-5ef5-5d09-8c09-2f7bcfc88be1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.e6nZuYDbRffnJwHZ"
+    },
+    "data": {
+      "tags": ["witch-lesson"]
+    }
+  },
+  {
+    "id": "66cbf7ab-cee4-5239-aa1c-7b7dbc3f0089",
+    "pack": "rival-academies",
+    "kind": "class-feature",
+    "slug": "class-feature:lesson-of-vows",
+    "name": "Lesson of Vows",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["witch"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Words have power, and those who use them to deceive should be prepared to face the consequences. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "14893004-1f25-5f78-b7c4-29a86c2d3dae"
+          },
+          {
+            "type": "text",
+            "text": " hex, and your familiar learns "
+          },
+          {
+            "type": "ref",
+            "id": "f27c5853-2de7-5506-a02e-1dcf562fb4b6"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.ZFWmfZezeJDWSMFA"
+    },
+    "data": {
+      "tags": ["witch-lesson"]
+    }
+  },
+  {
+    "id": "5ca34190-e2b3-50f9-91d7-7155eac4aaa5",
+    "pack": "rival-academies",
+    "kind": "class-feature",
+    "slug": "class-feature:lust",
+    "name": "Lust",
+    "level": 1,
+    "rarity": "rare",
+    "traits": ["wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The Heart's Hook drowns rationality in desires, twisting its targets' thoughts until they gladly serve the runelord's wishes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Use your magic to meddle with physical forms or invoke the void."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sin Spells",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "cantrips:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "0964edfe-0384-5444-908b-fe24653c28f5"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "c319a7b8-ee8e-5f50-97c7-16151916ad80"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "1st:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "a3738cb8-aa5d-5084-b250-86fe19b7498d"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "15904512-5f17-5bba-b1a0-1f892989912c"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "2nd:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "708da07e-c2ec-5484-9308-e811dfbe5816"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "8a83becc-07c0-52c9-92ce-77546175cc07"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "3rd:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "d6b0d1ae-f695-5de3-a7ba-b3eef2060313"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "ed8ad89d-b5e6-5f93-9e80-1368a1e0b8dc"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "4th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "f16d1dce-4fec-5ce3-982c-beead5f20615"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "06dcb2ac-6b0e-512e-bcc4-7dd4abe5d503"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "5th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "8f96da2d-86f2-5d01-880b-1a2466bb279a"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "72597ff4-3a09-5802-9fd2-d42b78034487"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "6th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "54bcf730-ab6d-5ba7-9747-86a6debbd00c"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "1ca1f242-df46-5466-a3e1-3ae1e1069c1f"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "7th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "103e117e-b72f-55f6-b8d8-0498e4b1cdd1"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "1748638c-efed-5899-a084-68570d86b128"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "8th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "2044ae9b-f82e-5da7-9208-fef06297ca5a"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "9th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "b7754f3a-cabc-50e9-983a-b249860e9167"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Initial School Spell",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "a6356de2-1f90-5876-8800-d7161c76bbc1"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.MpZ0sdwMJ8fdZmtR"
+    },
+    "data": {}
+  },
+  {
+    "id": "db9acf99-7800-5734-8314-27c2e2db4e46",
+    "pack": "rival-academies",
+    "kind": "class-feature",
+    "slug": "class-feature:pride",
+    "name": "Pride",
+    "level": 1,
+    "rarity": "rare",
+    "traits": ["wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The Crescent Scepter is endlessly convinced of its own superiority and the ascendance of its users. If someone's eyes show something else, clearly their eyes are mistaken."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Use your magic to change or create physical things rather than their appearances."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sin Spells",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "cantrips:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "427481f6-06b8-5e15-9f76-a87a84b28d01"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "d32836d8-9eeb-52c0-a7f8-6e0bc64ed7c7"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "1st:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "ce5ba457-89bd-5a85-8d45-2faa300f9d49"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "adcc4c8f-05ae-5440-83d0-9e88ad22209b"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "2nd:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "0af1f62f-c028-5e01-ba52-4b9c00f83890"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "e8221b18-c4c7-5d99-a604-a3cf119d41b1"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "3rd:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "4dd829e2-04f0-5cff-ab8f-bb762c3586cf"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "daa245e0-fdd6-582d-888d-f47865223c52"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "4th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "246e24c3-5849-55a9-a7d9-f253f8ee6da4"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "50de9888-d8e7-5733-b97c-4f360205e33f"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "5th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "f3e628e3-df4c-5e25-bf18-8feb9e7d8d25"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "6th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "8863d56b-38f3-5724-80df-c0c7f9a8652f"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "7th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "c4f7f267-8526-5dd9-9ff8-2ef5d29ac387"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "a3f9a255-5673-5df8-91ea-24b02bb4d503"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "8th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "44f801ac-e3d8-5dde-804a-258e472262ea"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "9th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "b6dff26a-ff68-54a5-bdeb-8ac98bea8879"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Initial School Spell",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "b496a144-a706-5d46-a0b0-ee5d08604278"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.GI09dKNZVCPdSGZC"
+    },
+    "data": {}
+  },
+  {
+    "id": "f859e4a1-e935-5109-8743-000d1e1374bc",
+    "pack": "rival-academies",
+    "kind": "class-feature",
+    "slug": "class-feature:rain-scribes",
+    "name": "Rain-Scribes",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Rain-Scribes, who seek to explore the world and especially its unknown corners, draw the closest of all the branches to primal magic in their study of the arcane. They also embrace the \"practical magic\" schooling that takes them off of campus, often into the wilds of the Mwangi Expanse but sometimes beyond to other continents on Golarion or even onto distant planes. Their course of magical study includes connecting with and understanding nature, working with the elements, summoning animals, and providing for their own survival."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Curriculum",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "cantrips:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "b0b84836-b7a0-59ca-9379-6efdfb022f9e"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "1st:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "d79a21f4-82c0-53b7-a473-84069eb69636"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "c7eb6251-286a-5188-a071-eabce4497407"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "2nd:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "facfbe1d-4b9d-5f57-bd33-bd5413a58316"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "3rd:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "6c93157e-4fb6-5e3e-aef5-23f59651c049"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "4th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "d5adaa25-524b-5b0b-bdb8-ead3422e725b"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "3f76db0d-3598-5ec4-bdd4-9f568f4f8973"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "5th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "aab61556-b7d8-59f6-b488-8f0c9d31aeef"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "7c14054e-1a70-5b65-acda-2a1661596af7"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "6th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "088c1f48-de0f-5b8a-83b3-24ce61a928bc"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "7th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "0e5984dc-6b02-5ee0-81df-9b1749de8f65"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "8th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "1001faa9-fabc-5445-b281-5716b5ccab6d"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "9th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "a38c5303-30ba-573f-ba85-624c5dc04dc1"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.Oa0ENh8Zh7BftViG"
+    },
+    "data": {}
+  },
+  {
+    "id": "239da238-f88b-5d6c-b820-f554aa594269",
+    "pack": "rival-academies",
+    "kind": "class-feature",
+    "slug": "class-feature:resurgent-maelstrom",
+    "name": "Resurgent Maelstrom",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["magus"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While fate may conspire to strip you of your armaments, you're never helpless. For you, anything can be a dangerous weapon, bolstered by the might of towering waves and crushing tides. You know these tools are transient, and so you think nothing of shattering and reforming them with your magic."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your attacks with improvised weapons do not take the normal –2 item penalty. While you wield an improvised weapon, streams of water flow from your limbs to surround the weapon, granting it the water trait. These improvised weapons have a minimum damage die of 1d6, or 1d4 if the improvised weapon is agile."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effects that apply runes to your unarmed attacks, like "
+          },
+          {
+            "type": "ref",
+            "id": "0326fd8f-6c36-5184-940b-a36b47e8c4a8"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "30f44d19-1eec-5808-ae18-11a7bb4d8a59",
+            "label": "Handwraps of Might Blows"
+          },
+          {
+            "type": "text",
+            "text": ", also apply those runes to your non-magical improvised weapons. The improvised weapon also gains an additional trait, depending on how many hands it takes to wield. A one-handed improvised weapon gains the backstabber trait; if it would already have the backstabber trait, double the amount of additional precision damage. A two-handed improvised weapon gains the forceful trait; if it would already have the forceful trait, treat the number of weapon damage dice the weapon has as 1 higher for the purpose of calculating the additional damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While you're in Arcane Cascade stance, you can manipulate the water around your improvised weapon, making it cut like a knife or bash with the force of falling rocks. The weapon gains the versatile traits for the types of damage that it doesn't normally deal. For instance, an improvised weapon that normally deals bludgeoning damage gains the versatile P and versatile S traits."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Conflux Spell",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "1342b92a-b80e-5824-b7a2-3e00a8aab47b"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Studious Spells",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 7th: "
+          },
+          {
+            "type": "ref",
+            "id": "62b9b05e-2f86-5c8b-bc12-2500cd4d9959"
+          },
+          {
+            "type": "text",
+            "text": ", 11th: "
+          },
+          {
+            "type": "ref",
+            "id": "9f40500a-0431-52d2-8285-8923aacd4069"
+          },
+          {
+            "type": "text",
+            "text": ", 13th: "
+          },
+          {
+            "type": "ref",
+            "id": "3f76db0d-3598-5ec4-bdd4-9f568f4f8973"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.X3nPGnqh6rkRJ75i"
+    },
+    "data": {
+      "tags": ["magus-hybrid-study"]
+    }
+  },
+  {
+    "id": "2d66aef5-c96f-5dc9-aaab-056d53deb0d1",
+    "pack": "rival-academies",
+    "kind": "class-feature",
+    "slug": "class-feature:runelord",
+    "name": "Runelord",
+    "level": 1,
+    "rarity": "rare",
+    "traits": ["wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You draw untold power from runes, sometimes called sin magic. You associate with one of the seven sins, also known as the seven rewards of rule: envy, gluttony, greed, lust, pride, sloth, and wrath. If you choose this class archetype, you must select "
+          },
+          {
+            "type": "ref",
+            "id": "801a5233-8eec-598f-a033-4f07708fa116"
+          },
+          {
+            "type": "text",
+            "text": " as your 2nd-level class feat."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Prerequisites:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You must be a wizard."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Runelord Adjustments:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You become trained in martial polearms and spears. When your proficiency for simple weapons increases, your proficiencies in these weapons increases as well. You learn the Thassilonian language."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Instead of an arcane thesis, you gain a personal rune. Your personal rune also affects your arcane bond."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You must select the "
+          },
+          {
+            "type": "ref",
+            "id": "84a07dfc-afe3-5f82-b195-4104411d1ac8"
+          },
+          {
+            "type": "text",
+            "text": " as your arcane school, and you must choose one sin to specialize in. When you cast any curriculum spell or school spell from the School of Thassilonian Rune Magic, you do so simply by tracing runes of power in the air. This removes the need to speak incantations aloud. When you Refocus, you do so by contemplating or indulging in your sin."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each sin is opposed by two others. The incompatibility of these sins means that casting magic philosophically appropriate to those opposing sins, as represented by each school's anathema, interrupts your connection to your own sin and personal rune. If you violate your sin's anathema, you lose the benefits of your personal rune, and whenever you attempt to cast a curriculum spell or school spell, you must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 15
+          },
+          {
+            "type": "text",
+            "text": " or the spell is lost. This disruption lasts until you complete an Atone ritual; unlike a normal atone ritual, Arcana can be used for both the primary and secondary checks. Your curriculum spells (including spells of your own sin) never violate this anathema, sometimes providing alternatives to prohibited magic."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain "
+          },
+          {
+            "type": "ref",
+            "id": "0b0fa48e-3200-5af5-92d7-e43b379ec1a3"
+          },
+          {
+            "type": "text",
+            "text": " as a bonus feat at 8th level, gaining the advanced school spell for the School of Thassilonian Rune Magic; once you've begun your studies of sin magic, there is no turning back from its allure."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "School of Thassilonian Rune Magic"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Arcane Bond and Personal Rune",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Runelords hail from an era where even a scholar was expected to be able to defend themself with arms if necessary, leading to the practice of attaching a blade to the typical wizard's staff. You must choose a polearm or spear as your arcane bond. In place of an arcane thesis, you have a personal rune, which appears on your bonded weapon. The weapon functions as a staff only you can prepare and contains the sin spells from your sin up to the highest rank of spell you can cast (including your cantrips). Your personal rune isn't a property rune and doesn't count against the weapon's limit of such runes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you prepare your bonded weapon as a staff, you can physically merge one other staff in your possession into it, adding the staff's spells to your bonded weapon until your next daily preparations. While merged, the weapons haft takes on aesthetic aspects of the staff."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "84a07dfc-afe3-5f82-b195-4104411d1ac8"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.HYTaibaCGE85rhbZ"
+    },
+    "data": {
+      "tags": ["class-archetype", "wizard-arcane-school"]
+    }
+  },
+  {
+    "id": "159f18ba-0702-58b8-b1d8-c76bc928f520",
+    "pack": "rival-academies",
+    "kind": "class-feature",
+    "slug": "class-feature:school-of-rooted-wisdom",
+    "name": "School of Rooted Wisdom",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've studied at the Magaambya or under one of its traveling professors, learning the ancient magic of Golarion's oldest academy. Your curriculum is self-directed, allowing you to choose a branch of study and personalize your learning. If you choose the School of Rooted Wisdom, you gain the below curriculum and school spells."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Curriculum",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "cantrips:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "c91ac947-a9ec-5f07-b5f9-a054617eb571"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "1st:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "37cbee1f-5e9a-5b6e-b6bf-60d122467a65"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "2nd:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "b434b2d9-47e5-519e-a542-6dae12c51157"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "3rd:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "30234e3f-a8be-5813-adf9-a56c58ee261c"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "4th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "2e797ff1-fcb3-5e23-af04-bc8fc9271425"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "5th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "07ae3cd7-dcbd-519c-a9f0-6c9c385a5139"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "6th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "ec6df711-1ab8-5f9d-8e01-6827c947eeff"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "7th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "7c9cae9d-6b33-5c97-91e7-787d78e8ec45"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "8th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "9cbca3a7-5a5f-55f3-b53c-29e1dabc9ac2"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "9th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": "—"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "School Spells",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " initial: "
+          },
+          {
+            "type": "ref",
+            "id": "d6636cad-277f-5fc7-8615-c8f371ca07fc"
+          },
+          {
+            "type": "text",
+            "text": "; advanced: "
+          },
+          {
+            "type": "ref",
+            "id": "745dc147-bca9-5112-b510-635b8586e978"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This is your primary trunk of study, to which you add one of the following five secondary branches, granting you additional curriculum spells."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "357d7d54-f0dd-544b-83e9-f6431e493025"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "982c1594-f7d1-5ab2-8ed3-52ef4b4e0a39"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "f859e4a1-e935-5109-8743-000d1e1374bc"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "667347c4-96ac-5cda-96c8-4eb48efd6ca5"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "af8158f4-2f24-58b7-8f95-02378a59ac35"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "PoolSpells",
+        "entry": "wizard",
+        "pool": "curriculum",
+        "spells": [
+          "c91ac947-a9ec-5f07-b5f9-a054617eb571",
+          "37cbee1f-5e9a-5b6e-b6bf-60d122467a65",
+          "b434b2d9-47e5-519e-a542-6dae12c51157",
+          "30234e3f-a8be-5813-adf9-a56c58ee261c",
+          "2e797ff1-fcb3-5e23-af04-bc8fc9271425",
+          "07ae3cd7-dcbd-519c-a9f0-6c9c385a5139",
+          "ec6df711-1ab8-5f9d-8e01-6827c947eeff",
+          "7c9cae9d-6b33-5c97-91e7-787d78e8ec45",
+          "9cbca3a7-5a5f-55f3-b53c-29e1dabc9ac2"
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.KGkWSv9rARpwWzXW"
+    },
+    "data": {
+      "tags": ["wizard-arcane-school"]
+    }
+  },
+  {
+    "id": "84a07dfc-afe3-5f82-b195-4104411d1ac8",
+    "pack": "rival-academies",
+    "kind": "class-feature",
+    "slug": "class-feature:school-of-thassilonian-rune-magic",
+    "name": "School of Thassilonian Rune Magic",
+    "level": 1,
+    "rarity": "rare",
+    "traits": ["wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This curriculum, taught at a few select academies in New Thassilon, can be learned only by wizards with the runelord class archetype. You have begun to study one of the seven runes of sin, granting you great power but at the cost of anathematic magic. All runelords gain the below curriculum and school spells."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In addition, you must choose one of the seven sins to specialize in. You add your sin's spells and initial school spells to your curriculum. The addictive nature of sin magic prevents you from using magic in ways aligned with other sins, represented by that sin's anathema. Casting a sin spell never invokes the anathema of its school of sin."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Unlike other wizards, some of your curriculum spells may be spells that don't typically appear on the arcane spell list (marked with an asterisk). You still cast these spells as arcane spells, the unifying knowledge of sin bridging the gap between disparate magics."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Curriculum",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "cantrips:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "c91ac947-a9ec-5f07-b5f9-a054617eb571"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "161eed43-e585-5c4f-a01f-3a11431b5e75"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "1st:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "7c5ef7d9-d7ac-5654-b88c-5504257ec3f7"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "0326fd8f-6c36-5184-940b-a36b47e8c4a8"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "1e70918d-066f-5a32-938b-48362d1d669e"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "566a10d1-097c-5ee1-b473-4e0ab1475228"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "2nd:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "6bcf1643-218b-5e08-9fa5-62ff7c800b72"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "52cd674f-3e49-5527-b0c9-8a4137bc9c08"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "3rd:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "137e9f3a-3af5-5004-9a32-dba8fdaff034"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "3c7ef298-5d47-58c4-a650-2bec5d4bda5d"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "4th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "9d2d34b7-d94e-51d0-b169-e6cb9f4f0b2a"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "5ff17619-93b1-5680-ad41-5f66ad9a8c0b"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "5th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "8f96da2d-86f2-5d01-880b-1a2466bb279a"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "3c2ab746-3091-512f-9309-804440742c21"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "6th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "d86cf275-4547-59c7-87b4-41d84f69e524"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "ec6df711-1ab8-5f9d-8e01-6827c947eeff"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "7th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "43055a38-2f08-5fbf-b5bc-4766acc9cd14"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "35c8fba6-ef32-549e-a849-34d6e599b4d6"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "8th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "5cd8e86f-9a06-59b4-a2fd-7a1cc14b4c3e"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "c4dfdf84-0d97-5c26-95fc-35a4f59cc7a7"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "9th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "fb2cc36e-8e1c-5149-a202-43938814f46a"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Advanced School Spell",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "72f82453-6e10-5eaf-aa9d-c7c7b7a68295"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "3d546a02-888d-52f2-a9b3-7837f06cdb86"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "f5bd6bae-fa4c-5f09-ac50-733d69aee850"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "97555159-5994-5e12-a40c-ce733e0a18e2"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "5ca34190-e2b3-50f9-91d7-7155eac4aaa5"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "db9acf99-7800-5734-8314-27c2e2db4e46"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "664b4b25-8bc2-545d-ba98-6c8fac27825b"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "db7485af-8391-5d00-a2af-c4a30426decf"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "PoolSpells",
+        "entry": "wizard",
+        "pool": "curriculum",
+        "spells": [
+          "c91ac947-a9ec-5f07-b5f9-a054617eb571",
+          "161eed43-e585-5c4f-a01f-3a11431b5e75",
+          "7c5ef7d9-d7ac-5654-b88c-5504257ec3f7",
+          "0326fd8f-6c36-5184-940b-a36b47e8c4a8",
+          "1e70918d-066f-5a32-938b-48362d1d669e",
+          "566a10d1-097c-5ee1-b473-4e0ab1475228",
+          "6bcf1643-218b-5e08-9fa5-62ff7c800b72",
+          "52cd674f-3e49-5527-b0c9-8a4137bc9c08",
+          "137e9f3a-3af5-5004-9a32-dba8fdaff034",
+          "3c7ef298-5d47-58c4-a650-2bec5d4bda5d",
+          "9d2d34b7-d94e-51d0-b169-e6cb9f4f0b2a",
+          "5ff17619-93b1-5680-ad41-5f66ad9a8c0b",
+          "8f96da2d-86f2-5d01-880b-1a2466bb279a",
+          "3c2ab746-3091-512f-9309-804440742c21",
+          "d86cf275-4547-59c7-87b4-41d84f69e524",
+          "ec6df711-1ab8-5f9d-8e01-6827c947eeff",
+          "43055a38-2f08-5fbf-b5bc-4766acc9cd14",
+          "35c8fba6-ef32-549e-a849-34d6e599b4d6",
+          "5cd8e86f-9a06-59b4-a2fd-7a1cc14b4c3e",
+          "c4dfdf84-0d97-5c26-95fc-35a4f59cc7a7",
+          "fb2cc36e-8e1c-5149-a202-43938814f46a"
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.aYWPtW5T4Lx07Occ"
+    },
+    "data": {}
+  },
+  {
+    "id": "e5f5db0a-e782-5a7c-ab4e-6f9fd3300366",
+    "pack": "rival-academies",
+    "kind": "class-feature",
+    "slug": "class-feature:school-of-the-reclamation",
+    "name": "School of the Reclamation",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whether it's been lost to war, abandoned during calamity, or simply buried by the ages, there is as much important knowledge to be found in the hidden corners of the world as in the schools and libraries of the academy. Your study of magic in the service of rediscovering lost knowledge for the Sarkoris Reclamation has taught you that much that was once lost can still be found, but only if someone is willing to seek it out and retrieve it. You've focused your magic on reaching the world's hidden and forgotten places, whether they are found in a distant ruin or the depths of a lost memory, and bringing their knowledge back to the surface—whatever the cost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Curriculum",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "cantrips:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "d4cea589-6319-5d13-9109-319b4bbcc6e1"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "ed1f3941-7c08-5015-b12a-2017b44f68e3"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "1st:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "f94a3b5e-8e3c-5781-81a5-5eca9bd19421"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "e48e01db-df29-5558-b6a3-a78233bae1d1"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "d79a21f4-82c0-53b7-a473-84069eb69636"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "2nd:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "d1f43afb-1c79-545c-9563-4dbbdd5a8386"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "800b8d9b-a588-51a3-b351-409d0883ec8d"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "3rd:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "d437e6ba-d367-5d77-b142-bace584873d7"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "0b64e259-05eb-5e87-b0ae-824e4ac272a4"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "4th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "a8ebd7e4-c8f1-5f8f-9c1c-d6a4e4c145ba"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "2f24aa2e-a10d-5cf8-ae46-3f7e52a4fe6d"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "5th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "8f96da2d-86f2-5d01-880b-1a2466bb279a"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "2897020f-b34e-5315-9369-d501cd903968"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "6th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "ec6df711-1ab8-5f9d-8e01-6827c947eeff"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "062680d1-edd9-5d3d-b358-fc861d29d3ff"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "7th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "d1a41390-1e5d-5ed7-89e9-490ffda30298"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "99651215-11b0-5244-8514-74c05a562385"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "8th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "6acb56d4-91ce-5efb-b591-d1c2aa5af766"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "5cd8e86f-9a06-59b4-a2fd-7a1cc14b4c3e"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "9th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "a38c5303-30ba-573f-ba85-624c5dc04dc1"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "School Spells",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " initial: "
+          },
+          {
+            "type": "ref",
+            "id": "f220dbe6-ee42-5c9f-bf4b-01a92bc29e40"
+          },
+          {
+            "type": "text",
+            "text": "; advanced: "
+          },
+          {
+            "type": "ref",
+            "id": "5faef301-f358-5248-b548-5619c097b26d"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "PoolSpells",
+        "entry": "wizard",
+        "pool": "curriculum",
+        "spells": [
+          "d4cea589-6319-5d13-9109-319b4bbcc6e1",
+          "ed1f3941-7c08-5015-b12a-2017b44f68e3",
+          "f94a3b5e-8e3c-5781-81a5-5eca9bd19421",
+          "e48e01db-df29-5558-b6a3-a78233bae1d1",
+          "d79a21f4-82c0-53b7-a473-84069eb69636",
+          "d1f43afb-1c79-545c-9563-4dbbdd5a8386",
+          "800b8d9b-a588-51a3-b351-409d0883ec8d",
+          "d437e6ba-d367-5d77-b142-bace584873d7",
+          "0b64e259-05eb-5e87-b0ae-824e4ac272a4",
+          "a8ebd7e4-c8f1-5f8f-9c1c-d6a4e4c145ba",
+          "2f24aa2e-a10d-5cf8-ae46-3f7e52a4fe6d",
+          "8f96da2d-86f2-5d01-880b-1a2466bb279a",
+          "2897020f-b34e-5315-9369-d501cd903968",
+          "ec6df711-1ab8-5f9d-8e01-6827c947eeff",
+          "062680d1-edd9-5d3d-b358-fc861d29d3ff",
+          "d1a41390-1e5d-5ed7-89e9-490ffda30298",
+          "99651215-11b0-5244-8514-74c05a562385",
+          "6acb56d4-91ce-5efb-b591-d1c2aa5af766",
+          "5cd8e86f-9a06-59b4-a2fd-7a1cc14b4c3e",
+          "a38c5303-30ba-573f-ba85-624c5dc04dc1"
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.n2LRzksKVSzOuzqN"
+    },
+    "data": {
+      "tags": ["wizard-arcane-school"]
+    }
+  },
+  {
+    "id": "664b4b25-8bc2-545d-ba98-6c8fac27825b",
+    "pack": "rival-academies",
+    "kind": "class-feature",
+    "slug": "class-feature:sloth",
+    "name": "Sloth",
+    "level": 1,
+    "rarity": "rare",
+    "traits": ["wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The Reclined spreads a sense of restful peace to its users, the feeling of rest after a hard day of work without the drudgery leading up to it. With its magic, runelords can cut away even the smallest drudgery."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Use your magic to manipulate appearances or directly cause harm with the elements."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sin Spells",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "cantrips:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "d4cea589-6319-5d13-9109-319b4bbcc6e1"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "ed1f3941-7c08-5015-b12a-2017b44f68e3"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "1st:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "2912dc70-d45f-5b60-bdb4-919d43f7e199"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "cfa16eeb-cd33-54aa-904d-2c72742cd3ac"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "2nd:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "8e71d902-1acc-566b-a53d-ce97cdbf3b85"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "6e9347ad-d1fa-59e4-b4cf-0cfbb9ca698c"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "3rd:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "6c93157e-4fb6-5e3e-aef5-23f59651c049"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "cfa1a3f3-2450-52eb-95d6-875232fd5219"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "4th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "9ee4859a-370b-5a51-ae34-2441aee355ff"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "e25a3eab-3b7d-56fd-90e2-98d892fdc8fd"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "5th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "7c14054e-1a70-5b65-acda-2a1661596af7"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "a0d8d75b-39a6-5671-a6cf-1fc2713753f4"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "6th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "32157afd-3901-597c-b28c-38069e5bdfe7"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "7th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "449823eb-0775-57a0-8fc2-f33a8b060459"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "0e5984dc-6b02-5ee0-81df-9b1749de8f65"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "8th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "9cbca3a7-5a5f-55f3-b53c-29e1dabc9ac2"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "9th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "0c07289f-ca48-58ac-a9e3-3ff2cc46c5f1"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Initial School Spell",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "a23ad364-04ce-547c-ad6d-1bc547b9b74f"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.cz9fwc6KSkqxD3Nn"
+    },
+    "data": {}
+  },
+  {
+    "id": "667347c4-96ac-5cda-96c8-4eb48efd6ca5",
+    "pack": "rival-academies",
+    "kind": "class-feature",
+    "slug": "class-feature:tempest-sun-mages",
+    "name": "Tempest-Sun Mages",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Tempest-Sun Mages prize physical courage as well as intellectual bravery. They feel called to defend against threats of all kinds, from tyranny and invasion to intellectual subversion and bullying. Generally having a keen sense of justice, they stand up for the downtrodden and step up whenever danger presents itself. Their classes often feature heated debates that occasionally spill over into rivalries and duels outside of class. Seeing themselves as the direct heirs to the power that the Ten Magic Warriors used to transform the world, Tempest-Sun Mages tend to see magic as a fundamental power in the service of a larger purpose to extend justice and create a better world, focusing on magic that invokes the power of the sun and strengthens their own resolve."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Curriculum",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "cantrips:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "5f652603-de54-511c-aead-1966a7166ca8"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "1st:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "14e2abdf-052f-5a62-a6a0-8b4191474b38"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "f94a3b5e-8e3c-5781-81a5-5eca9bd19421"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "2nd:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "2243e5b0-a99c-5b26-81b2-026db385848c"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "3rd:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "989ec875-261d-5d4f-a181-fedf889f9d4b"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "4th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "5ff17619-93b1-5680-ad41-5f66ad9a8c0b"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "5th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "877e8c19-8f14-5568-8d0b-4b9c520e07ea"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "6th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "062680d1-edd9-5d3d-b358-fc861d29d3ff"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "7th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "0f8f5ea1-c5bb-5a67-9a8f-9354c4348c25"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "8th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "c9e1a46f-ea98-5d01-935a-1d7035a3833b"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "9th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "c59f4c18-32ac-5cd1-b3d2-7215c3e00868"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.bYooavyooaCqdhYJ"
+    },
+    "data": {}
+  },
+  {
+    "id": "af8158f4-2f24-58b7-8f95-02378a59ac35",
+    "pack": "rival-academies",
+    "kind": "class-feature",
+    "slug": "class-feature:uzunjati",
+    "name": "Uzunjati",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Uzunjati are perhaps the most iconic Magaambyans, and certainly the best known beyond the Mwangi Expanse, because they are the storytellers who roam across Golarion gathering knowledge embedded in oral traditions and folklore. While they often travel as widely as Rain-Scribes, their focus is substantially different, for their exploration is always in service to collecting and preserving the spoken knowledge of community and culture. In addition to the magic of their own stories, they emphasize magic that protects and that affects others' minds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Curriculum",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "cantrips:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "0964edfe-0384-5444-908b-fe24653c28f5"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "1st:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "80b48120-353b-5f69-b1bb-3e35afc9066a"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "600c3684-32bc-5dbc-8b49-99924728c1cd"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "2nd:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "a843ac60-9d1d-5fbe-92fd-293450353246"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "3rd:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "93519747-8ee5-58f9-8d7f-66b3c3dd6256"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "4th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "b9c6ff5d-7757-5750-8536-1486fd82c8a7"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "5th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "8f96da2d-86f2-5d01-880b-1a2466bb279a"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "055bd3d8-a0b8-539f-84f8-4baab9936d67"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "6th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "64000c62-eeaa-5b2e-a340-0a6842e50a1e"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "7th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "99651215-11b0-5244-8514-74c05a562385"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "8th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "c4dfdf84-0d97-5c26-95fc-35a4f59cc7a7"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "9th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "e551a4eb-8b73-5a89-979e-a15f470a28ce"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.ivtpFSNKYZGvApBe"
+    },
+    "data": {}
+  },
+  {
+    "id": "db7485af-8391-5d00-a2af-c4a30426decf",
+    "pack": "rival-academies",
+    "kind": "class-feature",
+    "slug": "class-feature:wrath",
+    "name": "Wrath",
+    "level": 1,
+    "rarity": "rare",
+    "traits": ["wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The Vengeful Glare fills its users with a zealous rage and the restless need to solve problems, which generally takes the form of cutting to the most direct solution."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Use your magic to protect or create."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sin Spells",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "cantrips:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "4564025d-51b0-541a-a554-662ea3883cda"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "5f652603-de54-511c-aead-1966a7166ca8"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "1st:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "1c97409b-bd67-5df2-a7d3-a49aff4d3896"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "16c68123-97c7-5b43-9789-d4983552b8d3"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "2nd:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "35e13fee-4d0a-5aca-a41d-01306797c215"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "18659a99-19d9-5b85-b03e-fe697787662e"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "3rd:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "989ec875-261d-5d4f-a181-fedf889f9d4b"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "e9fa0be4-1b62-555b-91de-ba34c484adac"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "4th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "f8d9bba2-3061-5beb-aff8-57dc839a5583"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "12b87fec-1e48-544a-8e02-78d8f5b1e78b"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "5th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "03bdda38-13a1-546c-a4e9-871558602823"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "bb0c1c4f-f273-5089-90d5-cde27bd1b122"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "6th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "2d0817cc-1eea-5868-b4a1-c3f40aeddcf3"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "e4628be0-93e0-58ba-adb1-d9e656f43da5"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "7th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "56b4d7c9-6277-5134-9f36-3eb0511762f2"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "0f8f5ea1-c5bb-5a67-9a8f-9354c4348c25"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "8th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "1001faa9-fabc-5445-b281-5716b5ccab6d"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "9th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "6096b768-43d9-56ca-a7f1-8317781601df"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Initial School Spell",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "dd1436ef-9aff-53ac-883e-94af2611a7e3"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.wtPywk3wqEg3iYOP"
+    },
+    "data": {}
+  }
+]

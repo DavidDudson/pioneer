@@ -1,0 +1,804 @@
+{
+  "pin": {
+    "tag": "pf2e-8.6.0",
+    "sha256": "d9c4c1f6bbf9bd907ec0acbaea9b8d4e8b0d049758a8616829f07c1b4ee81342"
+  },
+  "backlog": [
+    {
+      "type": "entry",
+      "pack": "high-seas",
+      "slug": "action:naval-crew-pistol-salvo",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.sZEOZRygAVj6IRMZ",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "high-seas",
+      "slug": "effect:effect-assisted-flight",
+      "foundry": "Compendium.pf2e.equipment-effects.Item.7uih4ELs2cePqkF2",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:golden-wings",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Golden Wings"
+              },
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:golden-wings-greater",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Golden Wings (Greater)"
+              },
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:golden-wings-major",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Golden Wings (Major)"
+              },
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:golden-wings-true",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Golden Wings (True)"
+              }
+            ],
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
+            "rollOption": "golden-wings"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "high-seas",
+      "slug": "effect:effect-blood-wake",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.oORIapm28xioxPDp",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "alterations": [
+              {
+                "mode": "override",
+                "property": "badge-value",
+                "value": 2
+              }
+            ],
+            "key": "GrantItem",
+            "onDeleteActions": {
+              "granter": "detach"
+            },
+            "predicate": ["blood-wake:failure"],
+            "uuid": "Compendium.pf2e.conditionitems.Item.Frightened"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "alterations": [
+              {
+                "mode": "override",
+                "property": "badge-value",
+                "value": 4
+              }
+            ],
+            "key": "GrantItem",
+            "onDeleteActions": {
+              "granter": "detach"
+            },
+            "predicate": ["blood-wake:critical-failure"],
+            "uuid": "Compendium.pf2e.conditionitems.Item.Frightened"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "key": "GrantItem",
+            "onDeleteActions": {
+              "granter": "detach"
+            },
+            "uuid": "Compendium.pf2e.conditionitems.Item.Stunned"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "high-seas",
+      "slug": "effect:effect-bounce-boost",
+      "foundry": "Compendium.pf2e.feat-effects.Item.HBec3M2J94NSG2u5",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": [
+              {
+                "label": "PF2E.SpecificRule.BonusLabel.PlusOne",
+                "value": 1
+              },
+              {
+                "label": "PF2E.SpecificRule.BonusLabel.PlusTwo",
+                "value": 2
+              },
+              {
+                "label": "PF2E.SpecificRule.BonusLabel.PlusThree",
+                "value": 3
+              },
+              {
+                "label": "PF2E.SpecificRule.BonusLabel.PlusFour",
+                "value": 4
+              }
+            ],
+            "flag": "bounceBoostBonus",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Bonus"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": [
+              {
+                "or": ["action:long-jump", "action:high-jump"]
+              }
+            ],
+            "removeAfterRoll": "if-enabled",
+            "selector": ["athletics"],
+            "type": "circumstance",
+            "value": "@item.flags.system.rulesSelections.bounceBoostBonus"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "high-seas",
+      "slug": "effect:effect-sanguine-evasion",
+      "foundry": "Compendium.pf2e.feat-effects.Item.x8PD5easD2GdXkbh",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "BaseSpeed",
+          "raw": {
+            "key": "BaseSpeed",
+            "predicate": ["feat:sanguine-evasion"],
+            "selector": "fly",
+            "slug": "sanguine-evasion-fly-speed",
+            "value": "@actor.system.movement.speeds.land.value"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "high-seas",
+      "slug": "effect:effect-tumultuous-stomach",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.5AJNGTSiz4FzE04K",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "key": "GrantItem",
+            "onDeleteActions": {
+              "grantee": "cascade"
+            },
+            "uuid": "Compendium.pf2e.bestiary-effects.Item.Effect: Engulf and Swallow Whole"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "high-seas",
+      "slug": "effect:spell-effect-anchoring-air",
+      "foundry": "Compendium.pf2e.spell-effects.Item.dIk087Q4V9pS4eMe",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": ["anchoring-air:success"],
+            "removeAfterRoll": "if-enabled",
+            "selector": "melee-strike-attack-roll",
+            "slug": "anchoring-air-success",
+            "type": "circumstance",
+            "value": -2
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "high-seas",
+      "slug": "equipment:gaze-of-the-mantis",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.H51pp5uZGykILFyw",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.flanking.offGuardable",
+            "value": "@actor.level"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "high-seas",
+      "slug": "equipment:gloves-of-precision",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Pa7wOKJfdSgMCtMg",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "high-seas",
+      "slug": "equipment:gloves-of-precision-greater",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.hXcKRAMkiaZSUvEh",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "high-seas",
+      "slug": "equipment:golden-wings",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.KeKtKdzvfLfPW5PK",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "high-seas",
+      "slug": "equipment:golden-wings-greater",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.JhBdNkBQMF1QTVt2",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "high-seas",
+      "slug": "equipment:golden-wings-major",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.EJ0KX0DV1BnnuNYv",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "high-seas",
+      "slug": "equipment:golden-wings-true",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.QOD35361DkDqAXaR",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "high-seas",
+      "slug": "equipment:helm-of-the-tides",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.MK61BZnXHkazlu5W",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "high-seas",
+      "slug": "equipment:kinetic-wraps-of-strength",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.KQxSa2AihDXJewBG",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "high-seas",
+      "slug": "equipment:kinetic-wraps-of-strength-greater",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.aiYkIeEfbuO8bvXx",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "high-seas",
+      "slug": "equipment:whispering-veil",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.cXXclq5ejIieBONp",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "high-seas",
+      "slug": "feat:aquatic-elf-warrior",
+      "foundry": "Compendium.pf2e.feats-srd.Item.49u5KaKLi0v1WkEh",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "CriticalSpecialization",
+          "raw": {
+            "key": "CriticalSpecialization",
+            "predicate": [
+              {
+                "gte": ["self:level", 5]
+              },
+              {
+                "or": [
+                  "item:base:crossbow",
+                  "item:base:heavy-crossbow",
+                  "item:base:dagger",
+                  "item:base:longspear",
+                  "item:base:spear",
+                  "item:base:trident"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "high-seas",
+      "slug": "feat:bitter-taste-of-betrayal",
+      "foundry": "Compendium.pf2e.feats-srd.Item.k7KULu12b31htz5A",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "high-seas",
+      "slug": "feat:bounce-boost",
+      "foundry": "Compendium.pf2e.feats-srd.Item.rR4uViPbbKRzf9TE",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "high-seas",
+      "slug": "feat:decisive-swimmer",
+      "foundry": "Compendium.pf2e.feats-srd.Item.QyZ1cheU54Gag800",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]][skill]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "high-seas",
+      "slug": "feat:inner-sea-privateer",
+      "foundry": "Compendium.pf2e.feats-srd.Item.HWEtnPFdlQ6iumAd",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]][skill]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "high-seas",
+      "slug": "feat:into-the-storm",
+      "foundry": "Compendium.pf2e.feats-srd.Item.qVK2GCvkN0iEiQpi",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "high-seas",
+      "slug": "feat:marine-combat-training",
+      "foundry": "Compendium.pf2e.feats-srd.Item.hNuEmaUjFGOjrhGv",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "CriticalSpecialization",
+          "raw": {
+            "key": "CriticalSpecialization",
+            "predicate": [
+              {
+                "gte": ["self:level", 5]
+              },
+              {
+                "or": ["item:base:harpoon", "item:base:trident"]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "high-seas",
+      "slug": "feat:marine-marauder-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.3tddWriePr7etTOt",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "high-seas",
+      "slug": "feat:pirates-pet",
+      "foundry": "Compendium.pf2e.feats-srd.Item.TICDIaGvSqWHncox",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "high-seas",
+      "slug": "feat:reactive-tangle",
+      "foundry": "Compendium.pf2e.feats-srd.Item.t9SlriJulwgxDPwX",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "high-seas",
+      "slug": "feat:reel-em-in",
+      "foundry": "Compendium.pf2e.feats-srd.Item.wUBodqhXq3n4XbvK",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[against]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "high-seas",
+      "slug": "feat:rock-the-boat",
+      "foundry": "Compendium.pf2e.feats-srd.Item.hrmQgRygMTHlMyKL",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[against]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "high-seas",
+      "slug": "feat:sawtooth-grapple",
+      "foundry": "Compendium.pf2e.feats-srd.Item.cISZPoI675He4aNh",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "high-seas",
+      "slug": "feat:sharkskin-grip",
+      "foundry": "Compendium.pf2e.feats-srd.Item.YhnzFJpIxcYb3Va3",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "high-seas",
+      "slug": "feat:stay-here",
+      "foundry": "Compendium.pf2e.feats-srd.Item.joNCgjhaGlThqWni",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "high-seas",
+      "slug": "feat:steal-for-the-depths",
+      "foundry": "Compendium.pf2e.feats-srd.Item.MADUYJxUdhkCvI1B",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "high-seas",
+      "slug": "feat:swan-dive",
+      "foundry": "Compendium.pf2e.feats-srd.Item.UwsQi1YLzU66Txy9",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "high-seas",
+      "slug": "feat:swimming-charge",
+      "foundry": "Compendium.pf2e.feats-srd.Item.3QmLx5Xv652PhtLf",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[against]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "high-seas",
+      "slug": "feat:take-in-the-catch",
+      "foundry": "Compendium.pf2e.feats-srd.Item.6f05ORvbFKeLVRBM",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "high-seas",
+      "slug": "heritage:camouflage-tripkee",
+      "foundry": "Compendium.pf2e.heritages.Item.5GdtQsVHy3cvK6fC",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "high-seas",
+      "slug": "spell:shipwreck",
+      "foundry": "Compendium.pf2e.spells-srd.Item.5uWwusDkfmOOlZjK",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "target.value",
+          "raw": "1 vehicle"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "high-seas",
+      "slug": "spell:undertow",
+      "foundry": "Compendium.pf2e.spells-srd.Item.4VsCGrIz07NrMaZA",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "high-seas",
+      "slug": "spell:whispers-of-a-dead-goddess",
+      "foundry": "Compendium.pf2e.spells-srd.Item.VehkHHGxQH1jGolN",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "range.value",
+          "raw": "60"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "duration",
+          "raw": {
+            "value": "sustained up to 1 minute",
+            "sustained": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "high-seas",
+      "slug": "spell:with-friends-like-these",
+      "foundry": "Compendium.pf2e.spells-srd.Item.GF7mOra8KPTW5Ggb",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "range.value",
+          "raw": "30"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "high-seas",
+      "slug": "weapon:bloodstride-blade",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.i85kL5rLaZ2KvKuA",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "runes.property",
+          "raw": "cunning"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "high-seas",
+      "slug": "weapon:sawtooth-reaper",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.6sjpO4ls3qMZcy2V",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "vocabulary",
+      "kind": "damage-type",
+      "slug": "untyped",
+      "reason": "unmapped-value",
+      "detail": "untyped"
+    }
+  ]
+}

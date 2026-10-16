@@ -1,0 +1,5175 @@
+[
+  {
+    "id": "5fe6e17d-9191-518b-8b9e-1245b76927d8",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:aqueous-dragonblood",
+    "name": "Aqueous Dragonblood",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["dragonblood", "lineage"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your blood surges with the might of dragons who master the waters, and you can move freely in their domain. You gain a swim Speed of 15 feet; if you already have a base swim Speed, it increases by 5 feet. You can hold your breath underwater for 10 minutes before needing air, and you take only a –1 circumstance melee penalty to slashing or bludgeoning attacks that pass through water (instead of –2). If you choose a draconic exemplar, you must choose a dragon with a swim Speed."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "aqueous-dragonblood",
+        "choices": [
+          {
+            "value": "existing-swim-speed",
+            "label": "Yes",
+            "predicate": ["speed:swim"]
+          },
+          {
+            "value": "no-swim-speed",
+            "label": "No",
+            "predicate": [
+              {
+                "not": "speed:swim"
+              }
+            ]
+          }
+        ],
+        "rollOption": "aqueous-dragonblood"
+      },
+      {
+        "key": "Change",
+        "selector": "speed:swim",
+        "mode": "upgrade",
+        "value": 20,
+        "predicate": ["aqueous-dragonblood:no-swim-speed"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["swim-speed"],
+        "type": "untyped",
+        "value": 5,
+        "predicate": ["aqueous-dragonblood:existing-swim-speed"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.P4qFFAjB4UnecVNH"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "d85bee62-5be4-5798-83d4-4ad660777c51",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:ascendant-blood",
+    "name": "Ascendant Blood",
+    "level": 17,
+    "rarity": "rare",
+    "traits": ["dragonblood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Twice per week, you can cast "
+          },
+          {
+            "type": "ref",
+            "id": "3e61b605-c274-5409-a4e1-9cb72132821d"
+          },
+          {
+            "type": "text",
+            "text": " as an innate spell of the tradition corresponding to your draconic exemplar. This can be used only to travel to the plane associated with your draconic exemplar (for instance, Heaven if your draconic nature is tied to an empyreal dragon) or from that plane to the Universe. Due to your draconic blood, your body serves as the locus, and you don't require a planar key. If there's any question about the plane to which your draconic exemplar is associated, the GM determines the answer."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.TafPYNuDBD2GEAxQ"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "draconic exemplar associated with a specific plane (such as a diabolic dragon or empyreal dragon)"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "frequency": {
+          "max": 2,
+          "per": "week"
+        }
+      }
+    }
+  },
+  {
+    "id": "18fe92cb-2dd7-5887-9271-2fdc88e813fe",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:ascended-dragonet-heritage",
+    "name": "Ascended Dragonet Heritage",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["dragonet"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've awoken the power of your draconic heritage. You gain all the mechanical benefits of the dragonet heritage you selected at first level, allowing you to take feats and gain any benefits that require a specific dragonet heritage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.glu6XiN7A3C5jMA9"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You have a versatile heritage"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "118295d8-e9a7-5268-8510-efd0e82358b7",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:benefactors-resistance",
+    "name": "Benefactor's Resistance",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["kobold"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your scales have taken on the characteristics of your draconic benefactor and insulate you from certain damage types. You gain resistance equal to half your level to the damage type dealt by the breath of your draconic benefactor."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If your draconic benefactor's breath deals bludgeoning, piercing, or slashing damage, instead of gaining resistance to that type, you must choose acid, cold, fire, electricity, or sonic."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "7b7c29da-fff1-5fcb-ad76-e7c2f2883bc3",
+        "allowDuplicate": false,
+        "predicate": [
+          {
+            "not": "feature:draconic-benefactor"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.DFSeNLLmFyUzprIx"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "dragonscaled kobold heritage"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "398914ec-0054-5959-8f7d-eef400791a7b",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:benefactors-strike",
+    "name": "Benefactor's Strike",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["kobold"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your benefactor's blood flows through your veins, and you channel their power into your body. When you critically hit with an unarmed Strike, the target takes an additional 1 persistent damage of the same type as the damage dealt by the breath of your draconic benefactor."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Draconic Benefactors"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "7b7c29da-fff1-5fcb-ad76-e7c2f2883bc3",
+        "allowDuplicate": false,
+        "predicate": [
+          {
+            "not": "feature:draconic-benefactor"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.9tO7Kovo3Ugy0175"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "dragonscaled kobold heritage"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "f8b227d0-478c-5fdb-9701-74e14db2ca5b",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:benefactors-wings",
+    "name": "Benefactor's Wings",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are holding or wearing your "
+          },
+          {
+            "type": "text",
+            "text": "draconic gift",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Calling on your draconic gift, spectral wings carry you to your destination. You Fly. If you don't normally have a fly Speed, you gain a fly Speed of 20 feet for this movement. If your spectral dragon shares your space, this fly Speed is instead 30 feet, and your spectral dragon moves with you. If you aren't on solid ground at the end of this movement, you fall."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:benefactors-wings",
+        "toggleable": true
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.N6qQU07KWuxgo8Gy"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Draconic Acolyte Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are holding or wearing your "
+              },
+              {
+                "type": "text",
+                "text": "draconic gift",
+                "marks": ["emphasis"]
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
+      },
+      "archetype": "308cb730-bcfd-5583-bc5d-ff071ff54986"
+    }
+  },
+  {
+    "id": "2a3f4dcf-b0db-50d2-8fa2-40e4b4018e0c",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:blood-and-spirit",
+    "name": "Blood and Spirit",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["dragonblood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your connection to the divine has sanctified your blood, but the power only manifests when you are shedding it. Choose holy or unholy. While you are taking persistent bleed damage, you can Interact to coat a piercing or slashing weapon you're wielding with your blood. Until the end of your turn, your Strikes with that weapon deal an additional 1d6 spirit damage with the chosen trait to creatures with the opposing trait."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "fc944fd2-94ce-532f-9ed3-7c447c02d100"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Alternatively, you can deal "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "slashing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to yourself (which can't be resisted in any way) as part of that Interact action if you aren't taking persistent bleed damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "blood-and-spirit",
+        "choices": [
+          {
+            "value": "holy",
+            "label": "Holy"
+          },
+          {
+            "value": "unholy",
+            "label": "Unholy"
+          }
+        ],
+        "rollOption": "blood-and-spirit"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.iqgAmntmu3udEgEI"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Divine Dragonblood"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "09caf247-43ec-5899-bca2-1b60eb3518f8",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:bond-companion",
+    "name": "Bond Companion",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["dragonet"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You form a close bond with a companion, similar to that of a master and familiar, that lets you gift them with a touch of your inherent magic. You can spend time with another player character during your daily preparations to make them your designated companion for that day. That player must have a Focus Point pool. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "5574fa53-695b-586b-ba30-32e5dc8ef403"
+          },
+          {
+            "type": "text",
+            "text": " activity."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "5574fa53-695b-586b-ba30-32e5dc8ef403"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.T86thkbU4X2FdLwd"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "1933b090-fc1a-5d30-a015-793062e78a69",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:breath-unleashed",
+    "name": "Breath Unleashed",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["kobold"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're able to channel more of your draconic benefactor's power and focus it into your "
+          },
+          {
+            "type": "ref",
+            "id": "01421576-e35c-57a1-b09d-e769540217f9"
+          },
+          {
+            "type": "text",
+            "text": ", increasing its effectiveness but requiring more time to recover. When you use Kobold Breath, you can increase the damage dice to d8s and increase the area to "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "template",
+            "shape": "line",
+            "size": 60
+          },
+          {
+            "type": "text",
+            "text": ". If you do, you can't use Kobold Breath again for 1 hour. During this time, Kobold Breath cannot be recharged using Kobold Momentum."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:breath-unleashed",
+        "toggleable": true
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.BaVO8UU5ZkL8OZZj"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Kobold Breath"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "aeaed544-5a6c-5629-965b-bde8e1f3e502",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:call-draconic-ally",
+    "name": "Call Draconic Ally",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Either by beseeching a dragon or bending it to your will, you conjure a mighty creature to assist you. Once per day while you are "
+          },
+          {
+            "type": "ref",
+            "id": "05759210-f685-5c60-93c4-49c3c2d2f9e7",
+            "label": "Channeling Draconic Essence"
+          },
+          {
+            "type": "text",
+            "text": ", you can cast "
+          },
+          {
+            "type": "ref",
+            "id": "7c14054e-1a70-5b65-acda-2a1661596af7"
+          },
+          {
+            "type": "text",
+            "text": " as an innate spell with a tradition matching your draconic exemplar, heightened to half your level rounded up."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.7hucfLLgeNeX5Pkw"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Draconic Acolyte Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "308cb730-bcfd-5583-bc5d-ff071ff54986"
+    }
+  },
+  {
+    "id": "dfe43f1c-8b79-5177-9b5d-6099a632affe",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:covet-hoard",
+    "name": "Covet Hoard",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["dragonet"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have a dragon's desire for treasure. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "7e42ccc3-1342-59f0-b827-0279e78a7260"
+          },
+          {
+            "type": "text",
+            "text": " skill feat, even if you don't meet the prerequisites. You also gain a +2 circumstance bonus to your Perception DC against attempts to Steal from you and to any saving throw against an effect targeting an item you're holding or carrying."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At 11th level, you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "7eddbcaf-01b8-5cd2-9b13-faa5823b80bd"
+          },
+          {
+            "type": "text",
+            "text": " general feat, even if you don't meet the prerequisites."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "7e42ccc3-1342-59f0-b827-0279e78a7260"
+      },
+      {
+        "key": "GrantItem",
+        "item": "7eddbcaf-01b8-5cd2-9b13-faa5823b80bd",
+        "allowDuplicate": false,
+        "predicate": [
+          {
+            "gte": ["self:level", 11]
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception-dc"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["action:steal"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.zoZRiXMyAuULzChA"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "2e678588-5b4b-509b-b5cb-39dda660cee1",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:dazzling-dragonet-disappearance",
+    "name": "Dazzling Dragonet Disappearance",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["dragonet"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An adjacent enemy hits you with an attack."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A brilliant sheen on your scales flashes when you're hit, then you're nowhere to be found. The triggering enemy becomes "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round, and you become affected by a 4th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "e8221b18-c4c7-5d99-a604-a3cf119d41b1"
+          },
+          {
+            "type": "text",
+            "text": " spell."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.zeXHH7xFOOFXH9gB"
+    },
+    "data": {
+      "category": "ancestry",
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "An adjacent enemy hits you with an attack."
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "day"
+        }
+      }
+    }
+  },
+  {
+    "id": "4bd30013-1b1a-5239-a342-b2b75e30ce91",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:death-dive",
+    "name": "Death Dive",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are riding your dragon companion and are airborne."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You guide your mount into a plummet, diving headlong at a single foe. You command your mount to Fly twice. It must end this movement at a lower altitude than it began its turn at. You and your mount gain a +4 circumstance bonus to AC against reactions triggered by this movement. At the end of this movement, your mount attempts a melee Strike against one creature in its reach. If the Strike hits, the target is knocked "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": " if it's smaller than your mount; if it's a critical hit, the target is knocked prone if it's the same size as your mount or smaller."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.BKdKyftmphU9n3Wq"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Flair Rider Stance; Wing Rider"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "three",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are riding your dragon companion and are airborne."
+              }
+            ]
+          }
+        ]
+      },
+      "archetype": "49c896eb-e753-5044-a615-989e56bfd12f"
+    }
+  },
+  {
+    "id": "5c9f8692-e2f8-5fe4-85cc-870e4f1ab4b7",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:debilitating-breath",
+    "name": "Debilitating Breath",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["dragonblood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your breath causes lasting hindrance to those it harms. Creatures who fail their saves against your "
+          },
+          {
+            "type": "ref",
+            "id": "6eb7569d-5f9e-509f-aca2-6d26426ca19f",
+            "label": "Breath of the Dragon"
+          },
+          {
+            "type": "text",
+            "text": " gain one of the following conditions, based on the damage type of your breath: "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": " (electricity, cold, fire, or sonic damage), "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 1"
+          },
+          {
+            "type": "text",
+            "text": " (acid, physical, or poison damage), or "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 1"
+          },
+          {
+            "type": "text",
+            "text": " (force, mental, spirit, vitality, or void damage). The condition lasts until the end of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.6VvvcS067uytDv76"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Breath of the Dragon"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "e43113f3-c596-58d2-9731-5aa4c564bd8c",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:deepening-devotion",
+    "name": "Deepening Devotion",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your investment in your draconic gift has unlocked greater power. When your spectral dragon shares your space, the status bonus to saves against sleep and paralysis increases to +2."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In addition, you can use Draconic Salvation if you succeeded or failed on your saving throw, not only if you critically failed."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["saving-throw"],
+        "slug": "channel-draconic-essence-bonus",
+        "mode": "upgrade",
+        "value": 2,
+        "predicate": ["option:spectral-dragon-space"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.TP0BKE1nrl5q1n2C"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Draconic Acolyte Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "308cb730-bcfd-5583-bc5d-ff071ff54986"
+    }
+  },
+  {
+    "id": "b671ca73-6710-51bc-a154-f8360140172b",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:dracomancer",
+    "name": "Dracomancer",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["kobold"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The power infused into you by your draconic benefactor's presence allows you to manifest their most iconic spells. Choose one 1st-rank spell and one 2nd-rank spell from those listed for a dragon spellcaster of your draconic benefactor's type, (for example, "
+          },
+          {
+            "type": "ref",
+            "id": "a8b9cc60-f471-559b-a07c-6ad022c23b56"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "e8221b18-c4c7-5d99-a604-a3cf119d41b1"
+          },
+          {
+            "type": "text",
+            "text": " for a conspirator dragon benefactor). You can cast each of these spells once per day as innate spells of the same tradition as your draconic benefactor. You gain the trained proficiency rank in the spell attack modifier and spell DC statistics, and your key spellcasting attribute is Charisma."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.lbiFj4At5BxotaNY"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "dragonscaled kobold heritage"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "0c12b1a2-c8b3-5523-b4bf-6b2497846171",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:draconic-acolyte-dedication",
+    "name": "Draconic Acolyte Dedication",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["archetype", "dedication"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As an acolyte of dragonkind, you have an item known as a draconic gift that you can use to summon a portion of the magical essence of the dragon you received it from. Choose a Draconic Benefactor with a trait that matches the trained skill you used to qualify for this feat (arcane for Arcana, primal for Nature, occult for Occultism, and divine for Religion). You can't change your draconic benefactor later. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "50ac17a9-a644-58e8-8ee0-ce4c6cfbf17b"
+          },
+          {
+            "type": "text",
+            "text": " feat for Dragon Lore. If you were already trained in Dragon Lore, you also become trained in a Lore skill of your choice."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a "
+          },
+          {
+            "type": "text",
+            "text": "draconic gift",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", a palm-sized magic item of negligible Bulk with a level equal to your level and a trait matching your draconic benefactor's tradition. Choose this item's appearance when you take this feat. This item is linked to your spirit, so if you ever lose possession of it (whether by dropping it or having it stolen from your person), it appears back in your possession at the beginning of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Finally, you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "05759210-f685-5c60-93c4-49c3c2d2f9e7"
+          },
+          {
+            "type": "text",
+            "text": " action and "
+          },
+          {
+            "type": "ref",
+            "id": "3c395cbe-273a-5053-a29f-2f814203b59f"
+          },
+          {
+            "type": "text",
+            "text": " reaction. These and all other actions from this archetype gain the tradition trait of your draconic benefactor."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "7b7c29da-fff1-5fcb-ad76-e7c2f2883bc3",
+        "allowDuplicate": false,
+        "predicate": [
+          {
+            "not": "feature:draconic-benefactor"
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "50ac17a9-a644-58e8-8ee0-ce4c6cfbf17b"
+      },
+      {
+        "key": "GrantItem",
+        "item": "05759210-f685-5c60-93c4-49c3c2d2f9e7"
+      },
+      {
+        "key": "GrantItem",
+        "item": "3c395cbe-273a-5053-a29f-2f814203b59f"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.uhfn5IuLPekAYCDf"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "trained in Arcana, Nature, Occultism, or Religion"
+            }
+          ]
+        }
+      ],
+      "archetype": "308cb730-bcfd-5583-bc5d-ff071ff54986"
+    }
+  },
+  {
+    "id": "f4ee6c10-53ce-5b14-b4f9-f03f87ab0ec4",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:draconic-familiar",
+    "name": "Draconic Familiar",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your devotion to dragons has attracted a loyal servant. You gain a familiar. You can select four familiar or master abilities each day, instead of two, but one of them must always be the "
+          },
+          {
+            "type": "ref",
+            "id": "06059ef9-ce08-55f3-a37e-0fc5dd8ff2dc"
+          },
+          {
+            "type": "text",
+            "text": " familiar ability. When you Channel Draconic Essence, you can also Command your familiar as a free action."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "6bcc37b0-6da4-5c79-90d8-ab7d17f63b9d"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.9fTmP4NuLwSoNl8f"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Draconic Acolyte Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "308cb730-bcfd-5583-bc5d-ff071ff54986"
+    }
+  },
+  {
+    "id": "82f881c6-41f4-57fc-9acc-ba48da4973c9",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:draconic-fury",
+    "name": "Draconic Fury",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype", "concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are holding or wearing your draconic gift."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You briefly summon spectral claws that lash out in a flurry. All creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": " take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(1 + floor(@level/4))d6",
+                "damageType": "slashing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": {
+              "against": "class-or-spell-dc"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save against the higher of your class DC or spell DC. A creature that critically fails the save also takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(floor(@level/4))d4",
+                "damageType": "bleed",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. If you are Channeling Draconic Essence, your spectral dragon's space can be the origin of the cone."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At 8th level and every 4 levels thereafter, the initial damage increases by 1d6 and the persistent bleed damage on a critical failure increases by 1d4."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.fMIHi9AuwZF7DufT"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Draconic Acolyte Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "two",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are holding or wearing your draconic gift."
+              }
+            ]
+          }
+        ]
+      },
+      "archetype": "308cb730-bcfd-5583-bc5d-ff071ff54986"
+    }
+  },
+  {
+    "id": "214220ef-da77-5d4b-aa89-0a80c3f8b4c4",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:draconic-paragon",
+    "name": "Draconic Paragon",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["kobold"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your connection to your draconic benefactor becomes especially pronounced. You gain additional effects for the prerequisite kobold feat. If you have more than one of the prerequisite feats, you gain the appropriate additional effects."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Benefactor's Strike",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Your unarmed strikes made with your jaws, claws, or tail gain the deadly d6 trait."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Dracomancer",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Increase the number of times per day you can cast each of the granted 1st- and 2nd-rank innate spells by 1."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Kobold Breath",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Creatures that critically fail their save against your Kobold Breath take 3d4 persistent damage of the type dealt by your draconic benefactor."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": [
+          "item:type:weapon",
+          {
+            "or": ["item:base:claw", "item:base:jaws", "item:base:tail"]
+          }
+        ],
+        "property": "traits",
+        "mode": "add",
+        "value": "deadly-d6",
+        "predicate": ["feat:benefactors-strike"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.PF8qHT4zd0loLQeJ"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Benefactor's Strike, Dracomancer, or Kobold Breath"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "c6776cb7-2c75-5613-97e9-e05ab389928d",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:draconic-resilience",
+    "name": "Draconic Resilience",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype", "concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are holding or wearing your "
+          },
+          {
+            "type": "text",
+            "text": "draconic gift",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Energy reminiscent of dragon scales shimmers over you, making it more difficult for attacks to penetrate your defenses. Until the start of your next turn, you gain a +1 status bonus to AC and gain resistance equal to half your level to bludgeoning damage. If you are "
+          },
+          {
+            "type": "ref",
+            "id": "05759210-f685-5c60-93c4-49c3c2d2f9e7",
+            "label": "Channeling Draconic Essence"
+          },
+          {
+            "type": "text",
+            "text": ", you can grant these benefits to a willing creature who is in the same space as your spectral dragon instead of you."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.5shHvm7YP0B5diqB"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Draconic Acolyte Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are holding or wearing your "
+              },
+              {
+                "type": "text",
+                "text": "draconic gift",
+                "marks": ["emphasis"]
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ],
+        "selfEffect": "bdc51ca7-e49b-52d2-8163-20e6201f3b6c"
+      },
+      "archetype": "308cb730-bcfd-5583-bc5d-ff071ff54986"
+    }
+  },
+  {
+    "id": "79986bb0-d6fb-54e3-9137-6f5a2a98be90",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:draconic-sycophant",
+    "name": "Draconic Sycophant",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["kobold"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You possess features that dragons find particularly cute or charming, making it easier to endear yourself to them, or at least cause them to momentarily forgive your insolence. You gain a +2 circumstance bonus to Perception checks and saving throws against dragons. In addition, whenever you meet a creature with the dragon trait in a social situation, you can attempt a Diplomacy check to Make an Impression on that creature immediately, rather than after conversing for 1 minute; you take a –5 circumstance penalty to this check. If you fail, you can choose to engage in 1 minute of conversation and then attempt a new check rather than accept the failure or critical failure result."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["target:trait:dragon"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["origin:trait:dragon"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.HauCZuLvIthFe2we"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "693e7a7f-b9dc-588d-ad5c-2a5119e5a8cb",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:dragonet-breath",
+    "name": "Dragonet Breath",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["dragonet"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have developed your magical breath. You expel the dragonet breath associated with your heritage. Dragonet Breath gains the traits listed in parentheses, and the DC is your class DC or spell DC, whichever is higher. After you use Dragonet Breath, you can't use it again for 1d4 rounds."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Fey Dragonet",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (arcane, poison) You breathe a "
+                },
+                {
+                  "type": "template",
+                  "shape": "cone",
+                  "size": 15
+                },
+                {
+                  "type": "text",
+                  "text": " of euphoric gas. Each creature in the area must succeed at a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:fortitude",
+                  "dc": {
+                    "against": "class-or-spell-dc"
+                  },
+                  "options": ["inflicts:stupefied"]
+                },
+                {
+                  "type": "text",
+                  "text": " save or become "
+                },
+                {
+                  "type": "ref",
+                  "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+                  "label": "Stupefied 1"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 round."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Homing Drake",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (acid) You expel a "
+                },
+                {
+                  "type": "template",
+                  "shape": "line",
+                  "size": 30
+                },
+                {
+                  "type": "text",
+                  "text": " of caustic spittle that deals "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "(ceil(@level/2))d4",
+                      "damageType": "acid"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage with a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:reflex",
+                  "dc": {
+                    "against": "class-or-spell-dc"
+                  },
+                  "basic": true,
+                  "options": ["damage:material:silver"]
+                },
+                {
+                  "type": "text",
+                  "text": " save. At 3rd level and every 2 levels thereafter, the damage increases by 1d4."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "House Drake",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (arcane, mental) You breathe out a cloud of silver mist in a "
+                },
+                {
+                  "type": "template",
+                  "shape": "cone",
+                  "size": 15
+                },
+                {
+                  "type": "text",
+                  "text": " that deals "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "(ceil(@level/2))d4",
+                      "damageType": "mental"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage with a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:will",
+                  "dc": {
+                    "against": "class-or-spell-dc"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": " save. It counts as silver for the purpose of weaknesses. At 3rd level and every 2 levels thereafter, the damage increases by 1d4."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Pearl Dragonet",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (arcane, curse) You breathe a "
+                },
+                {
+                  "type": "template",
+                  "shape": "cone",
+                  "size": 15
+                },
+                {
+                  "type": "text",
+                  "text": " of golden mist that alters the luck of creatures caught in it. Each time you use Dragonet Breath, decide if it gives good luck or bad luck. Any creature affected by your Dragonet Breath becomes temporarily immune to it for 1 hour. If your breath gives good luck, each creature in the area gains a +1 status bonus to its next attack roll or skill check before the start of your next turn. If your breath gives bad luck, each creature in the area must attempt a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:will",
+                  "dc": {
+                    "against": "class-or-spell-dc"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": " save. A creature that fails its save takes a –1 status penalty to its next attack roll or skill check before the start of your next turn. On a critical failure, the creature must instead roll twice and take the worse result on the check; this is a misfortune effect."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Tidepool Dragonet",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (fire) You breathe a "
+                },
+                {
+                  "type": "template",
+                  "shape": "line",
+                  "size": 15
+                },
+                {
+                  "type": "text",
+                  "text": " of superheated gas that deals "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "(ceil(@level/2))d4",
+                      "damageType": "fire"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage with a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:reflex",
+                  "dc": {
+                    "against": "class-or-spell-dc"
+                  },
+                  "basic": true
+                },
+                {
+                  "type": "text",
+                  "text": " save. At 3rd level and every 2 levels thereafter, the damage increases by 1d4. You can use your breath underwater even though it has the fire trait. If you do, it gains the water trait and emerges as a "
+                },
+                {
+                  "type": "template",
+                  "shape": "cone",
+                  "size": 20
+                },
+                {
+                  "type": "text",
+                  "text": " of boiling water."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:dragonet-heritage-determined"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.RaqjaXp2miOq4Bis"
+    },
+    "data": {
+      "category": "ancestry",
+      "action": {
+        "cost": "two"
+      }
+    }
+  },
+  {
+    "id": "e75dfcaf-ef77-55d9-8f88-53caa54449b5",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:dragonet-immunities",
+    "name": "Dragonet Immunities",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["dragonet"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You will not fall asleep unless you choose to allow it, nor will you sit still. Your resistances to sleep and paralysis increase, letting you completely ignore such effects, as befits a dragon. You gain immunity to sleep effects and effects that would make you "
+          },
+          {
+            "type": "ref",
+            "id": "7802f1d9-5ced-5b9b-8a08-98ec0adb9947"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Immunity",
+        "type": ["paralyzed", "sleep"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.wYcpXyGuZQaBkv4w"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dragonet Resistances"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "2c3561ff-23bc-52fb-97b7-c36c8bf69386",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:dragonet-resistances",
+    "name": "Dragonet Resistances",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["dragonet"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You might be a little dragon, but you are still a dragon, which means it's difficult to constrain you. You gain a +2 circumstance bonus to saves against sleep effects and effects that would make you "
+          },
+          {
+            "type": "ref",
+            "id": "7802f1d9-5ced-5b9b-8a08-98ec0adb9947"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["item:trait:sleep", "inflicts:paralyzed"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.isWArbW4C1Xbd5gR"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "9dd0fceb-705d-5d60-9eb8-daae68c6f474",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:dragonscaled-lore",
+    "name": "Dragonscaled Lore",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["kobold"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The study of dragons is not merely academic to you but part of your family tree. Tracking lineages, benefactors, and communities has become second nature. You become trained in Intimidation and your choice of Arcana, Nature, Occultism, or Religion. For each of these skills in which you were already trained, you become trained in a skill of your choice. You also gain the "
+          },
+          {
+            "type": "ref",
+            "id": "50ac17a9-a644-58e8-8ee0-ce4c6cfbf17b"
+          },
+          {
+            "type": "text",
+            "text": " general feat for Dragon Lore."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "50ac17a9-a644-58e8-8ee0-ce4c6cfbf17b"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:intimidation",
+        "rank": "trained"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "dragonscaled-skill",
+        "choices": [
+          {
+            "value": "arcana",
+            "label": "Arcana"
+          },
+          {
+            "value": "nature",
+            "label": "Nature"
+          },
+          {
+            "value": "occultism",
+            "label": "Occultism"
+          },
+          {
+            "value": "religion",
+            "label": "Religion"
+          }
+        ],
+        "prompt": "Select a skill."
+      },
+      {
+        "key": "Proficiency",
+        "selector": {
+          "choice": "dragonscaled-skill",
+          "prefix": "skill"
+        },
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.CO7O8PT8RSAR2S1I"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "dragonscaled kobold heritage"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "ffb8e461-73d1-54ba-8889-de8852e4ae00",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:drake-rider-dedication",
+    "name": "Drake Rider Dedication",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["archetype", "dedication"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the service of a young riding drake, riding dragonet, or another animal companion with the dragon trait you have access to. Your bond with your dragon companion lets you communicate and issue commands to it telepathically with a range of 100 feet. You must still use the "
+          },
+          {
+            "type": "ref",
+            "id": "dde5ff41-57b6-5d31-adf1-ef6cc8d92b87"
+          },
+          {
+            "type": "text",
+            "text": " action to direct it but don't require words or gestures to do so."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.hh2aqd0TGsrcSXl0"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "trained in Nature, Charisma +1"
+            }
+          ]
+        }
+      ],
+      "archetype": "49c896eb-e753-5044-a615-989e56bfd12f"
+    }
+  },
+  {
+    "id": "65f3cf5f-f0d8-576e-8caf-86dd54c86e32",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:earthbond",
+    "name": "Earthbond",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["dragonblood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your bond to the terra firma under your feet increases as your connection to your draconic aspect grows. You can ignore difficult terrain caused by stone (such as rubble or gravel) and uneven ground made of stone and earth. In addition, you gain a +2 circumstance bonus to your Fortitude or Reflex DC against attempts to "
+          },
+          {
+            "type": "ref",
+            "id": "2f5bb1a4-2a45-5c29-ad6a-7feba044cfaa"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "082b982f-3ed4-5d9c-9722-9ab10198523a"
+          },
+          {
+            "type": "text",
+            "text": " you. This bonus also applies to saving throws against spells or effects that attempt to force you to move."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["reflex-dc", "fortitude-dc"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["action:reposition", "action:shove", "option:forced-movement"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.ED4CiawXGklyubnk"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Terra Dragonblood"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "123074c6-3b9b-577a-aa96-ae3fb08f6279",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:elite-dracomancer",
+    "name": "Elite Dracomancer",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["kobold"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your draconic power equals that of a lesser dragon. Choose one 3rd-rank spell and one 4th-rank spell from those listed for a dragon spellcaster of your draconic benefactor's type (for example, "
+          },
+          {
+            "type": "ref",
+            "id": "9d2d34b7-d94e-51d0-b169-e6cb9f4f0b2a"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "e2594f4d-2f11-588b-a4b3-5a9afe11dd4f"
+          },
+          {
+            "type": "text",
+            "text": " for a conspirator dragon benefactor). You can cast each of these spells once per day as innate spells of the same tradition as your draconic benefactor."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.I9cJYC7anz7HmpcJ"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dracomancer"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "4c70cd39-cb1e-5900-a7a4-228eed953254",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:energize-bite",
+    "name": "Energize Bite",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["dragonblood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your most recent action was to use "
+          },
+          {
+            "type": "ref",
+            "id": "6eb7569d-5f9e-509f-aca2-6d26426ca19f",
+            "label": "Breath of the Dragon"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The deadly energy of your breath remains in your jaws to empower your attacks. Until the end of your turn, your jaws unarmed attack deals an extra 1d6 damage of a type matching that of your draconic benefactor. This ability has the trait associated with the type of damage it deals."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.3Xc0jsbXBsF4FSui"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Breath of the Dragon; jaws unarmed attack"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "free",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Your most recent action was to use Breath of the Dragon."
+              }
+            ]
+          }
+        ],
+        "selfEffect": "f0c10dcf-f084-554d-8e3a-72e28c34d127"
+      }
+    }
+  },
+  {
+    "id": "376b9510-4b3b-56d4-98b3-61216feb5ca1",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:essence-overflow",
+    "name": "Essence Overflow",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype", "concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are Channeling Draconic Essence."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Uncontainable power explodes from your spectral dragon. Your Channel Draconic Essence ends, and all creatures (except you) in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": " from your spectral dragon take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(5+floor((@level - 4)/2))d6"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": {
+              "against": "class-or-spell-dc"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save against the higher of your class DC or spell DC. The damage's type matches the breath of your draconic benefactor. You then can't use Essence Overflow again for 1d4 rounds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At 8th level and every 2 levels thereafter, the damage increases by 1d6."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.J7b0h6t09kS5e0R4"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Draconic Acolyte Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "two",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are Channeling Draconic Essence."
+              }
+            ]
+          }
+        ]
+      },
+      "archetype": "308cb730-bcfd-5583-bc5d-ff071ff54986"
+    }
+  },
+  {
+    "id": "0769faab-4726-5210-9723-d56d27ad1499",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:ferocious-will",
+    "name": "Ferocious Will",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["dragonet"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You succeed at a saving throw against a magical mental effect."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You send a blast of magical feedback at the effect's source, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "ceil(@level/2)d6",
+                "damageType": "mental"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "class-or-spell-dc"
+            },
+            "basic": true,
+            "options": ["inflicts:slowed"]
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC or spell DC, whichever is higher. If the target critically fails, it's also "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round. At 11th level and every 2 levels thereafter, the damage increases by 1d6."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.rdvwYaVN1Cnlm52A"
+    },
+    "data": {
+      "category": "ancestry",
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You succeed at a saving throw against a magical mental effect."
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "hour"
+        }
+      }
+    }
+  },
+  {
+    "id": "ade570e1-ffd2-5ecb-a3a0-0cc8ad829096",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:flair-rider-stance",
+    "name": "Flair Rider Stance",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype", "stance"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You spend little time in your saddle as you flip unpredictably around your dragon mount, dodging attacks. While mounted and in this stance, your mount always provides you with lesser cover and you don't take the –2 circumstance penalty to Reflex saves while mounted."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.dyjYNaE6Nc6zpsUM"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Drake Rider Dedication; trained in Acrobatics"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one"
+      },
+      "archetype": "49c896eb-e753-5044-a615-989e56bfd12f"
+    }
+  },
+  {
+    "id": "5588a773-4756-587b-afe0-195976893755",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:form-a-flock",
+    "name": "Form a Flock",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["aura", "dragonet"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You call nearby wild dragonets to swarm to your side. The flock grants you 25 temporary Hit Points that last up to 1 minute. The flock disperses and the effect ends when the temporary Hit Points are gone, the minute elapses, or you Dismiss Form a Flock. As long as you're surrounded by your flock, you gain weakness 5 to area and splash damage and have a flock aura in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": ". Enemies in this aura are "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you use Form a Flock and while it lasts, you can take the Acrid Barrage action."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.VaxsPPPsgXzNxQVI"
+    },
+    "data": {
+      "category": "ancestry",
+      "action": {
+        "cost": "three",
+        "frequency": {
+          "max": 1,
+          "per": "day"
+        },
+        "selfEffect": "8c4d0ef7-6b67-52f7-844c-ea555217ae9a"
+      }
+    }
+  },
+  {
+    "id": "cf408e76-458e-52b0-9219-11629ac3637f",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:frightening-power",
+    "name": "Frightening Power",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["archetype", "aura", "emotion", "fear", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are holding or wearing your "
+          },
+          {
+            "type": "text",
+            "text": "draconic gift",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Draconic essence coruscates around you, sapping the resilience of your foes. Each enemy in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 20
+          },
+          {
+            "type": "text",
+            "text": " must attempt a Will saving throw against the higher of your class DC or spell DC. If you are Channeling Draconic Essence, your spectral dragon can be the origin of this emanation. Regardless of the result of its saving throw, a creature that attempts a save is temporarily immune to your Frightening Power for 24 hours."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 2"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 4"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.mAoykPgP5OALqeq3"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Draconic Acolyte Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are holding or wearing your "
+              },
+              {
+                "type": "text",
+                "text": "draconic gift",
+                "marks": ["emphasis"]
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
+      },
+      "archetype": "308cb730-bcfd-5583-bc5d-ff071ff54986"
+    }
+  },
+  {
+    "id": "706d92d7-f691-5eba-a74b-8d2cec59ee3b",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:guided-hover",
+    "name": "Guided Hover",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your turn ends."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your airborne dragon mount has not used the Fly action this turn."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You guide your draconic companion, whose outstretched wings fill with unseen thermals. Your mount hovers without needing to use a Fly action to stay in place."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.DXf3HFtO4EfXBq1A"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wing Rider"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Your airborne dragon mount has not used the Fly action this turn."
+              }
+            ]
+          }
+        ],
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Your turn ends."
+              }
+            ]
+          }
+        ]
+      },
+      "archetype": "49c896eb-e753-5044-a615-989e56bfd12f"
+    }
+  },
+  {
+    "id": "753ab68d-23a1-5df3-b9c9-4bbe02b5a626",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:heart-of-earth",
+    "name": "Heart of Earth",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["dragonblood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The earth parts to allow you passage. You gain a burrow Speed of 15 feet. While burrowing, your tremorsense becomes precise up to 15 feet. When you Burrow, you can choose to leave behind a tunnel of your size or smaller for others to traverse through."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:burrow",
+        "mode": "upgrade",
+        "value": 15
+      },
+      {
+        "key": "RollOption",
+        "option": "option:heart-of-earth-tremorsense",
+        "toggleable": true,
+        "display": {
+          "label": "Heart of Earth — Use precise tremorsense"
+        }
+      },
+      {
+        "key": "Sense",
+        "sense": "367b9fa7-8944-5208-9949-9457984b7c59",
+        "acuity": "precise",
+        "range": 15,
+        "predicate": ["option:heart-of-earth-tremorsense"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.IlD1DL4kZl1tinCT"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Terra Dragonblood"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "bb9ba070-3b47-5a15-b38d-480a79ad4217",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:hidden-hoard",
+    "name": "Hidden Hoard",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your "
+          },
+          {
+            "type": "text",
+            "text": "draconic gift",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is the key to a repository of treasure that only you can access. You create an extradimensional space that can hold up to 100 Bulk worth of objects. The space functions as a spacious pouch, but has no Bulk, and can be Interacted with using only one hand by touching your draconic gift. You can normally store and retrieve items that could fit through the opening of a bag (as "
+          },
+          {
+            "type": "ref",
+            "id": "bf40f2e5-f763-50b2-b749-553639592257",
+            "label": "spacious pouch"
+          },
+          {
+            "type": "text",
+            "text": "). However, you can store an unattended item larger than would normally fit (but no larger than 10 Bulk) by spending 1 minute concentrating on your "
+          },
+          {
+            "type": "text",
+            "text": "draconic gift",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " as you press it against the object. Retrieving it takes 1 minute and causes the item to appear in the closest unoccupied space."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.zKh3SQLDHMVcKRLk"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Draconic Acolyte Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "308cb730-bcfd-5583-bc5d-ff071ff54986"
+    }
+  },
+  {
+    "id": "71016772-c128-5df6-b713-9e55844de8c2",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:hoarders-craw",
+    "name": "Hoarder's Craw",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["kobold"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your draconic features include a pouch inside your body that you use to store food prior to digestion. However, instead of swallowing rocks or other minerals to help grind your food, you swallow gold and other precious ores for the same purpose. Inside your craw, you can store up to 100 coins (of any type) or an amount of precious material that's light Bulk (usually a chunk). Items can be "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " inside your craw or regurgitated as an Interact action. Instead of precious material or coins, you can also use your craw to conceal an item of light Bulk but can only do so for up to 1 hour before you must regurgitate it. While carrying anything other than precious material or coins in your craw, you become "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": " due to the discomfort."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.nJTQIUGjzZcDsBHw"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "dragonscaled kobold heritage"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "7e701a2a-ffbe-5fc1-a50c-0406516d3a98",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:home-in-the-deep",
+    "name": "Home in the Deep",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["dragonblood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You cut through the water, and dwell beneath the surface with ease. Increase your swim Speed by 15 feet; you also gain the amphibious trait."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["swim-speed"],
+        "type": "untyped",
+        "value": 15
+      },
+      {
+        "key": "ActorTraits",
+        "add": ["amphibious"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.pYASxr38SiFDna45"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Aqueous Dragonblood"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "b37322bd-ef71-561e-a802-b6b9ff9e5c64",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:incredible-dragon-companion",
+    "name": "Incredible Dragon Companion",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your mature dragon companion develops further, becoming more robust and formidable. Your dragon companion becomes a nimble or savage animal companion, gaining additional capabilities determined by the type of companion."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.OjGUJyeArTj5gZyG"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mature Dragon Companion"
+            }
+          ]
+        }
+      ],
+      "archetype": "49c896eb-e753-5044-a615-989e56bfd12f"
+    }
+  },
+  {
+    "id": "ffdc920a-61d8-5572-9258-9c2c83252965",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:inhale-exhale",
+    "name": "Inhale, Exhale!",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["concentrate", "dragonet"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take an especially deep breath as a prelude to unleashing your dragonet breath on your foes. If your next action is to use your "
+          },
+          {
+            "type": "ref",
+            "id": "693e7a7f-b9dc-588d-ad5c-2a5119e5a8cb"
+          },
+          {
+            "type": "text",
+            "text": ", add 5 feet to the length of the cone or line. If your breath deals damage, you also deal one additional die of damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:inhale-exhale",
+        "toggleable": true
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["dragonet-breath-inline-damage"],
+        "diceNumber": 1,
+        "predicate": ["option:inhale-exhale"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.FrHsGqUvq6GrugC4"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dragonet Breath"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one"
+      }
+    }
+  },
+  {
+    "id": "a1982964-d022-527c-bfb7-db4fb1610165",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:into-the-sky",
+    "name": "Into the Sky",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["dragonet"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You fly as naturally as any dragonet. You have a fly Speed of 25 feet at all times."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.fhpCUQUKRNtJMnf6"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Zip! Zoom!"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "920aacf7-3159-5bf6-9e92-3266a840a97d",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:jealous-grip",
+    "name": "Jealous Grip",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["dragonet"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature in your reach that you're aware of attempts to "
+          },
+          {
+            "type": "ref",
+            "id": "ef57a555-f9e9-53cc-b09b-b7432156cbf1"
+          },
+          {
+            "type": "text",
+            "text": " you, or damage or "
+          },
+          {
+            "type": "ref",
+            "id": "4722e9b3-995d-5553-8034-087950993837"
+          },
+          {
+            "type": "text",
+            "text": " an item in your possession."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are protective of your hoard, and woe betide anyone who tries to take what's yours. Make a melee Strike against the triggering creature. If your attack is a critical hit and the triggering action was a manipulate action, you disrupt that action. This Strike doesn't count toward your multiple attack penalty, and your multiple attack penalty doesn't apply to this Strike."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.3NDQGjeKLQkhDxHv"
+    },
+    "data": {
+      "category": "ancestry",
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "A creature in your reach that you're aware of attempts to Disarm you, or damage or Steal an item in your possession."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "01421576-e35c-57a1-b09d-e769540217f9",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:kobold-breath",
+    "name": "Kobold Breath",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["kobold", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You channel the power of your draconic benefactor to expel a torrent of energy from your mouth that manifests as a "
+          },
+          {
+            "type": "template",
+            "shape": "line",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " or a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": ", dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(ceil(@level / 2))d4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. Each creature in the area must attempt a basic saving throw against the higher of your class DC or spell DC. You can't use this ability again for 1d4 rounds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At 3rd level and every 2 levels after that, the damage increases by 1d4. The breath shape, damage type, and the saving throw match those of your draconic benefactor, such as those shown on the Draconic Benefactors table. This activity has the traits associated with the magical tradition of your draconic benefactor and the type of damage the breath deals."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": {
+              "against": "class-or-spell-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": {
+              "against": "class-or-spell-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "class-or-spell-dc"
+            }
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "7b7c29da-fff1-5fcb-ad76-e7c2f2883bc3",
+        "allowDuplicate": false,
+        "predicate": [
+          {
+            "not": "feature:draconic-benefactor"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.PPUNMjRLQYnmwQvF"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "dragonscaled kobold heritage"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "two"
+      }
+    }
+  },
+  {
+    "id": "6d30268d-7fe1-53ff-a9c1-d84b697b9f14",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:kobold-momentum",
+    "name": "Kobold Momentum",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["kobold"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You possess the confidence of a dragon, and your success emboldens you to draw on power reserves you didn't know you had. You recharge your Kobold Breath whenever you score a critical hit with a Strike. In addition, if you score a critical hit with a Strike and then use your Kobold Breath on the same turn, you can reroll any 1s on the damage dice. You must use the new result, even if it's a 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.pXwOIzZhfgJrhQxS"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Kobold Breath"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "dbc59967-612a-5423-b407-ca0c63585443",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:luring-chomp",
+    "name": "Luring Chomp",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["dragonet", "mental", "visual"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Through your wiles, charm, or a little bit of magic, you lure in a foe for a closer look—and a quick bite! Choose a creature within 30 feet. It must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "class-or-spell-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC or spell DC, whichever is higher."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the target fails its save, you pull it up to 30 feet. If the target ends this movement in reach of your jaws, you can attempt a jaws Strike against it. Regardless of the result of its save, the target is temporarily immune for 24 hours."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.P8P5PwLgxk84bRQw"
+    },
+    "data": {
+      "category": "ancestry",
+      "action": {
+        "cost": "one"
+      }
+    }
+  },
+  {
+    "id": "669d8202-643f-5cee-8795-5821eae82a12",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:mature-dragon-companion",
+    "name": "Mature Dragon Companion",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your dragon companion matures and the bond you share is strengthened. The dragon companion you gained with your "
+          },
+          {
+            "type": "ref",
+            "id": "ffb8e461-73d1-54ba-8889-de8852e4ae00"
+          },
+          {
+            "type": "text",
+            "text": " is now a mature animal companion."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your dragon companion gains greater independence. During an encounter, even if you don't use the "
+          },
+          {
+            "type": "ref",
+            "id": "dde5ff41-57b6-5d31-adf1-ef6cc8d92b87"
+          },
+          {
+            "type": "text",
+            "text": " action, your dragon companion can still use 1 action that round on your turn to Stride or Strike. It can do this at any point during your turn, as long as you aren't currently taking an action. If it does, that's all the actions it gets that round—you can't Command it later."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.adWnAp41sCCx02Ap"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Drake Rider Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "49c896eb-e753-5044-a615-989e56bfd12f"
+    }
+  },
+  {
+    "id": "26d2b145-5625-5f81-9417-80c5c351041d",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:mighty-dragonet",
+    "name": "Mighty Dragonet",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["dragonet"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've grown especially large and now tower over your fellow dragonets. Instead of Tiny, your size is Small."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Though you can grow larger at a higher level than 1st, you can't retrain out of this feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "CreatureSize",
+        "value": "small"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.txVv3rZuYyp0miFz"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "67a7fd2b-4f05-51de-a73b-3673772eddba",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:mineral-deposits",
+    "name": "Mineral Deposits",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["dragonblood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Precious metals from your bloodstream line your claws, jaws, or the tip of your tail, and you're able call upon your blood to surge and empower your attacks. Choose cold iron or silver and a claw, jaws, or tail unarmed attack that you have. Until the end of your turn, your Strikes with the chosen unarmed attack count as being made of the chosen metal. At 17th level, you can choose adamantine."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.BSrYYphRONIkM19m"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Terra Dragonblood"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "frequency": {
+          "max": 1,
+          "per": "hour"
+        },
+        "selfEffect": "98cfade2-4091-5ad7-ab24-27e7dea44952"
+      }
+    }
+  },
+  {
+    "id": "6e2c46d5-5e19-53a0-adaa-603c587e5c30",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:my-claws-are-daggers",
+    "name": "My Claws are Daggers",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["dragonet"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your claws are as sharp as your teeth. You gain a claw unarmed attack that deals 1d6 slashing damage. Your claws are in the knife group and have the agile, finesse, and unarmed traits. At 5th level, whenever you get a critical hit with your claws or jaws, you get its critical specialization effect."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If your dragonet heritage is house drake, your claws count as silver."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "claw",
+        "category": "unarmed",
+        "group": "knife",
+        "traits": ["agile", "finesse", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "slashing"
+        },
+        "display": {
+          "label": "Claw"
+        }
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:base:claw"],
+        "predicate": ["heritage:house-drake"],
+        "property": "materials",
+        "mode": "add",
+        "value": "silver"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.djQPfxfGXJL7i04C"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "ace832a6-3e1c-55ae-a66a-db8c52a33203",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:reactive-resilience",
+    "name": "Reactive Resilience",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are "
+          },
+          {
+            "type": "ref",
+            "id": "05759210-f685-5c60-93c4-49c3c2d2f9e7",
+            "label": "Channeling Draconic Essence"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your power blunts blades and weakens spells like the hardiest of dragon scales. You gain resistance to the triggering damage equal to your level. Channel Draconic Essence ends."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:reactive-resilence",
+        "toggleable": true,
+        "predicate": ["self:effect:channel-draconic-essence"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["all"],
+        "value": "@level",
+        "predicate": ["option:reactive-resilence"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.f58Vhv4R4J6a7ie9"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Draconic Resilience"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are "
+              },
+              {
+                "type": "ref",
+                "id": "05759210-f685-5c60-93c4-49c3c2d2f9e7",
+                "label": "Channeling Draconic Essence"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ],
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You take damage."
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "day"
+        }
+      },
+      "archetype": "308cb730-bcfd-5583-bc5d-ff071ff54986"
+    }
+  },
+  {
+    "id": "cf0a0e51-2d78-5dbe-8a47-4f49e3bfe574",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:reflexive-devotion",
+    "name": "Reflexive Devotion",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You roll initiative."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The power of dragons flows through you at the merest thought. You Channel Draconic Essence."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.eAcMHQgfsOePtYgp"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Draconic Acolyte Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "free",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You roll initiative."
+              }
+            ]
+          }
+        ]
+      },
+      "archetype": "308cb730-bcfd-5583-bc5d-ff071ff54986"
+    }
+  },
+  {
+    "id": "575d9378-3af2-5504-a82d-2aa51e7c188b",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:scales-of-steel",
+    "name": "Scales of Steel",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["dragonet"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your scales are hard as armor, ensuring you always have some protection in the dangerous world. When you're unarmored, your scales give you a +1 item bonus to AC with a Dexterity cap of +3. The item bonus increases to +2 at 5th level. The item bonus to AC from these scales is cumulative with armor potency runes on your "
+          },
+          {
+            "type": "ref",
+            "id": "ca91efd7-5930-5a55-8d86-bc70391e3693"
+          },
+          {
+            "type": "text",
+            "text": ", the "
+          },
+          {
+            "type": "ref",
+            "id": "7c5ef7d9-d7ac-5654-b88c-5504257ec3f7"
+          },
+          {
+            "type": "text",
+            "text": " spell, or "
+          },
+          {
+            "type": "ref",
+            "id": "2d4e838d-ac9b-50c7-b609-dc3fd0d14e5a"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "item",
+        "value": "ternary(gte(@level, 5), 2, 1)",
+        "slug": "scales-of-steel",
+        "predicate": [
+          {
+            "not": "self:armored"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.R3erN2vKsjo84pen"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "31ccba3a-0b9e-5589-a710-f03715df7845",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:sheltering-wing",
+    "name": "Sheltering Wing",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["dragonblood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You raise your fledgling wings to protect you from attack, gaining a +1 circumstance bonus to AC and to saving throws against spells that target you until the start of your next turn. If you have "
+          },
+          {
+            "type": "ref",
+            "id": "fb1c76cd-9ae6-5fe5-83f7-c797e52f0345"
+          },
+          {
+            "type": "text",
+            "text": ", this bonus increases to +2 as your large wings provide greater protection."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.iY08DGiUW8MVBR5k"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dragon's Flight"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "selfEffect": "6e42f427-f425-55c2-b1eb-60a1e3e7743b"
+      }
+    }
+  },
+  {
+    "id": "fd758e27-d778-5f4f-943f-b6323625810e",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:strafing-breath",
+    "name": "Strafing Breath",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "b3a1a774-670a-5762-afce-d400a0099bf9"
+          },
+          {
+            "type": "text",
+            "text": " is active."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You urge your dragon mount forward, wreathed in magical power. Your mount Strides three times. If your mount has a fly Speed, it can substitute a Fly action for any of these Stride actions. As it moves, your dragon companion's magical breath billows around you. The aura from War Rider Stance increases to a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": " during this movement, and each creature that's in the emanation at any point during your movement takes the damage from it (with the normal save). A creature can take damage only once, even if you move past it multiple times."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.pFKfYsxBWdUlmU6A"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "War Rider Stance"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "three",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "ref",
+                "id": "b3a1a774-670a-5762-afce-d400a0099bf9"
+              },
+              {
+                "type": "text",
+                "text": " is active."
+              }
+            ]
+          }
+        ]
+      },
+      "archetype": "49c896eb-e753-5044-a615-989e56bfd12f"
+    }
+  },
+  {
+    "id": "0ef28fc3-61ba-5896-ae69-6580462963a1",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:summiting-dragonblood",
+    "name": "Summiting Dragonblood",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["dragonblood", "lineage"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Thanks to your draconic blood, there are no mountains or hills you can't surmount. You gain a climb Speed of 20 feet; if you already have a base climb Speed, it increases by 5 feet. You also gain the "
+          },
+          {
+            "type": "ref",
+            "id": "8d47d4b9-3de6-5aca-9993-35356f13d1f6"
+          },
+          {
+            "type": "text",
+            "text": " skill feat, even if you aren't trained in Athletics. If you choose a draconic exemplar, you must choose a dragon with a climb Speed."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "summiting-dragonblood",
+        "choices": [
+          {
+            "value": "existing-climb-speed",
+            "label": "Yes",
+            "predicate": ["speed:climb"]
+          },
+          {
+            "value": "no-climb-speed",
+            "label": "No",
+            "predicate": [
+              {
+                "not": "speed:climb"
+              }
+            ]
+          }
+        ],
+        "rollOption": "summiting-dragonblood"
+      },
+      {
+        "key": "Change",
+        "selector": "speed:climb",
+        "mode": "upgrade",
+        "value": 20,
+        "predicate": ["summiting-dragonblood:no-climb-speed"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["climb-speed"],
+        "type": "untyped",
+        "value": 5,
+        "predicate": ["summiting-dragonblood:existing-climb-speed"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.fDsJH3Vxnf6uZWql"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "f736a5b6-d99f-57e9-a1a7-49e2695c3cfa",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:take-wing",
+    "name": "Take Wing",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["dragonet"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per round"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have strengthened your wings and can now fly for short distances. You Fly. If you don't normally have a fly Speed, you gain a fly Speed of 15 feet for this movement. If you aren't on solid ground at the end of this movement, you fall."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:take-wing",
+        "toggleable": true,
+        "predicate": [
+          {
+            "not": "feat:into-the-sky"
+          }
+        ]
+      },
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": 15,
+        "predicate": ["option:take-wing"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.ER19TNTiYbNvkhw8"
+    },
+    "data": {
+      "category": "ancestry",
+      "action": {
+        "cost": "one",
+        "frequency": {
+          "max": 1,
+          "per": "round"
+        }
+      }
+    }
+  },
+  {
+    "id": "a7d94db4-f84b-54c0-b6ad-bd5d400245e0",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:tenacious-jaws",
+    "name": "Tenacious Jaws",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["dragonblood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your teeth are curved or hooked to hold on to your enemies. Your jaws unarmed attack gains the grapple trait. When you use your "
+          },
+          {
+            "type": "ref",
+            "id": "6eb7569d-5f9e-509f-aca2-6d26426ca19f",
+            "label": "Breath of the Dragon"
+          },
+          {
+            "type": "text",
+            "text": ", an opponent "
+          },
+          {
+            "type": "ref",
+            "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "b374c4c9-d230-5167-8878-38e08932a071"
+          },
+          {
+            "type": "text",
+            "text": " in your jaws uses the outcome one degree of success worse than the result of their saving throw."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon", "item:base:jaws"],
+        "property": "traits",
+        "mode": "add",
+        "value": "grapple"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.1KtlTS3dWcqRWwb8"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Draconic Aspect; jaws unarmed attack"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "067ef60b-d6e4-5cb3-87a6-c08edb877fde",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:terra-dragonblood",
+    "name": "Terra Dragonblood",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["dragonblood", "lineage"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each step upon the earth makes your blood resonate. You gain tremorsense as an imprecise sense to a range of 30 feet; if you already have tremorsense, increase its range by 5 feet. If you choose a draconic exemplar, you must choose a dragon with a burrow Speed."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "367b9fa7-8944-5208-9949-9457984b7c59",
+        "acuity": "imprecise",
+        "range": 30
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.92fmK6O9y8Wf03P4"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "398f591e-d614-5d71-9de3-8a6ad18ad61e",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:tip-the-scales",
+    "name": "Tip the Scales",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["kobold"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're a cunning adversary in close quarters and are well-versed in hit-and-run tactics that exploit the advantages of your small stature. As part of your training, you learned what to do when you're "
+          },
+          {
+            "type": "ref",
+            "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "b374c4c9-d230-5167-8878-38e08932a071"
+          },
+          {
+            "type": "text",
+            "text": ". You gain a +1 circumstance bonus to checks to Escape, and after resolving a successful Escape action, you can immediately use your reaction to Step or to Shove or Trip the creature from whom you just Escaped."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.Dc5hLCC2qxCDWjX5"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "ef27a07c-3702-569f-917d-032f74c8edcb",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:voice-of-the-elements",
+    "name": "Voice of the Elements",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["dragonblood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You inherit a primal dragon's bond to base elements. You gain a +1 circumstance bonus to Diplomacy checks to Make an Impression on creatures with the elemental trait. You can also ask questions of, receive answers from, and use the Diplomacy skill with elementals that don't speak any language."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["action:make-an-impression", "target:trait:elemental"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.2m94GSxJIkQZ5Xnt"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Primal Dragonblood"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "b3a1a774-670a-5762-afce-d400a0099bf9",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:war-rider-stance",
+    "name": "War Rider Stance",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype", "aura", "stance"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your dragon's constant breath threatens your foes. While in this stance, your dragon companion has an aura in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 5
+          },
+          {
+            "type": "text",
+            "text": ". Each creature that starts its turn in the aura takes the damage listed under the dragon's support benefit with a basic Reflex save against your mount's Athletics DC."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.ht9ctVLibKCaFQdc"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Drake Rider Dedication; expert in martial weapons; dragon companion with a support benefit that includes damage"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one"
+      },
+      "archetype": "49c896eb-e753-5044-a615-989e56bfd12f"
+    }
+  },
+  {
+    "id": "3acfb3d3-9759-5f92-bef9-540892ca0234",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:wing-rider",
+    "name": "Wing Rider",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your bond with your dragon has been honed so fine that it can carry you aloft with its full capability. Your dragon companion has a fly Speed of 25 feet at all times."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.RkaE55TeCvwmQq7E"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Winged Leap"
+            }
+          ]
+        }
+      ],
+      "archetype": "49c896eb-e753-5044-a615-989e56bfd12f"
+    }
+  },
+  {
+    "id": "b0519d32-682d-532d-b40a-a0418da3128b",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:winged-leap",
+    "name": "Winged Leap",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While drakes and dragons are able flyers, they're uncomfortable carrying a rider in the air without special training. Through hard work, nerves of steel, and the deep bond you share with your draconic companion, your companion has learned to carry you skyward, if only briefly. Your dragon companion gains the "
+          },
+          {
+            "type": "ref",
+            "id": "b469c990-7204-5aa4-8f0c-0c93f79dcaa5"
+          },
+          {
+            "type": "text",
+            "text": " action."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.YtL4Q55dAM1GzdDh"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Drake Rider Dedication; dragon companion with the mount special ability"
+            }
+          ]
+        }
+      ],
+      "archetype": "49c896eb-e753-5044-a615-989e56bfd12f"
+    }
+  },
+  {
+    "id": "bd3a88bd-c988-54c8-9646-490c5555a1bf",
+    "pack": "draconic-codex",
+    "kind": "feat",
+    "slug": "feat:zip-zoom",
+    "name": "Zip! Zoom!",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["dragonet"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can fly longer distances before you need to land. The fly Speed you gain from Take Wing increases to 25 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": 25,
+        "predicate": ["option:take-wing"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.XbsmAJ4fOCTVvrtf"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Take Wing"
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

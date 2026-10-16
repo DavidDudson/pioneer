@@ -1,0 +1,50 @@
+[
+  {
+    "id": "330d896f-3911-5aad-91ac-ff60636f2e95",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:library-lore",
+    "name": "Library Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:library",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.library",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "43f74025-5b16-517f-974b-ef2e0724be03",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:politics-lore",
+    "name": "Politics Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:politics",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.politics",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  }
+]

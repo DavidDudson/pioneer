@@ -1,0 +1,1823 @@
+[
+  {
+    "id": "8bc56f8f-2c8f-5617-a6d4-ebbd2dd40ca7",
+    "pack": "hellfire-dispatches",
+    "kind": "effect",
+    "slug": "effect:aura-wrathful-presence",
+    "name": "Aura: Wrathful Presence",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellfire-dispatches"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "32c0da5d-33bb-5777-9b39-575193c12207"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You and your allies in the aura gain a +3 status bonus to damage with your Strikes."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Aura",
+        "radius": 30,
+        "traits": ["divine", "emotion", "fear", "mental"],
+        "effects": [
+          {
+            "effect": "52d9ed61-cdd3-561d-b3c5-3b03642721b5",
+            "affects": "allies"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.zVBvD4St25MfqkhS"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "56ff76a2-4e64-585e-9393-f7a2533ecf05",
+    "pack": "hellfire-dispatches",
+    "kind": "effect",
+    "slug": "effect:effect-bloom-cabaret-entrance",
+    "name": "Effect: Bloom Cabaret Entrance",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellfire-dispatches"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "028c8c51-ccb1-5b10-885a-ac2fa1d171a5"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to the first Deception, Diplomacy, or Intimidation check you attempt."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.N7XvZ8A5Cj3PW1X3"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "011abb2d-2292-5c3f-a098-b63441d02f8c",
+    "pack": "hellfire-dispatches",
+    "kind": "effect",
+    "slug": "effect:effect-close-ranks",
+    "name": "Effect: Close Ranks",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellfire-dispatches"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to AC and Reflex saves."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "save:reflex"],
+        "type": "circumstance",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.aYd6QDPx7qdo1Zju"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "924c8ce0-2c26-5b35-937c-5febceaed7f6",
+    "pack": "hellfire-dispatches",
+    "kind": "effect",
+    "slug": "effect:effect-commitment-to-protection",
+    "name": "Effect: Commitment to Protection",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellfire-dispatches"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "deb059ba-9f40-59cf-8e62-7b6c38623694"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a circumstance bonus or penalty to AC against the target's next attack."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.eu7DEgjicyYyosCl"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "turn",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "c20d8c8e-38cf-57c3-aab5-9a8e8f0906a9",
+    "pack": "hellfire-dispatches",
+    "kind": "effect",
+    "slug": "effect:effect-commitment-to-protection-lasting-protection",
+    "name": "Effect: Commitment to Protection (Lasting Protection)",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellfire-dispatches"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "74099d32-c720-5f42-b587-92670c13331a"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a circumstance bonus or penalty to AC against the target's next attack."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.gIQ9eE9WBecYKzMR"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "160b83b1-343f-5d5a-9a36-7714df6f285d",
+    "pack": "hellfire-dispatches",
+    "kind": "effect",
+    "slug": "effect:effect-dedication-of-the-five",
+    "name": "Effect: Dedication of the Five",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellfire-dispatches"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "2b776eac-612a-5b16-9f2f-723d8564ea4d",
+            "label": "Dedication of the Five"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary Hit Points equal to twice your focus spell's rank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.f2Y19Msvnv23h8g9"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "f78cd8fa-e985-557d-aa64-63fbbaa8e221",
+    "pack": "hellfire-dispatches",
+    "kind": "effect",
+    "slug": "effect:effect-defy-chains",
+    "name": "Effect: Defy Chains",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellfire-dispatches"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "47de8280-4366-5110-9a03-bb31f274efe5"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You deal additional d6 damage to the origin."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.z17jszMgX7gpRlwv"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "e2f480b7-e05f-5b66-bda0-6033521fa30b",
+    "pack": "hellfire-dispatches",
+    "kind": "effect",
+    "slug": "effect:effect-edict-of-mortality",
+    "name": "Effect: Edict of Mortality",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellfire-dispatches"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "8a6e2668-2f6e-5064-95b5-5d1f20501bf6"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you attempt to Cast a Spell with the divine trait, you must succeed at a flat check or the action is lost."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-edict-of-mortality",
+        "choices": [
+          {
+            "value": "critical-success",
+            "label": "Critical Success"
+          },
+          {
+            "value": "success",
+            "label": "Success"
+          }
+        ],
+        "prompt": "Select the degree of success.",
+        "rollOption": "edict-of-mortality"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.6lwPOXa25qx9Lo46"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "e0c5113c-428c-5480-81d9-5e1bef10a787",
+    "pack": "hellfire-dispatches",
+    "kind": "effect",
+    "slug": "effect:effect-face-your-fears",
+    "name": "Effect: Face Your Fears",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellfire-dispatches"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "acb2a9bf-b080-5bec-9c4f-f2924b54e49e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain +1 circumstance bonus against fear effects."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["item:trait:fear"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.OYWcxVLvgE7F9q2E"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "3023f361-9c81-5856-ba97-bbad4a9eadd0",
+    "pack": "hellfire-dispatches",
+    "kind": "effect",
+    "slug": "effect:effect-fear-no-pain",
+    "name": "Effect: Fear No Pain!",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellfire-dispatches"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "6aeec747-ae0f-5d76-921e-61027609308c"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to reroll a failed save."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.nCrYxbS8h3Ik9hyQ"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "92c204f4-93ff-56b1-bc40-9616d452f3a2",
+    "pack": "hellfire-dispatches",
+    "kind": "effect",
+    "slug": "effect:effect-gather-disciples",
+    "name": "Effect: Gather Disciples",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellfire-dispatches"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "f1a9b207-894b-5594-87ab-b746ea77adc9"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to the first skill check you attempt when acting on the favor."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.cGiutpTMkbnxwR04"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "53e187b3-94e3-5ce1-a52f-770978f31f66",
+    "pack": "hellfire-dispatches",
+    "kind": "effect",
+    "slug": "effect:effect-inspiring-presence-augustanas-pride",
+    "name": "Effect: Inspiring Presence (Augustana's Pride)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellfire-dispatches"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to attack rolls, damage rolls, and saves against fear for 1 round."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll", "damage"],
+        "type": "status",
+        "value": 1,
+        "slug": "inspiring-presence-attack-bonus"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 1,
+        "slug": "inspiring-presence-saving-throw-bonus",
+        "predicate": ["item:trait:fear"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.udUrzHOieqcQBb8H"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "6c96e6e4-dc19-568e-a82c-850bb46f77e1",
+    "pack": "hellfire-dispatches",
+    "kind": "effect",
+    "slug": "effect:effect-iomedaes-valor-ac-bonus",
+    "name": "Effect: Iomedae's Valor (AC Bonus)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellfire-dispatches"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "1d2aebe9-b3de-5b70-bb67-a6e1b3b60ae0"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to AC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "status",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.Q6N6XYzBbqh9ePIq"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "57988c08-ba7d-59e3-b0ac-99dfa423c142",
+    "pack": "hellfire-dispatches",
+    "kind": "effect",
+    "slug": "effect:effect-iomedaes-valor-temporary-hit-points",
+    "name": "Effect: Iomedae's Valor (Temporary Hit Points)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellfire-dispatches"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "1d2aebe9-b3de-5b70-bb67-a6e1b3b60ae0"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a number of temporary Hit Points equal to your level."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "@level"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.Xtxu7pi1DeWl9QKI"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "d0dcbfaf-bf74-54a4-a5a9-3e0f604152e4",
+    "pack": "hellfire-dispatches",
+    "kind": "effect",
+    "slug": "effect:effect-liberated-mind",
+    "name": "Effect: Liberated Mind",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellfire-dispatches"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "6fc26e79-1b5a-54a6-817c-775359206ca4"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 status bonus to reroll a saving throw to avoid the confused or controlled conditions."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.Q7d6TRuuVAuSabSW"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "turn",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "b9da9f7c-5581-5876-a363-e76de7b038a2",
+    "pack": "hellfire-dispatches",
+    "kind": "effect",
+    "slug": "effect:effect-righteous-resistance",
+    "name": "Effect: Righteous Resistance",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellfire-dispatches"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "3fa25eff-b2f7-59e1-a714-1cb61c2ff768"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": "max(5, @level)"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.Rfhgj7nJ43xmevgO"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "545c38a3-10cd-597a-a6c4-9b74acd650a7",
+    "pack": "hellfire-dispatches",
+    "kind": "effect",
+    "slug": "effect:effect-rise-up",
+    "name": "Effect: Rise Up!",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellfire-dispatches"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "345cbc0e-88ab-53eb-b160-9e4b9ed87000"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a fly Speed equal to their Speed or 20 feet, whichever is greater."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": "max(20, @stat.speed.land)"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.Xnt4hGFXYdY5jYOk"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "5d23e5ce-6207-5d89-8d77-f38ba8759398",
+    "pack": "hellfire-dispatches",
+    "kind": "effect",
+    "slug": "effect:effect-rose-warden-dedication",
+    "name": "Effect: Rose Warden Dedication",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellfire-dispatches"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "eb9f59eb-4a78-590f-9a3e-4cb72c8a39b5"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to your Fortitude DC and saving throws against being confused, controlled, grabbed, immobilized, or restrained by a figure of authority"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:rose-warden-dedication",
+        "toggleable": true
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["fortitude-dc", "saving-throw"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": [
+          "option:rose-warden-dedication",
+          {
+            "or": [
+              "inflicts:confused",
+              "inflicts:controlled",
+              "inflicts:grabbed",
+              "inflicts:immobolized",
+              "inflicts:restrained"
+            ]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.bdzVlHHuGGDEreTx"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 24,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "7ae8898d-f86f-5ea0-8648-6a05ac3debda",
+    "pack": "hellfire-dispatches",
+    "kind": "effect",
+    "slug": "effect:effect-sense-iniquity",
+    "name": "Effect: Sense Iniquity",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellfire-dispatches"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "45a35585-65c2-5864-83d8-15b67cb33b6f"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "you gain a +2 status bonus to your Perception DC against attempts to "
+          },
+          {
+            "type": "ref",
+            "id": "b905f68d-f05b-5179-8c61-b90a9c7d2bdb"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "8b950c56-7b5d-5063-9439-adb52a323cd9"
+          },
+          {
+            "type": "text",
+            "text": " you, or "
+          },
+          {
+            "type": "ref",
+            "id": "1ee7b671-dd18-5950-a4db-fbd4f8dae832"
+          },
+          {
+            "type": "text",
+            "text": " to you. If you "
+          },
+          {
+            "type": "ref",
+            "id": "d45207be-e539-50ce-9463-f4edc3671076"
+          },
+          {
+            "type": "text",
+            "text": " to locate a "
+          },
+          {
+            "type": "ref",
+            "id": "d851e3ca-be0d-55a7-a4d1-d7ed8b7ecafa"
+          },
+          {
+            "type": "text",
+            "text": " creature or to see through a creature's "
+          },
+          {
+            "type": "ref",
+            "id": "9d26c6da-04e9-5491-86c1-7a4b23fe9da3"
+          },
+          {
+            "type": "text",
+            "text": " attempt, you gain a +2 status bonus to the Perception check."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception-dc"],
+        "type": "status",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["action:create-a-diversion", "action:feint", "action:lie"]
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["action:seek"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.xHoPyS1kU0duz4nQ"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "cc1586b2-4fa5-5af1-bff9-67b0bbe0b9a0",
+    "pack": "hellfire-dispatches",
+    "kind": "effect",
+    "slug": "effect:effect-size-up",
+    "name": "Effect: Size Up",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellfire-dispatches"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "37efb156-977b-5919-af16-745d575b7630"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to Perception checks when you Sense the Motive of your focus and a +2 circumstance bonus to your Perception DC should your focus attempt to Lie or Feint against you. You gain a +2 circumstance bonus to Deception, Diplomacy, and Intimidation checks against your focus."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception-dc"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": [
+          "origin:mark:size-up",
+          {
+            "or": ["action:feint", "action:lie"]
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception", "skill:diplomacy", "skill:intimidation"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["target:mark:size-up"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.XRjekIgkv8qsAxJv"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "day",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "e562c275-fe6f-5950-a25d-ec7d875a85aa",
+    "pack": "hellfire-dispatches",
+    "kind": "effect",
+    "slug": "effect:effect-starstone-aspirant-dedication",
+    "name": "Effect: Starstone Aspirant Dedication",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellfire-dispatches"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "2fb03cec-09b4-54ca-91a7-59047a44295b"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can choose a skill you're untrained in. You can attempt skill actions that normally require you to be trained in that skill, and you gain a circumstance bonus to checks with that skill."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.XBJzkEhL6MidoT3o"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "day",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "2cf9a2f2-7013-5c1f-942c-82c71d948a94",
+    "pack": "hellfire-dispatches",
+    "kind": "effect",
+    "slug": "effect:effect-subservience-kill",
+    "name": "Effect: Subservience Kill",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellfire-dispatches"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –1 circumstance penalty to its Reflex save against Grasping Claws."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:reflex"],
+        "type": "circumstance",
+        "value": -1,
+        "predicate": ["item:slug:grasping-claws"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.JPuJqYKQqgOf4Bw5"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "21996e46-73db-56d8-b105-158a28f64f20",
+    "pack": "hellfire-dispatches",
+    "kind": "effect",
+    "slug": "effect:effect-such-a-disgrace",
+    "name": "Effect: Such a Disgrace!",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellfire-dispatches"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "a00eaf0b-cca4-59d4-8c15-26284b35f85f"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to reroll a Will saving throw."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.MbLXxoDfRUQJbIhr"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "turn",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "6cbdbfb2-b9b4-541d-a2a9-f38beb08220d",
+    "pack": "hellfire-dispatches",
+    "kind": "effect",
+    "slug": "effect:effect-swift-support",
+    "name": "Effect: Swift Support",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellfire-dispatches"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "6cbdbfb2-b9b4-541d-a2a9-f38beb08220d",
+            "label": "Swift Support"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +5-foot circumstance bonus to your Speeds."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "circumstance",
+        "value": 5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.nplVDMxYDqdMC32k"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "517fc16f-9130-52d4-94d1-56e2f0b2a6df",
+    "pack": "hellfire-dispatches",
+    "kind": "effect",
+    "slug": "effect:effect-thus-always-to-tyrants",
+    "name": "Effect: Thus Always to Tyrants",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellfire-dispatches"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ally",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ": You gain a +1 status bonus to attack rolls."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Enemy",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ": You take a –1 penalty to attack rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.MMTeeCVAr6rDgYtI"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "af7469c9-a343-5b02-9fd7-8c28665ccbfd",
+    "pack": "hellfire-dispatches",
+    "kind": "effect",
+    "slug": "effect:effect-trailblazing-stride",
+    "name": "Effect: Trailblazing Stride",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellfire-dispatches"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by Trailblazing Stride"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +10-foot circumstance bonus to your Speeds."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "circumstance",
+        "value": 10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.P6hfR6mJHqQpR1c8"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "turn",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "ffe36794-24d8-5d69-8bff-e601213d82f5",
+    "pack": "hellfire-dispatches",
+    "kind": "effect",
+    "slug": "effect:effect-watch-your-back-golden-legionnaire",
+    "name": "Effect: Watch Your Back (Golden Legionnaire)",
+    "level": 14,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellfire-dispatches"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "5023d5d3-a91a-5a6f-bf71-cae14bdef678"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can't be "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " due to flanking."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.7vUZ5aYQx2K3BcI1"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "52d9ed61-cdd3-561d-b3c5-3b03642721b5",
+    "pack": "hellfire-dispatches",
+    "kind": "effect",
+    "slug": "effect:effect-wrathful-presence",
+    "name": "Effect: Wrathful Presence",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellfire-dispatches"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "32c0da5d-33bb-5777-9b39-575193c12207"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +3 status bonus to damage with your Strikes."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["strike-damage"],
+        "type": "status",
+        "value": 3
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.9RBoBJrfpXqYkH68"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "encounter"
+      }
+    }
+  },
+  {
+    "id": "14f69c82-61e9-5461-a570-420752974585",
+    "pack": "hellfire-dispatches",
+    "kind": "effect",
+    "slug": "effect:stance-anchor-stance",
+    "name": "Stance: Anchor Stance",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellfire-dispatches"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "538d90bd-2f56-596d-9770-ed1959f96cea"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to your Fortitude or Reflex DC against attempts to Reposition or Shove you. This bonus also applies to saving throws against spells or effects that attempt to force you to move."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["fortitude-dc", "reflex-dc"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["action:reposition", "action:shove"]
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["inflicts:forced-movement"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.ahPSIc7C91BCag6m"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "encounter"
+      }
+    }
+  },
+  {
+    "id": "edf33928-7e2f-58e9-ad14-48b13babe332",
+    "pack": "hellfire-dispatches",
+    "kind": "effect",
+    "slug": "effect:stance-golden-erinys-stance",
+    "name": "Stance: Golden Erinys Stance",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellfire-dispatches"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "3253ca9c-22cc-54e5-a77f-e05a21d371be"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can make fury's fang unarmed attacks. These deal 1d6 piercing damage; are in the brawling group; and have the agile, backstabber, finesse, forceful, nonlethal, and unarmed traits."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While in the stance, if you critically hit with a melee Strike that deals piercing damage, the target is "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": " (with a DC to remove equal to your class DC); this is in addition to any critical specialization effect you might gain from the attack."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "furys-fang",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["agile", "backstabber", "finesse", "forceful", "nonlethal", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "piercing"
+        },
+        "display": {
+          "label": "Fury's Fang"
+        }
+      },
+      {
+        "key": "Note",
+        "selectors": ["melee-strike-attack-roll"],
+        "title": "Stance: Golden Erinys Stance",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The target is Sickened 1 (with a DC to remove equal to your class DC); this is in addition to any critical specialization effect you might gain from the attack."
+              }
+            ]
+          }
+        ],
+        "outcome": ["criticalSuccess"],
+        "predicate": ["item:damage:type:piercing"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.8yoq65YOI36Tv4c0"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "encounter"
+      }
+    }
+  }
+]

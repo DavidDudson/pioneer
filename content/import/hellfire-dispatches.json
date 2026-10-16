@@ -1,0 +1,1817 @@
+{
+  "pin": {
+    "tag": "pf2e-8.6.0",
+    "sha256": "d9c4c1f6bbf9bd907ec0acbaea9b8d4e8b0d049758a8616829f07c1b4ee81342"
+  },
+  "backlog": [
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "action:puncture-flesh",
+      "foundry": "Compendium.pf2e.actionspf2e.Item.pFgkxLJsAcImb0Eg",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "effect:effect-bloom-cabaret-entrance",
+      "foundry": "Compendium.pf2e.feat-effects.Item.N7XvZ8A5Cj3PW1X3",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": [
+              {
+                "or": ["check:statistic:diplomacy", "check:statistic:deception", "check:statistic:intimidation"]
+              }
+            ],
+            "removeAfterRoll": "if-enabled",
+            "selector": ["skill-check"],
+            "type": "circumstance",
+            "value": 2
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "effect:effect-commitment-to-protection",
+      "foundry": "Compendium.pf2e.feat-effects.Item.eu7DEgjicyYyosCl",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": [
+              {
+                "label": "PF2E.Check.Result.Degree.Check.criticalSuccess",
+                "value": 2
+              },
+              {
+                "label": "PF2E.Check.Result.Degree.Check.success",
+                "value": 1
+              },
+              {
+                "label": "PF2E.Check.Result.Degree.Check.criticalFailure",
+                "value": -1
+              }
+            ],
+            "flag": "officersProtection",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.DegreeOfSuccess"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": ["origin:mark:commmitment-to-protection"],
+            "selector": ["ac"],
+            "type": "circumstance",
+            "value": "{item|flags.system.rulesSelections.officersProtection}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "effect:effect-commitment-to-protection-lasting-protection",
+      "foundry": "Compendium.pf2e.feat-effects.Item.gIQ9eE9WBecYKzMR",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": [
+              {
+                "label": "PF2E.Check.Result.Degree.Check.criticalSuccess",
+                "value": 2
+              },
+              {
+                "label": "PF2E.Check.Result.Degree.Check.success",
+                "value": 1
+              },
+              {
+                "label": "PF2E.Check.Result.Degree.Check.criticalFailure",
+                "value": -1
+              }
+            ],
+            "flag": "lastingProtection",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.DegreeOfSuccess"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": ["origin:mark:commmitment-to-protection-lasting"],
+            "selector": ["ac"],
+            "type": "circumstance",
+            "value": "{item|flags.system.rulesSelections.lastingProtection}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "effect:effect-dedication-of-the-five",
+      "foundry": "Compendium.pf2e.feat-effects.Item.f2Y19Msvnv23h8g9",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": {
+              "config": "ranks"
+            },
+            "flag": "rank",
+            "key": "ChoiceSet"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "TempHP",
+          "raw": {
+            "key": "TempHP",
+            "value": "2*@item.flags.pf2e.rulesSelections.rank"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "effect:effect-defy-chains",
+      "foundry": "Compendium.pf2e.feat-effects.Item.z17jszMgX7gpRlwv",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "DamageDice",
+          "raw": {
+            "diceNumber": "ternary(gte(@target.level,18),5,4)",
+            "dieSize": "d6",
+            "key": "DamageDice",
+            "predicate": ["self:trait:fiend"],
+            "selector": "strike-damage"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "effect:effect-edict-of-mortality",
+      "foundry": "Compendium.pf2e.feat-effects.Item.6lwPOXa25qx9Lo46",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:trait:divine", "edict-of-mortality:critical-success"],
+            "property": "description",
+            "value": [
+              {
+                "text": "You must succeed at a @Check[flat|dc:7] or the action is lost."
+              }
+            ]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:trait:divine", "edict-of-mortality:success"],
+            "property": "description",
+            "value": [
+              {
+                "text": "You must succeed at a @Check[flat|dc:5] or the action is lost."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "effect:effect-fear-no-pain",
+      "foundry": "Compendium.pf2e.feat-effects.Item.nCrYxbS8h3Ik9hyQ",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "removeAfterRoll": "if-enabled",
+            "selector": ["saving-throw"],
+            "type": "circumstance",
+            "value": 2
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "effect:effect-gather-disciples",
+      "foundry": "Compendium.pf2e.feat-effects.Item.cGiutpTMkbnxwR04",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": ["gather-disciple"],
+            "removeAfterRoll": "if-enabled",
+            "selector": ["skill-check"],
+            "type": "circumstance",
+            "value": 2
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "effect:effect-liberated-mind",
+      "foundry": "Compendium.pf2e.feat-effects.Item.Q7d6TRuuVAuSabSW",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": [
+              "item:trait:mental",
+              {
+                "or": ["inflicts:confused", "inflicts:controlled"]
+              }
+            ],
+            "removeAfterRoll": true,
+            "selector": ["saving-throw"],
+            "type": "circumstance",
+            "value": 2
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "effect:effect-starstone-aspirant-dedication",
+      "foundry": "Compendium.pf2e.feat-effects.Item.XBJzkEhL6MidoT3o",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": {
+              "config": "skills",
+              "predicate": [
+                {
+                  "lte": ["skill:{choice|value}:rank", 0]
+                }
+              ]
+            },
+            "flag": "starstoneAspirant",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Skill"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "selector": ["{item|flags.system.rulesSelections.starstoneAspirant}"],
+            "type": "circumstance",
+            "value": "ternary(gte(@actor.level,15),3,ternary(gte(@actor.level,8),2,1))"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "effect:effect-such-a-disgrace",
+      "foundry": "Compendium.pf2e.feat-effects.Item.MbLXxoDfRUQJbIhr",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": ["such-a-disgrace"],
+            "removeAfterRoll": "if-enabled",
+            "selector": ["will"],
+            "type": "circumstance",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "effect:effect-thus-always-to-tyrants",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.MMTeeCVAr6rDgYtI",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": [
+              {
+                "label": "PF2E.NPCAbility.FangwoodSentinel.ThusAlwaysToTyrants.Ally",
+                "value": 1
+              },
+              {
+                "label": "PF2E.NPCAbility.FangwoodSentinel.ThusAlwaysToTyrants.Enemy",
+                "value": -1
+              }
+            ],
+            "flag": "targetType",
+            "key": "ChoiceSet",
+            "prompt": "Select a target"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "selector": ["attack-roll"],
+            "type": "status",
+            "value": "{item|flags.system.rulesSelections.targetType}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "effect:effect-trailblazing-stride",
+      "foundry": "Compendium.pf2e.feat-effects.Item.P6hfR6mJHqQpR1c8",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[feats-srd] Pathfinder Lost Omens Hellfire Dispatches"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "effect:effect-watch-your-back-golden-legionnaire",
+      "foundry": "Compendium.pf2e.feat-effects.Item.7vUZ5aYQx2K3BcI1",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.flanking.flankable",
+            "value": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "effect:stance-golden-erinys-stance",
+      "foundry": "Compendium.pf2e.feat-effects.Item.8yoq65YOI36Tv4c0",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "flag": "punctureFlesh",
+            "key": "GrantItem",
+            "predicate": ["feat:cruel-piercing"],
+            "uuid": "Compendium.pf2e.actionspf2e.Item.Puncture Flesh"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "equipment:signifers-mask",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.XlmoKh60WMF9ou3J",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:advanced-order-training",
+      "foundry": "Compendium.pf2e.feats-srd.Item.KvKg9pBOpk2oLeO1",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.hellknightArchetype.featCount",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:ardent-armiger",
+      "foundry": "Compendium.pf2e.feats-srd.Item.iKOcwFCbNX1a2OFT",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.hellknightArchetype.featCount",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:armigers-protection",
+      "foundry": "Compendium.pf2e.feats-srd.Item.h1TgAE6YeoiJnmex",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.hellknightArchetype.featCount",
+            "value": 1
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.defenses.light.rank",
+            "predicate": ["armigers-protection:hellknight-breastplate"],
+            "value": "max(@actor.system.proficiencies.defenses.medium.rank,ternary(gte(@actor.level,13),min(@actor.system.proficiencies.defenses.unarmored.rank,2),1))"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:barricade-snare",
+      "foundry": "Compendium.pf2e.feats-srd.Item.q5nSrvVggjSBcc0f",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:blade-of-law",
+      "foundry": "Compendium.pf2e.feats-srd.Item.tBfalnbUZLkG9gs1",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.hellknightArchetype.featCount",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:blessing-of-the-five",
+      "foundry": "Compendium.pf2e.feats-srd.Item.cMkpLgadlLCzDOv0",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[deities] Pathfinder Lost Omens Gods & Magic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:bloom-cabaret-entrance",
+      "foundry": "Compendium.pf2e.feats-srd.Item.bgchp6d8tRwo1Uj2",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:branding-spell",
+      "foundry": "Compendium.pf2e.feats-srd.Item.BpFj45tQY8ExHIRm",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.hellknightArchetype.featCount",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:brastlewark-snare-engineering",
+      "foundry": "Compendium.pf2e.feats-srd.Item.OuEIsBtQD1Fgx6Gz",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:broad-snare",
+      "foundry": "Compendium.pf2e.feats-srd.Item.VXIfIC7mFHx1Tl7C",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:conjure-hell",
+      "foundry": "Compendium.pf2e.feats-srd.Item.hEcKcvcrnL7olmsc",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.hellknightArchetype.featCount",
+            "value": 1
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:defy-chains",
+      "foundry": "Compendium.pf2e.feats-srd.Item.q9ssy4PN38l0930m",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "EphemeralEffect",
+          "raw": {
+            "affects": "origin",
+            "key": "EphemeralEffect",
+            "selectors": ["strike-damage"],
+            "uuid": "Compendium.pf2e.feat-effects.Item.Effect: Defy Chains"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:denounce-tyranny",
+      "foundry": "Compendium.pf2e.feats-srd.Item.ISjnymvdFOPED9um",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[against]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:diabolic-certitude",
+      "foundry": "Compendium.pf2e.feats-srd.Item.WxL8NMW9JQ5igu0C",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.hellknightArchetype.featCount",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:do-you-know-who-i-am",
+      "foundry": "Compendium.pf2e.feats-srd.Item.1Z4ps6u7RtA57ksK",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[against]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:domino-effect",
+      "foundry": "Compendium.pf2e.feats-srd.Item.Z8r7U99OSmlxmV1b",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:edict-of-mortality",
+      "foundry": "Compendium.pf2e.feats-srd.Item.pYYSLNUWGMYxYNkG",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[against]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:fabricated-credentials",
+      "foundry": "Compendium.pf2e.feats-srd.Item.3qvanRQLNhOTzpXV",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]][skill]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:feign-innocence",
+      "foundry": "Compendium.pf2e.feats-srd.Item.UhyoBNQbGP6lKjwE",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[against]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:fiendish-brand",
+      "foundry": "Compendium.pf2e.feats-srd.Item.VAIr1TpHZdxWovqG",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "AdjustStrike",
+          "raw": {
+            "key": "AdjustStrike",
+            "mode": "add",
+            "predicate": ["fiendish-brand"],
+            "property": "weapon-traits",
+            "value": "unholy"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[feat-effects] "
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:flower-street-infamy",
+      "foundry": "Compendium.pf2e.feats-srd.Item.rgmX9TTthBYo508T",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[against]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:gather-disciples",
+      "foundry": "Compendium.pf2e.feats-srd.Item.O5EQnF6Iqs8uD64X",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]][skill]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:gaze-of-veracity",
+      "foundry": "Compendium.pf2e.feats-srd.Item.MgLUbsvAkIA4fsZW",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.hellknightArchetype.featCount",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:golden-legionnaire-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.2z583cNP2e585eJC",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": [
+              "self:effect:raise-a-shield",
+              {
+                "or": ["action:grapple", "action:reposition", "action:shove"]
+              }
+            ],
+            "selector": ["fortitude-dc"],
+            "type": "circumstance",
+            "value": "@actor.attributes.shield.ac"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:gray-corsair-training",
+      "foundry": "Compendium.pf2e.feats-srd.Item.tajGEkmgUq2OY4W9",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:hell-lancer-shot",
+      "foundry": "Compendium.pf2e.feats-srd.Item.jAQRg40crmZgPkDr",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": ["hell-lancer-shot"],
+            "selector": ["ranged-strike-damage"],
+            "slug": "gravity-weapon",
+            "type": "circumstance",
+            "value": "@weapon.system.damage.dice * 2"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:hellknight-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.qhs0mWbaLKsdckZX",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.hellknightArchetype.featCount",
+            "value": 1
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "key": "Resistance",
+            "type": "mental",
+            "value": "@actor.flags.system.hellknightArchetype.featCount + 1"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:hellknight-errant",
+      "foundry": "Compendium.pf2e.feats-srd.Item.3acizttblPMfO1O7",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "key": "Resistance",
+            "type": "mental",
+            "value": "@actor.flags.system.hellknightArchetype.featCount + 5"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:hellknight-mobility",
+      "foundry": "Compendium.pf2e.feats-srd.Item.Olx796SgBbHUFeHc",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.hellknightArchetype.featCount",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:hellknight-preferment",
+      "foundry": "Compendium.pf2e.feats-srd.Item.oNh2vedij8xbDbph",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.hellknightArchetype.featCount",
+            "value": 1
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "key": "Resistance",
+            "predicate": [
+              {
+                "or": ["armor:slug:hellknight-plate", "armor:slug:hellknight-half-plate"]
+              }
+            ],
+            "type": "slashing",
+            "value": "3 + @armor.system.runes.potency"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "key": "Resistance",
+            "predicate": ["armor:slug:hellknight-breastplate"],
+            "type": "slashing",
+            "value": "2 + @armor.system.runes.potency"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:hellknight-signifer-preferment",
+      "foundry": "Compendium.pf2e.feats-srd.Item.62hpJOuvYYSa4X7u",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.hellknightArchetype.featCount",
+            "value": 1
+          }
+        },
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "key": "GrantItem",
+            "uuid": "Compendium.pf2e.equipment-srd.Item.Signifer's Mask"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:hells-armaments",
+      "foundry": "Compendium.pf2e.feats-srd.Item.J5s7NeFHYuFSdhrX",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.hellknightArchetype.featCount",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:holy-bloom",
+      "foundry": "Compendium.pf2e.feats-srd.Item.p6TGLeRmYINvbLNW",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:infernal-interference",
+      "foundry": "Compendium.pf2e.feats-srd.Item.dbqpcMp7RwYzT4Ec",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.hellknightArchetype.featCount",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:inked-cache",
+      "foundry": "Compendium.pf2e.feats-srd.Item.WtswAs4isNAQUNey",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[against]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:instant-credentials",
+      "foundry": "Compendium.pf2e.feats-srd.Item.VaKsW4wjZ9g7UZGh",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]][traits]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:ivy-district-influencer",
+      "foundry": "Compendium.pf2e.feats-srd.Item.2wq9XTY7YUnUWl0g",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:ivy-playhouse-strike",
+      "foundry": "Compendium.pf2e.feats-srd.Item.0VOzclP73W0txuvF",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": ["ivy-playhouse-strike", "item:melee"],
+            "selector": ["melee-strike-damage"],
+            "type": "circumstance",
+            "value": "-1*(@weapon.system.damage.dice)"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "AdjustStrike",
+          "raw": {
+            "key": "AdjustStrike",
+            "mode": "add",
+            "predicate": ["ivy-playhouse-strike", "item:melee"],
+            "property": "weapon-traits",
+            "value": "nonlethal"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:lasting-protection",
+      "foundry": "Compendium.pf2e.feats-srd.Item.7JneFz4asWtotVfy",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "feat",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:commitment-to-protection"],
+            "property": "description",
+            "value": [
+              {
+                "text": "{item|description}"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:libertys-promise",
+      "foundry": "Compendium.pf2e.feats-srd.Item.MbNLIACQfPdVOL6F",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:magpie-manor-recovery",
+      "foundry": "Compendium.pf2e.feats-srd.Item.lWDM4XNj1MQzTVm2",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:march-of-law",
+      "foundry": "Compendium.pf2e.feats-srd.Item.MhPL9hPE9Mwg20zk",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.hellknightArchetype.featCount",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:masked-casting",
+      "foundry": "Compendium.pf2e.feats-srd.Item.4xeDjt8eARzAGARP",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.hellknightArchetype.featCount",
+            "value": 1
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:mortal-possibility",
+      "foundry": "Compendium.pf2e.feats-srd.Item.Il4Zx2Z2tvJoWVTF",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": {
+              "config": "skills",
+              "predicate": [
+                {
+                  "gte": ["skill:{choice|value}:rank", 3]
+                }
+              ]
+            },
+            "flag": "mortalPossibility",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Skill"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": ["mortal-possibility"],
+            "selector": ["{item|flags.system.rulesSelections.mortalPossibility}-check"],
+            "type": "status",
+            "value": 3
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:mortification",
+      "foundry": "Compendium.pf2e.feats-srd.Item.gqQK7dDrGPkQDfQQ",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.hellknightArchetype.featCount",
+            "value": 1
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": [
+              {
+                "label": "PF2E.TraitBludgeoning",
+                "value": "bludgeoning"
+              },
+              {
+                "label": "PF2E.TraitPiercing",
+                "value": "piercing"
+              },
+              {
+                "label": "PF2E.TraitSlashing",
+                "value": "slashing"
+              }
+            ],
+            "flag": "damageType",
+            "key": "ChoiceSet"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "key": "Resistance",
+            "type": "{item|flags.system.rulesSelections.damageType}",
+            "value": "@actor.flags.system.hellknightArchetype.featCount"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:nidalese-horselord-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.KGskOgyMJVlpNtua",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:officers-protection",
+      "foundry": "Compendium.pf2e.feats-srd.Item.ZWyJB0ykD9Mh001u",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "feat",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:commitment-to-protection"],
+            "property": "description",
+            "value": [
+              {
+                "text": "{item|description}"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:order-cross-training",
+      "foundry": "Compendium.pf2e.feats-srd.Item.iFEecf9o6uhJxWcG",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.hellknightArchetype.featCount",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:order-training",
+      "foundry": "Compendium.pf2e.feats-srd.Item.AgMFfp6fdNZ1mAxn",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.hellknightArchetype.featCount",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:perplex",
+      "foundry": "Compendium.pf2e.feats-srd.Item.ctl5zNJC3APlHg9o",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[against]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:petal-district-socialite",
+      "foundry": "Compendium.pf2e.feats-srd.Item.fWyBSrf2IxMEoqNa",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:propelled-leap",
+      "foundry": "Compendium.pf2e.feats-srd.Item.LyqXT4XYYlgf8KYK",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:pure-legion-enforcer-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.dMzUm4TJ7KeX2DLR",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:remote-detonation-snarecrafter",
+      "foundry": "Compendium.pf2e.feats-srd.Item.0wpnyayq9ZXmfv7H",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:repelling-enforcer",
+      "foundry": "Compendium.pf2e.feats-srd.Item.gDpOpq5SDBnSYWUm",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Note",
+          "raw": {
+            "key": "Note",
+            "predicate": ["item:trait:divine", "item:type:spell"],
+            "selector": ["damage-received"],
+            "text": "{item|description}",
+            "title": "{item|name}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:righteous-resistance",
+      "foundry": "Compendium.pf2e.feats-srd.Item.Kz4E8heU12IGcYoi",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:resist-energy", "spellcasting:category:innate", "spellcasting:tradition:divine"],
+            "property": "description",
+            "value": [
+              {
+                "text": "{item|description}"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:riptide-undersea-privateer",
+      "foundry": "Compendium.pf2e.feats-srd.Item.ypIzURz2VBJCOran",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[against]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:rose-warden-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.LlV0KHIebzdczgyD",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:salt-kissed",
+      "foundry": "Compendium.pf2e.feats-srd.Item.jyNLPVWczMYA1ZXR",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:sense-iniquity",
+      "foundry": "Compendium.pf2e.feats-srd.Item.3XFKXB3ffeIkrQYe",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.hellknightArchetype.featCount",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:signifers-sight",
+      "foundry": "Compendium.pf2e.feats-srd.Item.TyjW9VGtlH0Zkm0I",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.hellknightArchetype.featCount",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:sister-of-the-golden-erinys-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.UChWjUmCHLTny5QA",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "label": "PF2E.TraitUnholy",
+                "value": "unholy"
+              },
+              {
+                "label": "PF2E.NoneOption",
+                "value": "none"
+              }
+            ],
+            "key": "ChoiceSet",
+            "predicate": [
+              {
+                "nor": ["sanctification:none", "sanctification:holy", "sanctification:unholy"]
+              }
+            ],
+            "prompt": "PF2E.SpecificRule.Prompt.Sanctification",
+            "rollOption": "sanctification",
+            "slug": "sanctification"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "AdjustStrike",
+          "raw": {
+            "definition": [
+              {
+                "or": ["item:slug:asp-coil", "item:slug:scourge", "item:trait:unarmed"]
+              }
+            ],
+            "key": "AdjustStrike",
+            "mode": "add",
+            "property": "weapon-traits",
+            "value": "unholy"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[equipment-srd] Pathfinder Lost Omens The Grand Bazaar"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:slippery-as-an-eel",
+      "foundry": "Compendium.pf2e.feats-srd.Item.lLYn6GtAbyns0ENC",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]][skill]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:starstone-aspirant-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.2tF5kSGaSEmhQg1i",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:stealthy-as-an-octopus",
+      "foundry": "Compendium.pf2e.feats-srd.Item.boYbKJ0xTHAWMSk4",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:steel-falcon-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.qBiKxw3rzDAH7oz3",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:sturdy-bindings",
+      "foundry": "Compendium.pf2e.feats-srd.Item.XOAtP64xiSRIofsY",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:such-a-disgrace",
+      "foundry": "Compendium.pf2e.feats-srd.Item.ACVze8hUm9L5Slrg",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:sundown-street-posturing",
+      "foundry": "Compendium.pf2e.feats-srd.Item.ZFC7VRYrNOsxlihA",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:traces-of-the-divine",
+      "foundry": "Compendium.pf2e.feats-srd.Item.yxScjPfOuvrIqPkQ",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:trained-swimmer",
+      "foundry": "Compendium.pf2e.feats-srd.Item.w7qyBwVzAAL1ORDd",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "BaseSpeed",
+          "raw": {
+            "key": "BaseSpeed",
+            "selector": "swim-speed",
+            "value": 15
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:twilight-talon-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.q8xL4l04rFcc126W",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:undersea-privateer-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.VKpPMt0W3eVGnjB3",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "CriticalSpecialization",
+          "raw": {
+            "key": "CriticalSpecialization",
+            "predicate": ["undersea-privateer", "proficiency:expert"]
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellfire-dispatches",
+      "slug": "feat:unfetter-sight",
+      "foundry": "Compendium.pf2e.feats-srd.Item.zTzReEKvTwtRczlI",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.hellknightArchetype.featCount",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "vocabulary",
+      "kind": "damage-type",
+      "slug": "untyped",
+      "reason": "unmapped-value",
+      "detail": "untyped"
+    }
+  ]
+}

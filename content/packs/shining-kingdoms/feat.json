@@ -1,0 +1,6349 @@
+[
+  {
+    "id": "4085451b-153b-5919-a731-b4dc26ef9015",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:aura-of-confidence",
+    "name": "Aura of Confidence",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["archetype", "emotion", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your will and your faith in your nation is unassailable, and the feeling is contagious. You gain resistance to mental damage equal to half your level. You and all allies within 15 feet gain a +2 status bonus to saving throws against mental effects."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["mental"],
+        "value": "floor(@level / 2)"
+      },
+      {
+        "key": "Aura",
+        "radius": 15,
+        "traits": ["emotion", "mental"],
+        "effects": [
+          {
+            "effect": "45b8e54c-ccdd-515c-9830-0378a116e486",
+            "affects": "allies"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.RXs4YB6Kie4MbgDs"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Eagle Knight Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "9733bdf2-5edb-5f68-b4fd-86ababb14e84"
+    }
+  },
+  {
+    "id": "7636ed34-b935-5c88-a1b4-a20d606c0742",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:basic-prophet-spellcasting",
+    "name": "Basic Prophet Spellcasting",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the Basic Spellcasting Benefits. Each time you gain a spell slot of a new rank from the prophet of Kalistrade archetype, add a common occult spell of the appropriate rank, or another appropriate occult spell you've learned or discovered, to your repertoire."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.mWbIoWKDi1wANHDZ"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Prophet of Kalistrade Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "13175df9-a27d-5811-b842-d4dc0169f425"
+    }
+  },
+  {
+    "id": "31117a36-a175-5346-bdfb-2985b7598866",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:battlefield-agility",
+    "name": "Battlefield Agility",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype", "flourish"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're flanked by at least two enemies."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your enemies might think they have you surrounded, but you know just how to extricate yourself. Make a melee Strike against one of the enemies flanking you and Step, in any order."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.UetL3DTdUa3JYSSU"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Blackjacket Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You're flanked by at least two enemies."
+              }
+            ]
+          }
+        ]
+      },
+      "archetype": "78e641fa-60b5-5805-bff9-61b0fb410954"
+    }
+  },
+  {
+    "id": "bbe206d9-a491-58e9-9974-3fd18a4fed11",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:belay-that",
+    "name": "Belay That!",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype", "auditory"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An ally within 30 feet of you critically fails a Strike."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can recognize when a strategy isn't working and advise your ally to change course. The next Strike the triggering ally makes before the end of their turn has the same multiple attack penalty as the critically failed Strike, but it counts toward their multiple attack penalty as normal."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.7FOxECsqayIulRAh"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Blackjacket Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "An ally within 30 feet of you critically fails a Strike."
+              }
+            ]
+          }
+        ]
+      },
+      "archetype": "78e641fa-60b5-5805-bff9-61b0fb410954"
+    }
+  },
+  {
+    "id": "8346a8d5-f507-59c3-a69c-c421ca6246cd",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:blackjacket-dedication",
+    "name": "Blackjacket Dedication",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["archetype", "dedication"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're from Druma."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have entered the ranks of the Mercenary League and now wear the black uniform that's the source of the organization's popular epithet. You become trained in Intimidation; if you were already trained, you become an expert instead. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "50ac17a9-a644-58e8-8ee0-ce4c6cfbf17b"
+          },
+          {
+            "type": "text",
+            "text": " skill feat for Warfare Lore; if you were already trained in Warfare Lore, you also become trained in a Lore skill of your choice. While wearing medium or heavy armor, you gain a +1 circumstance bonus to Intimidation checks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Blackjacket"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "50ac17a9-a644-58e8-8ee0-ce4c6cfbf17b"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:intimidation"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": [
+          "armor:equipped",
+          {
+            "or": ["armor:category:medium", "armor:category:heavy"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.PWKHlkSx7baAcPw4"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "trained in medium armor and martial weapons"
+            }
+          ]
+        }
+      ],
+      "archetype": "78e641fa-60b5-5805-bff9-61b0fb410954"
+    }
+  },
+  {
+    "id": "b56482c3-e497-5cff-80f1-4bcd948c55fc",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:blessed-sentinel",
+    "name": "Blessed Sentinel",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype", "flourish"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You infuse a weapon with the blessing of Ketephys and attack. Make a Strike. This Strike gains the holy trait and deals an additional 1d4 spirit damage, or 2d4 spirit damage against fiends. This counts as two attacks for your multiple attack penalty."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:blessed-sentinel",
+        "toggleable": true
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["weapon-damage"],
+        "slug": "blessed-sentinel",
+        "diceNumber": 1,
+        "dieSize": "d4",
+        "damageType": "spirit",
+        "predicate": ["option:blessed-sentinel"]
+      },
+      {
+        "key": "DamageAlteration",
+        "selectors": ["strike-damage"],
+        "slug": "blessed-sentinel",
+        "property": "dice-number",
+        "mode": "add",
+        "value": 1,
+        "predicate": ["option:blessed-sentinel", "target:trait:fiend"]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon"],
+        "property": "traits",
+        "mode": "add",
+        "value": "holy",
+        "predicate": ["option:blessed-sentinel"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.K2oSXGmqTUrcQYar"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wylderheart Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "two"
+      },
+      "archetype": "6d25f3cb-6250-5126-9b21-dce549e2aaef"
+    }
+  },
+  {
+    "id": "93bf5734-4d36-536b-9763-b62db72fb5dc",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:bolster-ally",
+    "name": "Bolster Ally",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["archetype", "auditory"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " One of your allies within 30 feet is targeted by a spell or ability that allows a saving throw."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You shout encouragement to your embattled ally. The ally can use your saving throw modifier instead of their own against the triggering spell."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.f0reqV8eqnCycDWk"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Eagle Knight Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "One of your allies within 30 feet is targeted by a spell or ability that allows a saving throw."
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "ten-minutes"
+        }
+      },
+      "archetype": "9733bdf2-5edb-5f68-b4fd-86ababb14e84"
+    }
+  },
+  {
+    "id": "cdcafc4d-c3b6-5385-8e7a-67caa512fab4",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:close-contract",
+    "name": "Close Contract",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["archetype", "concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have completed your active course of action but haven't Dismissed it or chosen a new one."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're bolstered when a plan comes together. You Dismiss your current course of action and gain 15 temporary Hit Points that last for 1 hour. The number of temporary Hit Points increases by 5 at 12th level and every 2 levels thereafter."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.xCbvXyWZ7JyUtN2N"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mercenary Motivation"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You have completed your active course of action but haven't Dismissed it or chosen a new one."
+              }
+            ]
+          }
+        ],
+        "selfEffect": "abc97cf1-f02a-5a1a-ba0b-800929b28a14"
+      },
+      "archetype": "78e641fa-60b5-5805-bff9-61b0fb410954"
+    }
+  },
+  {
+    "id": "30c90898-170d-5969-b364-14af84c23780",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:commitment-to-equality",
+    "name": "Commitment to Equality",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype", "auditory", "mental", "skill"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You help an ally shake off any impediment that would give an enemy an unfair advantage. You rally a creature within 30 feet in an attempt to reduce its "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f"
+          },
+          {
+            "type": "text",
+            "text": " condition. If a creature has multiple conditions from this list, choose one. When you're a master in Diplomacy, add "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd"
+          },
+          {
+            "type": "text",
+            "text": " to the list of conditions. When you're legendary in Diplomacy, add "
+          },
+          {
+            "type": "ref",
+            "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f"
+          },
+          {
+            "type": "text",
+            "text": " to the list of conditions; if the stunned condition has a duration instead of a value, you can't use Commitment to Equality to reduce it."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:diplomacy"
+          },
+          {
+            "type": "text",
+            "text": " check against the saving throw DC of the effect that caused the condition; if there was no saving throw DC, use the hard DC for the level of the creature, hazard, or item that caused the effect. You can't treat a condition that came from an artifact or effect above 20th level unless you're legendary in Diplomacy; even if you can, the counteract DC increases by 10. You can't treat a condition that is part of a curse or disease or is a natural state of the target. Once you attempt to treat a target's condition, that target is immune to further attempts for 1 hour, regardless of the result."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Reduce the condition's value by 2."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Reduce the condition's value by 1."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Increase the condition's value by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.TMwqXqqggiblvEGZ"
+    },
+    "data": {
+      "category": "skill",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Eagle Knight Dedication; expert in Diplomacy"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "two"
+      },
+      "archetype": "9733bdf2-5edb-5f68-b4fd-86ababb14e84"
+    }
+  },
+  {
+    "id": "c5e368fc-b7d2-5266-959f-249569a81cec",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:commitment-to-justice",
+    "name": "Commitment to Justice",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype", "flourish"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You witnessed a creature kill or reduce an ally to 0 Hit Points since your last turn."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When your allies are harmed, you deliver retribution. Make a Strike against the required creature. If this Strike hits, you gain a circumstance bonus to damage equal to three times the number of weapon damage dice."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:commitment-to-justice",
+        "toggleable": true
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.OMiIO6BzaXZTKjTt"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Eagle Knight Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You witnessed a creature kill or reduce an ally to 0 Hit Points since your last turn."
+              }
+            ]
+          }
+        ]
+      },
+      "archetype": "9733bdf2-5edb-5f68-b4fd-86ababb14e84"
+    }
+  },
+  {
+    "id": "8d707514-5054-5908-8c0a-495758988dd9",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:commitment-to-liberty",
+    "name": "Commitment to Liberty",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype", "flourish"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature has an ally "
+          },
+          {
+            "type": "ref",
+            "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "b374c4c9-d230-5167-8878-38e08932a071"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can't abide when a foe has one of your allies in its grip. Make a Strike against the required creature. If this Strike hits, the grabbed or restrained ally can immediately attempt to "
+          },
+          {
+            "type": "ref",
+            "id": "2ae74030-e87a-55ee-955c-fb9870392d44"
+          },
+          {
+            "type": "text",
+            "text": " as a free action. If the Strike was a critical hit, that ally gains a +2 circumstance bonus to their Escape attempt."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.97twoPOGsPa7pnWu"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Eagle Knight Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "two",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "A creature has an ally Grabbed or Restrained."
+              }
+            ]
+          }
+        ]
+      },
+      "archetype": "9733bdf2-5edb-5f68-b4fd-86ababb14e84"
+    }
+  },
+  {
+    "id": "84493fc0-e7de-57c4-829b-3f81668fbb06",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:crowd-mastery",
+    "name": "Crowd Mastery",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You use the crowd to your advantage, diverting your foes' attention to potential hidden dangers in the crowd. When determining if your foe is flanked, treat all squares occupied by a crowd as if they were occupied by an ally with a melee reach of 5 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.DR6vessIpXTLM6Xa"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lost in the Crowd"
+            }
+          ]
+        }
+      ],
+      "archetype": "097e9e69-92c2-5c09-879a-62cd87e46d5d"
+    }
+  },
+  {
+    "id": "80a72689-2d30-581d-8c3d-f494e94f31c0",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:defenders-grit",
+    "name": "Defender's Grit",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can't protect anyone if you're dead. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "730b86b0-c740-5759-ba8b-82ae1fede883"
+          },
+          {
+            "type": "text",
+            "text": " general feat. If you start your turn adjacent to your designated ally, you gain a number of temporary Hit Points equal to half your level that lasts until the beginning of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "fdee03d9-7b94-5e3c-a687-ba0ad394dcd6"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "730b86b0-c740-5759-ba8b-82ae1fede883"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.QCUylerXd0VB9jU9"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Ulfen Guard Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "88b2460d-0019-530b-b26e-ec3eaa447de0"
+    }
+  },
+  {
+    "id": "b749fd5d-14b5-5544-816d-edf7de67028f",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:demon-hunting-companion",
+    "name": "Demon-Hunting Companion",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a young animal companion that has been specially trained to help you fight demons. You can choose any common animal companion, which gains scent as an imprecise sense with a range of 30 feet that can be used only to smell fiends. If the animal companion already has scent, it gains a +2 circumstance bonus to Perception when using scent against fiends."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.cTTOH6yJibgvRlLX"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wylderheart Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "6d25f3cb-6250-5126-9b21-dce549e2aaef"
+    }
+  },
+  {
+    "id": "684ff4f5-e016-5252-ace9-79e0575cf886",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:dread-blade",
+    "name": "Dread Blade",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your strikes with your conjured dagger impart the chill of the grave. When you successfully Strike with your "
+          },
+          {
+            "type": "text",
+            "text": "spectral dagger",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " and damage a foe with the "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62"
+          },
+          {
+            "type": "text",
+            "text": " condition, they can't reduce their frightened condition below 1 before the end of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.7DKcoEIqpa8JUvYF"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Spectral Dagger"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "6884dbb3-b895-5c54-9d94-933b47e6c597",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:eagle-knight-dedication",
+    "name": "Eagle Knight Dedication",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["archetype", "dedication"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're invited by a current member of the Eagle Knights or the People's Council."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Eagle Knights are the marshals and envoys of Andoran and are committed to keeping the peace. On the first round of combat, if you roll Diplomacy for initiative, creatures that haven't acted are "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " to you. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "50ac17a9-a644-58e8-8ee0-ce4c6cfbf17b"
+          },
+          {
+            "type": "text",
+            "text": " skill feat for Politics Lore. If you were already trained in Politics Lore, you also become trained in a Lore skill of your choice. You can use Politics Lore to Make an Impression on or make a Request of government officials (or similar figures) or to Gather Information about them. If you critically succeed at a check to "
+          },
+          {
+            "type": "ref",
+            "id": "5a415628-89cf-53d6-bd53-fd8ff05718fb"
+          },
+          {
+            "type": "text",
+            "text": " with Politics Lore, you know the information without having to spend any time gathering it."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Eagle Knight"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "50ac17a9-a644-58e8-8ee0-ce4c6cfbf17b"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.2shqQYK6l3RUEqiQ"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "trained in Diplomacy and Society"
+            }
+          ]
+        }
+      ],
+      "archetype": "9733bdf2-5edb-5f68-b4fd-86ababb14e84"
+    }
+  },
+  {
+    "id": "27811ac6-db3b-5058-8f9f-a6948ab4d348",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:elven-persistence",
+    "name": "Elven Persistence",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["elf", "fortune"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail a skill check you're at least trained in."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Elves don't give up easily on their pursuits. Instead of the result you received for the triggering skill check, you receive a result of 12 + your proficiency bonus (don't apply any other bonuses, penalties, or modifiers)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.y1Jp8e5zmO1InHMe"
+    },
+    "data": {
+      "category": "ancestry",
+      "action": {
+        "cost": "free",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You fail a skill check you're at least trained in."
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "day"
+        }
+      }
+    }
+  },
+  {
+    "id": "64fd99d5-31fe-5feb-8242-d2e14e5b19cf",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:even-the-odds-eagle-knight",
+    "name": "Even the Odds (Eagle Knight)",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["archetype", "fortune"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Even when overpowered, Eagle Knights hold out hope. If your next action is to use "
+          },
+          {
+            "type": "ref",
+            "id": "30c90898-170d-5969-b364-14af84c23780"
+          },
+          {
+            "type": "text",
+            "text": ", you roll the Diplomacy check twice and take the higher result. If you succeed, the target also gains 25 temporary Hit Points that last for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "c3a459d6-a72e-55e9-b873-713013c3192b"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.ccLpjnWjl62Ehegc"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Commitment to Equality"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "free",
+        "frequency": {
+          "max": 1,
+          "per": "day"
+        }
+      },
+      "archetype": "9733bdf2-5edb-5f68-b4fd-86ababb14e84"
+    }
+  },
+  {
+    "id": "c515ea3c-183f-5613-bae4-f3c51ad31ac9",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:expeditious-advance",
+    "name": "Expeditious Advance",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are unarmored or wearing light armor."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You advance and retreat quickly. You gain a +10-foot status bonus to your speed."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "status",
+        "value": 10,
+        "predicate": [
+          {
+            "or": ["armor:category:unarmored", "armor:category:light"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.0Gao1ez4dGH6dIZ2"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lion Blade Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are unarmored or wearing light armor."
+              }
+            ]
+          }
+        ]
+      },
+      "archetype": "097e9e69-92c2-5c09-879a-62cd87e46d5d"
+    }
+  },
+  {
+    "id": "bc8ac44b-1e01-5375-ade8-c4898545c242",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:expert-prophet-spellcasting",
+    "name": "Expert Prophet Spellcasting",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the Expert Spellcasting Benefits."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "expert"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.X2JzoRXHhhz5o4P4"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Basic Prophet Spellcasting; master in Society"
+            }
+          ]
+        }
+      ],
+      "archetype": "13175df9-a27d-5811-b842-d4dc0169f425"
+    }
+  },
+  {
+    "id": "cce36248-49ec-580c-9725-85c5aa86d2ec",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:fiend-slayer",
+    "name": "Fiend Slayer",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["archetype", "death", "void"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your last action was a successful Strike against a fiend that dealt damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your attack tears through a fiend, possibly sending it back to where it came from. The fiend you just struck takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "80",
+                "damageType": "void"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": {
+              "against": "class-or-spell-dc"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC or spell DC, whichever is higher. On a critical failure, the target is also "
+          },
+          {
+            "type": "ref",
+            "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+            "label": "Stunned 1"
+          },
+          {
+            "type": "text",
+            "text": ". Regardless of the results of the saving throw, the target is then temporarily immune to Fiend Slayer for 24 hours."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.DoaqSxIFx5CSgBBE"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wylderheart Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Your last action was a successful Strike against a fiend that dealt damage."
+              }
+            ]
+          }
+        ]
+      },
+      "archetype": "6d25f3cb-6250-5126-9b21-dce549e2aaef"
+    }
+  },
+  {
+    "id": "b5d698f5-4b1d-5d76-bcb8-d5b261e2e0cf",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:flickering-twirl",
+    "name": "Flickering Twirl",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You use your movements and disguises to make yourself a flickering blur. You gain "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1",
+            "label": "Concealment"
+          },
+          {
+            "type": "text",
+            "text": " until your next turn. As usual for concealment involving an obvious visual manifestation, you can't use this concealment to "
+          },
+          {
+            "type": "ref",
+            "id": "5a86b7d0-fc0e-52a6-9b0d-fb58ed15233d"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.SyxXnSk2R0AM9HSn"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lion Blade Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one"
+      },
+      "archetype": "097e9e69-92c2-5c09-879a-62cd87e46d5d"
+    }
+  },
+  {
+    "id": "2bcd8b1c-b04b-5c51-9e60-2c1008cb102c",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:fling-head",
+    "name": "Fling Head",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype", "auditory", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You Interact to remove your head, if it isn't already detached, and fling it at an enemy within 30 feet, where it emits a bone-chilling wail before dematerializing and returning to your body. Your target must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "class-or-spell-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC or spell DC, whichever is higher. You can affect one additional creature within 20 feet of your original target for each additional action you spend."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 2"
+          },
+          {
+            "type": "text",
+            "text": " and can't reduce their frightened value below 1 while they remain within 30 feet of you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but the creature is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 3"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.lmo55Y5NS5iZa56o"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Headless Haunt"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "frequency": {
+          "max": 1,
+          "per": "minute"
+        }
+      }
+    }
+  },
+  {
+    "id": "6f80a95e-f84d-5a2d-859b-75b5da3ee3a7",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:fortunes-favor",
+    "name": "Fortune's Favor",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're about to reroll a failed skill check or saving throw due to a fortune effect."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You understand when an investment in you has the chance to pay off. You gain a +2 circumstance bonus to the triggering roll."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:fortunes-favor",
+        "toggleable": true
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["option:fortunes-favor"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.HNeKm6BCu795585p"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Prophet of Kalistrade Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "free",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You're about to reroll a failed skill check or saving throw due to a fortune effect."
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "day"
+        }
+      },
+      "archetype": "13175df9-a27d-5811-b842-d4dc0169f425"
+    }
+  },
+  {
+    "id": "fafba756-158a-5c7a-8e66-c78f54439ee8",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:free-heart",
+    "name": "Free Heart",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["elf"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You follow all your passions, unlimited in creativity and zeal. Choose a common background that relates to a passion you've pursued; you're trained in the skills and gain the skill feat associated with that background in addition to those in your normal background. As usual for backgrounds, if you would gain the trained proficiency rank for one of these skill from your class at 1st level, you instead become trained in another skill of your choice."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.hTdf9tpuImptkZLM"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "2e8c4c60-74fa-5253-aa16-91959a9ab485",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:ghostly-condemnation",
+    "name": "Ghostly Condemnation",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["archetype", "divine", "emotion", "fear", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You shriek a death sentence upon a single target within 120 feet, forcing it to experience the final moments of your mortal life as you were dragged through a howling mob and forced to kneel before the final blade that took your life and head. The target is subject to the effects of a 5th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "50de9888-d8e7-5733-b97c-4f360205e33f"
+          },
+          {
+            "type": "text",
+            "text": " with a DC equal to your class DC or spell DC, whichever is higher. If you slay a significant foe with this ability, its physical body is gruesomely decapitated, forcing its allies within 15 feet to attempt a Will save against the same DC or be "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 1"
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 2"
+          },
+          {
+            "type": "text",
+            "text": " on a critical failure)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.NYY7zWZWZ3XlzQgs"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Headless Haunt"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "two",
+        "frequency": {
+          "max": 1,
+          "per": "day"
+        }
+      }
+    }
+  },
+  {
+    "id": "76e2e70d-66ee-591b-b997-3069a8e603e1",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:guarded-mind",
+    "name": "Guarded Mind",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype", "fortune"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail a saving throw against an effect that has the mental trait."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When your enemies try to turn your mind against you, thoughts of your anathema bolster you. You can reroll the triggering saving throw with a +2 circumstance bonus, but you must use the new result, even if it's worse."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["option:guarded-mind"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.bbBUbigCqgxiIT4E"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Ulfen Guard Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "free",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You fail a saving throw against an effect that has the mental trait."
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "ten-minutes"
+        }
+      },
+      "archetype": "88b2460d-0019-530b-b26e-ec3eaa447de0"
+    }
+  },
+  {
+    "id": "abfe177a-a13c-5487-b1e5-212113d70b78",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:guards-fury",
+    "name": "Guard's Fury",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Some Ulfen Guards tap into a well of fury to protect their charges. You can use the "
+          },
+          {
+            "type": "ref",
+            "id": "6018ad4a-3bf1-50f0-9452-3c633fe443e0"
+          },
+          {
+            "type": "text",
+            "text": " action. While raging, you take a –1 penalty to AC. If you're adjacent to your designated ally while raging, increase the additional damage from Rage from 2 to 4."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "6018ad4a-3bf1-50f0-9452-3c633fe443e0"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "untyped",
+        "value": -1,
+        "predicate": ["self:effect:rage"]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:guards-fury-adjacent",
+        "toggleable": true,
+        "predicate": ["self:effect:rage"],
+        "display": {
+          "label": "Guard's Fury — Adjacent to designated ally"
+        }
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["strike-damage"],
+        "slug": "rage",
+        "mode": "upgrade",
+        "value": 4,
+        "predicate": ["option:guards-fury-adjacent"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.AAhRUP6Uvy8gE1jA"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Ulfen Guard Dedication; you can't already use the Rage action"
+            }
+          ]
+        }
+      ],
+      "archetype": "88b2460d-0019-530b-b26e-ec3eaa447de0"
+    }
+  },
+  {
+    "id": "0c11a093-a441-5c75-8c1d-c78f177fe0c0",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:guillotine-blade",
+    "name": "Guillotine Blade",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["archetype", "concentrate", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The echoes of the splinter of finality's original purpose resonate through the artifact. For the next minute, your "
+          },
+          {
+            "type": "ref",
+            "id": "27c33006-85b8-5ff2-8b2f-eb6340866d64"
+          },
+          {
+            "type": "text",
+            "text": " gains the benefits of a "
+          },
+          {
+            "type": "ref",
+            "id": "86eff5f6-6a74-532a-a150-ae97aadd3faa"
+          },
+          {
+            "type": "text",
+            "text": " rune. When you use Snicker-Snack with your "
+          },
+          {
+            "type": "text",
+            "text": "spectral dagger",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", the DC of the "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude"
+          },
+          {
+            "type": "text",
+            "text": " save is 37, your class DC, or your spell DC, whichever is higher."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.jwjtxZL6XpkO5lv9"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Spectral Dagger"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "frequency": {
+          "max": 1,
+          "per": "day"
+        },
+        "selfEffect": "a4089a52-6622-5792-a5c5-72ffc1d8d729"
+      }
+    }
+  },
+  {
+    "id": "0f4cdfc4-e23c-50a5-8763-0e7fff506e34",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:haunting-memories",
+    "name": "Haunting Memories",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your soul bears metaphysical impressions of the innumerable other spirits imprisoned with you in the Final Blade from which you escaped, allowing you to draw upon their memories. When you make your daily preparations, you can either gain the expert proficiency rank in one skill in which you're untrained or raise your proficiency rank to master in one skill in which you're trained or better. You also gain one skill feat with a minimum requirement of your new rank in the chosen skill. For the purpose of meeting level prerequisites for this feat, your level is equal to half your level."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This proficiency and feat last until you make your daily preparations again. Since the proficiency is temporary, you can't use it as a prerequisite for any permanent character option."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.aprpqUlRpRVXwAJv"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Headless Haunt"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "558d78e4-7ddd-52a7-a1fd-6ede1fc87935",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:headless-haunt",
+    "name": "Headless Haunt",
+    "level": 4,
+    "rarity": "rare",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You were executed with a Final Blade."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You were condemned to death and executed with one of Galt's infamous "
+          },
+          {
+            "type": "text",
+            "text": "final blades",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", where your soul was trapped for years or even decades. You might have been released alongside a host of other spirits when your prison was destroyed after the Night of the Gray Death, or powerful magic or other unique circumstances might have facilitated your escape. Whatever the method, you have unfinished business preventing you from passing on to the afterlife. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "9983ccd2-c25a-5e59-b330-e1c883683c4f"
+          },
+          {
+            "type": "text",
+            "text": " action."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "9983ccd2-c25a-5e59-b330-e1c883683c4f"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.iYTHfcZWAnzLgK13"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Ghost Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "cf69af51-337b-5527-a948-641fb260bfcb",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:hungry-blade",
+    "name": "Hungry Blade",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["archetype", "concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your previous action was a Strike with your spectral dagger that dealt spirit damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Once your spectral dagger has tasted an enemy's soul, your splinter of finality becomes increasingly relentless in its attempts to claim the soul. Your "
+          },
+          {
+            "type": "text",
+            "text": "spectral dagger",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " gains the effects of a "
+          },
+          {
+            "type": "ref",
+            "id": "bc974552-c0c5-57ac-9924-d474d2bdf9a0"
+          },
+          {
+            "type": "text",
+            "text": " property rune that applies only to Strikes against the target of the required Strike. This effect lasts for 10 minutes or until that target dies, whichever comes first."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.6nB5ycSo4zshj22k"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Spectral Dagger"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Your previous action was a Strike with your spectral dagger that dealt spirit damage."
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "day"
+        },
+        "selfEffect": "a26ba512-cf24-51ef-b4ff-9f0467b0ed69"
+      }
+    }
+  },
+  {
+    "id": "a7517780-ffef-537f-95ad-be82ece1abc9",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:immediate-rebuke",
+    "name": "Immediate Rebuke",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can use "
+          },
+          {
+            "type": "ref",
+            "id": "0f9a6a64-991e-5aa5-ac14-08a063bb01c2"
+          },
+          {
+            "type": "text",
+            "text": " when a creature within your reach Strikes one of your allies."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.i5mNsZjIXfLAaoP8"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Commitment to Justice; Reactive Strike"
+            }
+          ]
+        }
+      ],
+      "archetype": "9733bdf2-5edb-5f68-b4fd-86ababb14e84"
+    }
+  },
+  {
+    "id": "6d267897-7639-5c34-8ed8-6bce32130d5d",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:inflame-crowd",
+    "name": "Inflame Crowd",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["general", "skill"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your performances are a call to action for the crowds who listen to you. For 1 hour after you successfully "
+          },
+          {
+            "type": "ref",
+            "id": "722e5346-27c0-5157-b5a9-e6018df94150"
+          },
+          {
+            "type": "text",
+            "text": " using Performance, you can make a Request of a member of the affected audience using Performance instead of Diplomacy."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.YRjv9cxUAkeOiNAM"
+    },
+    "data": {
+      "category": "skill",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "master in Performance; Impressive Performance"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "f58e1890-4b3e-5b98-bb1c-5b223d2b0d7f",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:inspiring-recitation",
+    "name": "Inspiring Recitation",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype", "concentrate", "emotion", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You quietly speak or recall coded phrases and metaphors whose meanings inspire you to complete your mission. You gain a +1 status bonus to one skill of your choice until the beginning of your next turn. You can Sustain this effect for up to 1 minute. If you're an expert in Performance, the bonus increases to +2. If you're a master in Performance, the bonus is +3, and if you're legendary, the bonus is +4."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.c2UuV5n5leFx9vlU"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lion Blade Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "frequency": {
+          "max": 1,
+          "per": "hour"
+        },
+        "selfEffect": "329933c8-8a28-5618-a3e9-8937b6c84e05"
+      }
+    }
+  },
+  {
+    "id": "911a83a6-e9ab-5f51-962e-9f4c9ca89bbc",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:instrument-of-death",
+    "name": "Instrument of Death",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your splinter of finality has reached the apex of its death-dealing potential. Whenever you critically succeed at an attack roll against an enemy and use "
+          },
+          {
+            "type": "ref",
+            "id": "d2be7152-b3c5-5fa5-9b29-4e366fbde881"
+          },
+          {
+            "type": "text",
+            "text": ", add the following effects to the list you can choose from."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The target is cursed and can't benefit from circumstance or status bonuses. This is a curse effect."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The target gains weakness 10 to spirit damage."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "2d1b0f5c-49de-5450-8990-b8720c0520d2"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.d2InKGKNEdVnPfNf"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lethal Edge"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "ec1280a2-0beb-5d56-8617-ebfe2549f7a1",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:interpose",
+    "name": "Interpose",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype", "flourish"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You put yourself between an ally and danger. Stride up to your Speed. You must end your movement adjacent to an ally. You and your ally then swap positions with each other. After changing positions, you can make a melee Strike against an enemy within your reach."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.wnV0H8GB0FlpdCGo"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Eagle Knight Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "two"
+      },
+      "archetype": "9733bdf2-5edb-5f68-b4fd-86ababb14e84"
+    }
+  },
+  {
+    "id": "d7f6d3d4-bef0-5267-9ccf-16cb2c4490fd",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:interposing-crowd",
+    "name": "Interposing Crowd",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your enemies can't stop you when there's a host of people between you. Your movement actions don't trigger reactions as long as you remain in a crowd for the entire duration of the action."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.cELaMZVilk3vkrrM"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lost in the Crowd"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "be94a1d1-7e8d-533a-933c-ca23ecf2bbee",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:klingegeist",
+    "name": "Klingegeist",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["archetype", "concentrate", "possession"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your imprisonment inside a Final Blade used to perform countless executions has instilled in you an aptitude for entering and possessing similar sharp implements of murder. You project your mind and incorporeal body into an unattended weapon of 2 Bulk or less that deals slashing damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While possessing a blade, you have a space of 5 feet, but you don't block or impede enemies attempting to move through your space, nor do you benefit from or provide flanking. You're trained in the use of the weapon, unless your proficiency was already better, and you can make Strike actions with the weapon as if you were wielding it."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a Fly speed of 30 feet and can only take Strike and Fly actions, which don't trigger reactions. You have an AC of 18 + your level and the Hardness and Hit Points of the weapon you're possessing, which for most one-handed slashing weapons is Hardness 5 and HP 20. You can't be Disarmed, nor can your true body be directly injured except by spirit damage, which bypasses both the weapon's Hardness and Hit Points to damage you directly."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you're reduced to 0 Hit Points or the weapon you're inhabiting is broken or destroyed, you're immediately ejected from it and "
+          },
+          {
+            "type": "ref",
+            "id": "7802f1d9-5ced-5b9b-8a08-98ec0adb9947"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round. Otherwise, the effect lasts for 10 minutes or until you Dismiss it."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.yFBan5ycDsdT96jN"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Headless Haunt"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "two"
+      }
+    }
+  },
+  {
+    "id": "7711eba4-4ac9-557e-9414-3cbeb6fca998",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:lead-by-example",
+    "name": "Lead by Example",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["archetype", "flourish"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You telegraph your next attack to let your allies in on your strategy. Make a melee or ranged Strike with a –2 circumstance penalty. On a hit, the next ally to target the same creature with a Strike gains a +2 circumstance bonus to their attack roll. On a critical hit, the bonus applies to any allies who act before the start of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "22078b7c-eaab-580b-94bf-328fa42a3550"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:lead-by-example",
+        "toggleable": true
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["strike-attack-roll"],
+        "type": "circumstance",
+        "value": -2,
+        "predicate": ["option:lead-by-example"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.nLFP7rT0jhM11nFR"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Blackjacket Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one"
+      },
+      "archetype": "78e641fa-60b5-5805-bff9-61b0fb410954"
+    }
+  },
+  {
+    "id": "d2be7152-b3c5-5fa5-9b29-4e366fbde881",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:lethal-edge",
+    "name": "Lethal Edge",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your Strike with your spectral dagger hits a frightened creature and deals spirit damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When the terrified are struck by your spectral weapon, they feel the anguish of every life taken by Silent Lenore. You apply one of the following effects, which lasts until the end of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The target can't use reactions."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+                  "label": "Enfeebled 1"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.Xz9jmwwJnx17PjCu"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Spectral Dagger"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "free",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Your Strike with your spectral dagger hits a frightened creature and deals spirit damage."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "59702a95-941f-59d2-ad77-0b64a8154f21",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:lion-blade-dedication",
+    "name": "Lion Blade Dedication",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["archetype", "dedication"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're from Taldor."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your Lion Blade spy training helps you conceal yourself and your identity. You become trained in your choice of Deception or Stealth; if you were already trained in that skill, you become an expert instead. You also gain the "
+          },
+          {
+            "type": "ref",
+            "id": "50ac17a9-a644-58e8-8ee0-ce4c6cfbf17b"
+          },
+          {
+            "type": "text",
+            "text": " skill feat for Espionage Lore. If you were already trained in Espionage Lore, you also become trained in a Lore skill of your choice."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You never take circumstance penalties for attempting to take a disguise of a different ancestry, age, and so on, as long as the disguised form is appropriate for your size."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Lion Blade"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "50ac17a9-a644-58e8-8ee0-ce4c6cfbf17b"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "skill",
+        "choices": [
+          {
+            "value": "deception",
+            "label": "Deception"
+          },
+          {
+            "value": "stealth",
+            "label": "Stealth"
+          }
+        ],
+        "prompt": "Select a skill."
+      },
+      {
+        "key": "Proficiency",
+        "selector": {
+          "choice": "skill",
+          "prefix": "skill"
+        },
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.zNxbsYgQgPVxdTLV"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "member of the Lion Blades; trained in Performance"
+            }
+          ]
+        }
+      ],
+      "archetype": "097e9e69-92c2-5c09-879a-62cd87e46d5d"
+    }
+  },
+  {
+    "id": "68f8738d-10b5-591b-abbc-dc124ca269da",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:lions-magic",
+    "name": "Lion's Magic",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Many Lion Blades enhance their words with a bit of magic. You can cast a 4th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "06dcb2ac-6b0e-512e-bcc4-7dd4abe5d503"
+          },
+          {
+            "type": "text",
+            "text": " as an occult innate spell once per day. At 12th level, you can also cast a 5th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "72597ff4-3a09-5802-9fd2-d42b78034487"
+          },
+          {
+            "type": "text",
+            "text": " once per day."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.hh0e2aeFjQOwu51T"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lion Blade Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "d5852d1e-e794-56a4-ae8f-6e8f66512cc8",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:lost-in-the-crowd",
+    "name": "Lost in the Crowd",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've learned how to move as one with crowds and hide among them, vanishing into a busy street in the flicker of an eye. You move at full Speed in crowds and can use cover from crowds to "
+          },
+          {
+            "type": "ref",
+            "id": "5a86b7d0-fc0e-52a6-9b0d-fb58ed15233d"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "7e4e48de-b626-5513-9518-73261c58b5f4"
+          },
+          {
+            "type": "text",
+            "text": ", gaining a +2 circumstance bonus to your Stealth checks when in a crowd of at least 10 creatures and a +4 circumstance bonus to your Stealth checks when in a crowd of at least 100 creatures."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "63864d81-5fcb-5253-89af-e8b3c11cd9ad"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.d8RfatiK9UOQANLz"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lion Blade Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "097e9e69-92c2-5c09-879a-62cd87e46d5d"
+    }
+  },
+  {
+    "id": "8889d0df-d3da-54cb-adec-38062ad54c56",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:master-merchant",
+    "name": "Master Merchant",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["archetype", "skill"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Kalistrade teaches that setbacks are only temporary and that perseverance is a treasured virtue. When you fail, but not critically fail, at a Society or Mercantile Lore check to "
+          },
+          {
+            "type": "ref",
+            "id": "b03a543f-4d12-5c6b-a4f9-6afe141aa651"
+          },
+          {
+            "type": "text",
+            "text": " at a specific task and are allowed to continue working at that task on subsequent days, you can choose to attempt the skill check again the next day. If you succeed, you get a critical success and continue to earn that amount on further days spent working at the task, if the task lasts that long."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.e3YE4uKIyDc2uNXl"
+    },
+    "data": {
+      "category": "skill",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Prophet of Kalistrade Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "13175df9-a27d-5811-b842-d4dc0169f425"
+    }
+  },
+  {
+    "id": "6ef6de4d-35bc-5949-b197-1dad2097e790",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:master-prophet-spellcasting",
+    "name": "Master Prophet Spellcasting",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the Master Spellcasting Benefits."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "master"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.zQazwiELy8Vhb1tS"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Expert Prophet Spellcasting; legendary in Society"
+            }
+          ]
+        }
+      ],
+      "archetype": "13175df9-a27d-5811-b842-d4dc0169f425"
+    }
+  },
+  {
+    "id": "689f4af3-8fdd-57ac-b6c1-82db7f718ace",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:mercenary-motivation",
+    "name": "Mercenary Motivation",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype", "concentrate", "exploration"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A large part of being in the Mercenary League entails doing mercenary work. You spend 1 minute planning a course of action that will allow you to complete a task you've been hired or requested to do. Work with your GM to determine the circumstances of any job or task if need be, but typically, they can involve protecting a place or person, defeating a foe or enemy force, or retrieving an item. The course of action you plan must be something you believe you can accomplish."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Active Plan",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can have only one course of action planned at a time. If you use Mercenary Motivation to plan a second course of action, you no longer receive the bonus to checks related to the first course of action."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "On the Job",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Whenever you attempt a Perception check or skill check that will advance your course of action, you gain a +1 circumstance bonus to the check. The exact checks this bonus applies to depend on your current job and are determined by the GM."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Finishing a Plan",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " When you complete the course of action you planned to do, you don't lose the bonus or other benefits until you make a different plan with Mercenary Motivation or voluntarily Dismiss the current plan."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.2IiZFG2HJjr0Droz"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Blackjacket Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "78e641fa-60b5-5805-bff9-61b0fb410954"
+    }
+  },
+  {
+    "id": "423d2b0d-fced-554f-ab10-0a11c00a8ff1",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:nothing-personal",
+    "name": "Nothing Personal",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["archetype", "concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have an active course of action planned."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you're on a job, you can't allow anyone to stop you. Designate a single creature you can see as being an impediment to your active course of action. The first time you Strike your impediment in a round, you deal an extra die of weapon damage. At 14th level, this increases to two extra dice, and at 20th level, this increases to three extra dice."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can have only one creature designated as an impediment at a time. If you use Nothing Personal against a creature when you already have a creature designated, the prior creature loses the designation, and the new impediment gains the designation. Otherwise, your designation lasts for 1 hour."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.gDvLmqxAtxY3LVaH"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mercenary Motivation"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You have an active course of action planned."
+              }
+            ]
+          }
+        ],
+        "selfEffect": "9d6dadea-d4e7-5bd5-ab38-c5804115adf9"
+      },
+      "archetype": "78e641fa-60b5-5805-bff9-61b0fb410954"
+    }
+  },
+  {
+    "id": "3a9df807-9b97-5b4f-a36c-8abdc6f2d62a",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:opportune-opening",
+    "name": "Opportune Opening",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An ally lands a critical hit on a creature within your melee reach."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your combat training taught you to capitalize on any moment of weakness from your foe. You make a melee Strike against the same creature your ally just hit. The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " against this Strike"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:opportune-opening",
+        "toggleable": true
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.3q7uo810lJJ09ghv"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Blackjacket Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "An ally lands a critical hit on a creature within your melee reach."
+              }
+            ]
+          }
+        ]
+      },
+      "archetype": "78e641fa-60b5-5805-bff9-61b0fb410954"
+    }
+  },
+  {
+    "id": "1ad0ee7a-3790-5c59-b275-5a391624c12c",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:primal-guardian",
+    "name": "Primal Guardian",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You grow in power as a guardian of nature. You learn either the "
+          },
+          {
+            "type": "ref",
+            "id": "298250c9-72a3-539b-a1ce-399034075095"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "b3b26513-5030-5b42-9ab6-c21ceb4667ab"
+          },
+          {
+            "type": "text",
+            "text": " focus spell."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can take this feat a second time, gaining the focus spell you didn't gain the first time."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.TopHlb1G3ZRDIWe6"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wyldsinger"
+            }
+          ]
+        }
+      ],
+      "maxTakable": 2,
+      "archetype": "6d25f3cb-6250-5126-9b21-dce549e2aaef"
+    }
+  },
+  {
+    "id": "25b14f1f-b21c-59ac-a7ed-8b7c38960545",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:prolific-prophet-spellcasting",
+    "name": "Prolific Prophet Spellcasting",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Increase the number of spells in your repertoire and the number of spell slots you gain from prophet of Kalistrade archetype feats by 1 for each spell rank other than your two highest prophet of Kalistrade spell slots."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.9oLtfp28J5DQfiIS"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Basic Prophet Spellcasting"
+            }
+          ]
+        }
+      ],
+      "archetype": "13175df9-a27d-5811-b842-d4dc0169f425"
+    }
+  },
+  {
+    "id": "043c2700-f2c1-5f5b-9992-b4dfe37c7d97",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:prophet-of-kalistrade-dedication",
+    "name": "Prophet of Kalistrade Dedication",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["archetype", "dedication"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're from Druma"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After induction into the ranks of the Kalistocrats, you learned the skills necessary to succeed in business and rise above others by following a set of detailed strictures. Unless you take measures to hide your affiliation, anyone who has heard of the Prophets of Kalistrade will know you're one of them when they see you. You become an expert in Society and can use Society instead of Diplomacy to "
+          },
+          {
+            "type": "ref",
+            "id": "722e5346-27c0-5157-b5a9-e6018df94150"
+          },
+          {
+            "type": "text",
+            "text": " on merchants and traders."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additionally, if you don't already cast spells from spell slots, you learn to cast spontaneous spells and gain the Cast a Spell activity. You gain a spell repertoire with two common occult cantrips, plus either "
+          },
+          {
+            "type": "ref",
+            "id": "bb73ff19-7c70-5f9f-8c0e-dbd71c099926"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "02c769dd-dba8-5437-8189-28b9800afaac"
+          },
+          {
+            "type": "text",
+            "text": ". You're trained in the spell attack modifier and spell DC statistics. Your key spellcasting attribute for these spells is Charisma, and they're occult spells."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Prophet of Kalistrade"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.OGCb4N1RL0w6JkR8"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "trained in Mercantile Lore and Society; Charisma +2"
+            }
+          ]
+        }
+      ],
+      "archetype": "13175df9-a27d-5811-b842-d4dc0169f425"
+    }
+  },
+  {
+    "id": "3446cbea-32d4-5d4d-9a33-1ed399c95540",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:prophets-lockbox",
+    "name": "Prophet's Lockbox",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've learned secret methods that allow you to store your valuables where no one else can reach them. You can cast "
+          },
+          {
+            "type": "ref",
+            "id": "5eec8b16-b857-5c3d-800d-896878f43891"
+          },
+          {
+            "type": "text",
+            "text": " as a 5th-rank innate occult spell once per day. At 12th level and every 2 levels thereafter, the maximum amount you can target with this spell increases by 1 Bulk."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.EFowS1mD93OmBxqu"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Prophet of Kalistrade Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "13175df9-a27d-5811-b842-d4dc0169f425"
+    }
+  },
+  {
+    "id": "b89066fc-92a0-5b47-9c27-a3febb2440f8",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:protective-strike",
+    "name": "Protective Strike",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature moves adjacent to or attempts a melee Strike against your designated ally."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You keep harm at bay. Make a melee Strike against the triggering creature. On a critical success, you interrupt the triggering action."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.aymNcrPx6zMt5ILp"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Ulfen Guard Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "A creature moves adjacent to or attempts a melee Strike against your designated ally."
+              }
+            ]
+          }
+        ]
+      },
+      "archetype": "88b2460d-0019-530b-b26e-ec3eaa447de0"
+    }
+  },
+  {
+    "id": "284dcbe8-e8cd-5de5-9406-0b4aaef2a0f1",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:sacred-weapon",
+    "name": "Sacred Weapon",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're a living weapon honed to destroy fiends. Whenever you critically Strike a fiend, your attack deals an extra weapon damage die, and the fiend is "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 2"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 2"
+          },
+          {
+            "type": "text",
+            "text": " until the beginning of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": "1",
+        "critical": true,
+        "predicate": ["target:trait:fiend"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.5Ar7r5HA9k73whaB"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wylderheart Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "6d25f3cb-6250-5126-9b21-dce549e2aaef"
+    }
+  },
+  {
+    "id": "97275d13-743b-58b2-8d87-ce8593be1c40",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:slowing-strike",
+    "name": "Slowing Strike",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per round"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your Strike hits an "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " creature and deals damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You wound your enemy so they can't move nimbly. The target must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": {
+              "against": "class-or-spell-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC or spell DC, whichever is higher."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes a –10-foot status penalty to its Speeds until the beginning of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but the penalty lasts for 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.v2AScyQidSsrfm6z"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lion Blade Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "free",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Your Strike hits an Off-Guard creature and deals damage."
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "round"
+        }
+      }
+    }
+  },
+  {
+    "id": "710a1f2a-1ee8-580a-a692-7c13e041d58e",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:smile-at-failure",
+    "name": "Smile at Failure",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You know staying cool is key to prevailing in social situations, as anger leads to mistakes. When a creature you're interacting with decreases its attitude from indifferent to unfriendly or from unfriendly to hostile, you gain a +2 circumstance bonus to any attempts to "
+          },
+          {
+            "type": "ref",
+            "id": "722e5346-27c0-5157-b5a9-e6018df94150"
+          },
+          {
+            "type": "text",
+            "text": " on the creature for the next hour. If this decrease in attitude leads to combat, you gain a +1 circumstance bonus to the subsequent initiative roll instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:smile-at-failure",
+        "toggleable": false
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["initiative"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["option:smile-at-failure"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["option:smile-at-failure", "action:make-an-impression"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.naghcKF1jr4dS067"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Prophet of Kalistrade Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "13175df9-a27d-5811-b842-d4dc0169f425"
+    }
+  },
+  {
+    "id": "2c71fa3a-4507-5a25-830d-cce982cbf87e",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:soul-bleed",
+    "name": "Soul Bleed",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your blade can rupture an enemy's very soul, draining away its essence to empower you. When you score a critical hit with your "
+          },
+          {
+            "type": "ref",
+            "id": "27c33006-85b8-5ff2-8b2f-eb6340866d64"
+          },
+          {
+            "type": "text",
+            "text": ", you deal 1d6 persistent spirit damage. If the target wasn't already taking persistent spirit damage when you scored the critical hit, you gain temporary Hit Points equal to the spirit damage dealt by the attack that last until the beginning of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["spectral-dagger-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "spirit",
+        "category": "persistent",
+        "critical": true
+      },
+      {
+        "key": "Note",
+        "selectors": ["spectral-dagger-damage"],
+        "title": "Soul Bleed",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You gain temporary Hit Points equal to the spirit damage dealt by the attack that last until the beginning of your next turn."
+              }
+            ]
+          }
+        ],
+        "outcome": ["criticalSuccess"],
+        "predicate": [
+          {
+            "not": "target:condition:persistent-damage:spirit"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.GzsPazilxYUPISm1"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Spectral Dagger"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "5f3b5c9d-5644-5201-9f97-515b4f8baca6",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:soul-oubliette",
+    "name": "Soul Oubliette",
+    "level": 20,
+    "rarity": "common",
+    "traits": ["archetype", "concentrate", "occult", "unholy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You reduce a creature to 0 Hit Points with an attack from your spectral dagger."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your splinter of finality doesn't contain a trapped soul."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your mortal strike wrenches the soul from your victim's body and imprisons it in your splinter of finality, with the effects of seize soul. The splinter of finality can only hold one soul at a time, but you can release a trapped soul as a free action. If you don't free a soul willingly, it escapes automatically after 24 hours. However, if you touch the splinter of finality to an unbroken final blade while a soul is trapped within, the soul is transferred to the final blade and imprisoned indefinitely."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While your splinter of finality contains a trapped soul, you gain fast healing 15."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "bcef6850-24ef-5c02-9480-c3f2a92d0bed"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.moJh856BHCXtPCJm"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Spectral Dagger"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Your splinter of finality doesn't contain a trapped soul."
+              }
+            ]
+          }
+        ],
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You reduce a creature to 0 Hit Points with an attack from your spectral dagger."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "909bf307-62b0-5ec1-9cf0-a2f483deb209",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:soul-well",
+    "name": "Soul Well",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["archetype", "concentrate", "manipulate", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your brush your fingers across your splinter of finality, momentarily creating a metaphysical vortex from which mortal spirits struggle to escape. For the next minute, incorporeal undead treat all squares within 30 feet of you as difficult terrain and living creatures within the same area die from the dying condition at dying 5 rather than dying 4."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As it comes close to tasting a living soul, the splinter of finality is empowered. If a living creature's dying value increases while within your Soul Well, your spectral dagger deals one additional weapon die of damage until the end of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "e2463e83-c179-50eb-badf-5e42580b1e65"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.B8MKXr7mMzOHhTQH"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "two",
+        "frequency": {
+          "max": 1,
+          "per": "hour"
+        },
+        "selfEffect": "a315add1-84f8-5f1b-bd49-3ea02fc9fa62"
+      }
+    }
+  },
+  {
+    "id": "72b3c51e-cb49-5c85-abe3-62cdbe0736d4",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:spectral-dagger",
+    "name": "Spectral Dagger",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["archetype", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "By touching the splinter of finality in your neck, you conjure a "
+          },
+          {
+            "type": "ref",
+            "id": "27c33006-85b8-5ff2-8b2f-eb6340866d64"
+          },
+          {
+            "type": "text",
+            "text": " into your hand that resembles the splinter wrapped in a crude hilt. This weapon acts like a "
+          },
+          {
+            "type": "text",
+            "text": "+1 ghost touch dagger",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", and each successful Strike with it deals 1 additional spirit damage. If the attack is a critical hit, this damage increases to 1d6."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the "
+          },
+          {
+            "type": "text",
+            "text": "spectral dagger",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " ever leaves your hand, it vanishes and you must spend an action to conjure it again. If this occurs as the result of you making a ranged thrown Strike with the dagger, you resolve the attack before the weapon vanishes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can increase the power of your "
+          },
+          {
+            "type": "text",
+            "text": "spectral dagger",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " with runes like you can other weapons, transferring the rune from a "
+          },
+          {
+            "type": "text",
+            "text": "runestone",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " or other weapon by meditating over the rune as a downtime activity that takes 1 day."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["spectral-dagger-damage"],
+        "type": "untyped",
+        "value": 1,
+        "damageType": "spirit",
+        "predicate": ["check:outcome:success"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["spectral-dagger-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "spirit",
+        "critical": true
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.ZbK0WZRDjm1sfOKD"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You have a hand free and aren't already wielding a spectral dagger."
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one"
+      }
+    }
+  },
+  {
+    "id": "344bb203-34da-57c0-b670-264781b63313",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:spys-countermeasures",
+    "name": "Spy's Countermeasures",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You succeed at a save against a detection, mental, or scrying effect."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've learned how to analyze and fake your responses to the most common magic used against spies. You can attempt to identify the effect via "
+          },
+          {
+            "type": "ref",
+            "id": "f7dde84e-f48a-5bd2-8a3b-54c8757a4e87"
+          },
+          {
+            "type": "text",
+            "text": " using the magical tradition skill of the effect or Espionage Lore, even if you didn't notice the spell being cast."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you successfully identify the triggering effect, and it would normally fail or have no effect, you can make the caster of the triggering effect think the effect or spell succeeded. If they would obtain a result, such as receive a piece of information, you decide what that result is. If the effect would influence you to take certain actions, you can make it appear as if you were affected and attempt to play along; if the effect normally establishes a mental link, it functions normally, but you can disregard any commands you receive through the link."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.2xxFg9yRuCDpME3z"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lion Blade Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "free",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You succeed at a save against a detection, mental, or scrying effect."
+              }
+            ]
+          }
+        ]
+      },
+      "archetype": "097e9e69-92c2-5c09-879a-62cd87e46d5d"
+    }
+  },
+  {
+    "id": "91a93c87-d392-5da1-bc48-2fe9e31775dc",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:stalwart-chant",
+    "name": "Stalwart Chant",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You know story after story of unyielding, valiant dwarven heroes whose minds were bulwarks against fear and confusion. You can use "
+          },
+          {
+            "type": "ref",
+            "id": "552a25e1-230b-5095-987e-6bfafb51bb9d"
+          },
+          {
+            "type": "text",
+            "text": " when attempting a saving throw against any mental effect, and if you fail the saving throw, you gain resistance to mental damage against any resulting effect equal to half your level."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["mental"],
+        "value": "max(1, floor(@level / 2))",
+        "predicate": ["option:stalwart-chant"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.GcpMP7vMAuewyWUJ"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Stalwart Song"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "552a25e1-230b-5095-987e-6bfafb51bb9d",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:stalwart-song",
+    "name": "Stalwart Song",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're about to attempt a saving throw against a fear effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're in Tenacious Stance."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As a stalwart defender, you rely on your martial training and your tried-and-true armor to face any danger without flinching. Your mountain-like resilience and courage draw strength from the centuries-old traditions of dwarven song. You bring to mind—and possibly give voice to—a cherished dwarven song of inspiring heroism, granting you a +2 circumstance bonus to the saving throw."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:stalwart-song",
+        "toggleable": true,
+        "predicate": ["self:effect:tenacious-stance"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": [
+          "option:stalwart-song",
+          {
+            "or": [
+              "item:trait:fear",
+              {
+                "and": ["item:trait:mental", "feat:stalwart-chant"]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.UPgxAYArllEBcuGS"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Stalwart Defender Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You're in Tenacious Stance."
+              }
+            ]
+          }
+        ],
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You're about to attempt a saving throw against a fear effect."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "5f42cc43-df46-5075-bd64-1f219dc616dd",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:stifle-flames",
+    "name": "Stifle Flames",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["general", "skill"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your forestry experience helped you develop techniques for fighting wildfires. Any time you attempt a skill check to extinguish a non-magical fire, you gain a +2 circumstance bonus to the check. Your DC on flat checks to end persistent fire damage is reduced from 15 to 10, or from 10 to 5 after receiving especially appropriate assistance."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.TZDQM59QbGDLheEM"
+    },
+    "data": {
+      "category": "skill",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "trained in Nature or Survival"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "5df5a81a-240b-5d3f-b984-1554cfbde289",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:stir-allies",
+    "name": "Stir Allies",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["archetype", "auditory", "flourish"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You shout a command for your allies to scramble. Allies within 30 feet can use a reaction to Step. If you're legendary in Diplomacy, they can instead Stride."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.lMIh84yjIA7f7xG8"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Eagle Knight Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "two"
+      },
+      "archetype": "9733bdf2-5edb-5f68-b4fd-86ababb14e84"
+    }
+  },
+  {
+    "id": "b8d72c4c-0792-55bf-aa7f-33af83e43ddb",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:stunning-surprise",
+    "name": "Stunning Surprise",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["archetype", "incapacitation"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You must be undetected by the target creature."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You quickly move in to bring your foe down with a single blow. You move up to your Speed then make a melee Strike. If you hit and deal damage, your foe must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": {
+              "against": "class-or-spell-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC or spell DC, whichever is higher. Regardless of the save outcome, the creature then becomes immune to your Stunning Surprise for 24 hours."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+            "label": "Stunned 1"
+          },
+          {
+            "type": "text",
+            "text": " and can't use reactions until its next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+            "label": "Stunned 3"
+          },
+          {
+            "type": "text",
+            "text": " and can't use reactions until its next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature falls "
+          },
+          {
+            "type": "ref",
+            "id": "e1a78dad-4887-518e-9120-e58b7009ebfd"
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.lM9WNBFmOyoCJblW"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lion Blade Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "two",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You must be undetected by the target creature."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "0a0ab32b-ffb7-512b-b077-d8a1a957e336",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:talmandors-shout",
+    "name": "Talmandor's Shout",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You witnessed a creature deal damage to an ally within 30 feet since your last turn."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After seeing an enemy harm one of your allies, you deliver a righteous shout in the name of the celestial Talmandor. Attempt an Intimidation check to "
+          },
+          {
+            "type": "ref",
+            "id": "2a3671d0-7d0b-53db-8648-861d457f0175"
+          },
+          {
+            "type": "text",
+            "text": ", comparing the result to the Will DC of each enemy within a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 60
+          },
+          {
+            "type": "text",
+            "text": "; this Demoralize attempt doesn't take any penalty for not sharing a language. It's possible to get a different degree of success for each target."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.j305O6rhKvx4sT38"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Eagle Knight Dedication; master in Intimidation"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "two",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You witnessed a creature deal damage to an ally within 30 feet since your last turn."
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "day"
+        }
+      },
+      "archetype": "9733bdf2-5edb-5f68-b4fd-86ababb14e84"
+    }
+  },
+  {
+    "id": "af7eb054-113c-51f0-a7b7-4965b28c53fd",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:tight-follower",
+    "name": "Tight Follower",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your designated ally moves and ends that movement more than 10 feet from you."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You keep up as a protector. Stride up to your Speed closer to your designated ally. Your movement must end within 10 feet of your designated ally."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.Pay7XmMLgLtzxklN"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Ulfen Guard Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Your designated ally moves and ends that movement more than 10 feet from you."
+              }
+            ]
+          }
+        ]
+      },
+      "archetype": "88b2460d-0019-530b-b26e-ec3eaa447de0"
+    }
+  },
+  {
+    "id": "1a7110b6-840f-59d9-9ace-864bf56fe3f1",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:ulfen-guard-dedication",
+    "name": "Ulfen Guard Dedication",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["archetype", "dedication"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " At least one of your parents is Ulfen."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Central to your Ulfen Guard training is the ability to protect an ally. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "50ac17a9-a644-58e8-8ee0-ce4c6cfbf17b"
+          },
+          {
+            "type": "text",
+            "text": " skill feat for Warfare Lore. If you were already trained in Warfare Lore, you also become trained in a Lore skill of your choice. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "54e25828-98ae-59ee-b321-6b906af7ad54"
+          },
+          {
+            "type": "text",
+            "text": " action."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "It's anathema for you to abandon your designated ally or allow your designated ally to die when you can prevent it. If you violate this anathema, you lose the ability to Designate Ally and any feats that use this ability until you spend 1 day of downtime reaffirming your dedication to your allies."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ulfen Guard"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "50ac17a9-a644-58e8-8ee0-ce4c6cfbf17b"
+      },
+      {
+        "key": "GrantItem",
+        "item": "54e25828-98ae-59ee-b321-6b906af7ad54"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.w9HxCfZLsFcwXJRS"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "member of the Ulfen Guard, trained in Athletics and Intimidation"
+            }
+          ]
+        }
+      ],
+      "archetype": "88b2460d-0019-530b-b26e-ec3eaa447de0"
+    }
+  },
+  {
+    "id": "d42a2425-8655-5e10-a737-42f3f6279521",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:vanish-into-the-land",
+    "name": "Vanish Into the Land",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["general", "skill"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're adept at using the land's natural features to find places to hide. When in the difficult terrain you've selected for the Terrain Stalker feat, you can "
+          },
+          {
+            "type": "ref",
+            "id": "5a86b7d0-fc0e-52a6-9b0d-fb58ed15233d"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "7e4e48de-b626-5513-9518-73261c58b5f4"
+          },
+          {
+            "type": "text",
+            "text": " even without cover or being "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.tP9Hs6hHkeeCJctS"
+    },
+    "data": {
+      "category": "skill",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "master in Stealth; trained in Survival; Terrain Stalker"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "48c660ad-554e-5ea0-8d97-0ec06421962c",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:vengeful-remnant",
+    "name": "Vengeful Remnant",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["archetype", "concentrate", "manipulate", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You wreathe yourself in the tatters of all the souls claimed by your blade. Until the start of your next turn, you gain resistance 10 to all damage except force, ghost touch, spirit, and vitality, doubled if the source of the damage is non-magical. If you slay a significant foe not immune to spirit damage with your "
+          },
+          {
+            "type": "ref",
+            "id": "27c33006-85b8-5ff2-8b2f-eb6340866d64"
+          },
+          {
+            "type": "text",
+            "text": " while under this effect, its duration increases until the end of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.6m2oJVzwufgjJi9W"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "two",
+        "frequency": {
+          "max": 1,
+          "per": "day"
+        },
+        "selfEffect": "2a5b5ce6-6caa-5f72-bfe5-959aea9822ab"
+      }
+    }
+  },
+  {
+    "id": "7fd67034-176f-5007-a255-7d31078bb5d8",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:wild-dance",
+    "name": "Wild Dance",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["archetype", "flourish"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The combination of your passion for both life and the battle against evil makes you graceful and unpredictable. Stride up to your Speed. A creature that attempts a reaction triggered by this movement must first attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "class-or-spell-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC or spell DC, whichever is higher."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "88ca1b7b-d5de-5978-9ff4-258c9aadef1a"
+          },
+          {
+            "type": "text",
+            "text": " by you until the end of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is fascinated by you until the end of your next turn, but your movements might be too hard to follow; if the reaction requires an attack roll, you gain a +2 circumstance bonus to AC against that attack roll."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is fascinated by you until the end of your next turn, and it loses its reaction."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.fHux2F9oZGzOj3GL"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wylderheart Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one"
+      },
+      "archetype": "6d25f3cb-6250-5126-9b21-dce549e2aaef"
+    }
+  },
+  {
+    "id": "acebc83f-4d2f-50ba-af7d-1e08e01172f9",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:wounded-party",
+    "name": "Wounded Party",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You or your designated ally takes damage, and you're capable of entering a Rage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Harm to either you or your allies awakens your fury. You "
+          },
+          {
+            "type": "ref",
+            "id": "6018ad4a-3bf1-50f0-9452-3c633fe443e0"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.biU2NqWkO91o4FMg"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Ulfen Guard Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You or your designated ally takes damage, and you're capable of entering a Rage."
+              }
+            ]
+          }
+        ]
+      },
+      "archetype": "88b2460d-0019-530b-b26e-ec3eaa447de0"
+    }
+  },
+  {
+    "id": "0309416e-efe4-5361-b067-d8a0b21ef648",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:wylderheart-dedication",
+    "name": "Wylderheart Dedication",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["archetype", "dedication"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're from Kyonin."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're primed to face off against threats from the Outer Rifts. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "50ac17a9-a644-58e8-8ee0-ce4c6cfbf17b"
+          },
+          {
+            "type": "text",
+            "text": " skill feat for Demon Lore. If you were already trained in Demon Lore, you also become trained in a Lore skill of your choice. You gain a +1 circumstance bonus to initiative rolls in encounters against fiends, and if you tie with a fiend's initiative roll, you go first."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Certain wylderheart feats give you focus spells. When you gain your first wylderheart focus spell, you become trained in the spell attack modifier and spell DC statistics. Your key spellcasting attribute for the wylderheart archetype spells is Wisdom, and they're primal spells. You can Refocus by celebrating life or spending time in nature."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Wylderheart"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["initiative"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["option:against-fiends"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "50ac17a9-a644-58e8-8ee0-ce4c6cfbf17b"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.pwiUuuUtifbAkaHl"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "member of the Wylderhearts; you're from Kyonin"
+            }
+          ]
+        }
+      ],
+      "archetype": "6d25f3cb-6250-5126-9b21-dce549e2aaef"
+    }
+  },
+  {
+    "id": "949617d6-829c-5e1f-b774-23636450c0ad",
+    "pack": "shining-kingdoms",
+    "kind": "feat",
+    "slug": "feat:wyldsinger",
+    "name": "Wyldsinger",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Passion and song are your weapons of choice. You learn either the "
+          },
+          {
+            "type": "ref",
+            "id": "81a35483-bedc-5f69-a775-3a6d120390af"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "c94428ad-9969-5dae-b430-089d23e84af4"
+          },
+          {
+            "type": "text",
+            "text": " focus spell. If you don't already have one, you gain a focus pool of 1 Focus Point."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can take this feat a second time, gaining the focus spell you didn't gain the first time."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.Fp2ITpUZMXrSg3YN"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wylderheart Dedication"
+            }
+          ]
+        }
+      ],
+      "maxTakable": 2,
+      "archetype": "6d25f3cb-6250-5126-9b21-dce549e2aaef"
+    }
+  }
+]

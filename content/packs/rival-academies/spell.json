@@ -1,0 +1,4999 @@
+[
+  {
+    "id": "5fef44e8-5f50-5f17-aace-5ae953d8687a",
+    "pack": "rival-academies",
+    "kind": "spell",
+    "slug": "spell:all-encompassing-hunger",
+    "name": "All-Encompassing Hunger",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["death", "focus", "manipulate", "void", "wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You reach out to devour a life, regardless of whether you need it for sustenance. The target takes 1d6 void damage, with a basic Fortitude save. If the creature is reduced to 0 Hit Points, it dies, and you gain temporary Hit Points equal to the damage dealt. These temporary Hit Points last for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage increases by 1d6."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.wJi0lq4yA5Mlj0MY"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "one"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature",
+            "qualifiers": ["living"]
+          }
+        ]
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:fortitude",
+          "basic": true
+        }
+      },
+      "traditions": [],
+      "damage": [
+        {
+          "key": "q5pyqnyjkllfbshx",
+          "formula": "1d6",
+          "damageType": "void",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "q5pyqnyjkllfbshx",
+            "formula": "1d6"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "e83f435a-475d-5739-ba4f-4663ee2b3582",
+    "pack": "rival-academies",
+    "kind": "spell",
+    "slug": "spell:annunciation-of-the-outer-gate",
+    "name": "Annunciation of the Outer Gate",
+    "level": 3,
+    "rarity": "rare",
+    "traits": ["auditory", "concentrate", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You announce yourself in the name of certain grim pacts that predate mortal life. This is not a compulsion, but rather an invitation of sorts. The invitation is understood by creatures in the area with telepathy and any who understand Aklo, Chthonian, Empyrean, Fey, or Utopian."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Those who accept the invitation cannot take hostile action against others who agreed until 10 minutes pass and can communicate telepathically with them during that time. This effect ends immediately if any hostile action is taken against a creature that agreed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Those creatures who decline the choice or do not understand it must attempt a Will save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Nothing happens."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 1"
+          },
+          {
+            "type": "text",
+            "text": ". If it understood the invitation, its frightened status doesn't decrease at the end of any turn in which it damaged a creature that agreed to the invitation."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but the creature is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 2"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but the creature is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 3"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.L1JnU3RepQiWxysc"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "area": {
+        "shape": "emanation",
+        "size": 30
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": ["divine", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "b8ffaf6b-8d3d-5e4d-88b9-7042730568ab",
+    "pack": "rival-academies",
+    "kind": "spell",
+    "slug": "spell:beseech-the-sphinx",
+    "name": "Beseech the Sphinx",
+    "level": 1,
+    "rarity": "rare",
+    "traits": ["concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You look to the great Sphinx constellation, wisest of all cosmic guides and favored of Phimater, asking them to lend their insight to the target. Choose one skill and one type of saving throw (Fortitude, Reflex, or Will). The target gains a +1 status bonus to those skill checks and saving throws for the duration."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (4th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The status bonus increases to +2."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (7th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The status bonus increases to +3."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "7262fdcb-29e0-5ec0-bc98-1da6a8dc4f7e"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.7GZVTtzN7H4Jujc1"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute"
+      },
+      "traditions": ["divine", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "a8ebd7e4-c8f1-5f8f-9c1c-d6a4e4c145ba",
+    "pack": "rival-academies",
+    "kind": "spell",
+    "slug": "spell:bridge-of-vines",
+    "name": "Bridge of Vines",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "manipulate", "plant", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Vines sprout beneath your feet and extend away from you in a straight line up to 60 feet, forming a 10-foot-wide bridge that can cross over difficult terrain and low obstacles, as well as reach higher ground. The bridge has an AC equal to your spell DC, Hardness 10, and 20 Hit Points. It is immune to critical hits and precision damage. The bridge lasts either for the duration of the spell, until it is destroyed, or until you Dismiss the spell."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While the spell is active, you and your allies can use the bridge normally. If any other creatures attempt to use the bridge, the vines attempt to trip and entangle them. They must attempt a Reflex save against your spell DC."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target treats the length of the bridge as difficult terrain."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, and the target is knocked "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, and the target is knocked prone and "
+          },
+          {
+            "type": "ref",
+            "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146"
+          },
+          {
+            "type": "text",
+            "text": " until it Escapes (with a DC equal to your spell DC) or the spell ends."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The bridge's Hit Points increase by 10."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.VUUWjeapcyLZabVA"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 60
+      },
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:reflex",
+          "basic": false
+        }
+      },
+      "traditions": ["arcane", "primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "e0cd9aa4-72ba-57ec-bb70-5e8efd5461b8",
+    "pack": "rival-academies",
+    "kind": "spell",
+    "slug": "spell:buzzing-servants",
+    "name": "Buzzing Servants",
+    "level": 2,
+    "rarity": "rare",
+    "traits": ["concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You summon a swarm of bees from the city of Axis that rapidly constructs geometric shapes from wax. The bees appear in an unoccupied square, building a structure of hexagons, squares, and decagons that fill the space. The wax shape has a Hardness of 10 and 40 Hit Points but also decays over 24 hours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you Sustain the spell, you can choose another unoccupied square in range that the bees move to and fill with wax shapes. Any amount of area or splash damage to the square they're present in kills the bees, ending further construction."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.U7415tttUO8JLvpf"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "area": {
+        "shape": "square",
+        "size": 5
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "traditions": ["arcane", "divine", "primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "745dc147-bca9-5112-b510-635b8586e978",
+    "pack": "rival-academies",
+    "kind": "spell",
+    "slug": "spell:call-the-ten",
+    "name": "Call the Ten",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The Ten Magic Warriors were the first of the Magaambya's students, and they come to your aid even now. An indistinct spirit appears near each target, each wearing a different mask of the Ten Magic Warriors. The spirits then either strike their designated targets with magical energy, dealing each one 4d6 spirit damage with a basic Fortitude save, or shield them, granting their target resistance 3 to physical and spirit damage until the beginning of your next turn. You designate which targets are attacked and which are shielded."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "83bb9bd9-96cb-5d53-bbe0-7afe6e328f2c"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+2)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The amount of damage increases by 1d6 and the amount of resistance increases by 2."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.REBo9wSxDDx7Qdcc"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:fortitude",
+          "basic": true
+        }
+      },
+      "traditions": [],
+      "damage": [
+        {
+          "key": "z4qb0jl7mhjobesw",
+          "formula": "4d6",
+          "damageType": "spirit",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 2,
+        "damage": [
+          {
+            "key": "z4qb0jl7mhjobesw",
+            "formula": "1d6"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "14893004-1f25-5f78-b7c4-29a86c2d3dae",
+    "pack": "rival-academies",
+    "kind": "spell",
+    "slug": "spell:censure-falsehoods",
+    "name": "Censure Falsehoods",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "curse", "focus", "hex", "manipulate", "witch"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You call on your patron to reprimand a creature that has attempted a Deception or Stealth check against you or an ally within the past month. You must be aware they did so. Whenever the target speaks, toads and serpents fall from their lips. The target attempts a Fortitude saving throw. The spell lasts as long as the target remains sickened by it."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A few animals fall from their lips, but they're otherwise unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 2"
+          },
+          {
+            "type": "text",
+            "text": " and if they perform an action that has the auditory trait or attempt to Cast a Spell, they must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 5
+          },
+          {
+            "type": "text",
+            "text": ", or the action is disrupted as they choke on an animal."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, and if the target attempts a Deception or Stealth check, their sickened value increases by 1 (to a maximum of "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 4"
+          },
+          {
+            "type": "text",
+            "text": ")."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.guHLRnTL1OBUYh0V"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:fortitude",
+          "basic": false
+        }
+      },
+      "traditions": [],
+      "damage": []
+    }
+  },
+  {
+    "id": "7780efd3-320f-5e1d-a701-d95d84255bc6",
+    "pack": "rival-academies",
+    "kind": "spell",
+    "slug": "spell:chrysopoetic-curse",
+    "name": "Chrysopoetic Curse",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "curse", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You grant the target the gift of riches, giving them the power to turn anything they touch to gold. The target must attempt a Will save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target's skin turns their armor and clothing partially to gold. If the target is wearing any armor or clothing, they become "
+          },
+          {
+            "type": "ref",
+            "id": "c7876f7b-3d87-55d8-af48-a396b2676415"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but the curse extends to the target's held weapons and other gear. If the target is holding any weapons or other objects, they become "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 3"
+          },
+          {
+            "type": "text",
+            "text": ", and the objects' Hardness is reduced by 5."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The curse becomes even stronger, extending to the surrounding terrain. As failure, and if the creature is standing on a solid surface, the ground in their space transmutes itself into a quagmire of liquid gold. The gold is greater difficult terrain. If the creature leaves its square (or when the curse ends), any affected terrain returns to its original shape and substance and the terrain in the new square transmutes to gold."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Any objects that were turned to gold return to their previous form and original shape when they leave the target's possession or the spell ends. As long as the target did not critically succeed on their saving throw, 2d6 gp worth of gold flakes and dust are left behind as the curse recedes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.hvV6IruyW4MAr0Ub"
+    },
+    "data": {
+      "rank": 7,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": ["arcane", "divine"],
+      "damage": []
+    }
+  },
+  {
+    "id": "4e383ab5-970f-5e90-9ec1-d174013f156e",
+    "pack": "rival-academies",
+    "kind": "spell",
+    "slug": "spell:coiling-dance",
+    "name": "Coiling Dance",
+    "level": 2,
+    "rarity": "rare",
+    "traits": ["concentrate", "holy", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You perform a dance that seeks to pass on the knowledge and wisdom of a naga. Your allies in the area are filled with sacred energy, making their spells and attacks holy. Creatures or effects that would be unholy don't gain this benefit"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "72e7a53c-7890-5504-8c38-356bb073309a"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you cast or Sustain this spell, you can choose an ally in the area that's "
+          },
+          {
+            "type": "ref",
+            "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "b374c4c9-d230-5167-8878-38e08932a071"
+          },
+          {
+            "type": "text",
+            "text": ". They can immediately use a reaction to "
+          },
+          {
+            "type": "ref",
+            "id": "2ae74030-e87a-55ee-955c-fb9870392d44"
+          },
+          {
+            "type": "text",
+            "text": "; they can use your Occultism or Religion modifier for the check instead of their unarmed attack, Acrobatics, or Athletics modifier if that would be better."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.RcZbmSZf2bFYQtTj"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "area": {
+        "shape": "emanation",
+        "size": 30
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "traditions": ["divine", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "b496a144-a706-5d46-a0b0-ee5d08604278",
+    "pack": "rival-academies",
+    "kind": "spell",
+    "slug": "spell:crescent-scepter",
+    "name": "Crescent Scepter",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["emotion", "fear", "focus", "manipulate", "mental", "visual", "wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You hold up any object, which takes on the appearance of glowing regalia in the eyes of those who look on you, representing the political or religious institute most feared by each creature. If a creature attempts to attack you during the spell's duration, it must attempt a Will save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature becomes "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 1"
+          },
+          {
+            "type": "text",
+            "text": ", the penalty applying to its attack roll."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 2"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.C8HWMMuB5tMhqJ5W"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "one"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": [],
+      "damage": []
+    }
+  },
+  {
+    "id": "7e41dfb1-29a6-5555-a31e-de3a3558b653",
+    "pack": "rival-academies",
+    "kind": "spell",
+    "slug": "spell:cutting-eye",
+    "name": "Cutting Eye",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are the target of an attack or must attempt a saving throw against a spell."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eyes open enviously, stealing the power of an opponent for yourself. You are not "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " to the attacker or spellcaster until the beginning of your next turn. You gain a +2 circumstance bonus to your AC against the triggering attack or a +2 circumstance bonus to the triggering save."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "122622a5-dae8-5853-8d10-e3038d79a975"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.mMyMOxYzMxADdO5M"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "reaction"
+      },
+      "requirements": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You're aware of the attack or spell."
+            }
+          ]
+        }
+      ],
+      "traditions": [],
+      "damage": []
+    }
+  },
+  {
+    "id": "3985531f-73d9-57ca-9297-3588467eb3ce",
+    "pack": "rival-academies",
+    "kind": "spell",
+    "slug": "spell:devouring-void",
+    "name": "Devouring Void",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "manipulate", "void"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Countless tears in space appear in the area, like hungry mouths. When the spell is cast and the first time each round it's sustained, living creatures in its area take 7d8 void damage (basic Fortitude save). A living creature using a move action to leave the area must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex"
+          },
+          {
+            "type": "text",
+            "text": " save or their action is disrupted at the edge of the area."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The void damage increases by 1d8."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.EAuUxxnDV4v3KDAC"
+    },
+    "data": {
+      "rank": 7,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 120
+      },
+      "area": {
+        "shape": "burst",
+        "size": 30
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:fortitude",
+          "basic": true
+        }
+      },
+      "traditions": ["arcane", "occult", "divine"],
+      "damage": [
+        {
+          "key": "kcsmlzj2yqznmn8b",
+          "formula": "7d8",
+          "damageType": "void",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "kcsmlzj2yqznmn8b",
+            "formula": "1d8"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "eed2819e-5c51-5bd8-a66a-497fb9b06c42",
+    "pack": "rival-academies",
+    "kind": "spell",
+    "slug": "spell:disruptive-transfer",
+    "name": "Disruptive Transfer",
+    "level": 3,
+    "rarity": "rare",
+    "traits": ["concentrate", "manipulate", "teleportation", "visual"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Using Venorium Blorm's formulas, you calculate a path through space. Teleport to an empty square you can see within range. Creatures adjacent to your initial location witness an array of overlapping destinations. Each of them must succeed at a Will save or become "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.jSJz4vx0fXPHa3d6"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "84693f6a-c0c6-55b2-bb4d-7112cb41b991",
+    "pack": "rival-academies",
+    "kind": "spell",
+    "slug": "spell:domoras-defense",
+    "name": "Domora's Defense",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["auditory", "concentrate", "linguistic", "manipulate", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Domora Hume is considered by most to be the first god caller, conjuring a god from the Plane of Water named Dyzad to protect his town from Mammoth Lord raiders. A lost story of this defense claims that Dyzad appeared to be in three places at once, blocking the raiders' spears, swords, and torches. The intended lesson is that Dyzad will overcome any barrier to protect the people of Sarkoris. This spell gives that intention physical form, allowing the caster to protect their people."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you Cast this Spell, a watery replica of the eidolon Dyzad appears in front of each of the targets, granting them a +1 circumstance bonus to AC and fire resistance 5."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "c60a44c3-f160-5217-bf2c-979f8b3b400f"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While the replica persists, a target can use the Shield Block reaction with the replica. The replica has Hardness 15 (or Hardness 20 against fire damage). They can use this reaction to reduce damage from any spell or magical effect, even if it doesn't deal physical damage. After a target uses Shield Block, the replica dissipates. The spell ends when you no longer Sustain it or if all three replicas have dissipated, whichever happens first."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.PIdXUPtE6ZGpFpXV"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 120
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 3,
+            "upTo": true,
+            "of": "creature"
+          }
+        ]
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "traditions": ["arcane", "divine", "primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "f220dbe6-ee42-5c9f-bf4b-01a92bc29e40",
+    "pack": "rival-academies",
+    "kind": "spell",
+    "slug": "spell:grasping-vine",
+    "name": "Grasping Vine",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "manipulate", "plant", "wizard", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A thick, curling vine erupts from the ground beneath you and stretches to the target, allowing you to move it around. If the target is an item, you can move it 10 feet in any direction within range when you Cast the Spell and the first time you Sustain it each round. If the target is a creature, they must attempt a Reflex save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected and the spell ends."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146"
+          },
+          {
+            "type": "text",
+            "text": " until the end of your next turn unless it Escapes (the vine's "
+          },
+          {
+            "type": "ref",
+            "id": "2ae74030-e87a-55ee-955c-fb9870392d44"
+          },
+          {
+            "type": "text",
+            "text": " DC is equal to your spell DC) or destroys the vine (the vine has AC 15 and 10 Hit Points), at which point the spell ends."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is grabbed until it Escapes or destroys the vine, at which point the spell ends. The first time each round you Sustain this spell, you can "
+          },
+          {
+            "type": "ref",
+            "id": "2f5bb1a4-2a45-5c29-ad6a-7feba044cfaa"
+          },
+          {
+            "type": "text",
+            "text": " the grabbed target up to 5 feet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, and you can immediately Reposition the target up to 10 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.cQgPIohUja0DUiRL"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 60
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:reflex",
+          "basic": false
+        }
+      },
+      "traditions": [],
+      "damage": []
+    }
+  },
+  {
+    "id": "d6636cad-277f-5fc7-8615-c8f371ca07fc",
+    "pack": "rival-academies",
+    "kind": "spell",
+    "slug": "spell:halcyon-mists",
+    "name": "Halcyon Mists",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "manipulate", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In a moment of dire need, you call upon ancestral power to strengthen and sustain. A soothing mist gathers around the target, granting 1d8 temporary Hit Points and ending one source of persistent acid, bleed, fire, poison, or void damage affecting it. If the creature has persistent damage from more than one of these sources, you choose the one that ends."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The mists linger around the target, making them "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " until the beginning of their next turn, though this obvious concealment can't be used to Hide."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The temporary Hit Points increase by 1d8."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "765f7ebf-96d0-514f-94fd-b2135b3b43e2"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.IERHT6v4o5ISvuJG"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature",
+            "qualifiers": ["willing", "living"]
+          }
+        ]
+      },
+      "traditions": [],
+      "damage": []
+    }
+  },
+  {
+    "id": "a6356de2-1f90-5876-8800-d7161c76bbc1",
+    "pack": "rival-academies",
+    "kind": "spell",
+    "slug": "spell:hearts-hook",
+    "name": "Heart's Hook",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "emotion", "focus", "manipulate", "mental", "wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You drive two creatures toward a fated meeting. Each will be compelled toward the other, but you can elect to have one automatically succeed on its saving throw."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature must spend the first action on its next turn to approach its partner. It can't Delay or take any reactions until it has obeyed this urge."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but the target must use all its actions on its next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.1B8BLEQBQn9aEMoY"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 120
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": [],
+      "damage": []
+    }
+  },
+  {
+    "id": "93519747-8ee5-58f9-8d7f-66b3c3dd6256",
+    "pack": "rival-academies",
+    "kind": "spell",
+    "slug": "spell:ibexs-harvest",
+    "name": "Ibex's Harvest",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["auditory", "concentrate", "linguistic", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In the tale \"Ibex's Harvest,\" Ibex turns from the path of a warrior to the path of a farmer, building up their community by working hard and sharing a bountiful harvest not just with their humanoid neighbors but also with their animal neighbors. Ibex initially focuses on distributing equally among the animals but learns that true equality requires knowing what each being needs. The number of actions you spend when Casting this Spell and telling the story determine its targets and effects."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " You give a brief description of Ibex's first bounty. One willing target you can touch gains 10 temporary Hit Points that last 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " You tell the tale of how Ibex shared their harvest equally between Hippo and Ant. Two willing targets within 20 feet each gain 10 temporary Hit Points that last 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " You impart Ibex's lesson about how to prevent others from taking advantage of generosity. All creatures within a 10-foot emanation are affected by the tale. Choose one creature in the emanation to take 2d8 mental (basic Will save), while each other creature in the emanation gains 5 temporary Hit Points that last 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "bc61d649-d898-517b-8389-076605cbda5d"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The temporary Hit Points increase by 3 and the mental damage for the 3-action version increases by 1d8."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.P7AToTm0ulueRk63"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "one",
+        "upTo": "three"
+      },
+      "area": {
+        "shape": "emanation",
+        "size": 10
+      },
+      "targets": {
+        "any": [
+          {
+            "count": "any",
+            "of": "creature"
+          }
+        ]
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": true
+        }
+      },
+      "traditions": ["arcane", "primal"],
+      "damage": [
+        {
+          "key": "9lbbifhegxb6gu6a",
+          "formula": "2d8",
+          "damageType": "mental",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "9lbbifhegxb6gu6a",
+            "formula": "1d8"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "449823eb-0775-57a0-8fc2-f33a8b060459",
+    "pack": "rival-academies",
+    "kind": "spell",
+    "slug": "spell:indolent-haze",
+    "name": "Indolent Haze",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "incapacitation", "manipulate", "mental", "sleep"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The faint scent of poppies and a soothing calm fill the area, urging creatures to lay down and take a rest, to do nothing at all, ever again. Creatures in the area when you Cast the Spell must attempt a Will save. Creatures who end their turn in the area must also attempt the save. You can Dismiss the spell."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature lies down to rest, becoming "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": ". If they were already prone, they instead drift off to sleep, becoming "
+          },
+          {
+            "type": "ref",
+            "id": "e1a78dad-4887-518e-9120-e58b7009ebfd"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, except that the creature is so happy lying down that they cannot attempt to Stand or otherwise maneuver themself off of the ground on their next turn, though they can "
+          },
+          {
+            "type": "ref",
+            "id": "fe112db5-30e6-5a96-94a1-2356a4820452"
+          },
+          {
+            "type": "text",
+            "text": " (potentially to escape the spell's area)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature immediately lies down and drifts off to sleep, becoming prone and unconscious. Any creature in the area who is already unconscious when you Cast the Spell (or whose turn ends in the spell's area while they are unconscious) takes 6d4 spirit damage as their life force is drained away through their dreams. This damage does not automatically wake them."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The spirit damage increases by 2d4."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.xh6hPMDx2n4OaBU7"
+    },
+    "data": {
+      "rank": 7,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 120
+      },
+      "area": {
+        "shape": "burst",
+        "size": 20
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": [
+        {
+          "key": "dnkli3unhm9r5ewp",
+          "formula": "6d4",
+          "damageType": "spirit",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "dnkli3unhm9r5ewp",
+            "formula": "2d4"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "1c96d16c-37e7-54e8-8538-e19817e02e6d",
+    "pack": "rival-academies",
+    "kind": "spell",
+    "slug": "spell:information-overload",
+    "name": "Information Overload",
+    "level": 1,
+    "rarity": "rare",
+    "traits": ["cantrip", "concentrate", "hex", "mental", "witch"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You call on Cobyslarni to open the target's mind to knowledge—too much knowledge. The target's thoughts flood with irrelevant and confusing information, causing it to become "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 1"
+          },
+          {
+            "type": "text",
+            "text": " if it fails a Will save (or "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 2"
+          },
+          {
+            "type": "text",
+            "text": " on a critical failure)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.PesUKf0lIt5zRofj"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "one"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": [],
+      "damage": []
+    }
+  },
+  {
+    "id": "a843ac60-9d1d-5fbe-92fd-293450353246",
+    "pack": "rival-academies",
+    "kind": "spell",
+    "slug": "spell:kgalaserkes-axes",
+    "name": "Kgalaserke's Axes",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["auditory", "concentrate", "linguistic", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The folklore and tales surrounding the legendary hero Kgalaserke are so widespread and well known that a hundred lifetimes would not be enough to have accomplished everything she is reputed to have done. Nevertheless, the stories all contain a unifying theme of her martial prowess despite the odds being stacked against her."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " You briefly describe Kgalaserke's signature axes and how she came to receive them. The target gains a +1 status bonus to attack rolls for the spell's duration."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " You revel in a tale of Kgalaserke striking down a foe after a struggle. For the spell's duration, when the target is damaged by a creature's attack, the target gains a +2 circumstance bonus to damage against that creature for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "70fd862c-e8a2-568c-8e10-073f2fb797cb"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.yo1eB5Xz21AYfWCI"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "actions",
+        "cost": "one",
+        "upTo": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "103e117e-b72f-55f6-b8d8-0498e4b1cdd1",
+    "pack": "rival-academies",
+    "kind": "spell",
+    "slug": "spell:loves-sacrifice",
+    "name": "Love's Sacrifice",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["auditory", "concentrate", "emotion", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take damage that would reduce you to 0 Hit Points."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You cry out for aid, and a creature near you feels compelled to throw itself in front of the threat as the ultimate expression of their love. A target that genuinely loves the caster without magical compulsion, at their player's or the GM's discretion, fails the save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature moves adjacent to you, moving further than its Speed if necessary as the magic compels it to exceed its limits. It takes half the damage you would have taken, while you take the rest. If you would be reduced to 0 Hit Points, you're reduced to 1 instead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, except they take the full damage. If the damage reduces them to 0 Hit Points, they immediately die; this is a death effect."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "PFS Note:",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " This spell can only be cast on a friendly NPC with GM approval, and on a PC with their player's approval."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.flKde7BHrZnRheMl"
+    },
+    "data": {
+      "rank": 7,
+      "time": {
+        "type": "actions",
+        "cost": "reaction"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": ["arcane", "divine"],
+      "damage": []
+    }
+  },
+  {
+    "id": "800b8d9b-a588-51a3-b351-409d0883ec8d",
+    "pack": "rival-academies",
+    "kind": "spell",
+    "slug": "spell:mental-map",
+    "name": "Mental Map",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You glean detailed information about a specific place visited by a creature directly from its mind, unless it fends you off with a Will save. The target can choose to fail the save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain critical information about the place in question, granting you a +2 circumstance bonus to Survival checks while in the location and any skill checks to Recall Knowledge about the location for the next 24 hours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "ac0b6897-bf21-56b1-a940-dacfa5df2b16"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but you can erase all knowledge of the location from the target for 24 hours if desired."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.PEGECeEtEmXEzwBT"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "touch"
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "duration": {
+        "type": "time",
+        "count": 24,
+        "unit": "hour"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "2d36d1ed-b8e8-59ba-b201-ab5288b92b84",
+    "pack": "rival-academies",
+    "kind": "spell",
+    "slug": "spell:mimic-spell",
+    "name": "Mimic Spell",
+    "level": 8,
+    "rarity": "rare",
+    "traits": ["concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature you're aware of within range Casts a Spell of the same tradition as "
+          },
+          {
+            "type": "text",
+            "text": "mimic spell",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " and of the same or lower rank."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You learn the secrets of a spell just by watching someone else cast it. Attempt to counteract the spell cast by the triggering creature. If the spell would be counteracted, you instead gain the ability to Cast that Spell without expending a slot."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "On your next turn, you spend the same number of actions to Cast the Spell as the triggering creature, but you choose the targets (if any) and use your spell attack modifier or spell DC as appropriate. The spell is heightened to the same rank as mimic spell. The mimicked spell is of the same tradition as the spells you normally cast."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you don't Cast the mimicked Spell by the end of your next turn, it is lost, unless you Sustain the knowledge of it. You can Sustain this knowledge for up to 1 minute, after which it is lost."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.2a8wiTxvBhcMbMU5"
+    },
+    "data": {
+      "rank": 8,
+      "time": {
+        "type": "actions",
+        "cost": "reaction"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 120
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": [],
+      "counteraction": true
+    }
+  },
+  {
+    "id": "0b64e259-05eb-5e87-b0ae-824e4ac272a4",
+    "pack": "rival-academies",
+    "kind": "spell",
+    "slug": "spell:overwhelming-memory",
+    "name": "Overwhelming Memory",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "emotion", "manipulate", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You cause the target to recall a specific type of memory you choose from the list below, bringing it to the forefront of their mind with perfect clarity."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Gleeful",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The memory makes the target laugh uncontrollably. They can't use reactions."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Romantic",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The creature is consumed with their love for another. They are "
+                },
+                {
+                  "type": "ref",
+                  "id": "88ca1b7b-d5de-5978-9ff4-258c9aadef1a"
+                },
+                {
+                  "type": "text",
+                  "text": " by the memory."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Terrifying",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The creature is filled with terror and is "
+                },
+                {
+                  "type": "ref",
+                  "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+                  "label": "Frightened 1"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Tragic",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The creature is overwhelmed with sorrow. They are "
+                },
+                {
+                  "type": "ref",
+                  "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+                },
+                {
+                  "type": "text",
+                  "text": " from the tears in their eyes."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The target must attempt a Will save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is affected by the memory until the beginning of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is affected by the memory until the beginning of your next turn and "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 2"
+          },
+          {
+            "type": "text",
+            "text": " for the spell's duration."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but the target is "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 3"
+          },
+          {
+            "type": "text",
+            "text": " for the spell's duration."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.LJHrndGJRmLdxgXD"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "72f82453-6e10-5eaf-aa9d-c7c7b7a68295",
+    "pack": "rival-academies",
+    "kind": "spell",
+    "slug": "spell:personal-runewell",
+    "name": "Personal Runewell",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "manipulate", "wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Area",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (continued) 15-foot radius, 30-foot-tall cylinder"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The runelords of Thassilon pioneered the creation of "
+          },
+          {
+            "type": "text",
+            "text": "runewells",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", magical artifacts that could extract and store the power of sin magic from mortal souls. A circle of light carves its way across the ground as you create your very own "
+          },
+          {
+            "type": "text",
+            "text": "runewell",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", your personal rune flaring to life within it as you add your own sin to those seven revered in the past. Whenever any creature Casts a Spell within your "
+          },
+          {
+            "type": "text",
+            "text": "personal runewell",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", the well resonates, with your choice of effects."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The runewell amplifies the power of your spells, as well as those of your allies. If the spell deals damage and doesn't have a duration, the well adds a status bonus to damage equal to the spell's rank."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "f03919f4-84a5-5c75-af64-e0d5278724b5"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The runewell punishes enemies foolish enough to attempt magic in your seat of power, firing arcane bolts at the spell's caster that deal 4d6 force damage, with a basic Reflex save."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you cast "
+          },
+          {
+            "type": "text",
+            "text": "personal runewell",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " a second time, your previous "
+          },
+          {
+            "type": "text",
+            "text": "personal runewell",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " vanishes. You can Dismiss the spell."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The amount of damage dealt by the "
+          },
+          {
+            "type": "text",
+            "text": "runewell",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "'s bolts increases by 1d6."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "PFS Note:",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " Within the area of a "
+          },
+          {
+            "type": "text",
+            "text": "personal runewell",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " spell, the caster chooses the effect each time a spell is cast. This can be a different effect for different spells."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.N91EI7H1p7YXKX0o"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "area": {
+        "shape": "cylinder",
+        "size": 15
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:reflex",
+          "basic": true
+        }
+      },
+      "traditions": [],
+      "damage": [
+        {
+          "key": "bvmfi3gu5isfheef",
+          "formula": "4d6",
+          "damageType": "force",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "bvmfi3gu5isfheef",
+            "formula": "1d6"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "73d79c19-3012-52c9-a8f9-e8feb3a44b16",
+    "pack": "rival-academies",
+    "kind": "spell",
+    "slug": "spell:pocket-library",
+    "name": "Pocket Library",
+    "level": 1,
+    "rarity": "rare",
+    "traits": ["concentrate", "extradimensional", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Like Vil Seral, you collect information from all around you and store it in book form in an extradimensional library. When you Cast this Spell, choose any skill in which you are at least trained that has the Recall Knowledge action."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "During the duration of this spell, you can call forth a tome from the extradimensional library when attempting a Recall Knowledge check using your chosen skill. This is part of the action to Recall Knowledge. You must have a hand free to do so. The tome appears in your hand, open to an appropriate page. This grants you a +1 status bonus to the Recall Knowledge check. If you roll a critical failure on this check, you get a failure instead. If the roll is successful and the subject is a creature, you gain additional information or context about the creature. Once you reference a book from your pocket library, the spell ends."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "13fe34cf-1667-5a69-a6de-6cc9defc1a66"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (3rd)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The status bonus increases to +2 and you can reference your "
+          },
+          {
+            "type": "text",
+            "text": "pocket library",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " twice before the spell ends."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (6th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The status bonus increases to +3 and you can reference your "
+          },
+          {
+            "type": "text",
+            "text": "pocket library",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " three times before the spell ends."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (9th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The status bonus increases to +4 and you can reference your "
+          },
+          {
+            "type": "text",
+            "text": "pocket library",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " four times before the spell ends."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.TjWHgXqPv5jywMti"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "duration": {
+        "type": "time",
+        "count": 24,
+        "unit": "hour"
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "78ead2e4-84bc-577c-886b-395e1d586658",
+    "pack": "rival-academies",
+    "kind": "spell",
+    "slug": "spell:precious-gleam",
+    "name": "Precious Gleam",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "manipulate", "mental", "wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You temporarily enhance a weapon, replacing it with finer materials. On the next successful attack with that weapon during the spell's duration, the attack deals an additional 1d6 precision damage. You can choose for the metal to become your choice of cold iron, silver, or steel, causing the attack to bypass resistances accordingly."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage increases by 1d6."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "62a07442-4d17-5bcb-89b3-b4cf25f91383"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.v14zLiiSc4sl9RrK"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "one"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 60
+      },
+      "traditions": [],
+      "damage": []
+    }
+  },
+  {
+    "id": "ac3578c5-bfc2-5142-abfb-cd1663f5fd5c",
+    "pack": "rival-academies",
+    "kind": "spell",
+    "slug": "spell:ranages-circle",
+    "name": "Ranage's Circle",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["auditory", "concentrate", "earth", "linguistic", "manipulate", "plant", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Many stories tell of a clearing deep in the Mwangi jungle, surrounded by ancient cypress trees. At the center stands an ancient baobab tree growing around a large sphere of black basalt. Legends say that two spirit brothers, Ranage and Golokango, dwelled there long ago until Golokango's evil ways forced the virtuous Ranage to encase his brother in stone. Ranage then transformed himself into a tree to surround and protect the rock for all time. By telling this tale, you condemn an enemy to a stony fate similar to Golokango's and summon plants to surround them."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you Cast this Spell, every square adjacent to the target becomes difficult terrain from the sudden eruption of plant life for 1 minute. The target also attempts a Fortitude save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": " as their feet are bound within stone. This condition lasts until they move from their current position."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 2"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": " as their legs are encased in rock. The clumsy condition lasts until they move from their current position, and they can "
+          },
+          {
+            "type": "ref",
+            "id": "2ae74030-e87a-55ee-955c-fb9870392d44"
+          },
+          {
+            "type": "text",
+            "text": " from being immobilized with a check against your spell DC."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is clumsy 2 and "
+          },
+          {
+            "type": "ref",
+            "id": "b374c4c9-d230-5167-8878-38e08932a071"
+          },
+          {
+            "type": "text",
+            "text": " as nearly their entire body is covered in basalt. The clumsy condition lasts until they move from their current position, and they can Escape from being restrained with a successful check against your spell DC."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.Pmhlv3fzPTuIhTrT"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "duration": {
+        "type": "varies"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:fortitude",
+          "basic": false
+        }
+      },
+      "traditions": ["arcane", "primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "b6fc9368-164a-55e8-b137-1c5f9a525ffb",
+    "pack": "rival-academies",
+    "kind": "spell",
+    "slug": "spell:recall-legacy",
+    "name": "Recall Legacy",
+    "level": 7,
+    "rarity": "rare",
+    "traits": ["concentrate", "manipulate", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You establish a mental link with the target, focusing on a piece of knowledge important to their culture, family (by birth or choice), or home settlement. Both you and the target must be aware this knowledge exists, even if you don't know the exact details."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As your magic connects them to this legacy, the target gains a non-lineage ancestry feat from their ancestry. The feat must be of a level no higher than twice recall legacy's rank and the target must meet any prerequisites for the feat."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The target is then immune to any further castings of recall legacy until their next daily preparations."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.onvFdBWAsQp0CsAy"
+    },
+    "data": {
+      "rank": 7,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "touch"
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature",
+            "qualifiers": ["willing"]
+          }
+        ]
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "a23ad364-04ce-547c-ad6d-1bc547b9b74f",
+    "pack": "rival-academies",
+    "kind": "spell",
+    "slug": "spell:reclined-apport",
+    "name": "Reclined Apport",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "manipulate", "teleportation", "wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Walking over to an item to pick it up is so much effort. Whether it's your spellbook, a reagent, or a glass of wine, it's simply more efficient to call it to your hand. You teleport the target into your open hand. If you don't have a hand free, it falls to the ground at your feet."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (3rd)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can target an unattended object with a Bulk of 1 or less."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (5th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The range increases to 120 feet, and you can target an unattended object with a Bulk of 1 or less."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (7th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The range increases to 120 feet, and you can target an unattended object with a Bulk of 2 or less."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.lsR3RLEdBG4rcSzd"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "one"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 60
+      },
+      "traditions": [],
+      "damage": [],
+      "heightening": {
+        "type": "fixed",
+        "ranks": [
+          {
+            "rank": 5,
+            "range": {
+              "type": "feet",
+              "feet": 120
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "d1a41390-1e5d-5ed7-89e9-490ffda30298",
+    "pack": "rival-academies",
+    "kind": "spell",
+    "slug": "spell:restore-ground",
+    "name": "Restore Ground",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "earth", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You sense that this place yearns to throw off the shackles of civilization. You attempt to restore the area within the burst to a natural state, removing all artificial objects and buildings and encouraging the growth of plants on the ground that remains. Creatures are unaffected unless caught in a structural collapse."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ground",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " All ground within the area becomes greater difficult terrain for 1 round."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Objects",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Any unattended object of Bulk 4 or less is destroyed, regardless of Hardness, unless it's an artifact or similarly hard to destroy."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Plants",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Plants in the area become healthier and more fruitful for 1 year."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Structures",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Structures within range are shaken and may collapse, as if affected by "
+                },
+                {
+                  "type": "ref",
+                  "id": "1001faa9-fabc-5445-b281-5716b5ccab6d"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.ljo9CEmnCMZXqfOQ"
+    },
+    "data": {
+      "rank": 7,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 120
+      },
+      "area": {
+        "shape": "burst",
+        "size": 30
+      },
+      "duration": {
+        "type": "varies"
+      },
+      "traditions": ["arcane", "primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "1c1f8583-41b9-5d96-bcd9-85a6e4cc26a7",
+    "pack": "rival-academies",
+    "kind": "spell",
+    "slug": "spell:the-four-hunters",
+    "name": "The Four Hunters",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["auditory", "concentrate", "linguistic", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This is a story of four evenly matched hunters who sought to capture a falling star. Each hunter was known by the region they came from, and this spell focuses on one of their attributes. When you cast this spell, you must choose East, North, South, or West."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "East",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " was steady and optimistic. The target gains 5 temporary Hit Points and a +1 status bonus to Athletics for 1 round."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "North",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " was careful and cautious. The target can Step as a free action and gains a +1 status bonus to Survival for 1 round."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "South",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " was clever and cunning. The target becomes "
+                },
+                {
+                  "type": "ref",
+                  "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+                },
+                {
+                  "type": "text",
+                  "text": " and gains a +1 status bonus to Stealth for 1 round."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "West",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " was bold and competitive. The target gains a +10-foot status bonus to their land Speed and a +1 status bonus to Acrobatics for 1 round."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " You quickly remind yourself of the story, granting only yourself the benefit."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " You tell a trusted ally within 30 feet this story, granting them the benefit."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " You impart this tale on all of your allies within 30 feet, granting them the benefit."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "cc259699-b0cf-553e-b4a7-dca2578eb4b1"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.EdRYr7HmLm9wr71X"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "one",
+        "upTo": "three"
+      },
+      "targets": {
+        "any": [
+          {
+            "count": "any",
+            "of": "creature"
+          }
+        ]
+      },
+      "traditions": ["occult", "primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "cac5b427-0be0-5dd5-9ea2-548f692f1b89",
+    "pack": "rival-academies",
+    "kind": "spell",
+    "slug": "spell:the-parrots-whisper",
+    "name": "The Parrot's Whisper",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["auditory", "concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You call forth an echo of the gossiping parrot from the tale of the Witch and the Weaver to whisper the secrets of a creature you can see within range. The garrulous parrot is known to chatter on for some time while deciphering the information you seek. The target must attempt a Will saving throw."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The parrot chatters about various random topics for 1 round and reveals no relevant information."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The parrot tells you the target's highest weakness at the start of your next turn. In the meantime, the parrot chatters about various random topics."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The parrot tells you the target's highest weakness immediately, but sticks around for 1 round to chatter."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The parrot tells you the target's highest weakness immediately, and you can ask the parrot one question about the target creature. You might need to collaborate with the GM to narrow down the question. At the start of your next turn, the parrot answers the question truthfully."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.8NK5HtDxM3Qktu8H"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": ["divine", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "0850fcff-6bc4-5409-9800-a523ff25dbb9",
+    "pack": "rival-academies",
+    "kind": "spell",
+    "slug": "spell:the-queens-rainbow",
+    "name": "The Queen's Rainbow",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["auditory", "concentrate", "linguistic", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You tell the story of the Queen of Bees and her retinue trying to pass through a rainbow on their way to visit the King of Spiders. You conjure forth a large, transparent rainbow. Creatures who enter or begin their turn in the rainbow's space must succeed at a Fortitude saving throw or become "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round (or "
+          },
+          {
+            "type": "ref",
+            "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round on a critical failure)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.V05lB4VsSMiMMsZJ"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "area": {
+        "shape": "line",
+        "size": 60
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:fortitude",
+          "basic": false
+        }
+      },
+      "traditions": ["arcane", "occult", "primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "4071937b-1eb3-5508-a4d1-3271ce3fc01d",
+    "pack": "rival-academies",
+    "kind": "spell",
+    "slug": "spell:thief-of-fortune",
+    "name": "Thief of Fortune",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Seeing another creature improve themself with magic, you reach out and seize its benefits for yourself. Attempt a counteract check against the target spell effect. If you successfully counteract the effect, the effect does not end. Instead, you gain the effect of the target spell as well. If you would not be a valid target for the spell, you do not gain any of its benefits."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The spell's duration is halved as you siphon off its magical energy for yourself. Each round that both you and the original creature are affected by the spell counts for two rounds when determining the spell's duration. You can Dismiss the spell."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.uGi6t3cypb93mgyV"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 60
+      },
+      "traditions": ["arcane", "divine"],
+      "damage": [],
+      "counteraction": true
+    }
+  },
+  {
+    "id": "2b74452d-6b57-537c-bea2-a1a31ea96e37",
+    "pack": "rival-academies",
+    "kind": "spell",
+    "slug": "spell:threefold-limb",
+    "name": "Threefold Limb",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["attack", "concentrate", "manipulate", "morph", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You temporarily transform one of your limbs into water, taking the form of ice, liquid water, or steam as you desire. Make a melee spell attack roll. On a hit, the target takes 2d6 damage; the type of damage dealt and any additional effect depends on the form you choose. On a critical hit, double the damage."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ice",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The limb deals cold damage, and the target takes a –10-foot status penalty to its Speeds until the start of your next turn. This spell gains the cold trait."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "0945085d-60d7-518b-9333-26fa573d07ba"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Liquid Water",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The limb deals bludgeoning damage and you can "
+                },
+                {
+                  "type": "ref",
+                  "id": "2f5bb1a4-2a45-5c29-ad6a-7feba044cfaa"
+                },
+                {
+                  "type": "text",
+                  "text": " the target up to 10 feet."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Steam",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The limb deals fire damage and steam clings to the target, making all creatures "
+                },
+                {
+                  "type": "ref",
+                  "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+                },
+                {
+                  "type": "text",
+                  "text": " to them until the start of your next turn or they perform an Interact action to wave the steam away. This spell gains the fire trait."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage increases by 2d6."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.3DY4vbXj0BYSWA7z"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "touch"
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "traditions": ["arcane", "primal"],
+      "damage": [],
+      "variants": [
+        {
+          "name": "Threefold Limb (Ice)",
+          "damage": [
+            {
+              "key": "cmm8fniiftwwz9le",
+              "formula": "2d6",
+              "damageType": "cold",
+              "kinds": ["damage"]
+            }
+          ],
+          "heightening": {
+            "type": "interval",
+            "interval": 1,
+            "damage": [
+              {
+                "key": "cmm8fniiftwwz9le",
+                "formula": "2d6"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Threefold Limb (Liquid Water)",
+          "damage": [
+            {
+              "key": "lvgtws2tifsqap8s",
+              "formula": "2d6",
+              "damageType": "bludgeoning",
+              "kinds": ["damage"]
+            }
+          ],
+          "heightening": {
+            "type": "interval",
+            "interval": 1,
+            "damage": [
+              {
+                "key": "lvgtws2tifsqap8s",
+                "formula": "2d6"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Threefold Limb (Steam)",
+          "damage": [
+            {
+              "key": "oupuc9jxz28jwor2",
+              "formula": "2d6",
+              "damageType": "fire",
+              "kinds": ["damage"]
+            }
+          ],
+          "heightening": {
+            "type": "interval",
+            "interval": 1,
+            "damage": [
+              {
+                "key": "oupuc9jxz28jwor2",
+                "formula": "2d6"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "1342b92a-b80e-5824-b7a2-3e00a8aab47b",
+    "pack": "rival-academies",
+    "kind": "spell",
+    "slug": "spell:turbulent-tide",
+    "name": "Turbulent Tide",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "magus", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You cause the sheath of water and the improvised weapon it surrounds to surge outward with stupendous force as you attack. Make a melee Strike with your improvised weapon. The weapon then breaks, and each creature adjacent to you must succeed at a Fortitude saving throw against your spell DC or be pushed 5 feet away from you (10 feet on a critical failure). You can Stride after the target of your Strike if they are pushed but you must move the same distance and in the same direction."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the item has a Hardness greater than your level, or if it's an artifact, cursed item, or other item that's difficult to break or destroy, it doesn't break and adjacent creatures don't need to attempt Fortitude saves."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.eCwsj7wGQK1uBwiH"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "one"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:fortitude",
+          "basic": false
+        }
+      },
+      "requirements": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You're wielding an improvised weapon."
+            }
+          ]
+        }
+      ],
+      "traditions": [],
+      "damage": []
+    }
+  },
+  {
+    "id": "03cfb7d1-dafa-5ca9-9886-4bd92342dd93",
+    "pack": "rival-academies",
+    "kind": "spell",
+    "slug": "spell:unbroken-panoply",
+    "name": "Unbroken Panoply",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "manipulate", "nonlethal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As tools of violence undone by violence, broken weapons contain potent symbolic magic that faydhaans often call upon when forming alliances. Images of similar legendary weapons overlay the target, and the weapon's broken condition is suppressed for the duration. The weapon gains the nonlethal trait during this time. The weapon's wielder can apply the weapon's item bonus to attack rolls, if any, to their Diplomacy checks. If the weapon would be damaged or broken again, this spell ends."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.19V9aVrn8OAHsn4Q"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "touch"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour"
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "87a3ac31-57a0-5757-93bb-e379463a6867",
+    "pack": "rival-academies",
+    "kind": "spell",
+    "slug": "spell:unravel-knowledge",
+    "name": "Unravel Knowledge",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "hex", "manipulate", "mental", "witch"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your patron reaches into the target's mind, plucking out their past training like pulling a thread from a cloth. Choose a single action, activity, or spell you know the target can use, such as from seeing it previously or identifying the creature's capabilities with a Recall Knowledge check. You could select, for example, the Strike action, the "
+          },
+          {
+            "type": "ref",
+            "id": "ef57a555-f9e9-53cc-b09b-b7432156cbf1"
+          },
+          {
+            "type": "text",
+            "text": " action, a dragon's breath, or the "
+          },
+          {
+            "type": "ref",
+            "id": "2b79f5bd-e9d5-59cd-81f8-b1362ed0b59a"
+          },
+          {
+            "type": "text",
+            "text": " spell if you were aware the target could use them. The target attempts a Will save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target's memories of their ability grow foggy. The first time they use the chosen ability each round, they take 3d8 mental damage. This ability is less effective if you choose an ability almost anyone can use; the target takes 3d4 mental damage instead if you choose a basic action (such as Strike, Stride, or Raise a Shield) or a skill action that can be used untrained (such as "
+          },
+          {
+            "type": "ref",
+            "id": "2a3671d0-7d0b-53db-8648-861d457f0175"
+          },
+          {
+            "type": "text",
+            "text": " or Hide)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, and the target takes a –2 status penalty to any check or DC for the ability the first time they use it each round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "c4bbd011-2501-5fe1-a908-941ade604ce1"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage increases by 1d8, or by 1d4 for a basic action or untrained skill action."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.EFLXGyIz2HZVSmll"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": [],
+      "damage": [],
+      "variants": [
+        {
+          "name": "Unravel Knowledge (Higher Damage)",
+          "damage": [
+            {
+              "key": "vs9cidi4dzhtuq6t",
+              "formula": "3d8",
+              "damageType": "mental",
+              "kinds": ["damage"]
+            }
+          ],
+          "heightening": {
+            "type": "interval",
+            "interval": 1,
+            "damage": [
+              {
+                "key": "vs9cidi4dzhtuq6t",
+                "formula": "1d8"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Unravel Knowledge (Lower Damage)",
+          "damage": [
+            {
+              "key": "3eyhdkvochjkfere",
+              "formula": "3d4",
+              "damageType": "mental",
+              "kinds": ["damage"]
+            }
+          ],
+          "heightening": {
+            "type": "interval",
+            "interval": 1,
+            "damage": [
+              {
+                "key": "3eyhdkvochjkfere",
+                "formula": "1d4"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "5faef301-f358-5248-b548-5619c097b26d",
+    "pack": "rival-academies",
+    "kind": "spell",
+    "slug": "spell:unsettling-knowledge",
+    "name": "Unsettling Knowledge",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "linguistic", "mental", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You share a piece of hidden knowledge with a creature that is both upsetting and intriguing. When you Cast this Spell, choose Arcana, Nature, Occultism, Religion, or Society as the focus of this knowledge. The target must attempt a Will save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "88ca1b7b-d5de-5978-9ff4-258c9aadef1a"
+          },
+          {
+            "type": "text",
+            "text": " by the knowledge you shared for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is fascinated by the knowledge for 1 minute. The target can end this fascination early by attempting a skill check to Recall Knowledge to understand the knowledge using the chosen skill (using your spell DC as the DC); regardless of the result, the target becomes "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 2"
+          },
+          {
+            "type": "text",
+            "text": ", but if they failed the check, they can't reduce their frightened condition below 1 for the remainder of the spell's duration."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but the target becomes "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 3"
+          },
+          {
+            "type": "text",
+            "text": " if they attempt to Recall Knowledge."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.iAmHJbFN3lOoOkNG"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "one"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "duration": {
+        "type": "varies"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": [],
+      "damage": []
+    }
+  },
+  {
+    "id": "dd1436ef-9aff-53ac-883e-94af2611a7e3",
+    "pack": "rival-academies",
+    "kind": "spell",
+    "slug": "spell:vengeful-glare",
+    "name": "Vengeful Glare",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your gaze falls on a creature, filled with icy vengeance or fiery wrath. The gaze deals 1d4 damage (basic Fortitude save). It deals your choice of cold damage or fire damage and gains the appropriate trait. If you already dealt damage to the creature earlier this turn, it also takes 1 persistent damage of the gaze's type (persistent cold damage or persistent fire damage)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial damage increases by 1d4 and persistent damage by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.8uVMoiYDzhzWJEZ2"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "one"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:fortitude",
+          "basic": true
+        }
+      },
+      "traditions": [],
+      "damage": [],
+      "variants": [
+        {
+          "name": "Vengeful Glare (Cold)",
+          "damage": [
+            {
+              "key": "ouhfpvnu5dwl6qs4",
+              "formula": "1d4",
+              "damageType": "cold",
+              "kinds": ["damage"]
+            }
+          ],
+          "heightening": {
+            "type": "interval",
+            "interval": 1,
+            "damage": [
+              {
+                "key": "ouhfpvnu5dwl6qs4",
+                "formula": "1d4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Vengeful Glare (Fire)",
+          "damage": [
+            {
+              "key": "rvlurcw0bh1rco6z",
+              "formula": "1d4",
+              "damageType": "fire",
+              "kinds": ["damage"]
+            }
+          ],
+          "heightening": {
+            "type": "interval",
+            "interval": 1,
+            "damage": [
+              {
+                "key": "rvlurcw0bh1rco6z",
+                "formula": "1d4"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+]

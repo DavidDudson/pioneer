@@ -1,0 +1,2273 @@
+[
+  {
+    "id": "45b8e54c-ccdd-515c-9830-0378a116e486",
+    "pack": "shining-kingdoms",
+    "kind": "effect",
+    "slug": "effect:effect-aura-of-confidence",
+    "name": "Effect: Aura of Confidence",
+    "level": 12,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "4085451b-153b-5919-a731-b4dc26ef9015"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 status bonus to saving throws against mental effects."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["item:trait:mental"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.7L6Gltxxkjq9eyXN"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "abc97cf1-f02a-5a1a-ba0b-800929b28a14",
+    "pack": "shining-kingdoms",
+    "kind": "effect",
+    "slug": "effect:effect-close-contract",
+    "name": "Effect: Close Contract",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "cdcafc4d-c3b6-5385-8e7a-67caa512fab4"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "floor(@level / 2) * 5 - 10"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.4uh4EP1sxKRYx7kg"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "c22e3ce4-515a-530e-966c-f4f97e8e7c84",
+    "pack": "shining-kingdoms",
+    "kind": "effect",
+    "slug": "effect:effect-crimson-godsblood-serum",
+    "name": "Effect: Crimson Godsblood Serum",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "acf0bb0f-f9b1-5ab4-ab9d-7c8552a5422d"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "b1b05263-0263-518e-9350-9f02d4e40cff"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "61b5d8e7-a797-584b-8d72-e79089869674"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a status bonus to physical damage rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["damage"],
+        "type": "status",
+        "value": 2,
+        "slug": "crimson-godsblood-serum",
+        "predicate": ["item:damage:category:physical"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["damage"],
+        "slug": "crimson-godsblood-serum",
+        "mode": "upgrade",
+        "value": 3,
+        "predicate": ["crimson-godsblood-serum:crimson-godsblood-serum-moderate"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["damage"],
+        "slug": "crimson-godsblood-serum",
+        "mode": "upgrade",
+        "value": 4,
+        "predicate": ["crimson-godsblood-serum:crimson-godsblood-serum-greater"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.m942gdWRO19p0QS8"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "fdee03d9-7b94-5e3c-a687-ba0ad394dcd6",
+    "pack": "shining-kingdoms",
+    "kind": "effect",
+    "slug": "effect:effect-defenders-grit",
+    "name": "Effect: Defender's Grit",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "80a72689-2d30-581d-8c3d-f494e94f31c0"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary Hit Points equal to half your level."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "floor(@level / 2)"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.wIaXcsccLYf1Wi6Y"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "6ac61d76-b42d-5da8-acdb-2140abac53c1",
+    "pack": "shining-kingdoms",
+    "kind": "effect",
+    "slug": "effect:effect-designate-ally",
+    "name": "Effect: Designate Ally",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "54e25828-98ae-59ee-b321-6b906af7ad54"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to AC and Reflex saving throws."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:reflex", "ac"],
+        "type": "circumstance",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.uAWWAiuo5mSJSVY4"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "c3a459d6-a72e-55e9-b873-713013c3192b",
+    "pack": "shining-kingdoms",
+    "kind": "effect",
+    "slug": "effect:effect-even-the-odds-eagle-knight",
+    "name": "Effect: Even the Odds (Eagle Knight)",
+    "level": 14,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "64fd99d5-31fe-5feb-8242-d2e14e5b19cf"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain 25 temporary Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": 25
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.xxkCSwizAu2wC7Fo"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "fd03a3c0-f040-5a45-81b1-ad4e24ade843",
+    "pack": "shining-kingdoms",
+    "kind": "effect",
+    "slug": "effect:effect-eye-pluck",
+    "name": "Effect: Eye Pluck",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –4 circumstance penalty on all sight-based Perception checks."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "circumstance",
+        "value": -4,
+        "predicate": ["item:trait:visual"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.HVNXglbd6fI36e6u"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "a4089a52-6622-5792-a5c5-72ffc1d8d729",
+    "pack": "shining-kingdoms",
+    "kind": "effect",
+    "slug": "effect:effect-guillotine-blade",
+    "name": "Effect: Guillotine Blade",
+    "level": 18,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "0c11a093-a441-5c75-8c1d-c78f177fe0c0"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your "
+          },
+          {
+            "type": "text",
+            "text": "spectral dagger",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " gains the effects of a "
+          },
+          {
+            "type": "text",
+            "text": "vorpal",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rune."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:slug:spectral-dagger"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "vorpal"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.YsuyQ9QFbRvIZJoE"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "a26ba512-cf24-51ef-b4ff-9f0467b0ed69",
+    "pack": "shining-kingdoms",
+    "kind": "effect",
+    "slug": "effect:effect-hungry-blade",
+    "name": "Effect: Hungry Blade",
+    "level": 12,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "cf69af51-337b-5527-a948-641fb260bfcb"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your "
+          },
+          {
+            "type": "text",
+            "text": "spectral dagger",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " gains the effects of a "
+          },
+          {
+            "type": "text",
+            "text": "keen",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " property rune that applies only to Strikes against the target of the required Strike."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:slug:spectral-dagger"],
+        "predicate": ["target:mark:hungry-blade"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "keen"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.blwrnLLvtR6PVJlp"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "329933c8-8a28-5618-a3e9-8937b6c84e05",
+    "pack": "shining-kingdoms",
+    "kind": "effect",
+    "slug": "effect:effect-inspiring-recitation",
+    "name": "Effect: Inspiring Recitation",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "f58e1890-4b3e-5b98-bb1c-5b223d2b0d7f"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a status bonus to one skill of your choice. If you're an expert in Performance, the bonus increases to +2. If you're a master in Performance, the bonus is +3, and if you're legendary, the bonus is +4."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.5FRnceccGyLcnVlv"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "2d1b0f5c-49de-5450-8990-b8720c0520d2",
+    "pack": "shining-kingdoms",
+    "kind": "effect",
+    "slug": "effect:effect-instrument-of-death",
+    "name": "Effect: Instrument of Death",
+    "level": 16,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "911a83a6-e9ab-5f51-962e-9f4c9ca89bbc"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose one:"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You can't benefit from circumstance or status bonuses."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You gain weakness 10 to spirit damage."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-instrument-of-death",
+        "choices": [
+          {
+            "value": "suppression",
+            "label": "Suppress bonuses"
+          },
+          {
+            "value": "weakness",
+            "label": "Weakness to spirit damage"
+          }
+        ],
+        "prompt": "Select an effect.",
+        "rollOption": "instrument-of-death"
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["all"],
+        "suppress": true,
+        "predicate": [
+          "instrument-of-death:suppression",
+          {
+            "or": ["bonus:type:circumstance", "bonus:type:status"]
+          }
+        ]
+      },
+      {
+        "key": "Weakness",
+        "type": ["spirit"],
+        "value": 10,
+        "predicate": ["instrument-of-death:weakness"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.Y2xjlHMGvr8Mkg3r"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "22078b7c-eaab-580b-94bf-328fa42a3550",
+    "pack": "shining-kingdoms",
+    "kind": "effect",
+    "slug": "effect:effect-lead-by-example",
+    "name": "Effect: Lead by Example",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "7711eba4-4ac9-557e-9414-3cbeb6fca998"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to your attack roll."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.TVWgsv3ypaqh5Y8T"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "63864d81-5fcb-5253-89af-e8b3c11cd9ad",
+    "pack": "shining-kingdoms",
+    "kind": "effect",
+    "slug": "effect:effect-lost-in-the-crowd",
+    "name": "Effect: Lost in the Crowd",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "d5852d1e-e794-56a4-ae8f-6e8f66512cc8"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus on your Stealth check when in a crowd of at least 10 creatures or a +4 circumstance bonus when in a crowd of at least 100 creatures."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.Jt7NnE7WeR7e9V6Q"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "9d6dadea-d4e7-5bd5-ab38-c5804115adf9",
+    "pack": "shining-kingdoms",
+    "kind": "effect",
+    "slug": "effect:effect-nothing-personal",
+    "name": "Effect: Nothing Personal",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "423d2b0d-fced-554f-ab10-0a11c00a8ff1"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your first strike each round deals an extra die of weapon damage to the marked target. This increases to 2 die at level 14, and 3 die at level 20."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "strike-damage",
+        "option": "option:nothing-personal-first-strike",
+        "toggleable": true,
+        "display": {
+          "label": "Nothing Personal — First weapon Strike against impediment"
+        }
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["weapon-damage"],
+        "diceNumber": "ternary(gte(@level, 20), 3, ternary(gte(@level, 14), 2, 1))",
+        "predicate": ["target:mark:nothing-personal", "option:nothing-personal-first-strike"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.YJPiAE71tq3bp74B"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "0c713af0-04de-5830-8b95-3db26d606daa",
+    "pack": "shining-kingdoms",
+    "kind": "effect",
+    "slug": "effect:effect-red-tape",
+    "name": "Effect: Red Tape",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a -2 status penalty to saving throws against linguistic effects."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": -2,
+        "predicate": ["item:trait:linguistic"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.e1XDZsMrytC0K3k8"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "a4cc3613-3e48-5bbe-9184-4355e77dbf09",
+    "pack": "shining-kingdoms",
+    "kind": "effect",
+    "slug": "effect:effect-smeltable",
+    "name": "Effect: Smeltable",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –10-foot status penalty to your Speeds, and your strikes deal an extra 1d6 fire damage. You also lose your weakness to slashing damage and resistance to electricity damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "status",
+        "value": -10
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["fist-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "fire"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.PeQ2isu6YFcHhQyp"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "bcef6850-24ef-5c02-9480-c3f2a92d0bed",
+    "pack": "shining-kingdoms",
+    "kind": "effect",
+    "slug": "effect:effect-soul-oubliette",
+    "name": "Effect: Soul Oubliette",
+    "level": 20,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "5f3b5c9d-5644-5201-9f97-515b4f8baca6"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain fast healing 15."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FastHealing",
+        "value": 15
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.TbQiJxLfEF6P1HnO"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 24,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "a315add1-84f8-5f1b-bd49-3ea02fc9fa62",
+    "pack": "shining-kingdoms",
+    "kind": "effect",
+    "slug": "effect:effect-soul-well",
+    "name": "Effect: Soul Well",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "909bf307-62b0-5ec1-9cf0-a2f483deb209"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Living creatures in the aura die from the dying condition at dying 5 rather than dying 4."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "dying-max",
+        "mode": "upgrade",
+        "value": 5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.9YO84RSGcq3XcA0E"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "e2463e83-c179-50eb-badf-5e42580b1e65",
+    "pack": "shining-kingdoms",
+    "kind": "effect",
+    "slug": "effect:effect-soul-well-additional-damage",
+    "name": "Effect: Soul Well (Additional Damage)",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "909bf307-62b0-5ec1-9cf0-a2f483deb209"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your spectral dagger deals one additional weapon die of damage until the end of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["spectral-dagger-damage"],
+        "diceNumber": "1"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.HKk3oUYJNN82heeH"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "29278e03-327e-53c4-b172-a01074906991",
+    "pack": "shining-kingdoms",
+    "kind": "effect",
+    "slug": "effect:effect-taldogis-badge",
+    "name": "Effect: Taldogis Badge",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "f5a41980-d08c-5c9f-8ae3-96eb61b4e6eb"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to Diplomacy checks against supporters of Eutropia."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["option:eutropia-supporter"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.bsumFksktyHssfrf"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "be0b423d-11fb-5024-a422-8574dbfd16e7",
+    "pack": "shining-kingdoms",
+    "kind": "effect",
+    "slug": "effect:effect-trudds-strength",
+    "name": "Effect: Trudd's Strength",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "b3ba5fae-109e-57c0-a6cd-cb7079116dc2"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "6ef75177-3d62-51a9-b73e-d5fed7045afb"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a bonus to Armor Class."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "status",
+        "value": 1,
+        "slug": "trudds-strength-bonus"
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["ac"],
+        "slug": "trudds-strength-bonus",
+        "mode": "upgrade",
+        "value": 2,
+        "predicate": ["trudds-strength:trudds-strength-greater"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.cB5nrsadZxDaxFjz"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "2a5b5ce6-6caa-5f72-bfe5-959aea9822ab",
+    "pack": "shining-kingdoms",
+    "kind": "effect",
+    "slug": "effect:effect-vengeful-remnant",
+    "name": "Effect: Vengeful Remnant",
+    "level": 14,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "48c660ad-554e-5ea0-8d97-0ec06421962c"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance 10 to all damage except force, ghost touch, spirit, and vitality, doubled if the source of the damage is non-magical."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.0o21uiVJUpYCO7Zj"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "f5012019-2b88-5102-9a3f-ae09917297d4",
+    "pack": "shining-kingdoms",
+    "kind": "effect",
+    "slug": "effect:effect-vitriolic-miasma",
+    "name": "Effect: Vitriolic Miasma",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a -2 circumstance penalty to saves against poison effects and gain weakness 10 to poison damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": -2,
+        "predicate": [
+          "item:trait:poison",
+          {
+            "not": "option:vitriolic-miasma"
+          }
+        ]
+      },
+      {
+        "key": "Weakness",
+        "type": ["poison"],
+        "value": 10,
+        "predicate": [
+          {
+            "not": "option:vitriolic-miasma"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.5KatA3QnT1zYLxGv"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "dd43b9bc-4613-567a-ac02-ba90e24cbe21",
+    "pack": "shining-kingdoms",
+    "kind": "effect",
+    "slug": "effect:spell-effect-capital-dividend",
+    "name": "Spell Effect: Capital Dividend",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "0d16c7c5-7d90-5abc-9372-fc7a9c0a5559"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You regain additional Hit Points from healing effects."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["healing-received"],
+        "type": "untyped",
+        "value": "2 * @item.level",
+        "predicate": ["item:trait:healing"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.Of5VbKBH0fLZHm8Z"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "7aee9306-bb00-5dd1-b491-7ef95286b366",
+    "pack": "shining-kingdoms",
+    "kind": "effect",
+    "slug": "effect:spell-effect-elemental-sheath",
+    "name": "Spell Effect: Elemental Sheath",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "298250c9-72a3-539b-a1ce-399034075095"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose air, earth, fire, metal, water, or wood; the spell gains that trait. You gain a +1 circumstance bonus to AC and resistance to two types of damage based on the element you choose."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Air",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " bludgeoning and electricity"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Earth",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " bludgeoning and poison"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Fire",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " fire and slashing"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Metal",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " acid and slashing"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Water",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " cold and piercing"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Wood",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " piercing and void."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.fEtZHzAhRYuNX2u1"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "40e5fa4e-21dd-5991-bc95-bb7e1c925d16",
+    "pack": "shining-kingdoms",
+    "kind": "effect",
+    "slug": "effect:spell-effect-equal-footing-failure-or-critical-failure",
+    "name": "Spell Effect: Equal Footing (Failure or Critical Failure)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "af12f6a1-ad08-51a8-b4e0-096cb66a0dca"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –15-foot status penalty to all Speeds, and you can't benefit from bonuses to your Speeds nor take other penalties to your Speeds."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "spell-effect-equal-footing-failure-or-critical-failure",
+        "choices": [
+          {
+            "value": "failure",
+            "label": "Failure"
+          },
+          {
+            "value": "critical-failure",
+            "label": "Critical Failure"
+          }
+        ],
+        "prompt": "Select the degree of success.",
+        "rollOption": "equal-footing"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "status",
+        "value": -15,
+        "slug": "equal-footing"
+      },
+      {
+        "key": "GrantItem",
+        "item": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+        "predicate": ["equal-footing:failure"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["all-speeds"],
+        "suppress": true,
+        "predicate": [
+          {
+            "not": "penalty:slug:equal-footing"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.MFvCd82lxTQGZERm"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "155fc78e-7741-5fba-b043-4c94b662292e",
+    "pack": "shining-kingdoms",
+    "kind": "effect",
+    "slug": "effect:spell-effect-equal-footing-success",
+    "name": "Spell Effect: Equal Footing (Success)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "af12f6a1-ad08-51a8-b4e0-096cb66a0dca"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –10-foot status penalty to all Speeds."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "status",
+        "value": -10,
+        "slug": "equal-footing"
+      },
+      {
+        "key": "GrantItem",
+        "item": "69f88e3c-d871-5fb9-82c6-120348a7c0e8"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.HjYFYIlwraTRSHOX"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "d80bca21-d196-56d3-83c5-1e70c30a4358",
+    "pack": "shining-kingdoms",
+    "kind": "effect",
+    "slug": "effect:spell-effect-rapid-retreat",
+    "name": "Spell Effect: Rapid Retreat",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "4cd5f52d-0de5-55be-9e43-7eae521c94d2"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance to all damage equal to your level."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["all"],
+        "value": "@level"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.n4aQ7fwJ5ogn1ekG"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "b6aa330c-be79-55d8-a182-e29bacba332e",
+    "pack": "shining-kingdoms",
+    "kind": "effect",
+    "slug": "effect:spell-effect-spirit-ward",
+    "name": "Spell Effect: Spirit Ward",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "f53456ec-5201-5a80-99ed-c3f2b538dfc2"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a status bonus to saving throws against spells and effects caused by creatures that have the spirit trait and haunts."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["item:type:spell", "origin:trait:haunt", "origin:trait:spirit"]
+          }
+        ]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["saving-throw"],
+        "slug": "spirit-ward",
+        "mode": "upgrade",
+        "value": 2,
+        "predicate": ["self:mode:living", "spirit-ward:2"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.0P4JYUQO20mX4rCS"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start",
+        "sustained": true
+      }
+    }
+  },
+  {
+    "id": "7a9bff65-e14c-5d90-8902-9228cc1f1897",
+    "pack": "shining-kingdoms",
+    "kind": "effect",
+    "slug": "effect:spell-effect-spiritual-renewal",
+    "name": "Spell Effect: Spiritual Renewal",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "a40d889d-abdb-5be6-a5e2-d48c76eb2369"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain fast healing."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FastHealing",
+        "value": "2 * @item.level"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.rtkSifnBQaf0TEPo"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 4,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "120a5889-2586-51d6-81ea-3671c3ebcfa3",
+    "pack": "shining-kingdoms",
+    "kind": "effect",
+    "slug": "effect:spell-effect-valiant-anthem",
+    "name": "Spell Effect: Valiant Anthem",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "c94428ad-9969-5dae-b430-089d23e84af4"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +10-foot status bonus to all Speeds and a +1 status bonus to attack rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "status",
+        "value": 10
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll"],
+        "type": "status",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.0px2AJh9TBgU4iao"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "6006bb40-7751-59dd-a6e4-237aad504110",
+    "pack": "shining-kingdoms",
+    "kind": "effect",
+    "slug": "effect:spell-effect-veil-of-spirits",
+    "name": "Spell Effect: Veil of Spirits",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "7539a4f3-3b3f-5eb2-bebc-1b22172dcd1f"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are dazzled. On a failure or critical failure, you gain a weakness to spirit damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "spell-effect-veil-of-spirits",
+        "choices": [
+          {
+            "value": "success",
+            "label": "Success"
+          },
+          {
+            "value": "failure",
+            "label": "Failure"
+          },
+          {
+            "value": "critical-failure",
+            "label": "Critical Failure"
+          }
+        ],
+        "prompt": "Select the degree of success.",
+        "rollOption": "veil-of-spirits"
+      },
+      {
+        "key": "GrantItem",
+        "item": "943dfd55-ad09-5abf-9138-95a6149d3302"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.0L9LAkGW2FtmZOgb"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "e29ce39f-15e9-5c58-b593-6bdfa5bd8947",
+    "pack": "shining-kingdoms",
+    "kind": "effect",
+    "slug": "effect:spell-effect-vicious-howl",
+    "name": "Spell Effect: Vicious Howl",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "b3b26513-5030-5b42-9ab6-c21ceb4667ab"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a number of temporary Hit Points equal to your level and a +4 circumstance bonus to damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "@level"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["damage"],
+        "type": "circumstance",
+        "value": 4
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.cSlCn3KoAhsKxm4y"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "cda93220-37b0-585b-9f86-386ff07efa10",
+    "pack": "shining-kingdoms",
+    "kind": "effect",
+    "slug": "effect:spell-effect-warping-pull",
+    "name": "Spell Effect: Warping Pull",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "ef2c7fc8-bc6b-5183-a321-2fc3c1933b16"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance to all damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["all"],
+        "value": "5 * floor(@item.level / 2)"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.uHNehgyXeNsdd3or"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  }
+]

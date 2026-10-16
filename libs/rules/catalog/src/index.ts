@@ -2,8 +2,8 @@ import { contentPackFromContents, PackId } from '@pioneer/rules/sdk';
 import type { ContentPack, ContentPackLoader, PackContents, PackContentsLoader } from '@pioneer/rules/sdk';
 
 import { bookRegistry } from './book-registry';
+import { coreRulesPack } from './core-rules-packs';
 import {
-  coreRulesPack,
   divineMysteriesPack,
   gmCorePack,
   howlOfTheWildPack,
@@ -19,7 +19,17 @@ import {
   warOfImmortalsPack,
 } from './json-packs';
 import { characterGuidePack, impossibleLandsPack } from './ogl-packs';
-import { battlecryPack, chelaxInfernalInheritancePack, gunsAndGearsPack, impossibleMagicPack } from './orc-packs';
+import {
+  battlecryPack,
+  chelaxInfernalInheritancePack,
+  draconicCodexPack,
+  gunsAndGearsPack,
+  hellfireDispatchesPack,
+  highSeasPack,
+  impossibleMagicPack,
+  rivalAcademiesPack,
+  shiningKingdomsPack,
+} from './orc-packs';
 import { checkPackSources } from './source-check';
 
 export { BookRegistry, bookRegistry } from './book-registry';
@@ -86,6 +96,11 @@ export const officialPacks: readonly PackContentsLoader[] = [
   checkedLoader('guns-and-gears', gunsAndGearsPack),
   checkedLoader('battlecry', battlecryPack),
   checkedLoader('cheliax-infernal-inheritance', chelaxInfernalInheritancePack),
+  checkedLoader('rival-academies', rivalAcademiesPack),
+  checkedLoader('shining-kingdoms', shiningKingdomsPack),
+  checkedLoader('draconic-codex', draconicCodexPack),
+  checkedLoader('hellfire-dispatches', hellfireDispatchesPack),
+  checkedLoader('high-seas', highSeasPack),
   checkedLoader('gm-core', gmCorePack),
 ];
 

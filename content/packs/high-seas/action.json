@@ -1,0 +1,206 @@
+[
+  {
+    "id": "ca1b7c93-110d-573d-9796-d50108e30fd9",
+    "pack": "high-seas",
+    "kind": "action",
+    "slug": "action:disengage",
+    "name": "Disengage",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "high-seas"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are piloting a sea vehicle during boarding combat."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You attempt to break your ship free and escape the battle. Attempt a check to pilot against a very hard DC. This is typically a Sailing Lore check against the standard DC of the vessel's level + 5 (for the very hard adjustment)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The vehicle pulls free and moves up to its Speed. It can turn normally provided it moves away from the ship it disengaged from."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The boarding combat continues."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.1wcMkrJ8isCWc1x6"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You are piloting a sea vehicle during boarding combat."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "55946948-d7a5-508e-8466-7c2b81b7d7d0",
+    "pack": "high-seas",
+    "kind": "action",
+    "slug": "action:naval-crew-pistol-salvo",
+    "name": "(Naval Crew) Pistol Salvo",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "high-seas"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The naval crew draws and fires their flintlock pistols in a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": " within 40 feet, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "7d4",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 23,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save). Each creature uses the weaker of its resistance or immunity to piercing or bludgeoning damage, and any that critically fails its save takes an additional "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage after doubling. When the naval crew is reduced to 2 or fewer segments, this area decreases to a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 5
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.sZEOZRygAVj6IRMZ"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "ten-minutes"
+      }
+    }
+  }
+]

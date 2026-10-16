@@ -1,0 +1,2270 @@
+[
+  {
+    "id": "abfb84fe-3971-5b10-a364-71c6c15610fd",
+    "pack": "rival-academies",
+    "kind": "effect",
+    "slug": "effect:effect-cozy-campfire",
+    "name": "Effect: Cozy Campfire",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "a6b31c22-e0af-5c5f-ae13-34065c7f4570"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –2 status penalty to attack rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll"],
+        "type": "status",
+        "value": -2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.fH4SxaerUGXqIOIJ"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "ad058536-7d5a-52d4-9ddb-8fdd6a13b840",
+    "pack": "rival-academies",
+    "kind": "effect",
+    "slug": "effect:effect-drop-of-convergent-waters",
+    "name": "Effect: Drop of Convergent Waters",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "c182eceb-d5d4-54d4-8f3c-f0bf7a500e07"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose an attack. It gains the magical, reach and water traits, and takes no penalties for being used underwater."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustStrike",
+        "strikes": [
+          "item:ranged",
+          {
+            "not": "item:rune:property:underwater"
+          }
+        ],
+        "priority": 111,
+        "property": "range-increment",
+        "mode": "multiply",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.YjcV6eW4u9OpSNC2"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "87fc9c4f-5219-592d-992c-24d4ab1a8545",
+    "pack": "rival-academies",
+    "kind": "effect",
+    "slug": "effect:effect-lepidstadt-surgeon-dedication-stop-bleeding",
+    "name": "Effect: Lepidstadt Surgeon Dedication (Stop Bleeding)",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "fdd4c981-cfca-5c3b-8f48-8a40775204cd"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You roll your flat check to recover from persistent bleed damage twice and take the better result."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollTwice",
+        "selectors": ["pd-recovery-check"],
+        "keep": "higher",
+        "predicate": ["item:damage:type:bleed"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.45nzYsMBTP6PIxDN"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "f708381a-d416-503f-a266-7eff00417b9b",
+    "pack": "rival-academies",
+    "kind": "effect",
+    "slug": "effect:effect-offer-story",
+    "name": "Effect: Offer Story",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "b0086bef-1624-5bdf-9098-295af2bea205"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to AC and Will saves."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the origin has "
+          },
+          {
+            "type": "ref",
+            "id": "3b172c5b-8181-536f-87cf-1d05cea74360"
+          },
+          {
+            "type": "text",
+            "text": ", then you can choose to gain a status bonus on skill checks to Recall Knowledge instead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the origin has "
+          },
+          {
+            "type": "ref",
+            "id": "4fbad356-7b09-5de3-aaf4-16f5b584f0b1"
+          },
+          {
+            "type": "text",
+            "text": ", you can choose to deal additional fire damage with your melee Strikes instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-offer-story",
+        "choices": [
+          {
+            "value": "ac-will",
+            "label": "Armor Class and Will saves"
+          },
+          {
+            "value": "raging-stories",
+            "label": "Additional melee fire damage",
+            "predicate": ["parent:origin:item:tag:raging-stories"]
+          },
+          {
+            "value": "illuminating-stories",
+            "label": "Bonus to Recall Knowledge checks",
+            "predicate": ["parent:origin:item:tag:illuminating-stories"]
+          },
+          {
+            "value": "flickering-stories",
+            "label": "Gain the concealed condition",
+            "predicate": ["parent:origin:item:tag:flickering-stories"]
+          }
+        ],
+        "prompt": "Select a benefit.",
+        "rollOption": "offer-story"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "save:will"],
+        "type": "status",
+        "value": 1,
+        "slug": "offer-story-ac-will",
+        "predicate": ["offer-story:ac-will"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "f410da96-b56a-5c7c-857b-7096defec0a1",
+        "predicate": ["offer-story:flickering-stories"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.dzYnksinvWvfgBVt"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "989535da-0b7f-5495-a4d1-684bdd3e2618",
+    "pack": "rival-academies",
+    "kind": "effect",
+    "slug": "effect:effect-rod-of-rule",
+    "name": "Effect: Rod of Rule",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "37b59633-1b8f-56b2-90d2-bb2f3685ea6d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take –2 circumstance penalty to saves against any of the origin's curriculum or sin spells."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.ixAmr0VkB6q6LpGq"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "ad404a92-ab6e-5c1a-82ca-c926d4c967e6",
+    "pack": "rival-academies",
+    "kind": "effect",
+    "slug": "effect:effect-ruthless-orator",
+    "name": "Effect: Ruthless Orator",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "8dac423c-98b8-5691-8a66-3f630cc4c26d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Any hostile creatures within 20 feet take a –2 circumstance penalty to attack rolls and spell attack rolls that target you."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.lWi5NjGv16mGpncU"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "4859b04a-90e0-53e6-bb8c-0af02b354c6e",
+    "pack": "rival-academies",
+    "kind": "effect",
+    "slug": "effect:effect-ruthless-orator-enemy",
+    "name": "Effect: Ruthless Orator (Enemy)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "8dac423c-98b8-5691-8a66-3f630cc4c26d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a -2 circumstance penalty to attack rolls and spell attack rolls against the origin."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll", "spell-attack-roll"],
+        "type": "circumstance",
+        "value": -2,
+        "predicate": [
+          "target:enemy",
+          {
+            "lte": ["target:distance", 20]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.og3gUpF2Ti64Py8t"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "80c26689-70e0-53d3-8cf1-ae5bae94218c",
+    "pack": "rival-academies",
+    "kind": "effect",
+    "slug": "effect:effect-static-muscular-relay",
+    "name": "Effect: Static Muscular Relay",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "08d05e61-58b2-573b-9790-07c0d7f1e11d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to Reflex saves and AC for 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "save:reflex"],
+        "type": "circumstance",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.8YVHpRLCIUkf67OL"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "0f48ed01-4d1d-575a-b752-5503cfa79c79",
+    "pack": "rival-academies",
+    "kind": "effect",
+    "slug": "effect:effect-talented-tap-shoes",
+    "name": "Effect: Talented Tap Shoes",
+    "level": 11,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "67b1ce4c-5982-5697-a4f1-7a554ca68c6d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you succeed or critically succeed at a Reflex save to avoid a damaging effect, you can Stride half your Speed as a reaction. You take a –2 item penalty to Stealth checks to Sneak."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["save:reflex"],
+        "title": "Effect: Talented Tap Shoes",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "When you succeed or critically succeed at a Reflex save to avoid a damaging effect, you can Stride half your Speed as a reaction."
+              }
+            ]
+          }
+        ],
+        "outcome": ["success", "criticalSuccess"],
+        "predicate": ["option:damaging-effect"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "item",
+        "value": -2,
+        "predicate": ["action:sneak"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.8n0wqGpz28lfnLsQ"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "12fe6dd8-aeb7-5ace-bea2-d5ef7f130e85",
+    "pack": "rival-academies",
+    "kind": "effect",
+    "slug": "effect:effect-tributary-circulation",
+    "name": "Effect: Tributary Circulation",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "1a5378fa-6616-56c7-8103-cd1d0cc3cf64"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to Will saves and saves against poison."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["item:trait:poison", "check:statistic:will"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.xatDR4tSzpu3qddJ"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "7262fdcb-29e0-5ec0-bc98-1da6a8dc4f7e",
+    "pack": "rival-academies",
+    "kind": "effect",
+    "slug": "effect:spell-effect-beseech-the-sphinx",
+    "name": "Spell Effect: Beseech the Sphinx",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "b8ffaf6b-8d3d-5e4d-88b9-7042730568ab"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a status bonus to one skill and one type of saving throw."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.3CzDP9Bamc1aVLyh"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "83bb9bd9-96cb-5d53-bbe0-7afe6e328f2c",
+    "pack": "rival-academies",
+    "kind": "effect",
+    "slug": "effect:spell-effect-call-the-ten",
+    "name": "Spell Effect: Call the Ten",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "745dc147-bca9-5112-b510-635b8586e978"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance to physical and spirit damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["physical", "spirit"],
+        "value": "3 + 2 * floor((@item.level - 4) / 2)"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.Lno61HwUJaE4eLo8"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "72e7a53c-7890-5504-8c38-356bb073309a",
+    "pack": "rival-academies",
+    "kind": "effect",
+    "slug": "effect:spell-effect-coiling-dance",
+    "name": "Spell Effect: Coiling Dance",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "4e383ab5-970f-5e90-9ec1-d174013f156e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your attacks and spells gain the holy trait."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell"],
+        "property": "traits",
+        "mode": "add",
+        "value": "holy",
+        "predicate": [
+          {
+            "nor": ["self:trait:unholy", "item:trait:unholy"]
+          }
+        ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon"],
+        "property": "traits",
+        "mode": "add",
+        "value": "holy",
+        "predicate": [
+          {
+            "nor": ["self:trait:unholy", "item:trait:unholy"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.K1AHF9KV47PsPka1"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "122622a5-dae8-5853-8d10-e3038d79a975",
+    "pack": "rival-academies",
+    "kind": "effect",
+    "slug": "effect:spell-effect-cutting-eye",
+    "name": "Spell Effect: Cutting Eye",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "7e41dfb1-29a6-5555-a31e-de3a3558b653"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to AC or a saving throw."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "defense",
+        "choices": [
+          {
+            "value": "ac",
+            "label": "Armor Class"
+          },
+          {
+            "value": "fortitude",
+            "label": "Fortitude"
+          },
+          {
+            "value": "reflex",
+            "label": "Reflex"
+          },
+          {
+            "value": "will",
+            "label": "Will"
+          }
+        ],
+        "prompt": "Select a defense."
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.tlbv3TAD2xPDFnAf"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "c60a44c3-f160-5217-bf2c-979f8b3b400f",
+    "pack": "rival-academies",
+    "kind": "effect",
+    "slug": "effect:spell-effect-domoras-defense",
+    "name": "Spell Effect: Domora's Defense",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "84693f6a-c0c6-55b2-bb4d-7112cb41b991"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to AC and fire resistance 5."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 1
+      },
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": 5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.IMKuG3m72BYeGSXS"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "765f7ebf-96d0-514f-94fd-b2135b3b43e2",
+    "pack": "rival-academies",
+    "kind": "effect",
+    "slug": "effect:spell-effect-halcyon-mists",
+    "name": "Spell Effect: Halcyon Mists",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "d6636cad-277f-5fc7-8615-c8f371ca07fc"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary Hit Points and become concealed."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "@item.value"
+      },
+      {
+        "key": "GrantItem",
+        "item": "f410da96-b56a-5c7c-857b-7096defec0a1"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.Ore1RvtyWdioF5QW"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      },
+      "badge": {
+        "type": "formula",
+        "formula": "(@item.level)d8"
+      }
+    }
+  },
+  {
+    "id": "bc61d649-d898-517b-8389-076605cbda5d",
+    "pack": "rival-academies",
+    "kind": "effect",
+    "slug": "effect:spell-effect-ibexs-harvest",
+    "name": "Spell Effect: Ibex's Harvest",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "93519747-8ee5-58f9-8d7f-66b3c3dd6256"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "spell-effect-ibex-s-harvest",
+        "choices": [
+          {
+            "value": "1",
+            "label": "One Action"
+          },
+          {
+            "value": "2",
+            "label": "Two Actions"
+          },
+          {
+            "value": "3",
+            "label": "Three Actions"
+          }
+        ],
+        "prompt": "Select the number of actions",
+        "rollOption": "ibexs-harvests"
+      },
+      {
+        "key": "TempHP",
+        "value": "1 + 3 * @item.level",
+        "predicate": [
+          {
+            "lte": ["option:ibexs-harvests", 2]
+          }
+        ]
+      },
+      {
+        "key": "TempHP",
+        "value": "3 * @item.level - 4",
+        "predicate": ["ibexs-harvests:3"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.VYr6IyfCWUMcYLJH"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "70fd862c-e8a2-568c-8e10-073f2fb797cb",
+    "pack": "rival-academies",
+    "kind": "effect",
+    "slug": "effect:spell-effect-kgalaserkes-axes",
+    "name": "Spell Effect: Kgalaserke's Axes",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "a843ac60-9d1d-5fbe-92fd-293450353246"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to attack rolls or a +2 circumstance bonus to damage against a creature that damaged you."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "spell-effect-kgalaserke-s-axes",
+        "choices": [
+          {
+            "value": "1",
+            "label": "One Action"
+          },
+          {
+            "value": "2",
+            "label": "Two Actions"
+          }
+        ],
+        "prompt": "Select the number of actions",
+        "rollOption": "kgalaserkes-axes"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll"],
+        "type": "status",
+        "value": 1,
+        "slug": "kgalaserkes-axes-attack",
+        "predicate": ["kgalaserkes-axes:1"]
+      },
+      {
+        "key": "RollOption",
+        "option": "kgalaserkes-axes:damaged-by-target",
+        "toggleable": true,
+        "predicate": ["kgalaserkes-axes:2"],
+        "display": {
+          "label": "Kgalaserke's Axes — Damaged by target"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["damage"],
+        "type": "circumstance",
+        "value": 2,
+        "slug": "kgalaserkes-axes-damage",
+        "predicate": ["kgalaserkes-axes:damaged-by-target"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.Wwg9pqrgRHhWlxw9"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "ac0b6897-bf21-56b1-a940-dacfa5df2b16",
+    "pack": "rival-academies",
+    "kind": "effect",
+    "slug": "effect:spell-effect-mental-map",
+    "name": "Spell Effect: Mental Map",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "800b8d9b-a588-51a3-b351-409d0883ec8d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to Survival checks while in the location, and any skill checks to Recall Knowledge about the location."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "skill-check",
+        "option": "option:mental-map",
+        "toggleable": true,
+        "display": {
+          "label": "Mental Map — Enable Survival and Recall Knowledge bonus"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": [
+          "option:mental-map",
+          {
+            "or": ["check:statistic:survival", "action:recall-knowledge"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.8brCESGTl4pUIjhY"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "day",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "f03919f4-84a5-5c75-af64-e0d5278724b5",
+    "pack": "rival-academies",
+    "kind": "effect",
+    "slug": "effect:spell-effect-personal-runewell",
+    "name": "Spell Effect: Personal Runewell",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "72f82453-6e10-5eaf-aa9d-c7c7b7a68295"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a status bonus to spell damage equal to the spell's rank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.ZwTwuNuvHuQhIjcu"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "13fe34cf-1667-5a69-a6de-6cc9defc1a66",
+    "pack": "rival-academies",
+    "kind": "effect",
+    "slug": "effect:spell-effect-pocket-library",
+    "name": "Spell Effect: Pocket Library",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "73d79c19-3012-52c9-a8f9-e8feb3a44b16"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a status bonus on Recall Knowledge checks using your chosen skill. If you roll a critical failure on this check, you get a failure instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:pocket-library",
+        "toggleable": true
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "skill",
+        "choices": [
+          {
+            "value": "arcana",
+            "label": "Arcana",
+            "predicate": [
+              {
+                "gte": ["skill:arcana:rank", 1]
+              }
+            ]
+          },
+          {
+            "value": "crafting",
+            "label": "Crafting",
+            "predicate": [
+              {
+                "gte": ["skill:crafting:rank", 1]
+              }
+            ]
+          },
+          {
+            "value": "medicine",
+            "label": "Medicine",
+            "predicate": [
+              {
+                "gte": ["skill:medicine:rank", 1]
+              }
+            ]
+          },
+          {
+            "value": "nature",
+            "label": "Nature",
+            "predicate": [
+              {
+                "gte": ["skill:nature:rank", 1]
+              }
+            ]
+          },
+          {
+            "value": "occultism",
+            "label": "Occultism",
+            "predicate": [
+              {
+                "gte": ["skill:occultism:rank", 1]
+              }
+            ]
+          },
+          {
+            "value": "religion",
+            "label": "Religion",
+            "predicate": [
+              {
+                "gte": ["skill:religion:rank", 1]
+              }
+            ]
+          },
+          {
+            "value": "society",
+            "label": "Society",
+            "predicate": [
+              {
+                "gte": ["skill:society:rank", 1]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select a skill."
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.9ZIP6gWSp9OTEu8i"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 24,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "62a07442-4d17-5bcb-89b3-b4cf25f91383",
+    "pack": "rival-academies",
+    "kind": "effect",
+    "slug": "effect:spell-effect-precious-gleam",
+    "name": "Spell Effect: Precious Gleam",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "78ead2e4-84bc-577c-886b-395e1d586658"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your next attack deals additional precision damage, and it gains the effects of cold iron, silver, or steel."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "precious-material",
+        "choices": [
+          {
+            "value": "cold-iron",
+            "label": "Cold Iron"
+          },
+          {
+            "value": "silver",
+            "label": "Silver"
+          }
+        ],
+        "prompt": "Select a material.",
+        "rollOption": "precious-gleam"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.ojC0jckNHOEIFFtB"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "cc259699-b0cf-553e-b4a7-dca2578eb4b1",
+    "pack": "rival-academies",
+    "kind": "effect",
+    "slug": "effect:spell-effect-the-four-hunters",
+    "name": "Spell Effect: The Four Hunters",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "1c1f8583-41b9-5d96-bcd9-85a6e4cc26a7"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "East",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You gain 5 temporary Hit Points and a +1 status bonus to Athletics."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "North",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You gain a +1 status bonus to Survival."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "South",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You become concealed and gain a +1 status bonus to Stealth."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "West",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You gain a +10-foot status bonus to their land Speed and a +1 status bonus to Acrobatics."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "spell-effect-the-four-hunters",
+        "choices": [
+          {
+            "value": "east",
+            "label": "East"
+          },
+          {
+            "value": "north",
+            "label": "North"
+          },
+          {
+            "value": "south",
+            "label": "South"
+          },
+          {
+            "value": "west",
+            "label": "West"
+          }
+        ],
+        "rollOption": "the-four-hunters"
+      },
+      {
+        "key": "TempHP",
+        "value": 5,
+        "predicate": ["the-four-hunters:east"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "status",
+        "value": 1,
+        "slug": "the-four-hunters-athletics",
+        "predicate": ["the-four-hunters:east"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:survival"],
+        "type": "status",
+        "value": 1,
+        "slug": "the-four-hunters-survival",
+        "predicate": ["the-four-hunters:north"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "f410da96-b56a-5c7c-857b-7096defec0a1",
+        "predicate": ["the-four-hunters:south"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "status",
+        "value": 1,
+        "slug": "the-four-hunters-stealth",
+        "predicate": ["the-four-hunters:south"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:acrobatics"],
+        "type": "status",
+        "value": 1,
+        "slug": "the-four-hunters-acrobatics",
+        "predicate": ["the-four-hunters:west"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "status",
+        "value": 10,
+        "slug": "the-four-hunters-speed",
+        "predicate": ["the-four-hunters:west"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.Bfcl6jQBEv505DM2"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "0945085d-60d7-518b-9333-26fa573d07ba",
+    "pack": "rival-academies",
+    "kind": "effect",
+    "slug": "effect:spell-effect-threefold-limb-ice",
+    "name": "Spell Effect: Threefold Limb (Ice)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "2b74452d-6b57-537c-bea2-a1a31ea96e37"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –10-foot status penalty to your Speeds."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "status",
+        "value": -10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.cfREcFI2ZhrOlm3C"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "c4bbd011-2501-5fe1-a908-941ade604ce1",
+    "pack": "rival-academies",
+    "kind": "effect",
+    "slug": "effect:spell-effect-unravel-knowledge",
+    "name": "Spell Effect: Unravel Knowledge",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "87a3ac31-57a0-5757-93bb-e379463a6867"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –2 status penalty to any check or DC for the affected ability the first time you use it each round."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:unravel-knowledge",
+        "toggleable": true,
+        "display": {
+          "label": "Unravel Knowledge — Apply penalty to check or DC"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["all"],
+        "type": "status",
+        "value": -2,
+        "predicate": ["option:unravel-knowledge"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.nTISJz13lhHlc9pk"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "7582548f-5b7e-52dd-91b4-092918b8af1b",
+    "pack": "rival-academies",
+    "kind": "effect",
+    "slug": "effect:stance-flood-stance",
+    "name": "Stance: Flood Stance",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "caede33e-e35b-561d-9278-40b1b38eb981"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The only Strikes you can make are flooded river unarmed attacks. These deal 1d8 bludgeoning damage; are in the brawling group; have the nonlethal, trip, unarmed, and water traits; and don't take the normal penalty for being used underwater. They also gain the forceful trait while you're underwater."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon", "item:slug:flooded-river"],
+        "property": "traits",
+        "mode": "add",
+        "value": "forceful",
+        "predicate": ["terrain:aquatic"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.yBJPNp0mKjMkKe1w"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "encounter"
+      }
+    }
+  },
+  {
+    "id": "1a6a2c5b-a726-5fdf-bf02-47c3d8ac66ef",
+    "pack": "rival-academies",
+    "kind": "effect",
+    "slug": "effect:stance-reflective-ripple-stance",
+    "name": "Stance: Reflective Ripple Stance",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can make flowing wave attacks that deal 1d6 bludgeoning damage. They are in the brawling group and have the agile, disarm, finesse, nonlethal, trip, unarmed, and water traits."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While in Reflective Ripple Stance, you gain a +1 circumstance bonus to Athletics checks to "
+          },
+          {
+            "type": "ref",
+            "id": "ef57a555-f9e9-53cc-b09b-b7432156cbf1"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "890ca16b-87be-53af-b93c-ffddb037a2f8"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "6257c7f0-f483-53d3-a791-d73a616cbce4"
+          },
+          {
+            "type": "text",
+            "text": ", and you gain a +2 circumstance bonus to your Reflex DC to avoid being Disarmed and Tripped."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "flowing-wave",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["agile", "disarm", "finesse", "nonlethal", "trip", "unarmed", "water"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "bludgeoning"
+        },
+        "display": {
+          "label": "Flowing Wave"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["action:disarm", "action:swim", "action:trip"]
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["reflex-dc"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["action:trip", "action:disarm"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.QDQwHxNowRwzUx9R"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "encounter"
+      }
+    }
+  },
+  {
+    "id": "e6f6e3f5-41d4-5b9e-971f-9223e7e3f770",
+    "pack": "rival-academies",
+    "kind": "effect",
+    "slug": "effect:stance-stunt-performer-stance",
+    "name": "Stance: Stunt Performer Stance",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "9dc2055c-75db-5805-aaec-fe819bf5f33e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to Reflex saving throws and skill checks to Escape, as well as resistance 2 to all physical damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:reflex", "skill-check"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["check:statistic:reflex", "action:escape"]
+          }
+        ]
+      },
+      {
+        "key": "Resistance",
+        "type": ["physical"],
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.Ei6ACyEsNGLidvSv"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "encounter"
+      }
+    }
+  },
+  {
+    "id": "fafd6560-5365-5d04-8212-5d7d5d504786",
+    "pack": "rival-academies",
+    "kind": "effect",
+    "slug": "effect:stance-waterfowl-stance",
+    "name": "Stance: Waterfowl Stance",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "ca2bffd9-fd33-5d95-bfd7-1a7fc399d2d5"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While in Waterfowl Stance, the dandpatta, scimitar, talwar, and zulfikar gain the monk trait for you. When you Tumble Through a creature's space or Leap over a creature while wielding one of these weapons, you can deal that creature damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": [
+          "item:type:weapon",
+          {
+            "or": ["item:base:dandpatta", "item:base:scimitar", "item:base:talwar", "item:base:zulfikar"]
+          }
+        ],
+        "property": "traits",
+        "mode": "add",
+        "value": "monk"
+      },
+      {
+        "key": "Note",
+        "selectors": ["skill:athletics", "skill:acrobatics"],
+        "title": "Stance: Waterfowl Stance",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You can deal that creature "
+              },
+              {
+                "type": "damage",
+                "instances": [
+                  {
+                    "formula": "1d6",
+                    "damageType": "slashing"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " damage. This damage is increased to "
+              },
+              {
+                "type": "damage",
+                "instances": [
+                  {
+                    "formula": "2d6",
+                    "damageType": "slashing"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " if the weapon has a greater striking rune and "
+              },
+              {
+                "type": "damage",
+                "instances": [
+                  {
+                    "formula": "3d6",
+                    "damageType": "slashing"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " if it has a major striking rune."
+              }
+            ]
+          }
+        ],
+        "outcome": ["success", "criticalSuccess"],
+        "predicate": [
+          {
+            "or": ["action:tumble-through", "action:leap", "action:high-jump", "action:long-jump"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.ko8I8OCPddWA9U8v"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "encounter"
+      }
+    }
+  }
+]

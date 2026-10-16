@@ -1,0 +1,111 @@
+[
+  {
+    "id": "308cb730-bcfd-5583-bc5d-ff071ff54986",
+    "pack": "draconic-codex",
+    "kind": "archetype",
+    "slug": "archetype:draconic-acolyte",
+    "name": "Draconic Acolyte",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You possess an item infused with draconic power, whether that be an item of significance gifted to you from a powerful dragon, a piece of treasure stolen from a mighty dragon's hoard, or even a discarded or forcefully removed piece of a dragon's body. This object allows you to call on a fragment of that dragon's essence to perform mighty magical deeds."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.2XIxfzUh6SIYZkOO"
+    },
+    "data": {
+      "dedication": "0c12b1a2-c8b3-5523-b4bf-6b2497846171"
+    }
+  },
+  {
+    "id": "49c896eb-e753-5044-a615-989e56bfd12f",
+    "pack": "draconic-codex",
+    "kind": "archetype",
+    "slug": "archetype:drake-rider",
+    "name": "Drake Rider",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A dragon chooses its rider. Only a few are worthy."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "\"Having the soul of a dragon\" is an apt Avistani saying for individuals who show indomitable charisma, unfaltering purpose, and an iron will. Such qualities mark every drake rider, while a proud or noble dragon also demands respect from any who would ride upon their back. A dedicated rider who doesn't confuse violence with strength and shows no hesitation or fear earns a deep bond that grows from the dragon's mutual respect. In the air or on the ground, this bond forms a lethal union of dragon and rider."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.YKmZmo4N1ufVnhV7"
+    },
+    "data": {
+      "dedication": "ffb8e461-73d1-54ba-8889-de8852e4ae00"
+    }
+  }
+]

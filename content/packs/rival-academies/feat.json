@@ -1,0 +1,5119 @@
+[
+  {
+    "id": "7ec77c54-e8b5-5ad6-9b82-d48334f14b74",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:a-miracle-of-science",
+    "name": "A Miracle of Science!",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Once, you dreamed of creating life. Now you know that merely creating life lacks ambition. No, you have taken life and improved upon it. Your construct companion becomes a paragon construct companion."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.N7el79c9KY4JXmUb"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Behold My Creation!"
+            }
+          ]
+        }
+      ],
+      "archetype": "eabb56a4-084b-5bd9-bc7f-05246f4c3b39"
+    }
+  },
+  {
+    "id": "114a0d87-5904-5ef4-9b8a-6d4c0852ee0c",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:aeon-resonance",
+    "name": "Aeon Resonance",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the resonant power of one embedded aeon stone as if it were placed in a "
+          },
+          {
+            "type": "ref",
+            "id": "c86c0b62-b372-56c0-a124-df84b21514b0"
+          },
+          {
+            "type": "text",
+            "text": ". While you can embed multiple aeon stones in your flesh, you can gain the resonance power from only one embedded stone at a time, selected each day when you make your daily preparations."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " At 8th level, you can take this feat again. If you do, you gain the resonance powers of up to four invested aeon stones instead of only one."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "PFS Note:",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " This feat acts as if an aeon stone was embedded in a "
+          },
+          {
+            "type": "text",
+            "text": "wayfinder",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", and thus would not allow a second aeon stone to provide its resonance power from being embedded in a "
+          },
+          {
+            "type": "text",
+            "text": "wayfinder",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.OxvZSFGOjGfcSCv8"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Embed Aeon Stone"
+            }
+          ]
+        }
+      ],
+      "maxTakable": 2
+    }
+  },
+  {
+    "id": "8328b347-6df1-5a4b-80f9-d50bd951b6eb",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:animal-actor",
+    "name": "Animal Actor",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You participated in a performance of The Leaping Lion, a play focusing on Cyricas, the animal-loving adventurer who traveled with his ape friend Mardu and remains a favorite hero among Taldan youth. You become trained in Nature and a Lore skill related to a particular type of animal commonly used in show business (such as Canine Lore, Ursine Lore, or Primate Lore); if you were already trained in either, you become an expert in that skill instead. You gain a +2 circumstance bonus to all checks to Command an Animal and "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": " about creatures with the animal trait. You can use your chosen animal Lore to Command an Animal of that type."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": [
+          "option:animal-actor",
+          {
+            "or": ["action:recall-knowledge", "action:command-an-animal"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.pShjDoTqAdX1m3DK"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Kitharodian Actor Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "1002e2eb-c092-58fa-ad5b-e81e13fc41a5"
+    }
+  },
+  {
+    "id": "494d93e5-547a-5a7e-9030-e16741b2f66a",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:artery-map",
+    "name": "Artery Map",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While you've learned all the places a scalpel can cause extensive bleeding to avoid disasters in surgery, such knowledge can serve other purposes. When you Strike an "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " creature with a weapon from the knife group, you deal 1d6 persistent bleed damage. The damage increases to 1d10 when you are legendary in Medicine."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.PFcg6OHheNy2dnoo"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lepidstadt Surgeon Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "eabb56a4-084b-5bd9-bc7f-05246f4c3b39"
+    }
+  },
+  {
+    "id": "3606f668-cb58-5651-9fab-7fbb75f4dec1",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:beautiful-knifework",
+    "name": "Beautiful Knifework",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["archetype", "exploration", "manipulate", "skill"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You perform surgical adjustments to disguise a willing ally or your construct companion. This counts as preparing a disguise to Impersonate, taking 10 minutes and requiring a healer's toolkit instead of a disguise kit. The DC to see through the deception with "
+          },
+          {
+            "type": "ref",
+            "id": "d45207be-e539-50ce-9463-f4edc3671076"
+          },
+          {
+            "type": "text",
+            "text": " is your Medicine DC ("
+          },
+          {
+            "type": "check",
+            "statistic": "perception",
+            "dc": {
+              "against": "skill:medicine"
+            },
+            "options": ["action:seek"]
+          },
+          {
+            "type": "text",
+            "text": ") unless the disguised character's Deception DC is higher. If the target directly interacts with someone while disguised, they gain a +2 circumstance bonus to their Deception check."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can reverse this effect with another 10-minute surgery. The disguised character can also end it as a free action when they receive any healing effect."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.iUCz2engECjvbSeB"
+    },
+    "data": {
+      "category": "skill",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lepidstadt Surgeon Dedication; master in Medicine"
+            }
+          ]
+        }
+      ],
+      "archetype": "eabb56a4-084b-5bd9-bc7f-05246f4c3b39"
+    }
+  },
+  {
+    "id": "66e61749-9da4-54d4-baca-6a6dc41b1232",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:behold-my-creation",
+    "name": "Behold My Creation!",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have rebuilt your creation once more. It is greater now, more than it once was. Soon, it shall be greater still. Your construct companion becomes an incredible construct companion."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.YrdQA4HbxiZkaG7I"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Let My Creature Live!"
+            }
+          ]
+        }
+      ],
+      "archetype": "eabb56a4-084b-5bd9-bc7f-05246f4c3b39"
+    }
+  },
+  {
+    "id": "0c595283-76ae-5e87-a639-f5c126f8701d",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:bleak-humorist",
+    "name": "Bleak Humorist",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["archetype", "emotion", "linguistic", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are reduced to 0 Hit Points by a creature within 30 feet, but not immediately killed"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've watched dozens of morbid comedies depicting Beldam I, Taldor's prankster emperor whose wife accidentally killed him when she struck him with a marble bust after he jumped out from behind curtains to frighten her. You are reminded of this depressing yet perversely comical tale whenever you are near death, and in your final moments of consciousness you murmur a bleak joke to the creature who reduced you to 0 Hit Points. The creature must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "class-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is distracted by giggles and can't use reactions until the beginning of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target laughs uncontrollably. It can't use reactions until the beginning of your next turn and is "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but the target also immediately falls "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.5FbGtKWE8Qc14o0g"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Kitharodian Actor Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are reduced to 0 Hit Points by a creature within 30 feet, but not immediately killed"
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "day"
+        }
+      },
+      "archetype": "1002e2eb-c092-58fa-ad5b-e81e13fc41a5"
+    }
+  },
+  {
+    "id": "eddf5af0-e623-5eea-84ca-20ce826dc87c",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:campfire-chronicler-dedication",
+    "name": "Campfire Chronicler Dedication",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["archetype", "dedication"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've gained Isthralei's attention and can now offer stories up to him, either passing on your own stories or collecting those of travelers as he did. You become trained in Religion and Survival; for either of these skills in which you were already trained, you instead become trained in a skill of your choice. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "b0086bef-1624-5bdf-9098-295af2bea205"
+          },
+          {
+            "type": "text",
+            "text": " action."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Campfire Chronicler"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "b0086bef-1624-5bdf-9098-295af2bea205"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.MFsCCVgU0z4N9bmY"
+    },
+    "data": {
+      "category": "class",
+      "archetype": "d69a6643-9f8b-5f31-9e0b-f7a8d74e12a5"
+    }
+  },
+  {
+    "id": "d4670c9a-3866-5602-bf5d-54acf7e1825c",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:clean-take",
+    "name": "Clean Take",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype", "fortune"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail, but don't critically fail, a Deception or Performance check to portray a famous figure."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Thanks to many long hours of rehearsals, your acting skill is infinitely adaptable. Even when your impressions don't quite hit the mark, you're able to refine and tweak your performance on the spot. Reroll the triggering check and take the second result."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.d26S1yVaOlNgayuX"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Kitharodian Actor Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You fail, but don't critically fail, a Deception or Performance check to portray a famous figure."
+              }
+            ]
+          }
+        ]
+      },
+      "archetype": "1002e2eb-c092-58fa-ad5b-e81e13fc41a5"
+    }
+  },
+  {
+    "id": "7f445549-112a-519f-9c84-2c7cfbae7982",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:convergent-tides",
+    "name": "Convergent Tides",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["magus", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your footwork is like the convergence of tides, granting your body supernatural power and fluidity. While you're in Arcane Cascade stance, you ignore difficult terrain caused by water, such as walking along a flooded path or swimming in rough water."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.P3eKgdsIVYhsFbYs"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Arcane Cascade"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "a6b31c22-e0af-5c5f-ae13-34065c7f4570",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:cozy-campfire",
+    "name": "Cozy Campfire",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype", "consecration", "divine", "exploration", "fire"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You spend 1 hour building a campfire in a single unoccupied square and whispering the stories of those you've met on your journeys. The campfire sheds bright light in a 30-foot radius (and dim light for the next 30 feet). The campfire can't be put out or get larger through mundane means; it instead burns out after your next daily preparations or when you use this ability again."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The first time each round a creature within the campfire's bright light performs an action with the attack trait, they must then attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "class-or-spell-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC or spell DC (whichever is higher). This is a divine curse effect, and you are aware of any attempt, although other creatures in the area are not."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "abfb84fe-3971-5b10-a364-71c6c15610fd"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is aware of the effect and can choose to disrupt their action. If they don't disrupt it, the campfire goes out."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is aware of the effect and can choose to disrupt their action. If they don't disrupt it, they become temporarily immune to the campfire's effects for 24 hours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes a –2 status penalty to the action's attack roll and to all other attack rolls until the beginning of their next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The action is disrupted, and the creature takes a –2 status penalty to attack rolls until the beginning of their next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.n4yLaSzQlzyNOo6J"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Campfire Chronicler Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "d69a6643-9f8b-5f31-9e0b-f7a8d74e12a5"
+    }
+  },
+  {
+    "id": "a6652027-a99c-5579-bcb6-2dc7a8cd1cdc",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:crosscurrent-counter",
+    "name": "Crosscurrent Counter",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["magus", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You become "
+          },
+          {
+            "type": "ref",
+            "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "b374c4c9-d230-5167-8878-38e08932a071"
+          },
+          {
+            "type": "text",
+            "text": " by a creature."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You counter the creature with the power of elemental water, a tendril of it encasing your limb or weapon. You attempt an Athletics check to "
+          },
+          {
+            "type": "ref",
+            "id": "380d34f1-f6f6-5820-b9dd-c01ee4e19fd5"
+          },
+          {
+            "type": "text",
+            "text": " the triggering creature, even if it's outside your reach or you don't have a free hand. If you succeed, you also remove the triggering condition, and the tendril of water pulls the creature adjacent to you before dissipating."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.sI4f0xdCVulyK9sn"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You become Grabbed or Restrained by a creature."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "24b9e106-cb53-5dae-a91c-1be40d2a6e28",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:culverts-collapse",
+    "name": "Culvert's Collapse",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["monk", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are in Flood Stance and were damaged by an enemy since your previous turn."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Under your foes' onslaught, the water within your violent blood stirs. Your killing intent swells, your agonies marshaling your inevitable resurgence. Make a flooded river Strike against the enemy who dealt damage to you since your previous turn. That Strike deals an additional 1d8 bleed damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:culverts-collapse",
+        "toggleable": true
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["flooded-river-damage"],
+        "diceNumber": 1,
+        "dieSize": "d8",
+        "damageType": "bleed",
+        "category": "persistent",
+        "predicate": ["option:culverts-collapse"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.AsOVi8AqE3v10ee0"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Flood Stance"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are in Flood Stance and were damaged by an enemy since your previous turn."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "ccd10fd8-c156-5d9b-aa80-5cc9373b0a54",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:divert-streamflow",
+    "name": "Divert Streamflow",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["monk"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're damaged by a melee Strike by a creature in your reach."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "With a brief gesture, you adapt swiftly to an attack like a flowing stream. Attempt an Athletics check to "
+          },
+          {
+            "type": "ref",
+            "id": "2f5bb1a4-2a45-5c29-ad6a-7feba044cfaa"
+          },
+          {
+            "type": "text",
+            "text": " the creature who dealt the triggering damage. If you're successful, you can Step as a free action."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.yFc0tN9HviAJnG1r"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You're damaged by a melee Strike by a creature in your reach."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "29771384-9ac4-589e-8136-e1d345bbe181",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:embed-aeon-stone",
+    "name": "Embed Aeon Stone",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["archetype", "downtime", "skill"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You discover the secrets to embedding aeon stones into your flesh. You spend 1 day attuning to an aeon stone and physically embedding it in your skin. While the stone is embedded this way, you gain the benefits of the aeon stone as if it were orbiting above your head, but it protects the stone from being noticed or stolen as easily. Aeon stones in your flesh must be invested to function, as usual."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can also use this activity to safely remove an embedded aeon stone in 1 day. Someone without this feat can attempt to surgically remove it safely by spending 1 day and succeeding at a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:medicine",
+            "dc": 30
+          },
+          {
+            "type": "text",
+            "text": " check, or hastily by simply ripping it from a corpse."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.EZrxp0XxYh9rjghB"
+    },
+    "data": {
+      "category": "skill",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Runelord Dedication; trained in Crafting"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "2a34ea7e-19d2-5040-afd7-060ddfac80fa",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:flickering-stories",
+    "name": "Flickering Stories",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["archetype", "divine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stories, like fires, can create shadows as much as they illuminate. When you Offer a Story, you can become "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " by shifting shadows for the duration instead of the normal benefits. The action then gains the shadow trait. You can't use this concealment to "
+          },
+          {
+            "type": "ref",
+            "id": "5a86b7d0-fc0e-52a6-9b0d-fb58ed15233d"
+          },
+          {
+            "type": "text",
+            "text": ", as normal for concealing effects that leave your location obvious. The creature you share a story with can choose this benefit even if you did not."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.gPiYj2vgWm0CNoGW"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Campfire Chronicler Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "d69a6643-9f8b-5f31-9e0b-f7a8d74e12a5"
+    }
+  },
+  {
+    "id": "caede33e-e35b-561d-9278-40b1b38eb981",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:flood-stance",
+    "name": "Flood Stance",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["monk", "stance", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The lessons of the flood teach a stance that distributes and circulates a single breath through the body and allows your punches to contain the focused power of a torrent of water. While in this stance, you hold your breath for up to 10 minutes and leave the stance if you stop holding your breath. You do not lose additional air if you attack, are critically hit, or critically fail a save. You still lose all remaining air if you speak, including to Cast a Spell. The only Strikes you can make are flooded river unarmed attacks. These deal 1d8 bludgeoning damage; are in the brawling group; have the nonlethal, trip, unarmed, and water traits; and don't take the normal penalty for being used underwater. They also gain the forceful trait while you're underwater."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.lqStZou2d2WMLJxz"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "one",
+        "selfEffect": "7582548f-5b7e-52dd-91b4-092918b8af1b"
+      }
+    }
+  },
+  {
+    "id": "b5a88d27-efc0-5d09-8dc7-eeccd41ec531",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:heavens-step-offense",
+    "name": "Heaven's Step Offense",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your melee Strike reduces a creature to 0 Hit Points"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your lessons from the stage find life in the storied mercy and fearlessness of Grand Prince Gennaris III. With a theatrical flourish, the Strike becomes nonlethal, and you can Stride up to half your Speed in a straight line toward another enemy. This attention-arresting movement does not provoke reactions from enemies unless they are immune to mental effects."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.4fbGUm8j4zzljOo6"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Kitharodian Actor Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Your melee Strike reduces a creature to 0 Hit Points"
+              }
+            ]
+          }
+        ]
+      },
+      "archetype": "1002e2eb-c092-58fa-ad5b-e81e13fc41a5"
+    }
+  },
+  {
+    "id": "3b172c5b-8181-536f-87cf-1d05cea74360",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:illuminating-stories",
+    "name": "Illuminating Stories",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype", "divine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stories serve as beacons in the night, illuminating valuable knowledge even if the tale itself misses the mark. When you "
+          },
+          {
+            "type": "ref",
+            "id": "b0086bef-1624-5bdf-9098-295af2bea205",
+            "label": "Offer a Story"
+          },
+          {
+            "type": "text",
+            "text": " about any topic, you can choose that illumination in place of the normal benefits of Offer Story. You receive a +1 status bonus on checks to "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": " for the duration and can Recall Knowledge about the topic of the story as a free action. The creature you share a story with can choose this benefit even if you did not."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The bonus increases to +2 if you are a master of Religion and +3 if you are legendary."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.yRT94fGPaS1M9f9I"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Campfire Chronicler Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "d69a6643-9f8b-5f31-9e0b-f7a8d74e12a5"
+    }
+  },
+  {
+    "id": "9231c586-a1d2-5d27-96e3-30583fd11165",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:kitharodian-actor-dedication",
+    "name": "Kitharodian Actor Dedication",
+    "level": 2,
+    "rarity": "rare",
+    "traits": ["archetype", "dedication"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are from Taldor or have attended Kitharodian Academy."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've studied classic Taldan theater and learned to embody various roles to a sublime degree. You become trained in Society and in Theater Lore; if you were already trained in either, you become an expert in that skill instead. In addition, when you attempt a Deception or Performance check to portray a famous figure, you gain a +2 circumstance bonus to your check. This bonus changes to +3 at 10th level and +4 at 17th level. However, you don't gain this bonus while Impersonating a figure whose death is common knowledge (as determined by the GM)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Kitharodian Actor"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:performance", "skill:deception"],
+        "type": "circumstance",
+        "value": "ternary(gte(@level, 17), 4, ternary(gte(@level, 10), 3, 2))",
+        "predicate": ["option:portray-famous-figure"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.Xiv87UvRqfLPqvin"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "trained in Performance"
+            }
+          ]
+        }
+      ],
+      "archetype": "1002e2eb-c092-58fa-ad5b-e81e13fc41a5"
+    }
+  },
+  {
+    "id": "fdd4c981-cfca-5c3b-8f48-8a40775204cd",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:lepidstadt-surgeon-dedication",
+    "name": "Lepidstadt Surgeon Dedication",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["archetype", "dedication"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Before everything else, before the blood and the monsters and the Stasian technology and the horror, you are a doctor. You are, in fact, an exceptionally good doctor. You become an expert in Medicine."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you successfully "
+          },
+          {
+            "type": "ref",
+            "id": "e03baa02-2fea-552f-9996-c41bfa074713"
+          },
+          {
+            "type": "text",
+            "text": " to stabilize a dying creature that doesn't yet have the "
+          },
+          {
+            "type": "ref",
+            "id": "6c4e09a7-469d-5668-8c1b-92f87de94d27"
+          },
+          {
+            "type": "text",
+            "text": " condition, it regains "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d8 + 10*max(0,(@rank.skill.medicine - 2))"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points; this healing increases by 10 when you are a master of Medicine and by another 10 when you are legendary in Medicine."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you successfully Administer First Aid to stop bleeding, the target rolls the flat check (with lowered DC for an assisted recovery) twice and takes the better result; this is a fortune effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "87fc9c4f-5219-592d-992c-24d4ab1a8545"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Lepidstadt Surgeon"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:medicine",
+        "rank": "expert"
+      },
+      {
+        "key": "Note",
+        "selectors": ["skill:medicine"],
+        "title": "Lepidstadt Surgeon Dedication",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "When you successfully Administer First Aid to stabilize a dying creature that doesn't yet have the Wounded condition, it regains "
+              },
+              {
+                "type": "damage",
+                "instances": [
+                  {
+                    "formula": "2d8 + 10*max(0,(@rank.skill.medicine - 2))"
+                  }
+                ],
+                "healing": true
+              },
+              {
+                "type": "text",
+                "text": " Hit Points."
+              }
+            ]
+          }
+        ],
+        "predicate": ["action:administer-first-aid:stabilize"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["skill:medicine"],
+        "title": "Lepidstadt Surgeon Dedication",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "When you successfully Administer First Aid to stop bleeding, the target rolls the flat check (with lowered DC for an assisted recovery) twice and takes the better result; this is a fortune effect. Effect: Lepidstadt Surgeon Dedication (Stop Bleeding)"
+              }
+            ]
+          }
+        ],
+        "predicate": ["action:administer-first-aid:stop-bleeding"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.8KxcNpQhmUOj3vuV"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "trained in Medicine; attended the University of Lepidstadt"
+            }
+          ]
+        }
+      ],
+      "archetype": "eabb56a4-084b-5bd9-bc7f-05246f4c3b39"
+    }
+  },
+  {
+    "id": "e93df6cc-dee4-584e-af51-5a73884b8ad0",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:lessons-of-flux",
+    "name": "Lessons of Flux",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["fortune", "monk"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail a skill check to "
+          },
+          {
+            "type": "ref",
+            "id": "380d34f1-f6f6-5820-b9dd-c01ee4e19fd5"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "2f5bb1a4-2a45-5c29-ad6a-7feba044cfaa"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "082b982f-3ed4-5d9c-9722-9ab10198523a"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "6257c7f0-f483-53d3-a791-d73a616cbce4"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "11d6f0fd-b182-5043-8a26-973179a93617"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You apply the persistence and permutation taught by faydhaans to your failures. You reroll the check and take the second result. If it still fails or critically fails, you can ask a question about the creature you were attempting to Grapple, Reposition, Shove, Trip, or Tumble Through as if you had succeeded at a check to "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.a01E0vIphNQrzBd1"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You fail a skill check to Grapple, Reposition, Shove, Trip, or Tumble Through."
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "hour"
+        }
+      }
+    }
+  },
+  {
+    "id": "8973d706-d950-5183-bdec-ec23daaea253",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:let-my-creature-live",
+    "name": "Let My Creature Live!",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You continue to tinker with your creation's muscles and rudimentary mind, granting it a limited form of autonomy. Your construct companion becomes an advanced construct companion. During an encounter, even if you don't use the Command a Minion action, your construct companion can still use 1 action on your turn that round to Stride or Strike."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.UgmLKNTU59Z3ETFc"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Rise, My Creature!"
+            }
+          ]
+        }
+      ],
+      "archetype": "eabb56a4-084b-5bd9-bc7f-05246f4c3b39"
+    }
+  },
+  {
+    "id": "4797a9ad-06b4-5df3-abbb-df8c2e7d160b",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:listeners-boon",
+    "name": "Listener's Boon",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Isthralei has given you a gift to assist you on your journey. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "88972cb4-f358-5ce0-9162-98849d6d141a"
+          },
+          {
+            "type": "text",
+            "text": " feat for the domain of fire, knowledge, protection, or travel. You can Refocus by spending 10 minutes telling stories of your travels or listening to others' stories of theirs. You gain the trained proficiency rank in spell attack modifier and spell DC, increasing to expert at 11th level."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can select this feat multiple times, selecting a different domain each time and gaining its domain spell."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "PFS Note:",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " For the purposes of this feat, use charisma as your spellcasting attribute."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "expert",
+        "predicate": [
+          {
+            "gte": ["self:level", 11]
+          }
+        ]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.2KZG1KvQjBgcSSNA"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Campfire Chronicler Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "d69a6643-9f8b-5f31-9e0b-f7a8d74e12a5"
+    }
+  },
+  {
+    "id": "f92361df-a48b-5e55-984f-4695b399531c",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:maelstrom-flow",
+    "name": "Maelstrom Flow",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["magus"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're wielding an improvised weapon."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You pour energy into an improvised weapon, speeding its destruction to grant it power. The overloaded energy grants your improvised weapon the effect of the astral, corrosive, extending, or frost rune for 1 minute, after which the item is destroyed. If the item has a Hardness greater than your level, or if it's an artifact, cursed item, or other item that's difficult to break or destroy, it is not destroyed, and this ability only lasts until the end of your turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This effect doesn't count against the number of property runes a weapon can have based on its potency rune, but a given weapon can only have one application of Maelstrom Flow at a time."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.yzBlvtPcjhRHFvp0"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "resurgent maelstrom hybrid study"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You're wielding an improvised weapon."
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "hour"
+        }
+      }
+    }
+  },
+  {
+    "id": "e1be9c36-b9fb-51a6-ba49-a1a5036c2d8f",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:monumental-maestro",
+    "name": "Monumental Maestro",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've studied the moving compositions of Andreas Romung, a legendary maestro whose Shining Crusade anthems live on in the music for the play Echoes of Glory. You gain a +2 circumstance bonus to Performance checks to "
+          },
+          {
+            "type": "ref",
+            "id": "56d1e4d6-9708-5d3c-b2ac-5fe9f0cfb544"
+          },
+          {
+            "type": "text",
+            "text": " with a musical instrument or sing. If you succeed, the DCs of subsequent Diplomacy checks against any creature who observed your performance are reduced by 2 for the next 24 hours."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:performance"],
+        "type": "untyped",
+        "value": 2,
+        "predicate": [
+          "option:monumental-maestro",
+          {
+            "or": [
+              "action:perform:keyboards",
+              "action:perform:percussion",
+              "action:perform:strings",
+              "action:perform:winds"
+            ]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.6UeJLQ8tQP8E0kSn"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Kitharodian Actor Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "1002e2eb-c092-58fa-ad5b-e81e13fc41a5"
+    }
+  },
+  {
+    "id": "80b06340-07a0-5b0c-bf73-cc7fce3eea10",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:of-lions-and-wyrms",
+    "name": "Of Lions and Wyrms",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You starred in a war drama depicting First Emperor Taldaris's battles against the Grogrisant, a massive six-eyed lion, and Verksaris the Kingeater, a mighty dragon. To prepare for your role, you spent weeks in the wild observing and occasionally scrapping with any creature resembling Taldaris's legendary foes. You gain a +2 circumstance bonus to saving throws against effects from beasts and dragons."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["origin:trait:beast", "origin:trait:dragon"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.5IYiVzVLwok0mT2A"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Kitharodian Actor Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "1002e2eb-c092-58fa-ad5b-e81e13fc41a5"
+    }
+  },
+  {
+    "id": "4cada0b8-0f68-5d57-a1a2-85f09e425bb1",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:orichalcum-bond",
+    "name": "Orichalcum Bond",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The ancient Thassilonians associated sins with different skymetals, and you've adapted that theory to empower your bonded weapon beyond its normal limits. When your personal rune is placed on a weapon during your daily preparations, choose a weapon property rune of up to your level that is common or you otherwise have access to. That rune is also added to the weapon until your next daily preparations. This rune counts against your weapon's limit as normal."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.DUajVmPdAlf16CGP"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Rod of Rule"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "dea60ec5-ca7b-5289-b82f-92f5234721ac",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:ouroboric-pact",
+    "name": "Ouroboric Pact",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["archetype", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've studied pacts at Cobyslarni, or learned under someone who has, and understand them to not only create a bargain between individuals, but a separate entity altogether: the pact itself. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "2738a7c0-d247-5d96-b559-d26af2cb1908"
+          },
+          {
+            "type": "text",
+            "text": " action, which you can use in association with any pact from the pactbinder archetype. For example, if you have the "
+          },
+          {
+            "type": "ref",
+            "id": "d9434d56-9880-529c-a102-119eb7f6f20b"
+          },
+          {
+            "type": "text",
+            "text": ", you could Entreat Pact to aid a skill check to obtain an item the dragon desires."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your pacts continually enforce themselves in a circular magical loop. You lose the ability to retrain out of any feats from the pactbinder archetype."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "2738a7c0-d247-5d96-b559-d26af2cb1908"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.VbGyh1LcaRSAvmKt"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Pactbinder Dedication; master in Occultism"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "6c86d43d-6655-5319-9aed-9bfb1033b893",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:pact-of-huldras-renewal",
+    "name": "Pact of Huldra's Renewal",
+    "level": 4,
+    "rarity": "rare",
+    "traits": ["archetype", "primal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've sworn a pact with Zemnaïdé, a huldra professor at Cobyslarni, to help renew his former homeland of the Sarkoris Scar. You can cast entangling flora as a primal innate spell once per day. After the spell ends, the flowers and vines become mundane plants that can continue surviving if the natural environment can support them. They're no longer difficult terrain, and don't have the other effects of the spell. Fiends that fail a save against this spell or another plant spell you cast become "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": " in addition to the normal effects."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In exchange for her boon, Zemnaïdé requires that you never knowingly aid demons or their allies, nor despoil a natural environment. If you do either, you lose the benefits of this feat until you atone. If you comment on his bovine tail or imply the huldras are connected to trolls, Zemnaïdé revokes the benefits of this feat for 1 week or until you sincerely apologize."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.ByFircdZMLPOe58K"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Pactbinder Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "a02fb2ec-6533-598c-bd62-39bfe04d5987",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:pact-of-the-crossroads",
+    "name": "Pact of the Crossroads",
+    "level": 12,
+    "rarity": "uncommon",
+    "traits": ["archetype", "primal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've sworn a pact with Ng the Hooded, the Eldest known as the Lord of the Crossroads, though your only sign of Ng's acknowledgment is the benefits you receive. Anyone tracking you must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:survival",
+            "dc": {
+              "against": "class-or-spell-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " check against the higher of your class DC and spell DC. Creatures attempting to remember your features after the first time meeting you must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "class-or-spell-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " save against the same DC. If they fail, they recall the meeting but none of your features."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In exchange, you must continue your wanderings, never settling in one place for longer than one month, or you lose the benefits of this feat until you begin your travels again. If you ever willingly tell anyone you've formed a pact with Ng, you lose the benefits of this feat permanently, though you can share vague information about the pact's effects."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.zU0nKWJIWlKaT0gt"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Pactbinder Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "1eb79d9e-2e51-573b-85b0-4f762da7b8f2",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:pact-of-the-death-hunter",
+    "name": "Pact of the Death Hunter",
+    "level": 14,
+    "rarity": "uncommon",
+    "traits": ["archetype", "divine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've sworn a pact with a psychopomp bent on the destruction of all undeath. You gain an imprecise deathsense that can detect undead creatures up to 60 feet away. Additionally, whenever an undead creature is destroyed within 60 feet you gain temporary Hit Points equal to its level that last for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In exchange, the psychopomp requires that you never aid in the creation or conquest of an undead creature. You must also seek out and put to rest any mindless or destructive undead creatures you come across."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.OYeBODzHgyybCBxu"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Pactbinder Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "a07afe4d-0e27-5fd8-b635-ae1298fe1194",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:pact-of-the-fey-paths",
+    "name": "Pact of the Fey Paths",
+    "level": 14,
+    "rarity": "uncommon",
+    "traits": ["archetype", "primal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've sworn a pact with a powerful fey creature that longs to see the wonders of the Universe. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "a68c2907-86bd-5b1b-8b4b-92a506ce6fb0"
+          },
+          {
+            "type": "text",
+            "text": " ability. In exchange, you can no longer see the moon or stars as the fey steals those wonders from your eyes, and you must gaze at the empty sky for at least 10 minutes each night. If you do not, the fey revokes your benefits for the next day. If you go a week without gazing, the fey revokes your benefits until you atone."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "a68c2907-86bd-5b1b-8b4b-92a506ce6fb0"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.bSalPlHitGbYvsZM"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Pactbinder Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "63588737-3243-5178-bd8e-f1fddc5070bf",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:pact-of-the-living-pact",
+    "name": "Pact of the Living Pact",
+    "level": 18,
+    "rarity": "uncommon",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've sworn a pact with a pact that has somehow survived long after the death of the original pactbinder. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "815ba0d8-6672-56dd-ad8b-529f34e33d4c"
+          },
+          {
+            "type": "text",
+            "text": " action. In exchange, this and any other pact you have made seek longevity. Whenever you become "
+          },
+          {
+            "type": "ref",
+            "id": "c0cd649a-7029-5174-a5b4-678f51598dec",
+            "label": "Dying 3"
+          },
+          {
+            "type": "text",
+            "text": " or higher, all of your pacts abandon you and flee to the nearest safe space. You can sense their direction at all times, and if you find them, you regain all of your pacts."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "815ba0d8-6672-56dd-ad8b-529f34e33d4c"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.nZtINeZbhGvbSUAg"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Pactbinder Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "f9a0bd57-c17f-5852-b88f-832613b59221",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:pact-of-the-nightblossom",
+    "name": "Pact of the Nightblossom",
+    "level": 10,
+    "rarity": "rare",
+    "traits": ["archetype", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've sworn a pact with Jenway Nightblossom of the Synod of Truth in Dreams, a talented oneiromancer and pactbinder. Through your connection to her, you're able to divine your dreams for wisdom, and they're protected from interference. You're immune to "
+          },
+          {
+            "type": "ref",
+            "id": "2b65b470-1daa-53ca-ab03-e8816b93c235"
+          },
+          {
+            "type": "text",
+            "text": ". During your daily preparations, if you slept and were able to dream, you learn a helpful piece of advice about your future activities, as "
+          },
+          {
+            "type": "ref",
+            "id": "43c59605-b0f6-5d58-afc0-27485aeb4204"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As payment, Jenway established a permanent telepathic connection to you that functions whenever you sleep or dream. Whenever you learn something significant, Jenway learns it the next time you sleep. You can withhold information, but you lose the benefits of Pact of the Nightblossom until you relent and allow Jenway to learn it."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["save:will"],
+        "adjustment": {
+          "all": "to-critical-success"
+        },
+        "predicate": ["item:slug:nightmare"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.x90yRgXMhY9NCbKw"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Pactbinder Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "6817c731-33f1-5164-8597-c97d707c238e",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:pact-of-the-rune-dragon",
+    "name": "Pact of the Rune Dragon",
+    "level": 16,
+    "rarity": "uncommon",
+    "traits": ["arcane", "archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While the students of Cobyslarni are taught to make pacts with many kinds of dragons, a pact with a rune dragon is somewhat more frequent due to their interest in the accomplishments of various academies. You immediately learn 10 languages chosen from common languages, uncommon languages, and any others the dragon has access to. Additionally, you can Identify Magic at a range of 30 feet as a single action ability with the concentrate trait."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In exchange, the rune dragon requires you to research a topic and send a detailed report each year. Year to year, the dragon may change the interest of your research as they see fit. If you fail to send an appropriately detailed report, you lose this ability unless you spend one week serving the dragon."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Language",
+        "slots": 10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.gbKZk9nEXUZVywc9"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Pactbinder Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "2fab8b67-25af-586e-9c63-e877bb4af7e5",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:performers-treatment",
+    "name": "Performer's Treatment",
+    "level": 2,
+    "rarity": "rare",
+    "traits": ["general", "skill"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "With your experience as a performer, you can keep a set of medical tools handy at all times. You can wear a healer's toolkit as part of any costume or disguise. Creatures will generally only notice the toolkit it if they use a "
+          },
+          {
+            "type": "ref",
+            "id": "d45207be-e539-50ce-9463-f4edc3671076"
+          },
+          {
+            "type": "text",
+            "text": " action and succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "perception"
+          },
+          {
+            "type": "text",
+            "text": " check against your Performance DC. In addition, you can realize at the last moment when you should just be pretending to avoid doing any lasting harm."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you critically fail a Medicine check to Administer First Aid, "
+          },
+          {
+            "type": "ref",
+            "id": "07fc0cb2-53f2-5552-82e6-5e43003875eb"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "1a89ca53-58a9-5dc9-913e-3dfa46e5e1b0"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "18c1b923-595b-5203-a0be-010205e51c44"
+          },
+          {
+            "type": "text",
+            "text": ", you can attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:performance"
+          },
+          {
+            "type": "text",
+            "text": " check against the patient's Perception DC. On a success, your critical failure at the Medicine check becomes a failure."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.nxq9hFyIPR2jRi6G"
+    },
+    "data": {
+      "category": "skill",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "expert in Medicine; expert in Performance"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "4fbad356-7b09-5de3-aaf4-16f5b584f0b1",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:raging-stories",
+    "name": "Raging Stories",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype", "divine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you "
+          },
+          {
+            "type": "ref",
+            "id": "b0086bef-1624-5bdf-9098-295af2bea205",
+            "label": "Offer a Story"
+          },
+          {
+            "type": "text",
+            "text": " about wild chances and fighting against all odds, you can wrap yourself in spectral flame in place of the normal benefits. The action then gains the fire trait. Your melee Strikes for the duration deal 2 additional fire damage. The creature you share a story with can choose this benefit even if you did not."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The fire damage increases to 4 if you are a master of Religion and 6 if you are legendary."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.3GmgFUL2xzt5vhCz"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Campfire Chronicler Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "d69a6643-9f8b-5f31-9e0b-f7a8d74e12a5"
+    }
+  },
+  {
+    "id": "e1dd81ef-7420-54a8-bdc9-770e1cd006ad",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:reflective-ripple-stance",
+    "name": "Reflective Ripple Stance",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["monk", "stance", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're unarmored."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You enter a stance of fluid grace as small amounts of water flow with your movements and attacks. You can make flowing wave attacks that deal 1d6 bludgeoning damage. They are in the brawling group and have the agile, disarm, finesse, nonlethal, trip, unarmed, and water traits. While in Reflective Ripple Stance, you gain a +1 circumstance bonus to Athletics checks to "
+          },
+          {
+            "type": "ref",
+            "id": "ef57a555-f9e9-53cc-b09b-b7432156cbf1"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "890ca16b-87be-53af-b93c-ffddb037a2f8"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "6257c7f0-f483-53d3-a791-d73a616cbce4"
+          },
+          {
+            "type": "text",
+            "text": ", and you gain a +2 circumstance bonus to your Reflex DC to avoid being Disarmed and Tripped."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " This feat gains your choice of either the divine or occult trait, matching your qi spell tradition if possible."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.knZUN4sYExIyRC4F"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "one",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You're unarmored."
+              }
+            ]
+          }
+        ],
+        "selfEffect": "1a6a2c5b-a726-5fdf-bf02-47c3d8ac66ef"
+      }
+    }
+  },
+  {
+    "id": "dc05e406-a6bf-5326-9a6e-1f0c631fbc91",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:rippling-spin",
+    "name": "Rippling Spin",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["flourish", "monk", "occult", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're hit by a physical melee attack by an attacker you can see that's in reach."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're in Reflective Ripple Stance."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After the triggering attack is done, Step. You must end this Step within the attacker's reach. Then, you can attempt an Athletics check to "
+          },
+          {
+            "type": "ref",
+            "id": "ef57a555-f9e9-53cc-b09b-b7432156cbf1"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "6257c7f0-f483-53d3-a791-d73a616cbce4"
+          },
+          {
+            "type": "text",
+            "text": " the attacker."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.9MiK0Lyro5dQgHij"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Reflective Ripple Stance"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You're in Reflective Ripple Stance."
+              }
+            ]
+          }
+        ],
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You're hit by a physical melee attack by an attacker you can see that's in reach."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "2be02ed3-404a-5f4e-8d19-9e6b169e8674",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:rise-my-creature",
+    "name": "Rise, My Creature!",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have created life! You have usurped the power of the gods themselves! You gain a prototype construct companion pieced together from corpses and animated by chemicals or Stasian technology. You use Medicine in place of Crafting to Repair your construct or rebuild it if it's been destroyed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your creation has an affinity for the lightning that brought it to life. When your construct companion takes electricity damage, it gains a +1 circumstance bonus to its Athletics skill checks until the end of its next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Although the coils or alchemical residue make it obvious to you and those with similar training that your creation is not undead, others must generally succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:crafting",
+            "dc": 15
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:medicine",
+            "dc": 15
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:religion",
+            "dc": 15
+          },
+          {
+            "type": "text",
+            "text": " check to verify those claims with "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.LlA78rVpi6F85CWG"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lepidstadt Surgeon Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "eabb56a4-084b-5bd9-bc7f-05246f4c3b39"
+    }
+  },
+  {
+    "id": "37b59633-1b8f-56b2-90d2-bb2f3685ea6d",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:rod-of-rule",
+    "name": "Rod of Rule",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your personal rune is connected more closely to your arcane bond. You gain the critical specialization effects of your arcane bonded weapon. In addition, whenever you critically hit a creature with your arcane bonded weapon, they begin to feel the pull of your sin, imposing a –2 circumstance penalty to saves against any of your curriculum or sin spells until the end of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "989535da-0b7f-5495-a4d1-684bdd3e2618"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.ZELjVKOohGw3ECwB"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Runelord Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "801a5233-8eec-598f-a033-4f07708fa116",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:runelord-dedication",
+    "name": "Runelord Dedication",
+    "level": 2,
+    "rarity": "rare",
+    "traits": ["archetype", "class", "dedication"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your connection to your sin suffuses all magic you use. When you contemplate or indulge in your sin to Refocus, you can also exchange one spell you have prepared for one of your curriculum or sin spells of the same rank."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Runelord (Class Archetype)"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.mz2x4HFrWT8usbEL"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "runelord"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "8dac423c-98b8-5691-8a66-3f630cc4c26d",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:ruthless-orator",
+    "name": "Ruthless Orator",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["archetype", "auditory", "emotion", "linguistic", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You were once cast in the role of Daronlyr XII, one of Taldor's most ambitious rulers who slew his cousin to seize the crown, yet somehow still managed to convince the entire Ulfen Guard to swear loyalty to him simply through his powers of oration. You attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:performance"
+          },
+          {
+            "type": "text",
+            "text": " check to launch into a powerful monologue, pulling lines from Daronlyr's playbook to win respect from everyone around you, even your enemies. The DC of this check is a hard difficulty DC of your level. On a success, any hostile creatures within 20 feet take a –2 circumstance penalty to attack rolls and spell attack rolls that target you until the beginning of your next turn, and any allies within 20 feet are "
+          },
+          {
+            "type": "ref",
+            "id": "6517bbf2-8085-534b-be6a-187d52739fa0"
+          },
+          {
+            "type": "text",
+            "text": " until the beginning of your next turn. The additional action can be only used to Strike or Stride."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.7HZaOlJ43QxkDrmO"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Kitharodian Actor Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "two",
+        "frequency": {
+          "max": 1,
+          "per": "hour"
+        },
+        "selfEffect": "ad404a92-ab6e-5c1a-82ca-c926d4c967e6"
+      },
+      "archetype": "1002e2eb-c092-58fa-ad5b-e81e13fc41a5"
+    }
+  },
+  {
+    "id": "45072e60-c49d-5571-8cdf-41bd9278957c",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:shattering-spellstrike",
+    "name": "Shattering Spellstrike",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["force", "magus"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're in Arcane Cascade stance and wielding an improvised weapon."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You intentionally channel a rampaging cascade of magic through your weapon, breaking it to deal more damage. Make a Spellstrike against a target with your improvised weapon. If the attack hits, it deals an additional "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "force"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage as your improvised weapon breaks. If the spell used with the Spellstrike wasn't a cantrip or focus spell, increase this additional damage by the spell's rank."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the item has a Hardness greater than your level, or if it's an artifact, cursed item, or other item that's difficult to break or destroy, it doesn't break and you don't deal additional damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.0PiyHEuxpB5zPctX"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "resurgent maelstrom hybrid study; Spellstrike"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "two",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You're in Arcane Cascade stance and wielding an improvised weapon."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "54148021-2463-5246-ac7e-7ca2a7dbdc7b",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:sin-counterspell",
+    "name": "Sin Counterspell",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your deep connection to a specific sin allows you to easily negate spells that sin opposes. Instead of being able to counter a foe's spell with Counterspell only if you have the same spell prepared, you can Counterspell it with any of your curriculum spells if the spell cast would violate your sin's anathema."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.xblAUCASehLA9fbc"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Runelord Dedication; Counterspell"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "70db7bcf-d846-5890-acb9-974b3575cbcf",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:sin-reservoir",
+    "name": "Sin Reservoir",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "During your daily preparations, you can indulge in your associated sin or meditate on its values (and risks). When you do, you gain one additional spell slot of any spell level up to two levels below the highest-level wizard spell you can cast. You can prepare only one of your curriculum spells in this slot."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.zAJY8rLvZjzOK0Mt"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Runelord Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "fe45fdd6-97b0-5a71-a8aa-4884e89cea7a",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:sinbladed-spell",
+    "name": "Sinbladed Spell",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype", "spellshape"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are holding a weapon in the polearm or spear group."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You punctuate your spellcasting with a flourish of your weapon, imparting physical force to your magic. If the next spell you cast is a non-cantrip sin or curriculum spell that affects a single target, and you either succeed on your attack roll or the target fails its saving throw against the spell, a wound in the shape of your personal rune appears on the target, dealing additional persistent bleed damage equal to the spell's rank, in addition to its regular effects."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.2oZYzQnrmKCpMH0V"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Runelord Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are holding a weapon in the polearm or spear group."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "19e91c0a-6c4a-5cf1-8bf1-944716d79c89",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:snakebirds-shadow",
+    "name": "Snakebird's Shadow",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["flourish", "monk", "occult", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are in Waterfowl Stance and are wielding a monk weapon from the sword group."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ganhil developed this technique through observing the sharp-beaked darters fishing Prada Hanam's waters, seeking to match their speed and suppleness with the elemental flash of his blade. Make a melee Strike with the required weapon against each enemy in a "
+          },
+          {
+            "type": "template",
+            "shape": "line",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": " as razor-sharp shadows of water surge from your blade. Each attack counts toward your multiple attack penalty, but you do not increase your penalty until you have made all your attacks."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.GEonUnKYVyWoHh1O"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Waterfowl Stance"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "two",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are in Waterfowl Stance and are wielding a monk weapon from the sword group."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "033395b5-82b6-5cc9-9d69-54bc909599a2",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:stand-back-im-a-doctor",
+    "name": "Stand Back, I'm A Doctor!",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are holding healer's tools, or you are wearing them and have a hand free; a creature with the "
+          },
+          {
+            "type": "ref",
+            "id": "c0cd649a-7029-5174-a5b4-678f51598dec"
+          },
+          {
+            "type": "text",
+            "text": " condition is in your reach."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have mastered techniques to aid those at the brink of death, even if they use dangerous Stasian technology. Attempt a Medicine check on the dying creature as you deliver it a powerful shock. The DC is usually a standard-difficulty DC of a level equal to the target. On a success, the creature's dying condition is reduced by 1 (or 2 on a critical success); if this reduces the value of the dying condition to 0, the creature regains "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d8+10"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points, its wounded condition doesn't increase, and it can Stand as a free action. Each creature except you adjacent to the target takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "8d6",
+                "damageType": "electricity"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": {
+              "against": "class-or-spell-dc"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC or spell DC); instead of attempting this save, a creature can Step as a free action and if they end this movement not adjacent to the target, they take no damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.cQziPqmbo353bq7S"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lepidstadt Surgeon Dedication; master in Medicine"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "two",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are holding healer's tools, or you are wearing them and have a hand free; a creature with the Dying condition is in your reach."
+              }
+            ]
+          }
+        ]
+      },
+      "archetype": "eabb56a4-084b-5bd9-bc7f-05246f4c3b39"
+    }
+  },
+  {
+    "id": "f72474bc-dbb3-5f9a-a6b5-7fdb428a5b68",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:stasian-charge",
+    "name": "Stasian Charge",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Charging a living body with electricity may seem like a bad idea, but you know better. When a creature gains temporary Hit Points from your In Lightning, Life, they gain the "
+          },
+          {
+            "type": "ref",
+            "id": "6517bbf2-8085-534b-be6a-187d52739fa0"
+          },
+          {
+            "type": "text",
+            "text": " condition until the end of their next turn. They can use the extra action only for Stride and Strike actions."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.BmKfNH7eN7E1yQXh"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "In Lightning, Life"
+            }
+          ]
+        }
+      ],
+      "archetype": "eabb56a4-084b-5bd9-bc7f-05246f4c3b39"
+    }
+  },
+  {
+    "id": "ff4610e6-088e-5fae-97f7-ad3e8039016a",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:stories-of-home",
+    "name": "Stories of Home",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["archetype", "auditory", "divine", "exploration", "healing", "linguistic", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You share the joy of every story of long-awaited homecoming you've offered to Isthralei. You can spend 10 minutes sharing this joy with your allies within 30 feet. You and those allies regain Hit Points equal to their Constitution modifier (minimum 1) times their level and recover from the "
+          },
+          {
+            "type": "ref",
+            "id": "cd164d22-2d8e-5fd2-b8b2-03e1360df1e7"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b"
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "ref",
+            "id": "5e3582c3-701c-5169-9c69-4221096722c2"
+          },
+          {
+            "type": "text",
+            "text": " conditions as though they had a full night's rest (though they gain no other benefits associated with having a full night's rest)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.HD3qC1lDSc4jHzii"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Campfire Chronicler Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "d69a6643-9f8b-5f31-9e0b-f7a8d74e12a5"
+    }
+  },
+  {
+    "id": "e9518de5-15f7-516b-8a19-817b10306d82",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:student-of-water",
+    "name": "Student of Water",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["monk", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Following your studies of water, your qi stirs the water of the natural world. If you're underwater, you have cover against creatures outside of the water. As soon as you meet the prerequisites for "
+          },
+          {
+            "type": "ref",
+            "id": "92df56f7-e2ed-5915-9d6a-f4aa8862eb23"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "65736882-58ec-5395-ab54-17dbe40b52d0"
+          },
+          {
+            "type": "text",
+            "text": ", you gain those feats."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.WHplmUTHN8L6q1b2"
+    },
+    "data": {
+      "category": "class"
+    }
+  },
+  {
+    "id": "9dc2055c-75db-5805-aaec-fe819bf5f33e",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:stunt-performer-stance",
+    "name": "Stunt Performer Stance",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["archetype", "stance"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are unarmored."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You clear your mind, regulate your breathing, and prepare your muscles in a stance inspired by Kemen Kayton, a graduate of Zimar's Monastery of the Seven Forms. Kemen controversially shunned monastic life and instead used his martial skills as a death-defying stunt performer, winning acclaim for exhibitions that saw him survive great falls and escape deadly traps. While in this stance, you gain a +2 circumstance bonus to Reflex saving throws and skill checks to "
+          },
+          {
+            "type": "ref",
+            "id": "2ae74030-e87a-55ee-955c-fb9870392d44"
+          },
+          {
+            "type": "text",
+            "text": ", as well as resistance 2 to all physical damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.pfVTsZ2asd6cnVed"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Kitharodian Actor Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are unarmored."
+              }
+            ]
+          }
+        ],
+        "selfEffect": "e6f6e3f5-41d4-5b9e-971f-9223e7e3f770"
+      },
+      "archetype": "1002e2eb-c092-58fa-ad5b-e81e13fc41a5"
+    }
+  },
+  {
+    "id": "9854a44b-4b18-5e1b-b89f-8afd6aa1e703",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:surface-tension",
+    "name": "Surface Tension",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["magus", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're wielding a broken weapon."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You encase the pieces of your broken weapon together with water you pull from the surrounding environment. The weapon's broken condition is temporarily suppressed, and the weapon deals an additional amount of bludgeoning damage equal to twice the number of weapon damage dice; this damage can't be changed to any other type. The weapon also gains the deadly d8 trait; if the weapon already had the deadly trait, the damage die increases by one step or to d8, whichever is higher. The first time you use this weapon to Spellstrike or get a critical success on an attack with it, the weapon is completely destroyed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the weapon has a Hardness greater than your level, or if it's an artifact, cursed item, or other item that's difficult to break or destroy, it is not destroyed, and this ability only lasts until the end of your turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.flTkVUibGyxkJWHV"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "resurgent maelstrom hybrid study"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You're wielding a broken weapon."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "e85bdf1e-66d1-5205-9b78-64aaad9285e5",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:sympathetic-portrayal",
+    "name": "Sympathetic Portrayal",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You portrayed Grand Prince Stavian III in Fall of the Troubled King, a production dedicated to the life and times of the paranoid Taldan ruler whose violent resistance to new policies on succession kicked off the War for the Crown. Your acting won rave reviews for recasting Stavian's paranoia and political machinations in a sympathetic light, and you've learned to apply these subtle techniques outside of the stage to win others over. Whenever you succeed at a Deception or Performance check to portray a famous figure, you can select one creature within 60 feet who observed your performance. As long as this creature isn't hostile, its attitude toward you automatically improves by two steps (three steps if your check was a critical success). If it's hostile, it's "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 2"
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute as it tries to reconcile its desire to harm you with its newfound sympathy for you."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.PwgiNjYvCM68ZyqS"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Kitharodian Actor Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "1002e2eb-c092-58fa-ad5b-e81e13fc41a5"
+    }
+  },
+  {
+    "id": "dc50e103-b830-5150-8906-d4ec542a6b67",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:talent-envy",
+    "name": "Talent Envy",
+    "level": 7,
+    "rarity": "rare",
+    "traits": ["general", "skill"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You give off a bedazzling glow with every performance, sparking feelings of severe envy and inadequacy in those who compare their talent to yours. Once per minute when you succeed at a check using the type of performance that you chose with Virtuosic Performer, you can attempt to "
+          },
+          {
+            "type": "ref",
+            "id": "2a3671d0-7d0b-53db-8648-861d457f0175"
+          },
+          {
+            "type": "text",
+            "text": " an onlooker of your choice within 60 feet as a free action. If you critically succeeded on your Performance check, improve the degree of success for your Demoralize check by one step."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:talent-envy",
+        "toggleable": true
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill:intimidation"],
+        "adjustment": {
+          "all": "one-degree-better"
+        },
+        "predicate": ["option:talent-envy", "action:demoralize"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.RR6p9r8l1trcByl2"
+    },
+    "data": {
+      "category": "skill",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "expert in Performance; Virtuosic Performer"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "d06f7e02-6e56-5496-815b-fcadd2931102",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:tales-of-the-road",
+    "name": "Tales of the Road",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["archetype", "divine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The blessings of Isthralei connect you to the thrum of the stories that underlie all settlements. When attempting a check to "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": " about a city you have visited, you gain a +2 circumstance bonus and can use an associated Lore skill (such as Nerosyan Lore) with your level as your proficiency bonus even if you're untrained."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["lore-skill-check"],
+        "type": "proficiency",
+        "value": "@level",
+        "slug": "tales-of-the-road-proficiency",
+        "predicate": ["action:recall-knowledge", "proficiency:untrained", "option:tales-of-the-road"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "circumstance",
+        "value": 2,
+        "slug": "tales-of-the-road-circumstance",
+        "predicate": ["action:recall-knowledge", "option:tales-of-the-road"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.N43qnnWMy2H6lsrm"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Campfire Chronicler Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "d69a6643-9f8b-5f31-9e0b-f7a8d74e12a5"
+    }
+  },
+  {
+    "id": "bb7b20ca-bd66-51f9-a84b-88bc62d50bf1",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:the-dead-tell-tales",
+    "name": "The Dead Tell Tales",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype", "divine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "New campfire chroniclers are inundated with the stories of the ghosts below Pulura's Fall and the lessons learned there. You have resistance equal to your level to spirit and void damage caused by a haunt, spirit, or incorporeal undead. The first time you take damage from a haunt or spirit, you learn the general story of its origin (such as the type of tragedy that caused a ghost to linger or what a spirit represents)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.6WsUotDsr7TUVDkE"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Campfire Chronicler Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "d69a6643-9f8b-5f31-9e0b-f7a8d74e12a5"
+    }
+  },
+  {
+    "id": "1a5378fa-6616-56c7-8103-cd1d0cc3cf64",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:tributary-circulation",
+    "name": "Tributary Circulation",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "monk", "occult", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Never distant from water's succoring presence, your refined breathing techniques focus your awareness and control of water inward. You gain a +2 circumstance bonus to Will saves and saves against poison until the beginning of your next turn. If you spent two actions on Tributary Circulation, you can also attempt a flat check to end persistent poison damage you're suffering, reducing the DC to 10 as if you had gained the benefits of assisted recovery."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.0HgfWQMIo2UEAlAm"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "one",
+        "selfEffect": "12fe6dd8-aeb7-5ace-bea2-d5ef7f130e85"
+      }
+    }
+  },
+  {
+    "id": "94fc5ac3-df70-508c-8f8a-4c78c603e010",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:wake-to-strife",
+    "name": "Wake to Strife",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["monk", "occult", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature within your reach is "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": " or swimming."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You summon the explosive power of a geyser beneath a foe. The required creature must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": {
+              "against": "class-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC as elemental water confounds their senses; if the creature is prone, they can Stand as a free action."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 2"
+          },
+          {
+            "type": "text",
+            "text": ". If you have a free hand and they are not larger than you, you can attempt an Athletics check to "
+          },
+          {
+            "type": "ref",
+            "id": "380d34f1-f6f6-5820-b9dd-c01ee4e19fd5"
+          },
+          {
+            "type": "text",
+            "text": " them as a free action."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but if you succeed at the Athletics check to Grapple them, you get a critical success instead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.iAtdHXY6wqL7QRBb"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "two",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "A creature within your reach is Prone or swimming."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "ca2bffd9-fd33-5d95-bfd7-1a7fc399d2d5",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:waterfowl-stance",
+    "name": "Waterfowl Stance",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["monk", "stance", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In your hands, swords dance like rainfall over the waves; who can tell where the storm ends and the sea begins? Developed by Swordmaster Ganhil to compete with the House of Untwisting Iron, this stance integrates fluid swordplay into even the simplest movements."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While in Waterfowl Stance, the dandpatta, scimitar, talwar, and zulfikar gain the monk trait for you. When you "
+          },
+          {
+            "type": "ref",
+            "id": "11d6f0fd-b182-5043-8a26-973179a93617"
+          },
+          {
+            "type": "text",
+            "text": " a creature's space or "
+          },
+          {
+            "type": "ref",
+            "id": "1a0bed3d-5eb7-554f-ad07-4c8630afd0c8"
+          },
+          {
+            "type": "text",
+            "text": " over a creature while wielding one of these weapons, you can deal that creature 1d6 slashing damage. This damage is increased to 2d6 if the weapon has a greater striking rune and 3d6 if it has a major striking rune."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain access to the dandpatta, talwar, and zulfikar."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.6XL3usbKH9g5FaQo"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Monastic Weaponry"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "selfEffect": "fafd6560-5365-5d04-8212-5d7d5d504786"
+      }
+    }
+  },
+  {
+    "id": "d1fc249e-1a0e-594d-9316-f6cee70986aa",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:wave-dashes-rocks",
+    "name": "Wave Dashes Rocks",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["monk", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have a creature "
+          },
+          {
+            "type": "ref",
+            "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "b374c4c9-d230-5167-8878-38e08932a071"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You slam an unlucky foe with the tremendous power of a plunging wave. Make a melee Strike against the required creature, after which they are no longer grabbed or restrained by you. This Strike must be made with an unarmed attack or a monk weapon. If you deal damage with this Strike, the target is knocked "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": " and is "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 1"
+          },
+          {
+            "type": "text",
+            "text": " until the end of its next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.mXQG0WtHHGVyJfZf"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "one",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You have a creature Grabbed or Restrained."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "5e1e78ad-e4b2-5f2a-8b2a-030c38565db5",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:wave-spiral",
+    "name": "Wave Spiral",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["flourish", "monk", "occult", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per minute"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're in Reflective Ripple Stance."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You dip and spin, unleashing a wide whirlpool of water. Make an Athletics check to "
+          },
+          {
+            "type": "ref",
+            "id": "6257c7f0-f483-53d3-a791-d73a616cbce4"
+          },
+          {
+            "type": "text",
+            "text": " each creature standing on the ground in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": ". These attacks all count toward your multiple attack penalty, but the penalty doesn't increase until after you make all the attacks."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.fLlCodqKXyXbZR7C"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Reflective Ripple Stance"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "two",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You're in Reflective Ripple Stance."
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "minute"
+        }
+      }
+    }
+  },
+  {
+    "id": "359f6f8a-e358-5c90-8a5f-b709dba00afb",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:whirlpools-pull",
+    "name": "Whirlpool's Pull",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "magus"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You briefly conjure a tendril of water that allows you to grab an improvised weapon and then subsume that water to power your magic. You Interact to pick up an unattended object within 15 feet you could use as an improvised weapon and then Cast a Spell that is a cantrip or conflux spell that takes 1 action to cast."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.0eOrhBrIPbRvPhNd"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "resurgent maelstrom hybrid study"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one"
+      }
+    }
+  }
+]

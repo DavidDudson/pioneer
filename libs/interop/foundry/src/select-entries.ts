@@ -34,6 +34,11 @@ export const FOUNDRY_BOOK_TITLES: ReadonlyMap<string, BookId> = new Map([
   ['Pathfinder Guns & Gears', BookId.parse('guns-and-gears')],
   ['Pathfinder Battlecry!', BookId.parse('battlecry')],
   ['Pathfinder Lost Omens Cheliax, Infernal Inheritance', BookId.parse('cheliax-infernal-inheritance')],
+  ['Pathfinder Lost Omens Rival Academies', BookId.parse('rival-academies')],
+  ['Pathfinder Lost Omens Shining Kingdoms', BookId.parse('shining-kingdoms')],
+  ['Pathfinder Lost Omens Draconic Codex', BookId.parse('draconic-codex')],
+  ['Pathfinder Lost Omens Hellfire Dispatches', BookId.parse('hellfire-dispatches')],
+  ['Pathfinder Lost Omens High Seas', BookId.parse('high-seas')],
 ]);
 
 /**

@@ -1,0 +1,127 @@
+[
+  {
+    "id": "a0189dd6-8d23-51e4-868c-c2e9e188dd16",
+    "pack": "high-seas",
+    "kind": "deity",
+    "slug": "deity:surveyors-of-the-deep",
+    "name": "Surveyors of the Deep",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "high-seas"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Bound by a shared passion for unearthing the hidden marvels of marine life and exploring uncharted depths, the Surveyors of the Deep inspire their followers—among whom number tomb raiders, archaeologists, and adventurous historians—to embark on daring voyages and seek the treasures that lie beneath the waves and among the stars. These explorers thrive on the thrill of discovery, delving into ancient shipwrecks and forgotten underwater ruins, to study the cryptic artifacts left behind by long-lost civilizations."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Pantheon Members",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Besmara, Gozreh, Hei Feng, Obari, Ragadahn"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Areas of Concern",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Exploration of the oceans, mapping and documenting marine lore, and reverence for bioluminescence and underwater wonders"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Seek out undiscovered marvels on and beneath the sea, preserve historical knowledge and artifacts, protect oceanic sites from exploitation"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Avoid deep explorations, create false maps and records, disrespect sacred sites, and mislead navigators."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Religious Symbol",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Bioluminescent jellyfish with long tendrils"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.vWWeFVCEpGqc65NH"
+    },
+    "data": {
+      "category": "pantheon",
+      "domains": {
+        "primary": ["knowledge", "might", "travel", "truth"],
+        "alternate": ["air", "water"]
+      },
+      "font": ["heal"],
+      "attributes": ["con", "int"],
+      "skills": ["skill:athletics"],
+      "weapons": ["trident"],
+      "spells": [
+        {
+          "rank": 1,
+          "spell": "b7d21825-2e85-5035-8646-0fdbc7c00e05"
+        },
+        {
+          "rank": 3,
+          "spell": "180df159-6732-56a6-858a-5dfbb9a88be2"
+        },
+        {
+          "rank": 7,
+          "spell": "99651215-11b0-5244-8514-74c05a562385"
+        }
+      ]
+    }
+  }
+]

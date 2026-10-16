@@ -1,0 +1,69 @@
+[
+  {
+    "id": "bd2af06b-5339-50a8-b945-d38143be69d1",
+    "pack": "high-seas",
+    "kind": "armor",
+    "slug": "armor:winged-terror",
+    "name": "Winged Terror",
+    "level": 16,
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "high-seas"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater resilient winged studded leather armor",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " features the Red Mantis emblem in carapace studs. The wearer gains resistance 5 to physical damage dealt by frightened creatures."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["physical"],
+        "value": 5,
+        "predicate": ["origin:condition:frightened"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.waxKqiCpeEvNNdeY"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 7900
+        }
+      },
+      "bulk": 1,
+      "category": "light",
+      "group": "leather",
+      "baseItem": "studded-leather-armor",
+      "acBonus": 2,
+      "dexCap": 3,
+      "checkPenalty": 1,
+      "strength": 1,
+      "runes": {
+        "potency": 2,
+        "resilient": 2,
+        "property": []
+      }
+    }
+  }
+]

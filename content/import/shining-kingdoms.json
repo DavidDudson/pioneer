@@ -1,0 +1,1380 @@
+{
+  "pin": {
+    "tag": "pf2e-8.6.0",
+    "sha256": "d9c4c1f6bbf9bd907ec0acbaea9b8d4e8b0d049758a8616829f07c1b4ee81342"
+  },
+  "backlog": [
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "action:failed-prophet-broken-mindscape",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.7RxVsRFGtZX9eIxq",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.FailedProphet.BrokenMindscape.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "action:failed-prophet-greedy-grab",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.YXaiRbK6LFSHP5fV",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.FailedProphet.GreedyGrab.Name"
+          }
+        },
+        {
+          "type": "markup",
+          "markup": "table[class]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "action:failed-prophet-taboos",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.33PtgISC92HeTzRr",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.FailedProphet.Taboos.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "action:failed-prophet-this-is-my-reality",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.QKzMfQLBrD48eTLq",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.FailedProphet.ThisIsMyReality.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "action:failed-prophet-wealthsense",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.8uOu4L083uOru5yi",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.FailedProphet.Wealthsense.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "effect:effect-crimson-godsblood-serum",
+      "foundry": "Compendium.pf2e.equipment-effects.Item.m942gdWRO19p0QS8",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:crimson-godsblood-serum-lesser",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Crimson Godsblood Serum (Lesser)"
+              },
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:crimson-godsblood-serum-moderate",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Crimson Godsblood Serum (Moderate)"
+              },
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:crimson-godsblood-serum-greater",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Crimson Godsblood Serum (Greater)"
+              }
+            ],
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
+            "rollOption": "crimson-godsblood-serum"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "effect:effect-inspiring-recitation",
+      "foundry": "Compendium.pf2e.feat-effects.Item.5FRnceccGyLcnVlv",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": {
+              "config": "skills"
+            },
+            "flag": "skill",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Skill"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "selector": "{item|flags.system.rulesSelections.skill}",
+            "type": "status",
+            "value": "@actor.system.skills.performance.rank"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "effect:effect-lead-by-example",
+      "foundry": "Compendium.pf2e.feat-effects.Item.TVWgsv3ypaqh5Y8T",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": ["target:mark:lead-by-example"],
+            "removeAfterRoll": "if-enabled",
+            "selector": "strike-attack-roll",
+            "type": "circumstance",
+            "value": 2
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "effect:effect-lost-in-the-crowd",
+      "foundry": "Compendium.pf2e.feat-effects.Item.Jt7NnE7WeR7e9V6Q",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": [
+              {
+                "label": "PF2E.SpecificRule.LostInTheCrowd.CrowdSize.Ten",
+                "value": 2
+              },
+              {
+                "label": "PF2E.SpecificRule.LostInTheCrowd.CrowdSize.Hundred",
+                "value": 4
+              }
+            ],
+            "flag": "crowdSizeBonus",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.LostInTheCrowd.Prompt"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "selector": "stealth",
+            "type": "circumstance",
+            "value": "@item.flags.system.rulesSelections.crowdSizeBonus"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "effect:effect-soul-well",
+      "foundry": "Compendium.pf2e.feat-effects.Item.9YO84RSGcq3XcA0E",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Aura",
+          "raw": {
+            "effects": [
+              {
+                "predicate": ["target:mode:living"],
+                "uuid": "Compendium.pf2e.feat-effects.Item.Effect: Soul Well"
+              }
+            ],
+            "key": "Aura",
+            "predicate": ["self:signature:{item|origin.signature}"],
+            "radius": 30,
+            "traits": ["occult"]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "effect:effect-trudds-strength",
+      "foundry": "Compendium.pf2e.equipment-effects.Item.cB5nrsadZxDaxFjz",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:trudds-strength",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Trudd's Strength"
+              },
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:trudds-strength-greater",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Trudd's Strength (Greater)"
+              }
+            ],
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
+            "rollOption": "trudds-strength"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "effect:effect-vengeful-remnant",
+      "foundry": "Compendium.pf2e.feat-effects.Item.0o21uiVJUpYCO7Zj",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "doubleVs": ["non-magical"],
+            "exceptions": ["force", "ghost-touch", "spirit", "vitality"],
+            "key": "Resistance",
+            "type": "all-damage",
+            "value": 10
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "effect:spell-effect-elemental-sheath",
+      "foundry": "Compendium.pf2e.spell-effects.Item.fEtZHzAhRYuNX2u1",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": [
+              {
+                "label": "PF2E.TraitAir",
+                "value": {
+                  "firstResistance": "bludgeoning",
+                  "secondResistance": "electricity"
+                }
+              },
+              {
+                "label": "PF2E.TraitEarth",
+                "value": {
+                  "firstResistance": "bludgeoning",
+                  "secondResistance": "poison"
+                }
+              },
+              {
+                "label": "PF2E.TraitFire",
+                "value": {
+                  "firstResistance": "fire",
+                  "secondResistance": "slashing"
+                }
+              },
+              {
+                "label": "PF2E.TraitMetal",
+                "value": {
+                  "firstResistance": "acid",
+                  "secondResistance": "slashing"
+                }
+              },
+              {
+                "label": "PF2E.TraitWater",
+                "value": {
+                  "firstResistance": "cold",
+                  "secondResistance": "piercing"
+                }
+              },
+              {
+                "label": "PF2E.TraitWood",
+                "value": {
+                  "firstResistance": "piercing",
+                  "secondResistance": "void"
+                }
+              }
+            ],
+            "flag": "element",
+            "key": "ChoiceSet"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "key": "Resistance",
+            "type": "{item|flags.system.rulesSelections.element.firstResistance}",
+            "value": "5 * floor((@item.level - 2) / 2)"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "key": "Resistance",
+            "type": "{item|flags.system.rulesSelections.element.secondResistance}",
+            "value": "5 * floor((@item.level - 2) / 2)"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "effect:spell-effect-equal-footing-failure-or-critical-failure",
+      "foundry": "Compendium.pf2e.spell-effects.Item.MFvCd82lxTQGZERm",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "alterations": [
+              {
+                "mode": "upgrade",
+                "property": "badge-value",
+                "value": 2
+              }
+            ],
+            "inMemoryOnly": true,
+            "key": "GrantItem",
+            "predicate": ["equal-footing:critical-failure"],
+            "uuid": "Compendium.pf2e.conditionitems.Item.Clumsy"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "effect:spell-effect-spirit-ward",
+      "foundry": "Compendium.pf2e.spell-effects.Item.0P4JYUQO20mX4rCS",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": {
+              "config": "actionsNumber"
+            },
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Actions.Prompt",
+            "rollOption": "spirit-ward"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "effect:spell-effect-veil-of-spirits",
+      "foundry": "Compendium.pf2e.spell-effects.Item.0L9LAkGW2FtmZOgb",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Weakness",
+          "raw": {
+            "key": "Weakness",
+            "predicate": ["veil-of-spirits:failure"],
+            "type": "spirit",
+            "value": "(@item.origin.level / 2)"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Weakness",
+          "raw": {
+            "key": "Weakness",
+            "predicate": ["veil-of-spirits:critical-failure"],
+            "type": "spirit",
+            "value": "@item.origin.level"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "equipment:shawl-of-seasons",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.o8l0mvCHAnQUfD6o",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "RollOption",
+          "raw": {
+            "disabledIf": [
+              {
+                "not": "shawl-of-seasons:change-of-seasons"
+              }
+            ],
+            "disabledValue": false,
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.Equipment.ShawlOfSeasons.CurrentSeasonToggleLabel",
+            "option": "shawl-of-seasons:current-season",
+            "toggleable": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "equipment:splinter-of-finality",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.MEJfmtMXXnIV4Lzx",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[spells-srd] Pathfinder Adventure: Night of the Gray Death"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "feat:basic-prophet-spellcasting",
+      "foundry": "Compendium.pf2e.feats-srd.Item.mWbIoWKDi1wANHDZ",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "feat:blackjacket-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.PWKHlkSx7baAcPw4",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "feat:commitment-to-justice",
+      "foundry": "Compendium.pf2e.feats-srd.Item.OMiIO6BzaXZTKjTt",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": ["commitment-to-justice"],
+            "selector": "strike-damage",
+            "type": "circumstance",
+            "value": "3*@weapon.system.damage.dice"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "feat:dread-blade",
+      "foundry": "Compendium.pf2e.feats-srd.Item.7DKcoEIqpa8JUvYF",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["success", "criticalSuccess"],
+            "predicate": ["target:condition:frightened"],
+            "selector": "spectral-dagger-damage",
+            "text": "{item|description}",
+            "title": "{item|name}"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "feat:eagle-knight-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.2shqQYK6l3RUEqiQ",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "EphemeralEffect",
+          "raw": {
+            "key": "EphemeralEffect",
+            "predicate": [
+              "encounter:round:1",
+              {
+                "lt": ["self:participant:initiative:rank", "target:participant:initiative:rank"]
+              },
+              "self:participant:initiative:stat:diplomacy"
+            ],
+            "selectors": ["strike-attack-roll", "spell-attack-roll", "strike-damage", "attack-spell-damage"],
+            "uuid": "Compendium.pf2e.conditionitems.Item.Off-Guard"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]][skill]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "feat:expert-prophet-spellcasting",
+      "foundry": "Compendium.pf2e.feats-srd.Item.X2JzoRXHhhz5o4P4",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "feat:fling-head",
+      "foundry": "Compendium.pf2e.feats-srd.Item.lmo55Y5NS5iZa56o",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "feat:ghostly-condemnation",
+      "foundry": "Compendium.pf2e.feats-srd.Item.NYY7zWZWZ3XlzQgs",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "feat:guillotine-blade",
+      "foundry": "Compendium.pf2e.feats-srd.Item.jwjtxZL6XpkO5lv9",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[dc]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "feat:haunting-memories",
+      "foundry": "Compendium.pf2e.feats-srd.Item.aprpqUlRpRVXwAJv",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[equipment-srd] Pathfinder Adventure: Night of the Gray Death"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "feat:headless-haunt",
+      "foundry": "Compendium.pf2e.feats-srd.Item.iYTHfcZWAnzLgK13",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[equipment-srd] Pathfinder Adventure: Night of the Gray Death"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "feat:hungry-blade",
+      "foundry": "Compendium.pf2e.feats-srd.Item.6nB5ycSo4zshj22k",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "feat:immediate-rebuke",
+      "foundry": "Compendium.pf2e.feats-srd.Item.i5mNsZjIXfLAaoP8",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:reactive-strike"],
+            "property": "description",
+            "value": [
+              {
+                "text": "{item|description}"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "feat:inflame-crowd",
+      "foundry": "Compendium.pf2e.feats-srd.Item.YRjv9cxUAkeOiNAM",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]][skill]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "feat:inspiring-recitation",
+      "foundry": "Compendium.pf2e.feats-srd.Item.c2UuV5n5leFx9vlU",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "feat:instrument-of-death",
+      "foundry": "Compendium.pf2e.feats-srd.Item.d2InKGKNEdVnPfNf",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "feat",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:lethal-edge"],
+            "property": "description",
+            "value": [
+              {
+                "text": "{item|description}"
+              }
+            ]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "feat:interposing-crowd",
+      "foundry": "Compendium.pf2e.feats-srd.Item.cELaMZVilk3vkrrM",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "feat:klingegeist",
+      "foundry": "Compendium.pf2e.feats-srd.Item.yFBan5ycDsdT96jN",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[equipment-srd] Pathfinder Adventure: Night of the Gray Death"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "feat:lethal-edge",
+      "foundry": "Compendium.pf2e.feats-srd.Item.Xz9jmwwJnx17PjCu",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "feat:lion-blade-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.zNxbsYgQgPVxdTLV",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "feat:lions-magic",
+      "foundry": "Compendium.pf2e.feats-srd.Item.hh0e2aeFjQOwu51T",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "feat:master-prophet-spellcasting",
+      "foundry": "Compendium.pf2e.feats-srd.Item.zQazwiELy8Vhb1tS",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "feat:mercenary-motivation",
+      "foundry": "Compendium.pf2e.feats-srd.Item.2IiZFG2HJjr0Droz",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": ["on-the job"],
+            "selector": ["perception", "skill-check"],
+            "type": "circumstance",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "feat:opportune-opening",
+      "foundry": "Compendium.pf2e.feats-srd.Item.3q7uo810lJJ09ghv",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "EphemeralEffect",
+          "raw": {
+            "key": "EphemeralEffect",
+            "predicate": ["opportune-opening"],
+            "selectors": "strike-attack-roll",
+            "uuid": "Compendium.pf2e.conditionitems.Item.Off-Guard"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "feat:prophet-of-kalistrade-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.OGCb4N1RL0w6JkR8",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]][skill]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "feat:sacred-weapon",
+      "foundry": "Compendium.pf2e.feats-srd.Item.5Ar7r5HA9k73whaB",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["criticalSuccess"],
+            "predicate": ["target:trait:fiend"],
+            "selector": "strike-attack-roll",
+            "text": "{item|description}",
+            "title": "{item|name}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "feat:slowing-strike",
+      "foundry": "Compendium.pf2e.feats-srd.Item.v2AScyQidSsrfm6z",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "feat:soul-bleed",
+      "foundry": "Compendium.pf2e.feats-srd.Item.GzsPazilxYUPISm1",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "feat:soul-oubliette",
+      "foundry": "Compendium.pf2e.feats-srd.Item.moJh856BHCXtPCJm",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "feat:soul-well",
+      "foundry": "Compendium.pf2e.feats-srd.Item.B8MKXr7mMzOHhTQH",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "feat:spectral-dagger",
+      "foundry": "Compendium.pf2e.feats-srd.Item.ZbK0WZRDjm1sfOKD",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "key": "GrantItem",
+            "uuid": "Compendium.pf2e.equipment-srd.Item.Spectral Dagger"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "feat:stalwart-chant",
+      "foundry": "Compendium.pf2e.feats-srd.Item.GcpMP7vMAuewyWUJ",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "feat",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:stalwart-song"],
+            "property": "description",
+            "value": [
+              {
+                "text": "{item|description}"
+              }
+            ]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "RollOption",
+          "raw": {
+            "disabledIf": [
+              {
+                "not": "stalwart-song"
+              }
+            ],
+            "disabledValue": false,
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.StalwartDefender.StalwartChant.ToggleLabel",
+            "option": "stalwart-chant",
+            "predicate": ["self:effect:tenacious-stance"],
+            "priority": 51,
+            "toggleable": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "feat:stalwart-song",
+      "foundry": "Compendium.pf2e.feats-srd.Item.UPgxAYArllEBcuGS",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[actionspf2e] Pathfinder Lost Omens Highhelm"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "feat:stifle-flames",
+      "foundry": "Compendium.pf2e.feats-srd.Item.TZDQM59QbGDLheEM",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "condition",
+            "key": "ItemAlteration",
+            "mode": "downgrade",
+            "predicate": ["item:damage:type:fire"],
+            "property": "pd-recovery-dc",
+            "value": 10
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "feat:stunning-surprise",
+      "foundry": "Compendium.pf2e.feats-srd.Item.lM9WNBFmOyoCJblW",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "feat:ulfen-guard-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.w9HxCfZLsFcwXJRS",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "feat:vengeful-remnant",
+      "foundry": "Compendium.pf2e.feats-srd.Item.6m2oJVzwufgjJi9W",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "feat:wylderheart-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.pwiUuuUtifbAkaHl",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.initiative.tiebreakPriority",
+            "predicate": ["against-fiends"],
+            "priority": 51,
+            "value": 0
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "rune:kolss-oath",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.tvFMexALNZ70NVwh",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Damage[traits]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[traits]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "rune:kolss-oath-greater",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.BuQsMeD7IP4mvDCQ",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Damage[traits]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[traits]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "spell:equal-footing",
+      "foundry": "Compendium.pf2e.spells-srd.Item.Z2oSFY2fT8zLkK4P",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "target.value",
+          "raw": "1 creature with a land Speed greater than yours"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "spell:spirit-ward",
+      "foundry": "Compendium.pf2e.spells-srd.Item.MFtXn7t5vApQXqlq",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "range.value",
+          "raw": "varies"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "spell:trade-items",
+      "foundry": "Compendium.pf2e.spells-srd.Item.rSpGzCyYrTMiWQoG",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "target.value",
+          "raw": "1 item you're holding and 1 item in another creature's possession you can see, each no more than light Bulk"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "spell:warping-pull",
+      "foundry": "Compendium.pf2e.spells-srd.Item.UtINSoEJ0u630ia4",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "target.value",
+          "raw": "1 willing creature that would take damage from the triggering effect"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "weapon:jorngarls-harm",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.mpu2fvjDVe771RbU",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[equipment-srd] Pathfinder Adventure: Night of the Gray Death"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "weapon:lions-call",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.zdTVlzR2OW17gLW6",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "runes.property",
+          "raw": "authorized"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "weapon:screaming-pinion",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.PsBTAUV7ExEsKpVx",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "override",
+            "predicate": ["screaming-pinion-transcendent-shot"],
+            "property": "damage-type",
+            "selectors": ["{item|id}-damage"],
+            "value": "spirit"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "CriticalSpecialization",
+          "raw": {
+            "key": "CriticalSpecialization",
+            "predicate": ["item:id:{item|id}", "screaming-pinion-transcendent-shot"]
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[traits]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "vocabulary",
+      "kind": "damage-type",
+      "slug": "untyped",
+      "reason": "unmapped-value",
+      "detail": "untyped"
+    }
+  ]
+}

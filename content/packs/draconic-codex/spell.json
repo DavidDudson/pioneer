@@ -1,0 +1,1067 @@
+[
+  {
+    "id": "3ac5d815-be6a-54b1-b11b-ec5154421430",
+    "pack": "draconic-codex",
+    "kind": "spell",
+    "slug": "spell:armor-of-thorn-and-claw",
+    "name": "Armor of Thorn and Claw",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "manipulate", "morph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Razor-sharp thorns and claws erupt from your skin or scales. Whenever a creature touches you or hits you with a melee unarmed attack, it takes 1 piercing damage. Additionally, if you become "
+          },
+          {
+            "type": "ref",
+            "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "b374c4c9-d230-5167-8878-38e08932a071"
+          },
+          {
+            "type": "text",
+            "text": ", or otherwise held "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": " in a creature's grasp, such as by being engulfed or swallowed, the creature takes (ceil(@item.rank / 2))d4[persistent,bleed] damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+2)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The piercing damage increases by 2, and the persistent bleed damage increases by 1d4."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.EPTmSiURVp2ldkVB"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "traditions": ["primal"],
+      "damage": [
+        {
+          "key": "hy0fbgsbafd86ct0",
+          "formula": "1",
+          "damageType": "piercing",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 2,
+        "damage": [
+          {
+            "key": "hy0fbgsbafd86ct0",
+            "formula": "2"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "9b03876d-a210-5fba-932c-22ca85305b9c",
+    "pack": "draconic-codex",
+    "kind": "spell",
+    "slug": "spell:blood-feasting-breath",
+    "name": "Blood-Feasting Breath",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "healing", "manipulate", "vitality", "void"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Area",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (continued) two 30-foot cones"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Like a vorpal dragon, you absorb life with an inhale and release it with an exhale. All living creatures in the first cone take 5d6 void damage with a basic Fortitude save. You and all living creatures in the second cone regain Hit Points equal to the greatest damage a single creature took from the first cone."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage and healing increase by 1d6."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.94eJHyFPNM1Z3TZp"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "area": {
+        "shape": "cone",
+        "size": 30
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:fortitude",
+          "basic": true
+        }
+      },
+      "traditions": ["divine", "occult"],
+      "damage": [
+        {
+          "key": "oqopvqtwinsivfrh",
+          "formula": "5d6",
+          "damageType": "void",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "oqopvqtwinsivfrh",
+            "formula": "1d6"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "51c50f31-edfc-5884-9adb-9c3beaa94e77",
+    "pack": "draconic-codex",
+    "kind": "spell",
+    "slug": "spell:channel-arrogance",
+    "name": "Channel Arrogance",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "manipulate", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You channel your heightened sense of self-worth into a creature, forcing them to acknowledge your true worth. You can Cast this Spell using 1 action if you know the target isn't worthy of you spending your time to generate the full force of this spell, or using 3 actions if you can't possibly hold back the majesty of your presence and must flood the target with your full attention."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The target takes 5d10 mental damage and other effects depending on its Will saving throw. If you Cast the Spell using 1 action, the target gets a result one degree of success better than it rolled."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes half damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "88ca1b7b-d5de-5978-9ff4-258c9aadef1a"
+          },
+          {
+            "type": "text",
+            "text": " with you for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes full damage and is fascinated with you for 1 round. While fascinated with you, the target must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 5
+          },
+          {
+            "type": "text",
+            "text": " when attempting to Cast a Spell or use an action with the auditory trait. On a failure, the action is disrupted as the target blurts praise for you instead of saying what it intended."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but double damage and the effect lasts for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage increases by 1d10."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.CVvkveEH7lonSTZd"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "one",
+        "upTo": "three"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": [
+        {
+          "key": "pjbb4vnaexokehh0",
+          "formula": "5d10",
+          "damageType": "mental",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "pjbb4vnaexokehh0",
+            "formula": "1d10"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "f3e2575c-6f8d-5b5b-a8d4-1e30419dd8c4",
+    "pack": "draconic-codex",
+    "kind": "spell",
+    "slug": "spell:cloud-current",
+    "name": "Cloud Current",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["air", "concentrate", "manipulate", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Air and water vapor combine into a great cloud that funnels a powerful current within it. The eddies make the cloud appear from a distance to be a group of cloud dragons tumbling through the sky. The cloud is up to 30 feet wide, 30 feet tall, and 10 miles long. It runs parallel to the ground, and the nearest end of it must be within range and at least 100 feet above the ground. The current travels in a direction you choose when you Cast the Spell, and the travel Speed of creatures flying through the cloud in that direction is doubled. You can Dismiss the cloud."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (6th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The duration is 8 hours, and the cloud can be up to 50 feet wide and 100 miles long."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (8th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As 6th, and travel speed is quadrupled."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.s7kVnr0EdljCamuR"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 500
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour"
+      },
+      "traditions": ["arcane", "primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "7215781c-46c7-51b3-a0ab-b81b7eefc12d",
+    "pack": "draconic-codex",
+    "kind": "spell",
+    "slug": "spell:divine-dragons-watch",
+    "name": "Divine Dragon's Watch",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "contingency", "manipulate", "sanctified", "spirit"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You summon an invisible divine draconic spirit to watch over your target. When the spell is complete, you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "8afd08f8-4676-5b4a-b5ee-878f0ad8b261"
+          },
+          {
+            "type": "text",
+            "text": " reaction; once you use the reaction, the spell ends."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Dragon's Protection",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, sanctified, spirit)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage increases by 1d4."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "71520837-5110-5b4d-8eaf-de6d5ff898b3"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.BBiO9ZdwyEJ581ES"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute"
+      },
+      "range": {
+        "type": "touch"
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "duration": {
+        "type": "time",
+        "count": 24,
+        "unit": "hour"
+      },
+      "traditions": ["divine"],
+      "damage": []
+    }
+  },
+  {
+    "id": "6f852904-d85d-53e4-b525-7e3a185432fe",
+    "pack": "draconic-codex",
+    "kind": "spell",
+    "slug": "spell:dragon-turret",
+    "name": "Dragon Turret",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Area",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (continued) an empty 10-foot radius, 50-foot-tall cylinder"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You conjure forth a massive tower with a large dragon that's bound to crawl its length. The dragon and the tower share the same space, and the dragon intercepts any attack targeting the tower. When the dragon dies, the tower crumbles. The dragon is immune to all conditions, has an AC of 40, a +30 modifier for all saving throws, and 250 Hit Points. When you Cast the Spell, and once per round when you Sustain it, the dragon unleashes its breath in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 60
+          },
+          {
+            "type": "text",
+            "text": ", dealing 13d8 damage (basic Reflex save). The damage type depends on the tradition used to cast this spell: "
+          },
+          {
+            "type": "text",
+            "text": "arcane",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " force, "
+          },
+          {
+            "type": "text",
+            "text": "divine",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " spirit, "
+          },
+          {
+            "type": "text",
+            "text": "occult",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " mental, "
+          },
+          {
+            "type": "text",
+            "text": "primal",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " fire."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.eAOClJ1KRSPik8SX"
+    },
+    "data": {
+      "rank": 10,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 500
+      },
+      "area": {
+        "shape": "cylinder",
+        "size": 10
+      },
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "sustained": true
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:reflex",
+          "basic": true
+        }
+      },
+      "traditions": ["arcane", "divine", "occult", "primal"],
+      "damage": [
+        {
+          "key": "eojlr2u7zkbcz8lk",
+          "formula": "13d8",
+          "kinds": ["damage"]
+        }
+      ]
+    }
+  },
+  {
+    "id": "313c5466-8d35-5edd-bf7b-0cb01b8d0b9f",
+    "pack": "draconic-codex",
+    "kind": "spell",
+    "slug": "spell:earth-and-sky",
+    "name": "Earth and Sky",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["air", "concentrate", "earth", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You erupt into the air with the force of a dragon taking flight, launching nearby creatures into the sky with you. This spell has no effect unless you're on solid ground when you cast it. You fly directly upward, up to 100 feet into the air. When the spell ends, you safely float to the ground, as gentle landing. Every other creature in the area when you Cast this Spell must attempt a Fortitude saving throw."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is launched the same distance into the air as you, then falls."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is launched the same distance into the air as you, then falls and can't "
+          },
+          {
+            "type": "ref",
+            "id": "d2f5524b-be46-55b7-8b1d-12d0a9d1dbb2",
+            "label": "Arrest its Fall"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but the creature takes twice as much damage from falling."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.XOs8C2eZJAO3go0N"
+    },
+    "data": {
+      "rank": 6,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "area": {
+        "shape": "emanation",
+        "size": 20
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:fortitude",
+          "basic": false
+        }
+      },
+      "traditions": ["arcane", "primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "55b7eb78-4bf8-52a4-93bf-f55731d73703",
+    "pack": "draconic-codex",
+    "kind": "spell",
+    "slug": "spell:horde-of-underlings",
+    "name": "Horde of Underlings",
+    "level": 3,
+    "rarity": "rare",
+    "traits": ["concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You summon six underlings, such as skeletons or kobolds. When you cast this spell, you decide what kind of creatures they are, if they're Small or Medium, and whether they deal bludgeoning, piercing, or slashing damage (choose once and applying it to all underlings). Each underling has 1 Hit Point, 5 AC, and automatically fails all saving throws. Each underling appears in an unoccupied square of your choice within the area. The underlings don't block movement, but they are difficult terrain for creatures other than you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each underling attacks one enemy adjacent to it (if any), automatically dealing 1d4 damage of the chosen type. The first time you Sustain the spell on each subsequent round, each underling moves 20 feet toward the nearest enemy. If an underling ends its movement adjacent to an enemy, it damages that enemy as described above."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The number of underlings increases by 2"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.y5amezSt82FYu9HG"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "area": {
+        "shape": "cone",
+        "size": 30
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "traditions": ["arcane", "divine", "occult", "primal"],
+      "damage": [
+        {
+          "key": "i4n3ztqhgn4hsqxi",
+          "formula": "1d4",
+          "kinds": ["damage"]
+        }
+      ],
+      "variants": [
+        {
+          "name": "Horde of Underlings (Bludgeoning)",
+          "damage": [
+            {
+              "key": "i4n3ztqhgn4hsqxi",
+              "formula": "1d4",
+              "damageType": "bludgeoning",
+              "kinds": ["damage"]
+            }
+          ]
+        },
+        {
+          "name": "Horde of Underlings (Piercing)",
+          "damage": [
+            {
+              "key": "i4n3ztqhgn4hsqxi",
+              "formula": "1d4",
+              "damageType": "piercing",
+              "kinds": ["damage"]
+            }
+          ]
+        },
+        {
+          "name": "Horde of Underlings (Slashing)",
+          "damage": [
+            {
+              "key": "i4n3ztqhgn4hsqxi",
+              "formula": "1d4",
+              "damageType": "slashing",
+              "kinds": ["damage"]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "687f0ffc-8aae-5db8-a7c2-18e04808d3ba",
+    "pack": "draconic-codex",
+    "kind": "spell",
+    "slug": "spell:orb-of-twisting-fate",
+    "name": "Orb of Twisting Fate",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The glass orb of an omen dragon erupts from your target's forehead, overwhelming their mind with alternative options."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " At the start of its turn, the target must decide whether to spend its first action to Stride in a random direction or to spend its first action doing nothing. The spell then ends."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but instead of ending automatically, the target attempts a new save at the end of each of its turns, ending the effect on a success."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but instead of ending automatically, the spell lasts for the full duration."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.qO4xOJ0kAvhVGDpX"
+    },
+    "data": {
+      "rank": 7,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 15
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "upTo": true
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": ["occult"],
+      "damage": []
+    }
+  }
+]

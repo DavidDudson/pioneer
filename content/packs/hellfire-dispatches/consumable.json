@@ -1,0 +1,693 @@
+[
+  {
+    "id": "294c7da7-d814-5094-bf37-de52ecd4ee56",
+    "pack": "hellfire-dispatches",
+    "kind": "consumable",
+    "slug": "consumable:freezing-embrace-snare",
+    "name": "Freezing Embrace Snare",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["cold", "consumable", "magical", "snare", "trap"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellfire-dispatches"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "his snare hides a tiny humanoid figurine made of enchanted ice among leaves or just beneath a thin layer of dirt in the square. The first creature to enter the snare's square crushes the statuette, releasing an incorporeal figure of chilly mist that grabs at the triggering creature, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "8d8",
+                "damageType": "cold"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. The creature must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 26
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes no damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes half damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round as the icy figure clings to its legs."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes full damage and "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "cold",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage from the icy figure's embrace. It is clumsy 1 for as long as it takes this persistent damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes double damage and "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "cold",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage from the icy figure's embrace. It is "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 2"
+          },
+          {
+            "type": "text",
+            "text": " for as long as it takes this persistent damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.mK3ScHbO28hlnSg8"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 75
+        }
+      },
+      "bulk": "light",
+      "category": "snare",
+      "damage": {
+        "formula": "8d8",
+        "damageType": "cold",
+        "kind": "damage"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "eebe6688-ab9e-56aa-841e-264c9ef0fec1",
+    "pack": "hellfire-dispatches",
+    "kind": "consumable",
+    "slug": "consumable:glittering-lights-snare",
+    "name": "Glittering Lights Snare",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["consumable", "light", "magical", "snare", "trap", "visual"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellfire-dispatches"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Some of Brastlewark's youth craft lesser versions of this snare to prank their friends. A creature that enters the square's square is subjected to a rapid series of flashing lights that overstimulate the senses. They must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 22
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " for 2 rounds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is dazzled for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round and then dazzled for 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.9zwWWIy3Dtw60j1E"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 25
+        }
+      },
+      "bulk": "light",
+      "category": "snare",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "72ff52f9-b7b6-5897-9e02-df5f006bf5eb",
+    "pack": "hellfire-dispatches",
+    "kind": "consumable",
+    "slug": "consumable:mocking-mirror-snare",
+    "name": "Mocking Mirror Snare",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["consumable", "illusion", "magical", "mental", "snare", "trap"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellfire-dispatches"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A reflective rune is hidden in the snare's square. A creature that enters this square suddenly sees a twisted reflection of themself appear nearby and perform some action that they would never do. The creature takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "8d6",
+                "damageType": "mental"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 25,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save. On a critical failure, the creature is also "
+          },
+          {
+            "type": "ref",
+            "id": "6f53a234-670f-5b02-a986-7cce57585fc8"
+          },
+          {
+            "type": "text",
+            "text": " until the end of their next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.NC2kxJmZu73xPA6x"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 60
+        }
+      },
+      "bulk": "light",
+      "category": "snare",
+      "damage": {
+        "formula": "8d6",
+        "damageType": "mental",
+        "kind": "damage"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "b4eddee6-a9a3-57c8-8d30-2ad56941f1b2",
+    "pack": "hellfire-dispatches",
+    "kind": "consumable",
+    "slug": "consumable:pit-illusion-snare",
+    "name": "Pit Illusion Snare",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["consumable", "illusion", "magical", "mental", "snare", "trap"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellfire-dispatches"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You add a touch of illusion magic to a magical sensor that makes the target believe a bottomless pit opens below it when the snare is triggered. A Medium or smaller creature that enters the snare's square must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 20
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is cautious moving forward, treating the snare's square and all adjacent squares as difficult terrain until the end of its turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature falls "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature falls prone and takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d4",
+                "damageType": "mental"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.onI4XByaLFqD9Ci6"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 9
+        }
+      },
+      "bulk": "light",
+      "category": "snare",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "dd0e8344-11f4-5a2c-9a1a-ac9a2c7d2faf",
+    "pack": "hellfire-dispatches",
+    "kind": "consumable",
+    "slug": "consumable:puddle-shove-snare",
+    "name": "Puddle Shove Snare",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical", "snare", "trap", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellfire-dispatches"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This snare magically contains a pressurized jet of water activated by an invisible sensor. When a creature enters the snare's square, a powerful blast of water deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d10",
+                "damageType": "bludgeoning"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to the creature and potentially pushes them. You determine the direction of the blast of water when crafting the snare. The triggering creature must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 24
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes half damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes full damage and is pushed 10 feet in the determined direction."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes double damage, is pushed 15 feet in the determined direction, and is drenched with water, taking a –1 circumstance penalty to saving throws against electricity effects for 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.T1iRa7JuHAKqQNjd"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 40
+        }
+      },
+      "bulk": "light",
+      "category": "snare",
+      "damage": {
+        "formula": "4d10",
+        "damageType": "bludgeoning",
+        "kind": "damage"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "d34d91be-3ef5-54fb-827c-091ba8a95209",
+    "pack": "hellfire-dispatches",
+    "kind": "consumable",
+    "slug": "consumable:shadow-cloak-snare",
+    "name": "Shadow Cloak Snare",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["consumable", "darkness", "magical", "snare", "trap"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellfire-dispatches"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When a creature enters the snare's square, it is plunged into an unnatural darkness for 1 minute. Light can't enter the square, any non-magical light sources within the square do not emanate any light, and magical light emanating from a spell of rank 2 or below is suppressed. Those outside the area can't see directly into or through the darkness, and all adjacent squares are reduced to dim light."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.zCQE3SMDejlGWZKw"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 15
+        }
+      },
+      "bulk": "light",
+      "category": "snare",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]
