@@ -222,6 +222,27 @@ The panel is `pio-defences` in `libs/rules/ui`, fed the engine's `Defences` and 
 immunities and exceptions it names. The sheet derives them with `deriveDefences` over the content registry; until
 the builder puts the character's rule elements in play, every list is empty.
 
+### Shields
+
+Raising a shield and blocking with it are play edits, kept in the play state like Hit Points and conditions:
+
+- **Raise a Shield** is the ordinary action `action:raise-a-shield`; it puts the `effect:effect-raise-a-shield` effect
+  on the character, which gives the shield's circumstance bonus and enables Shield Block in the actions list.
+- **Shield Block** is the `blockWithShield` command (`shield-commands.ts`): the shield prevents damage up to its
+  Hardness (`blocked`), and the character and the shield each take the rest.
+- **Shield damage** is stored as `PlayState.shields`, the damage taken by inventory item. The shield's Hardness, Hit
+  Points and Broken Threshold come from its content, never from the client. A shield at or below its Broken Threshold
+  is broken and cannot block (`blockProblem`); one taken to 0 is destroyed, so its entry is cleared and the item is
+  removed from the inventory.
+- A request naming a shield the character does not hold, or a broken one, is refused with
+  `character.validation.shieldNotHeld` or `shieldBroken`. At most `SHIELDS_MAX` shields are tracked, so a request
+  cannot grow the play state.
+- The server derives the held shields from the character's inventory and the content registry (`shieldsOf` in
+  `play-shield.ts`) and passes them to the domain as `PlayLimits.shields`, so the domain does no content lookups.
+
+The encounter tab shows each held shield with its Hit Points, its condition (whole, broken or destroyed) and a block
+control (`sheet-shields`).
+
 ### Statistics and breakdowns
 
 The statistics section lists Armor Class, the three saves and Perception, each by the name its content definition

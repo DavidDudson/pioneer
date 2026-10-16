@@ -22,20 +22,16 @@ import {
   needsRestContent,
   NO_COUNTED,
   NO_RESOURCES,
+  NO_SHIELDS,
   PLAY_COMMANDS,
   resourceMaxima,
   restHealing,
   restRecovery,
   turnCommandInputs,
   slotContent,
+  isShieldCommand,
   isTurnCommand,
   isWandCommand,
-  wandInventoryAfter,
-  wandOutcome,
-  WandOutcome,
-  WandProblem,
-  wandProblem,
-  wandSources,
 } from '@pioneer/character/domain';
 import type {
   Character,
@@ -46,6 +42,7 @@ import type {
   ConditionValued,
   EffectContent,
   PlayCommand,
+  PlayEdit,
   PlayLimits,
   SlotContent,
   PlayState,
@@ -54,11 +51,10 @@ import type {
   StaffLimits,
   TurnCommand,
   TurnOutcome,
-  WandCommand,
 } from '@pioneer/character/domain';
 import { cryptoRandom } from '@pioneer/rules/dice';
 import type { ContentRegistry, ContentSource, HitPoints } from '@pioneer/rules/sdk';
-import { message, NotFoundError, ValidationError, VersionConflictError } from '@pioneer/shared/kernel';
+import { NotFoundError, VersionConflictError } from '@pioneer/shared/kernel';
 import type { Clock, UserId } from '@pioneer/shared/kernel';
 
 import { contentOfCharacter, variantRulesOfCharacter } from './character-content';
@@ -66,9 +62,11 @@ import type { CharacterContentSource } from './character-content';
 import { mayAccessCharacter } from './character-policy';
 import type { CharacterRepository, PlayWrite } from './character-repository';
 import { checkCondition, checkEffect, checkExploration, checkStaff, isDailyPreparations } from './play-checks';
-import { NO_MAX_HIT_POINTS, NO_REST, NO_VALUED, turnLimits, WAND_MESSAGES } from './play-defaults';
+import { NO_MAX_HIT_POINTS, NO_REST, NO_VALUED, turnLimits } from './play-defaults';
 import type { RestContent } from './play-defaults';
 import { derivedMaxHitPoints } from './play-hit-points';
+import { changesInventory, inventoryAfter } from './play-inventory';
+import { shieldsOf } from './play-shield';
 import { spendLimits } from './play-spend';
 import { checkStaffCast, staffCastOf, takesBackCast } from './play-staff';
 
@@ -112,7 +110,7 @@ export class PlayService {
       throw new VersionConflictError('CharacterPlay', id);
     }
     await checkExploration(command, async () => this.#contentOf(character).registry());
-    const wanded = isWandCommand(command) ? await this.#wanded(character, current.play, command) : undefined;
+    const reinventoried = await this.#reinventoried(character, current.play, command);
     const { play, events } = isTurnCommand(command)
       ? await this.#turned(character, current.play, command)
       : { play: await this.#applied(character, current.play, command), events: [] };
@@ -124,39 +122,21 @@ export class PlayService {
       now: this.#clock.now(),
     };
     const saved =
-      wanded === undefined
+      reinventoried === undefined
         ? await this.#characters.updatePlay(write)
-        : await this.#characters.updatePlayAndCharacter(write, wanded, character.version);
+        : await this.#characters.updatePlayAndCharacter(write, reinventoried, character.version);
     return { ...saved, events: [...events] };
   }
 
-  /**
-   * A wand cast or overcharge, checked against the wands the character holds. The character with the wand marked broken
-   * or removed when the cast breaks or destroys it, or undefined when the inventory stays as it is.
-   */
-  async #wanded(character: Character, play: PlayState, command: WandCommand): Promise<Character | undefined> {
-    const registry = await this.#contentOf(character).registry();
-    const slots = await this.#slotContent(character, registry);
-    const { inventory } = character.document;
-    const sources = wandSources({
-      inventory: inventory.items,
-      items: itemContent(registry),
-      spells: slots.spells,
-      entries: characterSpellcasting(characterGrants(character.document, slots)),
-      uses: play.resources.uses,
-      counted: await this.#counted(character),
-    });
-    const source = sources.find(({ item }) => item.id === command.item);
-    const problem = wandProblem(command, source);
-    if (problem !== undefined || source === undefined) {
-      throw new ValidationError([
-        { path: ['command'], message: message(WAND_MESSAGES[problem ?? WandProblem.NotHeld]) },
-      ]);
+  /** The character with its inventory changed by the edit (a wand broken, a shield broken or destroyed), or undefined when it stays as it is. */
+  async #reinventoried(character: Character, play: PlayState, command: PlayEdit): Promise<Character | undefined> {
+    if (!changesInventory(command)) {
+      return undefined;
     }
-    const outcome = wandOutcome(command, source);
-    return outcome === WandOutcome.Cast
-      ? undefined
-      : character.withInventory(wandInventoryAfter(inventory, command.item, outcome), this.#clock.now());
+    const registry = await this.#contentOf(character).registry();
+    const counted = isWandCommand(command) ? await this.#counted(character) : NO_COUNTED;
+    const slots = await this.#slotContent(character, registry);
+    return inventoryAfter({ character, play, registry, slots, counted, now: this.#clock.now() }, command);
   }
 
   /** The staves a play edit reads: daily preparations prepares one, and a staff cast is checked, which gives its cost. */
@@ -207,6 +187,7 @@ export class PlayService {
     const effects = needsEffectContent(command) ? await this.#effects(character) : NO_EFFECTS;
     checkEffect(play, command, effects);
     const { healing, recovery } = needsRestContent(command) ? await this.#rest(character) : NO_REST;
+    const registry = await this.#contentOf(character).registry();
     const limits: PlayLimits = {
       hitPoints,
       healing,
@@ -216,11 +197,12 @@ export class PlayService {
       staff,
       valued,
       effects,
+      shields: isShieldCommand(command) ? shieldsOf(character, registry) : NO_SHIELDS,
       spend: spendLimits(command, {
         play,
         counted,
         points: resources,
-        registry: await this.#contentOf(character).registry(),
+        registry,
         now: this.#clock.now(),
       }),
     };

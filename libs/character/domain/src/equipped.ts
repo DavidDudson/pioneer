@@ -30,7 +30,7 @@ import { effectRoots } from './effects';
 import { encumberedRoots } from './encumbered-roots';
 import { rulesOf } from './entry-rules';
 import type { Resolved } from './entry-rules';
-import type { Inventory } from './inventory';
+import type { Inventory, InventoryItemId } from './inventory';
 import { activeState, equippedState } from './inventory-content';
 import type { ItemContent } from './inventory-content';
 import { alteredItem } from './item-alteration-inputs';
@@ -155,6 +155,8 @@ export function equippedInputs(
 
 /** A shield the character holds: what the sheet shows beside its Strikes. */
 export interface HeldShield {
+  /** The inventory item that holds it, which keeps the damage it has taken. */
+  readonly item: InventoryItemId;
   readonly entry: ContentId;
   readonly hardness: Hardness;
   readonly hitPoints: HitPoints;
@@ -175,7 +177,7 @@ export function heldShields(
 ): readonly HeldShield[] {
   const shields = itemsIn(inventory, content, equippedState).filter(({ entry }) => entry.kind === ContentKind.Shield);
   const inPlay = shields.length === 0 ? NO_MODIFIERS : rules();
-  return shields.flatMap(({ entry }): HeldShield[] => {
+  return shields.flatMap(({ entry, item }): HeldShield[] => {
     if (entry.kind !== ContentKind.Shield) {
       return [];
     }
@@ -185,6 +187,7 @@ export function heldShields(
     return [
       {
         entry: entry.id,
+        item: item.id,
         hardness,
         hitPoints,
         brokenThreshold: HitPoints.parse(Math.floor(hitPoints / BROKEN_DIVISOR)),

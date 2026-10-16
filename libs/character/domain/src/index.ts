@@ -585,6 +585,25 @@ export {
   type TurnCommand,
   type TurnState,
 } from './turn-state';
+export {
+  blocked,
+  blockProblem,
+  conditionAfterBlock,
+  isShieldCommand,
+  NO_SHIELDS,
+  SHIELDS_MAX,
+  shieldCleared,
+  ShieldCommandField,
+  ShieldCommandSchema,
+  ShieldCondition,
+  shieldCondition,
+  ShieldDamageSchema,
+  shieldContent,
+  shieldDamaged,
+  shieldHitPoints,
+  ShieldProblem,
+} from './shield-commands';
+export type { Block, ShieldCommand, ShieldContent, ShieldDamage, ShieldStats } from './shield-commands';
 export { applySpendCommand, isSpendCommand, spendRefusal, spentStaffOf, turnAllows } from './spend-commands';
 export type { SpendLimits, SpendPlay } from './spend-commands';
 export {

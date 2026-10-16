@@ -1,4 +1,4 @@
-import { DamageApplication, DamageTotal } from '@pioneer/rules/dice';
+import { DamageApplication } from '@pioneer/rules/dice';
 import { DegreeOfSuccessSchema, HitPoints } from '@pioneer/rules/sdk';
 import { Uuid, Version } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
@@ -13,27 +13,29 @@ import {
   DeathTrackSchema,
   Doomed,
   Dying,
-  knockedOut,
-  recovered,
   withDoomed,
   withDying,
   withWounded,
   Wounded,
 } from './death-track';
-import type { DeathTrack } from './death-track';
 import { EffectCommandField, EffectCommandSchema } from './effect-commands';
 import { ActiveEffectsSchema } from './effects';
 import type { EffectContent } from './effects';
 import { ExplorationActivitySchema, ExplorationCommandField, ExplorationCommandSchema } from './exploration-commands';
+import { afterDamage, afterHealing, afterSetting, trackOf, withTempHitPoints, withTrack } from './hit-point-edits';
 import { ResourceCommandField, ResourceCommandSchema } from './resource-commands';
 import { ResourcesSpentSchema } from './resources';
 import { RestCommandField, RestCommandSchema } from './rest-types';
 import type { RestLimits } from './rest-types';
+import { afterBlock, ShieldCommandField, ShieldCommandSchema, ShieldDamageSchema } from './shield-commands';
+import type { ShieldContent } from './shield-commands';
 import type { SpendLimits } from './spend-commands';
 import { SpendCommandField, SpendCommandSchema, SpendLogSchema } from './spend-log';
 import { ToggleCommandField, ToggleCommandSchema, TogglesSchema } from './toggle-commands';
 import { TurnEventSchema } from './turn-events';
 import { OUT_OF_ENCOUNTER, TurnCommandSchema, TurnStateSchema } from './turn-state';
+
+export { currentHitPoints, withTempHitPoints } from './hit-point-edits';
 
 const NONE = HitPoints.parse(0);
 
@@ -66,6 +68,8 @@ export const PlayStateSchema = z.strictObject({
   conditions: ActiveConditionsSchema,
   effects: ActiveEffectsSchema,
   toggles: TogglesSchema,
+  /** The damage each shield has taken, by its inventory item; the shield's own Hit Points come from its content. */
+  shields: ShieldDamageSchema,
   turn: TurnStateSchema.default(OUT_OF_ENCOUNTER),
   /** The spends since the turn began; the actions they took are already out of `turn`. */
   spendLog: SpendLogSchema.default([]),
@@ -103,6 +107,8 @@ export const PlayCommandField = {
   ...RestCommandField,
   /** An action, spell or activation spent from the turn, or such a spend taken back (`spend-log.ts`). */
   ...SpendCommandField,
+  /** Shield Block (`shield-commands.ts`). */
+  ...ShieldCommandField,
   /** A `RollOption` toggle set on or off (`toggle-commands.ts`). */
   ...ToggleCommandField,
   ...ExplorationCommandField,
@@ -129,6 +135,7 @@ export const PlayCommandSchema = z.discriminatedUnion('field', [
   ...EffectCommandSchema.options,
   ...RestCommandSchema.options,
   ...SpendCommandSchema.options,
+  ...ShieldCommandSchema.options,
   ...ToggleCommandSchema.options,
   ...ExplorationCommandSchema.options,
 ]);
@@ -167,88 +174,8 @@ export interface PlayLimits extends RestLimits {
   readonly effects: EffectContent;
   /** The time a spend is stamped with. */
   readonly spend: SpendLimits;
-}
-
-/** `value`, or `max` when it is more. */
-function atMost(value: HitPoints, max: HitPoints): HitPoints {
-  return HitPoints.parse(Math.min(value, max));
-}
-
-/** `from` less `amount`, never below 0. */
-function less(from: HitPoints, amount: HitPoints | DamageTotal): HitPoints {
-  return HitPoints.parse(Math.max(from - amount, 0));
-}
-
-/** `from` plus `amount`, never past `max`. */
-function plus(from: HitPoints, amount: DamageTotal, max: HitPoints): HitPoints {
-  return HitPoints.parse(Math.min(from + amount, max));
-}
-
-/** Current Hit Points: the maximum less the damage taken, never below 0. */
-export function currentHitPoints(hp: HitPointsState, max: HitPoints): HitPoints {
-  return less(max, atMost(hp.damage, max));
-}
-
-/** `play` with `temp` temporary Hit Points gained: they don't stack, so the higher of the two is kept. Needs no maximum. */
-export function withTempHitPoints(play: PlayState, temp: HitPoints): PlayState {
-  return {
-    ...play,
-    hp: { ...play.hp, temp: HitPoints.parse(Math.max(play.hp.temp, temp)) },
-  };
-}
-
-/** The death track of `play`. */
-function trackOf({ dying, wounded, doomed, dead }: PlayState): DeathTrack {
-  return { dying, wounded, doomed, dead };
-}
-
-/** `play` with its death track replaced by `track`. */
-function withTrack(play: PlayState, track: DeathTrack): PlayState {
-  return { ...play, ...track };
-}
-
-/** `play` after Hit Points moved from `before` to `after` without being damaged: coming back above 0 ends dying. */
-function afterRestoring(play: PlayState, before: HitPoints, after: HitPoints): PlayState {
-  const revived = before === NONE && after > NONE;
-  return revived ? withTrack(play, recovered(trackOf(play))) : play;
-}
-
-/** `play` after `application` of damage: temporary Hit Points take it first, and what gets through at 0 advances dying. */
-function afterDamage(play: PlayState, application: DamageApplication, max: HitPoints): PlayState {
-  const { hp } = play;
-  const { taken, critical } = application;
-  const absorbed = HitPoints.parse(Math.min(hp.temp, taken));
-  const through = DamageTotal.parse(taken - absorbed);
-  const damage = plus(atMost(hp.damage, max), through, max);
-  const hurt: PlayState = {
-    ...play,
-    hp: { temp: less(hp.temp, absorbed), damage },
-  };
-  const down = through > NONE && currentHitPoints(hurt.hp, max) === NONE;
-  return down ? withTrack(hurt, knockedOut(trackOf(hurt), critical)) : hurt;
-}
-
-/** `play` after healing `amount`: Hit Points back above 0 end dying. */
-function afterHealing(play: PlayState, amount: HitPoints, max: HitPoints): PlayState {
-  const { hp } = play;
-  const healed: PlayState = {
-    ...play,
-    hp: { ...hp, damage: less(atMost(hp.damage, max), amount) },
-  };
-  return afterRestoring(healed, currentHitPoints(hp, max), currentHitPoints(healed.hp, max));
-}
-
-/** `play` with Hit Points set to `current`: a drop to 0 is knocked out, a rise above it ends dying. */
-function afterSetting(play: PlayState, current: HitPoints, max: HitPoints): PlayState {
-  const { hp } = play;
-  const before = currentHitPoints(hp, max);
-  const set: PlayState = {
-    ...play,
-    hp: { ...hp, damage: less(max, atMost(current, max)) },
-  };
-  const after = currentHitPoints(set.hp, max);
-  const down = before > NONE && after === NONE;
-  return down ? withTrack(set, knockedOut(trackOf(set), false)) : afterRestoring(set, before, after);
+  /** The shields the character holds, with the Hardness and Hit Points their content gives. */
+  readonly shields: ShieldContent;
 }
 
 /**
@@ -260,17 +187,21 @@ function afterSetting(play: PlayState, current: HitPoints, max: HitPoints): Play
 export function applyPlayCommand(play: PlayState, command: PlayCommand, limits: PlayLimits): PlayState {
   return isCountingCommand(command)
     ? applyCountingCommand(play, command, limits)
-    : applyHitPointsEdit(play, command, limits.hitPoints);
+    : applyHitPointsEdit(play, command, limits);
 }
 
 /** The edits of Hit Points and the death track: every play edit that does not count. */
 type HitPointsCommand = Exclude<PlayCommand, CountingCommand>;
 
 /** `play` after an edit of Hit Points or the death track. */
-function applyHitPointsEdit(play: PlayState, command: HitPointsCommand, max: HitPoints): PlayState {
+function applyHitPointsEdit(play: PlayState, command: HitPointsCommand, limits: PlayLimits): PlayState {
+  const max = limits.hitPoints;
   switch (command.field) {
     case PlayCommandField.Damage: {
       return afterDamage(play, command.damage, max);
+    }
+    case PlayCommandField.BlockWithShield: {
+      return afterBlock(play, command, limits);
     }
     case PlayCommandField.Heal: {
       return afterHealing(play, command.amount, max);

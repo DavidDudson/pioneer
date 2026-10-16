@@ -32,6 +32,7 @@ describe('heldShields', () => {
     expect(heldShields(held, content)).toStrictEqual([
       {
         entry: itemFixtureId(ItemFixture.SteelShield),
+        item: ID,
         hardness: Hardness.parse(5),
         hitPoints: HitPoints.parse(20),
         brokenThreshold: HitPoints.parse(10),

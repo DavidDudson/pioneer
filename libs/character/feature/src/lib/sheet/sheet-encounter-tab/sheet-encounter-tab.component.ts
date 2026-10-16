@@ -9,6 +9,7 @@ import type { NamedStrike } from '@pioneer/rules/ui';
 import { SheetActions } from '../sheet-actions/sheet-actions.component';
 import { SheetPickFields } from '../sheet-pick-fields/sheet-pick-fields.component';
 import { SHEET_SECTIONS, SHEET_TAB_SECTIONS } from '../sheet-sections';
+import { SheetShields } from '../sheet-shields/sheet-shields.component';
 import { SheetSpells } from '../sheet-spells/sheet-spells.component';
 import { SheetSpendLog } from '../sheet-spend-log/sheet-spend-log.component';
 import { SheetSpender } from '../sheet-spender';
@@ -40,6 +41,7 @@ import { SheetWands } from '../sheet-wands/sheet-wands.component';
     SheetStaves,
     SheetSpendLog,
     SheetTurnBar,
+    SheetShields,
     SheetWands,
     SpellcastingView,
     Stack,

@@ -1,0 +1,30 @@
+<fr-async-region>
+  <ng-template frAsyncPending><fr-skeleton width="lg" /></ng-template>
+  <ng-template [frAsyncData]="playQuery">
+    @if (shields().length > 0) {
+      <fr-stack gap="xs">
+        <fr-number-input
+          [ariaLabel]="'character.sheet.shields.amount' | transloco"
+          [min]="0"
+          [max]="amountMax"
+          [value]="amount()"
+          (valueChange)="amount.set($event)"
+          (completeChange)="complete.set($event)"
+        />
+        @for (shown of shields(); track shown.line.key) {
+          <fr-stack direction="horizontal" align="center" gap="xs" wrap>
+            <fr-text>{{ shown.summary }}</fr-text>
+            <fr-async-button
+              size="sm"
+              [action]="block(shown.line.key)"
+              [disabled]="!shown.canBlock || !ready()"
+              [describeError]="describeError"
+            >
+              {{ 'character.sheet.shields.block' | transloco }}
+            </fr-async-button>
+          </fr-stack>
+        }
+      </fr-stack>
+    }
+  </ng-template>
+</fr-async-region>

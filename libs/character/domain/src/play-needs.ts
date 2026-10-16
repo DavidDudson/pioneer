@@ -22,6 +22,7 @@ export function needsMaxHitPoints(command: PlayCommand): boolean {
   }
   switch (command.field) {
     case PlayCommandField.Damage:
+    case PlayCommandField.BlockWithShield:
     case PlayCommandField.Heal:
     case PlayCommandField.SetHp: {
       return true;
@@ -85,6 +86,7 @@ export function needsResourceMaxima(command: PlayCommand): boolean {
       return true;
     }
     case PlayCommandField.Damage:
+    case PlayCommandField.BlockWithShield:
     case PlayCommandField.Heal:
     case PlayCommandField.SetHp:
     case PlayCommandField.SetTempHp:
@@ -122,6 +124,7 @@ export function needsConditionContent(command: PlayCommand): boolean {
     }
     case PlayCommandField.RemoveCondition:
     case PlayCommandField.Damage:
+    case PlayCommandField.BlockWithShield:
     case PlayCommandField.Heal:
     case PlayCommandField.SetHp:
     case PlayCommandField.SetTempHp:
