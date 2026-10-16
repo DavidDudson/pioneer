@@ -100,6 +100,11 @@ export class DrizzleUserRepository extends UserRepository {
     await this.#db.insert(oauthAccounts).values({ id, userId, provider, subject, createdAt: now.toString() });
   }
 
+  public override async findById(id: UserId): Promise<User | undefined> {
+    const [row] = await this.#db.select().from(users).where(eq(users.id, id)).limit(1);
+    return row === undefined ? undefined : toUser(row);
+  }
+
   public override async update(user: User): Promise<User> {
     const [row] = await this.#db.update(users).set(toValues(user)).where(eq(users.id, user.id)).returning();
     if (row === undefined) {

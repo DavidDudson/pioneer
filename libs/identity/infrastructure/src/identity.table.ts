@@ -130,5 +130,9 @@ export const bugReports = pgTable(
     snapshot: jsonb().$type<CharacterSnapshot>(),
     status: text().$type<BugReportStatus>().notNull(),
   },
-  (table) => [index('bug_reports_reporter_created_idx').on(table.reporter, table.createdAt)],
+  (table) => [
+    index('bug_reports_reporter_created_idx').on(table.reporter, table.createdAt),
+    // The maintainers' list: newest first.
+    index('bug_reports_created_idx').on(table.createdAt),
+  ],
 );

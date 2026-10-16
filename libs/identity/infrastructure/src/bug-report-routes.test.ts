@@ -3,8 +3,10 @@ import { describe, expect, test } from 'bun:test';
 import {
   BUG_REPORT_LIMIT,
   BugReportService,
+  BugReportTriageService,
   InMemoryBugReportRepository,
   InMemoryCharacterSnapshotSource,
+  InMemoryUserRepository,
 } from '@pioneer/identity/application';
 import { BugReportId, BugReportStatus, BugReportSubmission, UserId } from '@pioneer/identity/domain';
 import type { BugReport } from '@pioneer/identity/domain';
@@ -35,10 +37,9 @@ interface Fixture {
 function fixture(): Fixture {
   const repository = new InMemoryBugReportRepository();
   const reports = new BugReportService(repository, new InMemoryCharacterSnapshotSource(), fixedClock(NOW));
-  return {
-    api: new Elysia().use(problemHandler).use(bugReportRoutes(reports, new FakeAuthenticator())),
-    repository,
-  };
+  const triage = new BugReportTriageService(repository, new InMemoryUserRepository());
+  const routes = bugReportRoutes(reports, triage, new FakeAuthenticator());
+  return { api: new Elysia().use(problemHandler).use(routes), repository };
 }
 
 async function report(api: AnyElysia, body: unknown, user?: UserId): Promise<Response> {
