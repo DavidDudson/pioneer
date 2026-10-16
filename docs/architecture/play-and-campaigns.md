@@ -111,6 +111,12 @@ play state too, the id of the action or none, set by the `setExplorationActivity
 id that is not an exploration action. It suggests the skill of the initiative roll (`suggestedInitiative`: the
 activity's skill, else Perception); the roll itself is kept nowhere but the roll card.
 
+Enter encounter (`enterEncounter`) moves a character out of an encounter to off-turn, refilling nothing, and the sheet then
+offers the initiative roll: Perception or any skill or Lore, starting on the activity's suggestion, rolled as an
+initiative check (`initiativeRoll`: the `initiative` domain on the statistic and the `check:type:initiative`,
+`check:statistic:<name>` and `self:participant:initiative:stat:<name>` roll options). It can be rolled again or
+skipped; nothing about it is stored.
+
 #### Durations, sustaining and dismissing
 
 - **Countdown**: Start turn counts down every active effect with a `time` duration by one round (a minute is 10

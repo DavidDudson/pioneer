@@ -143,6 +143,8 @@ export function turnEnded(turn: TurnState): TurnState {
 
 /** The play edits that run the turn cycle. */
 export const TurnCommandField = {
+  /** Enter encounter: from out of one to off-turn, waiting for the first turn. The initiative roll is not kept. */
+  EnterEncounter: 'enterEncounter',
   /** Start turn: start-of-turn bookkeeping, then the actions and the reaction refilled. */
   StartTurn: 'startTurn',
   /** End turn: end-of-turn bookkeeping, then no actions left until the next Start turn. */
@@ -153,6 +155,7 @@ export const TurnCommandField = {
 export type TurnCommandField = ValueOf<typeof TurnCommandField>;
 
 export const TurnCommandSchema = z.discriminatedUnion('field', [
+  z.object({ field: z.literal(TurnCommandField.EnterEncounter) }),
   z.object({ field: z.literal(TurnCommandField.StartTurn) }),
   z.object({ field: z.literal(TurnCommandField.EndTurn) }),
   z.object({ field: z.literal(TurnCommandField.LeaveEncounter) }),

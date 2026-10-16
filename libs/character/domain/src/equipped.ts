@@ -226,7 +226,7 @@ function equippedResolution(document: CharacterDocument, content: ItemContent, s
     roots,
     lookup,
     level: Level.parse(document.level),
-    situation: [],
+    situation: slots.situation ?? [],
     picks: new Map(Object.entries(document.build.choices).map(([key, value]) => [SlotKey.parse(key), value])),
     toggles: toggleStates(document.play.toggles),
     rootSlots,
