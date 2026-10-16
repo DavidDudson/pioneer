@@ -106,7 +106,7 @@
           "kind": "feat",
           "filter": [
             {
-              "lte": ["item:level", "parent:granter:level"]
+              "lte": ["item:level", "self:level"]
             },
             "item:trait:impulse",
             "item:trait:air",
@@ -381,7 +381,7 @@
           "kind": "feat",
           "filter": [
             {
-              "lte": ["item:level", "parent:granter:level"]
+              "lte": ["item:level", "self:level"]
             },
             "item:trait:impulse",
             "item:trait:earth",
@@ -2046,7 +2046,7 @@
           "kind": "feat",
           "filter": [
             {
-              "lte": ["item:level", "parent:granter:level"]
+              "lte": ["item:level", "self:level"]
             },
             "item:trait:impulse",
             "item:trait:fire",
@@ -3370,7 +3370,7 @@
           "kind": "feat",
           "filter": [
             {
-              "lte": ["item:level", "parent:granter:level"]
+              "lte": ["item:level", "self:level"]
             },
             "item:trait:impulse",
             "item:trait:metal",
@@ -3921,7 +3921,7 @@
           "kind": "feat",
           "filter": [
             {
-              "lte": ["item:level", "parent:granter:level"]
+              "lte": ["item:level", "self:level"]
             },
             "item:trait:impulse",
             "item:trait:water",
@@ -4194,7 +4194,7 @@
           "kind": "feat",
           "filter": [
             {
-              "lte": ["item:level", "parent:granter:level"]
+              "lte": ["item:level", "self:level"]
             },
             "item:trait:impulse",
             "item:trait:wood",

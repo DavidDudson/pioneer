@@ -689,7 +689,7 @@
         "selectors": ["saving-throw"],
         "type": "circumstance",
         "value": 1,
-        "predicate": ["item:trait:posion"]
+        "predicate": ["item:trait:poison"]
       }
     ],
     "externalIds": {

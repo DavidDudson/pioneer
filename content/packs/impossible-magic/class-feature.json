@@ -2886,7 +2886,7 @@
         "key": "ChoiceSet",
         "flag": "eidolon",
         "choices": {
-          "kind": "feat",
+          "kind": "class-feature",
           "filter": ["item:tag:summoner-eidolon"]
         }
       },

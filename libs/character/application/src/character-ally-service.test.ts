@@ -47,7 +47,10 @@ describe('CharacterAllyService', () => {
     const found = await allies.allies(amiri, kyra.id);
 
     expect(found.campaign).toBe(campaign.name);
-    expect(found.allies.map(({ name }) => name)).toStrictEqual(['Amiri', 'Seoni']);
+    expect(found.allies.map(({ name }) => name)).toStrictEqual([
+      CharacterName.parse('Amiri'),
+      CharacterName.parse('Seoni'),
+    ]);
   });
 
   test("someone else's character, or a missing one, is not found", async () => {

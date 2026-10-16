@@ -12,6 +12,7 @@ import type { BundleBody, CanonicalJson, BundleFile, ContentBundles, KindBundles
 import { ContentId, contentId, EntrySlug, PackId } from './content-id';
 import type { ContentPack } from './content-pack';
 import { contentPackFromFiles, packContentsFromFiles } from './content-pack-file';
+import { RichTextString } from './rich-text';
 import type { RichText } from './rich-text';
 
 const PACK = PackId.parse('homebrew');
@@ -161,7 +162,9 @@ describe('contentBundles', () => {
 
   test('a shard maps the ids in it to their descriptions', () => {
     const description = descriptionOf(bundles(), 'language', contentIdOf('language:common'));
-    expect(description).toStrictEqual([{ type: 'paragraph', content: [{ type: 'text', text: 'Common is spoken.' }] }]);
+    expect(description).toStrictEqual([
+      { type: 'paragraph', content: [{ type: 'text', text: RichTextString.parse('Common is spoken.') }] },
+    ]);
   });
 
   test('an entry without a description is in no shard', () => {

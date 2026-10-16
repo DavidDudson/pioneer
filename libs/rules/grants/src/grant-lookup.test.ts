@@ -150,14 +150,14 @@ describe('grantLookup', () => {
     ]);
   });
 
-  test("finds feats, which a background grants, each with its level, which a feat slot's query reads", () => {
+  test("finds feats, which a background grants, each with its category and level, which a feat slot's query reads", () => {
     const registry = new ContentRegistry();
     registry.register(new ContentPackBuilder().withFeat('assurance').build());
     expect(
       grantLookup(registry)
         .ofKind(ContentKind.Feat)
         .map((entry) => [String(entry.slug), entry.rollOptions.map(String)]),
-    ).toEqual([['assurance', ['level:1']]]);
+    ).toEqual([['assurance', ['category:skill', 'level:1']]]);
   });
 
   test('finds class features, which a class grants, each tag a roll option a subclass query reads', () => {

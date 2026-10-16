@@ -22,6 +22,13 @@ extend-ignore-re = [
   "TOLL-teh",
   # A typo in Foundry's Rage of Elements text, kept as imported.
   "difficult terrain fo your enemies",
+  # Foundry journal page ids inside compendium UUIDs.
+  "JournalEntryPage\\.[A-Za-z0-9]{16}",
+  # Names and terms: Ded Moroz-style fey patrons (Dark Archive), a ba-sadhak (Impossible Lands).
+  "Ded (Bolota|Bereza)",
+  "ba-sadhak",
+  # The ordinal suffixes in the staff matcher's rank label pattern.
+  "\\(\\?:st\\|nd\\|rd\\|th\\)",
 ]
 
 [default.extend-words]
@@ -42,3 +49,14 @@ onself = "onself"
 # Feat name Hobbling Criticals, and Foundry's spelling in an item description (Impossible Magic).
 criticals = "criticals"
 overlayed = "overlayed"
+
+# Paizo's own misspellings, kept as imported (ADR-0031); scoped to JSON so code still gets checked.
+[type.json.extend-words]
+succed = "succed"
+entitys = "entitys"
+lifes = "lifes"
+vermillion = "vermillion"
+imtimidation = "imtimidation"
+dimensionals = "dimensionals"
+detemines = "detemines"
+sheeps = "sheeps"

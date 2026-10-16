@@ -156,8 +156,8 @@ const CONDITIONS = new ContentPackBuilder()
   .withCondition('drained', [], { valued: true, recovery: { rest: ConditionEffect.Lower } });
 const REGISTRY = new ContentRegistry();
 REGISTRY.register(CONDITIONS.build());
-const FATIGUED = CONDITIONS.idOf(ContentKind.Condition, 'fatigued');
-const DRAINED = CONDITIONS.idOf(ContentKind.Condition, 'drained');
+const FATIGUED = ContentId.parse(CONDITIONS.idOf(ContentKind.Condition, 'fatigued'));
+const DRAINED = ContentId.parse(CONDITIONS.idOf(ContentKind.Condition, 'drained'));
 const EASING: RestLimits = { ...LIMITS, recovery: restRecovery(REGISTRY) };
 
 const DRAINED_MAX = 4;
@@ -198,7 +198,7 @@ describe('rest easing conditions', () => {
     assert(
       property(doomedValues, drainedValues, boolean(), (doomed, drained, fatigued) => {
         const after = rested(afflicted(doomed, drained, fatigued), EASING).play;
-        expect(after.doomed).toBe(Math.max(doomed - 1, 0));
+        expect(after.doomed).toBe(Doomed.parse(Math.max(doomed - 1, 0)));
         expect(drainedOf(after)).toBe(Math.max(drained - 1, 0));
         expect(after.conditions.some(({ condition }) => condition === FATIGUED)).toBe(false);
       }),
@@ -228,7 +228,9 @@ describe('rest easing conditions', () => {
     });
     const once = refocused(spentOut, EASING);
     const twice = refocused(once.play, EASING);
-    expect(twice.play.resources[Resource.FocusPoints]).toBe(once.play.resources[Resource.FocusPoints] - 1);
+    expect(twice.play.resources[Resource.FocusPoints]).toBe(
+      ResourceCount.parse(once.play.resources[Resource.FocusPoints] - 1),
+    );
     expect(twice.changes).not.toEqual([]);
   });
 });

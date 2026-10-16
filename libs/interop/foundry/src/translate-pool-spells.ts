@@ -1,5 +1,4 @@
-import { contentId, EntrySlug, PackId, RuleElementKey } from '@pioneer/rules/sdk';
-import type { ContentId } from '@pioneer/rules/sdk';
+import { ContentId, contentId, EntrySlug, PackId, RuleElementKey } from '@pioneer/rules/sdk';
 
 /**
  * The spells Player Core's pools of slots take, as `PoolSpells` elements by the entry slug they go on (ADR-0045).
@@ -19,7 +18,8 @@ interface PoolFields {
 /** A spell named `slug` in the pack being imported, or `pack:slug` in another one. */
 function spellId(pack: PackId, spell: string): ContentId {
   const [other, slug] = spell.includes(':') ? spell.split(':') : [undefined, spell];
-  return contentId(other === undefined ? pack : PackId.parse(other), EntrySlug.parse(`spell:${slug}`));
+  const owner = other === undefined ? pack : PackId.parse(other);
+  return ContentId.parse(contentId(owner, EntrySlug.parse(`spell:${slug}`)));
 }
 
 function poolSpells(pack: PackId, { entry, pool, spells }: PoolFields, predicate?: readonly string[]): object {

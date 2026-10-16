@@ -73,7 +73,8 @@ in its `rules`, not repeated in `data`; a condition's `implies` is the one excep
 
 - `condition`: `valued` says whether it takes a value (Frightened 2) or not (Blinded). `group` is one of
   `abilities`, `attitudes`, `death`, `detection`, `senses`. `overrides` lists the conditions it replaces
-  (Blinded overrides Dazzled), and is how conditions exclude each other. `overrides` and `implies` are `ContentId[]`. `recovery` maps a trigger
+  (Blinded overrides Dazzled), and is how conditions exclude each other. `overrides` and `implies` are `ContentId[]`.
+  `recovery` maps a trigger
   (`rest`) to what it does to the condition: `remove` ends it, `lower` takes its value down by 1 (it ends at 0). Fatigued
   is `{ rest: remove }` and Drained `{ rest: lower }`; a pack gives a recovery condition of its own the same way. Absent
   means only an edit or its own duration ends the condition.
@@ -436,8 +437,10 @@ and homebrew cannot use that path. A pack directory holds:
 The hand-authored packs (`core-rules`, and the `monster-core` entries transcribed before the importer exists) live
 there too, beside the Foundry imports `player-core`, `player-core-2`, `gm-core`, `divine-mysteries`,
 `treasure-vault`, `howl-of-the-wild`, `war-of-immortals`, `mwangi-expanse`, `secrets-of-magic`, `rage-of-elements`, `tian-xia-character-guide`,
-`dark-archive-remastered`, `character-guide`, `impossible-lands`, `impossible-magic` and `guns-and-gears` (`mwangi-expanse`, `secrets-of-magic`, `rage-of-elements`, `character-guide` and `impossible-lands` are pre-remaster
-and OGL, for content the remaster books point at, such as the Goloma ancestry; `OGL_BOOKS` in the importer lists the books it takes that way).
+`dark-archive-remastered`, `character-guide`, `impossible-lands`, `impossible-magic` and `guns-and-gears`
+(`mwangi-expanse`, `secrets-of-magic`, `rage-of-elements`, `character-guide` and `impossible-lands` are pre-remaster
+and OGL, for content the remaster books point at, such as the Goloma ancestry; `OGL_BOOKS` in the importer lists the
+books it takes that way).
 `libs/rules/catalog` loads them lazily and checks every entry against its
 schema and the book registry, so a malformed or wrongly sourced entry fails `bun run affected`. Ids are stored on
 characters, so changing an entry's slug, its kind included, is a data

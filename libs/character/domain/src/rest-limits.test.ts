@@ -5,6 +5,7 @@ import {
   AttributeModifier,
   AttributeModifiers,
   ConditionEffect,
+  ContentId,
   ContentKind,
   ContentRegistry,
   HitPoints,
@@ -38,12 +39,14 @@ describe('restRecovery', () => {
     .withCondition('blinded');
   const registry = new ContentRegistry();
   registry.register(pack.build());
+  const fatigued = ContentId.parse(pack.idOf(ContentKind.Condition, 'fatigued'));
+  const drained = ContentId.parse(pack.idOf(ContentKind.Condition, 'drained'));
 
   test('maps each condition the content eases on Rest to what Rest does to it', () => {
     expect(restRecovery(registry)).toEqual(
       new Map([
-        [pack.idOf(ContentKind.Condition, 'fatigued'), ConditionEffect.Remove],
-        [pack.idOf(ContentKind.Condition, 'drained'), ConditionEffect.Lower],
+        [fatigued, ConditionEffect.Remove],
+        [drained, ConditionEffect.Lower],
       ]),
     );
   });

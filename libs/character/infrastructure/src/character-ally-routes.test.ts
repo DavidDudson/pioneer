@@ -13,6 +13,7 @@ import { fixedClock, newId, UserId } from '@pioneer/shared/kernel';
 import { problemHandler } from '@pioneer/shared/server';
 import { actingAs, FakeAuthenticator } from '@pioneer/shared/server/testing';
 import { Elysia } from 'elysia';
+import type { AnyElysia } from 'elysia';
 
 import { characterAllyRoutes } from './character-ally-routes';
 
@@ -21,7 +22,7 @@ const ezren = UserId.parse(newId());
 const seoni = CampaignAlly.parse({ characterId: newId(), name: 'Seoni' });
 
 interface SetUp {
-  readonly api: Elysia;
+  readonly api: AnyElysia;
   readonly path: string;
 }
 

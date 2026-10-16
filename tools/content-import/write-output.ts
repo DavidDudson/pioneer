@@ -19,7 +19,9 @@ import { backlogPath, importedDirectory, missing, PACKS_DIRECTORY, packWrites, u
 import type { PackTargets, PackWrite } from './pack-writes.ts';
 
 const ROOT = path.resolve(import.meta.dir, '../..');
-const CATALOG = 'libs/rules/catalog/src/json-packs.ts';
+/** The directory of the files that import pack files for the catalog: `json-packs.ts`, `ogl-packs.ts`, `orc-packs.ts`. */
+const CATALOG_DIRECTORY = 'libs/rules/catalog/src';
+const CATALOG_PATTERN = '*-packs.ts';
 const MANIFEST = 'pack.json';
 const JSON_INDENT = 2;
 
@@ -93,17 +95,31 @@ export async function writeOutput(
   return written;
 }
 
-/** What to change in `json-packs.ts` so the catalog loads exactly the pack files now committed. */
-export async function registrationReport(): Promise<string> {
-  const catalog = await Bun.file(path.join(ROOT, CATALOG)).text();
+/** What to change in the catalog files so they load exactly the pack files now committed. */
+async function registrationReport(): Promise<string> {
+  const catalogs = await scan(CATALOG_PATTERN, CATALOG_DIRECTORY);
+  const sources = await Promise.all(catalogs.map(async (file) => Bun.file(path.join(ROOT, file)).text()));
+  const catalog = sources.join('\n');
   const scanned = await scan('*/**/*.json', PACKS_DIRECTORY);
   const files = scanned.toSorted();
   const toAdd = unregistered(catalog, files);
   const toRemove = missing(catalog, files);
+  const where = catalogs.join(' or ');
   return [
-    ...(toAdd.length > 0 ? [`Import these in ${CATALOG}:`, ...toAdd.map((file) => `  ${file}`)] : []),
-    ...(toRemove.length > 0 ? [`Remove these imports from ${CATALOG}:`, ...toRemove.map((each) => `  ${each}`)] : []),
+    ...(toAdd.length > 0 ? [`Import these in ${where}:`, ...toAdd.map((file) => `  ${file}`)] : []),
+    ...(toRemove.length > 0 ? [`Remove these imports from ${where}:`, ...toRemove.map((each) => `  ${each}`)] : []),
   ].join('\n');
+}
+
+/**
+ * The spelling `typos` (part of `lint:workspace`) finds in `files`, one per line; empty when there is none. Foundry's text
+ * carries Paizo's own misspellings, which `_typos.toml` allowlists as imported, so the import names them rather than
+ * leaving them to fail CI.
+ */
+async function spellingReport(files: readonly string[]): Promise<string> {
+  const checker = Bun.spawn(['typos', '--format', 'brief', ...files], { cwd: ROOT, stdout: 'pipe', stderr: 'pipe' });
+  const [report, exited] = await Promise.all([new Response(checker.stdout).text(), checker.exited]);
+  return exited === 0 ? '' : report.trim();
 }
 
 /** The pack's committed pin and backlog. */
@@ -166,4 +182,16 @@ export async function applyRules(
   const files = await mergedEntryFiles(targets, merge);
   const written = await writeAndFormat([...files, cleared]);
   return { written, applied: merge.size };
+}
+
+/** What is left to do after a write: the catalog registration and the spelling `lint:workspace` would fail on. */
+export async function writeChecks(written: readonly string[]): Promise<string> {
+  const registration = await registrationReport();
+  const spelling = await spellingReport(written);
+  return [
+    registration === '' ? 'The catalog imports every pack file.' : registration,
+    spelling === ''
+      ? 'typos finds nothing in the written files.'
+      : `typos finds these in the written files; fix them, or allowlist Paizo's own spelling in _typos.toml:\n${spelling}`,
+  ].join('\n');
 }

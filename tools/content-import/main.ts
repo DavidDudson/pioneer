@@ -48,7 +48,7 @@ import { BookId, PackId } from '@pioneer/rules/sdk';
 import { formatCoverage } from './coverage-table.ts';
 import { loadFoundryConfig } from './foundry-config-loader';
 import type { PackTargets } from './pack-writes.ts';
-import { applyRules, committedEntries, previousImport, registrationReport, writeOutput } from './write-output.ts';
+import { applyRules, committedEntries, previousImport, writeChecks, writeOutput } from './write-output.ts';
 
 const ROOT = path.resolve(import.meta.dir, '../..');
 const CACHE = path.join(ROOT, '.data/foundry');
@@ -289,6 +289,5 @@ if (!dryRun && rulesOnly !== undefined) {
 } else if (!dryRun) {
   const written = await writeOutput(output, targets, pin);
   console.log([`Wrote ${written.length} files:`, ...written.map((file) => `  ${file}`)].join('\n'));
-  const registration = await registrationReport();
-  console.log(registration === '' ? 'The catalog imports every pack file.' : registration);
+  console.log(await writeChecks(written));
 }

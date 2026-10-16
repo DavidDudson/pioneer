@@ -45,10 +45,20 @@ function asText(value: unknown): unknown {
 const ITEM_LEVEL = '{item|level}';
 const ITEM_LEVEL_OPTION = 'item:level';
 
-/** A predicate with each read of the item's level as Pioneer spells it; anything else is as it was. */
+/**
+ * Foundry's read of the level of what granted the item holding the `ChoiceSet`: a class feature's granter is the class,
+ * whose level is the character's, which Pioneer reads as `self:level`.
+ */
+const GRANTER_LEVEL = 'parent:granter:level';
+const GRANTER_LEVEL_OPTION = 'self:level';
+
+/** A predicate with each read of the item's level, or of its granter's, as Pioneer spells it; anything else is as it was. */
 function withItemLevel(node: unknown): unknown {
   if (node === ITEM_LEVEL) {
     return ITEM_LEVEL_OPTION;
+  }
+  if (node === GRANTER_LEVEL) {
+    return GRANTER_LEVEL_OPTION;
   }
   if (Array.isArray(node)) {
     return node.map((each: unknown) => withItemLevel(each));
@@ -85,6 +95,9 @@ function titleCase(slug: string): string {
 /** The skills Foundry's `skills` config lists, as choices. */
 const SKILL_CHOICES: readonly unknown[] = [...SKILLS].map((skill) => ({ value: skill, label: titleCase(skill) }));
 
+/** A roll option of a class feature tag, which a subclass query filters on. */
+const TAG_STATEMENT = /^item:tag:[a-z0-9-]+$/u;
+
 /** A query by `itemType` as a query of that kind; a query that reads anything else is as it is. */
 function queryOf(choices: object): unknown {
   const fields = Object.keys(choices);
@@ -96,8 +109,11 @@ function queryOf(choices: object): unknown {
   if (kind === undefined) {
     return choices;
   }
-  const filter = choices.filter.map((statement: unknown) => namespacedStatement(statement));
-  return { kind, filter };
+  const filter = choices.filter.map((statement: unknown) => withItemLevel(namespacedStatement(statement)));
+  // Foundry files class features under the `feat` item type: a query on class feature tags alone is of those.
+  const byTagAlone =
+    filter.length > 0 && filter.every((statement) => typeof statement === 'string' && TAG_STATEMENT.test(statement));
+  return { kind: kind === ContentKind.Feat && byTagAlone ? ContentKind.ClassFeature : kind, filter };
 }
 
 function choicesOf(choices: unknown): unknown {
