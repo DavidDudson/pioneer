@@ -36,6 +36,24 @@ lets a GM change them for a campaign, and lets a character outside a campaign se
 
 ## Consequences
 
-- The schema still enforces the core numbers until the stories that store a rule-breaking inventory land, so a table
-  that raises a limit cannot yet store an inventory past the core numbers.
-- The sheet and the API do not yet show violations; that follows once limits are stored.
+- The schema enforces the core numbers on the player's lines, so a table that raises a limit cannot yet store a
+  player's inventory past the core numbers; only imported lines may.
+- The sheet shows violations against the core limits. It reads the table's own limits once they are stored.
+
+## Rule-breaking lines (decided in "flag rule-breaking items instead of refusing them")
+
+- An inventory line carries an optional `origin`. A line with no `origin` is the player's; `import` marks a line an
+  import brought in as it was. Document schema version 9 adds the field; the upgrade step changes nothing, so every
+  stored line stays the player's.
+- The schema's core-number checks (no more held than two hands hold, no more invested than the limit, no more property
+  runes than a potency rune and orichalcum allow) apply to the player's lines only. An imported line is stored as
+  imported, up to a storage ceiling of 20 property runes per line. The lines limit still binds every line.
+- Whether a line breaks a rule is never stored. `inventoryViolations` works it out on every read, so an edit that brings
+  a line within the limits clears its warning, and `origin` stays `import`: it records where the line came from, not
+  whether it is in good standing.
+- In-app edits still refuse a change that adds a violation: investing or holding past the limit, and etching past the
+  room. Taking investment off, or putting a hand down, is always allowed.
+- A flagged line keeps working: its Bulk, active state and rune effects count as for any other line, so an over-cap
+  item works until a GM says otherwise (approvals come in a later story).
+- The sheet marks each flagged line with a warning tag and one reason per rule broken (the limit and the count it
+  reached, or the rune it cannot hold), and the header counts the items that break a rule.

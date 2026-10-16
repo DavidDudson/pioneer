@@ -21,6 +21,7 @@ function line(id: string, name: string | undefined, overrides: Partial<Inventory
     hands: undefined,
     invested: false,
     runes: undefined,
+    breaks: [],
     contents: [],
     ...overrides,
   };

@@ -4,8 +4,9 @@ import type { MessageDescriptor, ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { CoinsSchema } from './coins';
-import { CarrySchema, CarryState, HANDS_MAX, handsInUse, INVESTED_MAX, investedCount, STOWED } from './item-carry';
+import { CarrySchema, CarryState, handsInUse, investedCount, STOWED } from './item-carry';
 import type { Carry } from './item-carry';
+import { ItemOrigin, playerLimits } from './item-origin';
 import { CORE_RULE_LIMITS } from './rule-limits';
 import type { RuleLimits } from './rule-limits';
 import { ItemRunesSchema } from './rune-etching';
@@ -34,6 +35,7 @@ export type InventoryItemName = z.infer<typeof InventoryItemName>;
  * player's name for it, how it is carried, whether it is invested, whether it is broken, and the runes etched onto it.
  * An invested item stays invested while it is off, but only works while it is worn or held as it is used
  * (`activeState`). A broken item stays broken, through daily preparations too, until the player marks it repaired.
+ * A line with no `origin` is the player's; an `import` line is kept as imported, however far it is past the limits.
  */
 export const InventoryItemSchema = z.strictObject({
   id: InventoryItemId,
@@ -45,6 +47,7 @@ export const InventoryItemSchema = z.strictObject({
   invested: z.literal(true).optional(),
   broken: z.literal(true).optional(),
   runes: ItemRunesSchema.optional(),
+  origin: z.literal(ItemOrigin.Import).optional(),
 });
 export type InventoryItem = z.infer<typeof InventoryItemSchema>;
 
@@ -69,8 +72,8 @@ function byId(items: readonly InventoryItem[]): ReadonlyMap<InventoryItemId, Inv
 }
 
 /**
- * Items with unique ids, each stowed in another item of the list and never inside itself, with no more held than two
- * hands hold and no more invested than the limit.
+ * Items with unique ids, each stowed in another item of the list and never inside itself. The player's lines are held
+ * to the core limits (`playerLimits`); imported lines are not.
  */
 const Items = z
   .array(InventoryItemSchema)
@@ -92,14 +95,7 @@ const Items = z
       }
     }
   })
-  .check((context) => {
-    if (handsInUse(context.value) > HANDS_MAX) {
-      context.issues.push({ code: 'custom', input: context.value, message: 'More held than hands hold' });
-    }
-    if (investedCount(context.value) > INVESTED_MAX) {
-      context.issues.push({ code: 'custom', input: context.value, message: 'Too many invested' });
-    }
-  });
+  .check(playerLimits);
 
 /** What the character carries: items and coins. Bulk is worked out on every read (`inventoryBulk`). */
 export const InventorySchema = z.strictObject({

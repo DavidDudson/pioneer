@@ -119,6 +119,13 @@
       "notInvested": "Not invested",
       "bulkHeading": "Bulk",
       "investmentsHeading": "Investments",
+      "break": {
+        "invested": "{actual} items invested, over the limit of {limit}",
+        "hands": "Held in {actual} hands, over the {limit} you have",
+        "propertyRunes": "{actual} property runes, with room for {limit}",
+        "runeNotAllowed": "{rune} cannot be etched on this item",
+        "unknownRune": "A property rune that cannot be etched on this item"
+      },
       "remove": "Remove {name}",
       "removeConfirm": "Remove {name}? Press again",
       "removing": "Removing…",
@@ -232,6 +239,7 @@
       "downtime": "Downtime"
     },
     "header": {
+      "ruleBreaking": "{count, plural, one {# item breaks a rule} other {# items break a rule}}",
       "identity": "Level {level}{hasAncestry, select, yes { {ancestry}} other {}}{hasClass, select, yes { {class}} other {}}{hasSubclass, select, yes {, {subclass}} other {}}"
     },
     "hp": {

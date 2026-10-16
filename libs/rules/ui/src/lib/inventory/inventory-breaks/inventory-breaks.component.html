@@ -1,0 +1,8 @@
+@if (reasons().length > 0) {
+  <fr-stack gap="2xs">
+    <fr-tag [label]="Message.RuleBreaking | transloco" [tone]="Tone.Warning" />
+    @for (reason of reasons(); track reason.key) {
+      <fr-text variant="caption" tone="subtle">{{ reason.key | transloco: reason.params }}</fr-text>
+    }
+  </fr-stack>
+}

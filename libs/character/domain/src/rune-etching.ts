@@ -1,5 +1,11 @@
-import { ContentId, FundamentalRune, PropertyRunes, ReinforcingGrade, RuneGrade, RuneType } from '@pioneer/rules/sdk';
+import { ContentId, FundamentalRune, ReinforcingGrade, RuneGrade, RuneType, uniqueItems } from '@pioneer/rules/sdk';
 import * as z from 'zod';
+
+/**
+ * The most property runes a stored line holds. The rules' own cap (`PROPERTY_RUNES_MAX`) binds player lines only, and
+ * the inventory checks it there; an imported line may hold more, up to this storage ceiling.
+ */
+const PROPERTY_RUNES_STORED_MAX = 20;
 
 /**
  * The runes etched onto one inventory item, over those its content comes with. A specific magic item's fundamental
@@ -10,7 +16,7 @@ export const ItemRunesSchema = z.strictObject({
   striking: RuneGrade.optional(),
   resilient: RuneGrade.optional(),
   reinforcing: ReinforcingGrade.optional(),
-  property: PropertyRunes.default([]),
+  property: z.array(ContentId).max(PROPERTY_RUNES_STORED_MAX).readonly().check(uniqueItems).default([]),
 });
 export type ItemRunes = z.infer<typeof ItemRunesSchema>;
 

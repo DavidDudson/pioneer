@@ -27,9 +27,9 @@ import { SheetHitPoints } from '../sheet-hit-points/sheet-hit-points.component';
 import { SheetLastRoll } from '../sheet-last-roll/sheet-last-roll.component';
 import { SheetResources } from '../sheet-resources/sheet-resources.component';
 import { SHEET_ROLLS_PROVIDERS } from '../sheet-rolls';
-import { SheetSaveStatus } from '../sheet-save-status/sheet-save-status.component';
 import { SHEET_TABS } from '../sheet-sections';
 import { SheetState } from '../sheet-state';
+import { SheetStatus } from '../sheet-status/sheet-status.component';
 
 /**
  * Character sheet: one character under four tabs (play-and-campaigns.md, Sheet modes), each its own route below the
@@ -53,7 +53,7 @@ import { SheetState } from '../sheet-state';
     SheetResources,
     SheetHitPoints,
     SheetLastRoll,
-    SheetSaveStatus,
+    SheetStatus,
     Skeleton,
     Stack,
     Tab,
