@@ -19,12 +19,12 @@ interface Rendered {
   readonly submit: Mock<(draft: BugReportDraft) => Promise<object>>;
 }
 
-async function render(url: string, failure?: Error): Promise<Rendered> {
+async function render(url: string, failure?: Error, snapshotTaken = true): Promise<Rendered> {
   const submit = vi.fn<(draft: BugReportDraft) => Promise<object>>(async () => {
     if (failure !== undefined) {
       throw failure;
     }
-    return {};
+    return { snapshotTaken };
   });
   TestBed.configureTestingModule({
     providers: [
@@ -32,7 +32,12 @@ async function render(url: string, failure?: Error): Promise<Rendered> {
       provideI18n({ en: async () => frontierMessages }),
       provideTanStackQuery(new QueryClient({ defaultOptions: { queries: { retry: false } } })),
       { provide: PREFERENCE_STORAGE, useValue: undefined },
-      { provide: SessionStore, useValue: { whenKnown: async (): Promise<object> => ({ displayName: 'Amiri' }) } },
+      {
+        provide: SessionStore,
+        useValue: {
+          whenKnown: async (): Promise<object> => ({ displayName: 'Amiri' }),
+        },
+      },
       { provide: BugReporter, useValue: { submit } },
     ],
   });
@@ -92,6 +97,7 @@ describe('ReportBugPage', () => {
       description: 'The sheet will not save',
       steps: 'Raise Strength, then reload',
       characterId: undefined,
+      shareCharacter: false,
     });
     expect(page.textContent).not.toContain('Character attached');
     expect(field(page, 'What went wrong?').value).toBe('');
@@ -101,13 +107,54 @@ describe('ReportBugPage', () => {
     const { harness, submit } = await render(`/account/report-bug?character=${CHARACTER_ID}&name=Valeros`);
     const page = root(harness);
     expect(page.textContent).toContain('Character attached');
-    expect(page.textContent).toContain('Valeros goes with this report');
+    expect(page.textContent).toContain('A copy of Valeros as it is now goes to the maintainers');
 
     await write(harness, 'What went wrong?', 'The AC is wrong');
     await send(harness);
 
     await vi.waitFor(() => {
       expect(submit).toHaveBeenCalledWith(expect.objectContaining({ characterId: CHARACTER_ID }));
+    });
+  });
+
+  it('shares the character by default and sends that', async () => {
+    const { harness, submit } = await render(`/account/report-bug?character=${CHARACTER_ID}&name=Valeros`);
+    await write(harness, 'What went wrong?', 'The AC is wrong');
+    await send(harness);
+
+    await vi.waitFor(() => {
+      expect(submit).toHaveBeenCalledWith(
+        expect.objectContaining({
+          characterId: CHARACTER_ID,
+          shareCharacter: true,
+        }),
+      );
+    });
+  });
+
+  it('sends the report without the character once the reporter unticks sharing', async () => {
+    const { harness, submit } = await render(`/account/report-bug?character=${CHARACTER_ID}&name=Valeros`);
+    const page = root(harness);
+    const toggle = page.querySelector<HTMLElement>('fr-toggle-button-field button');
+    toggle?.click();
+    await harness.fixture.whenStable();
+    await write(harness, 'What went wrong?', 'The AC is wrong');
+    await send(harness);
+
+    await vi.waitFor(() => {
+      expect(submit).toHaveBeenCalledWith(expect.objectContaining({ shareCharacter: false }));
+    });
+    expect(page.textContent).toContain('Your report was sent.');
+  });
+
+  it('says so when the character could not be copied', async () => {
+    const { harness } = await render(`/account/report-bug?character=${CHARACTER_ID}&name=Valeros`, undefined, false);
+    const page = root(harness);
+    await write(harness, 'What went wrong?', 'The AC is wrong');
+    await send(harness);
+
+    await vi.waitFor(() => {
+      expect(page.textContent).toContain('but without the character');
     });
   });
 

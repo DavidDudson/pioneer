@@ -2,7 +2,7 @@ import { DOCUMENT } from '@angular/common';
 import { inject, Injectable, InjectionToken } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppVersion, BugReportSubmission, IdentityContract, ReportedRoute, UserAgent } from '@pioneer/identity/domain';
-import type { BugReport, ReportText } from '@pioneer/identity/domain';
+import type { BugReportReceipt, ReportText } from '@pioneer/identity/domain';
 import type { Uuid } from '@pioneer/shared/kernel';
 import { ApiClient, LocalePreferences } from '@pioneer/shared/web';
 
@@ -21,6 +21,8 @@ export interface BugReportDraft {
   readonly steps: ReportText;
   /** The character they were looking at, if any. */
   readonly characterId?: Uuid | undefined;
+  /** Whether a frozen copy of that character goes with the report; off unless the reporter agreed. */
+  readonly shareCharacter?: boolean | undefined;
 }
 
 /**
@@ -48,7 +50,7 @@ export class BugReporter {
     return reported === '' ? UNKNOWN_USER_AGENT : reported;
   }
 
-  public async submit(draft: BugReportDraft): Promise<BugReport> {
+  public async submit(draft: BugReportDraft): Promise<BugReportReceipt> {
     const body = BugReportSubmission.parse({
       route: this.cameFrom(),
       appVersion: AppVersion.parse(this.#version),
@@ -57,6 +59,7 @@ export class BugReporter {
       description: draft.description,
       steps: draft.steps,
       characterId: draft.characterId,
+      shareCharacter: draft.shareCharacter,
     });
     return this.#api.call(IdentityContract.reportBug, { params: {}, body });
   }

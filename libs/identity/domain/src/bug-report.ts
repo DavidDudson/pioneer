@@ -33,11 +33,10 @@ export type ReportText = z.infer<typeof ReportText>;
 export const ReportDescription = ReportText.refine((text) => text.length > 0);
 
 /**
- * What a signed-in user sends to report a bug. The reporter and the time are the server's to
- * stamp. `characterId` is the character they were looking at, kept as a plain reference: the
- * report outlives the character.
+ * What the reporter tells us about the bug. `characterId` is the character they were looking at,
+ * kept as a plain reference: the report outlives the character.
  */
-export const BugReportSubmission = z.strictObject({
+const BugReportDetails = {
   route: ReportedRoute,
   appVersion: AppVersion,
   locale: LocaleSchema,
@@ -45,15 +44,45 @@ export const BugReportSubmission = z.strictObject({
   description: ReportDescription,
   steps: ReportText,
   characterId: Uuid.optional(),
+};
+
+/**
+ * What a signed-in user sends to report a bug. The reporter and the time are the server's to
+ * stamp. `shareCharacter` asks for a frozen copy of `characterId`'s stored inputs to go with the
+ * report; it is off unless the sender says so, and means nothing without a `characterId`.
+ */
+export const BugReportSubmission = z.strictObject({
+  ...BugReportDetails,
+  shareCharacter: z.boolean().default(false),
 });
 export type BugReportSubmission = z.output<typeof BugReportSubmission>;
 
-/** A stored bug report, as the API returns it. */
+/**
+ * A frozen copy of a character's stored inputs (ADR-0004) as the Pioneer character file holds them,
+ * so it carries that file's `format` and `formatVersion`. To identity it is an opaque document: it
+ * is written once, when the report is filed, and later edits to the character never reach it.
+ */
+export const CharacterSnapshot = z.looseObject({});
+export type CharacterSnapshot = z.output<typeof CharacterSnapshot>;
+
+/** A stored bug report. */
 export const BugReport = z.strictObject({
-  ...BugReportSubmission.shape,
+  ...BugReportDetails,
   id: BugReportId,
   reporter: UserId,
   createdAt: InstantCodec,
   status: BugReportStatusSchema,
+  snapshot: CharacterSnapshot.optional(),
 });
 export type BugReport = z.output<typeof BugReport>;
+
+/**
+ * What the API answers with once a report is filed: the report without its snapshot, which is for
+ * maintainers, and whether one was taken. A report that asked for a character but got none (the
+ * character is gone, or can't be exported) is still filed, and says so here.
+ */
+export const BugReportReceipt = z.strictObject({
+  ...BugReport.omit({ snapshot: true }).shape,
+  snapshotTaken: z.boolean(),
+});
+export type BugReportReceipt = z.output<typeof BugReportReceipt>;

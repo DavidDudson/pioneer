@@ -1,5 +1,5 @@
 import { BugReportService, IdentityService, PreferencesService } from '@pioneer/identity/application';
-import type { OAuthProviderPort } from '@pioneer/identity/application';
+import type { CharacterSnapshotSource, OAuthProviderPort } from '@pioneer/identity/application';
 import { AuthPath, OAuthProvider } from '@pioneer/identity/domain';
 import {
   bugReportRoutes,
@@ -83,11 +83,17 @@ export interface Identity {
   readonly policy: CookiePolicy;
 }
 
+/** What identity is built over beyond the database: the clock, and the characters a bug report may carry. */
+export interface IdentityPorts {
+  readonly clock: Clock;
+  readonly snapshots: CharacterSnapshotSource;
+}
+
 /** Identity's part of the composition root: service, configured providers, routes and authenticator. */
-export function identity(db: Database, env: Env, clock: Clock): Identity {
+export function identity(db: Database, env: Env, { clock, snapshots }: IdentityPorts): Identity {
   const service = new IdentityService(new DrizzleUserRepository(db), new DrizzleSessionRepository(db), clock);
   const preferences = new PreferencesService(new DrizzlePreferencesRepository(db), clock);
-  const bugReports = new BugReportService(new DrizzleBugReportRepository(db), clock);
+  const bugReports = new BugReportService(new DrizzleBugReportRepository(db), snapshots, clock);
   // Secure cookies unless the public origin is plain http (local development).
   const secure = env.PUBLIC_ORIGIN?.startsWith('https:') ?? true;
   const policy: CookiePolicy = { secure };

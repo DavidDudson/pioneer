@@ -26,7 +26,10 @@ async function setup(): Promise<Setup> {
     providers: [
       provideRouter([{ path: '**', children: [] }]),
       { provide: ApiClient, useValue: { call } },
-      { provide: LocalePreferences, useValue: { ui: (): Locale => Locale.English } },
+      {
+        provide: LocalePreferences,
+        useValue: { ui: (): Locale => Locale.English },
+      },
       { provide: APP_VERSION, useValue: '1.4.0' },
     ],
   });
@@ -40,7 +43,10 @@ describe(BugReporter, () => {
     await router.navigateByUrl('/characters/valeros/build?tab=feats');
     await router.navigateByUrl('/account/report-bug');
 
-    await reporter.submit({ description: ReportText.parse('It broke'), steps: ReportText.parse('') });
+    await reporter.submit({
+      description: ReportText.parse('It broke'),
+      steps: ReportText.parse(''),
+    });
 
     expect(call).toHaveBeenCalledWith(IdentityContract.reportBug, {
       params: {},
@@ -51,6 +57,7 @@ describe(BugReporter, () => {
         userAgent: navigator.userAgent,
         description: 'It broke',
         steps: '',
+        shareCharacter: false,
       },
     });
   });
@@ -59,9 +66,14 @@ describe(BugReporter, () => {
     const { reporter, call } = await setup();
     await TestBed.inject(Router).navigateByUrl('/account/report-bug');
 
-    await reporter.submit({ description: ReportText.parse('It broke'), steps: ReportText.parse('') });
+    await reporter.submit({
+      description: ReportText.parse('It broke'),
+      steps: ReportText.parse(''),
+    });
 
-    expect(call.mock.calls[0]?.[1].body).toMatchObject({ route: '/account/report-bug' });
+    expect(call.mock.calls[0]?.[1].body).toMatchObject({
+      route: '/account/report-bug',
+    });
   });
 
   it('attaches the character the reporter was looking at', async () => {
@@ -74,6 +86,27 @@ describe(BugReporter, () => {
       characterId: CHARACTER_ID,
     });
 
-    expect(call.mock.calls[0]?.[1].body).toMatchObject({ characterId: CHARACTER_ID });
+    expect(call.mock.calls[0]?.[1].body).toMatchObject({
+      characterId: CHARACTER_ID,
+    });
+  });
+
+  it('shares a copy of the character only when the reporter agreed', async () => {
+    const { reporter, call } = await setup();
+    const draft = {
+      description: ReportText.parse('It broke'),
+      steps: ReportText.parse(''),
+      characterId: CHARACTER_ID,
+    };
+
+    await reporter.submit({ ...draft, shareCharacter: true });
+    await reporter.submit(draft);
+
+    expect(call.mock.calls[0]?.[1].body).toMatchObject({
+      shareCharacter: true,
+    });
+    expect(call.mock.calls[1]?.[1].body).toMatchObject({
+      shareCharacter: false,
+    });
   });
 });

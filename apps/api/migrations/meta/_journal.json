@@ -211,6 +211,13 @@
       "when": 1792152888825,
       "tag": "0029_bug_reports",
       "breakpoints": true
+    },
+    {
+      "idx": 30,
+      "version": "7",
+      "when": 1792156158911,
+      "tag": "0030_bug_report_snapshot",
+      "breakpoints": true
     }
   ]
 }

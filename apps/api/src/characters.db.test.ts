@@ -44,7 +44,7 @@ describe.skipIf(adminUrl === undefined)('character routes on seeded content (pos
     await database.db.execute(
       sql`insert into users (id, display_name, email_verified, created_at, updated_at) values (${fixtureOwnerId}, 'Owner', false, ${at}, ${at})`,
     );
-    api = new Elysia().use(problemHandler).use(characters(database.db, clock, new FakeAuthenticator()));
+    api = new Elysia().use(problemHandler).use(characters(database.db, clock, new FakeAuthenticator()).routes);
   });
 
   afterAll(async () => {
