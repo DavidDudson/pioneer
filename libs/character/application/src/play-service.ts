@@ -28,8 +28,6 @@ import {
   restRecovery,
   turnCommandInputs,
   slotContent,
-  isSpendCommand,
-  StaffCommandField,
   isTurnCommand,
   isWandCommand,
   wandInventoryAfter,
@@ -72,7 +70,7 @@ import { NO_MAX_HIT_POINTS, NO_REST, NO_VALUED, turnLimits, WAND_MESSAGES } from
 import type { RestContent } from './play-defaults';
 import { derivedMaxHitPoints } from './play-hit-points';
 import { spendLimits } from './play-spend';
-import { checkStaffCast, staffCastOf } from './play-staff';
+import { checkStaffCast, staffCastOf, takesBackCast } from './play-staff';
 
 /**
  * A character's play state (#343): read and edited apart from its build, with its own revision, so a play edit never
@@ -172,7 +170,7 @@ export class PlayService {
     const registry = await this.#contentOf(character).registry();
     const slots = await this.#slotContent(character, registry);
     const counted = await this.#counted(character);
-    const undoing = cast.field === StaffCommandField.UncastStaff && isSpendCommand(command);
+    const undoing = takesBackCast(command, cast);
     return { ...prepared, castCost: checkStaffCast(cast, { character, play, registry, slots, counted, undoing }) };
   }
 

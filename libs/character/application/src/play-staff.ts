@@ -6,6 +6,7 @@ import {
   itemContent,
   ResourceCount,
   spentStaffOf,
+  StaffCommandField,
   StaffCastProblem,
   staffCastCost,
   staffCastProblem,
@@ -86,4 +87,9 @@ export function staffCastOf(play: PlayState, command: PlayCommand): StaffCommand
     return command;
   }
   return isSpendCommand(command) ? spentStaffOf(play, command) : undefined;
+}
+
+/** Whether `command` takes a staff cast back from the spend log, rather than being a staff edit that takes one back. */
+export function takesBackCast(command: PlayCommand, cast: StaffCommand): boolean {
+  return isSpendCommand(command) && cast.field === StaffCommandField.UncastStaff;
 }
