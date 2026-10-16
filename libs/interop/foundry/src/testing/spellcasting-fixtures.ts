@@ -6,14 +6,14 @@ import { FOUNDRY_NULL } from './kind-fixtures';
 const CLASS_FEATURES = { name: 'classfeatures', directory: 'class-features' };
 const FEATS = { name: 'feats-srd', directory: 'feats' };
 
-interface Fixture {
+export interface Fixture {
   readonly id: string;
   readonly name: string;
   readonly level: number;
   readonly traits: readonly string[];
 }
 
-function classFeature({ id, name, level, traits }: Fixture, rules: readonly object[] = []): DocumentFixture {
+export function classFeature({ id, name, level, traits }: Fixture, rules: readonly object[] = []): DocumentFixture {
   return {
     id,
     name,
@@ -30,7 +30,7 @@ function classFeature({ id, name, level, traits }: Fixture, rules: readonly obje
   };
 }
 
-function archetypeFeat({ id, name, level, traits }: Fixture): DocumentFixture {
+export function archetypeFeat({ id, name, level, traits }: Fixture): DocumentFixture {
   return {
     id,
     name,

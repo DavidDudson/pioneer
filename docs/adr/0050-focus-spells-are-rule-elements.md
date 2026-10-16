@@ -61,6 +61,11 @@ Alternatives:
   for heal, Touch of the Void for harm), in the divine charisma entry `champion-focus`. Devout Magic offers the same
   choice, Blessed One Dedication gives Lay on Hands, and Blessed Sacrifice Protector's Sacrifice, which Player Core
   prints (a spell is named `<book>/<slug>` when another book prints it).
+- A sorcerer's bloodline gives the focus entry `sorcerer-focus` (charisma) in its tradition, a draconic bloodline's
+  being its exemplar's, and its initial bloodline spell, then its advanced and greater ones with Advanced and Greater
+  Bloodline. A bloodline Crossblooded Evolution joins grants none of them. Sorcerer Dedication picks a bloodline
+  (`feat:sorcerer-dedication:<bloodline>`, a draconic one once per exemplar: `draconic-primal`) and Basic Bloodline Spell
+  gives its initial spell in that tradition.
 - An order's focus entry and order spell hold unless the order was joined through Order Explorer
   (`not feat:order-explorer:<order>`), which grants none of its other benefits, as Foundry guards an order's own.
 - Order Explorer offers the druidic orders the druid has not (an order it joined through the feat stays offered, so its
