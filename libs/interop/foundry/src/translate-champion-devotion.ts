@@ -1,8 +1,8 @@
 import { focusChoice, focusEntry } from './focus-plan';
 import type { Planned } from './focus-plan';
 
-export const CHAMPION = 'champion-focus';
-export const CHAMPION_ENTRY = focusEntry({ slug: CHAMPION, tradition: 'divine', attribute: 'cha' });
+const CHAMPION = 'champion-focus';
+const CHAMPION_ENTRY = focusEntry({ slug: CHAMPION, tradition: 'divine', attribute: 'cha' });
 
 const LAY_ON_HANDS = 'lay-on-hands';
 

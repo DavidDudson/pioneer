@@ -4,12 +4,12 @@ import * as z from 'zod';
 import { Hands, HANDS_MAX, INVESTED_MAX, InvestedCount } from './item-carry';
 
 /** Property runes an item has room for per grade of its potency rune. */
-export const PropertyRunesPerGrade = Pg.smallint().positive().brand<'PropertyRunesPerGrade'>();
-export type PropertyRunesPerGrade = z.infer<typeof PropertyRunesPerGrade>;
+const PropertyRunesPerGrade = Pg.smallint().positive().brand<'PropertyRunesPerGrade'>();
+type PropertyRunesPerGrade = z.infer<typeof PropertyRunesPerGrade>;
 
 /** A count of lines an inventory holds. */
-export const ItemsMax = Pg.smallint().positive().brand<'ItemsMax'>();
-export type ItemsMax = z.infer<typeof ItemsMax>;
+const ItemsMax = Pg.smallint().positive().brand<'ItemsMax'>();
+type ItemsMax = z.infer<typeof ItemsMax>;
 
 /**
  * The numbers an inventory is held to: items invested, hands to hold things in, property runes per grade of potency
