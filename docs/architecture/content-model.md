@@ -436,8 +436,12 @@ and homebrew cannot use that path. A pack directory holds:
 
 The hand-authored packs (`core-rules`, and the `monster-core` entries transcribed before the importer exists) live
 there too, beside the Foundry imports `player-core`, `player-core-2`, `gm-core`, `divine-mysteries`,
-`treasure-vault`, `howl-of-the-wild`, `war-of-immortals`, `mwangi-expanse`, `secrets-of-magic`, `rage-of-elements`, `tian-xia-character-guide`,
-`dark-archive-remastered`, `character-guide`, `impossible-lands`, `impossible-magic`, `guns-and-gears`, `battlecry`, `cheliax-infernal-inheritance`, `rival-academies`, `shining-kingdoms`, `draconic-codex`, `hellfire-dispatches`, `high-seas`, `season-of-ghosts`, `hellbreakers`, `gatewalkers`, `myth-speakers`, `revenge-of-the-runelords`, `secrets-of-the-unlit-star`, `troubles-in-grayce`, `hells-destiny`, `bastion-of-blasphemies` and `the-dead-gods-hand`
+`treasure-vault`, `howl-of-the-wild`, `war-of-immortals`, `mwangi-expanse`, `secrets-of-magic`, `rage-of-elements`,
+`tian-xia-character-guide`, `dark-archive-remastered`, `character-guide`, `impossible-lands`, `impossible-magic`,
+`guns-and-gears`, `battlecry`, `cheliax-infernal-inheritance`, `rival-academies`, `shining-kingdoms`, `draconic-codex`,
+`hellfire-dispatches`, `high-seas`, `season-of-ghosts`, `hellbreakers`, `gatewalkers`, `myth-speakers`,
+`revenge-of-the-runelords`, `secrets-of-the-unlit-star`, `troubles-in-grayce`, `hells-destiny`, `bastion-of-blasphemies`
+and `the-dead-gods-hand`
 (`mwangi-expanse`, `secrets-of-magic`, `rage-of-elements`, `character-guide` and `impossible-lands` are pre-remaster
 and OGL, for content the remaster books point at, such as the Goloma ancestry; `OGL_BOOKS` in the importer lists the
 books it takes that way).

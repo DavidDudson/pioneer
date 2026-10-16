@@ -18,7 +18,7 @@ on:
 permissions: {}
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.ref || github.sha }}
   # A push to main records history, so none is dropped; a superseded pull request run is not worth finishing.
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
