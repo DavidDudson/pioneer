@@ -1,6 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import type { ComponentFixture } from '@angular/core/testing';
 import { ActionMode } from '@pioneer/rules/sdk';
+import { provideTanStackQuery, QueryClient } from '@tanstack/angular-query-experimental';
 import { describe, expect, it } from 'vitest';
 
 import { STATISTIC_ROLLER } from '../statistics/statistic-roller';
@@ -8,6 +9,8 @@ import type { RollableStatistic, StatisticRoller } from '../statistics/statistic
 import { GRABBED_ACTIONS, PRONE_ACTIONS, SHIELD_RAISED_ACTIONS, STANDING_ACTIONS } from '../testing/action-fixtures';
 import { provideRulesUiI18nTesting } from '../testing/provide-rich-text-testing';
 import type { ActionLine } from './action-line';
+import { ActionUser } from './action-user';
+import type { ActionUse } from './action-user';
 import { ActionsViewKind } from './actions-list';
 import { ActionsView } from './actions.component';
 
@@ -19,16 +22,19 @@ interface Options {
   readonly mode?: ActionMode;
   readonly view?: ActionsViewKind;
   readonly roller?: StatisticRoller;
+  readonly user?: ActionUser;
 }
 
 async function render(
   lines: readonly ActionLine[] | undefined,
-  { mode = ActionMode.Encounter, view = ActionsViewKind.Now, roller }: Options = {},
+  { mode = ActionMode.Encounter, view = ActionsViewKind.Now, roller, user }: Options = {},
 ): Promise<ComponentFixture<ActionsView>> {
   TestBed.configureTestingModule({
     providers: [
       provideRulesUiI18nTesting(),
+      provideTanStackQuery(new QueryClient()),
       ...(roller === undefined ? [] : [{ provide: STATISTIC_ROLLER, useValue: roller }]),
+      ...(user === undefined ? [] : [{ provide: ActionUser, useValue: user }]),
     ],
   });
   const fixture = TestBed.createComponent(ActionsView);
@@ -192,5 +198,63 @@ describe(ActionsView, () => {
 
       expect(hostOf(fixture).querySelectorAll('button[aria-label^="Roll "]')).toHaveLength(0);
     });
+  });
+});
+
+/** An action user that remembers what it was asked to use. */
+interface Recorder {
+  readonly user: ActionUser;
+  readonly used: ActionUse[];
+}
+
+function recorder(): Recorder {
+  const used: ActionUse[] = [];
+  return {
+    used,
+    user: {
+      use: async (request): Promise<void> => {
+        used.push(request);
+        await Promise.resolve();
+      },
+    },
+  };
+}
+
+function buttonsOf(fixture: ComponentFixture<ActionsView>): HTMLButtonElement[] {
+  return [...hostOf(fixture).querySelectorAll('pio-action-row button')].filter(
+    (button): button is HTMLButtonElement => button instanceof HTMLButtonElement,
+  );
+}
+
+/** `line` as an action that can be used for one action or two. */
+function upToTwo(line: ActionLine): ActionLine {
+  return { ...line, upTo: 2 };
+}
+
+describe('using an action', () => {
+  const variable = STANDING_ACTIONS.slice(0, 1).map((line) => upToTwo(line));
+
+  it('shows no Use button when the page spends nothing', async () => {
+    const fixture = await render(STANDING_ACTIONS);
+    expect(buttonsOf(fixture).filter((button) => textOf(button) === 'Use')).toHaveLength(0);
+  });
+
+  it('uses the action when its Use button is clicked', async () => {
+    const { user, used } = recorder();
+    const fixture = await render(STANDING_ACTIONS, { user });
+    const use = buttonsOf(fixture).find((button) => textOf(button) === 'Use');
+    use?.click();
+    await fixture.whenStable();
+    expect(used).toHaveLength(1);
+    expect(used[0]?.actions).toBeUndefined();
+  });
+
+  it('offers each count a variable cost can be used for', async () => {
+    const { user, used } = recorder();
+    const fixture = await render(variable, { user });
+    expect(buttonsOf(fixture).map((button) => textOf(button))).toStrictEqual(['Use for 1 action', 'Use for 2 actions']);
+    buttonsOf(fixture)[1]?.click();
+    await fixture.whenStable();
+    expect(used[0]?.actions).toBe(2);
   });
 });

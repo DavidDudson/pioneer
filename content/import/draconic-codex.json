@@ -1,0 +1,3941 @@
+{
+  "pin": {
+    "tag": "pf2e-8.6.0",
+    "sha256": "d9c4c1f6bbf9bd907ec0acbaea9b8d4e8b0d049758a8616829f07c1b4ee81342"
+  },
+  "backlog": [
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:acrid-barrage",
+      "foundry": "Compendium.pf2e.actionspf2e.Item.NRjBkjYx10MAXp3T",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:adamantine-dragon-cratering-smash",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.rraWyBNnO9PepelJ",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.AdamantineDragon.CrateringSmash.Name"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[dc]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:adamantine-dragon-magnetic-roar",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.9rwssyPzNfxuqX5d",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.AdamantineDragon.MagneticRoar.Name"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[dc]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:adamantine-dragon-petrifying-blow",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.hNwFT7H3Zd2eHsi4",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.AdamantineDragon.PetrifyingBlow.Name"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[dc]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:adamantine-dragon-repelling-blast",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.atbn1J9kkvGuH9U7",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.AdamantineDragon.RepellingBlast.Name"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[dc]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:adamantine-dragon-scything-wings",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.8UbjOjhhGGrTAWMq",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.AdamantineDragon.ScythingWings.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:channel-draconic-essence",
+      "foundry": "Compendium.pf2e.actionspf2e.Item.Ce9vzE3XWn0u5NcL",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "property": "traits",
+            "value": "{actor|flags.system.draconicBenefactor.tradition}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:cinder-dragon-cloud-of-ashes",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.D54bMK3tv4232W0X",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.CinderDragon.CloudOfAshes.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:cinder-dragon-inextinguishable-aura",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.qI1dHuib2vuitFMJ",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.CinderDragon.InextinguishableAura.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:cinder-dragon-inflame-emotions",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.SBnCmBgRgdh0nBRM",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.CinderDragon.InflameEmotions.Name"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[bestiary-ability-glossary-srd] Pathfinder Monster Core"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:conspirator-dragon-apex-paranoids",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.OrWZVlCohFRGzWsB",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.ConspiratorDragon.ApexParanoids.Name"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "condition",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:granter:id:{item|id}"],
+            "property": "description",
+            "value": [
+              {
+                "text": "{item|description}"
+              }
+            ]
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:conspirator-dragon-mental-feedback",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.Y9tkwsBQKbXTFxjT",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.ConspiratorDragon.MentalFeedback.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:conspirator-dragon-obscure-revelations",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.k9R1zUe2GCWci5Gd",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.ConspiratorDragon.ObscureRevelations.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:conspirator-dragon-occult-whisperers",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.WG1csSWO85nU7mce",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.ConspiratorDragon.OccultWhisperers.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:coral-dragon-grasping-waves",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.rviye8dQX9vCsVm8",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.CoralDragon.GraspingWaves.Name"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[against]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:coral-dragon-palytoxin",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.VmiXrvmqg7JdKopn",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.CoralDragon.Palytoxin.Name"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[dc]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:coral-dragon-primal-tide",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.VpXDP2fGKgYSU9uJ",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.CoralDragon.PrimalTide.Name"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[dc]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:despair-dragon-cursed-memories",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.DvBztBzWQQco4nWs",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.DespairDragon.CursedMemories.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:despair-dragon-lights-out",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.SctZqyzjpNLVas9Z",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.DespairDragon.LightsOut.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:despair-dragon-manifest-fear",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.zup3V3RgZJ1sy9Vy",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.DespairDragon.ManifestFear.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:diabolic-dragon-diabolic-disguise",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.VL0wMhHgm7NJKDHZ",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.DiabolicDragon.DiabolicDisguise.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:diabolic-dragon-infernal-rift",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.6F56Okhz5aRzUmZV",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.DiabolicDragon.InfernalRift.Name"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[dc]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:diabolic-dragon-intercept-summons",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.RLqgyWn86ZyB9CBL",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.DiabolicDragon.InterceptSummons.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:draconic-salvation",
+      "foundry": "Compendium.pf2e.actionspf2e.Item.hSTE1wvCsYYvCsHC",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "property": "traits",
+            "value": "{actor|flags.system.draconicBenefactor.tradition}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:empyreal-dragon-restorative-halo",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.ZdlH2u3E1EAHchVP",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.EmpyrealDragon.RestorativeHalo.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:empyreal-dragon-sacrificial-shield",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.9Gt3bYla9VqLrOPB",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.EmpyrealDragon.SacrificialShield.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:empyreal-dragon-wreath-of-holy-light",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.MUQT8abHdjAP1OeQ",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.EmpyrealDragon.WreathOfHolyLight.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:fortune-dragon-chimeric-nature",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.3olcA5ZNYWKBYkRA",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.FortuneDragon.ChimericNature.Name"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "override",
+            "predicate": ["chimeric-nature"],
+            "property": "damage-type",
+            "selectors": ["disruptive-breath-inline-damage"],
+            "value": "{item|flags.system.rulesSelections.chimericNature}"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "override",
+            "predicate": ["dice:slug:base", "dice:damage:type:force", "chimeric-nature"],
+            "property": "damage-type",
+            "selectors": ["strike-damage"],
+            "value": "{item|flags.system.rulesSelections.chimericNature}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:fortune-dragon-hidden-wealth",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.bAYATJsZVkQw636K",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.FortuneDragon.HiddenWealth.Name"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:fortune-dragon-shield-of-fortune",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.9LwWHRazIImJYvD3",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.FortuneDragon.ShieldOfFortune.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:horned-dragon-apex-dominance",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.STynsk9Ro0kAQTxr",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.HornedDragon.ApexDominance.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:horned-dragon-horn-projectile",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.FRIgZwQtHqp1rEo3",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.HornedDragon.HornProjectile.Name"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:horned-dragon-invigorating-spores",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.KINhG5lnnok03UKZ",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.HornedDragon.InvigoratingSpores.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:mirage-dragon-afterimage",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.8FJ0GmjLaxAT3H25",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.MirageDragon.Afterimage.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:mirage-dragon-phantasmal-terror",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.edpWHUorHAO5Z7SF",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.MirageDragon.PhantasmalTerror.Name"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:mirage-dragon-reshape-terrain",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.4JD49GKrvl2aR6j7",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.MirageDragon.ReshapeTerrain.Name"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[dc]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:omen-dragon-forewarned-and-forearmed",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.Z7BKGKMsvkZBg9XN",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.OmenDragon.ForewarnedAndForearmed.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:omen-dragon-link-fates",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.ACtEZDv5sogaOgcG",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.OmenDragon.LinkFates.Name"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[dc]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:phase-dragon-afterimage-jumps",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.OgtpOXZuyzuSyZ1j",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.PhaseDragon.AfterimageJumps.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:phase-dragon-dematerialize",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.hjToSb8qs12q0K3M",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.PhaseDragon.Dematerialize.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:phase-dragon-second-glance",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.HqT1fM4S5kmCLrBU",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.PhaseDragon.SecondGlance.Name"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.NPCAbility.PhaseDragon.SecondGlance.Label",
+            "mergeable": true,
+            "option": "spellshape",
+            "placement": "spellcasting",
+            "suboptions": [
+              {
+                "label": "PF2E.NPCAbility.PhaseDragon.SecondGlance.Label",
+                "value": "second-glance"
+              }
+            ],
+            "toggleable": true
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "label": "PF2E.NPCAbility.PhaseDragon.SecondGlance.Label",
+            "mode": "add",
+            "predicate": ["item:trait:teleportation", "spellshape:second-glance"],
+            "property": "description",
+            "value": [
+              {
+                "text": "{item|description}"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:requiem-dragon-die-together",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.695gtfH7p2H0G6Ch",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.RequiemDragon.DieTogether.Name"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "deathNote",
+          "raw": true
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[dc]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:requiem-dragon-soul-roar",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.6vq8c3BM9Haf5dcH",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.RequiemDragon.SoulRoar.Name"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[dc]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:resurrection-dragon-deathless-servant",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.9dCKA0ld81TuubR5",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.ResurrectionDragon.DeathlessServant.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:resurrection-dragon-harmful-claw",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.F1MbFmS07oKnJdIw",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.ResurrectionDragon.HarmfulClaw.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:resurrection-dragon-shred-souls",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.V3xivGSkm73pdnu1",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.ResurrectionDragon.ShredSouls.Name"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[dc]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:rune-dragon-catalyzing-rune",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.NoWUUKD9HK7Tu945",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.RuneDragon.CatalyzingRune.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:rune-dragon-runic-jail",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.MKeRtn8lAPs098qk",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.RuneDragon.RunicJail.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:whisper-dragon-change-shape",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.N2RrmpcKHBpqZ3ud",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.WhisperDragon.ChangeShape.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:whisper-dragon-draft-contract",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.Tro2ZR9B7SgFbZps",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.WhisperDragon.DraftContract.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "action:whisper-dragon-share-sight",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.2LRP9Pm34qOvlo0V",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.WhisperDragon.ShareSight.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "ancestry-feature:draconic-benefactor",
+      "foundry": "Compendium.pf2e.ancestryfeatures.Item.UR8qLQdU9UOoZxXB",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "actorFlag": true,
+            "choices": [
+              {
+                "label": "PF2E.Dragon.Adamantine",
+                "predicate": [
+                  {
+                    "or": [
+                      {
+                        "not": "draconic-benefactor"
+                      },
+                      "draconic-benefactor:adamantine"
+                    ]
+                  }
+                ],
+                "value": {
+                  "breathDamage": "bludgeoning",
+                  "breathShape": "cone",
+                  "dragon": "adamantine",
+                  "save": "reflex",
+                  "speed": "burrow",
+                  "tradition": "primal"
+                }
+              },
+              {
+                "label": "PF2E.Dragon.Barrage",
+                "predicate": [
+                  {
+                    "or": [
+                      {
+                        "not": "draconic-benefactor"
+                      },
+                      "draconic-benefactor:barrage"
+                    ]
+                  }
+                ],
+                "value": {
+                  "breathDamage": "force",
+                  "breathShape": "cone",
+                  "dragon": "barrage",
+                  "save": "reflex",
+                  "speed": "none",
+                  "tradition": "arcane"
+                }
+              },
+              {
+                "label": "PF2E.Dragon.Bog",
+                "predicate": [
+                  {
+                    "or": [
+                      {
+                        "not": "draconic-benefactor"
+                      },
+                      "draconic-benefactor:bog"
+                    ]
+                  }
+                ],
+                "value": {
+                  "breathDamage": "acid",
+                  "breathShape": "cone",
+                  "dragon": "bog",
+                  "save": "reflex",
+                  "speed": "swim",
+                  "tradition": "primal"
+                }
+              },
+              {
+                "label": "PF2E.Dragon.Brine",
+                "predicate": [
+                  {
+                    "or": [
+                      {
+                        "not": "draconic-benefactor"
+                      },
+                      "draconic-benefactor:brine"
+                    ]
+                  }
+                ],
+                "value": {
+                  "breathDamage": "bludgeoning",
+                  "breathShape": "line",
+                  "dragon": "brine",
+                  "save": "reflex",
+                  "speed": "swim",
+                  "tradition": "primal"
+                }
+              },
+              {
+                "label": "PF2E.Dragon.Cinder",
+                "predicate": [
+                  {
+                    "or": [
+                      {
+                        "not": "draconic-benefactor"
+                      },
+                      "draconic-benefactor:cinder"
+                    ]
+                  }
+                ],
+                "value": {
+                  "breathDamage": "fire",
+                  "breathShape": "cone",
+                  "dragon": "cinder",
+                  "save": "reflex",
+                  "speed": "none",
+                  "tradition": "primal"
+                }
+              },
+              {
+                "label": "PF2E.Dragon.Cloud",
+                "predicate": [
+                  {
+                    "or": [
+                      {
+                        "not": "draconic-benefactor"
+                      },
+                      "draconic-benefactor:cloud"
+                    ]
+                  }
+                ],
+                "value": {
+                  "breathDamage": "electricity",
+                  "breathShape": "cone",
+                  "dragon": "cloud",
+                  "save": "reflex",
+                  "speed": "none",
+                  "tradition": "primal"
+                }
+              },
+              {
+                "label": "PF2E.Dragon.Conspirator",
+                "predicate": [
+                  {
+                    "or": [
+                      {
+                        "not": "draconic-benefactor"
+                      },
+                      "draconic-benefactor:conspirator"
+                    ]
+                  }
+                ],
+                "value": {
+                  "breathDamage": "poison",
+                  "breathShape": "cone",
+                  "dragon": "conspirator",
+                  "save": "fortitude",
+                  "speed": "climb",
+                  "tradition": "occult"
+                }
+              },
+              {
+                "label": "PF2E.Dragon.Coral",
+                "predicate": [
+                  {
+                    "or": [
+                      {
+                        "not": "draconic-benefactor"
+                      },
+                      "draconic-benefactor:coral"
+                    ]
+                  }
+                ],
+                "value": {
+                  "breathDamage": "bludgeoning",
+                  "breathShape": "line",
+                  "dragon": "coral",
+                  "save": "reflex",
+                  "speed": "swim",
+                  "tradition": "primal"
+                }
+              },
+              {
+                "label": "PF2E.Dragon.Crystal",
+                "predicate": [
+                  {
+                    "or": [
+                      {
+                        "not": "draconic-benefactor"
+                      },
+                      "draconic-benefactor:crystal"
+                    ]
+                  }
+                ],
+                "value": {
+                  "breathDamage": "piercing",
+                  "breathShape": "cone",
+                  "dragon": "crystal",
+                  "save": "reflex",
+                  "speed": "none",
+                  "tradition": "primal"
+                }
+              },
+              {
+                "label": "PF2E.Dragon.Delight",
+                "predicate": [
+                  {
+                    "or": [
+                      {
+                        "not": "draconic-benefactor"
+                      },
+                      "draconic-benefactor:delight"
+                    ]
+                  }
+                ],
+                "value": {
+                  "breathDamage": "spirit",
+                  "breathShape": "cone",
+                  "dragon": "delight",
+                  "save": "reflex",
+                  "speed": "none",
+                  "tradition": "divine"
+                }
+              },
+              {
+                "label": "PF2E.Dragon.Despair",
+                "predicate": [
+                  {
+                    "or": [
+                      {
+                        "not": "draconic-benefactor"
+                      },
+                      "draconic-benefactor:despair"
+                    ]
+                  }
+                ],
+                "value": {
+                  "breathDamage": "sonic",
+                  "breathShape": "cone",
+                  "dragon": "despair",
+                  "save": "will",
+                  "speed": "none",
+                  "tradition": "occult"
+                }
+              },
+              {
+                "label": "PF2E.Dragon.Diabolic",
+                "predicate": [
+                  {
+                    "or": [
+                      {
+                        "not": "draconic-benefactor"
+                      },
+                      "draconic-benefactor:diabolic"
+                    ]
+                  }
+                ],
+                "value": {
+                  "breathDamage": "fire",
+                  "breathShape": "cone",
+                  "dragon": "diabolic",
+                  "save": "reflex",
+                  "speed": "none",
+                  "tradition": "divine"
+                }
+              },
+              {
+                "label": "PF2E.Dragon.Empyreal",
+                "predicate": [
+                  {
+                    "or": [
+                      {
+                        "not": "draconic-benefactor"
+                      },
+                      "draconic-benefactor:empyreal"
+                    ]
+                  }
+                ],
+                "value": {
+                  "breathDamage": "spirit",
+                  "breathShape": "cone",
+                  "dragon": "empyreal",
+                  "save": "reflex",
+                  "speed": "none",
+                  "tradition": "divine"
+                }
+              },
+              {
+                "label": "PF2E.Dragon.Executor",
+                "predicate": [
+                  {
+                    "or": [
+                      {
+                        "not": "draconic-benefactor"
+                      },
+                      "draconic-benefactor:executor"
+                    ]
+                  }
+                ],
+                "value": {
+                  "breathDamage": "sonic",
+                  "breathShape": "cone",
+                  "dragon": "executor",
+                  "save": "reflex",
+                  "speed": "none",
+                  "tradition": "divine"
+                }
+              },
+              {
+                "label": "PF2E.Dragon.Forest",
+                "predicate": [
+                  {
+                    "or": [
+                      {
+                        "not": "draconic-benefactor"
+                      },
+                      "draconic-benefactor:forest"
+                    ]
+                  }
+                ],
+                "value": {
+                  "breathDamage": "piercing",
+                  "breathShape": "cone",
+                  "dragon": "forest",
+                  "save": "reflex",
+                  "speed": "none",
+                  "tradition": "primal"
+                }
+              },
+              {
+                "label": "PF2E.Dragon.Fortune",
+                "predicate": [
+                  {
+                    "or": [
+                      {
+                        "not": "draconic-benefactor"
+                      },
+                      "draconic-benefactor:fortune"
+                    ]
+                  }
+                ],
+                "value": {
+                  "breathDamage": "force",
+                  "breathShape": "cone",
+                  "dragon": "fortune",
+                  "save": "reflex",
+                  "speed": "none",
+                  "tradition": "arcane"
+                }
+              },
+              {
+                "label": "PF2E.Dragon.Horned",
+                "predicate": [
+                  {
+                    "or": [
+                      {
+                        "not": "draconic-benefactor"
+                      },
+                      "draconic-benefactor:horned"
+                    ]
+                  }
+                ],
+                "value": {
+                  "breathDamage": "poison",
+                  "breathShape": "cone",
+                  "dragon": "horned",
+                  "save": "fortitude",
+                  "speed": "swim",
+                  "tradition": "primal"
+                }
+              },
+              {
+                "label": "PF2E.Dragon.Magma",
+                "predicate": [
+                  {
+                    "or": [
+                      {
+                        "not": "draconic-benefactor"
+                      },
+                      "draconic-benefactor:magma"
+                    ]
+                  }
+                ],
+                "value": {
+                  "breathDamage": "fire",
+                  "breathShape": "cone",
+                  "dragon": "magma",
+                  "save": "reflex",
+                  "speed": "burrow",
+                  "tradition": "primal"
+                }
+              },
+              {
+                "label": "PF2E.Dragon.Mirage",
+                "predicate": [
+                  {
+                    "or": [
+                      {
+                        "not": "draconic-benefactor"
+                      },
+                      "draconic-benefactor:mirage"
+                    ]
+                  }
+                ],
+                "value": {
+                  "breathDamage": "mental",
+                  "breathShape": "cone",
+                  "dragon": "mirage",
+                  "save": "will",
+                  "speed": "climb",
+                  "tradition": "arcane"
+                }
+              },
+              {
+                "label": "PF2E.Dragon.Mocking",
+                "predicate": [
+                  {
+                    "or": [
+                      {
+                        "not": "draconic-benefactor"
+                      },
+                      "draconic-benefactor:mirage"
+                    ]
+                  }
+                ],
+                "value": {
+                  "breathDamage": "bludgeoning",
+                  "breathShape": "cone",
+                  "dragon": "mocking",
+                  "save": "reflex",
+                  "speed": "none",
+                  "tradition": "occult"
+                }
+              },
+              {
+                "label": "PF2E.Dragon.Oath",
+                "predicate": [
+                  {
+                    "or": [
+                      {
+                        "not": "draconic-benefactor"
+                      },
+                      "draconic-benefactor:oath"
+                    ]
+                  }
+                ],
+                "value": {
+                  "breathDamage": "spirit",
+                  "breathShape": "cone",
+                  "dragon": "oath",
+                  "save": "will",
+                  "speed": "none",
+                  "tradition": "divine"
+                }
+              },
+              {
+                "label": "PF2E.Dragon.Omen",
+                "predicate": [
+                  {
+                    "or": [
+                      {
+                        "not": "draconic-benefactor"
+                      },
+                      "draconic-benefactor:omen"
+                    ]
+                  }
+                ],
+                "value": {
+                  "breathDamage": "mental",
+                  "breathShape": "cone",
+                  "dragon": "omen",
+                  "save": "will",
+                  "speed": "none",
+                  "tradition": "occult"
+                }
+              },
+              {
+                "label": "PF2E.Dragon.Phase",
+                "predicate": [
+                  {
+                    "or": [
+                      {
+                        "not": "draconic-benefactor"
+                      },
+                      "draconic-benefactor:phase"
+                    ]
+                  }
+                ],
+                "value": {
+                  "breathDamage": "force",
+                  "breathShape": "cone",
+                  "dragon": "phase",
+                  "save": "reflex",
+                  "speed": "none",
+                  "tradition": "arcane"
+                }
+              },
+              {
+                "label": "PF2E.Dragon.Requiem",
+                "predicate": [
+                  {
+                    "or": [
+                      {
+                        "not": "draconic-benefactor"
+                      },
+                      "draconic-benefactor:requiem"
+                    ]
+                  }
+                ],
+                "value": {
+                  "breathDamage": "spirit",
+                  "breathShape": "line",
+                  "dragon": "requiem",
+                  "save": "will",
+                  "speed": "swim",
+                  "tradition": "divine"
+                }
+              },
+              {
+                "label": "PF2E.Dragon.Resurrection",
+                "predicate": [
+                  {
+                    "or": [
+                      {
+                        "not": "draconic-benefactor"
+                      },
+                      "draconic-benefactor:resurrection"
+                    ]
+                  }
+                ],
+                "value": {
+                  "breathDamage": "void",
+                  "breathShape": "cone",
+                  "dragon": "resurrection",
+                  "save": "fortitude",
+                  "speed": "none",
+                  "tradition": "divine"
+                }
+              },
+              {
+                "label": "PF2E.Dragon.Rime",
+                "predicate": [
+                  {
+                    "or": [
+                      {
+                        "not": "draconic-benefactor"
+                      },
+                      "draconic-benefactor:rime"
+                    ]
+                  }
+                ],
+                "value": {
+                  "breathDamage": "cold",
+                  "breathShape": "cone",
+                  "dragon": "rime",
+                  "save": "reflex",
+                  "speed": "swim",
+                  "tradition": "primal"
+                }
+              },
+              {
+                "label": "PF2E.Dragon.Rune",
+                "predicate": [
+                  {
+                    "or": [
+                      {
+                        "not": "draconic-benefactor"
+                      },
+                      "draconic-benefactor:rune"
+                    ]
+                  }
+                ],
+                "value": {
+                  "breathDamage": "fire",
+                  "breathShape": "cone",
+                  "dragon": "rune",
+                  "save": "reflex",
+                  "speed": "none",
+                  "tradition": "arcane"
+                }
+              },
+              {
+                "label": "PF2E.Dragon.Sage",
+                "predicate": [
+                  {
+                    "or": [
+                      {
+                        "not": "draconic-benefactor"
+                      },
+                      "draconic-benefactor:sage"
+                    ]
+                  }
+                ],
+                "value": {
+                  "breathDamage": "mental",
+                  "breathShape": "cone",
+                  "dragon": "sage",
+                  "save": "will",
+                  "speed": "none",
+                  "tradition": "occult"
+                }
+              },
+              {
+                "label": "PF2E.Dragon.Sea",
+                "predicate": [
+                  {
+                    "or": [
+                      {
+                        "not": "draconic-benefactor"
+                      },
+                      "draconic-benefactor:sea"
+                    ]
+                  }
+                ],
+                "value": {
+                  "breathDamage": "bludgeoning",
+                  "breathShape": "cone",
+                  "dragon": "sea",
+                  "save": "reflex",
+                  "speed": "swim",
+                  "tradition": "arcane"
+                }
+              },
+              {
+                "label": "PF2E.Dragon.Sky",
+                "predicate": [
+                  {
+                    "or": [
+                      {
+                        "not": "draconic-benefactor"
+                      },
+                      "draconic-benefactor:sky"
+                    ]
+                  }
+                ],
+                "value": {
+                  "breathDamage": "electricity",
+                  "breathShape": "cone",
+                  "dragon": "sky",
+                  "save": "reflex",
+                  "speed": "none",
+                  "tradition": "divine"
+                }
+              },
+              {
+                "label": "PF2E.Dragon.Sovereign",
+                "predicate": [
+                  {
+                    "or": [
+                      {
+                        "not": "draconic-benefactor"
+                      },
+                      "draconic-benefactor:sovereign"
+                    ]
+                  }
+                ],
+                "value": {
+                  "breathDamage": "mental",
+                  "breathShape": "cone",
+                  "dragon": "sovereign",
+                  "save": "will",
+                  "speed": "none",
+                  "tradition": "occult"
+                }
+              },
+              {
+                "label": "PF2E.Dragon.Stormcrown",
+                "predicate": [
+                  {
+                    "or": [
+                      {
+                        "not": "draconic-benefactor"
+                      },
+                      "draconic-benefactor:stormcrown"
+                    ]
+                  }
+                ],
+                "value": {
+                  "breathDamage": "electricity",
+                  "breathShape": "line",
+                  "dragon": "stormcrown",
+                  "save": "reflex",
+                  "speed": "none",
+                  "tradition": "primal"
+                }
+              },
+              {
+                "label": "PF2E.Dragon.Time",
+                "predicate": [
+                  {
+                    "or": [
+                      {
+                        "not": "draconic-benefactor"
+                      },
+                      "draconic-benefactor:time"
+                    ]
+                  }
+                ],
+                "value": {
+                  "breathDamage": "force",
+                  "breathShape": "cone",
+                  "dragon": "time",
+                  "save": "will",
+                  "speed": "none",
+                  "tradition": "arcane"
+                }
+              },
+              {
+                "label": "PF2E.Dragon.Umbral",
+                "predicate": [
+                  {
+                    "or": [
+                      {
+                        "not": "draconic-benefactor"
+                      },
+                      "draconic-benefactor:umbral"
+                    ]
+                  }
+                ],
+                "value": {
+                  "breathDamage": "void",
+                  "breathShape": "cone",
+                  "dragon": "umbral",
+                  "save": "reflex",
+                  "speed": "none",
+                  "tradition": "occult"
+                }
+              },
+              {
+                "label": "PF2E.Dragon.Underworld",
+                "predicate": [
+                  {
+                    "or": [
+                      {
+                        "not": "draconic-benefactor"
+                      },
+                      "draconic-benefactor:underworld"
+                    ]
+                  }
+                ],
+                "value": {
+                  "breathDamage": "fire",
+                  "breathShape": "cone",
+                  "dragon": "underworld",
+                  "save": "reflex",
+                  "speed": "burrow",
+                  "tradition": "arcane"
+                }
+              },
+              {
+                "label": "PF2E.Dragon.Vizier",
+                "predicate": [
+                  {
+                    "or": [
+                      {
+                        "not": "draconic-benefactor"
+                      },
+                      "draconic-benefactor:vizier"
+                    ]
+                  }
+                ],
+                "value": {
+                  "breathDamage": "fire",
+                  "breathShape": "cone",
+                  "dragon": "vizier",
+                  "save": "reflex",
+                  "speed": "swim",
+                  "tradition": "occult"
+                }
+              },
+              {
+                "label": "PF2E.Dragon.Vorpal",
+                "predicate": [
+                  {
+                    "or": [
+                      {
+                        "not": "draconic-benefactor"
+                      },
+                      "draconic-benefactor:vorpal"
+                    ]
+                  }
+                ],
+                "value": {
+                  "breathDamage": "void",
+                  "breathShape": "cone",
+                  "dragon": "vorpal",
+                  "save": "will",
+                  "speed": "none",
+                  "tradition": "arcane"
+                }
+              },
+              {
+                "label": "PF2E.Dragon.Wailing",
+                "predicate": [
+                  {
+                    "or": [
+                      {
+                        "not": "draconic-benefactor"
+                      },
+                      "draconic-benefactor:wailing"
+                    ]
+                  }
+                ],
+                "value": {
+                  "breathDamage": "sonic",
+                  "breathShape": "cone",
+                  "dragon": "wailing",
+                  "save": "fortitude",
+                  "speed": "none",
+                  "tradition": "arcane"
+                }
+              },
+              {
+                "label": "PF2E.Dragon.Whisper",
+                "predicate": [
+                  {
+                    "or": [
+                      {
+                        "not": "draconic-benefactor"
+                      },
+                      "draconic-benefactor:whisper"
+                    ]
+                  }
+                ],
+                "value": {
+                  "breathDamage": "mental",
+                  "breathShape": "cone",
+                  "dragon": "whisper",
+                  "save": "will",
+                  "speed": "none",
+                  "tradition": "occult"
+                }
+              },
+              {
+                "label": "PF2E.Dragon.Wish",
+                "predicate": [
+                  {
+                    "or": [
+                      {
+                        "not": "draconic-benefactor"
+                      },
+                      "draconic-benefactor:wish"
+                    ]
+                  }
+                ],
+                "value": {
+                  "breathDamage": "mental",
+                  "breathShape": "cone",
+                  "dragon": "wish",
+                  "save": "will",
+                  "speed": "climb",
+                  "tradition": "arcane"
+                }
+              }
+            ],
+            "flag": "draconicBenefactor",
+            "key": "ChoiceSet"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "RollOption",
+          "raw": {
+            "key": "RollOption",
+            "option": "draconic-benefactor:{actor|flags.system.draconicBenefactor.dragon}"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "RollOption",
+          "raw": {
+            "key": "RollOption",
+            "option": "draconic-benefactor:breath-damage:{actor|flags.system.draconicBenefactor.breathDamage}"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "RollOption",
+          "raw": {
+            "key": "RollOption",
+            "option": "draconic-benefactor:breath-shape:{actor|flags.system.draconicBenefactor.breathShape}"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "RollOption",
+          "raw": {
+            "key": "RollOption",
+            "option": "draconic-benefactor:save:{actor|flags.system.draconicBenefactor.save}"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "RollOption",
+          "raw": {
+            "key": "RollOption",
+            "option": "draconic-benefactor:speed:{actor|flags.system.draconicBenefactor.speed}"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "RollOption",
+          "raw": {
+            "key": "RollOption",
+            "option": "draconic-benefactor:tradition:{actor|flags.system.draconicBenefactor.tradition}"
+          }
+        },
+        {
+          "type": "markup",
+          "markup": "table[border]"
+        },
+        {
+          "type": "markup",
+          "markup": "table[class]"
+        },
+        {
+          "type": "markup",
+          "markup": "tr[style]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "ancestry:dragonet",
+      "foundry": "Compendium.pf2e.ancestries.Item.B5Ewz31nJBOzHSMg",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "armor:anti-dragon-barding",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ZsMwDe78kIqZj5de",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "armor:anti-dragon-barding-greater",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.YPnmDZMcGaMyCHpZ",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "effect:aura-form-a-flock",
+      "foundry": "Compendium.pf2e.feat-effects.Item.wdOBAcEkC7L0NdJ8",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Weakness",
+          "raw": {
+            "key": "Weakness",
+            "type": "area-damage",
+            "value": 5
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Weakness",
+          "raw": {
+            "key": "Weakness",
+            "type": "splash-damage",
+            "value": 5
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "effect:effect-assured-fate",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.ggqCmAH0a7cmAdA3",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "SubstituteRoll",
+          "raw": {
+            "key": "SubstituteRoll",
+            "removeAfterRoll": "if-enabled",
+            "selector": "initiative",
+            "slug": "assured-fate",
+            "value": 13
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "effect:effect-binding-oath",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.LRLc8KQIJa4FhvvW",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "AdjustDegreeOfSuccess",
+          "raw": {
+            "adjustment": {
+              "all": "to-critical-success"
+            },
+            "key": "AdjustDegreeOfSuccess",
+            "predicate": ["item:defense:basic", "origin:signature:{item|origin.signature}"],
+            "selector": "saving-throw"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "RollOption",
+          "raw": {
+            "key": "RollOption",
+            "option": "binding-oath:origin:signature:{item|origin.signature}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "effect:effect-blood-and-spirit",
+      "foundry": "Compendium.pf2e.feat-effects.Item.tu36I5HWaqOjaLVu",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": {
+              "ownedItems": true,
+              "predicate": [
+                "item:equipped",
+                {
+                  "or": ["item:damage:type:piercing", "item:damage:type:slashing"]
+                }
+              ],
+              "types": ["weapon"]
+            },
+            "flag": "weapon",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Weapon"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "AdjustStrike",
+          "raw": {
+            "definition": ["item:id:{item|flags.system.rulesSelections.weapon}"],
+            "key": "AdjustStrike",
+            "mode": "add",
+            "predicate": ["blood-and-spirit:holy"],
+            "property": "traits",
+            "value": "holy"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "AdjustStrike",
+          "raw": {
+            "definition": ["item:id:{item|flags.system.rulesSelections}"],
+            "key": "AdjustStrike",
+            "mode": "add",
+            "predicate": ["blood-and-spirit:unholy"],
+            "property": "traits",
+            "value": "unholy"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "DamageDice",
+          "raw": {
+            "damageType": "spirit",
+            "diceNumber": 1,
+            "dieSize": "d6",
+            "key": "DamageDice",
+            "selector": "{item|flags.system.rulesSelections.weapon}-damage"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "effect:effect-dematerialize",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.GnIAh8I8Ln8IQao8",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "doubleVs": ["non-magical"],
+            "exceptions": ["force", "ghost-touch", "spirit"],
+            "key": "Resistance",
+            "type": "all-damage",
+            "value": "floor(@actor.level/2)"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "EphemeralEffect",
+          "raw": {
+            "key": "EphemeralEffect",
+            "selectors": "strike-attack-roll",
+            "uuid": "Compendium.pf2e.bestiary-effects.Item.Effect: Dematerialize (Ephemeral)"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "effect:effect-divert-essence",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.u7WExsKZepTe1VkP",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": {
+              "config": "ranks"
+            },
+            "flag": "rank",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Rank"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "key": "Resistance",
+            "type": "spells",
+            "value": "@item.flags.system.rulesSelections.rank"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "effect:effect-draconic-resilience",
+      "foundry": "Compendium.pf2e.feat-effects.Item.e183eoJd714WEi6J",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "key": "Resistance",
+            "type": "bludgeoning",
+            "value": "floor(@item.origin.level/2)"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "effect:effect-dragon-eye",
+      "foundry": "Compendium.pf2e.equipment-effects.Item.K3nzzDkz8dNwAd1a",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              "item:slug:breathe-fire",
+              {
+                "gte": ["item:rank", 3]
+              }
+            ],
+            "property": "description",
+            "value": [
+              {
+                "text": "PF2E.SpecificRule.Equipment.DragonEye.Addendum"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "effect:effect-eldritch-interference-critical-failure",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.iG3d3Bma7knjUWjw",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "selector": ["spell-damage", "spell-healing"],
+            "type": "status",
+            "value": "-@spell.rank"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "effect:effect-eldritch-interference-critical-success",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.OBIcnWY1ws6uTdtb",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "selector": ["spell-damage", "spell-healing"],
+            "type": "status",
+            "value": "@spell.rank"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "effect:effect-eldritch-interference-failure",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.sPpIvSLpol7cSCYg",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "selector": ["spell-damage", "spell-healing"],
+            "type": "status",
+            "value": "-@spell.rank"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "effect:effect-energize-bite",
+      "foundry": "Compendium.pf2e.feat-effects.Item.WQ48SJOWNuNMJ07l",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "DamageDice",
+          "raw": {
+            "damageType": "{actor|flags.system.dragonblood.damage}",
+            "diceNumber": 1,
+            "dieSize": "d6",
+            "key": "DamageDice",
+            "selector": "jaws-damage"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "effect:effect-fed-by-metal",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.OMJnZspk5YHai8yn",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "selector": "ac",
+            "type": "item",
+            "value": "@item.origin.flags.system.fedByMetalAC"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "effect:effect-fed-by-water",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.35OHxyrZA43S8rtL",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "TempHP",
+          "raw": {
+            "key": "TempHP",
+            "value": "@item.origin.flags.system.fedByWaterTempHP"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "effect:effect-fog-of-chance",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.ojzyLjd9094jkTPy",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "RollTwice",
+          "raw": {
+            "keep": "higher",
+            "key": "RollTwice",
+            "predicate": ["fog-of-chance:fortune"],
+            "removeAfterRoll": true,
+            "selector": ["attack-roll", "skill-check"]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "RollTwice",
+          "raw": {
+            "keep": "lower",
+            "key": "RollTwice",
+            "predicate": ["fog-of-chance:misfortune"],
+            "removeAfterRoll": true,
+            "selector": ["attack-roll", "skill-check"]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "effect:effect-gleaming-armor",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.CoPPOCyfADvybcxV",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "key": "Resistance",
+            "type": ["acid", "cold", "electricity", "fire", "sonic"],
+            "value": "@actor.flags.system.gleamingArmorMod"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "effect:effect-graceless-domain-success",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.luJf1FTHfwkeuDsF",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "RollTwice",
+          "raw": {
+            "keep": "lower",
+            "key": "RollTwice",
+            "removeAfterRoll": true,
+            "selector": ["athletics", "acrobatics", "performance"]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "effect:effect-heartening-aura",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.o86YugTsxhm1T86j",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "selector": ["attack-roll", "damage"],
+            "type": "status",
+            "value": "@item.origin.flags.system.hearteningAuraAttackDamage"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FastHealing",
+          "raw": {
+            "key": "FastHealing",
+            "predicate": ["binding-oath:origin:signature:{item|origin.signature}"],
+            "type": "fast-healing",
+            "value": "@item.origin.flags.system.hearteningAuraFastHealing"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "effect:effect-inspire-envoy",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.YDJnC3Bdc2GI6hX5",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": [
+              {
+                "label": "PF2E.NPCAbility.SovereignDragon.InspireEnvoyDragonAdult",
+                "value": 1
+              },
+              {
+                "label": "PF2E.NPCAbility.SovereignDragon.InspireEnvoyDragonAncient",
+                "value": 2
+              },
+              {
+                "label": "PF2E.NPCAbility.SovereignDragon.InspireEnvoyArchdragon",
+                "value": 3
+              }
+            ],
+            "flag": "bonusValue",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.NPCAbility.SovereignDragon.InspireEnvoyDragonChoice"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": ["inspire-envoy:atk"],
+            "selector": "attack",
+            "type": "status",
+            "value": "@item.flags.system.rulesSelections.bonusValue"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": ["inspire-envoy:ac"],
+            "selector": "ac",
+            "type": "status",
+            "value": "@item.flags.system.rulesSelections.bonusValue"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": ["inspire-envoy:perc-will-cha"],
+            "selector": ["cha-based", "perception", "will"],
+            "type": "status",
+            "value": "@item.flags.system.rulesSelections.bonusValue"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "effect:effect-invigorating-spores",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.6vJacr4iXeYf44Vd",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "key": "GrantItem",
+            "onDeleteActions": {
+              "granter": "detach"
+            },
+            "uuid": "Compendium.pf2e.bestiary-effects.Item.Effect: Invigorating Spores (Resistance)"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "effect:effect-liquefy",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.hhkmOtzPa3S9yyqq",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "key": "Resistance",
+            "type": "fire",
+            "value": "@item.origin.flags.system.liquefyResistance"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "effect:effect-mineral-deposits",
+      "foundry": "Compendium.pf2e.feat-effects.Item.0q1sI5pgZs0eHydw",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "AdjustStrike",
+          "raw": {
+            "definition": ["item:base:{item|flags.system.rulesSelections.attack}"],
+            "key": "AdjustStrike",
+            "mode": "add",
+            "property": "materials",
+            "value": "{item|flags.system.rulesSelections.material}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "effect:effect-pearl-dragonet-breath",
+      "foundry": "Compendium.pf2e.feat-effects.Item.covFunty2HlvEN9K",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": [
+              {
+                "label": "PF2E.SpecificRule.Dragonet.DragonetBreath.PearlDragonet.BadLuck",
+                "value": -1
+              },
+              {
+                "label": "PF2E.SpecificRule.Dragonet.DragonetBreath.PearlDragonet.GoodLuck",
+                "value": 1
+              }
+            ],
+            "flag": "modifier",
+            "key": "ChoiceSet"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "removeAfterRoll": "if-enabled",
+            "selector": ["attack-roll", "skill-check"],
+            "type": "status",
+            "value": "@item.flags.system.rulesSelections.modifier"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "effect:effect-restorative-halo",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.eFb1PU15j7t7wxqp",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FastHealing",
+          "raw": {
+            "key": "FastHealing",
+            "value": "@item.origin.level"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "effect:effect-rime-shield",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.gvCHmUQ2WxTdBKLq",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "TempHP",
+          "raw": {
+            "key": "TempHP",
+            "value": "@item.origin.flags.system.rimeShieldTempHP"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "effect:effect-sheltering-wing",
+      "foundry": "Compendium.pf2e.feat-effects.Item.4siBPDdWmwks1bI5",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "selector": ["ac"],
+            "slug": "sheltering-wing-ac",
+            "tags": ["sheltering-wing"],
+            "type": "circumstance",
+            "value": 1
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": ["item:type:spell"],
+            "selector": ["saving-throw"],
+            "slug": "sheltering-wing-saves",
+            "tags": ["sheltering-wing"],
+            "type": "circumstance",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "effect:effect-soul-roar-ally",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.SrUJbUErv3pjBRCw",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "TempHP",
+          "raw": {
+            "key": "TempHP",
+            "value": "@item.origin.level"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "effect:effect-word-of-advice",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.iTjPZQneHwBqlRiq",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "DamageDice",
+          "raw": {
+            "damageType": "fire",
+            "diceNumber": "@item.origin.flags.system.wordOfAdviceDiceNumber",
+            "dieSize": "d6",
+            "key": "DamageDice",
+            "selector": "strike-damage"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "effect:effect-word-of-caution",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.jQdNEbZ7n7B10aZC",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Immunity",
+          "raw": {
+            "definition": ["item:slug:powerful-utterance", "origin:signature:{item|origin.signature}"],
+            "key": "Immunity",
+            "label": "PF2E.NPCAbility.VizierDragon.PowerfulUtterance.ImmunityLabel",
+            "type": "custom"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "key": "Resistance",
+            "type": "all-damage",
+            "value": "@item.origin.flags.system.wordOfCautionResistance"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "effect:effect-word-of-heroism",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.F2vfkxDnMjBZt91r",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "selector": ["attack-roll", "perception", "saving-throw", "skill-check"],
+            "type": "status",
+            "value": "@item.origin.flags.system.wordOfHeroismBonus"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "equipment:pact-of-the-agonized-destroyer",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.sjMDfhSGRxmDnbme",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "equipment:pact-of-the-herald-and-host",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.fzScFR5aAl0YhtDd",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "override",
+            "predicate": ["feature:draconic-benefactor"],
+            "property": "damage-type",
+            "requiresEquipped": false,
+            "selectors": ["{item|id}-inline-damage"],
+            "value": "{actor|flags.system.draconicBenefactor.breathDamage}"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "feat:ascendant-blood",
+      "foundry": "Compendium.pf2e.feats-srd.Item.TafPYNuDBD2GEAxQ",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:interplanar-teleport", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:interplanar-teleport", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:dragonblood"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "feat:ascended-dragonet-heritage",
+      "foundry": "Compendium.pf2e.feats-srd.Item.glu6XiN7A3C5jMA9",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": {
+              "filter": [
+                {
+                  "or": [
+                    {
+                      "and": ["item:slug:{actor|flags.system.dragonetHeritage}", "dragonet-heritage-determined"]
+                    },
+                    {
+                      "and": [
+                        {
+                          "not": "dragonet-heritage-determined"
+                        },
+                        "item:ancestry:dragonet"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "itemType": "heritage"
+            },
+            "flag": "heritage",
+            "key": "ChoiceSet"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "key": "GrantItem",
+            "uuid": "{item|flags.system.rulesSelections.heritage}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "feat:benefactors-resistance",
+      "foundry": "Compendium.pf2e.feats-srd.Item.DFSeNLLmFyUzprIx",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "key": "Resistance",
+            "predicate": [
+              {
+                "nor": [
+                  "draconic-benefactor:breath-damage:bludgeoning",
+                  "draconic-benefactor:breath-damage:piercing",
+                  "draconic-benefactor:breath-damage:slashing"
+                ]
+              }
+            ],
+            "type": "{actor|flags.system.draconicBenefactor.breathDamage}",
+            "value": "floor(@actor.level / 2)"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "label": "PF2E.TraitAcid",
+                "value": "acid"
+              },
+              {
+                "label": "PF2E.TraitCold",
+                "value": "cold"
+              },
+              {
+                "label": "PF2E.TraitFire",
+                "value": "fire"
+              },
+              {
+                "label": "PF2E.TraitElectricity",
+                "value": "electricity"
+              },
+              {
+                "label": "PF2E.TraitSonic",
+                "value": "sonic"
+              }
+            ],
+            "flag": "nonPhysicalResistance",
+            "key": "ChoiceSet",
+            "predicate": [
+              {
+                "or": [
+                  "draconic-benefactor:breath-damage:bludgeoning",
+                  "draconic-benefactor:breath-damage:piercing",
+                  "draconic-benefactor:breath-damage:slashing"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "key": "Resistance",
+            "predicate": [
+              {
+                "or": [
+                  "draconic-benefactor:breath-damage:bludgeoning",
+                  "draconic-benefactor:breath-damage:piercing",
+                  "draconic-benefactor:breath-damage:slashing"
+                ]
+              }
+            ],
+            "type": "{item|flags.system.rulesSelections.nonPhysicalResistance}",
+            "value": "floor(@actor.level / 2)"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "feat:benefactors-strike",
+      "foundry": "Compendium.pf2e.feats-srd.Item.9tO7Kovo3Ugy0175",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "critical": true,
+            "damageCategory": "persistent",
+            "damageType": "{actor|flags.system.draconicBenefactor.breathDamage}",
+            "key": "FlatModifier",
+            "selector": ["unarmed-damage"],
+            "value": 1
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "feat:benefactors-wings",
+      "foundry": "Compendium.pf2e.feats-srd.Item.N6qQU07KWuxgo8Gy",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "BaseSpeed",
+          "raw": {
+            "key": "BaseSpeed",
+            "predicate": ["benefactors-wings"],
+            "selector": "fly",
+            "slug": "benefactors-wings-flight-bonus",
+            "value": 20
+          }
+        },
+        {
+          "type": "rule",
+          "key": "BaseSpeed",
+          "raw": {
+            "key": "BaseSpeed",
+            "predicate": ["benefactors-wings", "spectral-dragon-space"],
+            "selector": "fly",
+            "slug": "benefactors-wings-flight-bonus",
+            "value": 30
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "feat:breath-unleashed",
+      "foundry": "Compendium.pf2e.feats-srd.Item.BaVO8UU5ZkL8OZZj",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "feat",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:kobold-breath", "breath-unleashed"],
+            "property": "description",
+            "value": [
+              {
+                "text": "{item|description}"
+              }
+            ]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "upgrade",
+            "predicate": ["item:slug:kobold-breath", "breath-unleashed"],
+            "property": "dice-faces",
+            "selectors": ["kobold-breath-inline-damage"],
+            "value": 8
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "feat:covet-hoard",
+      "foundry": "Compendium.pf2e.feats-srd.Item.zoZRiXMyAuULzChA",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "feat:debilitating-breath",
+      "foundry": "Compendium.pf2e.feats-srd.Item.6VvvcS067uytDv76",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "feat",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:breath-of-the-dragon-dragonblood"],
+            "property": "description",
+            "value": [
+              {
+                "text": "{item|description}"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "feat:draconic-acolyte-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.uhfn5IuLPekAYCDf",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "feat:draconic-familiar",
+      "foundry": "Compendium.pf2e.feats-srd.Item.9fTmP4NuLwSoNl8f",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.attributes.familiarAbilities.value",
+            "priority": 9,
+            "value": 4
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "feat:draconic-fury",
+      "foundry": "Compendium.pf2e.feats-srd.Item.fMIHi9AuwZF7DufT",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "property": "traits",
+            "value": "{actor|flags.system.draconicBenefactor.tradition}"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "feat:draconic-paragon",
+      "foundry": "Compendium.pf2e.feats-srd.Item.PF8qHT4zd0loLQeJ",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "feat",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:kobold-breath"],
+            "property": "description",
+            "value": [
+              {
+                "text": "PF2E.SpecificRule.Kobold.DraconicParagon.KoboldBreath.Addendum"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "feat:draconic-resilience",
+      "foundry": "Compendium.pf2e.feats-srd.Item.5shHvm7YP0B5diqB",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "property": "traits",
+            "value": "{actor|flags.system.draconicBenefactor.tradition}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "feat:draconic-sycophant",
+      "foundry": "Compendium.pf2e.feats-srd.Item.HauCZuLvIthFe2we",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "feat:dragonet-breath",
+      "foundry": "Compendium.pf2e.feats-srd.Item.RaqjaXp2miOq4Bis",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "actorFlag": true,
+            "adjustName": false,
+            "choices": {
+              "filter": ["item:ancestry:dragonet"],
+              "itemType": "heritage",
+              "slugsAsValues": true
+            },
+            "flag": "dragonetHeritage",
+            "key": "ChoiceSet",
+            "predicate": [
+              {
+                "nor": ["dragonet-heritage", "dragonet-heritage-determined"]
+              }
+            ],
+            "rollOption": "dragonet-heritage"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "description",
+            "value": [
+              {
+                "text": "PF2E.SpecificRule.Dragonet.DragonetBreath.Description.Base"
+              },
+              {
+                "predicate": ["dragonet-heritage:fey-dragonet"],
+                "text": "PF2E.SpecificRule.Dragonet.DragonetBreath.Description.FeyDragonet"
+              },
+              {
+                "predicate": ["dragonet-heritage:homing-drake"],
+                "text": "PF2E.SpecificRule.Dragonet.DragonetBreath.Description.HomingDrake"
+              },
+              {
+                "predicate": ["dragonet-heritage:house-drake"],
+                "text": "PF2E.SpecificRule.Dragonet.DragonetBreath.Description.HouseDrake"
+              },
+              {
+                "predicate": ["dragonet-heritage:pearl-dragonet"],
+                "text": "PF2E.SpecificRule.Dragonet.DragonetBreath.Description.PearlDragonet"
+              },
+              {
+                "predicate": ["dragonet-heritage:pearl-dragonet"],
+                "text": "@UUID[Compendium.pf2e.feat-effects.Item.Effect: Pearl Dragonet Breath]"
+              },
+              {
+                "predicate": ["dragonet-heritage:tidepool-dragonet"],
+                "text": "PF2E.SpecificRule.Dragonet.DragonetBreath.Description.TidepoolDragonet"
+              }
+            ]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": [
+                  "dragonet-heritage:fey-dragonet",
+                  "dragonet-heritage:house-drake",
+                  "dragonet-heritage:pearl-dragonet"
+                ]
+              }
+            ],
+            "property": "traits",
+            "value": "arcane"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["dragonet-heritage:fey-dragonet"],
+            "property": "traits",
+            "value": "poison"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["dragonet-heritage:homing-drake"],
+            "property": "traits",
+            "value": "acid"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["dragonet-heritage:house-drake"],
+            "property": "traits",
+            "value": "mental"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["dragonet-heritage:pearl-drake"],
+            "property": "traits",
+            "value": "curse"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["dragonet-heritage:tidepool-dragonet"],
+            "property": "traits",
+            "value": "fire"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[traits]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "feat:dragonscaled-lore",
+      "foundry": "Compendium.pf2e.feats-srd.Item.CO7O8PT8RSAR2S1I",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.skills.dragon-lore",
+            "value": {
+              "attribute": "int",
+              "label": "PF2E.SpecificLore.Dragon",
+              "rank": "match(when(gte(@actor.level, 15), 4), when(gte(@actor.level, 7), 3),when(gte(@actor.level, 3), 2),1)"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "feat:essence-overflow",
+      "foundry": "Compendium.pf2e.feats-srd.Item.J7b0h6t09kS5e0R4",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "property": "traits",
+            "value": "{actor|flags.system.draconicBenefactor.tradition}"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "override",
+            "property": "damage-type",
+            "selectors": ["{item|id}-inline-damage"],
+            "value": "{actor|flags.system.draconicBenefactor.breathDamage}"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "feat:inhale-exhale",
+      "foundry": "Compendium.pf2e.feats-srd.Item.FrHsGqUvq6GrugC4",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "feat",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:dragonet-breath", "inhale-exhale"],
+            "property": "description",
+            "value": [
+              {
+                "text": "{item|description}"
+              },
+              {
+                "predicate": [
+                  {
+                    "or": ["heritage:fey-dragonet", "heritage:house-drake", "heritage:pearl-dragonet"]
+                  }
+                ],
+                "text": "@Template[cone|distance:20]"
+              },
+              {
+                "predicate": ["heritage:homing-drake"],
+                "text": "@Template[line|distance:35]"
+              },
+              {
+                "predicate": ["heritage:tidepool-dragonet"],
+                "text": "@Template[line|distance:20]"
+              },
+              {
+                "predicate": ["heritage:tidepool-dragonet"],
+                "text": "@Template[cone|distance:25]"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "feat:into-the-sky",
+      "foundry": "Compendium.pf2e.feats-srd.Item.fhpCUQUKRNtJMnf6",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "BaseSpeed",
+          "raw": {
+            "key": "BaseSpeed",
+            "selector": "fly-speed",
+            "value": 25
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "feat:kobold-breath",
+      "foundry": "Compendium.pf2e.feats-srd.Item.PPUNMjRLQYnmwQvF",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "override",
+            "property": "damage-type",
+            "selectors": ["{item|id}-inline-damage"],
+            "value": "{actor|flags.system.draconicBenefactor.breathDamage}"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "property": "traits",
+            "value": "{actor|flags.system.draconicBenefactor.tradition}"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "feat:luring-chomp",
+      "foundry": "Compendium.pf2e.feats-srd.Item.P8P5PwLgxk84bRQw",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "feat:my-claws-are-daggers",
+      "foundry": "Compendium.pf2e.feats-srd.Item.djQPfxfGXJL7i04C",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "CriticalSpecialization",
+          "raw": {
+            "key": "CriticalSpecialization",
+            "predicate": [
+              {
+                "gte": ["self:level", 5]
+              },
+              {
+                "or": ["item:base:claw", "item:base:jaws"]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "feat:reflexive-devotion",
+      "foundry": "Compendium.pf2e.feats-srd.Item.eAcMHQgfsOePtYgp",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Note",
+          "raw": {
+            "key": "Note",
+            "selector": ["initiative"],
+            "text": "{item|description}",
+            "title": "{item|name}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "feat:scales-of-steel",
+      "foundry": "Compendium.pf2e.feats-srd.Item.R3erN2vKsjo84pen",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "DexterityModifierCap",
+          "raw": {
+            "key": "DexterityModifierCap",
+            "predicate": [
+              {
+                "not": "self:armored"
+              }
+            ],
+            "value": 3
+          }
+        },
+        {
+          "type": "rule",
+          "key": "AdjustModifier",
+          "raw": {
+            "key": "AdjustModifier",
+            "mode": "add",
+            "predicate": [
+              {
+                "not": "self:armored"
+              },
+              {
+                "or": ["bonus:slug:bands-of-force", "bonus:slug:explorers-clothing", "bonus:slug:mage-armor"]
+              }
+            ],
+            "relabel": "{item|name}",
+            "selector": "ac",
+            "value": "ternary(gte(@actor.level,5),2,1)"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "feat:tip-the-scales",
+      "foundry": "Compendium.pf2e.feats-srd.Item.Dc5hLCC2qxCDWjX5",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "feat:voice-of-the-elements",
+      "foundry": "Compendium.pf2e.feats-srd.Item.2m94GSxJIkQZ5Xnt",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "heritage:fey-dragonet",
+      "foundry": "Compendium.pf2e.heritages.Item.Y1cG8cw4qoHR145y",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "system.build.languages.granted",
+            "value": {
+              "slug": "fey",
+              "source": "{item|name}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "heritage:house-drake",
+      "foundry": "Compendium.pf2e.heritages.Item.8oqAuez98yqAgteo",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "system.build.languages.granted",
+            "value": {
+              "slug": "diabolic",
+              "source": "{item|name}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "heritage:pearl-dragonet",
+      "foundry": "Compendium.pf2e.heritages.Item.Rz0hZM6CFvX5LnXg",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Embed"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "heritage:tidepool-dragonet",
+      "foundry": "Compendium.pf2e.heritages.Item.Qr1foFh24dkTqe1s",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "system.build.languages.granted",
+            "value": {
+              "slug": "thalassic",
+              "source": "{item|name}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "spell:armor-of-thorn-and-claw",
+      "foundry": "Compendium.pf2e.spells-srd.Item.EPTmSiURVp2ldkVB",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Damage[formula]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "spell:divine-dragons-watch",
+      "foundry": "Compendium.pf2e.spells-srd.Item.BBiO9ZdwyEJ581ES",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Embed"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "spell:dragon-turret",
+      "foundry": "Compendium.pf2e.spells-srd.Item.eAOClJ1KRSPik8SX",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "override",
+            "predicate": ["spellcasting:tradition:arcane"],
+            "property": "damage-type",
+            "selectors": ["{item|id}-damage"],
+            "value": "force"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "override",
+            "predicate": ["spellcasting:tradition:divine"],
+            "property": "damage-type",
+            "selectors": ["{item|id}-damage"],
+            "value": "spirit"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "override",
+            "predicate": ["spellcasting:tradition:occult"],
+            "property": "damage-type",
+            "selectors": ["{item|id}-damage"],
+            "value": "mental"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "override",
+            "predicate": ["spellcasting:tradition:primal"],
+            "property": "damage-type",
+            "selectors": ["{item|id}-damage"],
+            "value": "fire"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "weapon:dragons-tongue",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.QwRTK0x9L04xKyU5",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "weapon:dragons-tongue-greater",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.sq33MLggeM8D7Zz3",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "draconic-codex",
+      "slug": "weapon:dragons-tongue-major",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.fukrqsWzFeRbiLbi",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "vocabulary",
+      "kind": "damage-type",
+      "slug": "untyped",
+      "reason": "unmapped-value",
+      "detail": "untyped"
+    }
+  ]
+}

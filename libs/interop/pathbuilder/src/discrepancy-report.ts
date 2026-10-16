@@ -151,7 +151,11 @@ function reportedTotals(value: PathbuilderImport): Map<Selector, number> {
 /** A focus entry's DC: 10, its attribute and item bonuses, and its rank's number plus the level when trained or better. */
 function focusDc(
   level: number,
-  entry: { abilityBonus?: number | undefined; proficiency?: number | undefined; itemBonus?: number | undefined },
+  entry: {
+    abilityBonus?: number | undefined;
+    proficiency?: number | undefined;
+    itemBonus?: number | undefined;
+  },
 ): number {
   const rank = entry.proficiency ?? 0;
   return BASE_DC + (entry.abilityBonus ?? 0) + rank + (entry.itemBonus ?? 0) + (rank > 0 ? level : 0);

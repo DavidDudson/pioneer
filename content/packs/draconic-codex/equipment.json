@@ -1,0 +1,934 @@
+[
+  {
+    "id": "7a62abbb-853b-5071-847e-16e6eba41507",
+    "pack": "draconic-codex",
+    "kind": "equipment",
+    "slug": "equipment:dragon-pearl-draconic-codex",
+    "name": "Dragon Pearl (Draconic Codex)",
+    "level": 16,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When an irritant is caught within a dragon's scales, the dragon's body protects itself by coating the object in layers of dragon scale. Over time, it can form an item called a "
+          },
+          {
+            "type": "text",
+            "text": "dragon pearl",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". Such pearls, hard and iridescent, are infused with draconic magic and can be powerful tools in the right hands. They're usually placed in an ornate setting on a pin or necklace. Wearing the dragon pearl grants you a +2 item bonus to Intimidation checks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Pearlescent Shell",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You call protective power from the pearl to form a defensive barrier around yourself. You're affected by an 8th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "810878b5-e264-5dff-a417-e8ee5bbe60ea"
+          },
+          {
+            "type": "text",
+            "text": " spell, which takes on the appearance of shimmering translucent dragon scales. The field has resistance 15 to one damage type related to the dragon the pearl came from. When you activate the pearl, you choose the type from all types the dragon has immunity or resistance to plus a type based on their tradition: force for arcane, spirit for divine, mental for occult, or poison for primal."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:intimidation"],
+        "type": "item",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.38O6OrDAFq8K6buR"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 9000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "pearlescent-shell",
+          "name": "Pearlescent Shell",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "e35a7555-2673-563f-9f28-982b71751390",
+    "pack": "draconic-codex",
+    "kind": "equipment",
+    "slug": "equipment:duty-of-the-oathsworn",
+    "name": "Duty of the Oathsworn",
+    "level": 9,
+    "rarity": "rare",
+    "traits": ["contract", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The oath that ties you to your bound dragon transcends the boundaries of life and death. When the pact is made, the dragon chooses one type of creature other than humanoid. (The GM selects the appropriate trait.) You gain resistance equal to half your level to physical and mental damage from these creatures. You also gain the Draconic Precision action. If you die from damage delivered by a creature of this type, you rise as an undead creature of the dragon's choice. This undead's level can be no higher than your level or your bound dragon's, whichever is lower. This undead creature has your mind; if it's normally mindless, it loses that trait and any immunity to mental."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Draconic Precision",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your Strikes against the chosen type of enemy deal an additional 1d6 precision damage for 1 minute. This damage increases to 2d6 if you're 17th level or higher."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Oathbreaker's Calamity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Should either party break the oath, both you and the dragon are forever forsworn from comradery. Creatures can't treat either of you as an ally while in combat."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.poZ2TVzE8mUhcI10"
+    },
+    "data": {
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "7c1c1b0c-46e8-5949-b44b-bb8b233b385e",
+    "pack": "draconic-codex",
+    "kind": "equipment",
+    "slug": "equipment:enkindled-quintessence",
+    "name": "Enkindled Quintessence",
+    "level": 14,
+    "rarity": "rare",
+    "traits": ["contract", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have fully subsumed your soul within that of a dragon's soul, overloading your very essence with eldritch potential. You immediately retrain your class to that of a sorcerer with the draconic bloodline, with your draconic exemplar matching your bound dragon. You are able to cast spells immediately as if you had a full 8 hours of rest and completed your daily preparations; however, you become "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 2"
+          },
+          {
+            "type": "text",
+            "text": " from the strain of igniting your soul's magical potential."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Once per day, from any distance, the dragon can either teleport you to their lair or teleport to switch places with you. This is a 3-action activity with the teleportation trait and the dragon's tradition trait."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Oathbreaker's Calamity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Should either party break the oath, both your souls begin to immolate through your physical forms. If either of you casts a spell, they immediately become "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 3"
+          },
+          {
+            "type": "text",
+            "text": " unless they're casting it to harm the other party. If either of you die as a result of this calamity, you rise as a wraith (if it's you) or a wyrmwraith (if it's the dragon)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.7XWN1cdprTZ8mjRr"
+    },
+    "data": {
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "d7a60762-d6ef-5b0a-8eaa-4c9270b2f7a8",
+    "pack": "draconic-codex",
+    "kind": "equipment",
+    "slug": "equipment:pact-of-the-agonized-destroyer",
+    "name": "Pact of the Agonized Destroyer",
+    "level": 18,
+    "rarity": "rare",
+    "traits": ["contract", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your very quintessence has been hijacked by the agony of Dahak that lingered within your bound dragon. The wracked god's whispers burn your soul and ride your body to work in dire concordance with his whims. You are the very face of horror, an heir of the Dragon Plague's rancor, the Endless Destruction made manifest in an overwhelmed mortal form. You gain the Scream of Unending Destruction activity. In exchange, the dragon who bound you to this pact is now free from the influences of Dahak, losing any boons or abilities that might have been granted if they were a follower of Dahak and gaining a +2 item bonus on saving throws against any spells or abilities cast by followers of Dahak."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Scream of Unending Destruction",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (auditory, concentrate, emotion, fear, incapacitation, mental, unholy)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Attempt an Intimidation check against the Will DC of each creature in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " that you observe and that observes you."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target must attempt a Fortitude save against your Intimidation DC. On a critical failure, it dies in an explosion of hellfire that deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to each creature in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 5
+          },
+          {
+            "type": "text",
+            "text": ". On any other result, the creature becomes "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 3"
+          },
+          {
+            "type": "text",
+            "text": " and is "
+          },
+          {
+            "type": "ref",
+            "id": "f7fea8f9-c457-5b9f-9283-f567fa557184"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round. The critical failure effect has the death trait."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target becomes frightened 3 and takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target becomes "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 2"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Oathbreaker's Calamity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The souls of both parties begin to become consumed by the agony of Dahak. At the end of each day, you and your dragon become "
+          },
+          {
+            "type": "ref",
+            "id": "cd164d22-2d8e-5fd2-b8b2-03e1360df1e7",
+            "label": "Doomed 1"
+          },
+          {
+            "type": "text",
+            "text": " (or increase your doomed values by 1 if you're already doomed) unless both of you acted in service to Dahak that day. If you or your bound dragon die while under this effect, both of you explode in a catastrophe of hellfire and pitch, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "16d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to all creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": "; this effect has the divine and unholy traits. If the creature who didn't die also survives this blast, the pact of the agonized destroyer ends."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.sjMDfhSGRxmDnbme"
+    },
+    "data": {
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "41dbab35-3606-5939-8954-5f3532c77def",
+    "pack": "draconic-codex",
+    "kind": "equipment",
+    "slug": "equipment:pact-of-the-herald-and-host",
+    "name": "Pact of the Herald and Host",
+    "level": 6,
+    "rarity": "rare",
+    "traits": ["contract", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have exchanged your voice for the authority and breath of your bound dragon. Your voice echoes with the dragon's idiosyncrasies. You can cast fear as an innate spell once per day, with the spell's tradition matching that of your bound dragon."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Once per day, from any distance, your bound dragon can choose to take control of your voice. They dictate everything you say (or don't say) for up to 10 minutes. They can choose to speak in any language you or they know, though they can't use your voice to cast spells or activate items."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Breath of the Dragon",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You exhale a torrent of energy in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " or a "
+          },
+          {
+            "type": "template",
+            "shape": "line",
+            "size": 60
+          },
+          {
+            "type": "text",
+            "text": ", dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(@level)d6"
+              }
+            ],
+            "label": "1d6 damage per level"
+          },
+          {
+            "type": "text",
+            "text": ". Each creature in the area must attempt a basic saving throw against the higher of your class DC or spell DC. You can't use this ability again for 1d4 rounds. The area, damage type, and type of saving throw match those of your Draconic Benefactor. This ability has the trait associated with the type of damage it deals."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": {
+              "against": "class-or-spell-dc"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": {
+              "against": "class-or-spell-dc"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "class-or-spell-dc"
+            },
+            "basic": true
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Oathbreaker's Calamity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Should either party break the oath, your throat and mouth become swollen and elongated, preventing you from speaking any language but Draconic and causing any use of the Dragon Breath ability granted by this pact to also damage you. The dragon becomes "
+          },
+          {
+            "type": "ref",
+            "id": "4271da2e-7225-5aa7-9807-c499d8af6a5a"
+          },
+          {
+            "type": "text",
+            "text": ", but call still hear your voice."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.fzScFR5aAl0YhtDd"
+    },
+    "data": {
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "breath-of-the-dragon",
+          "name": "Breath of the Dragon",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "other"
+      }
+    }
+  },
+  {
+    "id": "08fb7b07-4d01-5716-82a1-461595dc706f",
+    "pack": "draconic-codex",
+    "kind": "equipment",
+    "slug": "equipment:the-timeless-bond",
+    "name": "The Timeless Bond",
+    "level": 12,
+    "rarity": "rare",
+    "traits": ["contract", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've linked your lifespan to your bound dragon. Your natural physical aging ceases and you gain the Draconic Vitality action, but your soul grows withered and scabrous by the weight of a dragon's experience with time."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Once per week, from any distance, the dragon can use a free action, which has the concentrate trait, to become "
+          },
+          {
+            "type": "ref",
+            "id": "6517bbf2-8085-534b-be6a-187d52739fa0"
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute. They can use the extra action to Stride, Strike, or to contribute an action to casting a spell. When the dragon uses this ability, you age 10 years and become "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 3"
+          },
+          {
+            "type": "text",
+            "text": " for 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Draconic Vitality",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Reduce your doomed value by 2. For 1 hour, you gain a +2 status bonus to saves against poisons and diseases, and a status bonus equal to your level to Hit Points you regain from spells with the same tradition as your bound dragon."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Oathbreaker's Calamity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Should either party break the oath, you begin aging at an accelerated rate. Every 1d6 days, you must succeed at a flat DC 14 check or age 10 years and become "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 3"
+          },
+          {
+            "type": "text",
+            "text": ". In turn, the dragon loses years of experience, reducing its age 100 years every time you fail the flat check. If the dragon is de-aged past the time they made the pact, the pact remains, but the dragon loses all memories of you and the pact."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Suk2LiODbjftQ4lL"
+    },
+    "data": {
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

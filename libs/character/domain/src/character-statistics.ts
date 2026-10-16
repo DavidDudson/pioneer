@@ -26,7 +26,7 @@ import { attributeModifiers } from './attribute-boosts';
 import type { CharacterDocument } from './character-document';
 import { ANCESTRY_SLOT } from './character-slots';
 import { buildRanks, characterGrants, classContent, classInputs } from './class-build';
-import { equippedInputs, equippedRules } from './equipped';
+import { buildRules, equippedInputs, equippedRules } from './equipped';
 import type { EquippedRules } from './equipped';
 import { favoredWeapons } from './favored-weapons';
 import { grantedStrikes } from './granted-strikes';
@@ -101,13 +101,17 @@ export interface StatisticSources {
   readonly variants: readonly VariantRuleEntry[];
 }
 
-/** The rules the character's items and conditions put in play, with those of its enabled variant rules first. */
+/** The rules the character's items, conditions and build put in play, with those of its enabled variant rules first. */
 function rulesInPlay(
   document: CharacterDocument,
   { registry, slots, variants }: Pick<StatisticSources, 'registry' | 'slots' | 'variants'>,
 ): EquippedRules {
-  const equipped = equippedRules(document, itemContent(registry), slots);
-  return { ...equipped, rules: [...variantRulesInPlay(variants), ...equipped.rules] };
+  const items = itemContent(registry);
+  const equipped = equippedRules(document, items, slots);
+  return {
+    ...equipped,
+    rules: [...variantRulesInPlay(variants), ...buildRules(document, items, slots), ...equipped.rules],
+  };
 }
 
 /**

@@ -6054,7 +6054,190 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellcastingEntry",
+        "slug": "sorcerer-focus",
+        "tradition": "occult",
+        "attribute": "cha",
+        "preparation": "focus",
+        "predicate": ["feat:sorcerer-dedication:aberrant"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "sorcerer-focus",
+        "spells": ["f6226dc5-f7f7-5eba-a5f1-9b6295a832eb"],
+        "predicate": ["feat:sorcerer-dedication:aberrant"]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "sorcerer-focus",
+        "tradition": "divine",
+        "attribute": "cha",
+        "preparation": "focus",
+        "predicate": ["feat:sorcerer-dedication:angelic"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "sorcerer-focus",
+        "spells": ["40b486d9-875a-5028-b481-fdb90fac9d56"],
+        "predicate": ["feat:sorcerer-dedication:angelic"]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "sorcerer-focus",
+        "tradition": "divine",
+        "attribute": "cha",
+        "preparation": "focus",
+        "predicate": ["feat:sorcerer-dedication:demonic"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "sorcerer-focus",
+        "spells": ["fff1f582-3284-5d8b-8e21-7575626c178d"],
+        "predicate": ["feat:sorcerer-dedication:demonic"]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "sorcerer-focus",
+        "tradition": "divine",
+        "attribute": "cha",
+        "preparation": "focus",
+        "predicate": ["feat:sorcerer-dedication:diabolic"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "sorcerer-focus",
+        "spells": ["8e121447-9045-5f59-928d-5fedd0026b2b"],
+        "predicate": ["feat:sorcerer-dedication:diabolic"]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "sorcerer-focus",
+        "tradition": "arcane",
+        "attribute": "cha",
+        "preparation": "focus",
+        "predicate": ["feat:sorcerer-dedication:draconic-arcane"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "sorcerer-focus",
+        "spells": ["980b15bd-35e0-5599-8b31-547fc30635dc"],
+        "predicate": ["feat:sorcerer-dedication:draconic-arcane"]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "sorcerer-focus",
+        "tradition": "divine",
+        "attribute": "cha",
+        "preparation": "focus",
+        "predicate": ["feat:sorcerer-dedication:draconic-divine"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "sorcerer-focus",
+        "spells": ["980b15bd-35e0-5599-8b31-547fc30635dc"],
+        "predicate": ["feat:sorcerer-dedication:draconic-divine"]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "sorcerer-focus",
+        "tradition": "occult",
+        "attribute": "cha",
+        "preparation": "focus",
+        "predicate": ["feat:sorcerer-dedication:draconic-occult"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "sorcerer-focus",
+        "spells": ["980b15bd-35e0-5599-8b31-547fc30635dc"],
+        "predicate": ["feat:sorcerer-dedication:draconic-occult"]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "sorcerer-focus",
+        "tradition": "primal",
+        "attribute": "cha",
+        "preparation": "focus",
+        "predicate": ["feat:sorcerer-dedication:draconic-primal"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "sorcerer-focus",
+        "spells": ["980b15bd-35e0-5599-8b31-547fc30635dc"],
+        "predicate": ["feat:sorcerer-dedication:draconic-primal"]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "sorcerer-focus",
+        "tradition": "primal",
+        "attribute": "cha",
+        "preparation": "focus",
+        "predicate": ["feat:sorcerer-dedication:elemental"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "sorcerer-focus",
+        "spells": ["87889c0f-1a02-511d-91d3-390744da4fb7"],
+        "predicate": ["feat:sorcerer-dedication:elemental"]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "sorcerer-focus",
+        "tradition": "primal",
+        "attribute": "cha",
+        "preparation": "focus",
+        "predicate": ["feat:sorcerer-dedication:fey"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "sorcerer-focus",
+        "spells": ["af8ee728-af1c-5a6b-b950-6f9f2c2997c8"],
+        "predicate": ["feat:sorcerer-dedication:fey"]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "sorcerer-focus",
+        "tradition": "occult",
+        "attribute": "cha",
+        "preparation": "focus",
+        "predicate": ["feat:sorcerer-dedication:hag"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "sorcerer-focus",
+        "spells": ["b320c9de-f7fc-5de7-a5b8-1cf3b0c76024"],
+        "predicate": ["feat:sorcerer-dedication:hag"]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "sorcerer-focus",
+        "tradition": "arcane",
+        "attribute": "cha",
+        "preparation": "focus",
+        "predicate": ["feat:sorcerer-dedication:imperial"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "sorcerer-focus",
+        "spells": ["8d5216bd-ffc0-5d10-accf-153abc93fd34"],
+        "predicate": ["feat:sorcerer-dedication:imperial"]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "sorcerer-focus",
+        "tradition": "divine",
+        "attribute": "cha",
+        "preparation": "focus",
+        "predicate": ["feat:sorcerer-dedication:undead"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "sorcerer-focus",
+        "spells": ["f217d095-238b-5bbc-a4a2-53cb7828541e"],
+        "predicate": ["feat:sorcerer-dedication:undead"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.wBqQsXzqObrZM9Va"
     },
@@ -7132,7 +7315,20 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellcastingEntry",
+        "slug": "beastmaster-focus",
+        "tradition": "primal",
+        "attribute": "cha",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "beastmaster-focus",
+        "spells": ["b064d870-47dd-5193-aae4-a1896c3c7f20"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.Ckglzh4dXcGWPNS3"
     },
@@ -8062,6 +8258,18 @@
         "key": "Proficiency",
         "selector": "spellcasting",
         "rank": "trained"
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "champion-focus",
+        "tradition": "divine",
+        "attribute": "cha",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "champion-focus",
+        "spells": ["63af3503-b13d-5e5f-9c69-ab215b1ca711"]
       }
     ],
     "externalIds": {
@@ -8106,7 +8314,20 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellcastingEntry",
+        "slug": "champion-focus",
+        "tradition": "divine",
+        "attribute": "cha",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "champion-focus",
+        "spells": ["12bd2b2c-f1a5-5fb5-9019-537347375066"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.NrCloSukzSUCprsM"
     },
@@ -16161,7 +16382,55 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellcastingEntry",
+        "slug": "champion-focus",
+        "tradition": "divine",
+        "attribute": "cha",
+        "preparation": "focus"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "devout-magic",
+        "choices": [
+          {
+            "value": "shields-of-the-spirit",
+            "label": "Shields of the Spirit"
+          },
+          {
+            "value": "lay-on-hands",
+            "label": "Lay on Hands",
+            "predicate": ["deity:primary:font:heal"]
+          },
+          {
+            "value": "touch-of-the-void",
+            "label": "Touch of the Void",
+            "predicate": ["deity:primary:font:harm"]
+          }
+        ],
+        "prompt": "Select a devotion spell.",
+        "rollOption": "devout-magic"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "champion-focus",
+        "spells": ["d2d0179a-4a99-5b15-8db6-6fee0d1e8b05"],
+        "predicate": ["devout-magic:shields-of-the-spirit"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "champion-focus",
+        "spells": ["63af3503-b13d-5e5f-9c69-ab215b1ca711"],
+        "predicate": ["devout-magic:lay-on-hands"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "champion-focus",
+        "spells": ["a8deb947-a2ff-5a4e-81f0-1ee9641513e2"],
+        "predicate": ["devout-magic:touch-of-the-void"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.jlLWz8e7PpLFt0Ed"
     },
@@ -25305,7 +25574,63 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellcastingEntry",
+        "slug": "oracle-focus",
+        "tradition": "divine",
+        "attribute": "cha",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["314f478a-c0d1-5a38-bc28-ed7622311b9b"],
+        "predicate": ["feat:oracle-dedication:ancestors"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["7cb26c36-0ea4-50ce-8b05-aa34a7e9c928"],
+        "predicate": ["feat:oracle-dedication:battle"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["6901a0c0-97db-5150-b426-9c8896e8f4d7"],
+        "predicate": ["feat:oracle-dedication:bones"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["93c888b1-1d38-5ab1-a90f-ca5f14bf5c19"],
+        "predicate": ["feat:oracle-dedication:cosmos"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["97ec82bf-f942-55b2-b9e7-d1d4f1197f24"],
+        "predicate": ["feat:oracle-dedication:flames"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["794fae16-e55f-57c8-ba13-abb022e6c5d4"],
+        "predicate": ["feat:oracle-dedication:life"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["bd189974-9a9b-52d2-b1f8-fd146a47570a"],
+        "predicate": ["feat:oracle-dedication:lore"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["f2daa081-afed-5c16-9f60-5d0ee3bdfce1"],
+        "predicate": ["feat:oracle-dedication:tempest"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.HdhnAm9SNfDqxRSN"
     },
@@ -43987,6 +44312,46 @@
         "key": "Proficiency",
         "selector": "spellcasting",
         "rank": "trained"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "mystery",
+        "rollOption": "feat:oracle-dedication",
+        "prompt": "Select a mystery.",
+        "choices": [
+          {
+            "value": "ancestors",
+            "label": "Ancestors"
+          },
+          {
+            "value": "battle",
+            "label": "Battle"
+          },
+          {
+            "value": "bones",
+            "label": "Bones"
+          },
+          {
+            "value": "cosmos",
+            "label": "Cosmos"
+          },
+          {
+            "value": "flames",
+            "label": "Flames"
+          },
+          {
+            "value": "life",
+            "label": "Life"
+          },
+          {
+            "value": "lore",
+            "label": "Lore"
+          },
+          {
+            "value": "tempest",
+            "label": "Tempest"
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -56464,6 +56829,66 @@
         "key": "Proficiency",
         "selector": "spellcasting",
         "rank": "trained"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "bloodline",
+        "rollOption": "feat:sorcerer-dedication",
+        "prompt": "Select a bloodline.",
+        "choices": [
+          {
+            "value": "aberrant",
+            "label": "Aberrant"
+          },
+          {
+            "value": "angelic",
+            "label": "Angelic"
+          },
+          {
+            "value": "demonic",
+            "label": "Demonic"
+          },
+          {
+            "value": "diabolic",
+            "label": "Diabolic"
+          },
+          {
+            "value": "draconic-arcane",
+            "label": "Draconic (Arcane)"
+          },
+          {
+            "value": "draconic-divine",
+            "label": "Draconic (Divine)"
+          },
+          {
+            "value": "draconic-occult",
+            "label": "Draconic (Occult)"
+          },
+          {
+            "value": "draconic-primal",
+            "label": "Draconic (Primal)"
+          },
+          {
+            "value": "elemental",
+            "label": "Elemental"
+          },
+          {
+            "value": "fey",
+            "label": "Fey"
+          },
+          {
+            "value": "hag",
+            "label": "Hag"
+          },
+          {
+            "value": "imperial",
+            "label": "Imperial"
+          },
+          {
+            "value": "undead",
+            "label": "Undead"
+          }
+        ]
       }
     ],
     "externalIds": {

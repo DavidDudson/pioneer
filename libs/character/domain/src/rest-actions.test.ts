@@ -23,6 +23,7 @@ import { preparedDaily, refocused, rested, sessionStarted } from './rest-actions
 import { RestChangeKind } from './rest-types';
 import { NO_STAFF, StaffProblem, staffProblem } from './staff-limits';
 import type { StaffLimits } from './staff-limits';
+import { TEST_SPEND } from './testing';
 
 function count(value: number): ResourceCount {
   return ResourceCount.parse(value);
@@ -61,6 +62,7 @@ const LIMITS: PlayLimits = {
   staff: NO_STAFF,
   valued: new Map(),
   effects: new Map(),
+  spend: TEST_SPEND,
 };
 
 const FIRST = ConditionInstanceId.parse('11111111-1111-4111-8111-111111111111');

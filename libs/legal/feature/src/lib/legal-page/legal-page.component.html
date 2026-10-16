@@ -1,106 +1,109 @@
-<fr-page [title]="'legal.page.title' | transloco" [description]="'legal.page.description' | transloco">
-  <fr-stack gap="lg">
-    <fr-surface>
-      <fr-stack gap="md">
-        <fr-heading variant="subheading" [level]="2">{{ 'legal.communityUse.heading' | transloco }}</fr-heading>
-        <fr-text element="p">
-          {{ 'legal.communityUse.beforePolicyLink' | transloco
-          }}<fr-link href="https://paizo.com/licenses/communityuse">{{
-            'legal.communityUse.policyLink' | transloco
-          }}</fr-link
-          >{{ 'legal.communityUse.afterPolicyLink' | transloco }}
-          <fr-link href="https://paizo.com">{{ 'legal.communityUse.siteLink' | transloco }}</fr-link
-          >{{ 'legal.communityUse.end' | transloco }}
-        </fr-text>
-        <fr-text element="p">{{ 'legal.communityUse.free' | transloco }}</fr-text>
-      </fr-stack>
-    </fr-surface>
+<fr-page>
+  <fr-page-header [title]="'legal.page.title' | transloco" [description]="'legal.page.description' | transloco" />
+  <fr-page-body>
+    <fr-stack gap="lg">
+      <fr-surface>
+        <fr-stack gap="md">
+          <fr-heading variant="subheading" [level]="2">{{ 'legal.communityUse.heading' | transloco }}</fr-heading>
+          <fr-text element="p">
+            {{ 'legal.communityUse.beforePolicyLink' | transloco
+            }}<fr-link href="https://paizo.com/licenses/communityuse">{{
+              'legal.communityUse.policyLink' | transloco
+            }}</fr-link
+            >{{ 'legal.communityUse.afterPolicyLink' | transloco }}
+            <fr-link href="https://paizo.com">{{ 'legal.communityUse.siteLink' | transloco }}</fr-link
+            >{{ 'legal.communityUse.end' | transloco }}
+          </fr-text>
+          <fr-text element="p">{{ 'legal.communityUse.free' | transloco }}</fr-text>
+        </fr-stack>
+      </fr-surface>
 
-    <fr-surface>
-      <fr-stack gap="md">
-        <fr-heading variant="subheading" [level]="2">{{ 'legal.orc.heading' | transloco }}</fr-heading>
-        <fr-text element="p">{{ 'legal.orc.scope' | transloco }}</fr-text>
-        <fr-text element="p">{{ 'legal.orc.notice' | transloco }}</fr-text>
-        <fr-link href="https://paizo.com/orclicense">{{ 'legal.orc.licenseLink' | transloco }}</fr-link>
-        <fr-text element="p">{{ 'legal.orc.reserved' | transloco }}</fr-text>
-        <fr-text element="p">{{ 'legal.orc.designated' | transloco }}</fr-text>
-        <fr-heading [level]="3">{{ 'legal.orc.attribution.heading' | transloco }}</fr-heading>
-        <fr-text element="p">{{ 'legal.orc.attribution.intro' | transloco }}</fr-text>
-        @for (group of attribution; track group.headingKey) {
-          <fr-stack gap="xs">
-            <fr-heading [level]="4">{{ group.headingKey | transloco }}</fr-heading>
-            <fr-list>
-              @for (work of group.works; track work) {
-                <fr-list-item>
-                  <fr-text variant="caption" tone="muted">{{ work }}</fr-text>
-                </fr-list-item>
-              }
-            </fr-list>
-          </fr-stack>
-        }
-      </fr-stack>
-    </fr-surface>
-
-    <fr-surface>
-      <fr-stack gap="md">
-        <fr-heading variant="subheading" [level]="2">{{ 'legal.ogl.heading' | transloco }}</fr-heading>
-        <fr-text element="p">{{ 'legal.ogl.scope' | transloco }}</fr-text>
-        <fr-text element="p">{{ 'legal.ogl.notice' | transloco }}</fr-text>
-        <fr-link href="https://github.com/foundryvtt/pf2e/blob/pf2e-8.6.0/static/licenses/OpenGameLicense.md">{{
-          'legal.ogl.licenseLink' | transloco
-        }}</fr-link>
-        <fr-heading [level]="3">{{ 'legal.ogl.attribution.heading' | transloco }}</fr-heading>
-        <fr-text element="p">{{ 'legal.ogl.attribution.intro' | transloco }}</fr-text>
-        <fr-list>
-          @for (work of oglAttribution; track work) {
-            <fr-list-item>
-              <fr-text variant="caption" tone="muted">{{ work }}</fr-text>
-            </fr-list-item>
+      <fr-surface>
+        <fr-stack gap="md">
+          <fr-heading variant="subheading" [level]="2">{{ 'legal.orc.heading' | transloco }}</fr-heading>
+          <fr-text element="p">{{ 'legal.orc.scope' | transloco }}</fr-text>
+          <fr-text element="p">{{ 'legal.orc.notice' | transloco }}</fr-text>
+          <fr-link href="https://paizo.com/orclicense">{{ 'legal.orc.licenseLink' | transloco }}</fr-link>
+          <fr-text element="p">{{ 'legal.orc.reserved' | transloco }}</fr-text>
+          <fr-text element="p">{{ 'legal.orc.designated' | transloco }}</fr-text>
+          <fr-heading [level]="3">{{ 'legal.orc.attribution.heading' | transloco }}</fr-heading>
+          <fr-text element="p">{{ 'legal.orc.attribution.intro' | transloco }}</fr-text>
+          @for (group of attribution; track group.headingKey) {
+            <fr-stack gap="xs">
+              <fr-heading [level]="4">{{ group.headingKey | transloco }}</fr-heading>
+              <fr-list>
+                @for (work of group.works; track work) {
+                  <fr-list-item>
+                    <fr-text variant="caption" tone="muted">{{ work }}</fr-text>
+                  </fr-list-item>
+                }
+              </fr-list>
+            </fr-stack>
           }
-        </fr-list>
-      </fr-stack>
-    </fr-surface>
+        </fr-stack>
+      </fr-surface>
 
-    <fr-surface>
-      <fr-stack gap="md">
-        <fr-heading variant="subheading" [level]="2">{{ 'legal.books.heading' | transloco }}</fr-heading>
-        <fr-text element="p">{{ 'legal.books.intro' | transloco }}</fr-text>
-        <fr-list>
-          @for (book of books; track book.id) {
-            <fr-list-item>
-              <fr-stack gap="xs">
-                <fr-text>{{ book.titleKey | transloco }}</fr-text>
-                <fr-text variant="caption" tone="muted">{{
-                  'legal.books.detail'
-                    | transloco: { publisher: book.publisherKey | transloco, license: book.licenseKey | transloco }
-                }}</fr-text>
-              </fr-stack>
-            </fr-list-item>
-          }
-        </fr-list>
-      </fr-stack>
-    </fr-surface>
+      <fr-surface>
+        <fr-stack gap="md">
+          <fr-heading variant="subheading" [level]="2">{{ 'legal.ogl.heading' | transloco }}</fr-heading>
+          <fr-text element="p">{{ 'legal.ogl.scope' | transloco }}</fr-text>
+          <fr-text element="p">{{ 'legal.ogl.notice' | transloco }}</fr-text>
+          <fr-link href="https://github.com/foundryvtt/pf2e/blob/pf2e-8.6.0/static/licenses/OpenGameLicense.md">{{
+            'legal.ogl.licenseLink' | transloco
+          }}</fr-link>
+          <fr-heading [level]="3">{{ 'legal.ogl.attribution.heading' | transloco }}</fr-heading>
+          <fr-text element="p">{{ 'legal.ogl.attribution.intro' | transloco }}</fr-text>
+          <fr-list>
+            @for (work of oglAttribution; track work) {
+              <fr-list-item>
+                <fr-text variant="caption" tone="muted">{{ work }}</fr-text>
+              </fr-list-item>
+            }
+          </fr-list>
+        </fr-stack>
+      </fr-surface>
 
-    <fr-surface>
-      <fr-stack gap="md">
-        <fr-heading variant="subheading" [level]="2">{{ 'legal.foundry.heading' | transloco }}</fr-heading>
-        <fr-text element="p">{{ 'legal.foundry.derived' | transloco }}</fr-text>
-        <fr-text element="p">{{ 'legal.foundry.edited' | transloco }}</fr-text>
-        <fr-list>
-          @for (imported of imports; track imported.pack) {
-            <fr-list-item>
-              <fr-stack gap="xs">
-                <fr-text>{{ imported.titleKey | transloco }}</fr-text>
-                <fr-link [external]="imported.url">{{
-                  'legal.foundry.release' | transloco: { release: imported.release }
-                }}</fr-link>
-              </fr-stack>
-            </fr-list-item>
-          }
-        </fr-list>
-        <fr-text element="p">{{ 'legal.foundry.affiliation' | transloco }}</fr-text>
-        <fr-link href="https://github.com/foundryvtt/pf2e">{{ 'legal.foundry.repositoryLink' | transloco }}</fr-link>
-      </fr-stack>
-    </fr-surface>
-  </fr-stack>
+      <fr-surface>
+        <fr-stack gap="md">
+          <fr-heading variant="subheading" [level]="2">{{ 'legal.books.heading' | transloco }}</fr-heading>
+          <fr-text element="p">{{ 'legal.books.intro' | transloco }}</fr-text>
+          <fr-list>
+            @for (book of books; track book.id) {
+              <fr-list-item>
+                <fr-stack gap="xs">
+                  <fr-text>{{ book.titleKey | transloco }}</fr-text>
+                  <fr-text variant="caption" tone="muted">{{
+                    'legal.books.detail'
+                      | transloco: { publisher: book.publisherKey | transloco, license: book.licenseKey | transloco }
+                  }}</fr-text>
+                </fr-stack>
+              </fr-list-item>
+            }
+          </fr-list>
+        </fr-stack>
+      </fr-surface>
+
+      <fr-surface>
+        <fr-stack gap="md">
+          <fr-heading variant="subheading" [level]="2">{{ 'legal.foundry.heading' | transloco }}</fr-heading>
+          <fr-text element="p">{{ 'legal.foundry.derived' | transloco }}</fr-text>
+          <fr-text element="p">{{ 'legal.foundry.edited' | transloco }}</fr-text>
+          <fr-list>
+            @for (imported of imports; track imported.pack) {
+              <fr-list-item>
+                <fr-stack gap="xs">
+                  <fr-text>{{ imported.titleKey | transloco }}</fr-text>
+                  <fr-link [external]="imported.url">{{
+                    'legal.foundry.release' | transloco: { release: imported.release }
+                  }}</fr-link>
+                </fr-stack>
+              </fr-list-item>
+            }
+          </fr-list>
+          <fr-text element="p">{{ 'legal.foundry.affiliation' | transloco }}</fr-text>
+          <fr-link href="https://github.com/foundryvtt/pf2e">{{ 'legal.foundry.repositoryLink' | transloco }}</fr-link>
+        </fr-stack>
+      </fr-surface>
+    </fr-stack>
+  </fr-page-body>
 </fr-page>

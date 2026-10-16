@@ -1,0 +1,175 @@
+[
+  {
+    "id": "5c8d5935-9092-56e6-8272-ceda68d4daae",
+    "pack": "high-seas",
+    "kind": "heritage",
+    "slug": "heritage:aquatic-elf",
+    "name": "Aquatic Elf",
+    "rarity": "common",
+    "traits": ["amphibious"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "high-seas"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are an aquatic elf who spends most of your life underwater. You have the ability to breathe both air and water, but you cannot live indefinitely on the surface. You gain the amphibious trait, and you have a swim Speed of 30 feet. At least once a week, you must take an 8-hour period of rest underwater. If you do not, you become "
+          },
+          {
+            "type": "ref",
+            "id": "5e3582c3-701c-5169-9c69-4221096722c2"
+          },
+          {
+            "type": "text",
+            "text": ", and you cannot recover from this fatigue until you rest underwater."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:swim",
+        "mode": "upgrade",
+        "value": 30
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.5pP2ldUGGixVBkCZ"
+    },
+    "data": {
+      "ancestry": "85929532-15d1-52c2-8500-d3b27f174266"
+    }
+  },
+  {
+    "id": "3f552d7c-97f2-5bf2-a008-071f9676556a",
+    "pack": "high-seas",
+    "kind": "heritage",
+    "slug": "heritage:benthic-athamaru",
+    "name": "Benthic Athamaru",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "high-seas"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are accustomed to rapidly ascending and descending through the depths of the ocean through careful manipulation of your swim bladder. Swimming up or down does not count as difficult terrain for you. Additionally, your eyesight has adapted to dark waters, granting you darkvision."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.sLYYvpSWzCWDfAHq"
+    },
+    "data": {
+      "ancestry": "f4e50cd5-ecae-5a83-ae11-611598830340"
+    }
+  },
+  {
+    "id": "626a1b55-8892-5eb3-a6c6-4f1db366f9a7",
+    "pack": "high-seas",
+    "kind": "heritage",
+    "slug": "heritage:camouflage-tripkee",
+    "name": "Camouflage Tripkee",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "high-seas"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The pattern of your skin naturally mimics natural terrain and foliage. Choose either aquatic, forest, or swamp terrain. In your selected terrain, you can Hide or Sneak without cover or being "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.5GdtQsVHy3cvK6fC"
+    },
+    "data": {
+      "ancestry": "7b90fab8-e442-5eeb-afa0-37ea2a60bd6e"
+    }
+  },
+  {
+    "id": "5e0abeda-cd77-5240-87b6-2e1e639c9eb9",
+    "pack": "high-seas",
+    "kind": "heritage",
+    "slug": "heritage:cecaelia-merfolk",
+    "name": "Cecaelia Merfolk",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "high-seas"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While the bodies of most merfolk resemble the bottom half of a fish, your lower half is akin to a cephalopod. You have multiple tentacles rather than legs or a fish tail, and those tentacles are lined with suction cups. Your land Speed becomes 10 feet, and you gain a climb Speed of 10 feet. Additionally, your abundance of legs allows you to Step into non-magical difficult terrain."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:land",
+        "mode": "upgrade",
+        "value": 10
+      },
+      {
+        "key": "Change",
+        "selector": "speed:climb",
+        "mode": "upgrade",
+        "value": 10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.fCaFb3kv6Vob5ByX"
+    },
+    "data": {
+      "ancestry": "d6c0793f-0036-5d39-ab46-6c9be3286704"
+    }
+  }
+]

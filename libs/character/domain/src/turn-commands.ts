@@ -29,11 +29,14 @@ export interface TurnCommandInputs {
   readonly economy: EconomyConditions;
 }
 
-/** Start turn: the bookkeeping, then the actions and the reaction refilled from the conditions that are left. */
+/** Start turn: the bookkeeping, then the actions and the reaction refilled from the conditions that are left, and the spend log cleared. */
 function started(play: PlayState, inputs: TurnCommandInputs, random: RandomSource): TurnOutcome {
   const begun = startTurn(play, { limits: inputs.limits, recovery: inputs.recovery }, random);
   const { turn, conditions, events } = refilled(begun.play.conditions, inputs.economy);
-  return { play: { ...begun.play, turn, conditions: [...conditions] }, events: [...begun.events, ...events] };
+  return {
+    play: { ...begun.play, turn, conditions: [...conditions], spendLog: [] },
+    events: [...begun.events, ...events],
+  };
 }
 
 /** End turn: the bookkeeping, then no actions left and off-turn. */
@@ -70,7 +73,7 @@ export function applyTurnCommand(play: PlayState, command: TurnCommand, { inputs
     case TurnCommandField.LeaveEncounter: {
       return phase === TurnPhase.OutOfEncounter
         ? unchanged(play)
-        : { play: { ...play, turn: OUT_OF_ENCOUNTER }, events: [] };
+        : { play: { ...play, turn: OUT_OF_ENCOUNTER, spendLog: [] }, events: [] };
     }
     default: {
       return command satisfies never;

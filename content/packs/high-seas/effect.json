@@ -1,0 +1,710 @@
+[
+  {
+    "id": "625ed7f9-fb0c-506d-a878-ed5bf9ea0fb1",
+    "pack": "high-seas",
+    "kind": "effect",
+    "slug": "effect:effect-assisted-flight",
+    "name": "Effect: Assisted Flight",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "high-seas"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "1a70c594-cc81-5d89-831e-1f5cf5e40c5f"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "a593072e-879d-5498-8d5a-00d466025985"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "08cb399f-9cd8-54d9-a8d9-618b90e41237"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "9bb9e67b-d23b-56d8-b882-d158b491ce86"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You emit a bright light in a 20-foot radius and dim light for the next 20 feet. You take a –2 item penalty to Stealth checks to Hide and Sneak."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you activate "
+          },
+          {
+            "type": "text",
+            "text": "major golden wings",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you also gain a fly Speed of 20 feet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you activate "
+          },
+          {
+            "type": "text",
+            "text": "true golden wings",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you also gain a fly Speed equal to your Speed or 25 feet, whichever is greater."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "item",
+        "value": -2,
+        "predicate": [
+          {
+            "or": ["action:hide", "action:sneak"]
+          }
+        ]
+      },
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": 20,
+        "predicate": ["golden-wings:golden-wings-major"]
+      },
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": "max(25, @stat.speed.land)",
+        "predicate": ["golden-wings:golden-wings-true"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.7uih4ELs2cePqkF2"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "2b094450-9d3c-5d36-8d60-ce8a45049399",
+    "pack": "high-seas",
+    "kind": "effect",
+    "slug": "effect:effect-blood-wake",
+    "name": "Effect: Blood Wake",
+    "level": 18,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "high-seas"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You becomes frightened 2 (frightened 4 on a critical failure) and stunned 1, and you take a –4 status penalty to Athletics checks to Swim."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-blood-wake",
+        "choices": [
+          {
+            "value": "failure",
+            "label": "Failure"
+          },
+          {
+            "value": "critical-failure",
+            "label": "Critical Failure"
+          }
+        ],
+        "prompt": "Select the degree of success.",
+        "rollOption": "blood-wake"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "status",
+        "value": -4,
+        "predicate": ["action:swim"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.oORIapm28xioxPDp"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "3eb68e8b-ded2-5da9-bb56-e8be6565450b",
+    "pack": "high-seas",
+    "kind": "effect",
+    "slug": "effect:effect-bounce-boost",
+    "name": "Effect: Bounce Boost",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "high-seas"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "1f79c19b-4feb-535c-81f7-ee30f4ed0b73"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a circumstance bonus to your Athletics check to High Jump or Long Jump."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.HBec3M2J94NSG2u5"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "e8a9fc32-9320-549a-a018-772c07d0eab8",
+    "pack": "high-seas",
+    "kind": "effect",
+    "slug": "effect:effect-cutthroat-grapple",
+    "name": "Effect: Cutthroat Grapple",
+    "level": 16,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "high-seas"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "5d6539c8-dc20-5fc7-9427-30eb802272b9"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –4 circumstance penalty to your Escape attempt."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:acrobatics", "skill:athletics", "basic-unarmed-attack-roll"],
+        "type": "circumstance",
+        "value": -4,
+        "predicate": ["action:escape"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.ahkqz1fpSBM3BSdn"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "b7fbf770-1516-5a77-a2d6-4f46b1e1ab97",
+    "pack": "high-seas",
+    "kind": "effect",
+    "slug": "effect:effect-eternal-renewal",
+    "name": "Effect: Eternal Renewal",
+    "level": 17,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "high-seas"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "3ef8e6b6-56c0-5e9d-b7ff-031ce7c6104f"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain fast healing 20."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FastHealing",
+        "value": 20
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.595ux0bQcjEz4TKu"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "aca02649-3eb8-55c1-8d1e-b59e5230588a",
+    "pack": "high-seas",
+    "kind": "effect",
+    "slug": "effect:effect-heartless-debilitations",
+    "name": "Effect: Heartless Debilitations",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "high-seas"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "1c865b51-81bc-52ce-bf3a-ca4915cdaf40"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain weakness 5 to bleed and poison damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Weakness",
+        "type": ["bleed", "poison"],
+        "value": 5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.6LnICchGZRKYDANK"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "3aede1bb-3556-5a3c-92df-9593036c9f15",
+    "pack": "high-seas",
+    "kind": "effect",
+    "slug": "effect:effect-sanguine-evasion",
+    "name": "Effect: Sanguine Evasion",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "high-seas"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "d74ff726-a5d8-56a0-b1c9-788cdb49ef3d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You lose any item bonus to your AC, gain resistance 8 to physical damage, immunity to precision damage, and a fly Speed equal to your land Speed."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["physical"],
+        "value": 8
+      },
+      {
+        "key": "Immunity",
+        "type": ["precision"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["ac"],
+        "suppress": true,
+        "predicate": ["bonus:type:item"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.x8PD5easD2GdXkbh"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "b7b46419-6841-5862-9f2e-dc8900643c4d",
+    "pack": "high-seas",
+    "kind": "effect",
+    "slug": "effect:effect-tumultuous-stomach",
+    "name": "Effect: Tumultuous Stomach",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "high-seas"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are swallowed and take a –2 circumstance penalty to attack rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll"],
+        "type": "circumstance",
+        "value": -2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.5AJNGTSiz4FzE04K"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "6c465e40-1d9e-54a3-b365-d7ec31717f7c",
+    "pack": "high-seas",
+    "kind": "effect",
+    "slug": "effect:spell-effect-anchoring-air",
+    "name": "Spell Effect: Anchoring Air",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "high-seas"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "abf2b0bc-1460-5831-bc43-2de6a26d8ab3"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take a –2 circumstance penalty to the triggering melee Strike's attack roll."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take a –2 circumstance penalty to all attack rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "spell-effect-anchoring-air",
+        "choices": [
+          {
+            "value": "success",
+            "label": "Success"
+          },
+          {
+            "value": "failure",
+            "label": "Failure"
+          }
+        ],
+        "prompt": "Select the degree of success.",
+        "rollOption": "anchoring-air"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll"],
+        "type": "circumstance",
+        "value": -2,
+        "slug": "anchoring-air-failure",
+        "predicate": ["anchoring-air:failure"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.dIk087Q4V9pS4eMe"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "66d7bc6f-e6f9-5275-a802-8d1886dbfdd2",
+    "pack": "high-seas",
+    "kind": "effect",
+    "slug": "effect:spell-effect-undertow",
+    "name": "Spell Effect: Undertow",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "high-seas"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "ace48a6b-8e1e-5d3a-84c1-3b007d2d1310"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –2 circumstance penalty to Athletics checks to Swim and a –10-foot circumstance penalty to your swim Speed, if you have one."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "circumstance",
+        "value": -2,
+        "predicate": ["action:swim"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["swim-speed"],
+        "type": "circumstance",
+        "value": -10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.349H6meFjgjIDA35"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  }
+]

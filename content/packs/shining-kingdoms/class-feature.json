@@ -1,0 +1,779 @@
+[
+  {
+    "id": "a9f22c48-7d8a-5e2d-85ad-82239dfc722b",
+    "pack": "shining-kingdoms",
+    "kind": "class-feature",
+    "slug": "class-feature:school-of-gates",
+    "name": "School of Gates",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Some are content to stay in place and let the world shape them, but you prefer to move at your own pace. You've studied the ancient "
+          },
+          {
+            "type": "text",
+            "text": "aiudara",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " and other structures to learn the magic of transposition, using your knowledge to move across great distances and even planes. With knowledge as your path and magic as your key, there's no door you can't open, and no world you won't explore."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Curriculum",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "cantrips:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "c319a7b8-ee8e-5f50-97c7-16151916ad80"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "d4cea589-6319-5d13-9109-319b4bbcc6e1"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "1st:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "f94a3b5e-8e3c-5781-81a5-5eca9bd19421"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "73a25cc8-4e2a-537a-8f15-3198afb7578c"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "1061f43a-5cb3-5717-952b-c7fedf6e0df1"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "2nd:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "d1f43afb-1c79-545c-9563-4dbbdd5a8386"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "ef2c7fc8-bc6b-5183-a321-2fc3c1933b16"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "3rd:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "c132a507-5b45-5c62-aa40-02e3b7849b6a"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "b43801c5-4070-55f4-a30b-5f4490e9762e"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "4th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "57a0b3be-ec46-56cd-99e6-c5c0988b0285"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "e25a3eab-3b7d-56fd-90e2-98d892fdc8fd"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "5th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "8a4b4c12-f868-5602-910c-8f0b6c7e4c30"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "aab61556-b7d8-59f6-b488-8f0c9d31aeef"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "6th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "32157afd-3901-597c-b28c-38069e5bdfe7"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "fdafb7f2-fde7-571a-89b5-7c2aba17e259"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "7th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "3e61b605-c274-5409-a4e1-9cb72132821d"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "8845ac04-b934-5119-92b8-e7831092fe04"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "8th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "9cbca3a7-5a5f-55f3-b53c-29e1dabc9ac2"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "f251d3f6-80cd-532d-a184-48bb417db8a4"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "9th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "9a49048f-369f-56ea-a90e-75f8ad252658"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "School Spells",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " initial: "
+          },
+          {
+            "type": "ref",
+            "id": "f2fbd637-eef0-5fb9-8ad9-9151e03deca9"
+          },
+          {
+            "type": "text",
+            "text": "; advanced: "
+          },
+          {
+            "type": "ref",
+            "id": "4cd5f52d-0de5-55be-9e43-7eae521c94d2"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "PoolSpells",
+        "entry": "wizard",
+        "pool": "curriculum",
+        "spells": [
+          "c319a7b8-ee8e-5f50-97c7-16151916ad80",
+          "d4cea589-6319-5d13-9109-319b4bbcc6e1",
+          "f94a3b5e-8e3c-5781-81a5-5eca9bd19421",
+          "73a25cc8-4e2a-537a-8f15-3198afb7578c",
+          "1061f43a-5cb3-5717-952b-c7fedf6e0df1",
+          "d1f43afb-1c79-545c-9563-4dbbdd5a8386",
+          "ef2c7fc8-bc6b-5183-a321-2fc3c1933b16",
+          "c132a507-5b45-5c62-aa40-02e3b7849b6a",
+          "b43801c5-4070-55f4-a30b-5f4490e9762e",
+          "57a0b3be-ec46-56cd-99e6-c5c0988b0285",
+          "e25a3eab-3b7d-56fd-90e2-98d892fdc8fd",
+          "8a4b4c12-f868-5602-910c-8f0b6c7e4c30",
+          "aab61556-b7d8-59f6-b488-8f0c9d31aeef",
+          "32157afd-3901-597c-b28c-38069e5bdfe7",
+          "fdafb7f2-fde7-571a-89b5-7c2aba17e259",
+          "3e61b605-c274-5409-a4e1-9cb72132821d",
+          "8845ac04-b934-5119-92b8-e7831092fe04",
+          "9cbca3a7-5a5f-55f3-b53c-29e1dabc9ac2",
+          "f251d3f6-80cd-532d-a184-48bb417db8a4",
+          "9a49048f-369f-56ea-a90e-75f8ad252658"
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.XXnGHBxNZvRsdkKM"
+    },
+    "data": {
+      "tags": ["wizard-arcane-school"]
+    }
+  },
+  {
+    "id": "8427f5b6-0ed1-54de-a83f-93571899f9fb",
+    "pack": "shining-kingdoms",
+    "kind": "class-feature",
+    "slug": "class-feature:school-of-kalistrade",
+    "name": "School of Kalistrade",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Power and money are closely intertwined, and you recognize the potential for magic to assist in your pursuit of wealth and influence. Though you might study this school without joining the Prophets of Kalistrade, most who do so are either a part of the organization or local to Kerse and therefore used to the customs and culture of the Kalistocrats. You deploy magic to help you see through the illusions and trickery of others. At the same time, you push boundaries and exploit loopholes to get ahead of your competitors."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Curriculum",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "cantrips:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "bb73ff19-7c70-5f9f-8c0e-dbd71c099926"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "02c769dd-dba8-5437-8189-28b9800afaac"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "1st:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "37cbee1f-5e9a-5b6e-b6bf-60d122467a65"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "a3738cb8-aa5d-5084-b250-86fe19b7498d"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "b1ebbfda-a31b-56b3-95d3-ee7a4b4bc8c8"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "2nd:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "8e71d902-1acc-566b-a53d-ce97cdbf3b85"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "e8221b18-c4c7-5d99-a604-a3cf119d41b1"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "3rd:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "137e9f3a-3af5-5004-9a32-dba8fdaff034"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "3c7ef298-5d47-58c4-a650-2bec5d4bda5d"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "4th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "0dfae2cc-8da3-54ef-87be-016eadc92505"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "06dcb2ac-6b0e-512e-bcc4-7dd4abe5d503"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "5th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "5eec8b16-b857-5c3d-800d-896878f43891"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "72597ff4-3a09-5802-9fd2-d42b78034487"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "6th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "fcd3c0c1-a3b8-5747-bbad-0ca5e7f7c495"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "d86cf275-4547-59c7-87b4-41d84f69e524"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "7th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "a3f9a255-5673-5df8-91ea-24b02bb4d503"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "99651215-11b0-5244-8514-74c05a562385"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "8th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "c162b2c7-aa54-5201-ab21-a2909f5790b3"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "c4dfdf84-0d97-5c26-95fc-35a4f59cc7a7"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "9th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "0c07289f-ca48-58ac-a9e3-3ff2cc46c5f1"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "School Spells",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " initial: "
+          },
+          {
+            "type": "ref",
+            "id": "2e30ffd4-3704-53ee-80a7-a4a5ba97e508"
+          },
+          {
+            "type": "text",
+            "text": "; advanced: "
+          },
+          {
+            "type": "ref",
+            "id": "0d16c7c5-7d90-5abc-9372-fc7a9c0a5559"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "PoolSpells",
+        "entry": "wizard",
+        "pool": "curriculum",
+        "spells": [
+          "bb73ff19-7c70-5f9f-8c0e-dbd71c099926",
+          "02c769dd-dba8-5437-8189-28b9800afaac",
+          "37cbee1f-5e9a-5b6e-b6bf-60d122467a65",
+          "a3738cb8-aa5d-5084-b250-86fe19b7498d",
+          "b1ebbfda-a31b-56b3-95d3-ee7a4b4bc8c8",
+          "8e71d902-1acc-566b-a53d-ce97cdbf3b85",
+          "e8221b18-c4c7-5d99-a604-a3cf119d41b1",
+          "137e9f3a-3af5-5004-9a32-dba8fdaff034",
+          "3c7ef298-5d47-58c4-a650-2bec5d4bda5d",
+          "0dfae2cc-8da3-54ef-87be-016eadc92505",
+          "06dcb2ac-6b0e-512e-bcc4-7dd4abe5d503",
+          "5eec8b16-b857-5c3d-800d-896878f43891",
+          "72597ff4-3a09-5802-9fd2-d42b78034487",
+          "fcd3c0c1-a3b8-5747-bbad-0ca5e7f7c495",
+          "d86cf275-4547-59c7-87b4-41d84f69e524",
+          "a3f9a255-5673-5df8-91ea-24b02bb4d503",
+          "99651215-11b0-5244-8514-74c05a562385",
+          "c162b2c7-aa54-5201-ab21-a2909f5790b3",
+          "c4dfdf84-0d97-5c26-95fc-35a4f59cc7a7",
+          "0c07289f-ca48-58ac-a9e3-3ff2cc46c5f1"
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.jtAqb5rnhQblZuM8"
+    },
+    "data": {
+      "tags": ["wizard-arcane-school"]
+    }
+  }
+]

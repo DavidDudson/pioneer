@@ -23,6 +23,12 @@ export const ActionsMessage = {
   GrantedBy: 'rules.actions.grantedBy',
   /** Heading over the actions with no cost. */
   Passive: 'rules.actions.passive',
+  /** The button that uses an action. */
+  Use: 'rules.actions.use',
+  /** The button that uses a variable-cost action for one action. */
+  UseForOne: 'rules.actions.useForOne',
+  /** The button that uses a variable-cost action for {count} actions. */
+  UseForMany: 'rules.actions.useForMany',
 } as const;
 
 /** How each action cost is worded, spelled out so the key check sees them. */

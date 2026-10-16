@@ -76,11 +76,17 @@ function packServices(db: Database, clock: Clock, { content, repository }: Chara
   return { packs, variants, allies, unenabled };
 }
 
+/** The character context as mounted: its routes, and the Pioneer file export other contexts are wired to. */
+export interface Characters {
+  readonly routes: ContractRouter['app'];
+  readonly pioneerFiles: PioneerFileService;
+}
+
 /**
  * The character context's part of the composition root: content, services and routes. Content is read from the
  * content tables the seed fills, so a re-seed is served without a restart.
  */
-export function characters(db: Database, clock: Clock, authenticator: RequestAuthenticator): ContractRouter['app'] {
+export function characters(db: Database, clock: Clock, authenticator: RequestAuthenticator): Characters {
   const content = new StoredContentSource(new ContentRepository(db));
   const repository = new DrizzleCharacterRepository(db);
   const { packs, variants, allies, unenabled } = packServices(db, clock, { content, repository });
@@ -99,14 +105,17 @@ export function characters(db: Database, clock: Clock, authenticator: RequestAut
   const sheetModes = new SheetModeService(repository, new DrizzleSheetModeRepository(db), clock);
   const featDisplay = new FeatDisplayService(repository, new DrizzleFeatDisplayRepository(db), clock);
   const play = new PlayService(repository, characterContent, clock);
-  return characterRoutes(service, authenticator)
-    .use(pathbuilderImportRoutes(importer, authenticator))
-    .use(pioneerFileRoutes(pioneerFiles, authenticator))
-    .use(sheetModeRoutes(sheetModes, authenticator))
-    .use(featDisplayRoutes(featDisplay, authenticator))
-    .use(characterAllyRoutes(allies, authenticator))
-    .use(characterPackRoutes(packs, authenticator))
-    .use(characterVariantRoutes(variants, authenticator))
-    .use(characterUnenabledRoutes(unenabled, authenticator))
-    .use(playRoutes(play, authenticator));
+  return {
+    pioneerFiles,
+    routes: characterRoutes(service, authenticator)
+      .use(pathbuilderImportRoutes(importer, authenticator))
+      .use(pioneerFileRoutes(pioneerFiles, authenticator))
+      .use(sheetModeRoutes(sheetModes, authenticator))
+      .use(featDisplayRoutes(featDisplay, authenticator))
+      .use(characterAllyRoutes(allies, authenticator))
+      .use(characterPackRoutes(packs, authenticator))
+      .use(characterVariantRoutes(variants, authenticator))
+      .use(characterUnenabledRoutes(unenabled, authenticator))
+      .use(playRoutes(play, authenticator)),
+  };
 }

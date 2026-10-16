@@ -1,0 +1,1455 @@
+[
+  {
+    "id": "285f39bf-5ebf-5ddc-a3c2-867c3577ca41",
+    "pack": "draconic-codex",
+    "kind": "ancestry-feature",
+    "slug": "ancestry-feature:big-sharp-teeth",
+    "name": "Big Sharp Teeth",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["dragonet"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your mouth bristles with razor-sharp teeth. You gain a jaws unarmed attack that deals 1d4 piercing damage. Your jaws are in the brawling group and have the finesse and unarmed traits."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "jaws",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["finesse", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d4",
+          "damageType": "piercing"
+        },
+        "display": {
+          "label": "Jaws"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestryfeatures.Item.PCLnnWPbiiSzrxEo"
+    },
+    "data": {}
+  },
+  {
+    "id": "7b7c29da-fff1-5fcb-ad76-e7c2f2883bc3",
+    "pack": "draconic-codex",
+    "kind": "ancestry-feature",
+    "slug": "ancestry-feature:draconic-benefactor",
+    "name": "Draconic Benefactor",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Some abilities reference your draconic benefactor, draconic exemplar, or a draconic instinct, which is a specific type of dragon from which you draw your draconic powers—typically the type of dragon you serve or whose blood runs in your veins. You can choose your exemplar when you create your character, but are required to choose one only when you select a feat or other option that requires you to have one (such as Breath of the Dragon). This means your draconic power might remain a mystery to you for some time, only revealing its true nature to you as you grow in experience."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The table below can be used to determine the benefits of your draconic connection or the benefits you gain when using dragon form and similar effects. If you choose a dragon from a different source, work with your GM to determine if you have access to it and what options that dragon grants you."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Draconic Benefactors"
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Dragon"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "Tradition"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "Speeds"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "Dragon Breath"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "Saving Throw"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "Adamantine"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Primal"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Burrow"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cone of bludgeoning"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Reflex"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Barrage"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Arcane"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "—"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cone of force"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Reflex"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Bog"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Primal"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Swim"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cone of acid"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Reflex"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Brine"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Primal"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Swim"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Line of bludgeoning"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Reflex"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Cinder"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Primal"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "—"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cone of fire"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Reflex"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Cloud"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Primal"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "—"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cone of electricity"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Reflex"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Conspirator"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Occult"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Climb"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cone of poison"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Fortitude"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Coral"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Primal"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Swim"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Line of bludgeoning"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Reflex"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Crystal"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Primal"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "—"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cone of piercing"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Reflex"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Delight"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Divine"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "—"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cone of spirit"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Reflex"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Despair"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Occult"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "—"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cone of sonic"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Will"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Diabolic"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Divine"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "—"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cone of fire"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Reflex"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Empyreal"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Divine"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "—"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cone of spirit"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Reflex"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Executor"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Divine"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "—"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cone of sonic"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Reflex"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Forest"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Primal"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "—"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cone of piercing"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Reflex"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Fortune"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Arcane"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "—"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cone of force"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Reflex"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Horned"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Primal"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Swim"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cone of poison"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Fortitude"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Magma"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Primal"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Burrow"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cone of fire"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Reflex"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Mirage"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Arcane"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Climb"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cone of mental"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Will"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Mocking"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Occult"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "—"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cone of bludgeoning"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Reflex"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Oath"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Divine"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "—"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cone of spirit"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Will"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Omen"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Occult"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "—"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cone of mental"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Will"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Phase"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Arcane"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "—"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cone of force"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Reflex"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Requiem"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Divine"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Swim"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Line of spirit"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Will"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Resurrection"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Divine"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "—"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cone of void"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Fortitude"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Rime"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Primal"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Swim"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cone of cold"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Reflex"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Rune"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Arcane"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "—"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cone of fire"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Reflex"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Sage"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Occult"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "—"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cone of mental"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Will"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Sea"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Arcane"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Swim"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cone of bludgeoning"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Reflex"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Sky"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Divine"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "—"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cone of electricity"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Reflex"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Sovereign"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Occult"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "—"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cone of mental"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Will"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Stormcrown"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Primal"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "—"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Line of electricity"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Reflex"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Time"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Arcane"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "—"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cone of force"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Will"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Umbral"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Occult"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "—"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cone of void"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Reflex"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Underworld"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Arcane"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Burrow"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cone of fire"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Reflex"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Vizier"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Occult"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Swim"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cone of fire"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Reflex"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Vorpal"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Arcane"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "—"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cone of void"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Will"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Wailing"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Arcane"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "—"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cone of sonic"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Fortitude"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Whisper"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Occult"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "—"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cone of mental"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Will"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Wish"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Arcane"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Climb"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cone of mental"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Will"
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:draconic-benefactor"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestryfeatures.Item.UR8qLQdU9UOoZxXB"
+    },
+    "data": {}
+  },
+  {
+    "id": "ab9a8e7f-bc27-5a3c-8863-d6afb4acd7f5",
+    "pack": "draconic-codex",
+    "kind": "ancestry-feature",
+    "slug": "ancestry-feature:wings-dragonet",
+    "name": "Wings (Dragonet)",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["dragonet"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your wings might not be as strong as other dragonets', but can still prevent you from uncontrolled falls. You take no damage from falling, regardless of the distance you fall."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestryfeatures.Item.RjWv5oPKZtNQgEiK"
+    },
+    "data": {}
+  }
+]

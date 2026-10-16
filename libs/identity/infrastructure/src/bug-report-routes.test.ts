@@ -1,6 +1,11 @@
 import { describe, expect, test } from 'bun:test';
 
-import { BUG_REPORT_LIMIT, BugReportService, InMemoryBugReportRepository } from '@pioneer/identity/application';
+import {
+  BUG_REPORT_LIMIT,
+  BugReportService,
+  InMemoryBugReportRepository,
+  InMemoryCharacterSnapshotSource,
+} from '@pioneer/identity/application';
 import { BugReportId, BugReportStatus, BugReportSubmission, UserId } from '@pioneer/identity/domain';
 import type { BugReport } from '@pioneer/identity/domain';
 import { fixedClock, newId, Temporal } from '@pioneer/shared/kernel';
@@ -29,14 +34,24 @@ interface Fixture {
 
 function fixture(): Fixture {
   const repository = new InMemoryBugReportRepository();
-  const reports = new BugReportService(repository, fixedClock(NOW));
-  return { api: new Elysia().use(problemHandler).use(bugReportRoutes(reports, new FakeAuthenticator())), repository };
+  const reports = new BugReportService(repository, new InMemoryCharacterSnapshotSource(), fixedClock(NOW));
+  return {
+    api: new Elysia().use(problemHandler).use(bugReportRoutes(reports, new FakeAuthenticator())),
+    repository,
+  };
 }
 
 async function report(api: AnyElysia, body: unknown, user?: UserId): Promise<Response> {
-  const headers = { 'content-type': 'application/json', ...(user === undefined ? {} : actingAs(user)) };
+  const headers = {
+    'content-type': 'application/json',
+    ...(user === undefined ? {} : actingAs(user)),
+  };
   return api.handle(
-    new Request('http://localhost/me/bug-reports', { method: 'POST', headers, body: JSON.stringify(body) }),
+    new Request('http://localhost/me/bug-reports', {
+      method: 'POST',
+      headers,
+      body: JSON.stringify(body),
+    }),
   );
 }
 
@@ -45,7 +60,11 @@ describe('bug report routes', () => {
     const amiri = UserId.parse(newId());
     const response = await report(fixture().api, BODY, amiri);
     expect(response.status).toBe(200);
-    expect(await response.json()).toMatchObject({ ...BODY, reporter: amiri, status: 'open' });
+    expect(await response.json()).toMatchObject({
+      ...BODY,
+      reporter: amiri,
+      status: 'open',
+    });
   });
 
   test('a signed-out request is refused', async () => {

@@ -2,7 +2,18 @@ import { NgComponentOutlet } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { LucideKeyRound } from '@lucide/angular';
-import { AsyncData, AsyncPending, AsyncRegion, Button, EmptyState, Page, Skeleton, Stack } from '@pioneer/frontier';
+import {
+  AsyncData,
+  AsyncPending,
+  AsyncRegion,
+  Button,
+  EmptyState,
+  Page,
+  PageBody,
+  PageHeader,
+  Skeleton,
+  Stack,
+} from '@pioneer/frontier';
 import { SessionStore, SIGN_IN_EXTRAS } from '@pioneer/identity/data-access';
 import { IdentityContract, OAuthProvider, returnPathOr } from '@pioneer/identity/domain';
 import type { ReturnPath } from '@pioneer/identity/domain';
@@ -27,6 +38,8 @@ const CONTINUE_WITH = {
     EmptyState,
     NgComponentOutlet,
     Page,
+    PageBody,
+    PageHeader,
     Skeleton,
     Stack,
     TranslocoPipe,

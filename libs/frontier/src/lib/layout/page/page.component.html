@@ -1,22 +1,9 @@
 <fr-box width="page" padding="lg" gutter>
   <fr-stack gap="xl">
-    <header>
-      <fr-stack horizontalFrom="md" gap="md" justify="between">
-        <fr-stack gap="2xs">
-          @if (title(); as title) {
-            <fr-heading [level]="1">{{ title }}</fr-heading>
-          } @else {
-            <fr-heading busy [level]="1"><fr-skeleton width="md" /></fr-heading>
-          }
-          @if (description(); as description) {
-            <fr-text element="p" tone="muted">{{ description }}</fr-text>
-          }
-        </fr-stack>
-        <ng-content select="[frPageActions]" />
-      </fr-stack>
-    </header>
-    <div>
-      <ng-content />
-    </div>
+    <ng-content select="fr-page-header" />
+    <fr-stack horizontalFrom="lg" gap="xl">
+      <ng-content select="fr-page-body" />
+      <ng-content select="fr-page-aside" />
+    </fr-stack>
   </fr-stack>
 </fr-box>

@@ -57,6 +57,22 @@ Alternatives:
   of the school Wizard Dedication picked (`feat:wizard-dedication:<school>`). Each gives the focus entry of its class's
   tradition and attribute, and an order joined through Druid Dedication, like one joined through Order Explorer, grants
   no order spell of its own.
+- A champion's devotion spell is a choice of Shields of the Spirit or the spell of the deity's divine font (Lay on Hands
+  for heal, Touch of the Void for harm), in the divine charisma entry `champion-focus`. Devout Magic offers the same
+  choice, Blessed One Dedication gives Lay on Hands, and Blessed Sacrifice Protector's Sacrifice, which Player Core
+  prints (a spell is named `<book>/<slug>` when another book prints it).
+- A sorcerer's bloodline gives the focus entry `sorcerer-focus` (charisma) in its tradition, a draconic bloodline's
+  being its exemplar's, and its initial bloodline spell, then its advanced and greater ones with Advanced and Greater
+  Bloodline. A bloodline Crossblooded Evolution joins grants none of them. Sorcerer Dedication picks a bloodline
+  (`feat:sorcerer-dedication:<bloodline>`, a draconic one once per exemplar: `draconic-primal`) and Basic Bloodline Spell
+  gives its initial spell in that tradition.
+- An oracle's mystery gives the divine charisma focus entry `oracle-focus` and its initial revelation spell, then its
+  advanced and greater ones with Advanced and Greater Revelation. Oracle Dedication picks a mystery
+  (`feat:oracle-dedication:<mystery>`) and First Revelation gives its initial spell. Player Core 2's mysteries are
+  covered; a later book's follow with its import.
+- Beastmaster's Trance gives the focus spell Beastmaster Trance in the primal charisma entry `beastmaster-focus`, and
+  the spell a Focus Point. Foundry prints the spell only as its pre-remaster Advanced Player's Guide entry, which
+  selection skips, so the spell was imported from that entry as Player Core 2's and added to the committed pack by hand.
 - An order's focus entry and order spell hold unless the order was joined through Order Explorer
   (`not feat:order-explorer:<order>`), which grants none of its other benefits, as Foundry guards an order's own.
 - Order Explorer offers the druidic orders the druid has not (an order it joined through the feat stays offered, so its

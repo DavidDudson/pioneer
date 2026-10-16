@@ -1,0 +1,802 @@
+[
+  {
+    "id": "f13e9206-f6b3-5aa5-9394-2153e9c615cc",
+    "pack": "shining-kingdoms",
+    "kind": "rune",
+    "slug": "rune:bolkas-blessing",
+    "name": "Bolka's Blessing",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["divine", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This filigree grants you a +1 item bonus to Diplomacy checks and to Perception checks to "
+          },
+          {
+            "type": "ref",
+            "id": "775b68f2-1542-5f47-bc0d-87d5884d7baa"
+          },
+          {
+            "type": "text",
+            "text": ". Additionally, once per day, the filigree symbol can be activated for a healing effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Gift of Life",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, healing, vitality)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You regain "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d10",
+                "damageType": "vitality"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.fqnjZzwBi9GH4CXO"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 160
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "gift-of-life",
+          "name": "Gift of Life",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "type": "property",
+      "etchedOnto": {
+        "item": "weapon",
+        "restriction": "clan-dagger"
+      }
+    }
+  },
+  {
+    "id": "2150a2c6-5695-594b-8257-558eafc3e9d1",
+    "pack": "shining-kingdoms",
+    "kind": "rune",
+    "slug": "rune:bolkas-blessing-greater",
+    "name": "Bolka's Blessing (Greater)",
+    "level": 11,
+    "rarity": "uncommon",
+    "traits": ["divine", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This filigree grants you a +2 item bonus to Diplomacy checks and to Perception checks to "
+          },
+          {
+            "type": "ref",
+            "id": "775b68f2-1542-5f47-bc0d-87d5884d7baa"
+          },
+          {
+            "type": "text",
+            "text": ". Additionally, once per day, the filigree symbol can be activated for a healing effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Gift of Life",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, healing, vitality)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You regain "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d10",
+                "damageType": "vitality"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.mcBXIHJGVQrbDLxi"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1400
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "gift-of-life",
+          "name": "Gift of Life",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "type": "property",
+      "etchedOnto": {
+        "item": "weapon",
+        "restriction": "clan-dagger"
+      }
+    }
+  },
+  {
+    "id": "d338ed23-1c89-58a8-8c02-36db906da596",
+    "pack": "shining-kingdoms",
+    "kind": "rune",
+    "slug": "rune:kolss-oath",
+    "name": "Kols's Oath",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["divine", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This filigree grants you, as the clan dagger's owner, a +1 item bonus to Society checks and to Diplomacy checks to Request. Additionally, once per day, the filigree symbol can be activated to compel an enemy to act."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Vow Unbreakable",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (auditory, concentrate, linguistic, mental)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You command a creature within 30 feet to Stride away from you, drop "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": ", or release one item it's holding. The creature can choose to perform that action as the first action on its next turn; if it doesn't, it takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "mental"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 20,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.tvFMexALNZ70NVwh"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 160
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "vow-unbreakable",
+          "name": "Vow Unbreakable",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "type": "property",
+      "etchedOnto": {
+        "item": "weapon",
+        "restriction": "clan-dagger"
+      }
+    }
+  },
+  {
+    "id": "ec10cbc6-5f53-5dd6-962f-9e77862d86d7",
+    "pack": "shining-kingdoms",
+    "kind": "rune",
+    "slug": "rune:kolss-oath-greater",
+    "name": "Kols's Oath (Greater)",
+    "level": 11,
+    "rarity": "uncommon",
+    "traits": ["divine", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This filigree grants you, as the clan dagger's owner, a +2 item bonus to Society checks and to Diplomacy checks to Request. Additionally, once per day, the filigree symbol can be activated to compel an enemy to act."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Vow Unbreakable",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (auditory, concentrate, linguistic, mental)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You command a creature within 30 feet to Stride away from you, drop "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": ", or release one item it's holding. The creature can choose to perform that action as the first action on its next turn; if it doesn't, it takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "8d6",
+                "damageType": "mental"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 28,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.BuQsMeD7IP4mvDCQ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1400
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "vow-unbreakable",
+          "name": "Vow Unbreakable",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "type": "property",
+      "etchedOnto": {
+        "item": "weapon",
+        "restriction": "clan-dagger"
+      }
+    }
+  },
+  {
+    "id": "b3ba5fae-109e-57c0-a6cd-cb7079116dc2",
+    "pack": "shining-kingdoms",
+    "kind": "rune",
+    "slug": "rune:trudds-strength",
+    "name": "Trudd's Strength",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["divine", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This filigree depiction of a warhammer in front of a kite-shaped shield grants you a +1 item bonus to Athletics checks and to Intimidation checks to "
+          },
+          {
+            "type": "ref",
+            "id": "ed0f3425-17f0-51f3-bb5d-1ca7475499a5"
+          },
+          {
+            "type": "text",
+            "text": ". Additionally, once per day, the filigree symbol can be activated to protect your allies."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Protect the Clan!",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Protective energy releases in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": ", granting a +1 status bonus to Armor Class to all allies within the area. The bonus lasts for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "be0b423d-11fb-5024-a422-8574dbfd16e7"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.I8XecIUYhwagAnXv"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 160
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "protect-the-clan",
+          "name": "Protect the Clan!",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "type": "property",
+      "etchedOnto": {
+        "item": "weapon",
+        "restriction": "clan-dagger"
+      }
+    }
+  },
+  {
+    "id": "6ef75177-3d62-51a9-b73e-d5fed7045afb",
+    "pack": "shining-kingdoms",
+    "kind": "rune",
+    "slug": "rune:trudds-strength-greater",
+    "name": "Trudd's Strength (Greater)",
+    "level": 11,
+    "rarity": "uncommon",
+    "traits": ["divine", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This filigree depiction of a warhammer in front of a kite-shaped shield grants you a +2 item bonus to Athletics checks and to Intimidation checks to "
+          },
+          {
+            "type": "ref",
+            "id": "ed0f3425-17f0-51f3-bb5d-1ca7475499a5"
+          },
+          {
+            "type": "text",
+            "text": ". Additionally, once per day, the filigree symbol can be activated to protect your allies."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Protect the Clan!",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Protective energy releases in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": ", granting a +2 status bonus to Armor Class to all allies within the area. The bonus lasts for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "be0b423d-11fb-5024-a422-8574dbfd16e7"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.wvo5Qaj5qn7jFHaA"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1400
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "protect-the-clan",
+          "name": "Protect the Clan!",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "type": "property",
+      "etchedOnto": {
+        "item": "weapon",
+        "restriction": "clan-dagger"
+      }
+    }
+  }
+]

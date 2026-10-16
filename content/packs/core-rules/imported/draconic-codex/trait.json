@@ -1,0 +1,52 @@
+[
+  {
+    "id": "4432fd91-23b3-58a8-83b7-7541a4ecc535",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:dragon",
+    "name": "Dragon",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["ancestry", "creature", "heritage"]
+    }
+  },
+  {
+    "id": "973c4f47-ad5c-5521-a1f7-d682cb79c4a1",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:dragonet",
+    "name": "Dragonet",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
+    }
+  }
+]

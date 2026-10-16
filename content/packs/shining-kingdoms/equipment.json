@@ -1,0 +1,1420 @@
+[
+  {
+    "id": "a3703928-36f0-55cf-af52-9ab573b6079d",
+    "pack": "shining-kingdoms",
+    "kind": "equipment",
+    "slug": "equipment:emperors-peak-quartz-bracelet",
+    "name": "Emperor's Peak Quartz Bracelet",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While most residents of—and travelers to—the Five Kings Mountains live underground, a significant number of people explore the regions' awe-inspiring peaks. Among their many discoveries on Emperor's Peak is a deposit of rainbow-colored rock crystal quartz with inherent magical properties that aid in survival, especially in the mountains. Dwarven artisans fashion chunks of this translucent quartz into fashionable bracelets."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Wearing such a bracelet grants you a +1 item bonus to Survival checks to "
+          },
+          {
+            "type": "ref",
+            "id": "d0498569-a787-5708-8a5f-39c521dd3df4"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "897dec4f-1321-59a1-bb19-085290e409f0"
+          },
+          {
+            "type": "text",
+            "text": ". This bonus increases to +3 when in mountainous terrain. If you attempt a Survival check to Subsist after 8 hours or less of exploration, you take only a –2 penalty instead of a –5 penalty."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:survival"],
+        "type": "item",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["action:subsist", "action:sense-direction"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.um6HjOHNXNux6WQu"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "8aefa758-9820-5c2e-a456-e87e0a1f7be3",
+    "pack": "shining-kingdoms",
+    "kind": "equipment",
+    "slug": "equipment:fan-buckler",
+    "name": "Fan Buckler",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're a member of the Lion Blades."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When collapsed, a "
+          },
+          {
+            "type": "text",
+            "text": "fan buckler",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " appears to be no more than an elegant wooden fan. Any attempts to discern that there's more to the item require a successful Perception check against the Deception DC of the wielder."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Unfurl Fan",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You transform the fan into a wooden "
+          },
+          {
+            "type": "ref",
+            "id": "679c7aef-b6e4-5d35-b78b-e4b59a64cdbb"
+          },
+          {
+            "type": "text",
+            "text": " (Hardness 3, HP 6, BT 3) or vice versa."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Mz6Q1bawtWXtAifO"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "d7d585d5-ded8-508e-8b46-1fda5b6a97e4",
+    "pack": "shining-kingdoms",
+    "kind": "equipment",
+    "slug": "equipment:jaws-of-the-grogrisant",
+    "name": "Jaws of the Grogrisant",
+    "level": 17,
+    "rarity": "unique",
+    "traits": ["apex", "invested", "primal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The teeth that fell off the Mantle of the Grogrisant were given to the scholars of Houses Fahlspar, Lotheed, Nicodemius, and Zespire, who—after much heated discussion—created this regal circlet. You gain a +3 item bonus to Diplomacy and Intimidation skill checks and "
+          },
+          {
+            "type": "ref",
+            "id": "775b68f2-1542-5f47-bc0d-87d5884d7baa"
+          },
+          {
+            "type": "text",
+            "text": " checks against creatures that have the primal trait. When you invest in the headband, you either increase your Wisdom modifier by 1 or increase it to +4, whichever would give you a higher value."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Primal Empathy",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, mental)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain the ability to communicate with nature as if you were a part of it. You cast "
+          },
+          {
+            "type": "ref",
+            "id": "b9c6ff5d-7757-5750-8536-1486fd82c8a7"
+          },
+          {
+            "type": "text",
+            "text": " at 6th rank, which can only be used to communicate with creatures that have the primal trait."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check", "perception-check"],
+        "type": "item",
+        "value": 3,
+        "predicate": [
+          "target:trait:primal",
+          {
+            "or": ["action:sense-motive", "check:statistic:diplomacy", "check:statistic:intimidation"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.vg4p0cHrZf14VXGz"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 15000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "primal-empathy",
+          "name": "Primal Empathy",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "circlet"
+      },
+      "apex": "wis"
+    }
+  },
+  {
+    "id": "6d249878-e3f9-573b-9606-529918efcd08",
+    "pack": "shining-kingdoms",
+    "kind": "equipment",
+    "slug": "equipment:keep-stone-amulet",
+    "name": "Keep Stone Amulet",
+    "level": 19,
+    "rarity": "rare",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The superior adamantine-lead alloy known as keep stone is as highly prized as it is expensive, and for good reason: keep stone combines the Hardness and durability of the finest metal with inherent magical protection. Not only does the metal itself resist magical effects, but anyone in proximity to a large amount of it also enjoys a degree of protection from divination magic. Dwarven crafters have attempted to make this extra protection more portable and more affordable in the form of "
+          },
+          {
+            "type": "text",
+            "text": "keep stone amulets",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". Each amulet is unique in its exact shape, size, thickness, and decorations, but typically, a keep stone amulet is roughly palm-sized and engraved with clan symbols, holy aphorisms, or a favorite line of poetry."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While wearing a "
+          },
+          {
+            "type": "text",
+            "text": "keep stone amulet",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", if you're the target of a spell with the detection or scrying trait, the caster must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 5
+          },
+          {
+            "type": "text",
+            "text": " or lose the spell."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Rebuff Magic",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, misfortune)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're the target of a spell with a spell attack roll"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The caster must roll the spell attack roll twice and take the worse result."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Jp6HZr9zJP5JMEBu"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 38000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "rebuff-magic",
+          "name": "Rebuff Magic",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "90c259e7-2cff-57eb-b342-8b7e7b4cfc3d",
+    "pack": "shining-kingdoms",
+    "kind": "equipment",
+    "slug": "equipment:paws-of-the-grogrisant",
+    "name": "Paws of the Grogrisant",
+    "level": 17,
+    "rarity": "unique",
+    "traits": ["apex", "invested", "primal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Princess Eutropia commissioned Taldor's Imperial College of Heralds to preserve the paws that fell off the Mantle of the Grogrisant. A few weeks later, the college presented this pair of boots. You gain a +3 item bonus to Athletics checks and saves against forced movement. When you invest in the boots, you either increase your Strength modifier by 1 or increase it to +4, whichever would give you a higher value."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Grogrisant Leap",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The Grogrisant's legendary strength and reflexes empower your movement. You Leap, doubling the vertical and horizontal distance of your Leap action. If you land adjacent to a creature, you can Strike that creature once as part of this action."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["athletics-check"],
+        "type": "item",
+        "value": 3
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "item",
+        "value": 3,
+        "predicate": ["option:forced-movement"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.BifEA6ixOdQ6a0yw"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 15000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "grogrisant-leap",
+          "name": "Grogrisant Leap",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "shoes"
+      },
+      "apex": "str"
+    }
+  },
+  {
+    "id": "c05f5aed-7ba5-5050-a79f-efca8ad90a49",
+    "pack": "shining-kingdoms",
+    "kind": "equipment",
+    "slug": "equipment:resonating-crystal-boots",
+    "name": "Resonating Crystal Boots",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These supple leather boots are studded with tiny crystals."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Chiming Steps",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (auditory, concentrate, sonic)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Stride up to half your Speed. The crystals ring out with pleasant-sounding chimes that reverberate painfully in the ears of others. Each creature that you pass adjacent to during your Stride takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d8",
+                "damageType": "sonic"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 24,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save); a creature takes this damage only once. A creature who critically fails the save is also "
+          },
+          {
+            "type": "ref",
+            "id": "4271da2e-7225-5aa7-9807-c499d8af6a5a"
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.YqSSNyjG5fkI5HqB"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 475
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "chiming-steps",
+          "name": "Chiming Steps",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "9fdc2dee-97ab-564a-95cd-c1b4933d5b18",
+    "pack": "shining-kingdoms",
+    "kind": "equipment",
+    "slug": "equipment:shawl-of-seasons",
+    "name": "Shawl of Seasons",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This woven shawl changes its color, material, and abilities with the seasons. In its usual state, it reflects the current season of the environment the wearer is in. The handsome embroidery grants you a +2 item bonus to Diplomacy checks to "
+          },
+          {
+            "type": "ref",
+            "id": "722e5346-27c0-5157-b5a9-e6018df94150"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Change of Seasons",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 10 minutes (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You arrange the shawl on your shoulders to gain the benefits of a season of your choice until your next daily preparations. If the season you choose is the current season, you also gain a +1 item bonus to Fortitude saving throws."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Spring",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The shawl becomes smooth silk covered in delicate flowers. You gain a +5-foot item bonus to your Speed."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Summer",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The shawl becomes light cotton with the hues of fresh grass. You're protected from the effects of severe heat."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Fall",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The shawl becomes thin leather with an ombre of red and orange leaves. You treat falls as 10 feet shorter."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Winter",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The shawl becomes warm wool as white as snow. You're protected from the effects of severe cold."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["action:make-an-impression"]
+      },
+      {
+        "key": "RollOption",
+        "option": "shawl-of-seasons:change-of-seasons",
+        "toggleable": true,
+        "suboptions": [
+          {
+            "value": "spring",
+            "label": "Spring"
+          },
+          {
+            "value": "summer",
+            "label": "Summer"
+          },
+          {
+            "value": "fall",
+            "label": "Fall"
+          },
+          {
+            "value": "winter",
+            "label": "Winter"
+          }
+        ],
+        "display": {
+          "label": "Shawl of Seasons — Change of Seasons"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:fortitude"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["shawl-of-seasons:current-season"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "item",
+        "value": 5,
+        "predicate": ["shawl-of-seasons:change-of-seasons:spring"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.o8l0mvCHAnQUfD6o"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 150
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "change-of-seasons",
+          "name": "Change of Seasons",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "aee5b6d4-560a-5d57-a0e0-8531344e57d9",
+    "pack": "shining-kingdoms",
+    "kind": "equipment",
+    "slug": "equipment:splinter-of-finality",
+    "name": "Splinter of Finality",
+    "level": 2,
+    "rarity": "rare",
+    "traits": ["artifact", "invested", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The sharpness of this dark metal splinter never dulls. By plunging it into your neck, you anchor your soul to the fragment, granting you protection from those that would harm it at the cost of weakening your body. You take a –1 status penalty to saving throws against effects that would give you the "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd"
+          },
+          {
+            "type": "text",
+            "text": " condition. At 10th level, the penalty increases to –2. However, you gain spirit resistance equal to your level and a +2 status bonus to saving throws against spirits or haunts and effects that would give you the "
+          },
+          {
+            "type": "ref",
+            "id": "6f53a234-670f-5b02-a986-7cce57585fc8"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "3f5dc8b4-dcc0-5a99-8501-aff382e8d341"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "cd164d22-2d8e-5fd2-b8b2-03e1360df1e7"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f"
+          },
+          {
+            "type": "text",
+            "text": " conditions."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Destruction",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " All 13 splinters of finality must be gathered and used to reconstruct "
+          },
+          {
+            "type": "text",
+            "text": "Silent Lenore",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", which must then be destroyed by means of the Blunt the Final Blade ritual."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Splinter of Finality"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": "ternary(gte(@level, 10), -2, -1)",
+        "predicate": [
+          {
+            "or": ["inflicts:clumsy", "inflicts:drained", "inflicts:enfeebled"]
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 2,
+        "predicate": [
+          {
+            "or": [
+              "origin:trait:haunt",
+              "origin:trait:spirit",
+              "inflicts:confused",
+              "inflicts:controlled",
+              "inflicts:doomed",
+              "inflicts:stupefied"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "Resistance",
+        "type": ["spirit"],
+        "value": "@level"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.MEJfmtMXXnIV4Lzx"
+    },
+    "data": {
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "f5a41980-d08c-5c9f-8ae3-96eb61b4e6eb",
+    "pack": "shining-kingdoms",
+    "kind": "equipment",
+    "slug": "equipment:taldogis-badge",
+    "name": "Taldogis Badge",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This badge depicting a hunting dog is used by Eutropia's supporters to indicate their allegiances."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Bark",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate, subtle)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The hunting dog makes a single bark that only you and a single target of your choice within 30 feet can hear. If the target is a supporter of Eutropia, you gain a +2 circumstance bonus to Diplomacy checks against them for the next minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "29278e03-327e-53c4-b172-a01074906991"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.NRXhQD5bLM3H9YGR"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 28
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "bark",
+          "name": "Bark",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "9786a7ec-c0ba-5f19-b60c-57873a512274",
+    "pack": "shining-kingdoms",
+    "kind": "equipment",
+    "slug": "equipment:twilight-tattoo",
+    "name": "Twilight Tattoo",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical", "tattoo"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're a member of the Twilight Talons."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This tattoo of a black eagle gripping a sword and arrows in its talons identifies the bearer as a member of the Twilight Talons. Agents typically keep the tattoo hidden unless they need to prove their identity to another member. The bearer gains a +1 item bonus to Deception checks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Fade",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, illusion)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You hide your tattoo from view. The tattoo is invisible for 1 day and can't be detected by effects such as detect magic and read aura. You can Dismiss this effect."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Inscribe",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, illusion, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You lay your hand on a piece of text, and your tattoo makes a perfect copy of it, storing it as a ring of swirling letters surrounding the design. The tattoo can hold text equivalent to two pages of a book, a single scroll, or a similar area of other surfaces, though it doesn't replicate any magical effect or other special properties of the original words. You can Dismiss this effect, and when you Dismiss it, the tattoo copies the original text onto a blank writing surface you're touching."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "item",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ldf2QDuEUN5DFjBV"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 125
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "inscribe",
+          "name": "Inscribe",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  }
+]

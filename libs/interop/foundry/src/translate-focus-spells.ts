@@ -4,6 +4,8 @@ import { DOMAIN_SPELLS } from './domain-spells';
 import {
   BARD,
   BARD_ENTRY,
+  BEASTMASTER,
+  BEASTMASTER_ENTRY,
   CLERIC,
   CLERIC_ENTRY,
   DRUID,
@@ -18,6 +20,12 @@ import {
 } from './focus-plan';
 import type { Planned } from './focus-plan';
 import {
+  BLESSED_ONE_DEDICATION_RULES,
+  BLESSED_SACRIFICE_RULES,
+  DEVOTION_SPELLS_RULES,
+  DEVOUT_MAGIC_RULES,
+} from './translate-champion-devotion';
+import {
   DRUID_DEDICATION_RULES,
   ORDER_EXPLORER,
   ORDER_EXPLORER_RULES,
@@ -26,6 +34,13 @@ import {
   ORDERS,
   order,
 } from './translate-druid-orders';
+import { FIRST_REVELATION_RULES, mystery, MYSTERIES, ORACLE_DEDICATION_RULES } from './translate-oracle-mysteries';
+import {
+  BASIC_BLOODLINE_SPELL_RULES,
+  BLOODLINES,
+  bloodline,
+  SORCERER_DEDICATION_RULES,
+} from './translate-sorcerer-bloodlines';
 import { ARCANE_SCHOOL_SPELL_RULES, school, SCHOOLS, WIZARD_DEDICATION_RULES } from './translate-wizard-schools';
 
 /**
@@ -235,6 +250,21 @@ const FOCUS: ReadonlyMap<string, Planned> = new Map([
   ['feat:counter-perform', [BARD_ENTRY, { entry: BARD, spells: ['counter-performance'] }]],
   ['feat:druid-dedication', DRUID_DEDICATION_RULES],
   ['feat:order-spell', ORDER_SPELL_RULES],
+  // Sorcerer: each bloodline's spells, the bloodline a dedication picks and the spell Basic Bloodline Spell gives.
+  ...BLOODLINES.map((each): [string, Planned] => [`class-feature:${each.slug}`, bloodline(each)]),
+  ['feat:sorcerer-dedication', SORCERER_DEDICATION_RULES],
+  ['feat:basic-bloodline-spell', BASIC_BLOODLINE_SPELL_RULES],
+  // Oracle: each mystery's spells, the mystery a dedication picks and the spell First Revelation gives.
+  ...MYSTERIES.map(([slug, , ...spells]): [string, Planned] => [`class-feature:${slug}`, mystery(...spells)]),
+  ['feat:oracle-dedication', ORACLE_DEDICATION_RULES],
+  ['feat:first-revelation', FIRST_REVELATION_RULES],
+  // Beastmaster: Beastmaster's Trance teaches Beastmaster Trance.
+  ['feat:beastmasters-trance', [BEASTMASTER_ENTRY, { entry: BEASTMASTER, spells: ['beastmaster-trance'] }]],
+  // Champion: the devotion spell, and the archetypes that grant one.
+  ['class-feature:devotion-spells', DEVOTION_SPELLS_RULES],
+  ['feat:devout-magic', DEVOUT_MAGIC_RULES],
+  ['feat:blessed-one-dedication', BLESSED_ONE_DEDICATION_RULES],
+  ['feat:blessed-sacrifice', BLESSED_SACRIFICE_RULES],
 ]);
 
 /** The focus entry, choices and `FocusSpells` elements the entry with `slug` gains in `pack`, if any. */

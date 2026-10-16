@@ -1,0 +1,1051 @@
+[
+  {
+    "id": "b4a18e68-c898-5377-8f6c-92a59a95f57f",
+    "pack": "shining-kingdoms",
+    "kind": "consumable",
+    "slug": "consumable:breath-of-freedom",
+    "name": "Breath of Freedom",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "talisman"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You become "
+          },
+          {
+            "type": "ref",
+            "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "b374c4c9-d230-5167-8878-38e08932a071"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're an expert in Reflex saves."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This delicate feather ornament looks fragile but is solid as stone. When you Activate the talisman, you can immediately attempt to "
+          },
+          {
+            "type": "ref",
+            "id": "2ae74030-e87a-55ee-955c-fb9870392d44"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.WoNs6LUNKgHKC8Yu"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 18
+        }
+      },
+      "bulk": "negligible",
+      "category": "talisman",
+      "usage": {
+        "type": "affixed",
+        "to": "armor"
+      }
+    }
+  },
+  {
+    "id": "61b5d8e7-a797-584b-8d72-e79089869674",
+    "pack": "shining-kingdoms",
+    "kind": "consumable",
+    "slug": "consumable:crimson-godsblood-serum-greater",
+    "name": "Crimson Godsblood Serum (Greater)",
+    "level": 18,
+    "rarity": "rare",
+    "traits": ["consumable", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Though it contains but a tiny drop of Gorum's blood, drinking this thick, swirling potion fills the user with divine wrath and resilience. While under the effect of the potion, you gain a +4 status bonus to physical damage rolls for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "c22e3ce4-515a-530e-966c-f4f97e8e7c84"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The first time during that minute you're reduced to 0 Hit Points but not immediately killed, you avoid being knocked out, regain "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d8+20"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points, and become "
+          },
+          {
+            "type": "ref",
+            "id": "6f53a234-670f-5b02-a986-7cce57585fc8"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round, and your "
+          },
+          {
+            "type": "ref",
+            "id": "6c4e09a7-469d-5668-8c1b-92f87de94d27"
+          },
+          {
+            "type": "text",
+            "text": " condition increases by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.jkjqpRWXdi0rGWey"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5000
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "acf0bb0f-f9b1-5ab4-ab9d-7c8552a5422d",
+    "pack": "shining-kingdoms",
+    "kind": "consumable",
+    "slug": "consumable:crimson-godsblood-serum-lesser",
+    "name": "Crimson Godsblood Serum (Lesser)",
+    "level": 6,
+    "rarity": "rare",
+    "traits": ["consumable", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Though it contains but a tiny drop of Gorum's blood, drinking this thick, swirling potion fills the user with divine wrath and resilience. While under the effect of the potion, you gain a +2 status bonus to physical damage rolls for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "c22e3ce4-515a-530e-966c-f4f97e8e7c84"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The first time during that minute you're reduced to 0 Hit Points but not immediately killed, you avoid being knocked out, regain "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d8+5"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points, and become "
+          },
+          {
+            "type": "ref",
+            "id": "6f53a234-670f-5b02-a986-7cce57585fc8"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round, and your "
+          },
+          {
+            "type": "ref",
+            "id": "6c4e09a7-469d-5668-8c1b-92f87de94d27"
+          },
+          {
+            "type": "text",
+            "text": " condition increases by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.bO6CN8rkGo7f14rk"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "b1b05263-0263-518e-9350-9f02d4e40cff",
+    "pack": "shining-kingdoms",
+    "kind": "consumable",
+    "slug": "consumable:crimson-godsblood-serum-moderate",
+    "name": "Crimson Godsblood Serum (Moderate)",
+    "level": 12,
+    "rarity": "rare",
+    "traits": ["consumable", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Though it contains but a tiny drop of Gorum's blood, drinking this thick, swirling potion fills the user with divine wrath and resilience. While under the effect of the potion, you gain a +3 status bonus to physical damage rolls for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "c22e3ce4-515a-530e-966c-f4f97e8e7c84"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The first time during that minute you're reduced to 0 Hit Points but not immediately killed, you avoid being knocked out, regain "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d8+10"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points, and become "
+          },
+          {
+            "type": "ref",
+            "id": "6f53a234-670f-5b02-a986-7cce57585fc8"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round, and your "
+          },
+          {
+            "type": "ref",
+            "id": "6c4e09a7-469d-5668-8c1b-92f87de94d27"
+          },
+          {
+            "type": "text",
+            "text": " condition increases by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.e2iOKWEs2PsAbgmo"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 400
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "aa44fd0a-f14d-56ca-8721-e22ed1291378",
+    "pack": "shining-kingdoms",
+    "kind": "consumable",
+    "slug": "consumable:godrending-ammunition",
+    "name": "Godrending Ammunition",
+    "level": 13,
+    "rarity": "rare",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Embedded in this piece of ammunition is a shining sliver of a warshard. When an activated godrending ammunition hits a target, the body of the struck creature attempts to tear itself apart, causing nauseating pain. Instead of its normal damage, the ammunition deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10d8",
+                "damageType": "slashing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. The target can attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 30
+          },
+          {
+            "type": "text",
+            "text": " saving throw; it takes a –2 circumstance penalty to this save if the Strike was a critical hit."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The foe takes the normal damage from the ammunition, instead of the 10d8 slashing damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The foe takes half damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The foe takes full damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The foe takes double damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 2"
+          },
+          {
+            "type": "text",
+            "text": ". A creature reduced to 0 HP from this damage is ripped limb from limb, and it instantly dies; its gear remains."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.0PGauxNX76JaaREG"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 440
+        }
+      },
+      "bulk": "negligible",
+      "category": "ammunition"
+    }
+  },
+  {
+    "id": "1ea5942e-759c-5cdc-b58c-16be4f8fe614",
+    "pack": "shining-kingdoms",
+    "kind": "consumable",
+    "slug": "consumable:godrending-ammunition-greater",
+    "name": "Godrending Ammunition (Greater)",
+    "level": 18,
+    "rarity": "rare",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Embedded in this piece of ammunition is a shining sliver of a warshard. When an activated godrending ammunition hits a target, the body of the struck creature attempts to tear itself apart, causing nauseating pain. Instead of its normal damage, the ammunition deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "15d8",
+                "damageType": "slashing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. The target can attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 38
+          },
+          {
+            "type": "text",
+            "text": " saving throw; it takes a –2 circumstance penalty to this save if the Strike was a critical hit."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The foe takes the normal damage from the ammunition, instead of the 15d8 slashing damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The foe takes half damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The foe takes full damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The foe takes double damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 2"
+          },
+          {
+            "type": "text",
+            "text": ". A creature reduced to 0 HP from this damage is ripped limb from limb, and it instantly dies; its gear remains."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Irl1fogVpiKWJpCV"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3300
+        }
+      },
+      "bulk": "negligible",
+      "category": "ammunition"
+    }
+  },
+  {
+    "id": "12514eab-8506-53e4-85f7-a9f685df8a46",
+    "pack": "shining-kingdoms",
+    "kind": "consumable",
+    "slug": "consumable:memory-ribbon",
+    "name": "Memory Ribbon",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The time-honored tradition of weaving beautiful, embroidered glory ribbons throughout one's hair and beard remains an important cultural practice among some dwarven clans, with the choice of colors and style of presentation representing status, achievements, and other significant aspects of someone's position. Magical versions also exist that help enhance the wearer's memory. These magical ribbons are especially popular when someone has been invited to serve as a toastmaster at a guild banquet or as a master of ceremonies at an important festival. Their use in final oral exams for high positions is, however, hotly debated."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Read the Ribbon's Story",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You attempt a skill check to Recall Knowledge but haven't rolled yet"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The memory ribbon grants you a +2 item bonus to the triggering skill check to Recall Knowledge. Afterward, the ribbon becomes non-magical."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.282vQmBPwx1sZIqp"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 20
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "b2811f85-7966-548b-a8f3-ffc5b4a7be03",
+    "pack": "shining-kingdoms",
+    "kind": "consumable",
+    "slug": "consumable:the-dancers-song",
+    "name": "The Dancers' Song",
+    "level": 7,
+    "rarity": "rare",
+    "traits": ["alchemical", "consumable", "ingested", "poison"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A pair of conjoined sahkils known as The Dancers created this poison for the Ninth Army. While stupefied by this poison, a creature can't treat any creature as its ally."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Saving Throw",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 23
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Onset",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Maximum Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 6 days"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d8",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 1"
+          },
+          {
+            "type": "text",
+            "text": " (1 day)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d8",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 2"
+          },
+          {
+            "type": "text",
+            "text": " (2 days)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 3",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d8",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 4"
+          },
+          {
+            "type": "text",
+            "text": " (3 days)"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.2Ub3nAwaQXyzyAbz"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": "light",
+      "category": "poison",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

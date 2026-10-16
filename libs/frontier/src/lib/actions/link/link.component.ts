@@ -1,6 +1,7 @@
 import { DOCUMENT, NgTemplateOutlet } from '@angular/common';
 import { booleanAttribute, ChangeDetectionStrategy, Component, computed, inject, input, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import type { Params } from '@angular/router';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import { cva } from 'class-variance-authority';
 
@@ -80,6 +81,8 @@ const EXTERNAL_URL = /^https?:\/\//iu;
 })
 export class Link {
   public readonly to = input<LinkTarget | undefined>(undefined);
+  /** Query parameters added to the `to` page's URL. */
+  public readonly queryParams = input<Params | undefined>(undefined);
   /** Only the `to` page itself is current, not the pages under it. For a root link, which is under nothing. */
   public readonly exact = input(false, { transform: booleanAttribute });
   public readonly href = input<string | undefined>(undefined);

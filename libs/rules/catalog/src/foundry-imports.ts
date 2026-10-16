@@ -13,45 +13,38 @@ export interface FoundryImport {
   readonly release: string;
 }
 
+/**
+ * A pack that holds one book of the same id, imported at the one pinned release. Built by a function rather than as
+ * a literal per pack: the Angular compiler gave up (TS2859) reducing a union of this many branded object literals.
+ */
+function imported(id: string): FoundryImport {
+  return { pack: PackId.parse(id), book: BookId.parse(id), release: 'pf2e-8.6.0' };
+}
+
 export const FOUNDRY_IMPORTS: readonly FoundryImport[] = [
-  { pack: PackId.parse('player-core'), book: BookId.parse('player-core'), release: 'pf2e-8.6.0' },
-  { pack: PackId.parse('player-core-2'), book: BookId.parse('player-core-2'), release: 'pf2e-8.6.0' },
-  { pack: PackId.parse('divine-mysteries'), book: BookId.parse('divine-mysteries'), release: 'pf2e-8.6.0' },
-  { pack: PackId.parse('treasure-vault'), book: BookId.parse('treasure-vault'), release: 'pf2e-8.6.0' },
-  { pack: PackId.parse('gm-core'), book: BookId.parse('gm-core'), release: 'pf2e-8.6.0' },
-  { pack: PackId.parse('howl-of-the-wild'), book: BookId.parse('howl-of-the-wild'), release: 'pf2e-8.6.0' },
-  { pack: PackId.parse('war-of-immortals'), book: BookId.parse('war-of-immortals'), release: 'pf2e-8.6.0' },
-  { pack: PackId.parse('mwangi-expanse'), book: BookId.parse('mwangi-expanse'), release: 'pf2e-8.6.0' },
-  { pack: PackId.parse('secrets-of-magic'), book: BookId.parse('secrets-of-magic'), release: 'pf2e-8.6.0' },
-  { pack: PackId.parse('rage-of-elements'), book: BookId.parse('rage-of-elements'), release: 'pf2e-8.6.0' },
-  {
-    pack: PackId.parse('tian-xia-character-guide'),
-    book: BookId.parse('tian-xia-character-guide'),
-    release: 'pf2e-8.6.0',
-  },
-  {
-    pack: PackId.parse('dark-archive-remastered'),
-    book: BookId.parse('dark-archive-remastered'),
-    release: 'pf2e-8.6.0',
-  },
-  {
-    pack: PackId.parse('character-guide'),
-    book: BookId.parse('character-guide'),
-    release: 'pf2e-8.6.0',
-  },
-  {
-    pack: PackId.parse('impossible-lands'),
-    book: BookId.parse('impossible-lands'),
-    release: 'pf2e-8.6.0',
-  },
-  { pack: PackId.parse('impossible-magic'), book: BookId.parse('impossible-magic'), release: 'pf2e-8.6.0' },
-  { pack: PackId.parse('guns-and-gears'), book: BookId.parse('guns-and-gears'), release: 'pf2e-8.6.0' },
-  { pack: PackId.parse('battlecry'), book: BookId.parse('battlecry'), release: 'pf2e-8.6.0' },
-  {
-    pack: PackId.parse('cheliax-infernal-inheritance'),
-    book: BookId.parse('cheliax-infernal-inheritance'),
-    release: 'pf2e-8.6.0',
-  },
+  imported('player-core'),
+  imported('player-core-2'),
+  imported('divine-mysteries'),
+  imported('treasure-vault'),
+  imported('gm-core'),
+  imported('howl-of-the-wild'),
+  imported('war-of-immortals'),
+  imported('mwangi-expanse'),
+  imported('secrets-of-magic'),
+  imported('rage-of-elements'),
+  imported('tian-xia-character-guide'),
+  imported('dark-archive-remastered'),
+  imported('character-guide'),
+  imported('impossible-lands'),
+  imported('impossible-magic'),
+  imported('guns-and-gears'),
+  imported('battlecry'),
+  imported('cheliax-infernal-inheritance'),
+  imported('rival-academies'),
+  imported('shining-kingdoms'),
+  imported('draconic-codex'),
+  imported('hellfire-dispatches'),
+  imported('high-seas'),
 ];
 
 /** The release's page on GitHub. */

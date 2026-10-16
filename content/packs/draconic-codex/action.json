@@ -1,0 +1,4045 @@
+[
+  {
+    "id": "ab08c38e-d7eb-527a-8cd9-72610331eaa2",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:acrid-barrage",
+    "name": "Acrid Barrage",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per round"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Each enemy in your aura takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "ternary(gte(@level, 18), 7, ternary(gte(@level, 15), 6, 5))d6",
+                "damageType": "acid"
+              },
+              {
+                "formula": "2d6",
+                "damageType": "acid",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": {
+              "against": "class-or-spell-dc"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC or spell DC, whichever is higher. The initial damage increases to 6d6 at 15th level and 7d6 at 18th level."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.NRjBkjYx10MAXp3T"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "round"
+      }
+    }
+  },
+  {
+    "id": "2a0d956a-4bda-5063-a474-11cc5798f181",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:adamantine-dragon-cratering-smash",
+    "name": "(Adamantine Dragon) Cratering Smash",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The dragon smashes itself into the ground, cratering the earth in a 10-foot deep, 60-foot wide emanation. Creatures in the area are thrown into the air and must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "options": ["inflicts:prone"]
+          },
+          {
+            "type": "text",
+            "text": " save with a DC equal to the dragon's Avalanche Breath."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature lands on its feet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature lands "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature lands prone and takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(floor(@level/2))d6"
+              }
+            ],
+            "label": "1d6 damage per every two levels"
+          },
+          {
+            "type": "text",
+            "text": " of the dragon."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, and the dragon can make a jaws Strike against the creature as a free action. It can only attack one creature that critically failed its save."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.rraWyBNnO9PepelJ"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "0deebe2c-78ca-5454-bed5-6fe2e2c35d17",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:adamantine-dragon-magnetic-roar",
+    "name": "(Adamantine Dragon) Magnetic Roar",
+    "rarity": "common",
+    "traits": ["metal", "primal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "With a mighty roar, the dragon attracts metal in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 60
+          },
+          {
+            "type": "text",
+            "text": ". Any unattended metal object of 1 Bulk or less flies to the dragon and sticks to their hide, granting a +2 item bonus to AC for 1 minute. Any creature holding a metal object of 1 Bulk or less must attempt at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude"
+          },
+          {
+            "type": "text",
+            "text": " save with a DC equal to the dragon's Avalanche Breath DC or have their item pulled to the dragon and stuck for 1 round. A creature wearing metal armor instead must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude"
+          },
+          {
+            "type": "text",
+            "text": " save against the DC + 2 or be pulled, taking "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "bludgeoning"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage for every 10 feet it was moved, and become magnetically stuck to the dragon for 1 round. An object or creature can be unstuck with an Interact action."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.9rwssyPzNfxuqX5d"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "4d596025-6364-5897-b497-4d0eb0e5a761",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:adamantine-dragon-petrifying-blow",
+    "name": "(Adamantine Dragon) Petrifying Blow",
+    "rarity": "common",
+    "traits": ["metal", "primal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The adamantine dragon's attacks can turn creatures into sculptures to add to their hoard. A creature critically hit by the dragon's claw or jaw Strike must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "options": ["inflicts:petrified", "inflicts:slowed"]
+          },
+          {
+            "type": "text",
+            "text": " save with a DC equal to the dragon's Frightful Presence. On a successful save, the creature is temporarily immune for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 2"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "3d9defdb-7a92-5ba7-817e-e95b3811cf7f"
+          },
+          {
+            "type": "text",
+            "text": " permanently into adamantine."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.hNwFT7H3Zd2eHsi4"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "d43138d4-44f4-56e0-a111-d626a2bd45a7",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:adamantine-dragon-repelling-blast",
+    "name": "(Adamantine Dragon) Repelling Blast",
+    "rarity": "common",
+    "traits": ["metal", "primal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " one per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The dragon expels scales from their body in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 50
+          },
+          {
+            "type": "text",
+            "text": ". Creatures in the area take slashing damage equal to the dragon's Avalanche Breath (with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save of the same DC). The dragon receives the modifiers of Abandon Armor regardless of their Hit Points until after a night of rest."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.atbn1J9kkvGuH9U7"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
+    }
+  },
+  {
+    "id": "7ead5fff-7bd3-5426-8069-31ea60761d75",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:adamantine-dragon-scything-wings",
+    "name": "(Adamantine Dragon) Scything Wings",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The dragon has their Speed increased by Abandon Armor"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The dragon Flies and makes up to two claw attacks against different creatures along their flight."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.8UbjOjhhGGrTAWMq"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The dragon has their Speed increased by Abandon Armor"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "f6cdc8fa-d06d-5edf-b9f6-0de5011f3d14",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:bounce-away",
+    "name": "Bounce Away",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A melee Strike hits you and deals bludgeoning damage"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain resistance equal to your level to bludgeoning damage from the triggering Strike, then Stride up to half your Speed. You can Fly instead of Striding if you have a fly Speed."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:bounce-away",
+        "toggleable": true
+      },
+      {
+        "key": "Resistance",
+        "type": ["bludgeoning"],
+        "value": "@level",
+        "predicate": ["option:bounce-away"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.OpiIzr7h1EKY8wKh"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A melee Strike hits you and deals bludgeoning damage"
+            }
+          ]
+        }
+      ],
+      "frequency": {
+        "max": 1,
+        "per": "ten-minutes"
+      }
+    }
+  },
+  {
+    "id": "05759210-f685-5c60-93c4-49c3c2d2f9e7",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:channel-draconic-essence",
+    "name": "Channel Draconic Essence",
+    "rarity": "common",
+    "traits": ["concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You aren't channeling draconic essence and you're holding or wearing your draconic gift"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You call down a portion of the magical essence of your draconic benefactor. A Medium spectral dragon that looks like your benefactor appears in any square within 30 feet. This spectral dragon can't be targeted by any attacks or spells and has no Hit Points, saving throws, or skills. It can occupy the same space as creatures and objects. While your spectral dragon is in your space, you gain a +1 status bonus to saves against sleep and paralysis."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Channel Draconic Essence lasts until you Channel Draconic Essence again, you Dismiss the effect, the encounter ends, you fall "
+          },
+          {
+            "type": "ref",
+            "id": "e1a78dad-4887-518e-9120-e58b7009ebfd"
+          },
+          {
+            "type": "text",
+            "text": ", or the spectral dragon is farther than 120 feet from you, whichever comes first."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.Ce9vzE3XWn0u5NcL"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You aren't channeling draconic essence and you're holding or wearing your draconic gift"
+            }
+          ]
+        }
+      ],
+      "selfEffect": "fa217e60-9029-5df9-bc7c-a9654b54d6d9"
+    }
+  },
+  {
+    "id": "fd454fd0-937c-503c-bce7-a78c92bc513a",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:cinder-dragon-cloud-of-ashes",
+    "name": "(Cinder Dragon) Cloud of Ashes",
+    "rarity": "common",
+    "traits": ["primal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The dragon blows a cloud of ashes and smoke out through their scales, surrounding themself in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": " that lasts until the end of their next turn. All creatures within the cloud become "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " to both sight and scent, and all creatures outside the cloud are concealed to creatures within it. Any creature that enters the area or begins its turn in the area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude"
+          },
+          {
+            "type": "text",
+            "text": " save with a DC equal to the dragon's Pyre Breath."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature begins coughing and until the start of its next turn it must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 5
+          },
+          {
+            "type": "text",
+            "text": " if it attempts any action that requires it to speak, or it loses the action."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, plus it must immediately spend its next action coughing."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.D54bMK3tv4232W0X"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "260db1f3-47df-5322-8e37-67ace615d588",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:cinder-dragon-inextinguishable-aura",
+    "name": "(Cinder Dragon) Inextinguishable Aura",
+    "rarity": "common",
+    "traits": ["aura", "fire", "misfortune", "primal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "90 feet. Flames burn underwater in this aura and cannot be doused by non-magical water. When a creature within this aura attempts a flat check to end persistent fire damage, it must roll twice and take the worse result."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Aura",
+        "radius": 90,
+        "traits": ["fire", "misfortune", "primal"],
+        "effects": [
+          {
+            "effect": "b2d9f272-9740-55be-84ea-d8531fbfa04e",
+            "includesSelf": false
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.qI1dHuib2vuitFMJ"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "f6009240-f4d0-5286-9f0b-9c1659108c17",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:cinder-dragon-inflame-emotions",
+    "name": "(Cinder Dragon) Inflame Emotions",
+    "rarity": "common",
+    "traits": ["emotion", "fire", "mental", "primal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The dragon sends out a wave of heat that inflames emotions with 90 feet. Creatures within it must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will"
+          },
+          {
+            "type": "text",
+            "text": " save with a DC equal to the dragon's Frightful Presence DC. Regardless of the results, they are then immune to Inflame Emotions for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature can spend a reaction to make a melee Strike against a target of its choice."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature immediately makes a melee Strike against a target of the dragon's choice. The creature cannot use reactions until the start of its next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.SBnCmBgRgdh0nBRM"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "75eb8405-cf7e-574a-978f-4af9207eb110",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:conspirator-dragon-apex-paranoids",
+    "name": "(Conspirator Dragon) Apex Paranoids",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Conspirator dragons fear more than any one of them would admit; holding power comes with the fear that power will be lost or stolen. The dragon has the "
+          },
+          {
+            "type": "ref",
+            "id": "6517bbf2-8085-534b-be6a-187d52739fa0"
+          },
+          {
+            "type": "text",
+            "text": " condition and can use the extra action only for Feint, Seek, and Sense Motive actions."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "6517bbf2-8085-534b-be6a-187d52739fa0"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.OrWZVlCohFRGzWsB"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "127d51a0-9c43-54f2-8738-0db109532f9d",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:conspirator-dragon-mental-feedback",
+    "name": "(Conspirator Dragon) Mental Feedback",
+    "rarity": "common",
+    "traits": ["concentrate", "emotion", "mental", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature uses a magical mental effect against the dragon"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The dragon uses their mental blast against the triggering creature. On a critical hit, the mental effect is disrupted."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.Y9tkwsBQKbXTFxjT"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A creature uses a magical mental effect against the dragon"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "f1ebd34d-f502-579f-b325-4e3d6ac3f216",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:conspirator-dragon-obscure-revelations",
+    "name": "(Conspirator Dragon) Obscure Revelations",
+    "rarity": "common",
+    "traits": ["occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When the dragon is subject to a detection, revelation, or scrying effect, the GM rolls a secret counteract check with a counteract rank of half the dragon's level (rounded up) and a modifier equal to the dragon's Will. The dragon becomes aware of effects counteracted this way and their sources, then provides false information of its choosing."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.k9R1zUe2GCWci5Gd"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "50388f83-8c19-5af7-8495-bb446e262593",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:conspirator-dragon-occult-whisperers",
+    "name": "(Conspirator Dragon) Occult Whisperers",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After conversing with a creature for 10 minutes, the dragon can cast one of its occult innate spells targeting the creature by weaving it into the conversation. Spells cast in this way lose the manipulate trait and gain the linguistic trait."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.WG1csSWO85nU7mce"
+    },
+    "data": {
+      "cost": "free",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "09263d75-00cb-5754-87c6-9b866440c2cd",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:coral-dragon-grasping-waves",
+    "name": "(Coral Dragon) Grasping Waves",
+    "rarity": "common",
+    "traits": ["primal", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The dragon conjures five watery tentacles from unoccupied water-filled squares of their choice within 30 feet and attempts a single "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:athletics",
+            "options": ["inflicts:grabbed"]
+          },
+          {
+            "type": "text",
+            "text": " check against the Fortitude DC of every creature adjacent to a tentacle and no more than 10 feet above the water's surface. On a success, the creature is "
+          },
+          {
+            "type": "ref",
+            "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146"
+          },
+          {
+            "type": "text",
+            "text": " (Escape DC equal to the DC of the dragon's Hydraulic Breath). On a critical success, or a success against a creature already grabbed, the target is dragged below the surface and begins to drown. All tentacles disappear at the end of the dragon's next turn unless the effect is Sustained and a new Athletics check is rolled for all existing tentacles."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.rviye8dQX9vCsVm8"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "9f67f6c9-a84b-5567-9680-1acf1b496e21",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:coral-dragon-palytoxin",
+    "name": "(Coral Dragon) Palytoxin",
+    "rarity": "common",
+    "traits": ["poison"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Any creature who takes damage from the dragon's jaws, claws, or tail attack, or who Strikes and does damage to the dragon with an unarmed attack, takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for ancient and archdragons) and must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "options": ["inflicts:drained", "inflicts:enfeebled"]
+          },
+          {
+            "type": "text",
+            "text": " saving throw (DC equal to the DC of the dragon's Hydraulic Breath)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature's enfeebled condition increases by 1 until the end of its next turn, to a maximum of 3. If the creature is already "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 3"
+          },
+          {
+            "type": "text",
+            "text": ", it becomes "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 1"
+          },
+          {
+            "type": "text",
+            "text": " instead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, except the creature's enfeebled condition increases by 2 instead of 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.VmiXrvmqg7JdKopn"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "6f42ca1d-85f7-52a6-aa21-a7b04d2dc7ee",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:coral-dragon-primal-tide",
+    "name": "(Coral Dragon) Primal Tide",
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The dragon is within the bounds of or no more than 25 feet away from their reef"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The dragon calls tens of thousands of tiny marine creatures from the crevices in their reef, which pour over a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 50
+          },
+          {
+            "type": "text",
+            "text": " in a clawing, biting, stinging swarm. Every creature in the area that is fully or partially submerged in water must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " saving throw (DC equal to the DC of the dragon's Hydraulic Breath) or take piercing damage equal to half that dealt by their Hydraulic Breath and an equivalent amount of poison damage. The dragon can specify any number of creatures within the area to be spared. All summoned creatures disperse at the end of the dragon's turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.VpXDP2fGKgYSU9uJ"
+    },
+    "data": {
+      "cost": "three",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The dragon is within the bounds of or no more than 25 feet away from their reef"
+            }
+          ]
+        }
+      ],
+      "frequency": {
+        "max": 1,
+        "per": "hour"
+      }
+    }
+  },
+  {
+    "id": "0b50b0e0-877b-52e6-86a7-4808c220b206",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:despair-dragon-cursed-memories",
+    "name": "(Despair Dragon) Cursed Memories",
+    "rarity": "common",
+    "traits": ["aura", "mental", "misfortune", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "90 feet. Creatures near a despair dragon can't trust their own minds. When any creature in the aura attempts a skill check to "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": ", they must roll twice and take the lower result."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Aura",
+        "radius": 90,
+        "traits": ["mental", "misfortune", "occult"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.DvBztBzWQQco4nWs"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "81231ef6-54b9-58eb-b2a4-4f026363b641",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:despair-dragon-lights-out",
+    "name": "(Despair Dragon) Lights Out",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The despair dragon belches an impenetrable darkness that encompasses a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": ". Light does not enter the area and any non-magical light sources, such as a torch or lantern, do not emanate any light while inside the area, even if their light radius would extend beyond the darkness. This also suppresses magical light of a spell rank equal to half the dragon's level or lower. Light can't pass through, so all creatures in the area except for the dragon can't see outside."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.SctZqyzjpNLVas9Z"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "10f05217-31a9-5494-9051-5304f2181b5b",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:despair-dragon-manifest-fear",
+    "name": "(Despair Dragon) Manifest Fear",
+    "rarity": "common",
+    "traits": ["auditory", "concentrate", "illusion", "manipulate", "mental", "olfactory", "visual"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The despair dragon creates an illusory image of a creature referenced in local superstition. This functions as "
+          },
+          {
+            "type": "ref",
+            "id": "0af1f62f-c028-5e01-ba52-4b9c00f83890"
+          },
+          {
+            "type": "text",
+            "text": ", heightened to a rank equal to half the dragon's level. The damage die of the illusory creature's Strikes increases to d6s against creatures with the frightened condition."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.zup3V3RgZJ1sy9Vy"
+    },
+    "data": {
+      "cost": "three",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "a8ceb0d0-a6a2-5f52-939f-8540e2726c2a",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:diabolic-dragon-diabolic-disguise",
+    "name": "(Diabolic Dragon) Diabolic Disguise",
+    "rarity": "common",
+    "traits": ["concentrate", "divine", "polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The dragon assumes the form of a specific creature whose soul gem or infernal contract is in their possession or hoard. This has the effects of Change Shape, except the dragon also gains perfunctory knowledge of the creature's personality, social connections, mannerisms, and surface memories, at the GM's discretion. Any knowledge the dragon gains by taking on another creature's form is lost when the dragon dismisses the effect or changes shape again, although nothing prevents them from recording it by other means while transformed."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.VL0wMhHgm7NJKDHZ"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "bb3e886c-a714-5b8a-93ea-4d0a9a858296",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:diabolic-dragon-infernal-rift",
+    "name": "(Diabolic Dragon) Infernal Rift",
+    "rarity": "common",
+    "traits": ["divine", "fire", "unholy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The dragon uses their claw to tear open a rift to Phlegethon, the fourth layer of Hell. The rift measures 5 feet wide, 10 feet high, and up to 20 feet long, and can be Sustained for up to 1 minute. While the rift is open, any creature occupying its area or an adjacent square at the start of its turn takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage (+1 die for each dragon age category beyond young) and an equal amount of spirit damage with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save. The dragon can choose instead to open a rift to Cocytus, the frozen seventh layer of Hell, to replace this fire damage with cold damage, although it is still subject to the dragon's Diabolic Fire ability."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.6F56Okhz5aRzUmZV"
+    },
+    "data": {
+      "cost": "three",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "a83ead10-277a-51c7-8919-ceddfc3c33e3",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:diabolic-dragon-intercept-summons",
+    "name": "(Diabolic Dragon) Intercept Summons",
+    "rarity": "common",
+    "traits": ["concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature within 30 feet uses magic to summon or conjure a creature"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The dragon attempts a counteract check with a Hell Lore check (counteract rank equal to half the dragon's level, rounded up). On a success, the dragon seizes control of the effect, causing it to fail and immediately casting a summon fiend spell of the same rank (minimum 5th) as the triggering effect to summon a creature with the devil trait."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.RLqgyWn86ZyB9CBL"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A creature within 30 feet uses magic to summon or conjure a creature"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "3c395cbe-273a-5053-a29f-2f814203b59f",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:draconic-salvation",
+    "name": "Draconic Salvation",
+    "rarity": "common",
+    "traits": ["concentrate", "fortune"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You critically fail a saving throw against an effect with the same tradition trait as your draconic benefactor (for instance, a divine spell if your benefactor is a diabolic dragon)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your spectral dragon is in your space"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You improve your saving throw result by one degree of success, and Channel Draconic Essence ends."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.hSTE1wvCsYYvCsHC"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your spectral dragon is in your space"
+            }
+          ]
+        }
+      ],
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You critically fail a saving throw against an effect with the same tradition trait as your draconic benefactor (for instance, a divine spell if your benefactor is a diabolic dragon)"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "8afd08f8-4676-5b4a-b5ee-878f0ad8b261",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:dragons-protection",
+    "name": "Dragon's Protection",
+    "rarity": "common",
+    "traits": ["concentrate", "sanctified", "spirit"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An enemy you can see would reduce this spell's target to 0 Hit Points"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The dragon intercepts, preventing the spell's target from being knocked out; the spell's target remains at 1 Hit Point. As the dragon disappears, it flies over the triggering enemy and releases its retributive breath, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "5d4",
+                "damageType": "spirit"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to it with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.Zt9bo3FYLQihmpAz"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "offensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "An enemy you can see would reduce this spell's target to 0 Hit Points"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "78ddca34-9550-5c6f-bbda-2620213655b3",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:empyreal-dragon-restorative-halo",
+    "name": "(Empyreal Dragon) Restorative Halo",
+    "rarity": "common",
+    "traits": ["concentrate", "divine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The dragon's halo divides into smaller halos, hovering over up to six creatures of the dragon's choice within its inspiring presence aura. Creatures wearing a halo gain fast healing equal to half the dragon's level for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "c1ae601e-268a-5880-9f0b-bdf6fcc8cb66"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The dragon cannot use other abilities of its halo while other creatures wear it, and they can Dismiss the effect for any or all affected creatures."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.ZdlH2u3E1EAHchVP"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "dc00c40d-32cc-55e4-bd47-98db05a58617",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:empyreal-dragon-sacrificial-shield",
+    "name": "(Empyreal Dragon) Sacrificial Shield",
+    "rarity": "common",
+    "traits": ["divine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An ally within 60 feet of the dragon would take damage"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The dragon's halo imposes itself in front of the creature like a shield, transferring the damage to the dragon. If the damage is void, the dragon gains resistance to that damage equal to half its level."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:sacrificial-shield",
+        "toggleable": true
+      },
+      {
+        "key": "Resistance",
+        "type": ["void"],
+        "value": "floor(@level / 2)",
+        "predicate": ["option:sacrificial-shield"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.9Gt3bYla9VqLrOPB"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "An ally within 60 feet of the dragon would take damage"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "901a6124-3b07-5c65-b6ec-32fe3df9aee9",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:empyreal-dragon-wreath-of-holy-light",
+    "name": "(Empyreal Dragon) Wreath of Holy Light",
+    "rarity": "common",
+    "traits": ["concentrate", "divine", "holy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The dragon imbues its allies with heavenly fire. Creatures within 60 feet of the dragon gain the holy trait and their Strikes do an additional 1d10 fire damage for 1 minute. If the creature critically Strikes an enemy, the enemy is also set on fire and takes 1d6 persistent fire damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "03c0db84-6f63-5999-987e-0557a42a8b80"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.MUQT8abHdjAP1OeQ"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "5574fa53-695b-586b-ba30-32e5dc8ef403",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:fortify-focus",
+    "name": "Fortify Focus",
+    "rarity": "common",
+    "traits": ["concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are touching your designated companion, and their focus pool isn't full"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your companion regains 1 Focus Point."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.SRdiCXHSLxqu3C67"
+    },
+    "data": {
+      "cost": "two",
+      "category": "interaction",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You are touching your designated companion, and their focus pool isn't full"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "43b9bae8-92bc-5e9c-9539-6ab9fe099007",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:fortune-dragon-chimeric-nature",
+    "name": "(Fortune Dragon) Chimeric Nature",
+    "rarity": "common",
+    "traits": ["arcane"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When the fortune dragon makes a Strike or uses its Disruptive Breath, it can choose acid, cold, electricity, fire, poison, void, or vitality. Its Strike deals an additional 1d6 damage of that type instead of additional force damage, and its Disruptive Breath deals that type of damage instead of force damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:chimeric-nature",
+        "toggleable": true,
+        "suboptions": [
+          {
+            "value": "acid",
+            "label": "Acid"
+          },
+          {
+            "value": "cold",
+            "label": "Cold"
+          },
+          {
+            "value": "electricity",
+            "label": "Electricity"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          },
+          {
+            "value": "poison",
+            "label": "Poison"
+          },
+          {
+            "value": "vitality",
+            "label": "Vitality"
+          },
+          {
+            "value": "void",
+            "label": "Void"
+          }
+        ],
+        "display": {
+          "label": "Chimeric Nature — Damage Type"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.3olcA5ZNYWKBYkRA"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "ac3741df-2804-5d6e-b19a-df3bb1ef65c4",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:fortune-dragon-hidden-wealth",
+    "name": "(Fortune Dragon) Hidden Wealth",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The dragon is adjacent to their hoard"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The dragon retreats inside of a pile of riches to restore their energy. They Hide within their pile of riches, using it as greater cover. The dragon regains one expended spontaneous spell slot. In addition, their Shield of Fortune regains Hit Points equal to the dragon's level."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.bAYATJsZVkQw636K"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The dragon is adjacent to their hoard"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "904994d4-5333-5438-aab5-87a39193da88",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:fortune-dragon-shield-of-fortune",
+    "name": "(Fortune Dragon) Shield of Fortune",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The dragon adjusts the treasure around their body to function as a kind of shield. They gain a +2 circumstance bonus to AC until the beginning of their next turn and can use the Shield Block reaction. The shield has Hardness, Hit Points, and BT of a sturdy shield of the dragon's level. When it is broken, it triggers the effect of the dragon's Share the Wealth ability."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.9LwWHRazIImJYvD3"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "38e93709-bcad-5a79-ab02-2005fbb59ec6",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:horned-dragon-apex-dominance",
+    "name": "(Horned Dragon) Apex Dominance",
+    "rarity": "common",
+    "traits": ["primal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When the dragon casts "
+          },
+          {
+            "type": "ref",
+            "id": "54bcf730-ab6d-5ba7-9747-86a6debbd00c"
+          },
+          {
+            "type": "text",
+            "text": " on a creature with the animal trait, the result of the target's saving throw is one degree of success worse. An animal the dragon controls with this spell can speak Draconic and gains a +2 status bonus to any Intelligence-, Wisdom-, and Charisma-based skill checks it attempts while "
+          },
+          {
+            "type": "ref",
+            "id": "3f5dc8b4-dcc0-5a99-8501-aff382e8d341"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.STynsk9Ro0kAQTxr"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "323f054e-edcf-5d13-81c1-0febdf89d252",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:horned-dragon-horn-projectile",
+    "name": "(Horned Dragon) Horn Projectile",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per round"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The dragon hurls a fragment of its horn at a target within 40 feet. The target takes the same damage as the dragon's horn Strike and must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "options": ["inflicts:immobilized"]
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes no damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes half damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes full damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": " as the horn fragment pins them to the nearest surface."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but the target takes double damage and "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "bleed",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage as the fragment pierces their body."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.FRIgZwQtHqp1rEo3"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "round"
+      }
+    }
+  },
+  {
+    "id": "e7ce4258-1c0b-5fc7-b9e9-0b0b2c472778",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:horned-dragon-invigorating-spores",
+    "name": "(Horned Dragon) Invigorating Spores",
+    "rarity": "common",
+    "traits": ["manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The dragon contorts, ejecting spores from a variety of multicolored fungi covering its limbs. The spores drift toward the dragon's snout and invigorate it. The dragon gains temporary Hit Points equal to its level that last 10 minutes. The dragon also gains resistance to bludgeoning, slashing, and piercing damage equal to half its level until the end of its next turn. The dragon can't use Invigorating Spores again for 1d4 rounds."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.KINhG5lnnok03UKZ"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "selfEffect": "b7a3b2ff-b302-522c-b7b4-e7c3a74c1cd2"
+    }
+  },
+  {
+    "id": "49f9fb49-a2a5-55c5-8c30-4922b36c353d",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:mirage-dragon-afterimage",
+    "name": "(Mirage Dragon) Afterimage",
+    "rarity": "common",
+    "traits": ["arcane", "illusion", "spellshape"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The mirage dragon's next action is to cast "
+          },
+          {
+            "type": "ref",
+            "id": "e8221b18-c4c7-5d99-a604-a3cf119d41b1"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As the dragon turns "
+          },
+          {
+            "type": "ref",
+            "id": "53cf375b-c3fa-5d92-afde-135a3c001674"
+          },
+          {
+            "type": "text",
+            "text": ", they leave an illusory duplicate of themself in their original position that lasts for 1 minute. A creature that determines the duplicate is an illusion doesn't necessarily know the mirage dragon is invisible, and one that can see their invisible form doesn't necessarily know the duplicate is an illusion. When the mirage dragon Strides or Flies, they can Sustain the illusion as a free action to have it Stride or Fly up to 60 feet, speak through the illusion, or make a claw Strike using the dragon's spell attack modifier for the attack roll. This Strike deals the same amount and type of damage as an "
+          },
+          {
+            "type": "ref",
+            "id": "0af1f62f-c028-5e01-ba52-4b9c00f83890"
+          },
+          {
+            "type": "text",
+            "text": " spell heightened to the dragon's highest spell rank. The mirage dragon can Dismiss the illusion."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.8FJ0GmjLaxAT3H25"
+    },
+    "data": {
+      "cost": "free",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The mirage dragon's next action is to cast Invisibility"
+            }
+          ]
+        }
+      ],
+      "frequency": {
+        "max": 1,
+        "per": "hour"
+      }
+    }
+  },
+  {
+    "id": "89f7083a-6b61-5413-832e-4897d07fa5b5",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:mirage-dragon-phantasmal-terror",
+    "name": "(Mirage Dragon) Phantasmal Terror",
+    "rarity": "common",
+    "traits": ["concentrate", "emotion", "fear", "illusion", "mental", "visual"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The dragon either temporarily appears to be in multiple places at once or grows to Gargantuan size to frighten their foes. Each enemy within a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 120
+          },
+          {
+            "type": "text",
+            "text": " who can see the mirage dragon must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 0,
+            "options": ["inflicts:frightened"]
+          },
+          {
+            "type": "text",
+            "text": " save (with a DC equal to the dragon's Captivating Display)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 2"
+          },
+          {
+            "type": "text",
+            "text": " and can't is use reactions until the start of the dragon's next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 3"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.edpWHUorHAO5Z7SF"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "2ed87483-9122-5a83-a023-032fe2a48966",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:mirage-dragon-reshape-terrain",
+    "name": "(Mirage Dragon) Reshape Terrain",
+    "rarity": "common",
+    "traits": ["arcane", "concentrate", "illusion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The mirage dragon blends illusion and reality in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 25
+          },
+          {
+            "type": "text",
+            "text": ". A creature that enters the area must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will"
+          },
+          {
+            "type": "text",
+            "text": " save (the same DC as the dragon's Captivating Display) or treat the area as difficult terrain. Creatures who attempt a save against this effect use the same outcome if they leave and reenter the area."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "On its turn, the archdragon can Sustain this effect to move the illusions up to 35 feet each, or to swap spots with any illusion that is within 30 feet of itself. Any duplicate that is more than 60 feet away from the archdragon disappears."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.4JD49GKrvl2aR6j7"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "be878ec8-1905-511c-9b70-adc1ef69e2cc",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:omen-dragon-forewarned-and-forearmed",
+    "name": "(Omen Dragon) Forewarned and Forearmed",
+    "rarity": "common",
+    "traits": ["occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At the start of the day, a dragon can perform a 10-minute ritual to prepare themself for any fights they might have in the day ahead. The dragon chooses one of the following effects, which last for 24 hours."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Assured Fate",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (fortune) When the omen dragon rolls initiative, instead of rolling, they can choose to have a result equal to 13 + their initiative modifier."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "2865100b-01d2-5a78-b066-58d24064b6fe"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Instinctive Challenge",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " During an encounter, the fortune dragon gains an additional reaction at the start of their turn that can be used only for Challenge Fate."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.Z7BKGKMsvkZBg9XN"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "4f8a7798-f6a5-58d3-9b37-360c5266d9e0",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:omen-dragon-link-fates",
+    "name": "(Omen Dragon) Link Fates",
+    "rarity": "common",
+    "traits": ["curse", "mental", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The omen dragon creates a bond between two creatures within 60 feet, entwining their destinies for 1 round. The first time during this duration that one of the creatures takes damage, the other takes an equal amount of mental damage, with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save (DC equal to the dragon's Destiny Breath DC)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.ACtEZDv5sogaOgcG"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "95696aa7-31f5-59dd-bb83-95c0e77def25",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:phase-dragon-afterimage-jumps",
+    "name": "(Phase Dragon) Afterimage Jumps",
+    "rarity": "common",
+    "traits": ["illusion", "visual"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The phase dragon teleports in a quick series of jumps around their own location, creating three illusory images of themself that are hard to distinguish from the real thing. Any foe targeting the phase dragon with an attack must first succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 15
+          },
+          {
+            "type": "text",
+            "text": ". On a failure, the phase dragon isn't affected and one of the illusory duplicates is shattered; the DC of the next flat check for Afterimage Jumps is reduced by 5. Any remaining images disappear at the start of the dragon's next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 10
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 5
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.OgtpOXZuyzuSyZ1j"
+    },
+    "data": {
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "ten-minutes"
+      }
+    }
+  },
+  {
+    "id": "c3c355aa-aaea-5720-810b-7632fe57396c",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:phase-dragon-dematerialize",
+    "name": "(Phase Dragon) Dematerialize",
+    "rarity": "common",
+    "traits": ["concentrate", "polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The phase dragon becomes incorporeal, gaining the incorporeal trait, resistance to all damage (except force, ghost touch, and spirit) equal to half their level (double the resistance against non-magical damage), and immunity to precision damage. If the dragon attempts a Strike against a creature with any circumstance bonuses to AC (such as from a shield or cover), reduce that bonus by 2. This effect lasts for 1 minute or until the phase dragon Dismisses it."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.hjToSb8qs12q0K3M"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "hour"
+      },
+      "selfEffect": "dbd7108b-de91-58bb-b855-bee5b786ffb3"
+    }
+  },
+  {
+    "id": "ef4f16c2-88a9-5eb3-acbd-ea935743a802",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:phase-dragon-second-glance",
+    "name": "(Phase Dragon) Second Glance",
+    "rarity": "common",
+    "traits": ["illusion", "spellshape", "visual"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the phase dragon's next action is to use an ability or spell with the teleportation trait, they become "
+          },
+          {
+            "type": "ref",
+            "id": "53cf375b-c3fa-5d92-afde-135a3c001674"
+          },
+          {
+            "type": "text",
+            "text": " when they arrive at their destination and leave an illusory duplicate at their initial location. The invisibility ends and the illusory duplicate disappears if the dragon takes a hostile action; if a creature interacts with the false image, including attempting to Strike it; or at the start of the dragon's next turn, whichever comes first."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.HqT1fM4S5kmCLrBU"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "c62b8a63-8c6f-5b3e-8319-d11203a28a94",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:requiem-dragon-die-together",
+    "name": "(Requiem Dragon) Die Together",
+    "rarity": "common",
+    "traits": ["divine", "incapacitation", "void"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The dragon dies"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The dragon tethers their soul to the soul of a living creature within 60 feet, pulling it along into death. The target must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "options": ["inflicts:dying"]
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes void damage equal to half the damage dealt by the dragon's Dooming Breath."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes void damage equal to the damage dealt by the dragon's Dooming Breath."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target drops to 0 Hit Points and becomes dying 1, or increases its dying condition by 1 if it's already dying. While the target is dying, the dragon remains at 1 Hit Point and dies instantly if the target loses the dying condition."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.695gtfH7p2H0G6Ch"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The dragon dies"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "88dcb3e1-674a-5b34-8797-e52302860f8c",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:requiem-dragon-soul-roar",
+    "name": "(Requiem Dragon) Soul Roar",
+    "rarity": "common",
+    "traits": ["auditory", "emotion", "fear", "mental", "spirit"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per round"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The dragon lets out a mighty roar that rouses their allies and rattles the souls of their enemies. Each ally in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 120
+          },
+          {
+            "type": "text",
+            "text": " gains temporary Hit Points equal to the dragon's level that last for 1 minute, while each enemy within that area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "options": ["inflicts:doomed", "inflicts:fleeing", "inflicts:frightened"]
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "84884a2d-24ed-5306-aff6-0f6b565ccb7e"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected and is immune to Soul Roar for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 2"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "cd164d22-2d8e-5fd2-b8b2-03e1360df1e7",
+            "label": "Doomed 1"
+          },
+          {
+            "type": "text",
+            "text": ". If the target is already doomed, the doomed value increases by 1 (to a maximum of "
+          },
+          {
+            "type": "ref",
+            "id": "cd164d22-2d8e-5fd2-b8b2-03e1360df1e7",
+            "label": "Doomed 4"
+          },
+          {
+            "type": "text",
+            "text": ")."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature gains the "
+          },
+          {
+            "type": "ref",
+            "id": "f7fea8f9-c457-5b9f-9283-f567fa557184"
+          },
+          {
+            "type": "text",
+            "text": " condition for 1 round, is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 4"
+          },
+          {
+            "type": "text",
+            "text": ", and is doomed 1. If the target is already doomed, the doomed value increases by 1 (to a maximum of doomed 4)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.6vq8c3BM9Haf5dcH"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "round"
+      }
+    }
+  },
+  {
+    "id": "c57bfece-79c9-5921-9ef0-b1bd59ae57da",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:resurrection-dragon-deathless-servant",
+    "name": "(Resurrection Dragon) Deathless Servant",
+    "rarity": "common",
+    "traits": ["divine", "unholy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When a resurrection dragon performs the "
+          },
+          {
+            "type": "ref",
+            "id": "c12f8f7f-3639-52b1-9876-47c37db13938"
+          },
+          {
+            "type": "text",
+            "text": " ritual, they can create any common undead and don't require secondary casters. If the dragon creates a mindless undead creature whose level is at least 2 lower than themself, it automatically becomes the dragon's minion—a deathless servant. This minion can't be destroyed unless the dragon is slain; if reduced to 0 Hit Points, such a minion returns to full Hit Points 1d6 days later. A resurrection dragon can have only one deathless servant at a time."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.9dCKA0ld81TuubR5"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "78021ecd-839c-513d-ac46-0652818135be",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:resurrection-dragon-harmful-claw",
+    "name": "(Resurrection Dragon) Harmful Claw",
+    "rarity": "common",
+    "traits": ["divine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The resurrection dragon channels a divine spell into their claw. They Cast a 1-action version of "
+          },
+          {
+            "type": "ref",
+            "id": "1330902b-a95f-54ea-9a07-3764617bd887"
+          },
+          {
+            "type": "text",
+            "text": ", but the effects of the spell don't occur immediately. The dragon then makes a claw Strike. This counts as two attacks for the dragon's multiple attack penalty. The attack is imbued with the spell's effects according to the results of the Strike."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The Strike deals double damage as normal, and the target must attempt a basic Fortitude save against the spell's damage, but treats its result as one degree of success worse."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The Strike deals damage as normal, and the target attempts a basic Fortitude save against the spell's damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The Strike deals no damage, but the target must attempt a basic Fortitude save against the spell's damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The Strike deals no damage, and the target is unaffected by the spell."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.F1MbFmS07oKnJdIw"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "743c3370-0dd6-5134-8061-36f11ec531e2",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:resurrection-dragon-shred-souls",
+    "name": "(Resurrection Dragon) Shred Souls",
+    "rarity": "common",
+    "traits": ["divine", "void"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The resurrection dragon ends their turn"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The dragon's Soul Siphoning Breath recharged this turn"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Excess void energy spills out from the dragon in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 60
+          },
+          {
+            "type": "text",
+            "text": ". Each living creature in the area must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude"
+          },
+          {
+            "type": "text",
+            "text": " save with a DC equal to the dragon's Soul Siphoning Breath or gain weakness to void equal to the dragon's resistance to spirit for 1 round (or 1 minute on a critical failure)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.V3xivGSkm73pdnu1"
+    },
+    "data": {
+      "cost": "free",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The dragon's Soul Siphoning Breath recharged this turn"
+            }
+          ]
+        }
+      ],
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The resurrection dragon ends their turn"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "ca46db57-347b-55f7-a305-ca02e2131065",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:rune-dragon-catalyzing-rune",
+    "name": "(Rune Dragon) Catalyzing Rune",
+    "rarity": "common",
+    "traits": ["arcane"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The dragon creates a highly reactive rune in a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " up to 60 feet away. Whenever a creature takes damage from a detonating rune while within the area, all other creatures in the area take the damage of the detonating rune ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 34,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save). The Catalyzing Rune lasts for 1 minute but can be removed if creatures adjacent to the rune spend two Interact actions."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.NoWUUKD9HK7Tu945"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "eedf3e2b-ae31-5328-af89-dc17a1ef0e2e",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:rune-dragon-runic-jail",
+    "name": "(Rune Dragon) Runic Jail",
+    "rarity": "common",
+    "traits": ["arcane"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The rune dragon conjures a prison that promises pain to those within and those who try to escape. The dragon creates a runic jail in a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": " up to 60 feet away. The area is difficult terrain and creatures outside the jail become "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " to creatures within it. If a creature uses a move action to leave the runic jail, they gain a detonating rune. The runic jail lasts for 1 round, but a creature adjacent to the jail, but not within it, can use an Interact action to remove the rune early."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.MKeRtn8lAPs098qk"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "98495dc7-f891-5625-9998-dfc42c4a54d6",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:whisper-dragon-change-shape",
+    "name": "(Whisper Dragon) Change Shape",
+    "rarity": "common",
+    "traits": ["concentrate", "occult", "polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The dragon takes on the appearance of a Small or Medium humanoid. Their humanoid shape has a specific, persistent appearance. In humanoid shape, the dragon loses their jaws, claws, and tail Strikes, but retains their attack bonuses with any weapons they wield. Their Speed is reduced to 25 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.N2RrmpcKHBpqZ3ud"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "c69b4b94-6b07-59d6-9520-4bfd2442a5d1",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:whisper-dragon-draft-contract",
+    "name": "(Whisper Dragon) Draft Contract",
+    "rarity": "common",
+    "traits": ["manipulate", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The dragon produces a contract for a single living mortal. This contract can grant a single boon or ability, the extent of which is dependent on the power of the dragon, in exchange for one piece of knowledge the mortal possesses. The mortal must willingly sign their true name to the contract, as well as the knowledge they wish to surrender. Upon signing, the mortal forgets the bartered information, which cannot be restored by any means short of a "
+          },
+          {
+            "type": "ref",
+            "id": "0f1f01cd-bf9a-5147-bc44-1697e6548675"
+          },
+          {
+            "type": "text",
+            "text": " ritual; if they restore this knowledge, they lose the boon granted by the contract."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.Tro2ZR9B7SgFbZps"
+    },
+    "data": {
+      "cost": "three",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "45703174-f791-55a6-b9e7-1e9654809604",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:whisper-dragon-share-sight",
+    "name": "(Whisper Dragon) Share Sight",
+    "rarity": "common",
+    "traits": ["concentrate", "occult", "scrying"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The dragon states the name of an allied informant within 100 miles, giving them a mental alert. The informant can choose whether to accept the contact. If they consent, the dragon projects their senses into the informant's, allowing them to perceive through their informant. When they do, they lose all sensory information from their own body. The dragon can Sustain this effect for up to 1 hour and Dismiss it as a free action."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.2LRP9Pm34qOvlo0V"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "b469c990-7204-5aa4-8f0c-0c93f79dcaa5",
+    "pack": "draconic-codex",
+    "kind": "action",
+    "slug": "action:winged-leap",
+    "name": "Winged Leap",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per round"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your dragon companion Flies. If it doesn't normally have a fly Speed, it gains a fly Speed of 25 feet for this movement. If it isn't on solid ground at the end of this movement, it falls."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.5vLvLriQQGwgIIfz"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "round"
+      }
+    }
+  }
+]

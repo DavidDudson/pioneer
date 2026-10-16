@@ -1,5 +1,4 @@
-import { contentId, EntrySlug, RuleElementKey } from '@pioneer/rules/sdk';
-import type { PackId } from '@pioneer/rules/sdk';
+import { contentId, EntrySlug, PackId, RuleElementKey } from '@pioneer/rules/sdk';
 
 /** The pieces a focus plan is built from (ADR-0050): focus entries, the plan's element types, and a choice of spells. */
 
@@ -17,14 +16,19 @@ export function focusEntry(fields: FocusEntryFields): object {
 export const BARD = 'bard-focus';
 export const CLERIC = 'cleric-focus';
 export const DRUID = 'druid-focus';
+export const BEASTMASTER = 'beastmaster-focus';
+export const ORACLE = 'oracle-focus';
 export const RANGER = 'ranger-focus';
 export const WITCH = 'witch-focus';
+export const SORCERER = 'sorcerer-focus';
 export const WIZARD = 'wizard-focus';
 
 export const BARD_ENTRY = focusEntry({ slug: BARD, tradition: 'occult', attribute: 'cha' });
 export const CLERIC_ENTRY = focusEntry({ slug: CLERIC, tradition: 'divine', attribute: 'wis' });
 export const DRUID_ENTRY = focusEntry({ slug: DRUID, tradition: 'primal', attribute: 'wis' });
 export const RANGER_ENTRY = focusEntry({ slug: RANGER, tradition: 'primal', attribute: 'wis' });
+export const ORACLE_ENTRY = focusEntry({ slug: ORACLE, tradition: 'divine', attribute: 'cha' });
+export const BEASTMASTER_ENTRY = focusEntry({ slug: BEASTMASTER, tradition: 'primal', attribute: 'cha' });
 
 export const WIZARD_ENTRY = focusEntry({ slug: WIZARD, tradition: 'arcane', attribute: 'int' });
 
@@ -49,11 +53,17 @@ export function isGrant(element: object | Grant): element is Grant {
   return 'spells' in element && !('key' in element);
 }
 
+/** A spell's id: `<slug>` in `pack`, or `<book>/<slug>` for a spell another book prints. */
+function spellId(pack: PackId, spell: string): string {
+  const [book, slug] = spell.includes('/') ? spell.split('/') : [pack, spell];
+  return contentId(PackId.parse(book), EntrySlug.parse(`spell:${slug}`));
+}
+
 export function focusSpells(pack: PackId, { entry, spells, predicate }: Grant): object {
   return {
     key: RuleElementKey.FocusSpells,
     entry,
-    spells: spells.map((spell) => contentId(pack, EntrySlug.parse(`spell:${spell}`))),
+    spells: spells.map((spell) => spellId(pack, spell)),
     ...(predicate === undefined ? {} : { predicate }),
   };
 }

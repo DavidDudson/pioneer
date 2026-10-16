@@ -1,0 +1,455 @@
+[
+  {
+    "id": "7dceffb6-c21b-5605-a25a-06957dd09d86",
+    "pack": "hellfire-dispatches",
+    "kind": "action",
+    "slug": "action:adopt-persona",
+    "name": "Adopt Persona",
+    "rarity": "common",
+    "traits": ["concentrate", "illusion", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellfire-dispatches"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your tattoo helps you create a temporary cover to infiltrate a protected area or escape a dangerous situation. It casts 2nd-rank "
+          },
+          {
+            "type": "ref",
+            "id": "adcc4c8f-05ae-5440-83d0-9e88ad22209b"
+          },
+          {
+            "type": "text",
+            "text": " and 2nd-rank "
+          },
+          {
+            "type": "ref",
+            "id": "600c3684-32bc-5dbc-8b49-99924728c1cd"
+          },
+          {
+            "type": "text",
+            "text": " on you. The duration of both effects is 10 minutes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.zB1g4oa3UKARhCSY"
+    },
+    "data": {
+      "cost": "three",
+      "category": "interaction",
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
+    }
+  },
+  {
+    "id": "50f78083-a5c0-59b2-afdc-e4a003b7332a",
+    "pack": "hellfire-dispatches",
+    "kind": "action",
+    "slug": "action:liberate-self",
+    "name": "Liberate Self",
+    "rarity": "common",
+    "traits": ["divine", "fortune"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellfire-dispatches"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're "
+          },
+          {
+            "type": "ref",
+            "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "b374c4c9-d230-5167-8878-38e08932a071"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Attempt to Escape, rolling the check twice and taking the better result."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.VqGjR43bBd36k0XI"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You're Grabbed, Immobilized, or Restrained"
+            }
+          ]
+        }
+      ],
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
+    }
+  },
+  {
+    "id": "f41e15cc-d4ec-52c5-8b42-6a52b685517c",
+    "pack": "hellfire-dispatches",
+    "kind": "action",
+    "slug": "action:puncture-flesh",
+    "name": "Puncture Flesh",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellfire-dispatches"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your last action was to deal piercing damage to an enemy within your reach"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Attempt an Athletics check to Grapple the same enemy. The weapon that dealt the triggering damage gains the grapple trait for this check. On a success, the target also takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d8",
+                "damageType": "piercing",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage (or "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d8",
+                "damageType": "piercing",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage on a critical success). When the target is no longer "
+          },
+          {
+            "type": "ref",
+            "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "b374c4c9-d230-5167-8878-38e08932a071"
+          },
+          {
+            "type": "text",
+            "text": " by you, the persistent damage ends."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.pFgkxLJsAcImb0Eg"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your last action was to deal piercing damage to an enemy within your reach"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "37efb156-977b-5919-af16-745d575b7630",
+    "pack": "hellfire-dispatches",
+    "kind": "action",
+    "slug": "action:size-up",
+    "name": "Size Up",
+    "rarity": "common",
+    "traits": ["concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellfire-dispatches"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You designate a single, non-mindless creature as your focus and assess its motivations. You must be able to see and hear the creature. You gain a +2 circumstance bonus to Perception checks when you "
+          },
+          {
+            "type": "ref",
+            "id": "775b68f2-1542-5f47-bc0d-87d5884d7baa",
+            "label": "Sense the Motive"
+          },
+          {
+            "type": "text",
+            "text": " of your focus and a +2 circumstance bonus to your Perception DC should your focus attempt to "
+          },
+          {
+            "type": "ref",
+            "id": "1ee7b671-dd18-5950-a4db-fbd4f8dae832"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "8b950c56-7b5d-5063-9439-adb52a323cd9"
+          },
+          {
+            "type": "text",
+            "text": " against you. You gain a +2 circumstance bonus to Deception, Diplomacy, and Intimidation checks against your focus. You can only have one creature designated as your focus at a time. If you use Size Up against a creature when you already have a creature designated, the prior creature loses the designation and the new focus gains the designation. Your designation otherwise lasts until your next daily preparations."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.b7yAKSmZ7famsENr"
+    },
+    "data": {
+      "cost": "one",
+      "category": "interaction",
+      "selfEffect": "cc1586b2-4fa5-5af1-bff9-67b0bbe0b9a0"
+    }
+  },
+  {
+    "id": "8edb24a8-bd1f-5faa-a895-f5658e0480dc",
+    "pack": "hellfire-dispatches",
+    "kind": "action",
+    "slug": "action:twist-design",
+    "name": "Twist Design",
+    "rarity": "common",
+    "traits": ["concentrate", "illusion", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellfire-dispatches"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform your tattoo to a different form of approximately the same size. You can Dismiss this effect."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.8nzfBu9i5oi2WQn0"
+    },
+    "data": {
+      "cost": "one",
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "d211b9c8-f6ff-5d6b-a563-3787c469e027",
+    "pack": "hellfire-dispatches",
+    "kind": "action",
+    "slug": "action:warding-shift",
+    "name": "Warding Shift",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellfire-dispatches"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're adjacent to a willing ally"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You move the adjacent willing ally 5 feet in any direction and can Step into the space the ally vacated."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.NKjQup6NyQvg2J7y"
+    },
+    "data": {
+      "cost": "one",
+      "category": "interaction",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You're adjacent to a willing ally"
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

@@ -272,6 +272,15 @@
       "end": "End turn",
       "leave": "Leave encounter"
     },
+    "spend": {
+      "label": "Used this turn",
+      "unknown": "An action",
+      "undo": "Undo",
+      "costOne": "1 action",
+      "costMany": "{count} actions",
+      "costReaction": "Reaction",
+      "costFree": "Free action"
+    },
     "death": {
       "label": "Death",
       "dead": "Dead",
@@ -378,7 +387,8 @@
       "modifier": "Modifier {modifier}",
       "go": "Roll",
       "cancel": "Cancel"
-    }
+    },
+    "reportBug": "Report a bug"
   },
   "validation": {
     "unknownAncestry": "That ancestry is not available. Choose another.",
@@ -452,7 +462,14 @@
     "staffCastTooFewCharges": "The staff has too few charges for that cast.",
     "staffCastSlotNotAllowed": "Only a spontaneous caster can pay with a slot, and only one of the spell's rank or higher.",
     "staffCastNoSlotLeft": "No slot of that rank is left to pay with.",
-    "staffCastNothingToRefund": "That cast has already been taken back."
+    "staffCastNothingToRefund": "That cast has already been taken back.",
+    "spendTooFewActions": "There are not enough actions left this turn.",
+    "spendReactionSpent": "The reaction is already spent this turn.",
+    "spendOffTurn": "Only reactions and free actions can be used off turn.",
+    "spendCostNotAllowed": "That is not a cost this action allows.",
+    "spendNoUseLeft": "This action has no uses left.",
+    "spendAlreadySpent": "That use is already in the log.",
+    "spendNotSpent": "That use is not in the log, so there is nothing to take back."
   },
   "turn": {
     "started": "Your turn begins.",

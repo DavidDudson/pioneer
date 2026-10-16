@@ -1,0 +1,2766 @@
+[
+  {
+    "id": "1b560dd1-e6cf-591b-af22-3e589d5a9682",
+    "pack": "shining-kingdoms",
+    "kind": "spell",
+    "slug": "spell:attacked-from-within",
+    "name": "Attacked from Within",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "manipulate", "spirit"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You assert your power over the target's own spirit as you reach deep into its soul in order to discover a moment of excruciating anguish, debilitating humiliation, or abject despair. The target takes 12d8 spirit damage and must attempt a Will save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes no damage, with a brief sensation of pain followed by a pleasant memory."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes half damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes full damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 2"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes double damage and is frightened 2 and "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage increases by 2d8."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.B4p4cD9Q71mHTpOP"
+    },
+    "data": {
+      "rank": 7,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "duration": {
+        "type": "varies"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": ["divine", "occult"],
+      "damage": [
+        {
+          "key": "nd3xns3jzltqgadv",
+          "formula": "12d8",
+          "damageType": "spirit",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "nd3xns3jzltqgadv",
+            "formula": "2d8"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "45e29b41-8824-5027-a127-36123bbbcfb3",
+    "pack": "shining-kingdoms",
+    "kind": "spell",
+    "slug": "spell:avenging-wildwood",
+    "name": "Avenging Wildwood",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "manipulate", "plant", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A Medium tree sprouts in an unoccupied square within range, its branches capable of striking out at your foes. This animated tree uses your spell attack modifier for its attack rolls and your spell DC for its AC. Its saving throw modifiers are equal to your spell DC – 10, and it has 20 Hit Points. Other creatures can't occupy its space, but allies can pass through its space. When you Cast the Spell and each time you Sustain it, you can have the tree make a branches Strike against a creature within 15 feet of it, dealing 2d8 bludgeoning, piercing, or slashing damage. You choose the damage type each time."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the tree is in soil and survives to the end of the spell's duration, it remains as an ordinary, non-magical tree and continues to grow and thrive. The GM might determine that the tree disappears immediately in certain inhospitable situations."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+2)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The animated tree has 10 additional Hit Points, and its branches Strike deals 1d8 additional damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.T7N0LrYOLk3SwrFW"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 60
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "traditions": ["primal"],
+      "damage": [],
+      "variants": [
+        {
+          "name": "Avenging Wildwood (Bludgeoning)",
+          "damage": [
+            {
+              "key": "o4h2tsafgcfxe1o2",
+              "formula": "2d8",
+              "damageType": "bludgeoning",
+              "kinds": ["damage"]
+            }
+          ],
+          "heightening": {
+            "type": "interval",
+            "interval": 2,
+            "damage": [
+              {
+                "key": "o4h2tsafgcfxe1o2",
+                "formula": "1d8"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Avenging Wildwood (Piercing)",
+          "damage": [
+            {
+              "key": "kvbienbmbni4wkfl",
+              "formula": "2d8",
+              "damageType": "piercing",
+              "kinds": ["damage"]
+            }
+          ],
+          "heightening": {
+            "type": "interval",
+            "interval": 2,
+            "damage": [
+              {
+                "key": "kvbienbmbni4wkfl",
+                "formula": "1d8"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Avenging Wildwood (Slashing)",
+          "damage": [
+            {
+              "key": "ngulrerodel7ixx3",
+              "formula": "2d8",
+              "damageType": "slashing",
+              "kinds": ["damage"]
+            }
+          ],
+          "heightening": {
+            "type": "interval",
+            "interval": 2,
+            "damage": [
+              {
+                "key": "ngulrerodel7ixx3",
+                "formula": "1d8"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "0d16c7c5-7d90-5abc-9372-fc7a9c0a5559",
+    "pack": "shining-kingdoms",
+    "kind": "spell",
+    "slug": "spell:capital-dividend",
+    "name": "Capital Dividend",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You would be reduced to 0 Hit Points but not immediately killed."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Through diet and other strict regimens, you've fortified your body as Kalistrade's teachings have fortified your mind. You remain at 1 Hit Point, and your skin takes on a slight warm glow."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For the next minute, any time you would regain Hit Points from a healing effect, this magic amplifies the effect, and you regain an additional 8 Hit Points."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The additional healing increases by 2 Hit Points."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "dd43b9bc-4613-567a-ac02-ba90e24cbe21"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.jXcsCpko8qNrWZ4x"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "reaction"
+      },
+      "traditions": [],
+      "damage": []
+    }
+  },
+  {
+    "id": "f657d3b1-0d5d-522c-86a7-f853e0770089",
+    "pack": "shining-kingdoms",
+    "kind": "spell",
+    "slug": "spell:defended-by-spirits",
+    "name": "Defended by Spirits",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "manipulate", "spirit"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You entreat a spirit or the spiritual energies in your location to surround and protect an ally from an certain foe. Each time the enemy attacks and damages the ally, the enemy takes 1d6 spirit damage. The enemy is aware of these spirits and has a general sense that attacking the ally will draw the spirits' ire."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+2)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage increases by 1d6."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.oK8P3l5VvNKKDkZe"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "ally"
+          }
+        ],
+        "plus": [
+          {
+            "count": 1,
+            "of": "enemy"
+          }
+        ]
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "traditions": ["divine", "occult"],
+      "damage": [
+        {
+          "key": "81ensgyihhjo6cck",
+          "formula": "1d6",
+          "damageType": "spirit",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 2,
+        "damage": [
+          {
+            "key": "81ensgyihhjo6cck",
+            "formula": "1d6"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "19fb6835-0c73-5591-9101-151f531dfe77",
+    "pack": "shining-kingdoms",
+    "kind": "spell",
+    "slug": "spell:eagles-cry",
+    "name": "Eagle's Cry",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["auditory", "concentrate", "manipulate", "sonic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You let out the mighty cry of a majestic eagle that pierces eardrums. This cry deals 4d8 sonic damage. Each creature in the area must attempt a Fortitude saving throw."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes half damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes full damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 2"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes double damage, is frightened 2, and is "
+          },
+          {
+            "type": "ref",
+            "id": "f7fea8f9-c457-5b9f-9283-f567fa557184"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+2)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage increases by 3d8."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.AUZPwEorddewm0x1"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "area": {
+        "shape": "cone",
+        "size": 30
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:fortitude",
+          "basic": false
+        }
+      },
+      "traditions": ["arcane", "primal"],
+      "damage": [
+        {
+          "key": "cqsm6ucacwdfq3dl",
+          "formula": "4d8",
+          "damageType": "sonic",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 2,
+        "damage": [
+          {
+            "key": "cqsm6ucacwdfq3dl",
+            "formula": "3d8"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "c132a507-5b45-5c62-aa40-02e3b7849b6a",
+    "pack": "shining-kingdoms",
+    "kind": "spell",
+    "slug": "spell:echo-jump",
+    "name": "Echo Jump",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "force", "manipulate", "teleportation"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You teleport to an unoccupied space within range, leaving behind a faint echo of your form that explodes with magical force. Each creature within a 10-foot emanation from your previous location takes 4d8 force damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+2)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The range increases by 10 feet, and the damage increases by 3d8."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.LpMeT0CW1OEKdaQL"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "area": {
+        "shape": "emanation",
+        "size": 10
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:reflex",
+          "basic": true
+        }
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": [
+        {
+          "key": "sh5acm24bwim6doh",
+          "formula": "4d8",
+          "damageType": "force",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 2,
+        "damage": [
+          {
+            "key": "sh5acm24bwim6doh",
+            "formula": "3d8"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "298250c9-72a3-539b-a1ce-399034075095",
+    "pack": "shining-kingdoms",
+    "kind": "spell",
+    "slug": "spell:elemental-sheath",
+    "name": "Elemental Sheath",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You coat yourself in nature's power. Choose air, earth, fire, metal, water, or wood; the spell gains that trait. You become completely covered by armor formed from that element, gaining a +1 circumstance bonus to AC and resistance 5 to two types of damage based on the element you choose."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Air",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " bludgeoning and electricity"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Earth",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " bludgeoning and poison"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Fire",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " fire and slashing"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Metal",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " acid and slashing"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Water",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " cold and piercing"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Wood",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " piercing and void."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+2)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The resistance increases by 5."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "7aee9306-bb00-5dd1-b491-7ef95286b366"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.WkqamCF8r4O5Gh0n"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "traditions": [],
+      "damage": []
+    }
+  },
+  {
+    "id": "af12f6a1-ad08-51a8-b4e0-096cb66a0dca",
+    "pack": "shining-kingdoms",
+    "kind": "spell",
+    "slug": "spell:equal-footing",
+    "name": "Equal Footing",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "curse", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You level the field between yourself and another creature, hampering its movements if it's quicker than you. The target attempts a Will save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": " and takes a –10-foot status penalty to all its Speeds until the end of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "155fc78e-7741-5fba-b043-4c94b662292e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is clumsy 1 and takes a –15-foot status penalty to all its Speeds for 1 minute. During this time, it can't benefit from bonuses to its Speeds or take other penalties to its Speeds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 2"
+          },
+          {
+            "type": "text",
+            "text": " and takes a –15-foot status penalty to all its Speeds for 1 minute. During this time, it can't benefit from bonuses to its Speeds or take other penalties to its Speeds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "40e5fa4e-21dd-5991-bc95-bb7e1c925d16"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.Z2oSFY2fT8zLkK4P"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "duration": {
+        "type": "varies"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": ["arcane", "occult", "primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "9a49048f-369f-56ea-a90e-75f8ad252658",
+    "pack": "shining-kingdoms",
+    "kind": "spell",
+    "slug": "spell:forest-of-gates",
+    "name": "Forest of Gates",
+    "level": 9,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "manipulate", "teleportation"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transport yourself and your allies to a peaceful extraplanar realm of towering trees, each of which holds a misty gateway to another location. When you Cast this Spell, you choose a specific destination within 1,000 miles that you can identify by its position relative to your starting position and by its appearance (or other identifying features). Incorrect knowledge of the location causes the spell to fail. You and your allies walk for 1 hour through the forest, and each of you regains Hit Points and reduces the value of any doomed or drained condition as if you'd taken a full night's rest. At the end of the journey, you attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:arcana",
+            "dc": 40
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:nature",
+            "dc": 40
+          },
+          {
+            "type": "text",
+            "text": " check to find the correct gate to your desired location."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You and your allies arrive within 1,000 feet of your desired location."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You and your allies arrive within 1 mile of your desired location."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You and your allies arrive within 10 miles of your desired location."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You and your allies exit the forest within 1 mile of your original location."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.oKC36WjFD1jgqUN5"
+    },
+    "data": {
+      "rank": 9,
+      "time": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute"
+      },
+      "range": {
+        "type": "miles",
+        "miles": 1000
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 6,
+            "upTo": true,
+            "of": "creature",
+            "qualifiers": ["willing"]
+          }
+        ],
+        "you": "and"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour"
+      },
+      "traditions": ["arcane", "primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "f2fbd637-eef0-5fb9-8ad9-9151e03deca9",
+    "pack": "shining-kingdoms",
+    "kind": "spell",
+    "slug": "spell:friendly-push",
+    "name": "Friendly Push",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "manipulate", "wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You exert magical force to propel a willing creature up to 10 feet in a straight line, including upward, though if they aren't on solid ground or have another way to maintain their height (such as a fly Speed) when the movement ends, they fall. When you Sustain the spell, you can move them again or choose a new target within range and move them instead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can cast this spell on an "
+          },
+          {
+            "type": "ref",
+            "id": "e1a78dad-4887-518e-9120-e58b7009ebfd"
+          },
+          {
+            "type": "text",
+            "text": " ally, and if you do, the movement from this spell doesn't trigger reactions."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (4th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The distance increases to 20 feet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (7th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The distance increases to 30 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.cCFDnmFB1EGeQUeA"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "one"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 60
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature",
+            "qualifiers": ["willing"]
+          }
+        ]
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "traditions": [],
+      "damage": []
+    }
+  },
+  {
+    "id": "8a4b4c12-f868-5602-910c-8f0b6c7e4c30",
+    "pack": "shining-kingdoms",
+    "kind": "spell",
+    "slug": "spell:kings-castle",
+    "name": "King's Castle",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "manipulate", "teleportation"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You and a willing creature swap places. You appear in the target's former space, and the target appears in your former space. You and your target must each be able to fit in the new spaces within range; otherwise, the spell fails."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.vM8oBYaEPgEXBimM"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 60
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature",
+            "qualifiers": ["willing"]
+          }
+        ]
+      },
+      "traditions": ["arcane", "divine", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "641f19e6-c518-5ca7-a7d2-56fcd77de3a3",
+    "pack": "shining-kingdoms",
+    "kind": "spell",
+    "slug": "spell:manifestation-of-spirits",
+    "name": "Manifestation of Spirits",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "manipulate", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You open the target's eyes to the plethora of spirits surrounding it—and it sees all these spirits as menacing and powerful. The target must attempt a Will save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target believes every spirit it sees is an imminent threat. It's "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 3"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but the effect lasts 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, and the target becomes "
+          },
+          {
+            "type": "ref",
+            "id": "6f53a234-670f-5b02-a986-7cce57585fc8"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (6th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can target up to 5 creatures."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.O1ZLfeOJpHbG9G6B"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "duration": {
+        "type": "varies"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": ["divine", "primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "81a35483-bedc-5f69-a775-3a6d120390af",
+    "pack": "shining-kingdoms",
+    "kind": "spell",
+    "slug": "spell:menacing-lament",
+    "name": "Menacing Lament",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["auditory", "concentrate", "emotion", "focus", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You wail a dirge for your enemies. Enemies in the area are "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " against your attacks and gain no benefits from flanking you for the duration."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.6TudR1rDkxWMj1cv"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "actions",
+        "cost": "one"
+      },
+      "area": {
+        "shape": "emanation",
+        "size": 30
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round"
+      },
+      "traditions": [],
+      "damage": []
+    }
+  },
+  {
+    "id": "736fbb83-9b7d-5f08-9679-cd2ed87fb33f",
+    "pack": "shining-kingdoms",
+    "kind": "spell",
+    "slug": "spell:pain-of-ages",
+    "name": "Pain of Ages",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "manipulate", "spirit"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You sense a spiritual resonance of deep anguish in the earth beneath your feet, the walls surrounding you, or the fragments of souls left behind in a place of calamity. You draw on this reservoir of pain and unleash its force against your enemies, dealing 8d8 spirit damage. On a critical failure, the creature is also "
+          },
+          {
+            "type": "ref",
+            "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round as it reels from the impact of so much anguish."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage increases by 2d8."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.HreHc5elibW9hVK8"
+    },
+    "data": {
+      "rank": 6,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 120
+      },
+      "area": {
+        "shape": "burst",
+        "size": 30
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": true
+        }
+      },
+      "traditions": ["divine"],
+      "damage": [
+        {
+          "key": "twn5rfwpcnh3ncnm",
+          "formula": "8d8",
+          "damageType": "spirit",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "twn5rfwpcnh3ncnm",
+            "formula": "2d8"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "e3856210-a233-5603-b061-245f6e07f38f",
+    "pack": "shining-kingdoms",
+    "kind": "spell",
+    "slug": "spell:radiant-globe",
+    "name": "Radiant Globe",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "light", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You create a dome of brilliant light that destroys projectiles attempting to pass through it. Ammunition from physical ranged attacks—such as arrows, bolts, sling bullets, and other objects of similar size—is destroyed in a flash of light when it passes into or out of the globe's area. Attackers targeting creatures or objects through the globe's surface with physical ranged attacks must succeed at a Fortitude save or become "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round ("
+          },
+          {
+            "type": "ref",
+            "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round on a critical failure)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.nXoc5YbcynmhZcQs"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 120
+      },
+      "area": {
+        "shape": "burst",
+        "size": 10
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:fortitude",
+          "basic": false
+        }
+      },
+      "traditions": ["arcane", "divine"],
+      "damage": []
+    }
+  },
+  {
+    "id": "4cd5f52d-0de5-55be-9e43-7eae521c94d2",
+    "pack": "shining-kingdoms",
+    "kind": "spell",
+    "slug": "spell:rapid-retreat",
+    "name": "Rapid Retreat",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["focus", "teleportation", "wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take damage from an attack or spell."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You know how to swiftly escape from harm. You instantly teleport out of danger into an unoccupied space within range, and you gain resistance to all damage against the triggering damage equal to your level. You can't Cast this Spell if there's no space to move into."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "d80bca21-d196-56d3-83c5-1e70c30a4358"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.6sNjsNPipZvQ3BGe"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "reaction"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 20
+      },
+      "traditions": [],
+      "damage": []
+    }
+  },
+  {
+    "id": "f53456ec-5201-5a80-99ed-c3f2b538dfc2",
+    "pack": "shining-kingdoms",
+    "kind": "spell",
+    "slug": "spell:spirit-ward",
+    "name": "Spirit Ward",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You draw on nearby spiritual energy or on echoes of the spirits you've invoked throughout your life to temporarily ward living flesh against dangerous spirits. You grant the target a +1 status bonus to saving throws against spells and effects caused by creatures that have the spirit trait and haunts. The number of actions you spend when Casting this Spell determines its targets, range, area, and other parameters."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " The spell has a range of touch."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate) The spell has a range of 30 feet. If you target a living creature, the bonus increases to +2."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate) You create a ward in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": ". This targets you and all your allies in the burst."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "b6aa330c-be79-55d8-a182-e29bacba332e"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.MFtXn7t5vApQXqlq"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "one",
+        "upTo": "three"
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "traditions": ["divine", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "a40d889d-abdb-5be6-a5e2-d48c76eb2369",
+    "pack": "shining-kingdoms",
+    "kind": "spell",
+    "slug": "spell:spiritual-renewal",
+    "name": "Spiritual Renewal",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "healing", "manipulate", "vitality"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You draw upon the restorative power of the spirits around you. The target gains fast healing 8."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The fast healing increases by 2."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "7a9bff65-e14c-5d90-8902-9228cc1f1897"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.tBC1QmB33KWIuBFX"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "touch"
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature",
+            "qualifiers": ["living"]
+          }
+        ]
+      },
+      "duration": {
+        "type": "time",
+        "count": 4,
+        "unit": "round"
+      },
+      "traditions": ["divine"],
+      "damage": []
+    }
+  },
+  {
+    "id": "7d94abbb-1d7f-5817-9c28-1bba6e253f55",
+    "pack": "shining-kingdoms",
+    "kind": "spell",
+    "slug": "spell:spiritual-transport",
+    "name": "Spiritual Transport",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "manipulate", "teleportation"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You call upon the spiritual energies surrounding you to teleport you to an unoccupied space within range that you can see. Any items you're wearing and holding come with you. Your familiar or animal companion, if you have one that's sharing your space or adjacent to your space, is transported with you, but any other creature sharing your space remains in that space."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (7th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The range increases to 1 mile. You don't need to be able to see your destination, as long as you have been there in the past and know its relative direction from you."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.6o75SEEYjdaMDkoG"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 240
+      },
+      "traditions": ["divine"],
+      "damage": []
+    }
+  },
+  {
+    "id": "f251d3f6-80cd-532d-a184-48bb417db8a4",
+    "pack": "shining-kingdoms",
+    "kind": "spell",
+    "slug": "spell:sudden-transposition",
+    "name": "Sudden Transposition",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "manipulate", "teleportation"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You wrench the targets off their feet, forcefully teleporting them within the area. The creatures must each be able to fit in their new space, and their positions must be unoccupied, entirely within the area, and in your line of sight. Each target attempts a Fortitude save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target can teleport if it wants, but it chooses the destination within the area."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You teleport the target and choose its destination; the target takes 10d10 bludgeoning damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You teleport the target and choose its destination; the target takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "20d10",
+                "damageType": "bludgeoning"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and is knocked "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.2DFtBRLyYMPrimp7"
+    },
+    "data": {
+      "rank": 8,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "area": {
+        "shape": "emanation",
+        "size": 60
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 2,
+            "upTo": true,
+            "of": "creature"
+          }
+        ]
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:fortitude",
+          "basic": false
+        }
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": [
+        {
+          "key": "r7h0ehbigdzavbmf",
+          "formula": "10d10",
+          "damageType": "bludgeoning",
+          "kinds": ["damage"]
+        }
+      ]
+    }
+  },
+  {
+    "id": "b43801c5-4070-55f4-a30b-5f4490e9762e",
+    "pack": "shining-kingdoms",
+    "kind": "spell",
+    "slug": "spell:trade-items",
+    "name": "Trade Items",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "manipulate", "teleportation"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You magically swap an item you're holding for another that someone else has. The second item appears in the hand you were holding the first item (or it falls to the ground in your square if you're unable to hold it), and the first item appears in the same place on the other creature's possession where the second item was (held in a hand or attached to a belt, for instance). If the second item is in the possession of a creature unwilling to relinquish it, they can prevent the transposition with a successful Reflex save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (5th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Each object's maximum Bulk increases to 1. If one of the items is 1 Bulk and the other isn't, an unwilling creature gains a +2 circumstance bonus to their saving throw."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.rSpGzCyYrTMiWQoG"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 60
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:reflex",
+          "basic": false
+        }
+      },
+      "traditions": ["arcane", "divine", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "2e30ffd4-3704-53ee-80a7-a4a5ba97e508",
+    "pack": "shining-kingdoms",
+    "kind": "spell",
+    "slug": "spell:unexpected-windfall",
+    "name": "Unexpected Windfall",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "manipulate", "metal", "wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Coins, trinkets carved from heavy stone, and other cumbersome treasures rain down upon a foe. The target must attempt a Fortitude save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "c7876f7b-3d87-55d8-af48-a396b2676415"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is encumbered for the duration of the spell."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but the extra weight also knocks the target "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.KR8WgdazifDBjDkW"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:fortitude",
+          "basic": false
+        }
+      },
+      "traditions": [],
+      "damage": []
+    }
+  },
+  {
+    "id": "c94428ad-9969-5dae-b430-089d23e84af4",
+    "pack": "shining-kingdoms",
+    "kind": "spell",
+    "slug": "spell:valiant-anthem",
+    "name": "Valiant Anthem",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["auditory", "concentrate", "emotion", "focus", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You chant a rallying cry to bolster your allies. Your allies in the area gain a +10-foot status bonus to all Speeds and a +1 status bonus to attack rolls."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "120a5889-2586-51d6-81ea-3671c3ebcfa3"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.nRsBM1zkhMmV3VST"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "actions",
+        "cost": "one"
+      },
+      "area": {
+        "shape": "emanation",
+        "size": 30
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round"
+      },
+      "traditions": [],
+      "damage": []
+    }
+  },
+  {
+    "id": "7539a4f3-3b3f-5eb2-bebc-1b22172dcd1f",
+    "pack": "shining-kingdoms",
+    "kind": "spell",
+    "slug": "spell:veil-of-spirits",
+    "name": "Veil of Spirits",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "manipulate", "spirit"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You draw on the essence of spiritual energy surrounding you to manifest a misty veil. When a creature that isn't immune to spirit damage begins its turn within the area, it must attempt a Reflex save. You can Dismiss the veil."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " until the beginning of its next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is dazzled and gains a weakness to spirit damage equal to half your level until the beginning of its next turn as spiritual energy clings to it. A creature with spiritsense can't use that imprecise sense while it's dazzled in this way."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but the weakness is equal to your level."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "6006bb40-7751-59dd-a6e4-237aad504110"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.lQbfgAu9uVJQC7x4"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 120
+      },
+      "area": {
+        "shape": "burst",
+        "size": 20
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:reflex",
+          "basic": false
+        }
+      },
+      "traditions": ["arcane", "divine", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "b3b26513-5030-5b42-9ab6-c21ceb4667ab",
+    "pack": "shining-kingdoms",
+    "kind": "spell",
+    "slug": "spell:vicious-howl",
+    "name": "Vicious Howl",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You howl with passion for your cause, empowering yourself to push beyond your limits. You gain a number of temporary Hit Points equal to your level and a +4 circumstance bonus to damage. If you reduce a fiend to 0 Hit Points during this duration, you regain a number of Hit Points equal to the creature's level."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "e29ce39f-15e9-5c58-b593-6bdfa5bd8947"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.z9pIChNg9PmPmn31"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "one"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "traditions": [],
+      "damage": []
+    }
+  },
+  {
+    "id": "ef2c7fc8-bc6b-5183-a321-2fc3c1933b16",
+    "pack": "shining-kingdoms",
+    "kind": "spell",
+    "slug": "spell:warping-pull",
+    "name": "Warping Pull",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "manipulate", "teleportation"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An effect would deal damage to an ally within range."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You get an ally out of danger with a teleporting pull. You teleport the target to an unoccupied square up to 10 feet closer to you. The target gains resistance 5 to all damage against the triggering effect."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+2)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The resistance increases by 5."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "cda93220-37b0-585b-9f86-386ff07efa10"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.UtINSoEJ0u630ia4"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "actions",
+        "cost": "reaction"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "traditions": ["arcane"],
+      "damage": []
+    }
+  }
+]

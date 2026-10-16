@@ -1,0 +1,478 @@
+[
+  {
+    "id": "54e25828-98ae-59ee-b321-6b906af7ad54",
+    "pack": "shining-kingdoms",
+    "kind": "action",
+    "slug": "action:designate-ally",
+    "name": "Designate Ally",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose an ally you can see, who becomes your designated ally. For the next minute, whenever your designated ally is adjacent to you and you're conscious, they gain a +2 circumstance bonus to AC and Reflex saving throws. You can have only one designated ally at a time, and if you designate a new ally, the previous ally loses any benefits."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "6ac61d76-b42d-5da8-acdb-2140abac53c1"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.JmCuw6Rhwfwo90ed"
+    },
+    "data": {
+      "cost": "one",
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "be770082-c694-574f-a91d-a762e24dad4b",
+    "pack": "shining-kingdoms",
+    "kind": "action",
+    "slug": "action:failed-prophet-broken-mindscape",
+    "name": "(Failed Prophet) Broken Mindscape",
+    "rarity": "common",
+    "traits": ["aura", "illusion", "incapacitation", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "30 feet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A creature entering the aura or starting its turn in the aura must attempt a Will save. Use the moderate spell DC for the failed prophet's level."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected and becomes immune to broken mindscape for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+            "label": "Stunned 1"
+          },
+          {
+            "type": "text",
+            "text": " as disjointed visions of the failed prophet's mindscape assail its senses."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature's mind is pulled into the failed prophet's mindscape. It's "
+          },
+          {
+            "type": "ref",
+            "id": "7802f1d9-5ced-5b9b-8a08-98ec0adb9947"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round. While paralyzed, the creature can take any actions with the mental or spirit traits, or that deal mental or spirit damage, as though those actions were purely mental. Such actions only have line of effect to the originating failed prophet and other creatures currently paralyzed by broken mindscape, though they treat all such creatures as though they were adjacent."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but the duration is 1 minute or until the failed prophet is destroyed, whichever happens first."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.7RxVsRFGtZX9eIxq"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "507792ba-f0cc-50b8-8e62-516500f8233e",
+    "pack": "shining-kingdoms",
+    "kind": "action",
+    "slug": "action:failed-prophet-greedy-grab",
+    "name": "(Failed Prophet) Greedy Grab",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The failed prophet's last action was a successful fist Strike that dealt damage"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The failed prophet attempts a Thievery check against the target's Reflex DC. On a success, the failed prophet pilfers coins and gems from the target with a total value as indicated in the table, to a maximum of what the target is carrying. Valuables in unlocked containers on the target's person can be taken just as easily as those carried. On a critical success, the failed prophet steals double that amount. The failed prophet gains a number of temporary Hit Points equal to the value stolen that last for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Level"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "Value Stolen"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "10–12"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5d10 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "13–15"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "6d10 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "16–18"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "7d10 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "19–20"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "8d10 gp"
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.YXaiRbK6LFSHP5fV"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The failed prophet's last action was a successful fist Strike that dealt damage"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "cf26e1d1-9552-5c7f-991b-3b18f621f00c",
+    "pack": "shining-kingdoms",
+    "kind": "action",
+    "slug": "action:failed-prophet-taboos",
+    "name": "(Failed Prophet) Taboos",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Despite the failed prophet's transformed body, a lifelong adherence to the strictures of the Prophecies of Kalistrade has ingrained the philosophical prohibitions into their soul. Whenever a failed prophet is critically hit by an unarmed attack, is critically hit by or critically fails a save against a touch spell, or is exposed to a disease or poison effect (even though immune), they take a –2 status penalty to their AC, attack bonuses, DCs, Perception, saving throws, and skill modifiers for 1 minute. Breaking other Kalistocratic taboos can also trigger this penalty at the GM's discretion."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.33PtgISC92HeTzRr"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "6eb809bf-f56d-591b-82c4-7baeb238ca28",
+    "pack": "shining-kingdoms",
+    "kind": "action",
+    "slug": "action:failed-prophet-this-is-my-reality",
+    "name": "(Failed Prophet) This Is My Reality!",
+    "rarity": "common",
+    "traits": ["concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The failed prophet exerts control over their crumbling mindscape to inflict harm upon those trapped within. This can take the form of falling debris, natural disasters, or anything else the failed prophet can imagine. No matter the form, each creature currently "
+          },
+          {
+            "type": "ref",
+            "id": "7802f1d9-5ced-5b9b-8a08-98ec0adb9947"
+          },
+          {
+            "type": "text",
+            "text": " by the failed prophet's broken mindscape takes spirit damage with a basic Will save. The save DC uses the high spell DC for the failed prophet's level and the unlimited use area damage for the failed prophet's level."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.QKzMfQLBrD48eTLq"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "4742ef1c-774f-550c-8a7b-dd2b264a776c",
+    "pack": "shining-kingdoms",
+    "kind": "action",
+    "slug": "action:failed-prophet-wealthsense",
+    "name": "(Failed Prophet) Wealthsense",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The failed prophet can detect concentrations of coinage and other valuables as an imprecise sense with a range of 60 feet. The failed prophet detects any creature carrying coins and treasure totaling at least the average cost of a consumable item of the failed prophet's level."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.8uOu4L083uOru5yi"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "9983ccd2-c25a-5e59-b330-e1c883683c4f",
+    "pack": "shining-kingdoms",
+    "kind": "action",
+    "slug": "action:remove-head",
+    "name": "Remove Head",
+    "rarity": "common",
+    "traits": ["manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Interact to remove your head from your ghostly body and hold it in a free hand. While your head is detached, you can use it to look around and over obstacles while remaining behind cover, although you don't have line of effect to target creatures unless the effect originates from your head. You can leave your head behind and move your body around independently, but your head gains the "
+          },
+          {
+            "type": "ref",
+            "id": "7802f1d9-5ced-5b9b-8a08-98ec0adb9947"
+          },
+          {
+            "type": "text",
+            "text": " condition and your body becomes "
+          },
+          {
+            "type": "ref",
+            "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7",
+            "label": "blind"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "4271da2e-7225-5aa7-9807-c499d8af6a5a",
+            "label": "deaf"
+          },
+          {
+            "type": "text",
+            "text": ", and unable to take any action that has the auditory trait that requires speech or vocalization. You can cause your head to dematerialize and reappear atop your neck as a free action, which occurs automatically if it takes damage while detached or is separated from your body by more than 50 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.AHCMtFUZXpw98PqS"
+    },
+    "data": {
+      "cost": "one",
+      "category": "interaction"
+    }
+  }
+]

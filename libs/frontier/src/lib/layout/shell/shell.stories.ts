@@ -8,6 +8,8 @@ import { Link } from '../../actions/link/link.component';
 import { Icon } from '../../icon/icon.component';
 import { pressKeys } from '../../testing/story-keyboard';
 import { Text } from '../../text/text/text.component';
+import { PageBody } from '../page-body/page-body.component';
+import { PageHeader } from '../page-header/page-header.component';
 import { Page } from '../page/page.component';
 import { Stack } from '../stack/stack.component';
 import { Surface } from '../surface/surface.component';
@@ -18,7 +20,7 @@ type ShellStory = StoryObj<Shell>;
 const meta: Meta<Shell> = {
   title: 'Layout/Shell',
   component: Shell,
-  decorators: [moduleMetadata({ imports: [Button, Icon, Link, Page, Stack, Surface, Text] })],
+  decorators: [moduleMetadata({ imports: [Button, Icon, Link, Page, PageBody, PageHeader, Stack, Surface, Text] })],
   args: { brand: 'Pioneer' },
   parameters: { layout: 'fullscreen' },
   render: (args) => ({
@@ -33,10 +35,11 @@ const meta: Meta<Shell> = {
         <fr-button frShellActions variant="ghost" ariaLabel="Toggle colour mode">
           <fr-icon [icon]="moon" />
         </fr-button>
-        <fr-page title="Characters">
-          <fr-surface>
+        <fr-page>
+          <fr-page-header title="Characters" />
+          <fr-page-body><fr-surface>
             <fr-text element="p">Routed content renders here, like <fr-link to="/characters/valeros">Valeros</fr-link>.</fr-text>
-          </fr-surface>
+          </fr-surface></fr-page-body>
         </fr-page>
         <fr-text frShellFooter variant="caption" tone="subtle">Pathfinder 2e character manager</fr-text>
       </fr-shell>

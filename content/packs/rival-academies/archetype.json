@@ -1,0 +1,279 @@
+[
+  {
+    "id": "d69a6643-9f8b-5f31-9e0b-f7a8d74e12a5",
+    "pack": "rival-academies",
+    "kind": "archetype",
+    "slug": "archetype:campfire-chronicler",
+    "name": "Campfire Chronicler",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You follow in the footsteps of Isthralei, an old god of Sarkoris dedicated to protecting and assisting travelers in return for a story of their journey. Though tales of Isthralei himself are scarce, his gifts are still sometimes given to those who protect travelers and collect their stories."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This tradition of chronicling, relearned from the ghost of a Sarkorian storyteller, has flourished at the Academy of the Reclamation. Many students who enter the Sarkoris Scar now travel under Isthralei's name, both believing in the god's purpose and using his rediscovery as a symbol of the Reclamation's successes. Even that may be too small a scope, however, as travelers' tales come from far and wide. Many campfire chroniclers collect stories of other students who have returned to Sarkoris from afar, along with the stories of their families who were scattered following the opening of the Worldwound."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The mysterious benefactor accepts all stories with a listening ear, leading to many late night discussions among students about what truths might be hidden in tall tales and outright fabrications. Although Isthralei accepts falsehoods without comment, he places no requirement on the chroniclers to do the same. In fact, Isthralei has yet to provide guidance beyond the comforting warmth of his protection after stories are offered."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Although Sarkorian traditions don't place importance on dividing their gods by power level or origin, some at the Academy of the Reclamation have begun to dig deeper into each of the gods' individual circumstances. The question of where Isthralei came from has become a particularly popular one among students who hope that a god who so loves the stories of travelers wouldn't take offense at his own story being exposed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Students prying into these matters have found some success using magical sources of information. Most recently, Cobyslarni's Echo Repository has revealed several tales of travelers and explorers who encountered a smiling figure far from any habitation. The reoccurring theme of weary travelers being offered a space next to the campfire in exchange for their tales has led several students to suggest that the wanderer is actually Isthralei. Unfortunately, the sightings are so vastly spread—occurring between continents, in the First World of the fey, or even on elemental planes—that they've provided little illumination of the god's origins."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At the academy, Isthralei's philosophy has expanded to include tenets to protect travelers' freedom of movement, be generous to others when possible, and seek wisdom in the experience of others. Although these aren't strictly necessary to gain or keep Isthralei's favor, it's difficult to find a teacher among the Academy of the Reclamation without agreeing to these tenets."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This philosophy of protecting travelers is generally seen to include the Convocation's guests in Nerosyan. Isthralei's campfire chroniclers are among the most obvious representatives of their academy and the Convocation as a whole. Although surviving tales of the old god inspire campfire conversations on the exhibit grounds, his followers also listen to stories in bars, cafes, and the schools' lodgings."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "8th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Advanced Domain"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.NmnvKVQl51xoGQU7"
+    },
+    "data": {
+      "dedication": "eddf5af0-e623-5eea-84ca-20ce826dc87c"
+    }
+  },
+  {
+    "id": "1002e2eb-c092-58fa-ad5b-e81e13fc41a5",
+    "pack": "rival-academies",
+    "kind": "archetype",
+    "slug": "archetype:kitharodian-actor",
+    "name": "Kitharodian Actor",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Rare"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Some performers at Kitharodian Academy are so dedicated to method acting that they can completely disappear into roles in a manner that's almost magical. These thespians are capable of mimicking Taldor's vast array of stage-immortalized luminaries via vivid impressions, awe-inspiring vocal performances, and wild stunts that defy all expectations. The Academy's foremost instructors and senior Lion Blades agents keep a close eye on all prodigies who show a sliver of this potential, helping them harness their talents for use in both the acting world and the world of spycraft."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Through Taldor's long history, a handful of classic roles have been repeated and hammered into shape until they became icons and metaphors that define the art of Taldor. Although some of these are symbols of national strength, like First Emperor Taldaris, many are tragic or even comedic figures like Emperor Beldam I. Accepting any one of these roles in a high-profile production can be the highlight of an actor's career, but the best of the best gather these roles like trophies."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Newer roles are added to the canon very slowly, with modern figures like Grand Princess Eutropia usually alluded to with references from other roles. Many performances with Cyricas and his animal friends now feature a dog at his side, for example, as a reference to the grand princess's beloved pet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Although the most famous internationally, Kitharodian Academy is not the sole repository of Taldor's stories. Many other schools in Taldor, like the nearby Rhapsodic College, teach the classics. But these plays and songs are such a deeply rooted part of Taldor's culture that prodigies arise from the soldiers of Zimar to the dwarven enclaves in Maheto."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.Uxi73hAyBx7GjYW9"
+    },
+    "data": {
+      "dedication": "9231c586-a1d2-5d27-96e3-30583fd11165"
+    }
+  },
+  {
+    "id": "eabb56a4-084b-5bd9-bc7f-05246f4c3b39",
+    "pack": "rival-academies",
+    "kind": "archetype",
+    "slug": "archetype:lepidstadt-surgeon",
+    "name": "Lepidstadt Surgeon",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "To be a surgeon is to be akin to a god. In your hands is the power of life and death. With a flick of a knife, you can excise a tumor. With another, you can sever an artery. Everything comes down to your skill, to the steadiness of your hand, the keenness of your eye, and the knowledge of your mind. Little wonder, then, that in Lepidstadt, surrounded by powers and temptations, surgeons sometimes go a few steps further. With the right reagents, with the proper equipment, even death is only a temporary inconvenience, a shadow to be chased from the door with kicks and shouts. Just imagine the possibilities."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "6th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " No! No! I Created You!"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.siGGQuh9SijE9nlt"
+    },
+    "data": {
+      "dedication": "fdd4c981-cfca-5c3b-8f48-8a40775204cd"
+    }
+  }
+]

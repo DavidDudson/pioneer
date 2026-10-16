@@ -12,6 +12,8 @@ import {
   HeadingLevel,
   Link,
   Page,
+  PageBody,
+  PageHeader,
   Skeleton,
   Stack,
 } from '@pioneer/frontier';
@@ -51,6 +53,8 @@ const LOADING_ROWS = ['first', 'second', 'third'];
     EntryPreviewView,
     Link,
     Page,
+    PageBody,
+    PageHeader,
     Skeleton,
     Stack,
     TranslocoPipe,

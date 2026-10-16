@@ -1,0 +1,64 @@
+[
+  {
+    "id": "3b234ed6-780d-5b55-ad59-2dee27df4d87",
+    "pack": "hellfire-dispatches",
+    "kind": "equipment",
+    "slug": "equipment:signifers-mask",
+    "name": "Signifer's Mask",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellfire-dispatches"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This mask is often devoid of eyeholes or other decorative features. The mask doesn't obscure your vision, though it makes it impossible for others to see your eyes. While wearing your signifer's mask, you gain a +1 circumstance bonus to Deception checks to Lie, Intimidation checks to Coerce, and Deception DCs against Sense Motive."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["action:lie", "action:sense-motive"]
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:intimidation"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["action:coerce"]
+      },
+      {
+        "key": "Sense",
+        "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb",
+        "predicate": ["feat:signifers-sight"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.XlmoKh60WMF9ou3J"
+    },
+    "data": {
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn",
+        "slot": "mask"
+      }
+    }
+  }
+]

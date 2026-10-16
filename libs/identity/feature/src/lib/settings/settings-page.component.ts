@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { Page, SegmentedField, SelectField, Stack, Surface } from '@pioneer/frontier';
+import { Page, PageBody, PageHeader, SegmentedField, SelectField, Stack, Surface } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
 import { AccountPreferences } from '@pioneer/identity/data-access';
 import type { Preferences } from '@pioneer/identity/domain';
@@ -30,7 +30,7 @@ type PreferenceField = keyof Preferences;
  */
 @Component({
   selector: 'pio-settings-page',
-  imports: [Page, SegmentedField, SelectField, Stack, Surface, TranslocoPipe],
+  imports: [Page, PageBody, PageHeader, SegmentedField, SelectField, Stack, Surface, TranslocoPipe],
   templateUrl: './settings-page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

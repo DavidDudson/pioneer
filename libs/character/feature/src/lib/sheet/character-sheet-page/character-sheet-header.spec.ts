@@ -74,6 +74,17 @@ describe('CharacterSheetPage header', () => {
     });
   });
 
+  it('offers to report a bug with this character attached', async () => {
+    const { root } = await openSheet(WARPRIEST_MERISIEL, { slots: WARPRIEST_SLOTS, packs: HEADER_PACKS });
+
+    const link = await vi.waitFor(() => present(root.querySelector<HTMLAnchorElement>('pio-sheet-report-bug a')));
+    const target = new URL(link.href);
+    expect(target.pathname).toBe('/account/report-bug');
+    expect(target.searchParams.get('character')).toBe(id);
+    expect(target.searchParams.get('name')).toBe(WARPRIEST_MERISIEL.name);
+    expect(textOf(link)).toBe('Report a bug');
+  });
+
   it('shows the ranks the class gives, and the armour that sets AC', async () => {
     const { root } = await openSheet(WARPRIEST_MERISIEL, { slots: WARPRIEST_SLOTS, packs: HEADER_PACKS });
     const vitalsNow = (): HTMLElement => present(root.querySelector<HTMLElement>('pio-vitals'));

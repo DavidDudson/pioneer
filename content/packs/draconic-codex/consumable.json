@@ -1,0 +1,518 @@
+[
+  {
+    "id": "fe46a418-8968-5946-a4fa-c05623edc003",
+    "pack": "draconic-codex",
+    "kind": "consumable",
+    "slug": "consumable:dragon-eye",
+    "name": "Dragon Eye",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell (add 1 action)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Even in death, a dragon's gaze is terrible to behold. When used to cast "
+          },
+          {
+            "type": "ref",
+            "id": "14e2abdf-052f-5a62-a6a0-8b4191474b38"
+          },
+          {
+            "type": "text",
+            "text": " at 3rd rank or higher, an eye from a dragon causes the spell to manifest some of the creature's fearsome aura and inspire terror. Creatures in the spell's area must attempt a basic Will save instead of a basic Reflex save, and in addition to taking the spell's normal damage on a failure, they're "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 1"
+          },
+          {
+            "type": "text",
+            "text": ". This adds the emotion, fear, and mental traits to the spell."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "862a6a94-1bcb-5837-b0fb-a39680bf741d"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Lehtsf2QWj3bQnTV"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 30
+        }
+      },
+      "bulk": "light",
+      "category": "catalyst",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "41625fd6-af9a-5ac3-ace1-5fc9633794a3",
+    "pack": "draconic-codex",
+    "kind": "consumable",
+    "slug": "consumable:dragon-scute-greater",
+    "name": "Dragon Scute (Greater)",
+    "level": 20,
+    "rarity": "common",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The thick plates that form the strongest points in a dragon's armor can be used as powerful defensive catalysts. Using one of these scales to cast "
+          },
+          {
+            "type": "ref",
+            "id": "2e797ff1-fcb3-5e23-af04-bc8fc9271425"
+          },
+          {
+            "type": "text",
+            "text": " causes the target's skin to grow a thick layer of draconic scales. Instead of the spell's normal effects, the target gains damage resistance based on the type and dragon's tradition."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The scale can be used with "
+          },
+          {
+            "type": "text",
+            "text": "mountain resilience",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " of 10th rank or higher."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Arcane",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " resistance 10 against all damage from spells"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Divine",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " resistance 20 to spirit, vitality, and void"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Occult",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " resistance 20 to mental"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Primal",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " resistance 15 to bludgeoning, piercing, slashing, and poison"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.989VZoKytQMJYRuR"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 14000
+        }
+      },
+      "bulk": "light",
+      "category": "catalyst",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "33a4404e-5aef-58ea-9217-036fa266255c",
+    "pack": "draconic-codex",
+    "kind": "consumable",
+    "slug": "consumable:dragon-scute-lesser",
+    "name": "Dragon Scute (Lesser)",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The thick plates that form the strongest points in a dragon's armor can be used as powerful defensive catalysts. Using one of these scales to cast "
+          },
+          {
+            "type": "ref",
+            "id": "2e797ff1-fcb3-5e23-af04-bc8fc9271425"
+          },
+          {
+            "type": "text",
+            "text": " causes the target's skin to grow a thick layer of draconic scales. Instead of the spell's normal effects, the target gains damage resistance based on the type and dragon's tradition."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The scale can be used with "
+          },
+          {
+            "type": "text",
+            "text": "mountain resilience",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " of 6th rank or higher."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Arcane",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " resistance 5 against all damage from spells"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Divine",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " resistance 10 to spirit, vitality, and void"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Occult",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " resistance 10 to mental"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Primal",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " resistance 7 to bludgeoning, piercing, slashing, and poison"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.PjGZEG8hnzcYc6vm"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 400
+        }
+      },
+      "bulk": "light",
+      "category": "catalyst",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "7083294f-5910-5dba-8ff5-384241586775",
+    "pack": "draconic-codex",
+    "kind": "consumable",
+    "slug": "consumable:dragon-scute-moderate",
+    "name": "Dragon Scute (Moderate)",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The thick plates that form the strongest points in a dragon's armor can be used as powerful defensive catalysts. Using one of these scales to cast "
+          },
+          {
+            "type": "ref",
+            "id": "2e797ff1-fcb3-5e23-af04-bc8fc9271425"
+          },
+          {
+            "type": "text",
+            "text": " causes the target's skin to grow a thick layer of draconic scales. Instead of the spell's normal effects, the target gains damage resistance based on the type and dragon's tradition."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The scale can be used with "
+          },
+          {
+            "type": "text",
+            "text": "mountain resilience",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " of 8th rank or higher."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Arcane",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " resistance 7 against all damage from spells"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Divine",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " resistance 15 to spirit, vitality, and void"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Occult",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " resistance 15 to mental"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Primal",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " resistance 10 to bludgeoning, piercing, slashing, and poison"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.wZU5FVR7ifZbhuv6"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2000
+        }
+      },
+      "bulk": "light",
+      "category": "catalyst",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

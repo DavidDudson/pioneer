@@ -1,0 +1,1717 @@
+[
+  {
+    "id": "2688347f-b4d3-536a-ad1b-3f4343714203",
+    "pack": "rival-academies",
+    "kind": "equipment",
+    "slug": "equipment:branch-attendants-mask",
+    "name": "Branch Attendant's Mask",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Although not all attendants' masks are enchanted, many apply a first enchantment to celebrate their acceptance into a branch of the academy. While you wear the mask or have it as your bonded item, add the associated cantrip to your prepared cantrips. This has no effect if you do not prepare cantrips from the arcane or primal lists."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Cascade Bearers",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "02c769dd-dba8-5437-8189-28b9800afaac"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Emerald Boughs",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "6ef5aafd-2135-5eef-9aa0-33fa1a8755f5"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Rain-Scribes",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "0da39ddd-4df1-5400-9952-b97de0192a07"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Tempest-Sun Mages",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "af70a0e9-8098-5ea9-9c72-12ee05e62eb1"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uzunjati",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "bb73ff19-7c70-5f9f-8c0e-dbd71c099926"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.1bippAJ938UHQQQV"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 25
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "31413abd-ea2b-53cc-a71e-e21018f1e7c5",
+    "pack": "rival-academies",
+    "kind": "equipment",
+    "slug": "equipment:hidden-pocket-outfit",
+    "name": "Hidden Pocket Outfit",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Usually worn by actors but also popular with anyone intent on subterfuge, this outfit resembles a normal piece of clothing, but with multiple pockets designed to conceal blood pack squibs and similar small items. When wearing this outfit, you automatically succeed on all relevant checks to Conceal an Object on your person as long as the object is of light or negligible Bulk. However, someone specifically searching you can still attempt a Perception check against your Stealth DC."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.t9NlJdAdTKWZUoYz"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 75
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "worn",
+        "slot": "garment"
+      }
+    }
+  },
+  {
+    "id": "019ee6e3-c4fb-59ee-a517-80f8e1080ac2",
+    "pack": "rival-academies",
+    "kind": "equipment",
+    "slug": "equipment:illusory-backdrop",
+    "name": "Illusory Backdrop",
+    "level": 10,
+    "rarity": "rare",
+    "traits": ["illusion", "magical", "structure"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This three-panel folding backdrop measures 5 feet tall and 3 feet wide and takes 2 hands to carry when folded up. It projects a preset illusion when fully unfolded. Illusory backdrops are typically used by artists, bards, gallery owners, and the occasional politician, and common illusions include the tops of battlements with grand castles in the background, cozy bowers, and well-appointed rooms."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Set the Scene",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You unfold the illusory backdrop, placing it on the edge of three contiguous 5-foot squares in a straight line. The illusion then emanates in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": " from the center of the line, facing straight away from the panel. The illusion contains a scene that includes up to 5 discrete objects (usually foliage or pieces of furniture). The scene is static and lasts for 1 hour, though that duration restarts if the backdrop is refolded and then unfolded again. The appearance of the illusion is determined when the illusory backdrop is crafted and can't be changed."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.66OFeQOV6HM29j5R"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 900
+        }
+      },
+      "bulk": 3,
+      "usage": {
+        "type": "carried"
+      }
+    }
+  },
+  {
+    "id": "d1d42d6b-1009-5792-8b17-50ff5d27114b",
+    "pack": "rival-academies",
+    "kind": "equipment",
+    "slug": "equipment:inspiring-spotlight-mounted",
+    "name": "Inspiring Spotlight (Mounted)",
+    "level": 15,
+    "rarity": "rare",
+    "traits": ["light", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An "
+          },
+          {
+            "type": "text",
+            "text": "inspiring spotlight",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " consists of a drum-shaped metal housing around several reflective plates. It has the capacity to cast a powerful, narrow beam of light to illuminate important moments or characters on stage. The portable version consists of an 18-inch-diameter lamp on a tripod that can be set up or broken down over the course of 10 minutes. The mounted version is typically 3 feet in diameter and affixed to a bracket above and behind the audience for indoor performances."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Light It Up",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (light, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The inspiring spotlight emits a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 5
+          },
+          {
+            "type": "text",
+            "text": " of bright magical light within 240 feet. If the burst intersects with an area of magical darkness, the inspiring spotlight attempts to counteract the darkness with a +25 modifier. Creatures within the burst gain a +2 item bonus to saving throws and Charisma-based skill checks. The spotlight remains lit for 1 minute or until you Interact to turn it off. During this time any creature adjacent to the spotlight can move the burst up to 20 feet from the burst's original position with an Interact action."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.uTPqImeDq7bEsFak"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 650
+        }
+      },
+      "bulk": 8,
+      "activations": [
+        {
+          "slug": "light-it-up",
+          "name": "Light It Up",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "12522ae1-c3c7-52de-ab66-54547e28f99d",
+    "pack": "rival-academies",
+    "kind": "equipment",
+    "slug": "equipment:inspiring-spotlight-portable",
+    "name": "Inspiring Spotlight (Portable)",
+    "level": 9,
+    "rarity": "rare",
+    "traits": ["light", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An "
+          },
+          {
+            "type": "text",
+            "text": "inspiring spotlight",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " consists of a drum-shaped metal housing around several reflective plates. It has the capacity to cast a powerful, narrow beam of light to illuminate important moments or characters on stage. The portable version consists of an 18-inch-diameter lamp on a tripod that can be set up or broken down over the course of 10 minutes. The mounted version is typically 3 feet in diameter and affixed to a bracket above and behind the audience for indoor performances."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Light It Up",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (light, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The inspiring spotlight emits a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 5
+          },
+          {
+            "type": "text",
+            "text": " of bright magical light within 120 feet. If the burst intersects with an area of magical darkness, the inspiring spotlight attempts to counteract the darkness with a +17 modifier. Creatures within the burst gain a +1 item bonus to saving throws and Charisma-based skill checks. The spotlight remains lit for 1 minute or until you Interact to turn it off. During this time any creature adjacent to the spotlight can move the burst up to 20 feet from the burst's original position with an Interact action."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.C9lcnBy4pS3MIyoU"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 650
+        }
+      },
+      "bulk": 3,
+      "activations": [
+        {
+          "slug": "light-it-up",
+          "name": "Light It Up",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "02b30b01-1d6c-5ebb-b0cc-3b34b07ee04f",
+    "pack": "rival-academies",
+    "kind": "equipment",
+    "slug": "equipment:monster-suit",
+    "name": "Monster Suit",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Monster suits are used in elaborate and often tawdry performances where actors portray monstrous creatures. These shows tend to feature gratuitous special effects and culminate with the costumed actors engaging in mock battles on stage, to audiences' delight."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A monster suit is crafted to resemble a specific creature with the animal, beast, dragon, fiend, giant, plant, or undead trait. You can wear a monster suit that resembles a creature that is your size or one size larger, though this doesn't change your actual size. It takes 10 minutes to don a monster suit, and when wearing one, you take a –10-foot item penalty to your Speeds and a –4 circumstance penalty to skill checks for move actions due to the suit's unwieldy shape. However, the monster suit counts as a using a disguise kit for "
+          },
+          {
+            "type": "ref",
+            "id": "9d26c6da-04e9-5491-86c1-7a4b23fe9da3",
+            "label": "Impersonating"
+          },
+          {
+            "type": "text",
+            "text": " the associated creature, and you gain a +2 item bonus to your Deception check and DC for the activity."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.GINBGF9CosuIuXOD"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 80
+        }
+      },
+      "bulk": 2,
+      "usage": {
+        "type": "worn",
+        "slot": "garment"
+      }
+    }
+  },
+  {
+    "id": "22dfa71a-7b95-5c2b-ae15-2b8d04258785",
+    "pack": "rival-academies",
+    "kind": "equipment",
+    "slug": "equipment:oathlamp-of-accord",
+    "name": "Oathlamp of Accord",
+    "level": 3,
+    "rarity": "rare",
+    "traits": ["light", "magical", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This hooded lantern takes the form of a translucent prism. It functions as a normal "
+          },
+          {
+            "type": "ref",
+            "id": "eb0a5d4b-c2ad-51f7-817b-467de00e0c35",
+            "label": "Hooded Lantern"
+          },
+          {
+            "type": "text",
+            "text": ", except that it isn't fueled by oil, but by oaths. While you're holding the lantern, you gain a +1 item bonus to Diplomacy checks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Announce Oath",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (light, mental)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You make a promise in good faith"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "oathlamp of accord",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " sheds light without consuming fuel until the promise you made is broken or fulfilled. The GM adjudicates whether a spoken promise is broken or fulfilled. This light and the shutters to conceal it work as normal for a hooded lantern. Any creature in the light of the oathlamp becomes aware of the contents of the oath, along with who made it and how long ago."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy"],
+        "type": "item",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ladz0husmGO1ZYZi"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "b82a0460-bb54-551b-b206-54839b9c8b76",
+    "pack": "rival-academies",
+    "kind": "equipment",
+    "slug": "equipment:pranksters-perpetual-pieplate",
+    "name": "Prankster's Perpetual Pieplate",
+    "level": 1,
+    "rarity": "rare",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Although the simple pies that fill this glass plate every minute are edible, they don't last long enough to sate hunger or provide any real nutritive value. Instead, they can be magically guided at targets, unleashed harmlessly by even the most uncoordinated child."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Project Pastry",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per minute"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You magically hurl the pie at a creature within 30 feet. Unless the target succeeds at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 15
+          },
+          {
+            "type": "text",
+            "text": " save, they're splattered with a harmless but tasty mess, which remains until it is wiped away with an Interact action or is otherwise cleaned off (like if the target is submerged in water). After a minute, the mess disappears, and the pieplate refills with another kind of pie."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.dzwHxy09Xql3kIPd"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 12
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "project-pastry",
+          "name": "Project Pastry",
+          "frequency": {
+            "max": 1,
+            "per": "minute"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "67b1ce4c-5982-5697-a4f1-7a554ca68c6d",
+    "pack": "rival-academies",
+    "kind": "equipment",
+    "slug": "equipment:talented-tap-shoes",
+    "name": "Talented Tap Shoes",
+    "level": 11,
+    "rarity": "rare",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These stylish shoes were originally created by the Tappin' Toes Troupe, a group of tap-dancing Taldan bards who achieved massive popularity for their line dance routines. Notoriously lazy when it came to practicing choreography, the troupe enchanted their footwear to enhance their agility. Upon retirement, the troupe sold off their shoe designs, and talented tap shoes have become popular among professional dancers ever since. While wearing the shoes, you gain a +2 item bonus to Acrobatics checks to "
+          },
+          {
+            "type": "ref",
+            "id": "6fb6b45a-8b16-55e4-ba53-e23a62359b56"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "11d6f0fd-b182-5043-8a26-973179a93617"
+          },
+          {
+            "type": "text",
+            "text": " an enemy's space and to Performance checks using dance."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Strut Your Stuff",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You click the toes of your talented tap shoes on the ground, and for the next minute, whenever you succeed or critically succeed at a Reflex save to avoid a damaging effect, you can Stride half your Speed as a reaction. However, during this time, you take a –2 item penalty to Stealth checks to "
+          },
+          {
+            "type": "ref",
+            "id": "7e4e48de-b626-5513-9518-73261c58b5f4"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "0f48ed01-4d1d-575a-b752-5503cfa79c79"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "item",
+        "value": 2,
+        "predicate": [
+          {
+            "or": [
+              {
+                "and": [
+                  "check:statistic:acrobatics",
+                  {
+                    "or": ["action:balance", "action:tumble-through"]
+                  }
+                ]
+              },
+              {
+                "and": ["check:statistic:performance", "action:perform:dance"]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ktzQ3WItAfMk25hM"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1250
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "strut-your-stuff",
+          "name": "Strut Your Stuff",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "shoes"
+      }
+    }
+  },
+  {
+    "id": "ea6873ae-3a58-5cf8-9871-a613a27d3e44",
+    "pack": "rival-academies",
+    "kind": "equipment",
+    "slug": "equipment:theater-enhancers",
+    "name": "Theater Enhancers",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Theater enhancers",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " resemble a pair of opera glasses. When worn, they allow the viewer to see subtle illusions on key props or stage elements that have been cast ahead of time. For instance, a puppet of a demon might appear to project a sinister moving shadow, or a backdrop of a mountain might have snowflakes falling over it. Popular among theatergoers who want a visual experience grander than what they can see with their own eyes, "
+          },
+          {
+            "type": "text",
+            "text": "theater enhancers",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " are largely limited to fancy stage productions that can afford the time and money it takes to enchant a stage with them in mind."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.fPqFZ2c0MWU89nNC"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 15
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn",
+        "slot": "eyeglasses"
+      }
+    }
+  },
+  {
+    "id": "13a2ae6f-a173-5419-82cb-f10264885092",
+    "pack": "rival-academies",
+    "kind": "equipment",
+    "slug": "equipment:three-pillared-yang-na",
+    "name": "Three-Pillared Yang Na",
+    "level": 4,
+    "rarity": "rare",
+    "traits": ["divine", "invested", "tattoo"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This tattoo represents an abstract tree whose trunk is made up of three lines of Tang text. Applied in a ritual involving jasmine, turmeric, and a blossom from a yang na tree, the tattoo provides three blessings. The first blessing keeps your mind still during negotiations, granting a +1 item bonus to Diplomacy checks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Second Blessing",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, detection)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You learn the direction of the yang na tree that gave the blossom used in creating your tattoo. Most such trees are in Tang Mai, far to the west of the Inner Sea."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Third Blessing",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take spirit damage"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain resistance 3 against that spirit damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy"],
+        "type": "item",
+        "value": 1
+      },
+      {
+        "key": "RollOption",
+        "option": "option:three-pillared-yang-na-resistance",
+        "toggleable": true,
+        "display": {
+          "label": "Three-Pillared Yang Na — Third Blessing"
+        }
+      },
+      {
+        "key": "Resistance",
+        "type": ["spirit"],
+        "value": 3
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.PkSxW5gxIU5P83ia"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 80
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "tattooed"
+      }
+    }
+  },
+  {
+    "id": "255162a4-616e-5fa7-8d99-a23c1d65108c",
+    "pack": "rival-academies",
+    "kind": "equipment",
+    "slug": "equipment:uzunjati-storytelling-amulet",
+    "name": "Uzunjati Storytelling Amulet",
+    "level": 5,
+    "rarity": "rare",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This round, flat amulet can be made of metal, clay, or leather and is usually highly personalized with runes, sigils, lines of poetry, or a depiction of a storyteller at work. In Azimbye's case, their gold-rimmed metal amulet boasts fine dwarven workmanship, and bears lines from one of the oldest epic poems of the legendary folk hero Kgalaserke on one side and a stylized portrait of a storytelling event in Ranage's Circle on the other. While wearing the amulet, you gain a +1 item bonus to Performance checks."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Enamoring Story",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The perfect anecdote or story to impress your interlocutor comes floating to your memory."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You attempt to Make an Impression or Request, using a Performance check instead of a Diplomacy check."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:performance"],
+        "type": "item",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.IIG33n6yrNjz07Ir"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 145
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "enamoring-story",
+          "name": "Enamoring Story",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "e7664359-d6a0-587d-a90c-a84423695dc7",
+    "pack": "rival-academies",
+    "kind": "equipment",
+    "slug": "equipment:vocal-shells",
+    "name": "Vocal Shells",
+    "level": 3,
+    "rarity": "rare",
+    "traits": ["clockwork"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Used by more technologically inclined bards, ventriloquists, and other performers to throw their voices, this gadget consists of two button-sized conch shells, each containing a miniaturized mechanism designed to pick up and transmit sound. One of the shells is designated the sending shell and contains a tiny indentation. When this indentation is pressed and the shell is close to a source of sound (such as on an actor's necklace), any sound that reaches it is transmitted to the receiver shell. If the receiver shell is located within 20 feet, it plays the sounds captured by the sending shell at a perfect volume and pitch."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.sjGt3r0pgI1zwc9t"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "3e3f4a60-a51a-583e-95e6-532d9d99268e",
+    "pack": "rival-academies",
+    "kind": "equipment",
+    "slug": "equipment:weapon-of-false-wounds",
+    "name": "Weapon of False Wounds",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["illusion", "magical", "visual"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These weapons consist mostly of illusions, except in the spots where the weapon would be held. A sword, for example, would consist only of a physical handle with the permanent illusion of a blade. "
+          },
+          {
+            "type": "text",
+            "text": "Weapons of false wounds",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " come in all shapes and sizes to help accurately reenact both historic and theatrical combat without risk of injury. The most amazing property of these items is the fact the illusions become partially physical when interacting with other "
+          },
+          {
+            "type": "text",
+            "text": "weapons of false wounds",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", allowing blades to clash and parry as they would in actual combat. As a "
+          },
+          {
+            "type": "text",
+            "text": "weapon of false wounds",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is designed specifically to interact with other illusions, paying attention to subtle changes in the weapon's appearance can help alert the wielder to nearby illusions. While using this item, you gain a +1 item bonus to Perception checks to disbelieve an illusion."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "perception",
+        "option": "option:weapon-of-false-wounds",
+        "toggleable": true
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["option:weapon-of-false-illusions"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.JKrqKeBxSlLjF8xU"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 80
+        }
+      },
+      "bulk": "light"
+    }
+  },
+  {
+    "id": "72e2c97f-52e1-5b85-a61e-6947221064bc",
+    "pack": "rival-academies",
+    "kind": "equipment",
+    "slug": "equipment:windborne-platform",
+    "name": "Windborne Platform",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["air", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These magical platforms are used in a variety of performances. They allow performers to access high places safely, while also serving an important role before the performance even begins. They're used by various backstage crews to hang lights, curtains, and scenery above the stage. Sometimes several of these platforms are lined up to make an upper and lower stage. This large 10-foot-by-10-foot platform can be secured to a surface as a 1-minute activity. While standing on a secured platform, any creature can use the Adjust Height activation."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Adjust Height",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The platform and all creatures and items on the platform either rise or lower up to 10 feet. This action fails if there is more than 50 Bulk on the platform."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.p0FkKcdjtQjAgEAM"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 500
+        }
+      },
+      "bulk": 5,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "16547e83-539f-5876-adb7-ff4174aca84b",
+    "pack": "rival-academies",
+    "kind": "equipment",
+    "slug": "equipment:zarothrasks-contract",
+    "name": "Zarothrask's Contract",
+    "level": 9,
+    "rarity": "rare",
+    "traits": ["contract", "invested", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've bargained for power with a gongorinan, but in return, you must avoid furthering demonic goals. You gain a +2 item bonus to Athletics checks to "
+          },
+          {
+            "type": "ref",
+            "id": "ef57a555-f9e9-53cc-b09b-b7432156cbf1"
+          },
+          {
+            "type": "text",
+            "text": " manufactured items and to "
+          },
+          {
+            "type": "ref",
+            "id": "380d34f1-f6f6-5820-b9dd-c01ee4e19fd5"
+          },
+          {
+            "type": "text",
+            "text": ". Once per day, the gongorinan can warp your body with animal features; you must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 25
+          },
+          {
+            "type": "text",
+            "text": " save or become "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 2"
+          },
+          {
+            "type": "text",
+            "text": ". When you recover from the sickened condition, your features revert to normal. The gongorinan will usually do this if you sin or aid a demon, even unintentionally."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Gongorinan's Emergence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, mental, morph, occult, unholy)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Stony tentacles burst out of your body, lashing at foes. Creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": " take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d6",
+                "damageType": "bludgeoning"
+              },
+              {
+                "formula": "2d6",
+                "damageType": "mental"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 25,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save); on a failure, the creature also becomes "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": " (sickened 2 on a critical failure) as parts of their anatomy temporarily warp into animal features. When a creature recovers from the sickened condition, its features revert to normal."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "item",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["action:grapple", "action:disarm"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.vKzbNBm01hlp3jiO"
+    },
+    "data": {
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "gongorinans-emergence",
+          "name": "Gongorinan's Emergence",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "other"
+      }
+    }
+  }
+]

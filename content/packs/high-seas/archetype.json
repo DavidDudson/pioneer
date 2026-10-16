@@ -1,0 +1,62 @@
+[
+  {
+    "id": "d88d40a2-b266-54df-9a65-3875381a518d",
+    "pack": "high-seas",
+    "kind": "archetype",
+    "slug": "archetype:marine-marauder",
+    "name": "Marine Marauder",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "high-seas"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've spent your life beside the sea or nestled against the shores of a vast lake, and water has become a part of your being. You've learned from the secrets of shore and seabed and adapted them to your daily life. While some spend their whole life at sea and others never venture beyond the safety of the land, you managed to blend the best of both worlds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Many like you embrace the lives of sailors, pirates, or swashbucklers. They know as well as you do that there's nothing like a good fight at sea and the salty tang on your lips when it's over."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The techniques of a marine marauder allow them to be a danger both on land and underwater. Many navies train their sailors in these techniques due to their effectiveness at dealing with underwater attackers. Cheliax's and Vidrian's navies are particularly known for their elite marines. Among Cheliax, these marines are known as \"sea devils,\" while in Vidrian the common parlance is \"spines\" due to their habit of sticking to a foe."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This fighting style developed over centuries of sea travel and many of the techniques make use of common sea tools like ropes, nets, and harpoons. The reliance on these items means that it's not uncommon to encounter what otherwise seems like a fisher or a mundane sailor that's capable of tangling with the best underwater warriors."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.O4hOtbEn5wzg897e"
+    },
+    "data": {
+      "dedication": "33b1fd01-7d66-5870-b376-01595b927eb7"
+    }
+  }
+]

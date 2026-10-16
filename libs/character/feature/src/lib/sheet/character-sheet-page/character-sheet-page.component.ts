@@ -8,6 +8,8 @@ import {
   AsyncRegion,
   DateDisplay,
   Page,
+  PageBody,
+  PageHeader,
   Skeleton,
   Stack,
   Tab,
@@ -22,14 +24,13 @@ import { CHARACTER_CONTENT_PROVIDERS } from '../../data/source-packs';
 import { SheetConditions } from '../sheet-conditions/sheet-conditions.component';
 import { SheetCounted } from '../sheet-counted/sheet-counted.component';
 import { SheetDeathTrack } from '../sheet-death-track/sheet-death-track.component';
-import { SheetExport } from '../sheet-export/sheet-export.component';
+import { SheetHeaderActions } from '../sheet-header-actions/sheet-header-actions.component';
 import { SheetHitPoints } from '../sheet-hit-points/sheet-hit-points.component';
 import { SheetLastRoll } from '../sheet-last-roll/sheet-last-roll.component';
 import { SheetResources } from '../sheet-resources/sheet-resources.component';
 import { SHEET_ROLLS_PROVIDERS } from '../sheet-rolls';
 import { SHEET_TABS } from '../sheet-sections';
 import { SheetState } from '../sheet-state';
-import { SheetStatus } from '../sheet-status/sheet-status.component';
 
 /**
  * Character sheet: one character under four tabs (play-and-campaigns.md, Sheet modes), each its own route below the
@@ -45,15 +46,16 @@ import { SheetStatus } from '../sheet-status/sheet-status.component';
     AsyncRegion,
     DateDisplay,
     Page,
+    PageBody,
+    PageHeader,
     RouterOutlet,
     SheetDeathTrack,
     SheetConditions,
-    SheetExport,
     SheetCounted,
+    SheetHeaderActions,
     SheetResources,
     SheetHitPoints,
     SheetLastRoll,
-    SheetStatus,
     Skeleton,
     Stack,
     Tab,

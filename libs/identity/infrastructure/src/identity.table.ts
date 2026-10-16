@@ -3,6 +3,7 @@ import type {
   AvatarUrl,
   BugReportId,
   BugReportStatus,
+  CharacterSnapshot,
   DisplayName,
   EmailAddress,
   OAuthAccountId,
@@ -17,7 +18,7 @@ import type {
 } from '@pioneer/identity/domain';
 import type { DistanceUnit, Locale, Uuid } from '@pioneer/shared/kernel';
 import { sql } from 'drizzle-orm';
-import { boolean, index, pgTable, text, timestamp, uniqueIndex, uuid } from 'drizzle-orm/pg-core';
+import { boolean, index, jsonb, pgTable, text, timestamp, uniqueIndex, uuid } from 'drizzle-orm/pg-core';
 
 /**
  * Drizzle schema for identity (ADR-0010). Migrations live in apps/api/migrations. Every lookup a
@@ -103,8 +104,9 @@ export const userPreferences = pgTable('user_preferences', {
 });
 
 /**
- * Bug reports (the report form, ADR-0004 snapshot to follow). `characterId` is a plain reference with no
- * foreign key: a report outlives the character it names. The one lookup beyond the primary key is a
+ * Bug reports. `characterId` is a plain reference with no foreign key: a report outlives the character
+ * it names. `snapshot` is the frozen copy of that character's stored inputs (ADR-0004) the reporter chose to
+ * share; it is written once with the report and never joined back to the character. The one lookup beyond the primary key is a
  * reporter's recent reports, for the rate limit.
  */
 export const bugReports = pgTable(
@@ -123,6 +125,7 @@ export const bugReports = pgTable(
     description: text().$type<ReportText>().notNull(),
     steps: text().$type<ReportText>().notNull(),
     characterId: uuid().$type<Uuid>(),
+    snapshot: jsonb().$type<CharacterSnapshot>(),
     status: text().$type<BugReportStatus>().notNull(),
   },
   (table) => [index('bug_reports_reporter_created_idx').on(table.reporter, table.createdAt)],

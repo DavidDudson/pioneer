@@ -57,6 +57,11 @@ const EXEMPTIONS: Readonly<Record<string, Exemption>> = {
     reason: "The inline field's save feedback.",
     story: 'inline-edit/inline-field/inline-field.stories.ts',
   },
+  'layout/page-body/page-body.component.ts': {
+    reason: 'A part of the page with no behaviour of its own: it projects its content.',
+    spec: 'layout/page/page.component.spec.ts',
+    story: 'layout/page/page.stories.ts',
+  },
   'list/description-item/description-item.component.ts': {
     reason: 'A description list row; its markup is only valid inside the list.',
     spec: 'list/description-list/description-list.component.spec.ts',

@@ -1,0 +1,5123 @@
+[
+  {
+    "id": "32c3ccab-d99e-5dad-9b59-8949005426d5",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:aetheric-irritant-greater",
+    "name": "Aetheric Irritant (Greater)",
+    "level": 11,
+    "rarity": "uncommon",
+    "traits": ["consumable", "gadget", "sonic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An aetheric irritant is a chime that can emit a subsonic frequency that otherworldly beings find unpleasant. When you Activate an aetheric irritant, you sound the chime and place it on the ground in a square within your reach. The aetheric irritant affects an area in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 20
+          },
+          {
+            "type": "text",
+            "text": ". Creatures with the fey, spirit, or undead traits must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 28
+          },
+          {
+            "type": "text",
+            "text": " save when they enter the affected area and at the beginning of every turn they are in the affected area. Those who fail the save treat the area as difficult terrain until the beginning of their next turn. A creature that critically succeeds at the save is immune to all aetheric irritants for 24 hours. An aetheric irritant continues to hum until it shakes itself to pieces after 10 minutes of being activated or it is moved, whichever comes first."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.LjTbLOTj0K0CKvsd"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 275
+        }
+      },
+      "bulk": "light",
+      "category": "gadget",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "a7288d5e-3450-52c4-9deb-379e485d58cc",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:aetheric-irritant-lesser",
+    "name": "Aetheric Irritant (Lesser)",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["consumable", "gadget", "sonic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An aetheric irritant is a chime that can emit a subsonic frequency that otherworldly beings find unpleasant. When you Activate an aetheric irritant, you sound the chime and place it on the ground in a square within your reach. The aetheric irritant affects an area in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": ". Creatures with the fey, spirit, or undead traits must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 15
+          },
+          {
+            "type": "text",
+            "text": " save when they enter the affected area and at the beginning of every turn they are in the affected area. Those who fail the save treat the area as difficult terrain until the beginning of their next turn. A creature that critically succeeds at the save is immune to all aetheric irritants for 24 hours. An aetheric irritant continues to hum until it shakes itself to pieces after 10 minutes of being activated or it is moved, whichever comes first."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.3jUoOPFVoYtM7A9F"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "light",
+      "category": "gadget",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "937dcbb6-ed56-5648-b94f-8ab5421e7108",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:aetheric-irritant-major",
+    "name": "Aetheric Irritant (Major)",
+    "level": 17,
+    "rarity": "uncommon",
+    "traits": ["consumable", "gadget", "sonic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An aetheric irritant is a chime that can emit a subsonic frequency that otherworldly beings find unpleasant. When you Activate an aetheric irritant, you sound the chime and place it on the ground in a square within your reach. The aetheric irritant affects an area in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": ". Creatures with the fey, spirit, or undead traits must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 36
+          },
+          {
+            "type": "text",
+            "text": " save when they enter the affected area and at the beginning of every turn they are in the affected area. Those who fail the save treat the area as difficult terrain until the beginning of their next turn. A creature that critically succeeds at the save is immune to all aetheric irritants for 24 hours. An aetheric irritant continues to hum until it shakes itself to pieces after 10 minutes of being activated or it is moved, whichever comes first."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.7jUxSSn0SFkSvUsq"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2750
+        }
+      },
+      "bulk": "light",
+      "category": "gadget",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "b3038bb9-d448-5e65-b45c-387cb3a7d8c9",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:aetheric-irritant-moderate",
+    "name": "Aetheric Irritant (Moderate)",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["consumable", "gadget", "sonic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An aetheric irritant is a chime that can emit a subsonic frequency that otherworldly beings find unpleasant. When you Activate an aetheric irritant, you sound the chime and place it on the ground in a square within your reach. The aetheric irritant affects an area in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": ". Creatures with the fey, spirit, or undead traits must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 18
+          },
+          {
+            "type": "text",
+            "text": " save when they enter the affected area and at the beginning of every turn they are in the affected area. Those who fail the save treat the area as difficult terrain until the beginning of their next turn. A creature that critically succeeds at the save is immune to all aetheric irritants for 24 hours. An aetheric irritant continues to hum until it shakes itself to pieces after 10 minutes of being activated or it is moved, whichever comes first."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.sY3Do9bKjwAC9TMV"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 11
+        }
+      },
+      "bulk": "light",
+      "category": "gadget",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "2ef13400-08b6-5902-8826-87cd12d6efc5",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:blood-pack-squib",
+    "name": "Blood Pack Squib",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Used by theater troupes in combination with a fake blood pack, this bit of minor magic can simulate a dramatic and sudden wound. A "
+          },
+          {
+            "type": "text",
+            "text": "blood pack squib",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a small unassuming stone that is keyed to a single fake blood pack in a process that takes 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Burst Pack",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The blood pack squib must be within 20 feet of its associated fake blood pack"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You lightly squeeze the stone and the fake blood pack dramatically bursts. The creature wearing the fake blood pack gains the benefits of a punctured fake blood pack. A single creature adjacent to the creature wearing the fake blood pack must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 16
+          },
+          {
+            "type": "text",
+            "text": " save or be splattered with the fake blood, becoming "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " until the end of their next turn. You can also activate the blood pack squib as a reaction when the fake blood pack is punctured normally."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.h22AqOJjFiIXCda6"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "c6c40541-9433-58c9-8cc2-90947bd769dc",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:bloodstone-doll-major",
+    "name": "Bloodstone Doll (Major)",
+    "level": 16,
+    "rarity": "rare",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature within 60 feet casts a summon spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have a free hand."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This small doll has been carved from a fragment of Bloodstone. When you Activate a bloodstone doll in response to another's magic, you Interact to take it in hand and hold it up toward the triggering creature. Attempt a counteract check against the triggering spell with a counteract modifier of +25 and a counteract rank of 8. If the spell would be counteracted, the bloodstone doll instead influences the summoned creature. You gain control of the summoned creature and can dictate its 2 actions for that turn. The triggering creature then regains control of their summoned creature, but the summoned creature takes a –2 status penalty to attack rolls against you. Your bloodstone doll shatters when the summon spell ends"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have a fragment of the Bloodstone at the heart of the Bloodstone Conservatory."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.4NCo6f0aMnIgA5jw"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1800
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "cb826051-1fca-5cd5-9e43-d051f20936b6",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:bloodstone-doll-minor",
+    "name": "Bloodstone Doll (Minor)",
+    "level": 4,
+    "rarity": "rare",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature within 60 feet casts a summon spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have a free hand."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This small doll has been carved from a fragment of Bloodstone. When you Activate a bloodstone doll in response to another's magic, you Interact to take it in hand and hold it up toward the triggering creature. Attempt a counteract check against the triggering spell with a counteract modifier of +9 and a counteract rank of 2. If the spell would be counteracted, the bloodstone doll instead influences the summoned creature. You gain control of the summoned creature and can dictate its 2 actions for that turn. The triggering creature then regains control of their summoned creature, but the summoned creature takes a –2 status penalty to attack rolls against you. Your bloodstone doll shatters when the summon spell ends"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have a fragment of the Bloodstone at the heart of the Bloodstone Conservatory."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.TU9wvn31TE2Mz9UW"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 15
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "4ad0d0ad-07c3-5a93-8fa8-328af3b72686",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:bloodstone-doll-moderate",
+    "name": "Bloodstone Doll (Moderate)",
+    "level": 10,
+    "rarity": "rare",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature within 60 feet casts a summon spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have a free hand."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This small doll has been carved from a fragment of Bloodstone. When you Activate a bloodstone doll in response to another's magic, you Interact to take it in hand and hold it up toward the triggering creature. Attempt a counteract check against the triggering spell with a counteract modifier of +17 and a counteract rank of 5. If the spell would be counteracted, the bloodstone doll instead influences the summoned creature. You gain control of the summoned creature and can dictate its 2 actions for that turn. The triggering creature then regains control of their summoned creature, but the summoned creature takes a –2 status penalty to attack rolls against you. Your bloodstone doll shatters when the summon spell ends"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have a fragment of the Bloodstone at the heart of the Bloodstone Conservatory."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.aWqnw30XavBrcKTp"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 180
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "8acad0bf-b0c3-5b81-a880-95006adb144d",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:conspirators-cookie",
+    "name": "Conspirator's Cookie",
+    "level": 4,
+    "rarity": "rare",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The shape and exact flavor of these chocolate-covered cookies vary slightly based on who prepares them and the language they are imbued with when crafted. Although named for their use in obfuscating communications, Diarra finds them useful for quite the opposite reason."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After eating one of these treats, you can speak and understand the chosen language for the next hour. If you have the Read Lips or Sign Language feat, you can use that language with those feats. A conspirator's cookie grants you a +1 item bonus to Diplomacy checks to "
+          },
+          {
+            "type": "ref",
+            "id": "722e5346-27c0-5157-b5a9-e6018df94150"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "bd7385d5-c754-542c-9518-060942de3701"
+          },
+          {
+            "type": "text",
+            "text": " in the chosen language and you can add your level even if untrained."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You must know the chosen language."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.i9aUncOpesTJpyX0"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 15
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "923dee1a-7e06-5b3e-84c8-dccca515d552",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:demon-bone-tiles-brimorak",
+    "name": "Demon Bone Tiles (Brimorak)",
+    "level": 5,
+    "rarity": "rare",
+    "traits": ["catalyst", "consumable", "magical", "unholy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell (add 1 action)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These bones from different types of demons can be used to form temporary barriers. When you crush the bone fragments and blow the resulting dust around yourself as you cast "
+          },
+          {
+            "type": "ref",
+            "id": "6dee4f5d-f584-5402-af2a-d3738ec685b3"
+          },
+          {
+            "type": "text",
+            "text": ", the shield appears as a bone bulwark shaped like the demon's face."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When use Shield Block with the spell, the barrier explodes into many bone fragments. The shards cause "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "bleed"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to each creature adjacent to you that fails a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 20
+          },
+          {
+            "type": "text",
+            "text": " save. This persistent bleed damage is unholy and can be stopped with an Interact action to remove the shards."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.7ztQ3uhnJYVzAA2l"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 28
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "2fabc0e6-c231-5edf-9761-7868cd73a29e",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:demon-bone-tiles-pusk",
+    "name": "Demon Bone Tiles (Pusk)",
+    "level": 2,
+    "rarity": "rare",
+    "traits": ["catalyst", "consumable", "magical", "unholy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell (add 1 action)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These bones from different types of demons can be used to form temporary barriers. When you crush the bone fragments and blow the resulting dust around yourself as you cast "
+          },
+          {
+            "type": "ref",
+            "id": "6dee4f5d-f584-5402-af2a-d3738ec685b3"
+          },
+          {
+            "type": "text",
+            "text": ", the shield appears as a bone bulwark shaped like the demon's face."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When use Shield Block with the spell, the barrier explodes into many bone fragments. The shards cause "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d4",
+                "damageType": "bleed"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to each creature adjacent to you that fails a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 16
+          },
+          {
+            "type": "text",
+            "text": " save. This persistent bleed damage is unholy and can be stopped with an Interact action to remove the shards."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.kxeAuCejzM44gsLN"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 7
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "0fab2160-eb4a-59bd-80c4-a4010438de91",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:demon-bone-tiles-seraptis",
+    "name": "Demon Bone Tiles (Seraptis)",
+    "level": 15,
+    "rarity": "rare",
+    "traits": ["catalyst", "consumable", "magical", "unholy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell (add 1 action)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These bones from different types of demons can be used to form temporary barriers. When you crush the bone fragments and blow the resulting dust around yourself as you cast "
+          },
+          {
+            "type": "ref",
+            "id": "6dee4f5d-f584-5402-af2a-d3738ec685b3"
+          },
+          {
+            "type": "text",
+            "text": ", the shield appears as a bone bulwark shaped like the demon's face."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When use Shield Block with the spell, the barrier explodes into many bone fragments. The shards cause "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d8",
+                "damageType": "bleed"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to each creature adjacent to you that fails a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 34
+          },
+          {
+            "type": "text",
+            "text": " save. This persistent bleed damage is unholy and can be stopped with an Interact action to remove the shards."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.k58XPeaA3qcPJIhg"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1200
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "1489a116-820f-5097-a86c-b3d6c688fca3",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:demon-hunting-bands",
+    "name": "Demon-Hunting Bands",
+    "level": 3,
+    "rarity": "rare",
+    "traits": ["consumable", "divine", "holy", "talisman"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Stride."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These strips of supple leather, typically about 2 inches wide and 3 feet long, feature sigils, runes, and divine marks that reflect family lineage and beliefs in the old gods of Sarkoris. When activated, the band's holy patterns surround you as you move, preventing your movement from triggering reactions from demons. The holy patterns scour nearby demons; any demons you pass adjacent to during the triggering movement take damage equal to their weakness to holy effects. You can activate the bands when you Burrow, Climb, Fly, or Swim (instead of Stride) if you have the corresponding movement type."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.fru7xyHYTuw0R46v"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "usage": {
+        "type": "affixed",
+        "to": "armor"
+      }
+    }
+  },
+  {
+    "id": "a1796957-c635-50ab-afb2-5ff093bc0a35",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:dr-ushernachts-astonishing-ink-major",
+    "name": "Dr. Ushernacht's Astonishing Ink (Major)",
+    "level": 17,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "consumable"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This syrupy ink smells organic and faintly spoiled. It's tied to one of Ushernacht's engines, created with a sample of the fluid from inside the engine. If the associated engine stops functioning, all ink linked with it can no longer be activated, including freshly created ink."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you write a question on a sheet of paper using the astonishing ink, handwriting scrawls over the paper after 10 minutes, answering with the knowledge it can draw from its engine. The astonishing ink has all Lore skills and attempts a Recall Knowledge check to answer the question with a +28 modifier. At the GM's discretion, the astonishing ink takes a –4 circumstance penalty to the check if the question relates to advice, emotions, opinions, or other subjective topics."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the astonishing ink fails (but not critically fails) the check to Recall Knowledge, the writing turns blood-red as it forms disturbing words. Anyone reading these words must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 36
+          },
+          {
+            "type": "text",
+            "text": " save or become "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 1"
+          },
+          {
+            "type": "text",
+            "text": " until they get a full night's rest. The bloody message may also carry valuable or misleading information at the GM's discretion."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can use a vial of astonishing ink to ask 5 questions before it's used up."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.S5FMXJdf9ktWXJRp"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2250
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "uses": 5,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "d9643221-ad55-55b4-89c8-b0e093d6bf06",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:dr-ushernachts-astonishing-ink-minor",
+    "name": "Dr. Ushernacht's Astonishing Ink (Minor)",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "consumable"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This syrupy ink smells organic and faintly spoiled. It's tied to one of Ushernacht's engines, created with a sample of the fluid from inside the engine. If the associated engine stops functioning, all ink linked with it can no longer be activated, including freshly created ink."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you write a question on a sheet of paper using the astonishing ink, handwriting scrawls over the paper after 10 minutes, answering with the knowledge it can draw from its engine. The astonishing ink has all Lore skills and attempts a Recall Knowledge check to answer the question with a +10 modifier. At the GM's discretion, the astonishing ink takes a –4 circumstance penalty to the check if the question relates to advice, emotions, opinions, or other subjective topics."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the astonishing ink fails (but not critically fails) the check to Recall Knowledge, the writing turns blood-red as it forms disturbing words. Anyone reading these words must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 18
+          },
+          {
+            "type": "text",
+            "text": " save or become "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 1"
+          },
+          {
+            "type": "text",
+            "text": " until they get a full night's rest. The bloody message may also carry valuable or misleading information at the GM's discretion."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can use a vial of astonishing ink to ask 5 questions before it's used up."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.tk7LRIidkTl9dYPw"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "uses": 5,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "92db3fe2-7c8d-5e59-95fe-d3b90e3076fa",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:dr-ushernachts-astonishing-ink-moderate",
+    "name": "Dr. Ushernacht's Astonishing Ink (Moderate)",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "consumable"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This syrupy ink smells organic and faintly spoiled. It's tied to one of Ushernacht's engines, created with a sample of the fluid from inside the engine. If the associated engine stops functioning, all ink linked with it can no longer be activated, including freshly created ink."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you write a question on a sheet of paper using the astonishing ink, handwriting scrawls over the paper after 10 minutes, answering with the knowledge it can draw from its engine. The astonishing ink has all Lore skills and attempts a Recall Knowledge check to answer the question with a +19 modifier. At the GM's discretion, the astonishing ink takes a –4 circumstance penalty to the check if the question relates to advice, emotions, opinions, or other subjective topics."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the astonishing ink fails (but not critically fails) the check to Recall Knowledge, the writing turns blood-red as it forms disturbing words. Anyone reading these words must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 27
+          },
+          {
+            "type": "text",
+            "text": " save or become "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 1"
+          },
+          {
+            "type": "text",
+            "text": " until they get a full night's rest. The bloody message may also carry valuable or misleading information at the GM's discretion."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can use a vial of astonishing ink to ask 5 questions before it's used up."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.0Pa0XDVF3DwRPqCu"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 160
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "uses": 5,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "c182eceb-d5d4-54d4-8f3c-f0bf7a500e07",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:drop-of-convergent-waters",
+    "name": "Drop of Convergent Waters",
+    "level": 2,
+    "rarity": "rare",
+    "traits": ["consumable", "magical", "talisman", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Abhaya's tireless years of study have allowed her to reproduce, at some level, the unconscious melding of elements she experienced during the last Challenge of Sky and Heaven. A single drop of water in a crystalline container is the simplest application of her research."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you activate this talisman, a watery echo of one of your limbs emerges from the container. Make a Strike with your fist or an unarmed attack from your ancestry. This attack gains the magical, reach, and water traits, retains any benefits from appropriate weapon fundamental runes (but not of weapon property runes), and takes no penalties for being used underwater. You can perform this Strike even if you're in a stance or under a polymorph effect that restricts your Strikes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "ad058536-7d5a-52d4-9ddb-8fdd6a13b840"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.3XVNEpLdHIdQ8IYq"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 7
+        }
+      },
+      "bulk": "negligible",
+      "category": "talisman",
+      "usage": {
+        "type": "affixed",
+        "to": "armor"
+      }
+    }
+  },
+  {
+    "id": "efba1ad0-8e59-59cd-a16d-e346bc91affb",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:echo-token",
+    "name": "Echo Token",
+    "level": 1,
+    "rarity": "rare",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Visitors to the Echo Repository always emerge with one of these silver coins, stamped with the visage of a faceless queen, somewhere on their person. An "
+          },
+          {
+            "type": "text",
+            "text": "echo token",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " carries a minute shard of the Echo Repository's mission to impart lost information."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Flip Coin",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " When flipped, the coin disintegrates into a glittery mist. You learn and memorize one random fact about a specific type of Lore (such as Architecture Lore, Elf Lore, Astral Plane Lore) that you didn't previously know, chosen by the GM. The next time you attempt a check to Recall Knowledge on this type of Lore within the next year, you gain a +1 status bonus on the check. You can benefit from only one "
+          },
+          {
+            "type": "text",
+            "text": "echo token",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " at a time in this way; if you Flip another "
+          },
+          {
+            "type": "text",
+            "text": "echo token",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", the Lore skill changes. However, the memorized fact will remain perfectly in your memory forever unless magically altered or removed."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.qLjWaRljNIb1uuLO"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "0a06fda7-630a-5d9d-9d5a-b05b43d2b1c7",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:illusory-program",
+    "name": "Illusory Program",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["consumable", "illusion", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Produced to promote plays, "
+          },
+          {
+            "type": "text",
+            "text": "illusory programs",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " are thin pamphlets infused with minor magic. Upon opening one of these pamphlets, readers are treated to a series of tiny illusions that stand on each page, typically showcasing highlights of the performance or profiles of the cast. The magic woven into each page is of the cheap, short-lived variety, fading 24 hours after the program has been opened."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.odzeu3176i96fF9n"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "75e74a20-cc66-5403-88e1-1aabd9883c12",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:kimanez-luminescent-toadstool",
+    "name": "Kimanéz Luminescent Toadstool",
+    "level": 3,
+    "rarity": "rare",
+    "traits": ["consumable", "fungus", "light", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This large blue toadstool glimmers with soft, magical light similar to moonlight. The spots of white adorning the mushroom's cap glow ethereally, as if illuminated from the inside, shedding dim light in a 10-foot radius."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Ward Area",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 10 minutes (concentrate, light, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You plant the toadstool in the ground, allowing it to connect to all living fungi and plant matter within 120 feet of its planting. For 8 hours, any corporeal creature that touches the affected matter even accidentally begins to glow with bright magical light in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": ", which persists as long as they remain within 120 feet of the planted mushroom. A creature can move through an area containing affected fungi and plant matter without touching it by treating the area as difficult terrain and succeeding at a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:acrobatics",
+            "dc": 18
+          },
+          {
+            "type": "text",
+            "text": " check."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.bG6O3g0tu43Ue21A"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 9
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "ce396589-fb8a-56db-8095-6890595f7b36",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:krasovnatype",
+    "name": "Krasovnatype",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["consumable", "gadget"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A krasovnatype (named after Dr. Krasovna Gerenevich) consists of a carefully prepared silvered glass plate charged by a Stasian coil. When you touch the front of the glass or hold it near a living creature within your reach, an image of that creature's aura is imprinted on the glass. Once a krasovnatype has an image on it, you can't use the glass plate on another creature. If you are trained in Occultism, you can look at the image and learn if the associated creature has innate, prepared, or spontaneous spellcasting, along with the tradition of that casting and the highest rank of spells they can cast. Referencing the image grants a +1 item bonus to any Recall Knowledge check regarding the creature."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Hiu4tSd0Ol8HvmaN"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 15
+        }
+      },
+      "bulk": "light",
+      "category": "gadget",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "79f71ac0-78c3-5cde-8bd0-e6b35efad2a3",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:maelstromic-destabilizer-lesser",
+    "name": "Maelstromic Destabilizer (Lesser)",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["consumable", "gadget", "spirit"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A maelstromic destabilizer is a whirling gyroscope of burnished bronze and glass. It strengthens the bonds that hold a creature to this world by weakening those same bonds to every other nearby creature. When activated, the destabilizer emits a constant pleasant chime as it spins. For the next minute, the creature holding the gadget gains resistance 2 to spirit damage, while all creatures not immune to spirit damage in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": " gains weakness 2 to spirit damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.JcFofHcCc2FDN99x"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6
+        }
+      },
+      "bulk": "light",
+      "category": "gadget",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "9c19d27b-2f20-5083-b8ba-80142d956b2f",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:maelstromic-destabilizer-major",
+    "name": "Maelstromic Destabilizer (Major)",
+    "level": 17,
+    "rarity": "uncommon",
+    "traits": ["consumable", "gadget", "spirit"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A maelstromic destabilizer is a whirling gyroscope of burnished bronze and glass. It strengthens the bonds that hold a creature to this world by weakening those same bonds to every other nearby creature. When activated, the destabilizer emits a constant pleasant chime as it spins. For the next minute, the creature holding the gadget gains resistance 10 to spirit damage, while all creatures not immune to spirit damage in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": " gains weakness 10 to spirit damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.xsPP4JVf1NJX0s7u"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2750
+        }
+      },
+      "bulk": "light",
+      "category": "gadget",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "f24a812e-fd58-590f-a7a4-5e68f91f02e2",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:maelstromic-destabilizer-moderate",
+    "name": "Maelstromic Destabilizer (Moderate)",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["consumable", "gadget", "spirit"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A maelstromic destabilizer is a whirling gyroscope of burnished bronze and glass. It strengthens the bonds that hold a creature to this world by weakening those same bonds to every other nearby creature. When activated, the destabilizer emits a constant pleasant chime as it spins. For the next minute, the creature holding the gadget gains resistance 5 to spirit damage, while all creatures not immune to spirit damage in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": " gains weakness 5 to spirit damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.P1DyjpDWtnMrXX1e"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 65
+        }
+      },
+      "bulk": "light",
+      "category": "gadget",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "5f62a9b8-6bad-5256-a58d-b2fe5111aa87",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:moritype",
+    "name": "Moritype",
+    "level": 10,
+    "rarity": "rare",
+    "traits": ["consumable", "gadget", "void"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This plate of smoky glass is a variation on Dr. Krasovna Gerenevich's krasovnatype that is imprinted with void energies. Creating the plate requires a living thing to die as part of its electrical charging; most creators use insects or lab mice. The moritype creates an image in the same way as a krasovnatype, but also siphons off part of that aura. If used on a living creature, that creature must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 27
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If the creature has any innate, prepared, or spontaneous spells, they're unable to Cast a Spell of their highest-ranked slot for 1 round. Cantrips and focus spells are unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, except they can't cast the 2 highest ranks they have available."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, except they can't cast any spells other than cantrips and focus spells."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.bU41sQCtuZKkmezD"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 200
+        }
+      },
+      "bulk": "light",
+      "category": "gadget",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "22ad327f-5a4f-5a39-8fa7-33fcfb079d98",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:moritype-greater",
+    "name": "Moritype (Greater)",
+    "level": 16,
+    "rarity": "rare",
+    "traits": ["consumable", "gadget", "void"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This plate of smoky glass is a variation on Dr. Krasovna Gerenevich's krasovnatype that is imprinted with void energies. Creating the plate requires a living thing to die as part of its electrical charging; most creators use insects or lab mice. The moritype creates an image in the same way as a krasovnatype, but also siphons off part of that aura. If used on a living creature, that creature must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 35
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If the creature has any innate, prepared, or spontaneous spells, they're unable to Cast a Spell of their highest-ranked slot for 1 round. Cantrips and focus spells are unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, except they can't cast the 2 highest ranks they have available."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, except they can't cast any spells other than cantrips and focus spells."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.nw5PAxxVQOKihmNn"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2000
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "8c24166f-be84-587d-9f1c-da224baa7942",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:mutator-onyx",
+    "name": "Mutator Onyx",
+    "level": 3,
+    "rarity": "rare",
+    "traits": ["alchemical", "consumable", "earth"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A mutator onyx is a jet-black, alien mineral first found within the walls of the Onyx Citadel but is now used primarily as an alchemical teaching or experimentation tool within Oprak. Pressing the gem into a solid, unattended inanimate object with Hardness 5 or less transforms that object's surface into a curious syrupy, liquid-like state, reducing its Hardness to 0. One mutator onyx can transform up to a 5-foot cube. After 10 minutes, the matter reverts to its solid state, regaining its Hardness."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.VSHaRjuJF6A5CH0E"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "b45744df-44f5-59af-8ab7-4d914631024c",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:one-hour-flower",
+    "name": "One-Hour Flower",
+    "level": 1,
+    "rarity": "rare",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Popular with lovers, decorators, and sports fans, the seeds of these ephemeral plants grow and bloom immediately into flowers when placed in any warm environment, including a cup of dirt, a bowl of warm water, and a tightly clenched hand. The color of these flowers varies, but each has an internal glow that sheds bright light in a 30-foot radius. The radius of this light shrinks by 10 feet every 20 minutes. At the end of an hour, the plant disintegrates, leaving only a vaguely pleasant scent in the air."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.25Otz4JdRm7Dus6N"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "1f6e1d9c-8e5c-5934-96d6-eb5934d8e8ad",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:perfections-first-step",
+    "name": "Perfection's First Step",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["consumable", "mental", "occult", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This palm-leaf manuscript contains an incomplete philosophical treatise about perfection, which you must complete and provide written commentaries upon before you can activate it. This activity takes 10 minutes, but can occur at any time before you activate the treatise."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you activate "
+          },
+          {
+            "type": "text",
+            "text": "perfection's first step",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you cast Unbreaking Wave Advance with a save DC of 19. You are then temporarily immune to benefiting from further copies of "
+          },
+          {
+            "type": "text",
+            "text": "perfection's first step",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " until your next daily preparations."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.00p14e3pfEMBB1Xq"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 23
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "32638fea-98ec-539f-a9d7-f3c6033ba110",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:portable-seal-lesser",
+    "name": "Portable Seal (Lesser)",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["consumable", "gadget", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A portable seal is a stiff framework of copper wires and strategically placed hinges, so that when the device is snapped open it forms an instant geometric design. A tiny Stasian coil is attached, which when activated runs a mixture of occult energy and high-voltage electricity through the wire. The design covers a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 5
+          },
+          {
+            "type": "text",
+            "text": " when unfolded and must be unfolded into an area free of major obstructions such as rocks or hostile creatures. When a creature with the summoned trait attempts to enter the seal's area or make a melee Strike against a creature in that area, the summoned creature must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 20
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The action occurs normally, and the creature is immune to the effects of this portable seal this round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The movement or Strike is disrupted, but the creature is immune to further effects of the portable seal this round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The movement or Strike is disrupted."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.XYweIphfMqFeEo7D"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 45
+        }
+      },
+      "bulk": 1,
+      "category": "gadget",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "12d4bbaf-9de0-5a43-b8be-55d302025bb8",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:portable-seal-major",
+    "name": "Portable Seal (Major)",
+    "level": 18,
+    "rarity": "uncommon",
+    "traits": ["consumable", "gadget", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A portable seal is a stiff framework of copper wires and strategically placed hinges, so that when the device is snapped open it forms an instant geometric design. A tiny Stasian coil is attached, which when activated runs a mixture of occult energy and high-voltage electricity through the wire. The design covers a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 5
+          },
+          {
+            "type": "text",
+            "text": " when unfolded and must be unfolded into an area free of major obstructions such as rocks or hostile creatures. When a creature with the summoned trait attempts to enter the seal's area or make a melee Strike against a creature in that area, the summoned creature must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 36
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The action occurs normally, and the creature is immune to the effects of this portable seal this round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The movement or Strike is disrupted, but the creature is immune to further effects of the portable seal this round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The movement or Strike is disrupted."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.VGQ18qI1Y8sLORuG"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5000
+        }
+      },
+      "bulk": 1,
+      "category": "gadget",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "669cb24e-b01a-5eff-9f21-86142ea39383",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:portable-seal-moderate",
+    "name": "Portable Seal (Moderate)",
+    "level": 12,
+    "rarity": "uncommon",
+    "traits": ["consumable", "gadget", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A portable seal is a stiff framework of copper wires and strategically placed hinges, so that when the device is snapped open it forms an instant geometric design. A tiny Stasian coil is attached, which when activated runs a mixture of occult energy and high-voltage electricity through the wire. The design covers a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 5
+          },
+          {
+            "type": "text",
+            "text": " when unfolded and must be unfolded into an area free of major obstructions such as rocks or hostile creatures. When a creature with the summoned trait attempts to enter the seal's area or make a melee Strike against a creature in that area, the summoned creature must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 28
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The action occurs normally, and the creature is immune to the effects of this portable seal this round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The movement or Strike is disrupted, but the creature is immune to further effects of the portable seal this round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The movement or Strike is disrupted."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.OfIhe6Fa6J4ZfZeL"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 400
+        }
+      },
+      "bulk": 1,
+      "category": "gadget",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "33ca8c46-1c7a-54a1-97e5-1677203ad503",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:prismatic-dust",
+    "name": "Prismatic Dust",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This pigmented dust is often used to add color to the lights of a performance. Prismatic dust can be activated while you are adjacent to a source of magical bright light. When activated, the dust is sprinkled into the light, changing the light's color into the color of the dust for 1 hour. The color of the dust is determined upon the dust's creation."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.m9SJD8XUZ4IV7c3F"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "a773fe5a-70fd-5c19-8c10-36bb8e3aa055",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:quartz-coil-rail-transport-greater",
+    "name": "Quartz-Coil Rail Transport (Greater)",
+    "level": 14,
+    "rarity": "uncommon",
+    "traits": ["consumable", "electricity", "gadget", "teleportation"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This odd metal rod is often misinterpreted as a mechanical wand of some kind. Any gadgeteer or mage will be able to elaborate on the fact that magic wands do not need to be throughly covered in a copper wire coil and that the pointed quartz crystal at its tip thrums with electricity, not magic."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When activated, electricity courses through you, allowing you to move through the voltage that arcs through the air. You instantly transport yourself and any items you're wearing and holding from your current space to an unoccupied space up to 60 feet away that you can see. If this would bring another creature with you—even if you're carrying it in an extradimensional container—the teleportation fails. You and all creatures in a line between your original location and your destination take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6",
+                "damageType": "electricity"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.8RcvD4xTCKpsJBLj"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 650
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "906417a9-4f2e-59c2-966b-a283de9c6072",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:quartz-coil-rail-transport-lesser",
+    "name": "Quartz-Coil Rail Transport (Lesser)",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["consumable", "electricity", "gadget", "teleportation"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This odd metal rod is often misinterpreted as a mechanical wand of some kind. Any gadgeteer or mage will be able to elaborate on the fact that magic wands do not need to be throughly covered in a copper wire coil and that the pointed quartz crystal at its tip thrums with electricity, not magic."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When activated, electricity courses through you, allowing you to move through the voltage that arcs through the air. You instantly transport yourself and any items you're wearing and holding from your current space to an unoccupied space up to 20 feet away that you can see. If this would bring another creature with you—even if you're carrying it in an extradimensional container—the teleportation fails. You and all creatures in a line between your original location and your destination take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2",
+                "damageType": "electricity"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.KFCXhqEAEMN7IH6p"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 20
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "3c2c4a7a-bd2e-5754-97c7-2e89eac37212",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:quartz-coil-rail-transport-major",
+    "name": "Quartz-Coil Rail Transport (Major)",
+    "level": 19,
+    "rarity": "uncommon",
+    "traits": ["consumable", "electricity", "gadget", "teleportation"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This odd metal rod is often misinterpreted as a mechanical wand of some kind. Any gadgeteer or mage will be able to elaborate on the fact that magic wands do not need to be throughly covered in a copper wire coil and that the pointed quartz crystal at its tip thrums with electricity, not magic."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When activated, electricity courses through you, allowing you to move through the voltage that arcs through the air. You instantly transport yourself and any items you're wearing and holding from your current space to an unoccupied space up to 80 feet away that you can see. If this would bring another creature with you—even if you're carrying it in an extradimensional container—the teleportation fails. You and all creatures in a line between your original location and your destination take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "8",
+                "damageType": "electricity"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.iVhkA8bpG2phbb0Q"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 8000
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "5c0e5916-176c-5180-9b9f-da5134152f9c",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:quartz-coil-rail-transport-moderate",
+    "name": "Quartz-Coil Rail Transport (Moderate)",
+    "level": 9,
+    "rarity": "uncommon",
+    "traits": ["consumable", "electricity", "gadget", "teleportation"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This odd metal rod is often misinterpreted as a mechanical wand of some kind. Any gadgeteer or mage will be able to elaborate on the fact that magic wands do not need to be throughly covered in a copper wire coil and that the pointed quartz crystal at its tip thrums with electricity, not magic."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When activated, electricity courses through you, allowing you to move through the voltage that arcs through the air. You instantly transport yourself and any items you're wearing and holding from your current space to an unoccupied space up to 40 feet away that you can see. If this would bring another creature with you—even if you're carrying it in an extradimensional container—the teleportation fails. You and all creatures in a line between your original location and your destination take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4",
+                "damageType": "electricity"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.2JrQLWnVE4DrOLUE"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 150
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "7bb3d0fd-fb7c-5fa8-a06c-1826e82389d3",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:seed-pod-of-rooted-wisdom",
+    "name": "Seed Pod of Rooted Wisdom",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical", "mental", "plant"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This tiny magic item looks like a ripe brown fruit from a kapok tree. Inside the fruit are three seeds. Each magical seed releases an effect when swallowed. The first grants you a +1 status bonus on Will saves against fear effects for 10 minutes. The second makes your next 10 words comprehensible to any creature that understands any language. The third lets you recall precisely how to get from where you are to any other place you've stayed for more than an hour within the past day. Once the seeds are removed, the fruit is edible, if chewed slowly, and quite tasty, being much sweeter than the non-magical version."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.hYNKpzgUbHHyvh5t"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 7
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "783541f0-1d95-5f72-af7e-04d53f8fa56d",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:shaping-sweet",
+    "name": "Shaping Sweet",
+    "level": 2,
+    "rarity": "rare",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Many inhabitants of the First World can shape their environment around them; weaker creatures can only make minor changes, while powerful entities such as the Eldest can remake entire landscapes. A "
+          },
+          {
+            "type": "text",
+            "text": "shaping sweet",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a gelatinous, fruit-flavored candy that confers a whisper of this ability on you when you eat it. For 1 hour after eating a "
+          },
+          {
+            "type": "text",
+            "text": "shaping sweet",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you can make each of the following changes to your surroundings with an Interact action. You can make each change only once."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Alter Weather",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You create or eliminate minor precipitation in a "
+                },
+                {
+                  "type": "template",
+                  "shape": "emanation",
+                  "size": 30
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Fairy Ring",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " A ring of flowers and mushrooms appears in a "
+                },
+                {
+                  "type": "template",
+                  "shape": "burst",
+                  "size": 10
+                },
+                {
+                  "type": "text",
+                  "text": " around you, restoring 1 Hit Point at the start of each of your turns to a randomly chosen fey creature within. The ring lasts for 1 minute."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Foliate Vegetation",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " grows around you in a 10-foot radius burst, creating light undergrowth that lasts for 1 minute."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Terrain Shift",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The ground in your space rises or falls by 5 feet, remaining at that height for 1 minute."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.aV7OJjzuh6zVDCx2"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "f89fadcf-6fc7-5edf-b1f1-7c9e49fb37f9",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:spark-wafer",
+    "name": "Spark Wafer",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "consumable", "fire", "light"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These wafers contain ground-up alchemical reagents that activate shortly after being snapped. First popularized by technicians in Absalom's Ivy Playhouse, they have spread throughout Golarion as an inexpensive way to add to the visual splendor of a show without relying on magic. When you activate a spark wafer, you bend the wafer, nearly snapping it in two, and then throw it at a corner of a square within 20 feet (all part of the same manipulate action). The wafer then releases a 10-foot-high column of sparks for 1 round. The sparks shed bright light in a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 5
+          },
+          {
+            "type": "text",
+            "text": " and dim light in the next 5 feet. Any creature that begins their turn in the burst takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d4",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 14,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.2n6BXtjZ7T6NJtXq"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "3fdff71b-a07b-51a5-b9a8-fe9f278bd35e",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:spiced-demonade",
+    "name": "Spiced Demonade",
+    "level": 2,
+    "rarity": "rare",
+    "traits": ["alchemical", "consumable", "elixir"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "There are some who claim that the original version of this tart red drink contained the ground skin of actual demons, but in truth, spiced demonade was created by a first-year academy student desperate to look awake and alert after a night of carousing."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After consuming spiced demonade, you ignore all effects and penalties from the consumption of alcohol and lack of sleep for 1 hour. These effects resume when the spiced demonade wears off, and you become temporarily immune to spiced demonade for 24 hours."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.FmD9KGFpKC5aEa2r"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 8
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "08d05e61-58b2-573b-9790-07c0d7f1e11d",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:static-muscular-relay",
+    "name": "Static Muscular Relay",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["consumable", "electricity", "gadget"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This glass orb has a Stasian coil in the center, allowing visible electricity to be safely seen within the glass. The electricity that dances within this orb can be transferred to the user of this gadget, allowing their muscles to react and respond much quicker. When activated, you gain a +2 circumstance bonus to Reflex saves and AC for 1 minute, or until you are hit by an attack or fail a Reflex saving throw, whichever happens first."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "80c26689-70e0-53d3-8cf1-ae5bae94218c"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.b2t3kttZipvg826A"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 180
+        }
+      },
+      "bulk": "light",
+      "category": "gadget",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "9f84c4e0-84a4-52ca-a116-8c295982f411",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:tangibility-resonator-lesser",
+    "name": "Tangibility Resonator (Lesser)",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["consumable", "gadget", "sonic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "One of the stranger devices to come out of the University of Lepidstadt is a twisted glass contraption that hums with electricity. This vibration is harmless to most but is massively disruptive to the locomotion of incorporeal creatures. When activated, one incorporeal creature within 15 feet must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 19
+          },
+          {
+            "type": "text",
+            "text": " saving throw. Once used, the vibrations cause the glass to shatter."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is immobilized and "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.LCw1mtusKGterDR4"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 25
+        }
+      },
+      "bulk": "light",
+      "category": "gadget",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "4f6cf929-742d-53cd-945e-48468042387f",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:tangibility-resonator-major",
+    "name": "Tangibility Resonator (Major)",
+    "level": 17,
+    "rarity": "uncommon",
+    "traits": ["consumable", "gadget", "sonic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "One of the stranger devices to come out of the University of Lepidstadt is a twisted glass contraption that hums with electricity. This vibration is harmless to most but is massively disruptive to the locomotion of incorporeal creatures. When activated, one incorporeal creature within 15 feet must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 35
+          },
+          {
+            "type": "text",
+            "text": " saving throw. Once used, the vibrations cause the glass to shatter."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is immobilized and "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.tJquEIyMHgbFEH9N"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2500
+        }
+      },
+      "bulk": "light",
+      "category": "gadget",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "71e36271-1d4d-524b-abf8-475619a86f95",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:tangibility-resonator-moderate",
+    "name": "Tangibility Resonator (Moderate)",
+    "level": 11,
+    "rarity": "uncommon",
+    "traits": ["consumable", "gadget", "sonic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "One of the stranger devices to come out of the University of Lepidstadt is a twisted glass contraption that hums with electricity. This vibration is harmless to most but is massively disruptive to the locomotion of incorporeal creatures. When activated, one incorporeal creature within 15 feet must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 27
+          },
+          {
+            "type": "text",
+            "text": " saving throw. Once used, the vibrations cause the glass to shatter."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is immobilized and "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Om6RqpjwuPINOepb"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 300
+        }
+      },
+      "bulk": "light",
+      "category": "gadget",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "faacbccb-523d-5555-ba3e-d365b92e709b",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:twig-of-knowledge-and-memory",
+    "name": "Twig of Knowledge and Memory",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical", "mental", "plant"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This tiny magic item looks like a twig from the rare mti'le tree with its swirls of reddish-gold veins through dark brown wood. Each one is unique and fits easily in the palm of a Medium-sized creature's hand. When pressed to the temple or lips of a sentient creature, that creature can immediately attempt a check to Recall Knowledge about any subject using a corresponding skill (such as Society to Recall Knowledge about a humanoid); they gain a +1 status bonus on this check. This consumable is not immediately consumed on its first use, but can be used three times before it loses its power and becomes a mundane, if still beautiful, twig."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.cw05uEofzYkHwv8p"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "light",
+      "category": "other"
+    }
+  },
+  {
+    "id": "a8b954e0-a12b-5d2f-a83d-f3f3da1517ba",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:vanishing-shocker-greater",
+    "name": "Vanishing Shocker (Greater)",
+    "level": 15,
+    "rarity": "uncommon",
+    "traits": ["consumable", "electricity", "gadget", "illusion", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The vanishing shocker is a cube with extruding spikes at each corner. This inscrutable device channels occult energy through the electricity it produces, creating the result of invisible lighting. When activated, the cube floats above your head, creating a field of invisible electricity in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": " that lasts for 1 round. You and creatures within the emanation are "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": ". Creatures that enter or start their turn within the area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 33
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": " and off-guard for 1 round."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.vR2EZPD9TcLrkBz6"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1300
+        }
+      },
+      "bulk": "light",
+      "category": "gadget",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "7dcf77d5-0bdf-5ea3-88a1-ea16faf350b8",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:vanishing-shocker-lesser",
+    "name": "Vanishing Shocker (Lesser)",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["consumable", "electricity", "gadget", "illusion", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The vanishing shocker is a cube with extruding spikes at each corner. This inscrutable device channels occult energy through the electricity it produces, creating the result of invisible lighting. When activated, the cube floats above your head, creating a field of invisible electricity in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": " that lasts for 1 round. You and creatures within the emanation are "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": ". Creatures that enter or start their turn within the area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 22
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": " and off-guard for 1 round."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.l5V2Bbik0g6eLBUA"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 70
+        }
+      },
+      "bulk": "light",
+      "category": "gadget",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "1a3fdcd7-d5a8-59b9-a5c8-73ba738470f2",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:vanishing-shocker-major",
+    "name": "Vanishing Shocker (Major)",
+    "level": 19,
+    "rarity": "uncommon",
+    "traits": ["consumable", "electricity", "gadget", "illusion", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The vanishing shocker is a cube with extruding spikes at each corner. This inscrutable device channels occult energy through the electricity it produces, creating the result of invisible lighting. When activated, the cube floats above your head, creating a field of invisible electricity in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": " that lasts for 1 round. You and creatures within the emanation are "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": ". Creatures that enter or start their turn within the area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 38
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": " and off-guard for 1 round."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.zftpNNqFzlmeuWl6"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 8000
+        }
+      },
+      "bulk": "light",
+      "category": "gadget",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "82e9f6f5-1638-5056-9a11-5fc81f725689",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:vanishing-shocker-moderate",
+    "name": "Vanishing Shocker (Moderate)",
+    "level": 11,
+    "rarity": "uncommon",
+    "traits": ["consumable", "electricity", "gadget", "illusion", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The vanishing shocker is a cube with extruding spikes at each corner. This inscrutable device channels occult energy through the electricity it produces, creating the result of invisible lighting. When activated, the cube floats above your head, creating a field of invisible electricity in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": " that lasts for 1 round. You and creatures within the emanation are "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": ". Creatures that enter or start their turn within the area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 27
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": " and off-guard for 1 round."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.NnoESOFI359hAYjT"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 300
+        }
+      },
+      "bulk": "light",
+      "category": "gadget",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

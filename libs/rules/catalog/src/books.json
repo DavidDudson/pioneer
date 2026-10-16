@@ -150,5 +150,45 @@
     "remaster": true,
     "released": "2026-10-07",
     "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=372"
+  },
+  {
+    "id": "rival-academies",
+    "publisher": "paizo",
+    "license": "ORC",
+    "remaster": true,
+    "released": "2025-02-26",
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=235"
+  },
+  {
+    "id": "shining-kingdoms",
+    "publisher": "paizo",
+    "license": "ORC",
+    "remaster": true,
+    "released": "2025-06-04",
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=265"
+  },
+  {
+    "id": "draconic-codex",
+    "publisher": "paizo",
+    "license": "ORC",
+    "remaster": true,
+    "released": "2025-11-05",
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=277"
+  },
+  {
+    "id": "hellfire-dispatches",
+    "publisher": "paizo",
+    "license": "ORC",
+    "remaster": true,
+    "released": "2026-04-01",
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=319"
+  },
+  {
+    "id": "high-seas",
+    "publisher": "paizo",
+    "license": "ORC",
+    "remaster": true,
+    "released": "2026-07-01",
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=351"
   }
 ]

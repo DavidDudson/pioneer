@@ -22,4 +22,6 @@ export interface ActionLine {
   readonly priority: number | undefined;
   /** Whether it only makes sense in a situation that does not hold now (Shield Block without a raised shield). */
   readonly dormant: boolean;
+  /** The most actions a variable cost runs to; absent for a fixed cost. */
+  readonly upTo?: number | undefined;
 }

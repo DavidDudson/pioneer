@@ -91,6 +91,11 @@ describe('LegalPage', () => {
       'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
       'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
       'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
+      'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
+      'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
+      'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
+      'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
+      'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
       'https://github.com/foundryvtt/pf2e',
     ]);
   });
@@ -118,6 +123,11 @@ describe('LegalPage', () => {
       'Guns & Gears',
       'Battlecry!',
       'Lost Omens Cheliax, Infernal Inheritance',
+      'Lost Omens Rival Academies',
+      'Lost Omens Shining Kingdoms',
+      'Lost Omens Draconic Codex',
+      'Lost Omens Hellfire Dispatches',
+      'Lost Omens High Seas',
     ]);
     const licenses = books.map((book) => /Paizo · (?<license>.+)$/u.exec(book.textContent.trim())?.groups?.['license']);
     expect(licenses).toStrictEqual([
@@ -127,6 +137,11 @@ describe('LegalPage', () => {
       'ORC License',
       'Open Game License 1.0a',
       'Open Game License 1.0a',
+      'ORC License',
+      'ORC License',
+      'ORC License',
+      'ORC License',
+      'ORC License',
       'ORC License',
       'ORC License',
       'ORC License',
@@ -157,6 +172,11 @@ describe('LegalPage', () => {
       expect.stringMatching(/^Guns & Gears\s*Foundry release pf2e-8\.6\.0$/u),
       expect.stringMatching(/^Battlecry!\s*Foundry release pf2e-8\.6\.0$/u),
       expect.stringMatching(/^Lost Omens Cheliax, Infernal Inheritance\s*Foundry release pf2e-8\.6\.0$/u),
+      expect.stringMatching(/^Lost Omens Rival Academies\s*Foundry release pf2e-8\.6\.0$/u),
+      expect.stringMatching(/^Lost Omens Shining Kingdoms\s*Foundry release pf2e-8\.6\.0$/u),
+      expect.stringMatching(/^Lost Omens Draconic Codex\s*Foundry release pf2e-8\.6\.0$/u),
+      expect.stringMatching(/^Lost Omens Hellfire Dispatches\s*Foundry release pf2e-8\.6\.0$/u),
+      expect.stringMatching(/^Lost Omens High Seas\s*Foundry release pf2e-8\.6\.0$/u),
     ]);
     expect(foundry.textContent).toContain('then corrected and enriched by Pioneer contributors');
   });

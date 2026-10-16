@@ -1,7 +1,7 @@
 import { Endpoint, HttpMethod, NoBody, NoParams, NoQuery } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
-import { BugReport, BugReportSubmission } from './bug-report';
+import { BugReportReceipt, BugReportSubmission } from './bug-report';
 import { OAuthProviderSchema, SessionId } from './identity-fields';
 import type { OAuthProvider } from './identity-fields';
 import { Preferences } from './preferences';
@@ -97,7 +97,7 @@ export const IdentityContract = {
     params: NoParams,
     query: NoQuery,
     body: BugReportSubmission,
-    response: BugReport,
+    response: BugReportReceipt,
   }),
 } as const;
 

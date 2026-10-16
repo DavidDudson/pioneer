@@ -1,0 +1,299 @@
+[
+  {
+    "id": "1efe16d2-482d-562d-8ae8-810fa18523de",
+    "pack": "draconic-codex",
+    "kind": "heritage",
+    "slug": "heritage:fey-dragonet",
+    "name": "Fey Dragonet",
+    "rarity": "common",
+    "traits": ["fey"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have a brightly colored body with gleaming scales that become more lustrous as you age, and iridescent butterfly wings. You can change the coloration and pattern of your wings with a single action to let you blend into an area."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When your wings match your environment, you gain a +2 circumstance bonus to Stealth checks until your surroundings shift in coloration or pattern. You gain the fey trait and add Fey to your list of known languages."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:fey-dragonet-wing-color",
+        "toggleable": true,
+        "display": {
+          "label": "Fey Dragonet — Wings match environment"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["option:fey-dragonet-wing-color"]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:dragonet-heritage"
+      },
+      {
+        "key": "RollOption",
+        "option": "dragonet-heritage:fey-dragonet"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.Y1cG8cw4qoHR145y"
+    },
+    "data": {
+      "ancestry": "daedba18-4790-5d57-8846-30bc8c7b2717"
+    }
+  },
+  {
+    "id": "2085130f-25d4-5b79-a845-8d1dc0f8e375",
+    "pack": "draconic-codex",
+    "kind": "heritage",
+    "slug": "heritage:homing-drake",
+    "name": "Homing Drake",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have a short, stubby nose, and tiny spines that resemble hairs. You might have vividly colored scales or be a dun brown. You can cast the "
+          },
+          {
+            "type": "ref",
+            "id": "2837d0b2-7110-5a34-9ce2-be5c9f49cb8e"
+          },
+          {
+            "type": "text",
+            "text": " cantrip as an arcane innate spell at will. A cantrip is heightened to a spell rank equal to half your level rounded up."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In addition, you always know the distance and direction to your home. You can designate a new location as your home after you spend 1 week there, but you can have only a single designated home at a time."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:dragonet-heritage"
+      },
+      {
+        "key": "RollOption",
+        "option": "dragonet-heritage:homing-drake"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.EG0zqAipDIMGBAKz"
+    },
+    "data": {
+      "ancestry": "daedba18-4790-5d57-8846-30bc8c7b2717"
+    }
+  },
+  {
+    "id": "ac240916-a37e-5974-92f2-32c1b74428e2",
+    "pack": "draconic-codex",
+    "kind": "heritage",
+    "slug": "heritage:house-drake",
+    "name": "House Drake",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have bright blue and purple scales, with silvery teeth and claws. Your jaws count as silver and you gain a +1 circumstance bonus to damage rolls against fiends. You add Diabolic to your list of known languages."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:base:jaws"],
+        "property": "materials",
+        "mode": "add",
+        "value": "silver"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["jaws-damage"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["target:trait:fiend"]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:dragonet-heritage"
+      },
+      {
+        "key": "RollOption",
+        "option": "dragonet-heritage:house-drake"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.8oqAuez98yqAgteo"
+    },
+    "data": {
+      "ancestry": "daedba18-4790-5d57-8846-30bc8c7b2717"
+    }
+  },
+  {
+    "id": "69065e15-36cc-53f6-b428-1f1052c4bfae",
+    "pack": "draconic-codex",
+    "kind": "heritage",
+    "slug": "heritage:pearl-dragonet",
+    "name": "Pearl Dragonet",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have pearlescent scales and a round body, with short legs, small wings, and a long tail. The shape of your body lets you absorb a blow and roll away."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "f6cdc8fa-d06d-5edf-b9f6-0de5011f3d14"
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "f6cdc8fa-d06d-5edf-b9f6-0de5011f3d14"
+      },
+      {
+        "key": "RollOption",
+        "option": "option:dragonet-heritage"
+      },
+      {
+        "key": "RollOption",
+        "option": "dragonet-heritage:pearl-dragonet"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.Rz0hZM6CFvX5LnXg"
+    },
+    "data": {
+      "ancestry": "daedba18-4790-5d57-8846-30bc8c7b2717"
+    }
+  },
+  {
+    "id": "17b5366d-5011-5d15-ad71-577700d2f9d2",
+    "pack": "draconic-codex",
+    "kind": "heritage",
+    "slug": "heritage:tidepool-dragonet",
+    "name": "Tidepool Dragonet",
+    "rarity": "common",
+    "traits": ["amphibious"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "draconic-codex"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have a slender, eel-like body with azure scales. Your wings sweep along your body like massive fins, making you well suited for watery terrain."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the amphibious trait, and a swim Speed of 15 feet. You add Thalassic to your list of known languages."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:swim",
+        "mode": "upgrade",
+        "value": 15
+      },
+      {
+        "key": "RollOption",
+        "option": "option:dragonet-heritage"
+      },
+      {
+        "key": "RollOption",
+        "option": "dragonet-heritage:tidepool-dragonet"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.Qr1foFh24dkTqe1s"
+    },
+    "data": {
+      "ancestry": "daedba18-4790-5d57-8846-30bc8c7b2717"
+    }
+  }
+]

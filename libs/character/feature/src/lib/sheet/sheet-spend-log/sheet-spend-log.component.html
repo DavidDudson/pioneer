@@ -1,0 +1,19 @@
+<fr-async-region>
+  <ng-template frAsyncPending><span></span></ng-template>
+  <ng-template [frAsyncData]="playQuery">
+    @if (rows().length > 0) {
+      <fr-stack gap="2xs">
+        <fr-text weight="semibold">{{ 'character.sheet.spend.label' | transloco }}</fr-text>
+        @for (row of rows(); track row.id) {
+          <fr-stack direction="horizontal" align="center" gap="xs" wrap>
+            <fr-text>{{ row.name ?? ('character.sheet.spend.unknown' | transloco) }}</fr-text>
+            <fr-text variant="caption" tone="muted">{{ costOf(row) }}</fr-text>
+            <fr-async-button size="sm" [action]="undo(row.id)" [describeError]="describeError">
+              {{ 'character.sheet.spend.undo' | transloco }}
+            </fr-async-button>
+          </fr-stack>
+        }
+      </fr-stack>
+    }
+  </ng-template>
+</fr-async-region>
