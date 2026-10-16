@@ -27,7 +27,8 @@
     "account": {
       "signIn": "Sign in",
       "settings": "Settings",
-      "signOut": "Sign out"
+      "signOut": "Sign out",
+      "reportBug": "Report a bug"
     },
     "footer": {
       "legal": "Legal"

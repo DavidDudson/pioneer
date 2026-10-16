@@ -1,4 +1,5 @@
 export type { AuditContext } from './audit';
+export { BUG_REPORT_PATH, BugReportParam } from './bug-report-route';
 export { type Clock, fixedClock, systemClock } from './clock';
 export {
   Endpoint,

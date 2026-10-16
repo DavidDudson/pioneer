@@ -29,6 +29,16 @@ export const identityRoutes: Routes = [
         }),
       },
       {
+        path: 'report-bug',
+        // A report belongs to an account.
+        canActivate: [signInRequired],
+        runGuardsAndResolvers: 'always',
+        loadComponent: loadWithMessages(async () => {
+          const { ReportBugPage } = await import('./report-bug/report-bug-page.component');
+          return ReportBugPage;
+        }),
+      },
+      {
         path: 'sign-in',
         loadComponent: loadWithMessages(async () => {
           const { SignInPage } = await import('./sign-in/sign-in-page.component');

@@ -53,5 +53,21 @@
       "en": "English"
     },
     "saveFailed": "Could not save that to your account. Your previous choice is back."
+  },
+  "reportBug": {
+    "title": "Report a bug",
+    "description": "Tell us what went wrong. We read the page you came from, your language and your browser along with it.",
+    "attachedHeading": "Character attached",
+    "attached": "{{ name }} goes with this report as it is now, so we can see what you saw.",
+    "descriptionLabel": "What went wrong?",
+    "descriptionHint": "What you expected, and what happened instead.",
+    "stepsLabel": "Steps to see it",
+    "stepsHint": "Optional. What you did before it happened.",
+    "send": "Send report",
+    "sending": "Sending",
+    "sentLabel": "Sent",
+    "sent": "Thanks. Your report was sent.",
+    "failed": "Could not send your report. Nothing was lost; try again.",
+    "tooMany": "You have sent a lot of reports this hour. Try again later."
   }
 }
