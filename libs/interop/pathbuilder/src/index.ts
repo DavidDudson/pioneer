@@ -69,6 +69,7 @@ export {
   type PioneerSpellDc,
   type PioneerValues,
   RANKED_STATISTICS,
+  SPELLCASTING,
   RankDiscrepancy,
   TotalDiscrepancy,
 } from './discrepancy-report';

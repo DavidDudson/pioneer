@@ -6,6 +6,7 @@ import {
   LAND_SPEED,
   MAX_HIT_POINTS,
   RANKED_STATISTICS,
+  SPELLCASTING,
 } from '@pioneer/interop/pathbuilder';
 import type { DiscrepancyReport, PathbuilderImport, PioneerSpellDc, PioneerValues } from '@pioneer/interop/pathbuilder';
 import type { StatisticResult } from '@pioneer/rules/engine';
@@ -25,6 +26,19 @@ export interface DerivationContent {
 function derived(statistics: ReadonlyMap<Selector, StatisticResult>, selector: Selector): number | undefined {
   const result = statistics.get(selector);
   return result?.ok === true ? result.total : undefined;
+}
+
+/**
+ * Whether the engine derives the rank of `selector` for the character: a statistic's own when that statistic is
+ * derived, an armor or weapon category's when armor class is, the spellcasting rank when some entry's spell DC is.
+ * Without that content an untrained rank would read as a difference.
+ */
+function rankDerivable(statistics: ReadonlyMap<Selector, StatisticResult>, selector: Selector): boolean {
+  if (selector === SPELLCASTING) {
+    return [...statistics.keys()].some((key) => key.startsWith('spell-dc:'));
+  }
+  const category = selector.startsWith('defense:') || selector.startsWith('attack:');
+  return derived(statistics, category ? ARMOR_CLASS : selector) !== undefined;
 }
 
 /** What the engine derives for `character`, for the statistics it could derive: a failed or missing one is left out. */
@@ -51,8 +65,8 @@ function pioneerValues(character: Character, { registry, slots, variants }: Deri
       }),
     ),
     ranks: new Map(
-      Object.values(RANKED_STATISTICS).flatMap((selector): [Selector, Proficiency][] =>
-        derived(statistics, selector) === undefined ? [] : [[selector, ranks.get(selector) ?? Proficiency.Untrained]],
+      [...Object.values(RANKED_STATISTICS), SPELLCASTING].flatMap((selector): [Selector, Proficiency][] =>
+        rankDerivable(statistics, selector) ? [[selector, ranks.get(selector) ?? Proficiency.Untrained]] : [],
       ),
     ),
   };
