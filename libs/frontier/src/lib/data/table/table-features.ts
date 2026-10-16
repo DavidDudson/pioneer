@@ -1,4 +1,5 @@
 import {
+  columnVisibilityFeature,
   createColumnHelper,
   createSortedRowModel,
   rowSortingFeature,
@@ -14,14 +15,19 @@ import type { Size } from '../../tokens';
 export interface FrontierColumnMeta {
   /** How wide the column is where rows are laid out without a table (`fr-picker`); `fr-table` sizes by content. */
   readonly width?: Size;
+  /** Whether the table's *Columns* panel can hide it. Off unless set; `defaultHidden` implies it. */
+  readonly hideable?: boolean;
+  /** Hidden until the user shows it, when the table has no remembered choice. */
+  readonly defaultHidden?: boolean;
 }
 
 /** The phantom value that gives `columnMeta` its type. */
 const COLUMN_META: FrontierColumnMeta = {};
 
-/** The features every frontier table has: client-side sorting. */
+/** The features every frontier table has: client-side sorting and column visibility. */
 export const TABLE_FEATURES = tableFeatures({
   columnMeta: COLUMN_META,
+  columnVisibilityFeature,
   rowSortingFeature,
   sortedRowModel: createSortedRowModel(),
   sortFns: { alphanumeric: sortFn_alphanumeric, text: sortFn_text },

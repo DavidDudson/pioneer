@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import type { ComponentFixture } from '@angular/core/testing';
 import { describe, expect, it } from 'vitest';
 
+import { provideFrontierI18nTesting } from '../../testing/provide-frontier-i18n-testing';
 import { tableColumns } from './table-features';
 import type { TableColumn } from './table-features';
 import { Table } from './table.component';
@@ -25,12 +26,19 @@ const COLUMNS: readonly TableColumn<Member>[] = column.columns([
   column.accessor('level', { header: 'Level', enableSorting: false }),
 ]);
 
+/** Both columns can be hidden, so the table has a *Columns* panel. */
+const HIDEABLE: readonly TableColumn<Member>[] = column.columns([
+  column.accessor('name', { header: 'Name', meta: { hideable: true } }),
+  column.accessor('level', { header: 'Level', meta: { hideable: true } }),
+]);
+
 interface Rendered {
   readonly fixture: ComponentFixture<Table<Member>>;
   readonly host: HTMLElement;
 }
 
 async function render(inputs: Readonly<Record<string, unknown>> = {}): Promise<Rendered> {
+  TestBed.configureTestingModule({ providers: [...provideFrontierI18nTesting()] });
   const fixture = TestBed.createComponent(Table<Member>);
   fixture.componentRef.setInput('data', PARTY);
   fixture.componentRef.setInput('columns', COLUMNS);
@@ -73,6 +81,30 @@ async function sortByName({ fixture, host }: Rendered, times = 1): Promise<void>
     // oxlint-disable-next-line no-await-in-loop -- each press renders before the next
     await fixture.whenStable();
   }
+}
+
+function toggles(host: HTMLElement): HTMLButtonElement[] {
+  return [...host.querySelectorAll<HTMLButtonElement>('fr-toggle-button button')];
+}
+
+function toggle(host: HTMLElement, label: string): HTMLButtonElement {
+  const found = toggles(host).find((button) => button.textContent.trim() === label);
+  if (found === undefined) {
+    throw new Error(`Expected a ${label} toggle`);
+  }
+  return found;
+}
+
+function reset(host: HTMLElement): HTMLButtonElement {
+  const found = [...host.querySelectorAll<HTMLButtonElement>('fr-disclosure fr-button button')].at(-1);
+  if (found === undefined) {
+    throw new Error('Expected a reset button');
+  }
+  return found;
+}
+
+async function renderHideable(inputs: Readonly<Record<string, unknown>> = {}): Promise<Rendered> {
+  return render({ columns: HIDEABLE, ...inputs });
 }
 
 describe(Table, () => {
@@ -145,5 +177,93 @@ describe(Table, () => {
     rendered.fixture.componentRef.setInput('data', [...PARTY, { id: 'amiri', name: 'Amiri', level: 1 }]);
     await rendered.fixture.whenStable();
     expect(names(rendered.host)).toStrictEqual(['Amiri', 'Kyra', 'Merisiel', 'Valeros']);
+  });
+
+  describe('column visibility', () => {
+    it('has no Columns panel when no column can be hidden', async () => {
+      const { host } = await render();
+      expect(host.querySelector('fr-column-chooser details')).toBeNull();
+    });
+
+    it('lists every column as a pressed toggle', async () => {
+      const { host } = await renderHideable();
+      expect(
+        toggles(host).map((button) => [button.textContent.trim(), button.getAttribute('aria-pressed')]),
+      ).toStrictEqual([
+        ['Name', 'true'],
+        ['Level', 'true'],
+      ]);
+    });
+
+    it('hides a column and reports the hidden ids', async () => {
+      const { fixture, host } = await renderHideable();
+      toggle(host, 'Level').click();
+      await fixture.whenStable();
+      expect(headers(host).map((header) => header.textContent.trim())).toStrictEqual(['Name']);
+      expect(rows(host)).toStrictEqual([['Valeros'], ['Kyra'], ['Merisiel']]);
+      expect(fixture.componentInstance.columnVisibility()).toStrictEqual(['level']);
+    });
+
+    it('shows a hidden column again', async () => {
+      const { fixture, host } = await renderHideable();
+      toggle(host, 'Level').click();
+      await fixture.whenStable();
+      toggle(host, 'Level').click();
+      await fixture.whenStable();
+      expect(headers(host)).toHaveLength(2);
+      expect(fixture.componentInstance.columnVisibility()).toStrictEqual([]);
+    });
+
+    it('takes hidden columns from the model', async () => {
+      const { host } = await renderHideable({ columnVisibility: ['name'] });
+      expect(headers(host).map((header) => header.textContent.trim())).toStrictEqual(['Level']);
+    });
+
+    it('starts without a column its schema marks defaultHidden, and reset returns to that', async () => {
+      const hiddenColumns: readonly TableColumn<Member>[] = column.columns([
+        column.accessor('name', { header: 'Name' }),
+        column.accessor('level', { header: 'Level', meta: { defaultHidden: true } }),
+      ]);
+      const { fixture, host } = await render({ columns: hiddenColumns });
+      expect(headers(host)).toHaveLength(1);
+      toggle(host, 'Level').click();
+      await fixture.whenStable();
+      expect(headers(host)).toHaveLength(2);
+      reset(host).click();
+      await fixture.whenStable();
+      expect(headers(host)).toHaveLength(1);
+      expect(fixture.componentInstance.columnVisibility()).toBeUndefined();
+    });
+
+    it('resets to every column shown', async () => {
+      const { fixture, host } = await renderHideable({ columnVisibility: ['level'] });
+      expect(reset(host).disabled).toBe(false);
+      reset(host).click();
+      await fixture.whenStable();
+      expect(headers(host)).toHaveLength(2);
+    });
+
+    it('keeps the last visible column on: its toggle is disabled and the model cannot hide it', async () => {
+      const { fixture, host } = await renderHideable({ columnVisibility: ['level'] });
+      expect(toggle(host, 'Name').disabled).toBe(true);
+      fixture.componentRef.setInput('columnVisibility', ['name', 'level']);
+      await fixture.whenStable();
+      expect(headers(host)).toHaveLength(2);
+    });
+
+    it('offers no toggle for a column that is not hideable', async () => {
+      const pinned: readonly TableColumn<Member>[] = column.columns([
+        column.accessor('name', { header: 'Name' }),
+        column.accessor('level', { header: 'Level', meta: { hideable: true } }),
+      ]);
+      const { host } = await render({ columns: pinned, columnVisibility: ['name', 'level'] });
+      expect(toggles(host).map((button) => button.textContent.trim())).toStrictEqual(['Level']);
+      expect(headers(host).map((header) => header.textContent.trim())).toStrictEqual(['Name']);
+    });
+
+    it('ignores ids that are not columns', async () => {
+      const { host } = await renderHideable({ columnVisibility: ['ghost'] });
+      expect(headers(host)).toHaveLength(2);
+    });
   });
 });

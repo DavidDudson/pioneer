@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from '@analogjs/storybook-angular';
 import { Temporal } from '@pioneer/shared/kernel';
 
 import { BadgeTone } from '../../text/badge/badge.component';
+import { ColumnChooser } from './column-chooser/column-chooser.component';
 import { TableHeaderCell } from './header-cell/header-cell.component';
 import { tableColumns } from './table-features';
 import type { TableColumn } from './table-features';
@@ -41,7 +42,7 @@ const COLUMNS: readonly TableColumn<PartyMember>[] = column.columns([
 const meta: Meta<Table<PartyMember>> = {
   title: 'Data/Table',
   component: Table,
-  subcomponents: { TableHeaderCell },
+  subcomponents: { ColumnChooser, TableHeaderCell },
   argTypes: { data: { control: false }, columns: { control: false }, rowId: { control: false } },
   args: {
     data: PARTY,
@@ -95,4 +96,19 @@ const MIXED_COLUMNS = tableSchema<Trait>()
  */
 export const BuiltFromSchema: StoryObj<Table<Trait>> = {
   args: { data: TRAITS, columns: MIXED_COLUMNS, caption: 'Traits', rowId: (trait: Trait): string => trait.id },
+};
+
+const HIDEABLE_COLUMNS: readonly TableColumn<PartyMember>[] = column.columns([
+  column.accessor('name', { header: 'Name' }),
+  column.accessor('ancestry', { header: 'Ancestry', meta: { hideable: true } }),
+  column.accessor('className', { header: 'Class', meta: { hideable: true } }),
+  column.accessor('level', { header: 'Level', meta: { defaultHidden: true } }),
+]);
+
+/** Open *Columns* to show or hide columns. Name stays; Level starts hidden; Reset returns to that. */
+export const ColumnVisibility: TableStory = { args: { columns: HIDEABLE_COLUMNS } };
+
+/** The remembered choice comes in through `columnVisibility`, as ids of the hidden columns. */
+export const HiddenFromTheStart: TableStory = {
+  args: { columns: HIDEABLE_COLUMNS, columnVisibility: ['ancestry', 'level'] },
 };

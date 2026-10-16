@@ -37,6 +37,10 @@ const EXEMPTIONS: Readonly<Record<string, Exemption>> = {
     spec: 'controls/picker/picker.component.spec.ts',
     story: 'controls/picker/picker.stories.ts',
   },
+  'data/table/column-chooser/column-chooser.component.ts': {
+    reason: "The table's Columns panel; it only renders above a table.",
+    story: 'data/table/table.stories.ts',
+  },
   'data/table/header-cell/header-cell.component.ts': {
     reason: 'Only renders inside a table header.',
     story: 'data/table/table.stories.ts',

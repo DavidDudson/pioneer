@@ -21,6 +21,10 @@
       "resize": "Resize {title}",
       "width": { "narrow": "Narrow", "default": "Default width", "wide": "Wide" }
     },
+    "table": {
+      "columns": "Columns",
+      "resetColumns": "Reset columns"
+    },
     "breadcrumbs": {
       "label": "Breadcrumb"
     },
