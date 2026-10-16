@@ -40,6 +40,7 @@ export const FOUNDRY_BOOK_TITLES: ReadonlyMap<string, BookId> = new Map([
   ['Pathfinder Lost Omens Hellfire Dispatches', BookId.parse('hellfire-dispatches')],
   ['Pathfinder Lost Omens High Seas', BookId.parse('high-seas')],
   ['Pathfinder Season of Ghosts Hardcover Compilation', BookId.parse('season-of-ghosts')],
+  ['Pathfinder Adventure Path: Hellbreakers', BookId.parse('hellbreakers')],
 ]);
 
 /**

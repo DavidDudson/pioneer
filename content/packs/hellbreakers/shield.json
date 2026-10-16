@@ -1,0 +1,590 @@
+[
+  {
+    "id": "571acc5c-10ae-5dde-8177-e14d0adb6d5e",
+    "pack": "hellbreakers",
+    "kind": "shield",
+    "slug": "shield:fiendsbane-shield",
+    "name": "Fiendsbane Shield",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["holy", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This low-grade silver shield is equipped with a "
+          },
+          {
+            "type": "text",
+            "text": "+1 shield boss",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " emblazoned with the image of a beheaded fiend. Any creature with the unholy trait that wields the shield becomes "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 2"
+          },
+          {
+            "type": "text",
+            "text": " and can't recover from this condition while wielding the shield."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Silvery Backlash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, holy)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Shield Block an attack from a creature with the unholy trait"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The fiendsbane shield's Hardness increases to 10, and the symbol of the beheaded demon lashes out in silvery ribbons, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d6",
+                "damageType": "slashing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 19,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save) to the creature whose attack you blocked. This damage is treated as silver for the purposes of weaknesses, resistances, and the like."
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Hardness"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "HP"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "BT"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "3"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "12"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "6"
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Q3cmIfjVVNWzyR2f"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 70
+        }
+      },
+      "bulk": 1,
+      "hardness": 3,
+      "hitPoints": 12,
+      "material": {
+        "type": "silver",
+        "grade": "low"
+      },
+      "activations": [
+        {
+          "slug": "silvery-backlash",
+          "name": "Silvery Backlash",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "baseItem": "fiendsbane-shield",
+      "acBonus": 2
+    }
+  },
+  {
+    "id": "120bdfad-e24e-53c5-bdb9-808a79753bd1",
+    "pack": "hellbreakers",
+    "kind": "shield",
+    "slug": "shield:imposing-shield",
+    "name": "Imposing Shield",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A favorite of Hellknights, this steel shield is often emblazoned with the symbol of a Hellknight order and often notched with the number of times it has absorbed damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Terrifying Block",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, emotion, fear, mental)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Shield Block"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " When a weapon strikes an imposing shield, the sigil glows with a chilling light. The creature that made the attack that triggered your Shield Block becomes "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 2"
+          },
+          {
+            "type": "text",
+            "text": ". If the Shield Block reduced the incoming damage to 0, the creature instead becomes "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 3"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Hardness"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "HP"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "BT"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "6"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "36"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "18"
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Hkjqt1Y98payfa37"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 245
+        }
+      },
+      "bulk": 1,
+      "hardness": 5,
+      "hitPoints": 20,
+      "activations": [
+        {
+          "slug": "terrifying-block",
+          "name": "Terrifying Block",
+          "frequency": {
+            "max": 1,
+            "per": "ten-minutes"
+          }
+        }
+      ],
+      "baseItem": "steel-shield",
+      "acBonus": 2
+    }
+  },
+  {
+    "id": "015e4565-fc97-58a0-a8b0-6b6cf395fbee",
+    "pack": "hellbreakers",
+    "kind": "shield",
+    "slug": "shield:martyrs-shield-hellbreakers",
+    "name": "Martyr's Shield (Hellbreakers)",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This silvery "
+          },
+          {
+            "type": "text",
+            "text": "minor reinforcing steel shield",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " bears the image of two soldiers standing side-by-side."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Self Sacrifice",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per minute"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An ally within 20 feet of you would take physical damage"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The martyr's shield is raised"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " When you activate this shield, it magically imposes itself in front of the triggering ally and takes the damage for them with the effects of Shield Block. Any damage that isn't prevented by the shield is transferred onto you."
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Hardness"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "HP"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "BT"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "8"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "64"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "32"
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.stlTN5eb1qRJMHgB"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 360
+        }
+      },
+      "bulk": 1,
+      "hardness": 8,
+      "hitPoints": 64,
+      "material": {
+        "type": "silver",
+        "grade": "low"
+      },
+      "activations": [
+        {
+          "slug": "self-sacrifice",
+          "name": "Self Sacrifice",
+          "frequency": {
+            "max": 1,
+            "per": "minute"
+          }
+        }
+      ],
+      "baseItem": "steel-shield",
+      "acBonus": 2,
+      "runes": {
+        "reinforcing": 1
+      }
+    }
+  }
+]

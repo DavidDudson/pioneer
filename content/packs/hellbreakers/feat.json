@@ -1,0 +1,919 @@
+[
+  {
+    "id": "566bfe7b-3ab4-5dea-8176-59df4e3c684e",
+    "pack": "hellbreakers",
+    "kind": "feat",
+    "slug": "feat:battle-scars",
+    "name": "Battle Scars",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've faced enough opponents that your experience is written across your skin, toughening you against your fiendish foes. You gain resistance to bludgeoning and slashing damage from devils and creatures allied with the Chelaxian government (as determined by the GM) equal to half your level."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "self:battle-scars",
+        "toggleable": true
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.97zURBF7RiVcbBsQ"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Hellbreaker Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "eee4c7b6-a02f-541b-bb80-56ef169abfe7"
+    }
+  },
+  {
+    "id": "c328fe50-54ef-50f4-b61b-d5f048ec9fa2",
+    "pack": "hellbreakers",
+    "kind": "feat",
+    "slug": "feat:defy-hell",
+    "name": "Defy Hell",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["archetype", "divine", "stance"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You aren't unholy."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your devotion to your cause gives you endless strength and courage to withstand the enemy's attacks. As long as you're in this stance, you gain a +2 status bonus to saves against mental effects and can make Hellbreaker Strikes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.rLAaQBIgnv6zeNvP"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Hellbreaker Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You aren't unholy."
+              }
+            ]
+          }
+        ],
+        "selfEffect": "e4e72de1-08d3-50e5-b57b-eae2c3d85dda"
+      },
+      "archetype": "eee4c7b6-a02f-541b-bb80-56ef169abfe7"
+    }
+  },
+  {
+    "id": "1e72abb2-7928-54f9-bbe6-210459db40bc",
+    "pack": "hellbreakers",
+    "kind": "feat",
+    "slug": "feat:devil-you-know",
+    "name": "Devil You Know",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype", "skill"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your knowledge of your enemies gives you an advantage against them, granting you a swift reaction to their devilry. If you know you're fighting against any devils or Hellknights at the beginning of an encounter, you can roll the respective Lore skill for your initiative roll."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In addition, whenever you successfully Recall Knowledge about a creature using Devil Lore or Hellknight Lore, you gain a +1 circumstance bonus to your next skill check against that creature before the end of your next turn. If you're a master in Devil Lore or Hellknight Lore, the bonus increases to +2."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "4ee0e73c-4b99-5c7f-93eb-885317ea3eb3"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.DqPZCCbWzfMMGFI8"
+    },
+    "data": {
+      "category": "skill",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Hellbreaker Dedication; expert in Devil Lore or Hellknight Lore"
+            }
+          ]
+        }
+      ],
+      "archetype": "eee4c7b6-a02f-541b-bb80-56ef169abfe7"
+    }
+  },
+  {
+    "id": "65bb5abd-55d5-5552-b127-ea8952fa120d",
+    "pack": "hellbreakers",
+    "kind": "feat",
+    "slug": "feat:hellbreaker-dedication",
+    "name": "Hellbreaker Dedication",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["archetype", "dedication"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're a member of the Hellbreakers league."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "By joining the League, you've taken on the responsibilities of a Hellbreaker. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "50ac17a9-a644-58e8-8ee0-ce4c6cfbf17b"
+          },
+          {
+            "type": "text",
+            "text": " general feat for both Devil Lore and Hellknight Lore. If you were already trained in one or both of those Lore skills, you also become trained in a Lore skill of your choice."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you roll initiative, you can attempt a Recall Knowledge, Recall Knowledge, or Recall Knowledge check to "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": " about one enemy you can see as a free action, if that skill would be applicable. The GM is the final arbiter of whether or not one of those skills would be appropriate to Recall Knowledge about the enemy."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "50ac17a9-a644-58e8-8ee0-ce4c6cfbf17b"
+      },
+      {
+        "key": "GrantItem",
+        "item": "50ac17a9-a644-58e8-8ee0-ce4c6cfbf17b"
+      },
+      {
+        "key": "Note",
+        "selectors": ["initiative"],
+        "title": "Hellbreaker Dedication",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "When you roll initiative, you can attempt a recall-knowledge, recall-knowledge, or recall-knowledge check to Recall Knowledge about one enemy you can see as a free action, if that skill would be applicable."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.v22KrWg1T7F5VYgx"
+    },
+    "data": {
+      "category": "class",
+      "archetype": "eee4c7b6-a02f-541b-bb80-56ef169abfe7"
+    }
+  },
+  {
+    "id": "52d44710-4446-520b-a00d-91348ce7b0b8",
+    "pack": "hellbreakers",
+    "kind": "feat",
+    "slug": "feat:hellbreakers-resolve",
+    "name": "Hellbreaker's Resolve",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gird yourself in both mind and body for danger, steeling your resolve. You gain a number of temporary Hit Points equal to your level that last for 1 minute. While you have those temporary Hit Points, you gain a +1 status bonus to Will saves."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "ce872563-e177-5b30-bcd5-d01a9f89fbe6"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.24LBBYT1op52Pm4J"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Hellbreaker Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "frequency": {
+          "max": 1,
+          "per": "hour"
+        }
+      },
+      "archetype": "eee4c7b6-a02f-541b-bb80-56ef169abfe7"
+    }
+  },
+  {
+    "id": "0d814de4-5502-56b3-ac27-6df3cfbbdd7f",
+    "pack": "hellbreakers",
+    "kind": "feat",
+    "slug": "feat:hells-bane",
+    "name": "Hell's Bane",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your in-depth knowledge of your foes grants you insight into their weaknesses, granting you an advantage when fighting against them. When you critically succeed at a skill check to Recall Knowledge about a devil or Hellknight, you gain a +4 status bonus to damage against that creature for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "218aead4-0fdb-55c4-9af4-541fb2cbad57"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.0YtidWmL4GTpONkq"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Devil You Know"
+            }
+          ]
+        }
+      ],
+      "archetype": "eee4c7b6-a02f-541b-bb80-56ef169abfe7"
+    }
+  },
+  {
+    "id": "459c984b-2365-5939-9d88-f9afd33fa700",
+    "pack": "hellbreakers",
+    "kind": "feat",
+    "slug": "feat:high-alert",
+    "name": "High Alert",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're constantly on guard, keeping watch over your allies against fiendish forces—no one can get the jump on your group while you're around. Choose an ally you can see within 30 feet. They gain a +1 circumstance bonus to their AC and Reflex saving throws against devils and creatures allied with the Chelaxian government (as determined by the GM) until the beginning of your next turn. This action gains the visual trait, the auditory trait, or both, depending on how you alert your ally."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "ba1b3a1f-f2fd-5da3-849a-4564dc42c6fc"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.Ilh66megcbP7ahMN"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Hellbreaker Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one"
+      },
+      "archetype": "eee4c7b6-a02f-541b-bb80-56ef169abfe7"
+    }
+  },
+  {
+    "id": "ed4c9f44-eece-57e7-b123-c682516311b0",
+    "pack": "hellbreakers",
+    "kind": "feat",
+    "slug": "feat:opportune-trickster",
+    "name": "Opportune Trickster",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An adjacent ally makes a melee Strike against a creature."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're adjacent to both your ally and the creature."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You aren't above using underhanded tactics to gain an advantage, easily routing your opponents when they attack. Attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:deception"
+          },
+          {
+            "type": "text",
+            "text": " check against the Perception DC of the creature that's the target of the triggering attack. Regardless of the result, the target is temporarily immune to your attempts to use Opportune Trickster for the next 10 minutes."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " (including against the triggering attack) until the end of your ally's turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is off-guard against the triggering attack."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You lose your balance in your attempt to assist your ally and fall "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If you have the "
+          },
+          {
+            "type": "ref",
+            "id": "88af3edf-2b57-5a2f-9a0d-4e7f540fc2ef"
+          },
+          {
+            "type": "text",
+            "text": " skill feat, you can attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:thievery"
+          },
+          {
+            "type": "text",
+            "text": " check instead of a Deception check; if you do, this action loses the mental trait"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.B51a2EwAD84xVX1n"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Hellbreaker Dedication; trained in Deception"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You're adjacent to both your ally and the creature."
+              }
+            ]
+          }
+        ],
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "An adjacent ally makes a melee Strike against a creature."
+              }
+            ]
+          }
+        ]
+      },
+      "archetype": "eee4c7b6-a02f-541b-bb80-56ef169abfe7"
+    }
+  },
+  {
+    "id": "3dae75d2-7d58-54e5-bc73-f197a8b2a809",
+    "pack": "hellbreakers",
+    "kind": "feat",
+    "slug": "feat:rend-armor",
+    "name": "Rend Armor",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["archetype", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your last action was a critical Strike that dealt bludgeoning or piercing damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your enemies' defenses are no match for you as you wrench your weapon to compromise their armor. The creature takes a –2 circumstance penalty to their AC that lasts until they can take 10 minutes to repair their armor. The creature can also Interact to adjust their armor, which removes this penalty for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "15ea5e59-4807-5ece-bbc2-335ca30b51fc"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.Q35r2ssLpGUBRksE"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Hellbreaker Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Your last action was a critical Strike that dealt bludgeoning or piercing damage."
+              }
+            ]
+          }
+        ]
+      },
+      "archetype": "eee4c7b6-a02f-541b-bb80-56ef169abfe7"
+    }
+  },
+  {
+    "id": "d545d4c4-cc89-51ad-9cc9-60e8abc8ff8a",
+    "pack": "hellbreakers",
+    "kind": "feat",
+    "slug": "feat:return-to-the-pit",
+    "name": "Return to the Pit!",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can send the fiends who have vexed you back to their home plane where they belong. You can cast "
+          },
+          {
+            "type": "ref",
+            "id": "b2355f5f-2795-58d8-a713-df34a0257e46"
+          },
+          {
+            "type": "text",
+            "text": " once per day as a divine innate spell. When you take this feat, you craft a personal symbol of the Hellbreakers League that's anathema to devils. If you wield this symbol in one hand when you spend an extra action while casting "
+          },
+          {
+            "type": "text",
+            "text": "banishment",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " on a devil, you don't need to pay the extra cost to give that creature a –2 circumstance penalty to its save."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.oyIswzxeih08b4rA"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Hellbreaker Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "eee4c7b6-a02f-541b-bb80-56ef169abfe7"
+    }
+  },
+  {
+    "id": "266ba12e-0aec-595e-b03e-70605f038d7b",
+    "pack": "hellbreakers",
+    "kind": "feat",
+    "slug": "feat:thorn-in-hells-side",
+    "name": "Thorn in Hell's Side",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your devotion to the ideals of justice, freedom, and revolution allow you to truly punish those who stand in your way. When you critically succeed at a Hellbreaker Strike, the target must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": {
+              "against": "class-or-spell-dc"
+            },
+            "options": ["inflicts:stunned"]
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC or spell DC, whichever is higher, or become "
+          },
+          {
+            "type": "ref",
+            "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+            "label": "Stunned 1"
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "ref",
+            "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+            "label": "Stunned 2"
+          },
+          {
+            "type": "text",
+            "text": " on a critical failure). This effect has the incapacitation trait."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.5gj6tZyQLfA1iQwn"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Defy Hell"
+            }
+          ]
+        }
+      ],
+      "archetype": "eee4c7b6-a02f-541b-bb80-56ef169abfe7"
+    }
+  }
+]

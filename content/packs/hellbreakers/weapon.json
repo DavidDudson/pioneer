@@ -1,0 +1,1404 @@
+[
+  {
+    "id": "db720df6-da8f-58e1-a89a-96d4862470d0",
+    "pack": "hellbreakers",
+    "kind": "weapon",
+    "slug": "weapon:atrophy-bomb-greater",
+    "name": "Atrophy Bomb (Greater)",
+    "level": 11,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "bomb", "consumable", "splash", "void"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Atrophy bombs contain powerful chemicals developed by Urgathoan alchemists that sap a living creature's strength and drain their energy. The bomb deals 3d4 persistent void damage and 3 void splash damage, and the target is "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 2"
+          },
+          {
+            "type": "text",
+            "text": " until the start of your next turn. You gain a +2 item bonus to attack rolls with this bomb."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Nqy9whrqYrChgkHh"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 255
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 0,
+        "damageType": "void",
+        "persistent": {
+          "formula": "3d4",
+          "damageType": "void"
+        }
+      },
+      "splash": 3,
+      "itemBonus": 2,
+      "range": 20,
+      "ammunition": {},
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "c1ac77e0-0c91-565f-9e41-e13e1f7992f5",
+    "pack": "hellbreakers",
+    "kind": "weapon",
+    "slug": "weapon:atrophy-bomb-lesser",
+    "name": "Atrophy Bomb (Lesser)",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "bomb", "consumable", "splash", "void"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Atrophy bombs contain powerful chemicals developed by Urgathoan alchemists that sap a living creature's strength and drain their energy. The bomb deals 1d4 persistent void damage and 1 void splash damage, and the target is "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 1"
+          },
+          {
+            "type": "text",
+            "text": " until the start of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Ey9g17eK5KxeuOIR"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 0,
+        "damageType": "void",
+        "persistent": {
+          "formula": "1d4",
+          "damageType": "void"
+        }
+      },
+      "splash": 1,
+      "range": 20,
+      "ammunition": {},
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "3fc26a54-7aa5-5f03-9597-c51020a22815",
+    "pack": "hellbreakers",
+    "kind": "weapon",
+    "slug": "weapon:atrophy-bomb-major",
+    "name": "Atrophy Bomb (Major)",
+    "level": 17,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "bomb", "consumable", "splash", "void"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Atrophy bombs contain powerful chemicals developed by Urgathoan alchemists that sap a living creature's strength and drain their energy. The bomb deals 4d4 persistent void damage and 4 void splash damage, and the target is "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 2"
+          },
+          {
+            "type": "text",
+            "text": " until the start of your next turn. You gain a +3 item bonus to attack rolls with this bomb."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.HuVDfEm6U7Quq9Y4"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2550
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 0,
+        "damageType": "void",
+        "persistent": {
+          "formula": "4d4",
+          "damageType": "void"
+        }
+      },
+      "splash": 4,
+      "itemBonus": 3,
+      "range": 20,
+      "ammunition": {},
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "b28284f9-c14e-566c-9821-5004144ab9ea",
+    "pack": "hellbreakers",
+    "kind": "weapon",
+    "slug": "weapon:atrophy-bomb-moderate",
+    "name": "Atrophy Bomb (Moderate)",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "bomb", "consumable", "splash", "void"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Atrophy bombs contain powerful chemicals developed by Urgathoan alchemists that sap a living creature's strength and drain their energy. The bomb deals 2d4 persistent void damage and 2 void splash damage, and the target is "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 1"
+          },
+          {
+            "type": "text",
+            "text": " until the start of your next turn. You gain a +1 item bonus to attack rolls with this bomb."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Jgi6iWyH9ihgXC7w"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 11
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 0,
+        "damageType": "void",
+        "persistent": {
+          "formula": "2d4",
+          "damageType": "void"
+        }
+      },
+      "splash": 2,
+      "itemBonus": 1,
+      "range": 20,
+      "ammunition": {},
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "4159e10b-3a3b-5c60-a960-575fe810e438",
+    "pack": "hellbreakers",
+    "kind": "weapon",
+    "slug": "weapon:calamity",
+    "name": "Calamity",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["magical", "versatile-p"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Hewn from a solid block of ensorcelled stone, this "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking greatsword",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is monumental in heft as well as destructive force. The weapon is named for the disbelieving leaders of the Seventh Army of Exploration, who denied the power of such a weapon and claimed their losses came from natural disasters. When wielded against creatures that are larger than you, the sword gains the sweep trait."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Shatter Legions",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (earth)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You smash the sword down upon the ground with the anger of a conquered land and a subjugated people. Each creature in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d12",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 24,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save as the earth shatters beneath their feet. Until the beginning of your next turn, you gain the benefits of standard cover from the broken soil around you."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.YqhEmz8dmf02b99u"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 500
+        }
+      },
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "shatter-legions",
+          "name": "Shatter Legions",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "greatsword",
+      "damage": {
+        "dice": 1,
+        "die": "d12",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "879dea35-875b-58fb-97f3-15ef50aaefdd",
+    "pack": "hellbreakers",
+    "kind": "weapon",
+    "slug": "weapon:crimson-thorn",
+    "name": "Crimson Thorn",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["magical", "reach", "versatile-p"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+1 asp coil",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is used by many trained Sisters of the Golden Erinys. It has a deep-red hue on each segment of the blade complemented by a pitch-black pommel. Death isn't the worst outcome for someone on the receiving end of its lashes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Taste the Pain",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate, visual)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your last action was a Strike with the crimson thorn that dealt damage to a creature"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Attempt an Intimidation check to "
+          },
+          {
+            "type": "ref",
+            "id": "2a3671d0-7d0b-53db-8648-861d457f0175"
+          },
+          {
+            "type": "text",
+            "text": " the creature you dealt damage to with a +2 item bonus to the roll. You don't take any penalties to this check for not sharing a language."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.sAhQdzMThRXu4556"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 60
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "taste-the-pain",
+          "name": "Taste the Pain",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "asp-coil",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "40715b6f-aa06-5a79-96e6-3e610b89a88e",
+    "pack": "hellbreakers",
+    "kind": "weapon",
+    "slug": "weapon:dreamcrusher",
+    "name": "Dreamcrusher",
+    "level": 4,
+    "rarity": "rare",
+    "traits": ["magical", "versatile-p"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The Order of the Rack uses weapons like the "
+          },
+          {
+            "type": "text",
+            "text": "dreamcrusher",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to crush those who dare stand in the way. This "
+          },
+          {
+            "type": "text",
+            "text": "+1 longsword",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " has additional weight at the tip of its blade for the wielder to drive home their strikes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Doom the Rebel",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, mental)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your last action was a Strike with the dreamcrusher that critically hit a creature"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature you critically hit must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 19
+          },
+          {
+            "type": "text",
+            "text": " save. On a failure, they take a –1 status penalty to attack rolls and skill checks for 1 round (1 minute on a critical failure)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "7d401c95-ad7c-5a80-b5ea-1b7f11498a3e"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.9QugctA7ZTeCIsx2"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 80
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "doom-the-rebel",
+          "name": "Doom the Rebel",
+          "frequency": {
+            "max": 1,
+            "per": "ten-minutes"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "longsword",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "6d7fe5a2-d883-50e2-9fff-6f1d4fb75442",
+    "pack": "hellbreakers",
+    "kind": "weapon",
+    "slug": "weapon:lifebloom",
+    "name": "Lifebloom",
+    "level": 6,
+    "rarity": "unique",
+    "traits": ["deadly-d8", "forceful", "magical", "reach", "relic", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+1 vitalizing striking glaive",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is said to have been carved from a single branch of an ancient white ash tree deep in the Arthfell Forest. The grain of the weapon's blade is especially tight, giving the weapon both incredible durability and a finish that resembles silver and steel folded by a master smith."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.2NDH3AX5Ewu4MLT6"
+    },
+    "data": {
+      "bulk": 2,
+      "category": "martial",
+      "group": "polearm",
+      "baseItem": "glaive",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "0b394d97-60cd-5e36-9dc9-b9fcc9dd7a86",
+    "pack": "hellbreakers",
+    "kind": "weapon",
+    "slug": "weapon:magnetic-bola",
+    "name": "Magnetic Bola",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["nonlethal", "ranged-trip", "thrown"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This heavy metallic "
+          },
+          {
+            "type": "text",
+            "text": "+1 bola",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a favorite tool of rebels and rabble-rousers against armored opponents. Due to its weight, it has a range increment of 15 feet. When you successfully Strike a creature made of metal or wearing metal armor with this weapon, the bola attaches to the metal and the targeted creature takes a –10-foot circumstance penalty to its Speed until it spends an Interact action to remove the bola."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "39ae079e-68b3-5b34-84eb-6e05278482ab"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Overcharge",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (electricity, manipulate, metal)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You overcharge the magnetic properties of the bola. You deal an extra 1d6 electricity damage with your next Strike with this weapon. On a hit, the target must also succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 18
+          },
+          {
+            "type": "text",
+            "text": " save or become "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": " round (or "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 2"
+          },
+          {
+            "type": "text",
+            "text": " on a critical failure), in addition to the normal effects. If the target is wearing metal armor, they take a –2 circumstance penalty to their save."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "8a7692fb-f14c-56ac-b97e-216c33cf434e"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial raw materials must include a conductive metal."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.6dizJBq0Dqevbf3L"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 60
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "overcharge",
+          "name": "Overcharge",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "sling",
+      "baseItem": "bola",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "bludgeoning"
+      },
+      "range": 15,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "0dda03f1-862a-55d9-a928-25cbbcb81479",
+    "pack": "hellbreakers",
+    "kind": "weapon",
+    "slug": "weapon:reapers-sigh",
+    "name": "Reaper's Sigh",
+    "level": 7,
+    "rarity": "unique",
+    "traits": ["deadly-d10", "magical", "relic", "trip", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+1 wounding striking scythe",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a weapon of intricately embellished blackened metals and polished surfaces. It was originally intended to venerate Urgathoa in her role as the herald of autumn in pre-Taldor Isger but has recently found more malevolent meaning. With the scythe in her hands, Urgathoa was said to cull the harvest for feast to usher in the cold, bleak winters. As Urgathoa's legends took a darker tone, the scythe's own legend was reclaimed to venerate Erastil and Pharasma as part of the holiday for which it now claims a name."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.HofVPZ0eimPVK9jb"
+    },
+    "data": {
+      "bulk": 2,
+      "category": "martial",
+      "group": "polearm",
+      "baseItem": "scythe",
+      "damage": {
+        "dice": 1,
+        "die": "d10",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": ["2ed55af4-0d60-53f9-ad8e-ce9db657b9c0"]
+      }
+    }
+  },
+  {
+    "id": "5bace95c-2b33-56dc-b390-c584f7385ee8",
+    "pack": "hellbreakers",
+    "kind": "weapon",
+    "slug": "weapon:silverscrap-bomb-greater",
+    "name": "Silverscrap Bomb (Greater)",
+    "level": 17,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "bomb", "consumable", "splash"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Silverscrap bombs are compact clusters of silver shards that explode upon impact, shredding everything in the vicinity. The bomb grants a +3 item bonus to attack rolls and deals 4d4 piercing damage and 4 piercing splash damage. All damage from the bomb is treated as silver for the purposes of weaknesses, resistances, and the like."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:slug:silverscrap-bomb-lesser"],
+        "property": "materials",
+        "mode": "add",
+        "value": "silver"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ECqOpC2J3dc6kNjM"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2550
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 4,
+        "die": "d4",
+        "damageType": "piercing"
+      },
+      "splash": 4,
+      "itemBonus": 3,
+      "range": 20,
+      "ammunition": {},
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "56298e62-6ae4-51e2-bd8c-1c17ea8943cc",
+    "pack": "hellbreakers",
+    "kind": "weapon",
+    "slug": "weapon:silverscrap-bomb-lesser",
+    "name": "Silverscrap Bomb (Lesser)",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "bomb", "consumable", "splash"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Silverscrap bombs are compact clusters of silver shards that explode upon impact, shredding everything in the vicinity. The bomb grants a +1 item bonus to attack rolls and deals 2d4 piercing damage and 2 piercing splash damage. All damage from the bomb is treated as silver for the purposes of weaknesses, resistances, and the like."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:slug:silverscrap-bomb-lesser"],
+        "property": "materials",
+        "mode": "add",
+        "value": "silver"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.QvfHp3lgIQqqiCQF"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 11
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 2,
+        "die": "d4",
+        "damageType": "piercing"
+      },
+      "splash": 2,
+      "itemBonus": 1,
+      "range": 20,
+      "ammunition": {},
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "833e4c85-d659-599e-8478-2dc365225baa",
+    "pack": "hellbreakers",
+    "kind": "weapon",
+    "slug": "weapon:silverscrap-bomb-moderate",
+    "name": "Silverscrap Bomb (Moderate)",
+    "level": 11,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "bomb", "consumable", "splash"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Silverscrap bombs are compact clusters of silver shards that explode upon impact, shredding everything in the vicinity. The bomb grants a +2 item bonus to attack rolls and deals 3d4 piercing damage and 3 piercing splash damage. All damage from the bomb is treated as silver for the purposes of weaknesses, resistances, and the like."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:slug:silverscrap-bomb-lesser"],
+        "property": "materials",
+        "mode": "add",
+        "value": "silver"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.WCA8vovbzZuoHzu9"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 255
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 3,
+        "die": "d4",
+        "damageType": "piercing"
+      },
+      "splash": 3,
+      "itemBonus": 2,
+      "range": 20,
+      "ammunition": {},
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]
