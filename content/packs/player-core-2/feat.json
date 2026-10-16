@@ -8062,6 +8062,18 @@
         "key": "Proficiency",
         "selector": "spellcasting",
         "rank": "trained"
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "champion-focus",
+        "tradition": "divine",
+        "attribute": "cha",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "champion-focus",
+        "spells": ["63af3503-b13d-5e5f-9c69-ab215b1ca711"]
       }
     ],
     "externalIds": {
@@ -8106,7 +8118,20 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellcastingEntry",
+        "slug": "champion-focus",
+        "tradition": "divine",
+        "attribute": "cha",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "champion-focus",
+        "spells": ["12bd2b2c-f1a5-5fb5-9019-537347375066"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.NrCloSukzSUCprsM"
     },
@@ -16161,7 +16186,55 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellcastingEntry",
+        "slug": "champion-focus",
+        "tradition": "divine",
+        "attribute": "cha",
+        "preparation": "focus"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "devout-magic",
+        "choices": [
+          {
+            "value": "shields-of-the-spirit",
+            "label": "Shields of the Spirit"
+          },
+          {
+            "value": "lay-on-hands",
+            "label": "Lay on Hands",
+            "predicate": ["deity:primary:font:heal"]
+          },
+          {
+            "value": "touch-of-the-void",
+            "label": "Touch of the Void",
+            "predicate": ["deity:primary:font:harm"]
+          }
+        ],
+        "prompt": "Select a devotion spell.",
+        "rollOption": "devout-magic"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "champion-focus",
+        "spells": ["d2d0179a-4a99-5b15-8db6-6fee0d1e8b05"],
+        "predicate": ["devout-magic:shields-of-the-spirit"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "champion-focus",
+        "spells": ["63af3503-b13d-5e5f-9c69-ab215b1ca711"],
+        "predicate": ["devout-magic:lay-on-hands"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "champion-focus",
+        "spells": ["a8deb947-a2ff-5a4e-81f0-1ee9641513e2"],
+        "predicate": ["devout-magic:touch-of-the-void"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.jlLWz8e7PpLFt0Ed"
     },

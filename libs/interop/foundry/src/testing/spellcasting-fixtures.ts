@@ -276,3 +276,22 @@ export const ARCANE_SCHOOL_SPELL = archetypeFeat({
   traits: [],
 });
 export const COUNTER_PERFORM = archetypeFeat({ id: 'sPeLlCaStInG0045', name: 'Counter Perform', level: 6, traits: [] });
+export const DEVOTION_SPELLS = classFeature({
+  id: 'sPeLlCaStInG0046',
+  name: 'Devotion Spells',
+  level: 1,
+  traits: ['champion'],
+});
+export const DEVOUT_MAGIC = archetypeFeat({ id: 'sPeLlCaStInG0047', name: 'Devout Magic', level: 4, traits: [] });
+export const BLESSED_ONE_DEDICATION = archetypeFeat({
+  id: 'sPeLlCaStInG0048',
+  name: 'Blessed One Dedication',
+  level: 2,
+  traits: DEDICATION,
+});
+export const BLESSED_SACRIFICE = archetypeFeat({
+  id: 'sPeLlCaStInG0049',
+  name: 'Blessed Sacrifice',
+  level: 4,
+  traits: [],
+});
