@@ -1,0 +1,2752 @@
+[
+  {
+    "id": "850866b6-073a-5097-9d59-06a2153449d3",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "spell",
+    "slug": "spell:brimstone-rain",
+    "name": "Brimstone Rain",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "fire", "manipulate", "poison", "unholy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Globs of smoldering brimstone erupt from the earth, dealing 8d6 fire damage to each creature in the area with a basic Reflex save and choking them with sulfurous fumes. For the duration, the area is difficult terrain, and breathing creatures that start their turn in the area must succeed at a Fortitude save or take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(@item.level - 3)d6",
+                "damageType": "poison",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage; this is an inhaled poison effect. On a critical failure, they're also "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": ". You can Dismiss the spell."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The fire damage increases by 1d6, and the persistent poison damage increases by 1d6."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.DE0WDbbB4WQ6ZidE"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 120
+      },
+      "area": {
+        "shape": "burst",
+        "size": 20
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:reflex",
+          "basic": true
+        }
+      },
+      "traditions": ["arcane", "divine", "primal"],
+      "damage": [
+        {
+          "key": "yb4dvgpcgmtb2wmr",
+          "formula": "8d6",
+          "damageType": "fire",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "yb4dvgpcgmtb2wmr",
+            "formula": "1d6"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "1349a240-4aeb-511f-898f-f8bec6626b8e",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "spell",
+    "slug": "spell:choking-fog",
+    "name": "Choking Fog",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "manipulate", "wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You conjure a fog bank so thick that it's nearly impossible to breathe or see. All creatures within the fog become "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": ", and all creatures outside the fog become concealed to creatures within it. All breathing creatures within the fog must hold their breath or begin to suffocate. You can Dismiss the fog."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.mJO9YLAjXB3B2UNo"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "area": {
+        "shape": "burst",
+        "size": 20
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "traditions": [],
+      "damage": []
+    }
+  },
+  {
+    "id": "19cf04f9-2b6c-5e78-bed6-1aa18c062113",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "spell",
+    "slug": "spell:control-currents",
+    "name": "Control Currents",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "manipulate", "water", "wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Any sections of the area that intersect with a body of water become a current, flowing either away from you or toward you (each section must flow in the same direction). Creatures or vehicles that start their turn within the current or enter it for the first time on their turn are moved 10 feet in the direction of the current. Unwilling creatures or vehicles can attempt a Fortitude save to avoid this effect. Creatures or vehicles that move against the direction of the current treat it as difficult terrain."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (4th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The movement increases to 20 feet, and the area becomes a 60-foot line."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.dweKouFW8OdZ3LXZ"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "area": {
+        "shape": "line",
+        "size": 30
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:fortitude",
+          "basic": false
+        }
+      },
+      "traditions": [],
+      "damage": [],
+      "heightening": {
+        "type": "fixed",
+        "ranks": [
+          {
+            "rank": 2,
+            "area": {
+              "shape": "line",
+              "size": 60
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "1e9b6c09-266b-5f76-a9d6-0aece79def85",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "spell",
+    "slug": "spell:curse-of-slippery-steps",
+    "name": "Curse of Slippery Steps",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["concentrate", "curse", "manipulate", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You curse the target with perpetually poor footing and wet boots. The target must attempt a Reflex save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target treats all terrain as difficult terrain for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target treats all terrain as difficult terrain, and it leaves a trail of water behind it, giving any skill checks to Track it during the duration a +2 circumstance bonus. The duration is 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, except the duration is 24 hours."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.us0dg6vBTEwUBBEX"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "duration": {
+        "type": "varies"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:reflex",
+          "basic": false
+        }
+      },
+      "traditions": ["occult", "arcane"],
+      "damage": []
+    }
+  },
+  {
+    "id": "60b0e02a-2d3e-5086-b4a9-2f213e557d08",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "spell",
+    "slug": "spell:devils-horseshoe",
+    "name": "Devil's Horseshoe",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate", "sanctified", "spirit"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Drawing from superstitions about scaring a devil by threatening to nail horseshoes to their hooves, you conjure a silver horseshoe over an entrance. A fiend that passes through the target takes 2d6 spirit damage and must attempt a Will save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The fiend is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The fiend takes half damage, and attacks against the fiend are treated as magical silver for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The fiend takes full damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 1"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute. Attacks against the fiend are treated as magical silver for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The fiend takes double damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 2"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 2"
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute. Attacks against the fiend are treated as magical silver for 10 minutes."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage increases by 2d6."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.DYonRU6d8uzQ2SWP"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute"
+      },
+      "range": {
+        "type": "touch"
+      },
+      "duration": {
+        "type": "time",
+        "count": 8,
+        "unit": "hour"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": ["divine", "occult", "primal"],
+      "damage": [
+        {
+          "key": "xzgsgw6qvrhkhip6",
+          "formula": "2d6",
+          "damageType": "spirit",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "xzgsgw6qvrhkhip6",
+            "formula": "2d6"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "e076f164-c21d-51dd-a29d-d21888bb7d71",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "spell",
+    "slug": "spell:diabolical-mantle",
+    "name": "Diabolical Mantle",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "manipulate", "polymorph", "unholy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your body takes on the essence of the ten Hells. You gain greater darkvision, immunity to fire, resistance 5 to physical damage (except silver) and poison damage, and weakness 5 to holy. Damage you deal has the unholy trait. Once during the duration, you can cast 4th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "e25a3eab-3b7d-56fd-90e2-98d892fdc8fd"
+          },
+          {
+            "type": "text",
+            "text": " as a divine innate spell."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "b02ac580-2f75-544a-9c18-bfa8e86c46b0"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.pT8sG4lNyiORcfWQ"
+    },
+    "data": {
+      "rank": 7,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "traditions": ["arcane", "divine"],
+      "damage": []
+    }
+  },
+  {
+    "id": "e9a6f538-a89d-564c-836e-87c60394485f",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "spell",
+    "slug": "spell:gift-of-dusk",
+    "name": "Gift of Dusk",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["concentrate", "curse", "manipulate", "shadow", "unholy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Inky energy seeps into your target's shadow, giving it a chance to free itself. The target attempts a Fortitude save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The shadow's freedom is short lived. The target is "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is afflicted with dusk's freedom at stage 1. The Fortitude DC to recover is equal to your spell DC."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but the creature is afflicted at stage 2."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Dusk's Freedom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (curse) "
+          },
+          {
+            "type": "text",
+            "text": "Level",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 7"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 2"
+          },
+          {
+            "type": "text",
+            "text": " (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 3"
+          },
+          {
+            "type": "text",
+            "text": " (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 3",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 4"
+          },
+          {
+            "type": "text",
+            "text": " and the shadow detaches as an independent creature. Use the statistics for a Shadow, though it can't create shadow spawn. The shadow is friendly to the curse's caster and hostile to the creature it was attached to. The stage can't be reduced until the shadow is slain, which immediately ends the curse."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (6th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The curse's level increases to 11. At stage 3, instead of a shadow, you create a Greater Shadow."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.E9BlwQavx05qwSpi"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "duration": {
+        "type": "varies"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:fortitude",
+          "basic": false
+        }
+      },
+      "traditions": ["arcane", "divine", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "b27563d4-959f-5209-a6df-c65e64c11efa",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "spell",
+    "slug": "spell:glimpse-the-netherworld",
+    "name": "Glimpse the Netherworld",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["cold", "concentrate", "focus", "manipulate", "shadow"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A living enemy you can see within 60 feet is reduced to 0 Hit Points."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As a creature slips into that final darkness, you tear through the fabric of reality to release the shadows of the Netherworld. Each creature in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": " from the triggering enemy takes 4d8 cold] damage with a basic Reflex save. On a failure, a creature also takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(@item.level - 3)d6",
+                "damageType": "cold",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage (double on a critical failure)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Increase the cold damage by 1d8 and the persistent cold damage by 1d6"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.jW2q0dDanQsN3Zin"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 60
+      },
+      "area": {
+        "shape": "emanation",
+        "size": 10
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:reflex",
+          "basic": true
+        }
+      },
+      "traditions": [],
+      "damage": [
+        {
+          "key": "9uwx8na8ohvqbpgn",
+          "formula": "4d8",
+          "damageType": "cold",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "9uwx8na8ohvqbpgn",
+            "formula": "1d8"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "be7c4e85-a99f-55ed-aa05-781409a71c59",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "spell",
+    "slug": "spell:gloom-mantle",
+    "name": "Gloom Mantle",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["darkness", "illusion", "manipulate", "shadow", "visual"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You shroud yourself in shadow. When you Cast this Spell and the first time each round you Sustain it, you become "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " until the end of your next turn, though you can't use this concealment to Hide or Sneak. You lose this concealment if you're ever in an area of bright light."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.MiDbBU5uupWqjYzm"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "b2f2fbec-4b5c-5eb9-a5c9-44f6c573cf84",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "spell",
+    "slug": "spell:infernal-supervision",
+    "name": "Infernal Supervision",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "manipulate", "unholy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Infernal influence guides your words. For the duration, you have the Additional Lore feat for Legal Lore and gain a +1 status bonus to Deception and Intimidation checks, which increases to +2 against holy creatures."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (4th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Increase the duration to 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (6th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Increase the duration to 8 hours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "5303a968-a000-585a-b7d1-5af551d37066"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.bFQBD4ogX22LtvFU"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute"
+      },
+      "traditions": ["arcane", "divine", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "0fd3bb14-76c9-5e9c-b62a-43db8fb488d8",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "spell",
+    "slug": "spell:kiss-the-ring",
+    "name": "Kiss the Ring",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "emotion", "fear", "incapacitation", "manipulate", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your foes must recognize your authority or be punished for their insolence. Creatures that rank below you in a shared hierarchical organization treat the result of their Will save as one degree of success worse."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is frightened 1. On its next turn, it must Stride in your direction (stopping if its movement brings it adjacent to you), then Drop Prone before using actions to do anything else. The target can't use hostile actions against you for the spell's duration. If you use a hostile action against the target, the spell ends."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but hostility doesn't end the effect."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (8th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can target up to 5 creatures."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (10th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can target up to 10 creatures."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.Rr2JGW2A4MwGpaZU"
+    },
+    "data": {
+      "rank": 6,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": ["divine", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "bd75a8c6-a040-5061-8185-a6245538957a",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "spell",
+    "slug": "spell:piercing-jet",
+    "name": "Piercing Jet",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["attack", "concentrate", "manipulate", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You pressurize the surrounding moisture into a thin but deadly stream of water. Make a ranged spell attack roll against the target. On a hit, the target takes 4d6 piercing damage, ignoring the target's Hardness if it's "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "@item.level*2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " or lower. On a critical hit, the target takes double damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The piercing damage increases by 2d6, and the amount of Hardness ignored increases by 2."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.3cq9RTbyIFJaVLNa"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          },
+          {
+            "count": 1,
+            "of": "object"
+          }
+        ]
+      },
+      "traditions": ["arcane", "primal"],
+      "damage": [
+        {
+          "key": "qxukvjx9oibce7zz",
+          "formula": "4d6",
+          "damageType": "piercing",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "qxukvjx9oibce7zz",
+            "formula": "2d6"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "8d5f2d1f-9f50-5499-90e6-98c5651773ab",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "spell",
+    "slug": "spell:pin-the-spears-in-the-lamb",
+    "name": "Pin the Spears in the Lamb",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "manipulate", "shadow"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You manifest spikes to pin a creature's shadow to the ground, limiting their mobility. For each action you spend Casting this Spell, you can target one creature within range. Each target must attempt a Reflex save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes a –10-foot status penalty to its Speeds for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round. An affected creature can Escape its shadow's grasp with a check against your spell DC to end the effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but the target is immobilized for 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.Hc8XSYc8vIKaGfhq"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "one",
+        "upTo": "three"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "duration": {
+        "type": "varies"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:reflex",
+          "basic": false
+        }
+      },
+      "traditions": [],
+      "damage": []
+    }
+  },
+  {
+    "id": "f3090eb7-1a2d-53d9-8724-b5185e3fab29",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "spell",
+    "slug": "spell:roar-of-freedom",
+    "name": "Roar of Freedom",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["concentrate", "emotion", "manipulate", "sonic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You let out a furious roar, vowing never to be ruled by tyrants. Enemies within the emanation take 12d8 sonic damage and must attempt a Will save; particularly tyrannical creatures, like a despot or a devil, take a –2 circumstance penalty to their saves. The GM determines which creatures take this penalty. Allied creatures within the emanation gain 15 temporary Hit Points that last for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes half damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes full damage, is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 1"
+          },
+          {
+            "type": "text",
+            "text": ", and is "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes double damage, is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 2"
+          },
+          {
+            "type": "text",
+            "text": ", and is "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 2"
+          },
+          {
+            "type": "text",
+            "text": " for 2 rounds."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage increases by 1d8, and the temporary Hit Points increase by 5."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "5e78650a-47f5-5fd3-98c0-69999afd0b40"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.tI7wp8qybqI9eFCl"
+    },
+    "data": {
+      "rank": 8,
+      "time": {
+        "type": "actions",
+        "cost": "one"
+      },
+      "area": {
+        "shape": "emanation",
+        "size": 30
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": [
+        {
+          "key": "mpgatenqiqhg7e81",
+          "formula": "12d8",
+          "damageType": "sonic",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "mpgatenqiqhg7e81",
+            "formula": "1d8"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "3c291f3e-3796-5264-8a5e-a12daf18b13a",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "spell",
+    "slug": "spell:rude-awakening",
+    "name": "Rude awakening",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["concentrate", "emotion", "manipulate", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You conjure frigid water and douse an ally, fortifying their resolve. The target can immediately attempt a Will save with a +2 circumstance bonus against an ongoing emotion effect or against the frightened or stupefied condition, suppressing the effect or condition for the duration on a success. In addition, the target gains a +1 status bonus to all saving throws for the duration, which increases to a +2 status bonus to saving throws against emotion effects."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Spell Effect: Rude Awakening"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.vUEkyqkjDwBDLMZZ"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:reflex",
+          "basic": false
+        }
+      },
+      "traditions": ["arcane", "primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "725c3998-04fb-5a64-a65b-b2d5fdb1d746",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "spell",
+    "slug": "spell:saturate",
+    "name": "Saturate",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You draw moisture from the atmosphere to saturate the ground with water. If the terrain in the area is a hard surface such as stone, metal, or wood, it becomes difficult terrain. If it's a soft surface such as sand or dirt, the area becomes a quicksand hazard, except its size increases to fill the area."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.3K4FA2XgE5tPQYBv"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 120
+      },
+      "area": {
+        "shape": "burst",
+        "size": 20
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "traditions": ["primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "6faf1238-710e-52cb-b1f2-ee8274409f5c",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "spell",
+    "slug": "spell:searing-rain",
+    "name": "Searing Rain",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["concentrate", "emotion", "manipulate", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You call forth a torrential downpour of boiling water that deals 6d6 bludgeoning damage and 2d6 persistent fire damage, with a basic Reflex save to each creature in the area. The downpour also leaves a cloud of thick steam. For the spell's duration, all creatures within the area are "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": ", and all creatures outside the area are concealed to creatures within it. You can Dismiss this effect."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The bludgeoning damage and persistent fire damage each increase by 1d6."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.QYWhY5q9zKTk10ru"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 120
+      },
+      "area": {
+        "shape": "burst",
+        "size": 20
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:reflex",
+          "basic": false
+        }
+      },
+      "traditions": ["arcane", "primal"],
+      "damage": [
+        {
+          "key": "9xfumljxloruclbx",
+          "formula": "6d6",
+          "damageType": "bludgeoning",
+          "kinds": ["damage"]
+        },
+        {
+          "key": "hwb21bbc3xjong5r",
+          "formula": "2d6",
+          "damageType": "fire",
+          "category": "persistent",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "9xfumljxloruclbx",
+            "formula": "1d6"
+          },
+          {
+            "key": "hwb21bbc3xjong5r",
+            "formula": "1d6"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "00d2eb60-c2b5-50c6-9d3e-9dbbc00f2429",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "spell",
+    "slug": "spell:shadow-form",
+    "name": "Shadow Form",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate", "polymorph", "shadow"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your body flattens and loses its color, becoming a two-dimensional being of living shadow. You gain immunity to precision damage, resistance 10 to void and to non-magical physical damage, and weakness 5 to any damage with the light trait. You can Squeeze at full speed through any space with at least one dimension a foot wide. Your shadow spells deal additional damage equal to the spell's rank (of the same damage type as the spell)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (9th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The resistance increases to 15, and the weakness increases to 10."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "46e6e087-0b74-5856-a050-6506aae96948"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.4MoAAkdH7RV8BDy9"
+    },
+    "data": {
+      "rank": 7,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "b05e5eaf-5241-5464-ae78-8bd2c1f25ebd",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "spell",
+    "slug": "spell:silver-spear",
+    "name": "Silver Spear",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["attack", "concentrate", "manipulate", "metal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You conjure a great silver lance and hurl it, piercing your foes. The spear is made of silver and deals 12d6 piercing damage. If the target is a fiend, it deals an additional "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(2 * @item.level)d6",
+                "damageType": "spirit"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes double damage. If the creature is a fiend, the spear magically tethers it. For 1 minute, any teleportation actions it attempts are disrupted unless it first succeeds at a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 11
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes full damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The piercing damage increases by 2d6, and the spirit damage against fiends increases by 2d6."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.Ia38Pz0FGOLMvcUN"
+    },
+    "data": {
+      "rank": 6,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "area": {
+        "shape": "burst",
+        "size": 120
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "traditions": ["arcane", "divine", "primal"],
+      "damage": [
+        {
+          "key": "80agmzafzft08yt6",
+          "formula": "12d6",
+          "damageType": "piercing",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "80agmzafzft08yt6",
+            "formula": "2d6"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "f54bbf1c-a108-59f1-b8fa-fa81cd308a7a",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "spell",
+    "slug": "spell:spray-of-salt",
+    "name": "Spray of Salt",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["concentrate", "earth", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A wave of purified salt burns away moisture and wickedness, dealing 5d4 acid damage. Each creature within the area must attempt a Fortitude save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes half damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes full damage. If the creature has the ooze, unholy, or water trait, it also takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(@item.level)d4",
+                "damageType": "spirit",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes double damage, and double persistent damage if it has the ooze, unholy, or water trait."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The acid damage increases by 2d4, and the persistent damage on a failure increases by 1d4."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.nb7qD4UXemhQJrSd"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "area": {
+        "shape": "cone",
+        "size": 15
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:fortitude",
+          "basic": false
+        }
+      },
+      "traditions": ["arcane", "divine", "primal"],
+      "damage": [
+        {
+          "key": "qxukvjx9oibce7zz",
+          "formula": "5d4",
+          "damageType": "acid",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "qxukvjx9oibce7zz",
+            "formula": "2d4"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "5dbb32d3-a0cc-57c5-a158-350ea96bc881",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "spell",
+    "slug": "spell:tenebrous-freedom",
+    "name": "Tenebrous Freedom",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "manipulate", "shadow", "wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You liberate the shadow from a creature within range. When you Cast the Spell and each time you Sustain it, the shadow moves. The target is "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 2"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 2"
+          },
+          {
+            "type": "text",
+            "text": " while its shadow is detached, but the target can reattach its shadow by either succeeding at a Grapple action against your spell DC or performing a 2-action activity with the manipulate trait while the shadow is within reach. The shadow is otherwise intangible. The target attempts a Fortitude save when you first Cast the Spell."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The shadow breaks free and moves 5 feet in a direction of your choice. Each time you Sustain the spell, the shadow moves another 5 feet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As a success, but the shadow moves 10 feet when you Cast or Sustain the Spell."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As a success, but the shadow moves 15 feet when you Cast or Sustain the Spell."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (8th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 3"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 3"
+          },
+          {
+            "type": "text",
+            "text": " while its shadow is detached."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.alzFVef99eoNmDVP"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:fortitude",
+          "basic": false
+        }
+      },
+      "traditions": [],
+      "damage": []
+    }
+  },
+  {
+    "id": "be50ff3a-9c38-5e0f-b700-a023cfb2ff0f",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "spell",
+    "slug": "spell:the-night-is-mine",
+    "name": "The Night is Mine",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["cold", "concentrate", "focus", "manipulate", "shadow", "wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You turn the darkness itself on those who hide within. The target takes 2d4 cold damage with a basic Reflex save. If a creature within range attempts to "
+          },
+          {
+            "type": "ref",
+            "id": "5a86b7d0-fc0e-52a6-9b0d-fb58ed15233d"
+          },
+          {
+            "type": "text",
+            "text": ", you can cast this spell targeting them as a reaction."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage increases by 2d4."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.NIAHICPpNILGzTd0"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "one"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:reflex",
+          "basic": true
+        }
+      },
+      "traditions": [],
+      "damage": [
+        {
+          "key": "kcpovinobli3lcbq",
+          "formula": "2d4",
+          "damageType": "cold",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "kcpovinobli3lcbq",
+            "formula": "2d4"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "9e30e75e-99c4-5f68-a3c6-0f299a4a7e64",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "spell",
+    "slug": "spell:turnip-lantern",
+    "name": "Turnip Lantern",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["aura", "concentrate", "light", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You conjure a turnip holding a flickering light, carved with the faces of terrifying monsters that frighten lesser evils. The turnip is held in one hand and sheds bright light for 20 feet and dim light for 20 feet beyond that. Creatures within the bright light have a +1 status bonus to their AC, saving throws, and Perception checks against unholy creatures."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "746478d0-a19c-5bea-bb8e-c037e156611b"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.lhdEqAqnOJvrmZ89"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "traditions": ["occult", "primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "b60b4b29-1b23-52fb-8f15-4a9a349a9a49",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "spell",
+    "slug": "spell:unending-tears",
+    "name": "Unending Tears",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["concentrate", "emotion", "manipulate", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You force sorrow upon your target, and their eyes well with water, impairing their vision and making them weep uncontrollably. The target must attempt a Will save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " until they Interact to clear their vision."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is dazzled and "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 1"
+          },
+          {
+            "type": "text",
+            "text": ", and one ongoing emotion effect on them of your choice that has a lower counteract rank than this spell is suppressed for the spell's duration."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, and the target can't speak for as long as they are stupefied."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.XyVGPPhXO6ThXqAN"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": ["primal", "arcane"],
+      "damage": []
+    }
+  }
+]

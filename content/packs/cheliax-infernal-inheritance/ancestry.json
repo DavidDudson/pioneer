@@ -1,0 +1,591 @@
+[
+  {
+    "id": "fd3eeb3d-5471-5031-a0eb-8b74d38d1b5f",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "ancestry",
+    "slug": "ancestry:bugbear",
+    "name": "Bugbear",
+    "rarity": "uncommon",
+    "traits": ["bugbear", "humanoid"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Bugbears are single-minded individuals. They choose a cause, a calling, or sometimes a person or item and go to great lengths to achieve that goal or to elicit a particular emotion in that person.",
+            "marks": ["emphasis"]
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-1",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:bugbear",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Bugbear feat"
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-1"
+        }
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-5",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:bugbear",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Bugbear feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-5"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-9",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:bugbear",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Bugbear feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-9"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-13",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:bugbear",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Bugbear feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-13"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-17",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:bugbear",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Bugbear feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-17"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestries.Item.GJL7lFWn1NibsHYg"
+    },
+    "data": {
+      "hitPoints": 10,
+      "size": "medium",
+      "speed": 25,
+      "boosts": [["str"], ["cha"], ["str", "dex", "con", "int", "wis", "cha"]],
+      "flaws": ["int"],
+      "languages": ["444a2133-3e11-55b6-b57a-1f11ebe8e12b", "cc56a173-7e20-50ca-b027-1a5aca98fe4b"],
+      "additionalLanguages": {
+        "count": 0,
+        "options": []
+      },
+      "vision": "67979b6a-4b24-5be5-b7ea-94783c497bcb",
+      "reach": 5
+    }
+  },
+  {
+    "id": "34504ad0-0573-528e-8535-5631fddb78da",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "ancestry",
+    "slug": "ancestry:fetchling",
+    "name": "Fetchling",
+    "rarity": "uncommon",
+    "traits": ["fetchling", "humanoid"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Once human and now something apart, fetchlings display the Netherworld's ancient influence through monochrome complexions, glowing eyes, and the casting of supernatural shadows. These lithe and shadowy beings seem to sink and vanish into the gloom. They see in darkness, exercise control over shadows, and have strange occult powers. Some fetchlings develop their powers enough to pass between the Netherworld and the Universe, leaving other ancestries to whisper about figures that emerge from shaded corners and then vanish without a trace. Through magic and other means, they've spread across Golarion and the planes beyond, as adaptable as the humans they once were.",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Fetchling",
+            "marks": ["emphasis"]
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-1",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:fetchling",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Fetchling feat"
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-1"
+        }
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-5",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:fetchling",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Fetchling feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-5"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-9",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:fetchling",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Fetchling feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-9"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-13",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:fetchling",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Fetchling feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-13"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-17",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:fetchling",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Fetchling feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-17"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestries.Item.hIA3qiUsxvLZXrFP"
+    },
+    "data": {
+      "hitPoints": 8,
+      "size": "medium",
+      "speed": 25,
+      "boosts": [["dex"], ["str", "dex", "con", "int", "wis", "cha"]],
+      "flaws": [],
+      "languages": ["444a2133-3e11-55b6-b57a-1f11ebe8e12b", "c960afa4-f657-5917-8612-e95b449496cc"],
+      "additionalLanguages": {
+        "count": 0,
+        "options": [
+          "7cd4c9cb-53a2-5f62-8cf3-d904bce62260",
+          "17635451-e596-5045-8af5-47f581cd1a40",
+          "b0d87fc0-fc6e-56a6-9b35-41b51a59b960",
+          "4e394236-976f-5501-bdb1-f8e938fcb241",
+          "da0478dc-3e4f-5abb-9b5f-79be74bf143e"
+        ]
+      },
+      "vision": "67979b6a-4b24-5be5-b7ea-94783c497bcb",
+      "reach": 5
+    }
+  },
+  {
+    "id": "23faac9b-2c34-50c4-9fd4-9a5d28f4d724",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "ancestry",
+    "slug": "ancestry:strix",
+    "name": "Strix",
+    "rarity": "rare",
+    "traits": ["humanoid", "strix"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Known as itarii in their own language, strix are avian humanoids capable of flight. They enthusiastically take to the skies, a place where few other ancestries can follow. The dangers that live among the skies and treetops are particularly fearsome, leading strix to develop defensive sensibilities. They defend their communities with broad wingspans and razor talons. Strix value ferocity, vengeance, and devotion above all else. This ferocity sometimes causes other ancestries to incorrectly interpret strix to be a wholly dangerous or wicked people. In contradiction to their misunderstood nature, strix boast a spiritual, artistic, and compassionate culture that is rarely seen outside of their roosts.",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Strix",
+            "marks": ["emphasis"]
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-1",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:strix",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Strix feat"
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-1"
+        }
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-5",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:strix",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Strix feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-5"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-9",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:strix",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Strix feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-9"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-13",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:strix",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Strix feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-13"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-17",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:strix",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Strix feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-17"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestries.Item.GXcC6oVa5quzgNHD"
+    },
+    "data": {
+      "hitPoints": 8,
+      "size": "medium",
+      "speed": 25,
+      "boosts": [["dex"], ["str", "dex", "con", "int", "wis", "cha"]],
+      "flaws": [],
+      "languages": ["444a2133-3e11-55b6-b57a-1f11ebe8e12b", "6bb8f791-c447-5fdd-bae6-46d3d5302057"],
+      "additionalLanguages": {
+        "count": 0,
+        "options": [
+          "85a9a212-540b-5211-96ce-ffce82640b25",
+          "17635451-e596-5045-8af5-47f581cd1a40",
+          "d2200e11-b3e5-5878-be67-4f4492c1f76d",
+          "315eced7-9fa5-595b-bdab-002877559cff"
+        ]
+      },
+      "vision": "16b42c38-9373-58ec-a7ac-2221bb17a71c",
+      "reach": 5
+    }
+  }
+]

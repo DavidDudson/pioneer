@@ -1,0 +1,739 @@
+[
+  {
+    "id": "ce9dc630-a033-5910-9e32-3f78eca9bcc5",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "action",
+    "slug": "action:forged-in-fire",
+    "name": "Forged in Fire",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take fire damage"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain fire resistance equal to half your level (minimum 1) against the triggering damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.jjGrujDzGLPYcuY0"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You take fire damage"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "9d07cbf8-95d1-5bad-9bc6-5f1b73aaacde",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "action",
+    "slug": "action:hellish-impression",
+    "name": "Hellish Impression",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail a Diplomacy check to Make an Impression"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast 1st-rank "
+          },
+          {
+            "type": "ref",
+            "id": "a3738cb8-aa5d-5084-b250-86fe19b7498d"
+          },
+          {
+            "type": "text",
+            "text": " as a divine innate spell on the target of the triggering action."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.zRyF20WuVthAUvoC"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You fail a Diplomacy check to Make an Impression"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "1a9aab68-83c9-5e34-b78c-1eb6056c72c8",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "action",
+    "slug": "action:inflict-punishment",
+    "name": "Inflict Punishment",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are hit with an unarmed Strike or a Strike with a non-reach melee weapon"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You twist your body so that the attacker hits a hard edge of bone or armor, injuring themselves. You deal "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(floor(@level/2))d8",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to the triggering creature (basic Reflex save using your class DC or spell DC, whichever is higher). At 3rd level, and every 2 levels thereafter, this damage increases by 1d8."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.SdjdsilE69Qz22VC"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You are hit with an unarmed Strike or a Strike with a non-reach melee weapon"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "07ffba99-0f9a-5b8b-885b-5afd20acff01",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "action",
+    "slug": "action:invoke-infernal-bargain",
+    "name": "Invoke Infernal Bargain",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are not doomed"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You call upon your infernal pact to surge with devilish power. You gain a +2 status bonus to the next attack roll, skill check, or saving throw you attempt before the end of your next turn. You then become "
+          },
+          {
+            "type": "ref",
+            "id": "cd164d22-2d8e-5fd2-b8b2-03e1360df1e7",
+            "label": "Doomed 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.jWAztSSUZpPjyjQa"
+    },
+    "data": {
+      "cost": "free",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You are not doomed"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "4a8fa183-47a2-55a5-a597-01045bc05d3c",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "action",
+    "slug": "action:invoke-infernal-flames",
+    "name": "Invoke Infernal Flames",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You critically hit a creature with an unarmed attack granted by this feat"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are doomed"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You deal an additional die of weapon damage and "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d4",
+                "damageType": "fire",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. Then, increase the value of your doomed condition by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.omhWHFWQqrOp2PSs"
+    },
+    "data": {
+      "cost": "free",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You are doomed"
+            }
+          ]
+        }
+      ],
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You critically hit a creature with an unarmed attack granted by this feat"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "4b103b19-2d9e-5941-9e34-8dfe5e0cc612",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "action",
+    "slug": "action:invoke-infernal-focus",
+    "name": "Invoke Infernal Focus",
+    "rarity": "common",
+    "traits": ["concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are doomed"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You regain 1 Focus Point and then increase the value of your doomed condition by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.GBExQI4ZuGcVlMMC"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You are doomed"
+            }
+          ]
+        }
+      ],
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
+    }
+  },
+  {
+    "id": "85a81c47-9b26-5764-aa33-71b7196303f9",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "action",
+    "slug": "action:invoke-infernal-potency",
+    "name": "Invoke Infernal Potency",
+    "rarity": "common",
+    "traits": ["concentrate", "spellshape"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are doomed"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If your next action is to cast either fear or spiritual armament as an innate spell, you can heighten the spell to a rank 1 lower than half your level rounded up. You then increase the value of your doomed condition by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.bFIC02RNpdzX1Dh7"
+    },
+    "data": {
+      "cost": "free",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You are doomed"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "9458953b-f4a0-55ac-b908-1be5c2ff894a",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "action",
+    "slug": "action:shadowbound-light-vulnerability",
+    "name": "(Shadowbound) Light Vulnerability",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Attacks against the shadowbound creature are treated as magical if made by a creature that's in magical light or with an object that's in magical light (such as from the light spell)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.aYOqqGEvhinSdPNw"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "502bd72a-2497-57be-b2d1-8d07205ff0bd",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "action",
+    "slug": "action:shadowbound-shadow-form",
+    "name": "(Shadowbound) Shadow Form",
+    "rarity": "common",
+    "traits": ["concentrate", "polymorph", "shadow"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A shadowbound creature can assume a shadowy form. In this state, the creature gains the incorporeal trait. It has resistance 10 to all damage (except force, ghost touch, spirit, or vitality; double resistance vs. non-magical), is immune to precision damage, and can't use any actions with the attack or manipulate trait. It has a fly Speed of 15 feet and can slip through tiny cracks. The shadowbound creature can Dismiss this effect to become solid again, but if it does so in an area of bright light, it's "
+          },
+          {
+            "type": "ref",
+            "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+            "label": "Stunned 1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:shadow-form",
+        "toggleable": true
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["fly-speed"],
+        "type": "untyped",
+        "value": 15,
+        "predicate": ["option:shadow-form"]
+      },
+      {
+        "key": "ActorTraits",
+        "add": ["incorporeal"],
+        "predicate": ["option:shadow-form"]
+      },
+      {
+        "key": "Immunity",
+        "type": ["precision"],
+        "predicate": ["option:shadow-form"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.AcLI8InNjZrgj0Ii"
+    },
+    "data": {
+      "cost": "three",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "4614cd98-5d9e-5234-88e9-ba96eda625e6",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "action",
+    "slug": "action:shadowbound-shadow-touch",
+    "name": "(Shadowbound) Shadow Touch",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature's Strikes affect incorporeal creatures with the effects of a ghost touch property rune."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustStrike",
+        "property": "property-runes",
+        "mode": "add",
+        "value": "ghost-touch"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.bvB25sw7JzCoaKSv"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  }
+]

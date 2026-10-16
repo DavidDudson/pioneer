@@ -1,0 +1,2078 @@
+[
+  {
+    "id": "ab82842f-d1ed-5888-9d3a-ac9c0f8a5b97",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "consumable",
+    "slug": "consumable:blast-off-bottle-greater",
+    "name": "Blast-Off Bottle (Greater)",
+    "level": 15,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "fire"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This metal canister of explosive compounds is inspired by the blastpack, simplifying the technology for day-to-day use—though only a goblin could say what daily tasks warrant such a tool. Each creature in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 5
+          },
+          {
+            "type": "text",
+            "text": " from you takes the 4d6 fire damage with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 34,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save; a creature who fails the save is also knocked "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": ". Then, you Fly up to 30 feet and land prone; this movement doesn't trigger reactions."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.kF8FRuRq04ucUKj7"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "damage": {
+        "formula": "2d6",
+        "damageType": "fire",
+        "kind": "damage"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "cdd723b7-cbc0-581f-b368-655d84ca2dd5",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "consumable",
+    "slug": "consumable:blast-off-bottle-lesser",
+    "name": "Blast-Off Bottle (Lesser)",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "fire"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This metal canister of explosive compounds is inspired by the blastpack, simplifying the technology for day-to-day use—though only a goblin could say what daily tasks warrant such a tool. Each creature in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 5
+          },
+          {
+            "type": "text",
+            "text": " from you takes the 2d6 fire damage with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 20,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save; a creature who fails the save is also knocked "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": ". Then, you Fly up to 15 feet and land prone; this movement doesn't trigger reactions."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.D5IJf3jZgeLFa7yf"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 30
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "damage": {
+        "formula": "2d6",
+        "damageType": "fire",
+        "kind": "damage"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "1dca302d-5d43-576f-b8b8-601c45d6e972",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "consumable",
+    "slug": "consumable:blast-off-bottle-moderate",
+    "name": "Blast-Off Bottle (Moderate)",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "fire"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This metal canister of explosive compounds is inspired by the blastpack, simplifying the technology for day-to-day use—though only a goblin could say what daily tasks warrant such a tool. Each creature in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 5
+          },
+          {
+            "type": "text",
+            "text": " from you takes the 3d6 fire damage with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 26,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save; a creature who fails the save is also knocked "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": ". Then, you Fly up to 20 feet and land prone; this movement doesn't trigger reactions."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.LyXTw2FkQpbQGyah"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 135
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "damage": {
+        "formula": "3d6",
+        "damageType": "fire",
+        "kind": "damage"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "620ac0eb-9198-5d23-995d-72180941850d",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "consumable",
+    "slug": "consumable:devils-trap",
+    "name": "Devil's Trap",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sometimes known as catching powder or simply \"the catch,\" this silvered powder was devised to slow the pursuit of House Thrune's fiendish servants. The powder is activated by scattering it in an unoccupied adjacent square. If a devil attempts to translocate to a destination within 30 feet of this square, the powder attempts to counteract the spell with a counteract rank of 3 and a counteract modifier of +13. Regardless of the result, the "
+          },
+          {
+            "type": "text",
+            "text": "devil's trap",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is consumed, but if it succeeds at the counteract attempt, the affected devil can't use actions with the teleportation trait for 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.7PjA6XVyAsLvoah2"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 40
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "605511c9-0ac1-5310-b8dd-95873dd694cb",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "consumable",
+    "slug": "consumable:energy-ointment-greater",
+    "name": "Energy Ointment (Greater)",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 10 minutes (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This thick grease can be applied to up to 5 willing creatures to protect them from dangerous energies. This oil is attuned to one of four energy types (acid, cold, electricity, or fire), chosen when created. When applied, it grants resistance 15 to the attuned energy type and reduces the DC for the flat check to end persistent damage of the attuned energy type by 5."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The duration is 8 hours."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.7bD0dAcvKxg378P5"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2750
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "8521fcca-7999-5785-b9ab-3bd668069c6e",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "consumable",
+    "slug": "consumable:energy-ointment-lesser",
+    "name": "Energy Ointment (Lesser)",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 10 minutes (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This thick grease can be applied to up to 5 willing creatures to protect them from dangerous energies. This oil is attuned to one of four energy types (acid, cold, electricity, or fire), chosen when created. When applied, it grants resistance 5 to the attuned energy type and reduces the DC for the flat check to end persistent damage of the attuned energy type by 2."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The duration is 10 minutes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.NONhINFtdo95qY3V"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 11
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "a3d1bb77-5b32-5694-8eaf-994df8d1cb70",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "consumable",
+    "slug": "consumable:energy-ointment-moderate",
+    "name": "Energy Ointment (Moderate)",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 10 minutes (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This thick grease can be applied to up to 5 willing creatures to protect them from dangerous energies. This oil is attuned to one of four energy types (acid, cold, electricity, or fire), chosen when created. When applied, it grants resistance 10 to the attuned energy type and reduces the DC for the flat check to end persistent damage of the attuned energy type by 3."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The duration is 1 hour."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.1WJ94lyi4bAjNCOy"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 275
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "f4474a30-83e8-5530-94bd-8d346a5162c1",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "consumable",
+    "slug": "consumable:flask-of-elemental-air",
+    "name": "Flask of Elemental Air",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While the elemental once imprisoned in this flask has long departed, some of its energy is still contained within, ready to be released when the flask is broken. You activate a flask of elements by removing a wax seal from the stopper. If you or anyone else hurls the flask (another Interact action), it explodes where it lands. Your toss can place the center of the explosion—a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 20
+          },
+          {
+            "type": "text",
+            "text": "—anywhere within 60 feet, though at the GM's discretion, you might need to make an attack roll if the throw is unusually challenging. If no one hurls the flask by the start of your next turn, it shatters harmlessly. The effect of the explosion depends on the type of flask."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The flask explodes in a swirl of frigid air, which has the air and cold traits. Creatures within the area take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "cold"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 23,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save. The ground in the area is coated with ice and becomes difficult terrain for 1 hour."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.mGo2ZlzeSfDdGRrJ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 70
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "340010a5-f322-520e-b1e9-d083b2e2cc99",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "consumable",
+    "slug": "consumable:flask-of-elemental-earth",
+    "name": "Flask of Elemental Earth",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While the elemental once imprisoned in this flask has long departed, some of its energy is still contained within, ready to be released when the flask is broken. You activate a flask of elements by removing a wax seal from the stopper. If you or anyone else hurls the flask (another Interact action), it explodes where it lands. Your toss can place the center of the explosion—a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 20
+          },
+          {
+            "type": "text",
+            "text": "—anywhere within 60 feet, though at the GM's discretion, you might need to make an attack roll if the throw is unusually challenging. If no one hurls the flask by the start of your next turn, it shatters harmlessly. The effect of the explosion depends on the type of flask."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The flask explodes in shards of glass that grow into sharp spikes; this explosion has the earth trait. Creatures within the area take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d6",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 23,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save. The ground in the area becomes hazardous terrain for 1 hour, and any creature that moves into one of these squares or ends its turn in one takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "bleed",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. A creature can take this damage only once per turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.3PzWpNoEjdTsLk1N"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 70
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "188da310-ca2a-5c0c-a044-53fdca6e6d14",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "consumable",
+    "slug": "consumable:flask-of-elemental-water",
+    "name": "Flask of Elemental Water",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While the elemental once imprisoned in this flask has long departed, some of its energy is still contained within, ready to be released when the flask is broken. You activate a flask of elements by removing a wax seal from the stopper. If you or anyone else hurls the flask (another Interact action), it explodes where it lands. Your toss can place the center of the explosion—a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 20
+          },
+          {
+            "type": "text",
+            "text": "—anywhere within 60 feet, though at the GM's discretion, you might need to make an attack roll if the throw is unusually challenging. If no one hurls the flask by the start of your next turn, it shatters harmlessly. The effect of the explosion depends on the type of flask."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The flask explodes in a thick cloud that unleashes a downpour, which has the water trait. Creatures within the area take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d6",
+                "damageType": "bludgeoning"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 23,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save. The rain extinguishes all non-magical fires in the area, and the ground becomes a Quicksand hazard as large as the area."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.gjFAN4RQEZjFCw6t"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 70
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "e498f94e-6fb5-58a7-a058-888b9c2a41a9",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "consumable",
+    "slug": "consumable:martial-mayhem-mutagen-greater",
+    "name": "Martial Mayhem Mutagen (Greater)",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir", "mutagen", "polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your senses sharpen and your mind floods with tactical opportunities, overwhelming your foes—though the rush of possibilities can overwhelm you instead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain a +3 item bonus to skill checks to Disarm, Grapple, Reposition, Shove, and Trip, and your melee Strikes deal 1d6 additional precision damage to "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " creatures. When you succeed at a melee attack roll, the target is off-guard to your next attack roll against it before the start of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The duration is 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Drawback",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take a –2 penalty to Will saves, Intelligence-based skill checks, and skill checks to Sense Motive. When you fail at a melee attack roll, you are "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": " until the end of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.4JPLGSOoAJi0g5Qp"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 300
+        }
+      },
+      "bulk": "light",
+      "category": "mutagen",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "2ac2452b-0616-5fd9-9fc9-9e13e6456f6d",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "consumable",
+    "slug": "consumable:martial-mayhem-mutagen-lesser",
+    "name": "Martial Mayhem Mutagen (Lesser)",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir", "mutagen", "polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your senses sharpen and your mind floods with tactical opportunities, overwhelming your foes—though the rush of possibilities can overwhelm you instead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain a +1 item bonus to skill checks to Disarm, Grapple, Reposition, Shove, and Trip, and your melee Strikes deal 1 additional precision damage to "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " creatures. When you succeed at a melee attack roll, the target is off-guard to your next attack roll against it before the start of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The duration is 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Drawback",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take a –2 penalty to Will saves, Intelligence-based skill checks, and skill checks to Sense Motive. When you fail at a melee attack roll, you are "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": " until the end of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.2EzE8fdNzD4Cp2ST"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "light",
+      "category": "mutagen",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "2867604b-e5af-5b4b-a495-4474146d03f3",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "consumable",
+    "slug": "consumable:martial-mayhem-mutagen-major",
+    "name": "Martial Mayhem Mutagen (Major)",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir", "mutagen", "polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your senses sharpen and your mind floods with tactical opportunities, overwhelming your foes—though the rush of possibilities can overwhelm you instead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain a +4 item bonus to skill checks to Disarm, Grapple, Reposition, Shove, and Trip, and your melee Strikes deal 1 additional precision damage to "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " creatures. When you succeed at a melee attack roll, the target is off-guard to your next attack roll against it before the start of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you critically succeed at a melee attack roll, the target is also "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": " until the beginning of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The duration is 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Drawback",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take a –2 penalty to Will saves, Intelligence-based skill checks, and skill checks to Sense Motive. When you fail at a melee attack roll, you are "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": " until the end of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.AXlHVbcQINWgbHNa"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3000
+        }
+      },
+      "bulk": "light",
+      "category": "mutagen",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "dba28250-8a52-5853-8a52-e17d19144ad4",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "consumable",
+    "slug": "consumable:martial-mayhem-mutagen-moderate",
+    "name": "Martial Mayhem Mutagen (Moderate)",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir", "mutagen", "polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your senses sharpen and your mind floods with tactical opportunities, overwhelming your foes—though the rush of possibilities can overwhelm you instead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain a +2 item bonus to skill checks to Disarm, Grapple, Reposition, Shove, and Trip, and your melee Strikes deal 1d4 additional precision damage to "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " creatures. When you succeed at a melee attack roll, the target is off-guard to your next attack roll against it before the start of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The duration is 10 minutes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Drawback",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take a –2 penalty to Will saves, Intelligence-based skill checks, and skill checks to Sense Motive. When you fail at a melee attack roll, you are "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": " until the end of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.9Wt5Jokp8IHAQZHy"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 12
+        }
+      },
+      "bulk": "light",
+      "category": "mutagen",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "877574c1-67b4-5f12-8440-4e7ca7a1ab79",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "consumable",
+    "slug": "consumable:megaphone-mutagen-greater",
+    "name": "Megaphone Mutagen (Greater)",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir", "mutagen", "polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your abdomen distends as your diaphragm strengthens, magnifying your voice."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain a +3 item bonus to skill checks you make as part of auditory actions, except Deception and Diplomacy checks. The range of your actions and spells with the auditory trait increases by 20 feet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The duration is 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Drawback",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take a –2 penalty to Fortitude saves, as well as Deception, Diplomacy, and Stealth checks."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.QMZJNmrFV3OB7rf8"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 300
+        }
+      },
+      "bulk": "light",
+      "category": "mutagen",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "7015f58a-ab3d-511d-b906-b291f88cd1d3",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "consumable",
+    "slug": "consumable:megaphone-mutagen-lesser",
+    "name": "Megaphone Mutagen (Lesser)",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir", "mutagen", "polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your abdomen distends as your diaphragm strengthens, magnifying your voice."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain a +1 item bonus to skill checks you make as part of auditory actions, except Deception and Diplomacy checks. The range of your actions and spells with the auditory trait increases by 10 feet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The duration is 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Drawback",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take a –2 penalty to Fortitude saves, as well as Deception, Diplomacy, and Stealth checks."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Tc6Cjo814FoNfujn"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "light",
+      "category": "mutagen",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "1f808b38-0e26-5ec9-b3b2-402230ed1a8e",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "consumable",
+    "slug": "consumable:megaphone-mutagen-major",
+    "name": "Megaphone Mutagen (Major)",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir", "mutagen", "polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your abdomen distends as your diaphragm strengthens, magnifying your voice."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain a +4 item bonus to skill checks you make as part of auditory actions, except Deception and Diplomacy checks. The range of your actions and spells with the auditory trait increases by 40 feet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The duration is 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Drawback",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take a –2 penalty to Fortitude saves, as well as Deception, Diplomacy, and Stealth checks."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.tJ2URF9RHWMR8xEr"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3000
+        }
+      },
+      "bulk": "light",
+      "category": "mutagen",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "a7319f7d-11f9-5dcc-a844-facfc318f13f",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "consumable",
+    "slug": "consumable:megaphone-mutagen-moderate",
+    "name": "Megaphone Mutagen (Moderate)",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir", "mutagen", "polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your abdomen distends as your diaphragm strengthens, magnifying your voice."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain a +2 item bonus to skill checks you make as part of auditory actions, except Deception and Diplomacy checks. The range of your actions and spells with the auditory trait increases by 15 feet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The duration is 10 minutes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Drawback",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take a –2 penalty to Fortitude saves, as well as Deception, Diplomacy, and Stealth checks."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.TDEsq6EotCp2PtsM"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 12
+        }
+      },
+      "bulk": "light",
+      "category": "mutagen",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "c727fe62-1631-5b5c-a4b9-68c69ce337e6",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "consumable",
+    "slug": "consumable:night-sky-elixir-greater",
+    "name": "Night Sky Elixir (Greater)",
+    "level": 15,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "consumable", "elixir"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Silver shavings, purified through secret alchemical processes, gleam like a starry night sky suspended in this thick black oil, which grants some of silver's protection against devils. For 8 hours, you gain a +3 item bonus to saving throws against effects created by devils and divine spells cast by devils."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.mHTOxBHwCnChS12G"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1300
+        }
+      },
+      "bulk": "light",
+      "category": "elixir",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "e073a677-cac4-5508-879c-8d420bef8e59",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "consumable",
+    "slug": "consumable:night-sky-elixir-lesser",
+    "name": "Night Sky Elixir (Lesser)",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "consumable", "elixir"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Silver shavings, purified through secret alchemical processes, gleam like a starry night sky suspended in this thick black oil, which grants some of silver's protection against devils. For 10 minutes, you gain a +1 item bonus to saving throws against effects created by devils and divine spells cast by devils."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.gtDdDx9zbpkMoyLV"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 12
+        }
+      },
+      "bulk": "light",
+      "category": "elixir",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "4e4f6206-5674-5c26-a9f6-4ecde8c321d3",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "consumable",
+    "slug": "consumable:night-sky-elixir-moderate",
+    "name": "Night Sky Elixir (Moderate)",
+    "level": 9,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "consumable", "elixir"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Silver shavings, purified through secret alchemical processes, gleam like a starry night sky suspended in this thick black oil, which grants some of silver's protection against devils. For 1 hour, you gain a +2 item bonus to saving throws against effects created by devils and divine spells cast by devils."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.BqxcT008uwb8vWik"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 150
+        }
+      },
+      "bulk": "light",
+      "category": "elixir",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

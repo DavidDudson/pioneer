@@ -1,0 +1,431 @@
+[
+  {
+    "id": "6fca3f3c-4fe8-57db-9528-70902ea1ee8e",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "weapon",
+    "slug": "weapon:heat-seeking-harpoon",
+    "name": "Heat Seeking Harpoon",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["tethered", "thrown"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking ",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "ref",
+            "id": "3d0bbb53-aa3f-53d5-a86a-371d6f877f4d"
+          },
+          {
+            "type": "text",
+            "text": " has a vicious iron tip that pulls it unerringly toward its target. As long as the target is warm-blooded, has the fire trait, or otherwise has an unusual heat signature, attacks with the heat-seeking harpoon don't take the normal penalties and restrictions for being used in water or underwater. They also ignore any concealment granted by smoke, darkness, or other visual barriers."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.WwmPP9IU81EKg3CU"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 150
+        }
+      },
+      "bulk": 1,
+      "category": "martial",
+      "group": "dart",
+      "baseItem": "harpoon",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "piercing"
+      },
+      "range": 30,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "4470261e-1c2e-53a2-84a9-e0772f83b58f",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "weapon",
+    "slug": "weapon:pike-of-the-monster-slayer",
+    "name": "Pike of the Monster Slayer",
+    "level": 13,
+    "rarity": "uncommon",
+    "traits": ["reach"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater striking longspear",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " has the skull of a horned beast mounted to the crossbar. During your daily preparations, you can douse the skull in the blood of a monster; the weapon gains the effects of a bane rune until your next daily preparations, targeting a trait of the creature which supplied the blood."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Blood of the Beast",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You reduce a non-humanoid creature or giant to 0 Hit Points"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You impale the creature's heart, thrusting it through the beast's back and exploding it in a shower of blood. Creatures within a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": " originating from the creature take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10d6",
+                "damageType": "acid"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 30,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save. On a critical failure, they're also "
+          },
+          {
+            "type": "ref",
+            "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+          },
+          {
+            "type": "text",
+            "text": " until the end of their next turn as they're coated in blood."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.9a7WqELEyOYloaJu"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3000
+        }
+      },
+      "bulk": 2,
+      "category": "simple",
+      "group": "spear",
+      "baseItem": "longspear",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 2,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "8ba6a155-d276-51d4-9045-187b24a9770f",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "weapon",
+    "slug": "weapon:soulpiercer",
+    "name": "Soulpiercer",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["deadly-d8", "disarm", "finesse", "invested"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The long, thin blade of this "
+          },
+          {
+            "type": "text",
+            "text": "+2 astral striking low-grade silver rapier",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is fashioned from liquid quicksilver, magically frozen and tapered to a deadly point."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Extend",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You swing the soulpiercer in a wide arc, extending its quicksilver blade. Your Strikes with the soulpiercer have a reach of 15 feet until the end of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Grant Mercy",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast a 5th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "9d047a36-41e0-52cd-b23c-ef49e7d4ebf6"
+          },
+          {
+            "type": "text",
+            "text": " (DC 28)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.wIAmDPFsRIjKQl1A"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1900
+        }
+      },
+      "bulk": 1,
+      "material": {
+        "type": "silver",
+        "grade": "low"
+      },
+      "activations": [
+        {
+          "slug": "extend",
+          "name": "Extend",
+          "frequency": {
+            "max": 1,
+            "per": "ten-minutes"
+          }
+        },
+        {
+          "slug": "grant-mercy",
+          "name": "Grant Mercy",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "rapier",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 1,
+        "property": ["b9d62e90-8419-502f-854f-121a45b1d1e0"]
+      }
+    }
+  }
+]

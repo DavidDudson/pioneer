@@ -47,6 +47,11 @@ export const FOUNDRY_IMPORTS: readonly FoundryImport[] = [
   { pack: PackId.parse('impossible-magic'), book: BookId.parse('impossible-magic'), release: 'pf2e-8.6.0' },
   { pack: PackId.parse('guns-and-gears'), book: BookId.parse('guns-and-gears'), release: 'pf2e-8.6.0' },
   { pack: PackId.parse('battlecry'), book: BookId.parse('battlecry'), release: 'pf2e-8.6.0' },
+  {
+    pack: PackId.parse('cheliax-infernal-inheritance'),
+    book: BookId.parse('cheliax-infernal-inheritance'),
+    release: 'pf2e-8.6.0',
+  },
 ];
 
 /** The release's page on GitHub. */

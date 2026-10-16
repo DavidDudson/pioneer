@@ -7,6 +7,14 @@ interface JsonModule {
   readonly default: unknown;
 }
 
+/**
+ * Passes a JSON import on as the bare module type. The packs list dozens of imports in one array, and as the union of
+ * every file's inferred type the compiler gives up on it (TS2859).
+ */
+export async function json(file: Promise<JsonModule>): Promise<JsonModule> {
+  return file;
+}
+
 export async function pack(
   manifest: Promise<JsonModule>,
   kinds: readonly Promise<JsonModule>[],
@@ -54,6 +62,9 @@ export async function coreRulesPack(): Promise<PackContents> {
     import('@pioneer/content/packs/core-rules/imported/secrets-of-magic/trait.json'),
     import('@pioneer/content/packs/core-rules/imported/impossible-magic/statistic.json'),
     import('@pioneer/content/packs/core-rules/imported/impossible-magic/trait.json'),
+    import('@pioneer/content/packs/core-rules/imported/cheliax-infernal-inheritance/language.json'),
+    import('@pioneer/content/packs/core-rules/imported/cheliax-infernal-inheritance/statistic.json'),
+    import('@pioneer/content/packs/core-rules/imported/cheliax-infernal-inheritance/trait.json'),
     import('@pioneer/content/packs/core-rules/imported/battlecry/statistic.json'),
     import('@pioneer/content/packs/core-rules/imported/battlecry/trait.json'),
     import('@pioneer/content/packs/core-rules/imported/guns-and-gears/language.json'),

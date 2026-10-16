@@ -1,0 +1,641 @@
+[
+  {
+    "id": "1b916759-9c53-5bc0-956c-767d1ae1c801",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "deity",
+    "slug": "deity:abrogail",
+    "name": "Abrogail",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Title",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The Thrice-Damned Queen"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Areas of Concern",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " ambition, rivalry, statecraft, schemes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " gain power through schemes and quick wits, manipulate people to do what you want"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " compromise on your ambitions, show your power through sheer strength, be merciful to those who wrong you"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Religious Symbol",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Infernal throne of Cheliax"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sacred Animal",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " falcon"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sacred Colors",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " black, red"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Even as an archdevil, Abrogail Thrune II rules over Cheliax, the newly created tenth layer of Hell. She has become the ambassador of Hell to Golarion and uses her kingdom as the embassy where devils freely walk among mortals. She completely shed her mortal form and has ascended to become a demigod at a terrible price."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In her ambition, the Thrice-Damned Queen sacrificed countless souls—including the essence of the celestial Talmandor—to raise herself as an archdevil and bring Hell to Cheliax. But in doing so, she has inextricably tied her fate to Asmodeus, who has the power to revoke her divinity at a moment's notice until such time as she has proven her worth. This current probationary period requires Abrogail to somewhat temper her ambitions; she has agreed to end her war with Andoran and has ceded large portions of Chelaxian territory to other nations. For now, she is restrained, but once she fully comes into her power, she will be a dangerous force to reckon with, both within and outside of Cheliax."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Following her damnation, with the support of the Church of Asmodeus, she declared that all citizens of Cheliax were also her followers, though not to the exclusion of worshipping Asmodeus as well. Those who were loyal subjects and members of the church in good standing gladly accepted this. Abrogail does not ask much from her followers, except for complete loyalty when she requires something from them. This has made those who paid only lip service to Asmodeus in the past fearful of what she might do if their halfhearted faith were to be found out."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Politicians and diplomats looking for an edge in their line of work have gravitated to becoming her followers. She does not care if they are righteous or corrupt, only if they pursue their ambitions no matter the cost. She also has a dedicated following of mortals with an interest in becoming devils after death. They view her as a role model, someone who has obtained the highest honor from Asmodeus. By pledging themselves to their queen, they believe they are almost guaranteed to join legions of devils in the Dark Prince's army."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.8HoxdDHyYy4RtbiZ"
+    },
+    "data": {
+      "category": "deity",
+      "sanctification": {
+        "modal": "must",
+        "what": ["unholy"]
+      },
+      "domains": {
+        "primary": ["ambition", "cities", "darkness", "toil"],
+        "alternate": ["knowledge", "magic", "tyranny"]
+      },
+      "font": ["harm"],
+      "attributes": ["wis", "cha"],
+      "skills": ["skill:diplomacy"],
+      "weapons": ["longsword"],
+      "spells": [
+        {
+          "rank": 1,
+          "spell": "bcd18575-6537-5dfc-a539-5bd5399dcd34"
+        },
+        {
+          "rank": 4,
+          "spell": "55e77e9d-6ce5-5891-b707-4dd41cb99017"
+        },
+        {
+          "rank": 8,
+          "spell": "9cbca3a7-5a5f-55f3-b53c-29e1dabc9ac2"
+        }
+      ]
+    }
+  },
+  {
+    "id": "7890bfef-44b5-5e38-9438-b93304664bba",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "deity",
+    "slug": "deity:insight-of-ego-triumphant",
+    "name": "Insight of Ego Triumphant",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Pantheon Members",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The collective unconscious of mortal beings, wayward psychic manifestations, the genus loci of ancient civilizations"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Areas of Concern",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " mortality, psychic phenomena, willpower, the limits of experiential perception"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " explore the full potentiality of your mortal soul, temper the four essences in pursuit of perfection, pursue ascension through sheer force of will"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " give into mortal frailty or self-defeat, accept any mortal life to be greater or lesser than yourself, serve the whims of any afterlife"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Religious Symbol",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " ivory tower"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The mortal spirit endures against the ordained plans of pantheons, cataclysm, and calamity. It endures until the soul is sent, sundered, unto Creation's Forge or finds its final rest in the service or subjugation of cosmic forces. Some mortals look upon this truth and shake their heads. As beings born of fundamental metaphysical essences, crafted in balance of each, and capable of nearly boundless potentiality, it seems a vicious joke to be condemned eternally upon some cosmic mechanism."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "It's of little surprise that the tumultuous history of Old Cheliax has given rise to philosophies that oppose divine or diabolic meddling. While the temptations and manipulations of devils are an obvious source of grievance, many also feel betrayed by the failures of Aroden and the Glorious Reclamation. From this rejection, and from knowledge of Iomedae's ascension to godhood, some wonder then about the \"inherent divinity of mortal life.\""
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Scholars in pursuit of the Insight of the Ego Triumphant are a covenant all their own. They seek to cultivate the meaning of mortal life, often finding themselves bound as ghosts or spirits who seek only to foster others upon this path. Whether the mortal spirit is meant to endure in such a way or whether this is damnation by any other name is not for them to do anything with other than speculate."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.Mrkj3YAWpnw8blx8"
+    },
+    "data": {
+      "category": "pantheon",
+      "domains": {
+        "primary": ["cities", "introspection", "perfection", "soul"],
+        "alternate": ["tyranny"]
+      },
+      "font": ["harm", "heal"],
+      "attributes": ["cha", "int"],
+      "skills": ["skill:society"],
+      "weapons": ["longsword"],
+      "spells": [
+        {
+          "rank": 1,
+          "spell": "e673a0e8-38da-5948-a453-86b2baba2d4d"
+        },
+        {
+          "rank": 4,
+          "spell": "e25a3eab-3b7d-56fd-90e2-98d892fdc8fd"
+        },
+        {
+          "rank": 7,
+          "spell": "dc3bb06e-92bb-5b57-8b64-bc76e3d979ce"
+        }
+      ]
+    }
+  },
+  {
+    "id": "cdb0936c-d636-5b3e-ac96-68e0b597e45d",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "deity",
+    "slug": "deity:the-battered-chains",
+    "name": "The Battered Chains",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Pantheon Members",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cayden Cailean, Kazutal, Milani, Pahti Coatl"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Areas of Concern",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " autonomy, destroying tyranny, elusion, safety"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " liberate the maliciously imprisoned, take fights to those who oppress others, help the free avoid further oppression"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " fail to give oppressors an opportunity to change their ways, give away information on the liberated, intentionally give others false hope of freedom"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Religious Symbol",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " a bouquet of blades emerging from within chains"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Hell has had desire to bind the souls of mortals for the entirety of existence. The Battered Chains is the latest act in a long history of benevolent gods working against the machinations of Hell. The transformation of Cheliax into the newest layer of Hell spurred these gods into an alliance dedicated to empowering faithful willing to work against the living Hell on Golarion. Together, they encourage their followers to help liberate those still under the infernal yoke both within and without Cheliax's borders. Whether that's by helping the oppressed escape the borders of the nation or by actively slaying oppressors, followers of the Battered Chains are taking on the long and arduous duty of liberating any innocents they come across."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Cayden Cailean and Milani were already strong allies before the Hellfire Crisis, and the war fanned the flames of their desire for freedom for all. Kazutal recognized the immediate need for support from both herself and her community in dealing with the new dangers and tyranny that was rising from the figurative depths below Cheliax. Across the sea, Pahti Coatl saw that the Chelaxian colonies of Anchor's End and Canorus had undergone their own infernal transformation. She then raced to the Inner Sea to see the cause of the change, encountering Cayden, Milani, and an old friend in Kazutal. The four knew that liberty was at risk and agreed to work together to do what they can against the tyranny of Hell."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The guidance of the Battered Chains encourages minimizing attention to the works of liberation and the liberated themselves. They teach that the oppressed rarely have the means to protect themselves or evade their captors for a sustained period of time. Instead of bombastic and destructive liberations, the followers of the Battered Chains do their best to act from the shadows. When that isn't possible, the followers know it's their duty to bring as many eyes on themselves as possible, allowing the recently liberated to escape under the veil of distraction."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.Z7MZwqWGQAckwcOY"
+    },
+    "data": {
+      "category": "pantheon",
+      "sanctification": {
+        "modal": "can",
+        "what": ["holy"]
+      },
+      "domains": {
+        "primary": ["change", "freedom", "might", "protection"],
+        "alternate": ["destruction", "secrecy"]
+      },
+      "font": ["heal"],
+      "attributes": ["str", "wis"],
+      "skills": ["skill:thievery"],
+      "weapons": ["spear"],
+      "spells": [
+        {
+          "rank": 1,
+          "spell": "adcc4c8f-05ae-5440-83d0-9e88ad22209b"
+        },
+        {
+          "rank": 2,
+          "spell": "d1f43afb-1c79-545c-9563-4dbbdd5a8386"
+        },
+        {
+          "rank": 6,
+          "spell": "64000c62-eeaa-5b2e-a340-0a6842e50a1e"
+        }
+      ]
+    }
+  },
+  {
+    "id": "143bb0a2-a390-5f93-89db-0e34721529ee",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "deity",
+    "slug": "deity:the-circle-of-the-damned",
+    "name": "The Circle of the Damned",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Covenant Members",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Abrogail, Baalzebul, Barbatos, Belial, Dispater, Geryon, Mammon, Mephistopheles, Moloch"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Areas of Concern",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " bureaucracy, diabolism, expansionism, order"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " spread the doctrines of order, foster Hell across the planes, become a devil"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " be merciful in punishment, allow the minions of heaven to expand their territory"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Religious Symbol",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " a contract with a chain encircling it"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "With the newly established tenth circle of hell, Archdevil Abrogail has already created plans to prove herself worthy of ascension to Asmodeus and her fellow archdevils. The Circle of the Damned seeks to expand Hell's sphere on Golarion. They use cultural, economic, and diplomatic means to sway their subjects. However, they aren't shy about using deception or schemes to curry favor with allies and enemies alike. Military expansion is considered a last resort."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The pantheon, much more structured and orderly than most others, was formed as a way for the archdevils under Asmodeus to hold on to their own individual power. Even though Abrogail is the \"youngest\" of the archdevils, the others have quite an interest in working with her, as she controls the most stable bastion of Hell on Golarion."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Mephistopheles, the Crimson Son, often serves as Hell's politician, and sometimes advises Abrogail on overtures and treaties made with other nations. Belial, the Pale Kiss, blesses followers with the guile and charisma to entice others into joining the ranks of diabolism. Among his faithful are artists, thespians, and playwrights who have helped boost the cultural reputation of Cheliax. Mammon, the Argent Prince, uses his economic expertise to help their followers craft trade agreements and boost the economy of Cheliax so that other regions have no choice but to associate with them. Abrogail was able to convince Dispater, the Iron Lord, to take a more active role into the user, blessing lawmakers, lawyers, and peacekeepers. He upholds the laws and structure for the circle's followers from Dis. Should one betray the edicts, they will be punished harshly by his Eclipsing Eye."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Followers of the Circle of the Damned are considered more as agents of the archdevils than worshippers, enacting Hell's will in exchange for devilish favor. The faithful consist of many politicians and bureaucrats in Cheliax. While Abrogail holds most of the nation's power (though always under the watchful eyes of Asmodeus), other members of the pantheon have their own pockets of worship, hoping to expand their reach to neighboring countries. Many noble houses in Cheliax have also decided to follow the Circle of the Damned, some believing in the pantheon's goal, while others use it to appease the archdevils for more power."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The biggest portion of the pantheon's followers are mortals who are interested in becoming devils themselves. They strive to obtain an infernal form in life. If their souls are claimed for Hell before that, they're more than happy to join the ranks of lost souls."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.QUfvOIDsQQwNZ8bp"
+    },
+    "data": {
+      "category": "covenant",
+      "sanctification": {
+        "modal": "can",
+        "what": ["unholy"]
+      },
+      "domains": {
+        "primary": ["ambition", "knowledge", "pain", "tyranny"],
+        "alternate": ["destruction", "zeal"]
+      },
+      "font": ["harm"],
+      "attributes": ["str", "cha"],
+      "skills": ["skill:diplomacy"],
+      "weapons": ["morningstar", "claw"],
+      "spells": [
+        {
+          "rank": 1,
+          "spell": "ae2f9970-d348-5f2c-9a98-b87119990dbe"
+        },
+        {
+          "rank": 3,
+          "spell": "3c7ef298-5d47-58c4-a650-2bec5d4bda5d"
+        },
+        {
+          "rank": 7,
+          "spell": "43055a38-2f08-5fbf-b5bc-4766acc9cd14"
+        }
+      ]
+    }
+  }
+]

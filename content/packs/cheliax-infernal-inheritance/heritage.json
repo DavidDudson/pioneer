@@ -1,0 +1,745 @@
+[
+  {
+    "id": "2197076c-2f4c-5b0c-a1c8-95fb5f03312d",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "heritage",
+    "slug": "heritage:bright-fetchling",
+    "name": "Bright Fetchling",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your body proves that shadow can't exist without light. Perhaps your eyes glow brighter or your veins occasionally pulse with light. You emit dim light within 5 feet of you. You can activate or suppress this ability with a Sustain action. Additionally, you can force fragments of your shadow to glow and even partially solidify, allowing you to cast "
+          },
+          {
+            "type": "ref",
+            "id": "b0b84836-b7a0-59ca-9379-6efdfb022f9e"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "6dee4f5d-f584-5402-af2a-d3738ec685b3"
+          },
+          {
+            "type": "text",
+            "text": " as occult innate cantrips. Cantrips are heightened to a spell rank equal to half your level rounded up."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:bright-fetchling",
+        "toggleable": true
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.wHO5luJMODbDLXNi"
+    },
+    "data": {
+      "ancestry": "34504ad0-0573-528e-8535-5631fddb78da"
+    }
+  },
+  {
+    "id": "0f67ab1b-0495-52f3-abda-ac92765fbb7e",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "heritage",
+    "slug": "heritage:deep-fetchling",
+    "name": "Deep Fetchling",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your predecessors dwelled in the Netherworld's deepest, most treacherous regions. You might cast a denser shadow, have a slower pulse, or find comfort in the embrace of darkness. You gain cold or void resistance equal to half your level (minimum 1), chosen when you gain this heritage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.k4AU5tjtngDOIqrB"
+    },
+    "data": {
+      "ancestry": "34504ad0-0573-528e-8535-5631fddb78da"
+    }
+  },
+  {
+    "id": "09a13936-a83c-5de1-a458-8f406c0bf327",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "heritage",
+    "slug": "heritage:kardan-bugbear",
+    "name": "Kardan Bugbear",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have dark gray fur that helps you move about stealthily. Whenever you gain the hidden condition, such as by succeeding at a skill check to Create a Diversion or Hide, you can Step as a free action. At the GM's discretion, this movement might cause you to become observed (for instance, if you moved into an area of bright light or to a space that doesn't provide cover)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.F0CqYaBipvUUy4DR"
+    },
+    "data": {
+      "ancestry": "fd3eeb3d-5471-5031-a0eb-8b74d38d1b5f"
+    }
+  },
+  {
+    "id": "c5bbb0f5-bd51-5015-a5fa-dfef86bb5386",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "heritage",
+    "slug": "heritage:koblak-bugbear",
+    "name": "Koblak Bugbear",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You were born dead, and somehow returned to life, which has left you teetering between life and undeath, and less able to feel or care. You gain void resistance equal to half your level (minimum 1). When you roll a success on a saving throw against an emotion effect, you get a critical success instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["void"],
+        "value": "max(1, floor(@level / 2))"
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["saving-throw"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "predicate": ["item:trait:emotion"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.H16ph8CHJG0fpyqA"
+    },
+    "data": {
+      "ancestry": "fd3eeb3d-5471-5031-a0eb-8b74d38d1b5f"
+    }
+  },
+  {
+    "id": "a6eb6482-70ea-565b-b066-ec0601c06439",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "heritage",
+    "slug": "heritage:liminal-fetchling",
+    "name": "Liminal Fetchling",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You come from a line of fetchlings with a closer connection to the Ethereal Plane and Netherworld, and you share those realms' affinity with the in-between and unseen. You gain a +1 circumstance bonus to locate "
+          },
+          {
+            "type": "ref",
+            "id": "61f1fec4-1bb4-585d-9c12-6059d15dd74b"
+          },
+          {
+            "type": "text",
+            "text": " creatures within 60 feet when using the Seek action. Your flat check to target "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " creatures is "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 3
+          },
+          {
+            "type": "text",
+            "text": " instead of DC 5, and your flat check to target undetected creatures is "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 9
+          },
+          {
+            "type": "text",
+            "text": " instead of DC 11."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["action:seek", "target:condition:undetected", "target:distance:60"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.PwxbD5VSJ0Yroqvp"
+    },
+    "data": {
+      "ancestry": "34504ad0-0573-528e-8535-5631fddb78da"
+    }
+  },
+  {
+    "id": "ed2b83b0-c617-5aff-ae7e-0da71d450b79",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "heritage",
+    "slug": "heritage:murd-bugbear",
+    "name": "Murd Bugbear",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your blueish-brown fur helps you blend into swamps, rivers, and coastlines. Your webbed hands and feet enable you to move through those same terrains. You gain a swim Speed of 10 feet. Additionally, you gain a +2 circumstance bonus to Hide or Sneak in aquatic environments."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:swim",
+        "mode": "upgrade",
+        "value": 10
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["terrain:aquatic"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.b3dubt1Hx0ak6GPZ"
+    },
+    "data": {
+      "ancestry": "fd3eeb3d-5471-5031-a0eb-8b74d38d1b5f"
+    }
+  },
+  {
+    "id": "38691457-b952-5116-a91d-091f7727f3cf",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "heritage",
+    "slug": "heritage:predator-strix",
+    "name": "Predator Strix",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You come from a line of strix with exceptionally broad wings and lengthy talons. You gain a talon melee unarmed attack that deals 1d4 slashing damage. Your talon attack is in the brawling group and has the agile, finesse, and unarmed traits."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "talon",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["agile", "finesse", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d4",
+          "damageType": "slashing"
+        },
+        "display": {
+          "label": "Talon"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.MUujYQYWg6PNVaaN"
+    },
+    "data": {
+      "ancestry": "23faac9b-2c34-50c4-9fd4-9a5d28f4d724"
+    }
+  },
+  {
+    "id": "6036d0ba-3188-5f4b-b699-ad30e57bb2c8",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "heritage",
+    "slug": "heritage:resolute-fetchling",
+    "name": "Resolute Fetchling",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your ancestors have long dealt with the horrific—in the Netherworld or elsewhere—and you bear their mental fortitude. When you roll a success on a saving throw against an emotion effect, you get a critical success instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["saving-throw"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "predicate": ["item:trait:emotion"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.VAo6NnrCEAAOUSkc"
+    },
+    "data": {
+      "ancestry": "34504ad0-0573-528e-8535-5631fddb78da"
+    }
+  },
+  {
+    "id": "f58bddde-138a-5be3-9a63-cbf64f9b0052",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "heritage",
+    "slug": "heritage:scavenger-strix",
+    "name": "Scavenger Strix",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your ancestors originated from a land where food was scarce and threats were many. You are trained in Survival. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "5e597080-193c-5a28-a1ed-901ee2ebba74"
+          },
+          {
+            "type": "text",
+            "text": " skill feat as a bonus feat. Your thoroughness when gathering food provides you a +1 circumstance bonus to Survival checks to Subsist."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:survival",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "5e597080-193c-5a28-a1ed-901ee2ebba74"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:survival"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["action:subsist"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.j0R1SyJP8k4G2Hkn"
+    },
+    "data": {
+      "ancestry": "23faac9b-2c34-50c4-9fd4-9a5d28f4d724"
+    }
+  },
+  {
+    "id": "972f3f18-86e9-5644-8212-1526f37b1abb",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "heritage",
+    "slug": "heritage:shoreline-strix",
+    "name": "Shoreline Strix",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're the descendant of strix who traveled to the coasts. Your feathers are especially water-repellent and sleekly angled for diving, allowing you to catch fish and other prey in the shallows. You are trained in Athletics, and you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "92df56f7-e2ed-5915-9d6a-f4aa8862eb23"
+          },
+          {
+            "type": "text",
+            "text": " skill feat as a bonus skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:athletics",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "92df56f7-e2ed-5915-9d6a-f4aa8862eb23"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.RxNBBMFZwPA3Vlg3"
+    },
+    "data": {
+      "ancestry": "23faac9b-2c34-50c4-9fd4-9a5d28f4d724"
+    }
+  },
+  {
+    "id": "fc3db3b2-e38f-5b8e-9d04-ab14774cfaaa",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "heritage",
+    "slug": "heritage:slate-stalker-bugbear",
+    "name": "Slate-Stalker Bugbear",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You come from the boldest bugbears, those who hide within the streets and alleys of larger settlements. Your fur is mottled gray, black, and brown, perfect for blending with urban environments and especially useful for climbing down chimneys and smokestacks. You gain a +1 circumstance bonus to Fortitude saves against inhaled effects (such as inhaled poisons). Additionally, you gain a +2 circumstance bonus to Hide or Sneak in urban environments."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["fotitude"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["item:trait:inhaled"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": [
+          "terrain:urban",
+          {
+            "or": ["action:hide", "action:sneak"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.rhBw1AlQXCxMow2V"
+    },
+    "data": {
+      "ancestry": "fd3eeb3d-5471-5031-a0eb-8b74d38d1b5f"
+    }
+  },
+  {
+    "id": "219d1627-26b0-5347-89c0-c978261a1828",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "heritage",
+    "slug": "heritage:songbird-strix",
+    "name": "Songbird Strix",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You descend from a talented line of strix storytellers. From the highest mountains and purest landscapes where your lungs fill with glorious clean air, you trill, whistle, and croon sweet songs. While natural sounds make you predisposed to sing, voices make you predisposed to mimicry. You receive a +1 circumstance bonus on Deception checks to Impersonate a mimicked voice, where the sound of the voice is the only factor; if you are a master in Deception, you gain a +2 circumstance bonus instead. You also gain a +1 circumstance bonus on Performance checks to sing; if you are a master in Performance, you gain a +2 circumstance bonus instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "circumstance",
+        "value": "ternary(gte(@rank.skill.deception, 3), 2, 1)",
+        "predicate": ["action:impersonate", "option:voice-only"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:performance"],
+        "type": "circumstance",
+        "value": "ternary(gte(@rank.skill.performance, 3), 2, 1)",
+        "predicate": ["action:perform:singing"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.fWT7Mo2vFC10H4Wq"
+    },
+    "data": {
+      "ancestry": "23faac9b-2c34-50c4-9fd4-9a5d28f4d724"
+    }
+  },
+  {
+    "id": "bbb8b4ed-063e-5e3e-a34a-648032079b2b",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "heritage",
+    "slug": "heritage:towering-bugbear",
+    "name": "Towering Bugbear",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Some bugbears are just built bigger. You've learned how to use your imposing size to loom over your enemies menacingly. You are Large instead of Medium (as usual for Large ancestries, this does not increase your reach). Enemies within your reach take a –1 circumstance penalty to saves against your fear effects."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "CreatureSize",
+        "value": "large",
+        "resizeEquipment": true
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.gi4ErFEX4vpyyCfb"
+    },
+    "data": {
+      "ancestry": "fd3eeb3d-5471-5031-a0eb-8b74d38d1b5f"
+    }
+  },
+  {
+    "id": "a8609a44-f349-5c8f-a718-58f21852ec37",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "heritage",
+    "slug": "heritage:wikkawak-bugbear",
+    "name": "Wikkawak Bugbear",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You hunt in the coldest reaches of the world, and your thick white fur is adapted to your environment, blending in with the frost and protecting you from the chill of blizzards and ice. You gain cold resistance equal to half your level (minimum 1). Additionally, you gain a +2 circumstance bonus to Hide or Sneak in arctic environments."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["cold"],
+        "value": "max(1, floor(@level / 2))"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": [
+          "terrain:arctic",
+          {
+            "or": ["action:hide", "action:sneak"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.dIou0yyQtW95xWzP"
+    },
+    "data": {
+      "ancestry": "fd3eeb3d-5471-5031-a0eb-8b74d38d1b5f"
+    }
+  },
+  {
+    "id": "078621e8-739a-5a68-82d0-76a94214c894",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "heritage",
+    "slug": "heritage:wisp-fetchling",
+    "name": "Wisp Fetchling",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your ancestors' exposure to the Netherworld wrought great physical changes. Your hair or skin sometimes appears insubstantial, and you're slighter and more agile than other fetchlings. You're Small instead of Medium. You gain the trained proficiency rank in Acrobatics, the "
+          },
+          {
+            "type": "ref",
+            "id": "8d5acd26-e889-5893-a9e0-1bff8da9f84e"
+          },
+          {
+            "type": "text",
+            "text": " skill feat, and a +1 circumstance bonus to Acrobatics checks to Tumble Through. If you would automatically become trained in Acrobatics (from your background or class, for example), you instead become trained in a skill of your choice."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "CreatureSize",
+        "value": "small"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:acrobatics",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "8d5acd26-e889-5893-a9e0-1bff8da9f84e"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:acrobatics"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["action:tumble-through"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.kHHcvJBJNiPJTuna"
+    },
+    "data": {
+      "ancestry": "34504ad0-0573-528e-8535-5631fddb78da"
+    }
+  }
+]

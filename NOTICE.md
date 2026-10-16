@@ -69,25 +69,26 @@ Pioneer contributors (ADR-0031). The app's public Legal page, linked from every
 page footer, states this, links the Foundry release each pack was imported
 from, and offers the content caches for download without an account.
 
-| Pack                       | Imported from                                                                              |
-| -------------------------- | ------------------------------------------------------------------------------------------ |
-| `player-core`              | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
-| `player-core-2`            | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
-| `divine-mysteries`         | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
-| `howl-of-the-wild`         | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
-| `war-of-immortals`         | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
-| `gm-core`                  | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
-| `treasure-vault`           | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
-| `mwangi-expanse`           | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
-| `secrets-of-magic`         | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
-| `rage-of-elements`         | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
-| `tian-xia-character-guide` | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
-| `dark-archive-remastered`  | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
-| `character-guide`          | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
-| `impossible-lands`         | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
-| `impossible-magic`         | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
-| `guns-and-gears`           | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
-| `battlecry`                | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
+| Pack                           | Imported from                                                                              |
+| ------------------------------ | ------------------------------------------------------------------------------------------ |
+| `player-core`                  | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
+| `player-core-2`                | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
+| `divine-mysteries`             | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
+| `howl-of-the-wild`             | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
+| `war-of-immortals`             | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
+| `gm-core`                      | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
+| `treasure-vault`               | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
+| `mwangi-expanse`               | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
+| `secrets-of-magic`             | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
+| `rage-of-elements`             | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
+| `tian-xia-character-guide`     | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
+| `dark-archive-remastered`      | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
+| `character-guide`              | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
+| `impossible-lands`             | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
+| `impossible-magic`             | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
+| `guns-and-gears`               | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
+| `battlecry`                    | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
+| `cheliax-infernal-inheritance` | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
 
 The vocabulary each import adds to `core-rules` (traits, senses, damage types,
 Lore statistics), under `content/packs/core-rules/imported/<pack>/`, comes from

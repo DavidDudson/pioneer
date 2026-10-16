@@ -146,6 +146,7 @@ describe.skipIf(adminUrl === undefined)('content routes (postgres)', () => {
     expect(packs.map((pack) => String(pack.id))).toStrictEqual([
       'battlecry',
       'character-guide',
+      'cheliax-infernal-inheritance',
       'core-rules',
       'dark-archive-remastered',
       'divine-mysteries',

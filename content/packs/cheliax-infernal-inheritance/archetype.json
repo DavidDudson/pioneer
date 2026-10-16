@@ -1,0 +1,52 @@
+[
+  {
+    "id": "78264309-7dbc-5f83-9657-d7a8a16d8aa9",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "archetype",
+    "slug": "archetype:bellflower-tiller",
+    "name": "Bellflower Tiller",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Bellflower tillers handle most of the ground-level efforts of freeing slaves and escorting them to safety. They use farming-related code words to hide their work: a tiller's freed slaves are her \"crop,\" which she moves along secretive paths termed \"rows,\" taking shelter in secret hideouts referred to as \"barns.\""
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.cdnkS3A8OpOnRjKu"
+    },
+    "data": {
+      "dedication": "56550ca9-b7c3-5740-baf4-e4191bec31c7"
+    }
+  }
+]

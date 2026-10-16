@@ -33,6 +33,7 @@ export const FOUNDRY_BOOK_TITLES: ReadonlyMap<string, BookId> = new Map([
   ['Pathfinder Impossible Magic', BookId.parse('impossible-magic')],
   ['Pathfinder Guns & Gears', BookId.parse('guns-and-gears')],
   ['Pathfinder Battlecry!', BookId.parse('battlecry')],
+  ['Pathfinder Lost Omens Cheliax, Infernal Inheritance', BookId.parse('cheliax-infernal-inheritance')],
 ]);
 
 /**

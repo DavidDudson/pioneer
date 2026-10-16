@@ -1,0 +1,1012 @@
+[
+  {
+    "id": "6f8e6d9d-8340-53cf-954c-c74a82da4efd",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "class-feature",
+    "slug": "class-feature:adept-benefit-censer",
+    "name": "Adept Benefit (Censer)",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["thaumaturge"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can will the smoke from your censer to expand and contract. When you light your censer, you can choose the size of the smoke emanation: 10 feet, 15 feet, or 20 feet. In addition, the first time each round an enemy Casts a Spell or takes a linguistic action while within the emanation, they possibly choke on the smoke. They must attempt a Fortitude saving throw against your class DC or become "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 2"
+          },
+          {
+            "type": "text",
+            "text": " on a critical failure). The target of your"
+          },
+          {
+            "type": "ref",
+            "id": "69b2520b-82a3-5ba4-b378-172272dc3b74"
+          },
+          {
+            "type": "text",
+            "text": " takes a –1 status penalty to this save. This is an inhaled poison effect."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.ZOlDwzTQ9PDJsJSR"
+    },
+    "data": {}
+  },
+  {
+    "id": "829935be-5119-5b13-9364-35bc9303e4f2",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "class-feature",
+    "slug": "class-feature:censer",
+    "name": "Censer",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["thaumaturge"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Censer implements are vessels in which incense is burned, producing a haze of smoke that often carries a potent odor. Censers, thuribles, and other similar items are routinely used in religious ceremonies and represent practices that alter the atmosphere of a place, usually to drive off unwanted forces. Censer implements are often associated with the harrow suit of stars and the astrological sign of the underworld dragon."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Goblins, especially those of the Chitterwood, have created a kind of censer that is known as a stink torch. Despite its name, a stink torch doesn't give off any illumination when lit, just a haze of acrid smoke."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Initiate Benefit",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Adept Benefit",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Intensify Vulnerability",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The incense within your censer is particularly dangerous to your targets. When you successfully Strike the target of your Exploit Vulnerability while it is within your smoke cloud, the creature takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "poison",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage (or 2d6 on a critical hit)."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Paragon Benefit",
+            "marks": ["strong"]
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "5413b7bf-ed32-5869-af41-0ddcbc388003",
+        "predicate": ["class:thaumaturge"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.X1xuYSTJ7ojsoLxY"
+    },
+    "data": {
+      "tags": ["thaumaturge-implement"]
+    }
+  },
+  {
+    "id": "5413b7bf-ed32-5869-af41-0ddcbc388003",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "class-feature",
+    "slug": "class-feature:initiate-benefit-censer",
+    "name": "Initiate Benefit (Censer)",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["thaumaturge"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While you hold your censer, it billows smoke that obscures creatures within the area. You can light or extinguish your censer with a thought once each turn as a free action, which has the concentrate trait. The smoke fills a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": ", and all creatures take a –1 circumstance penalty to Perception checks and ranged attack rolls against creatures within the smoke. In addition, you gain the Swing the Censer action."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.5cpC7dZjEDuSAZef"
+    },
+    "data": {}
+  },
+  {
+    "id": "4c3a9436-63cd-55aa-878b-1cf1fda80cad",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "class-feature",
+    "slug": "class-feature:paragon-benefit-censer",
+    "name": "Paragon Benefit (Censer)",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["thaumaturge"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The odor of the incense within your censer smells overwhelmingly foul to your enemies. Any enemy within your smoke cloud who retches in an attempt to recover from the "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8"
+          },
+          {
+            "type": "text",
+            "text": " condition must roll the save twice and take the worse result; this is a misfortune effect. In addition, Swing the Censer's frequency becomes once per round, and any creature who fails its saving throw against your censer's adept benefit is "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " for as long as it its sickened."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.TR5AzAIDbTxbHrO9"
+    },
+    "data": {}
+  },
+  {
+    "id": "c375ffa0-8ed5-5559-8288-1b48053af8a7",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "class-feature",
+    "slug": "class-feature:school-of-corentyn-armada",
+    "name": "School of Corentyn Armada",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've received brutal instruction in shadow and illusion magic from the shadowcallers of the Duskhall."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Curriculum",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "cantrips:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "c319a7b8-ee8e-5f50-97c7-16151916ad80"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "7147051e-bfb2-53e0-a6f8-a8876e5e4aa5"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "1st:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "e48e01db-df29-5558-b6a3-a78233bae1d1"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "34da213b-dfe6-5e19-b7f5-bfc627cadded"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "3c291f3e-3796-5264-8a5e-a12daf18b13a"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "2nd:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "42fa4e93-acfd-52ff-a186-cef177164f63"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "62b9b05e-2f86-5c8b-bc12-2500cd4d9959"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "3rd:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " aquatic arsenal, "
+                },
+                {
+                  "type": "ref",
+                  "id": "05b4db87-cfd1-5f29-9624-336f9f13260e"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "4th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "f8d9bba2-3061-5beb-aff8-57dc839a5583"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "b9c6ff5d-7757-5750-8536-1486fd82c8a7"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "5th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "07ae3cd7-dcbd-519c-a9f0-6c9c385a5139"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "6faf1238-710e-52cb-b1f2-ee8274409f5c"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "6th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "088c1f48-de0f-5b8a-83b3-24ce61a928bc"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "ec6df711-1ab8-5f9d-8e01-6827c947eeff"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "7th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "7c9cae9d-6b33-5c97-91e7-787d78e8ec45"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "a3f9a255-5673-5df8-91ea-24b02bb4d503"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "8th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "bd06ad4f-c772-5cf5-b681-ac85bf76f690"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "0ffdc954-c422-5590-a4f2-c72d060baf98"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "9th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "05d5f598-dca0-5144-b846-56f387c85245"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "School Spells",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " initial: "
+          },
+          {
+            "type": "ref",
+            "id": "19cf04f9-2b6c-5e78-bed6-1aa18c062113"
+          },
+          {
+            "type": "text",
+            "text": "; advanced: "
+          },
+          {
+            "type": "ref",
+            "id": "1349a240-4aeb-511f-898f-f8bec6626b8e"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "PoolSpells",
+        "entry": "wizard",
+        "pool": "curriculum",
+        "spells": [
+          "c319a7b8-ee8e-5f50-97c7-16151916ad80",
+          "7147051e-bfb2-53e0-a6f8-a8876e5e4aa5",
+          "e48e01db-df29-5558-b6a3-a78233bae1d1",
+          "34da213b-dfe6-5e19-b7f5-bfc627cadded",
+          "3c291f3e-3796-5264-8a5e-a12daf18b13a",
+          "42fa4e93-acfd-52ff-a186-cef177164f63",
+          "62b9b05e-2f86-5c8b-bc12-2500cd4d9959",
+          "05b4db87-cfd1-5f29-9624-336f9f13260e",
+          "f8d9bba2-3061-5beb-aff8-57dc839a5583",
+          "b9c6ff5d-7757-5750-8536-1486fd82c8a7",
+          "07ae3cd7-dcbd-519c-a9f0-6c9c385a5139",
+          "6faf1238-710e-52cb-b1f2-ee8274409f5c",
+          "088c1f48-de0f-5b8a-83b3-24ce61a928bc",
+          "ec6df711-1ab8-5f9d-8e01-6827c947eeff",
+          "7c9cae9d-6b33-5c97-91e7-787d78e8ec45",
+          "a3f9a255-5673-5df8-91ea-24b02bb4d503",
+          "bd06ad4f-c772-5cf5-b681-ac85bf76f690",
+          "0ffdc954-c422-5590-a4f2-c72d060baf98",
+          "05d5f598-dca0-5144-b846-56f387c85245"
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.a7yKDVnAYduaKIrL"
+    },
+    "data": {
+      "tags": ["wizard-arcane-school"]
+    }
+  },
+  {
+    "id": "e39dfd67-9a5c-5521-bc0d-1441e5ca6b94",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "class-feature",
+    "slug": "class-feature:school-of-shadow-veils",
+    "name": "School of Shadow Veils",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've received brutal instruction in shadow and illusion magic from the shadowcallers of the Duskhall."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Curriculum",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "cantrips:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "d32836d8-9eeb-52c0-a7f8-6e0bc64ed7c7"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "4564025d-51b0-541a-a554-662ea3883cda"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "1st:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "3d63b411-a7ae-5d54-bcc3-b6426386412e"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "be7c4e85-a99f-55ed-aa05-781409a71c59"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "abc8341d-d437-58de-9cd6-8c2611ad591f",
+                  "label": "illusory object"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "2nd:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "d7720a54-bc70-5d59-bdb1-d50d8eb0dac9"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "0af1f62f-c028-5e01-ba52-4b9c00f83890"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "3rd:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "dc0e85c5-c36f-5515-badd-9e98f18bbc19"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "cd231408-c98a-515b-b4bf-ec7600b5f32c"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "4th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "d5adaa25-524b-5b0b-bdb8-ead3422e725b"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "246e24c3-5849-55a9-a7d9-f253f8ee6da4"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "5th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "e1332e15-0861-56f8-95f5-7749561ac8ae"
+                },
+                {
+                  "type": "text",
+                  "text": ", Slither"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "6th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "64000c62-eeaa-5b2e-a340-0a6842e50a1e"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "8863d56b-38f3-5724-80df-c0c7f9a8652f"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "7th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "c4f7f267-8526-5dd9-9ff8-2ef5d29ac387"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "00d2eb60-c2b5-50c6-9d3e-9dbbc00f2429"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "8th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "c162b2c7-aa54-5201-ab21-a2909f5790b3"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "9th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "e551a4eb-8b73-5a89-979e-a15f470a28ce"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "School Spells",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " initial: "
+          },
+          {
+            "type": "ref",
+            "id": "be50ff3a-9c38-5e0f-b700-a023cfb2ff0f"
+          },
+          {
+            "type": "text",
+            "text": "; advanced: "
+          },
+          {
+            "type": "ref",
+            "id": "5dbb32d3-a0cc-57c5-a158-350ea96bc881"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "PoolSpells",
+        "entry": "wizard",
+        "pool": "curriculum",
+        "spells": [
+          "d32836d8-9eeb-52c0-a7f8-6e0bc64ed7c7",
+          "4564025d-51b0-541a-a554-662ea3883cda",
+          "3d63b411-a7ae-5d54-bcc3-b6426386412e",
+          "be7c4e85-a99f-55ed-aa05-781409a71c59",
+          "abc8341d-d437-58de-9cd6-8c2611ad591f",
+          "d7720a54-bc70-5d59-bdb1-d50d8eb0dac9",
+          "0af1f62f-c028-5e01-ba52-4b9c00f83890",
+          "dc0e85c5-c36f-5515-badd-9e98f18bbc19",
+          "cd231408-c98a-515b-b4bf-ec7600b5f32c",
+          "d5adaa25-524b-5b0b-bdb8-ead3422e725b",
+          "246e24c3-5849-55a9-a7d9-f253f8ee6da4",
+          "e1332e15-0861-56f8-95f5-7749561ac8ae",
+          "64000c62-eeaa-5b2e-a340-0a6842e50a1e",
+          "8863d56b-38f3-5724-80df-c0c7f9a8652f",
+          "c4f7f267-8526-5dd9-9ff8-2ef5d29ac387",
+          "00d2eb60-c2b5-50c6-9d3e-9dbbc00f2429",
+          "c162b2c7-aa54-5201-ab21-a2909f5790b3",
+          "e551a4eb-8b73-5a89-979e-a15f470a28ce"
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.0QAFC61tpP63GUQa"
+    },
+    "data": {
+      "tags": ["wizard-arcane-school"]
+    }
+  }
+]
