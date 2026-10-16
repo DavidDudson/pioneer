@@ -562,7 +562,8 @@
         "attackMartial": "Martial weapons",
         "attackAdvanced": "Advanced weapons",
         "spellcasting": "Spellcasting",
-        "spellDc": "Spell DC ({entry})"
+        "spellDc": "Spell DC ({entry})",
+        "spellSlots": "Spell slots ({entry}, {rank, select, cantrip {cantrips} other {rank {rank}}})"
       },
       "notCarried": "Characters can't hold these yet, so they weren't kept: {fields}.",
       "groupSummary": "{kind} · {count, number} not carried over",

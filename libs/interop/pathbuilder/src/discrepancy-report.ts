@@ -1,6 +1,8 @@
 import { Attribute, Proficiency, ProficiencySchema, Selector } from '@pioneer/rules/sdk';
 import * as z from 'zod';
 
+import { pairCasters } from './caster-pairing';
+import type { CasterHome } from './caster-pairing';
 import { RANK_BY_NUMBER } from './read-pathbuilder-export';
 import type { PathbuilderImport } from './read-pathbuilder-export';
 
@@ -104,12 +106,20 @@ export interface PioneerSpellDc {
   readonly total: number;
 }
 
-/** What the engine derived for the imported character: totals by statistic, ranks of the statistics ranked, and the spell DCs. */
+/** The spell slots the engine gives one prepared or spontaneous entry per day: cantrips first, then each rank, 1 to 10. */
+export interface PioneerSpellSlots extends CasterHome {
+  readonly counts: readonly number[];
+}
+
+/** What the engine derived for the imported character: totals by statistic, ranks of the statistics ranked, the spell DCs and the spell slots. */
 export interface PioneerValues {
+  readonly spellSlots: readonly PioneerSpellSlots[];
   readonly totals: ReadonlyMap<Selector, number>;
   readonly ranks: ReadonlyMap<Selector, Proficiency>;
   readonly spellDcs: readonly PioneerSpellDc[];
 }
+
+export const SPELL_SLOTS_PREFIX = 'spell-slots:';
 
 /** The base of a DC. */
 const BASE_DC = 10;
@@ -182,6 +192,26 @@ function spellDcPairs(value: PathbuilderImport, { spellDcs }: PioneerValues): Pa
   );
 }
 
+/** The selector of the slots an entry has of one rank: `spell-slots:oracle:3`, or `:cantrip` for the cantrips. */
+function slotsSelector(slug: string, index: number): Selector {
+  return Selector.parse(`${SPELL_SLOTS_PREFIX}${slug}:${index === 0 ? 'cantrip' : String(index)}`);
+}
+
+/**
+ * The spells a day Pathbuilder gives each caster, rank by rank, beside the engine's slots for the entry that casts the
+ * same way. A caster with no such entry has nothing to compare, and a rank neither side has slots of is not a row.
+ */
+function spellSlotPairs(value: PathbuilderImport, { spellSlots }: PioneerValues): Pair[] {
+  return [...pairCasters(value.casters, spellSlots)].flatMap(([caster, entry]) => {
+    const length = Math.max(caster.perDay.length, entry.counts.length);
+    return Array.from({ length }, (_unused, index): Pair => ({
+      selector: slotsSelector(entry.slug, index),
+      pathbuilder: caster.perDay[index] ?? 0,
+      pioneer: entry.counts[index] ?? 0,
+    })).filter(({ pathbuilder, pioneer }) => pathbuilder > 0 || pioneer > 0);
+  });
+}
+
 function totalDifferences(value: PathbuilderImport, values: PioneerValues): [number, TotalDiscrepancy[]] {
   const compared: Pair[] = [
     ...[...reportedTotals(value)].flatMap(([selector, pathbuilder]): Pair[] => {
@@ -189,6 +219,7 @@ function totalDifferences(value: PathbuilderImport, values: PioneerValues): [num
       return pioneer === undefined ? [] : [{ selector, pathbuilder, pioneer }];
     }),
     ...spellDcPairs(value, values),
+    ...spellSlotPairs(value, values),
   ];
   const differing = compared
     .filter(({ pathbuilder, pioneer }) => pathbuilder !== pioneer)
@@ -242,7 +273,7 @@ function rankDifferences(value: PathbuilderImport, values: PioneerValues): [numb
 
 /**
  * The numbers Pathbuilder computed, beside the engine's for the imported character (#312): AC, maximum Hit Points,
- * Speed, the spell DC of each focus tradition and the rank of each save, Perception, the class DC and the skills. Only a statistic both sides have is
+ * Speed, the spell DC of each focus tradition, the spell slots of each caster and the rank of each save, Perception, the class DC and the skills. Only a statistic both sides have is
  * compared, so one the engine can't derive yet (no content for it) counts as neither matching nor differing.
  */
 export function discrepancyReport(value: PathbuilderImport, pioneer: PioneerValues): DiscrepancyReport {

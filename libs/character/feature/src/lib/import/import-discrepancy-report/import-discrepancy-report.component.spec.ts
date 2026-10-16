@@ -111,4 +111,29 @@ describe(ImportDiscrepancyReport, () => {
 
     expect(text).toContain('Spell DC (oracle)');
   });
+
+  it('names spell slots by their entry and rank', async () => {
+    const text = await render({
+      compared: 21,
+      differences: [
+        {
+          kind: DiscrepancyKind.Total,
+          selector: Selector.parse('spell-slots:oracle:3'),
+          pathbuilder: 4,
+          pioneer: 3,
+          difference: -1,
+        },
+        {
+          kind: DiscrepancyKind.Total,
+          selector: Selector.parse('spell-slots:oracle:cantrip'),
+          pathbuilder: 5,
+          pioneer: 4,
+          difference: -1,
+        },
+      ],
+    });
+
+    expect(text).toContain('Spell slots (oracle, rank 3)');
+    expect(text).toContain('Spell slots (oracle, cantrips)');
+  });
 });
