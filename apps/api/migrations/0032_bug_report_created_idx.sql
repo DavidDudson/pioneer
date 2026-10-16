@@ -1,0 +1,1 @@
+CREATE INDEX "bug_reports_created_idx" ON "bug_reports" USING btree ("created_at");

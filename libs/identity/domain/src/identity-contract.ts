@@ -1,8 +1,14 @@
 import { Endpoint, HttpMethod, NoBody, NoParams, NoQuery } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
-import { BugReportReceipt, BugReportSubmission } from './bug-report';
-import { OAuthProviderSchema, SessionId } from './identity-fields';
+import {
+  BugReportDetail,
+  BugReportListItem,
+  BugReportReceipt,
+  BugReportSubmission,
+  BugReportTriage,
+} from './bug-report';
+import { BugReportId, OAuthProviderSchema, SessionId } from './identity-fields';
 import type { OAuthProvider } from './identity-fields';
 import { Preferences } from './preferences';
 import { SessionSummary } from './session';
@@ -12,6 +18,7 @@ import { User } from './user';
 const Done = z.strictObject({});
 
 const BySessionId = z.object({ id: SessionId });
+const ByBugReportId = z.object({ id: BugReportId });
 
 /** A PATCH that changes nothing would only touch `updated_at` and the audit log, so it is a 422. */
 const PreferencesChange = Preferences.refine((change) => Object.values(change).some((value) => value !== undefined));
@@ -98,6 +105,33 @@ export const IdentityContract = {
     query: NoQuery,
     body: BugReportSubmission,
     response: BugReportReceipt,
+  }),
+  /** Maintainers only (404 for everyone else): the newest reports, with where each stands. */
+  listBugReports: new Endpoint({
+    method: HttpMethod.Get,
+    path: '/bug-reports',
+    params: NoParams,
+    query: NoQuery,
+    body: NoBody,
+    response: z.array(BugReportListItem),
+  }),
+  /** Maintainers only (404 for everyone else): one report in full, with the snapshot if the reporter shared one. */
+  readBugReport: new Endpoint({
+    method: HttpMethod.Get,
+    path: '/bug-reports/:id',
+    params: ByBugReportId,
+    query: NoQuery,
+    body: NoBody,
+    response: BugReportDetail,
+  }),
+  /** Maintainers only (404 for everyone else): sets where a report stands. */
+  triageBugReport: new Endpoint({
+    method: HttpMethod.Patch,
+    path: '/bug-reports/:id',
+    params: ByBugReportId,
+    query: NoQuery,
+    body: BugReportTriage,
+    response: BugReportDetail,
   }),
 } as const;
 

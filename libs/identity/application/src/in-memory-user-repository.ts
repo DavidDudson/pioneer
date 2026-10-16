@@ -48,6 +48,10 @@ export class InMemoryUserRepository extends UserRepository {
     return user;
   }
 
+  public override async findById(id: UserId): Promise<User | undefined> {
+    return this.#users.get(id);
+  }
+
   /** Test lookup by id. */
   public get(id: UserId): User | undefined {
     return this.#users.get(id);
