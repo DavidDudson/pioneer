@@ -8,6 +8,7 @@ import { DeityView } from '@pioneer/rules/ui';
 import { InventorySection } from '../inventory/inventory-section/inventory-section.component';
 import { SheetActions } from '../sheet-actions/sheet-actions.component';
 import { SheetDeitySection } from '../sheet-deity-section/sheet-deity-section.component';
+import { SheetExplorationActivity } from '../sheet-exploration-activity/sheet-exploration-activity.component';
 import { SheetLanguagesSection } from '../sheet-languages-section/sheet-languages-section.component';
 import { SheetRoleplaySection } from '../sheet-roleplay-section/sheet-roleplay-section.component';
 import { SHEET_SECTIONS, SHEET_TAB_SECTIONS } from '../sheet-sections';
@@ -31,6 +32,7 @@ import { rememberTab } from '../sheet-tab';
     SectionIndex,
     SectionLink,
     SheetDeitySection,
+    SheetExplorationActivity,
     SheetLanguagesSection,
     SheetRoleplaySection,
     Stack,

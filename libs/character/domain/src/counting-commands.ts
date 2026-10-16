@@ -3,6 +3,8 @@ import type { ConditionCommand } from './conditions';
 import { applyEffectCommand, isEffectCommand } from './effect-commands';
 import type { EffectCommand } from './effect-commands';
 import type { ActiveEffect, EffectContent } from './effects';
+import { applyExplorationCommand, isExplorationCommand } from './exploration-commands';
+import type { ExplorationActivity, ExplorationCommand } from './exploration-commands';
 import { applyResourceCommand, ResourceCommandField } from './resource-commands';
 import type { ResourceCommand, ResourceLimits } from './resource-commands';
 import { ResourceCount } from './resource-count';
@@ -26,7 +28,8 @@ export type CountingCommand =
   | EffectCommand
   | RestCommand
   | ToggleCommand
-  | SpendCommand;
+  | SpendCommand
+  | ExplorationCommand;
 
 /** The part of a play state a counting edit reads and writes: what a restoring action does, and the toggles. */
 export type CountingPlay = RestPlay & {
@@ -34,6 +37,7 @@ export type CountingPlay = RestPlay & {
   readonly effects: readonly ActiveEffect[];
   readonly spendLog: SpendLog;
   readonly turn: TurnState;
+  readonly exploration?: ExplorationActivity;
 };
 
 /** What a counting edit reads besides the play state: the restoring actions' limits and the effect content. */
@@ -56,13 +60,21 @@ export function isCountingCommand<Command extends { readonly field: unknown }>(
     isEffectCommand(command) ||
     isRestCommand(command) ||
     isToggleCommand(command) ||
-    isSpendCommand(command)
+    isSpendCommand(command) ||
+    isExplorationCommand(command)
   );
 }
 
 /** What bounds a pool edit, from the limits of a counting edit. */
 function resourceLimits(limits: CountingLimits): ResourceLimits {
   return { points: limits.resources, counted: limits.counted, staffCost: limits.staff.castCost ?? NO_CHARGES };
+}
+
+/** `play` after a toggle or the exploration activity set. */
+function applyChoiceCommand<Play extends CountingPlay>(play: Play, command: ToggleCommand | ExplorationCommand): Play {
+  return isExplorationCommand(command)
+    ? { ...play, exploration: applyExplorationCommand(command) }
+    : { ...play, toggles: applyToggleCommand(play.toggles, command) };
 }
 
 /** `play` after a pool, condition, toggle or restoring edit, within the limits. */
@@ -77,8 +89,8 @@ export function applyCountingCommand<Play extends CountingPlay>(
   if (isSpendCommand(command)) {
     return { ...play, ...applySpendCommand(play, command, { ...resourceLimits(limits), ...limits.spend }) };
   }
-  if (isToggleCommand(command)) {
-    return { ...play, toggles: applyToggleCommand(play.toggles, command) };
+  if (isToggleCommand(command) || isExplorationCommand(command)) {
+    return applyChoiceCommand(play, command);
   }
   if (isEffectCommand(command)) {
     return { ...play, effects: [...applyEffectCommand(play.effects, command, limits.effects)] };

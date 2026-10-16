@@ -2,7 +2,7 @@ import { InstantCodec, LocaleSchema, Uuid } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
-import { BugReportId, UserId } from './identity-fields';
+import { BugReportId, DisplayName, UserId } from './identity-fields';
 
 export const BUG_REPORT_ROUTE_MAX_LENGTH = 512;
 export const BUG_REPORT_APP_VERSION_MAX_LENGTH = 64;
@@ -12,7 +12,9 @@ export const BUG_REPORT_TEXT_MAX_LENGTH = 4000;
 /** Where a report is in the maintainer's queue. */
 export const BugReportStatus = {
   Open: 'open',
-  Closed: 'closed',
+  Confirmed: 'confirmed',
+  Fixed: 'fixed',
+  Declined: 'declined',
 } as const;
 export type BugReportStatus = ValueOf<typeof BugReportStatus>;
 export const BugReportStatusSchema = z.enum(BugReportStatus);
@@ -86,3 +88,32 @@ export const BugReportReceipt = z.strictObject({
   snapshotTaken: z.boolean(),
 });
 export type BugReportReceipt = z.output<typeof BugReportReceipt>;
+
+/** The most reports a maintainer's list shows, newest first. */
+export const BUG_REPORT_LIST_LIMIT = 100;
+
+/** One row of the maintainers' list: where a report stands and who sent it, not what it says in full. */
+export const BugReportListItem = z.strictObject({
+  id: BugReportId,
+  status: BugReportStatusSchema,
+  route: ReportedRoute,
+  description: ReportDescription,
+  reporter: UserId,
+  /** Their name now; absent if the account has gone. */
+  reporterName: DisplayName.optional(),
+  createdAt: InstantCodec,
+  /** Whether the reporter shared a copy of their character. */
+  hasSnapshot: z.boolean(),
+});
+export type BugReportListItem = z.output<typeof BugReportListItem>;
+
+/** A report as a maintainer reads it: everything the reporter sent, and the snapshot if they shared one. */
+export const BugReportDetail = z.strictObject({
+  ...BugReport.shape,
+  reporterName: DisplayName.optional(),
+});
+export type BugReportDetail = z.output<typeof BugReportDetail>;
+
+/** A maintainer's change to a report: where it stands now. */
+export const BugReportTriage = z.strictObject({ status: BugReportStatusSchema });
+export type BugReportTriage = z.output<typeof BugReportTriage>;

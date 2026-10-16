@@ -1,5 +1,6 @@
 export { BugReportRepository } from './bug-report-repository';
 export { BUG_REPORT_LIMIT, BUG_REPORT_WINDOW, BugReportService } from './bug-report-service';
+export { BugReportTriageService } from './bug-report-triage-service';
 export { InMemoryBugReportRepository } from './in-memory-bug-report-repository';
 export { CharacterSnapshotSource } from './character-snapshot-source';
 export { InMemoryCharacterSnapshotSource } from './in-memory-character-snapshot-source';

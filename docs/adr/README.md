@@ -69,6 +69,8 @@ Accepted. To change a decision, add a new ADR that supersedes the old one; do no
 | [0062](0062-repertoire-spells-are-a-rule-element.md)                    | Repertoire spells are a rule element: a bloodline or mystery fills the first slot of a rank   |
 | [0063](0063-repertoire-count-is-a-rule-element.md)                      | Repertoire count is a rule element: a 10th-rank repertoire is not sized by its slots          |
 | [0064](0064-rule-limits-are-table-data.md)                              | Rule limits are table data: an input to every check, with violations derived on read          |
+| [0065](0065-docked-drawer-and-transient-descriptions.md)                | A docked drawer for secondary content; popovers allowed for transient description             |
+| [0066](0066-bug-reports-carry-a-snapshot-and-maintainers-triage-them.md)  | Bug reports carry a snapshot, and maintainers triage them                                   |
 
 Template:
 

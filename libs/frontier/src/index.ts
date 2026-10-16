@@ -1,5 +1,6 @@
 // Actions
 export { AsyncButton } from './lib/actions/async-button/async-button.component';
+export { Breadcrumbs, type BreadcrumbItem } from './lib/actions/breadcrumbs/breadcrumbs.component';
 export { Button, ButtonType, ButtonVariant } from './lib/actions/button/button.component';
 export { FileButton } from './lib/actions/file-button/file-button.component';
 export { Link, type LinkTarget } from './lib/actions/link/link.component';
@@ -86,6 +87,7 @@ export { Grid, GridAlign, GridColumns, GridMinItem, GridQuery } from './lib/layo
 export { Page } from './lib/layout/page/page.component';
 export { PageAside } from './lib/layout/page-aside/page-aside.component';
 export { PageBody } from './lib/layout/page-body/page-body.component';
+export { Drawer, DrawerWidth } from './lib/layout/drawer/drawer.component';
 export { PageHeader } from './lib/layout/page-header/page-header.component';
 export { Section } from './lib/layout/section/section.component';
 export { Shell } from './lib/layout/shell/shell.component';

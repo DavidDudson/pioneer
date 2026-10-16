@@ -1,0 +1,2015 @@
+[
+  {
+    "id": "4833b587-8dd5-5173-b627-4210ff6bd534",
+    "pack": "season-of-ghosts",
+    "kind": "feat",
+    "slug": "feat:animal-soul-siblings",
+    "name": "Animal Soul Siblings",
+    "level": 5,
+    "rarity": "rare",
+    "traits": ["reincarnated"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eyes have been opened to the spiritual essence suffusing the world. You gain "
+          },
+          {
+            "type": "ref",
+            "id": "8d18d9de-97ab-5626-af6e-b9c22eafc998"
+          },
+          {
+            "type": "text",
+            "text": " as a primal innate spell that you can cast once per day. You get a +1 circumstance bonus to Diplomacy checks to "
+          },
+          {
+            "type": "ref",
+            "id": "5a415628-89cf-53d6-bd53-fd8ff05718fb"
+          },
+          {
+            "type": "text",
+            "text": " from animals."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["target:trait:animal", "action:gather-information"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.3omfgwa6waDNj0Eg"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "76aa3397-cd86-5666-9975-26bd88b0bd5f",
+    "pack": "season-of-ghosts",
+    "kind": "feat",
+    "slug": "feat:boneyard-acquaintance",
+    "name": "Boneyard Acquaintance",
+    "level": 17,
+    "rarity": "rare",
+    "traits": ["force", "reincarnated"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Before your soul returned from death, you interacted with a host of other souls on their way to the Boneyard. One of these acquaintances owes you a favor. You can temporarily summon it to come to your aid, and it appears as a swirling mass of ectoplasm with indiscernible features and a translucent dagger, the favored weapon of Pharasma. This functions as "
+          },
+          {
+            "type": "ref",
+            "id": "2b8c44ad-bc75-5547-91d6-75b0f174e910"
+          },
+          {
+            "type": "text",
+            "text": " that you can cast once per day as a 9th-rank divine innate spell."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.fjzxzlHhiORtV7Ll"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "affaa8d4-c183-5248-8055-08b5f7850ca4",
+    "pack": "season-of-ghosts",
+    "kind": "feat",
+    "slug": "feat:calm-and-centered",
+    "name": "Calm and Centered",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["general", "skill"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your occult connection to the world helps you deal with being "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f"
+          },
+          {
+            "type": "text",
+            "text": ". When your frightened or stupefied condition values would decrease, decrease the value by 2."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.MSyU208twPGKU16W"
+    },
+    "data": {
+      "category": "skill",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "master in Occultism"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "129df9ca-6b45-527a-bdc0-6f2781282686",
+    "pack": "season-of-ghosts",
+    "kind": "feat",
+    "slug": "feat:clinging-to-life",
+    "name": "Clinging to Life",
+    "level": 13,
+    "rarity": "rare",
+    "traits": ["reincarnated"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're reduced to 0 hit points and don't immediately die."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This life still holds much for you, and you aren't ready to fall back into the River of Souls just yet. When you're reduced to 0 Hit Points and not immediately killed, you go to 1 Hit Point instead, fall "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": ", and are "
+          },
+          {
+            "type": "ref",
+            "id": "e1a78dad-4887-518e-9120-e58b7009ebfd"
+          },
+          {
+            "type": "text",
+            "text": ", and you don't gain the "
+          },
+          {
+            "type": "ref",
+            "id": "6c4e09a7-469d-5668-8c1b-92f87de94d27",
+            "label": "Wounded 1"
+          },
+          {
+            "type": "text",
+            "text": " condition."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.vAGs7shxc8vhySpI"
+    },
+    "data": {
+      "category": "ancestry",
+      "action": {
+        "cost": "free",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You're reduced to 0 hit points and don't immediately die."
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "day"
+        }
+      }
+    }
+  },
+  {
+    "id": "2097bcf3-9907-5700-baaf-7b91ef3f47c9",
+    "pack": "season-of-ghosts",
+    "kind": "feat",
+    "slug": "feat:comforting-presence",
+    "name": "Comforting Presence",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "emotion", "general", "mental", "skill"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An adjacent ally becomes frightened or stupefied."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You use your occult connection to your allies to take on the fear and confusion they feel. Focus on your own calmness and pull in your nearby allies' emotions. Reduce the "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f"
+          },
+          {
+            "type": "text",
+            "text": " condition values of adjacent allies by 1, and increase your frightened and stupefied condition values by the same amount."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.MMaUL7r99DY7nvds"
+    },
+    "data": {
+      "category": "skill",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "master in Occultism"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "An adjacent ally becomes frightened or stupefied."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "5a7a748a-bda8-5a63-b1d0-ac40ad6c4b8a",
+    "pack": "season-of-ghosts",
+    "kind": "feat",
+    "slug": "feat:empathy-incarnate",
+    "name": "Empathy Incarnate",
+    "level": 5,
+    "rarity": "rare",
+    "traits": ["reincarnated"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Reincarnation has given you a compassionate perspective and enabled you to relate to almost everyone you speak with, putting them at ease and quickly generating trust. Whenever you attempt a Diplomacy check to "
+          },
+          {
+            "type": "ref",
+            "id": "722e5346-27c0-5157-b5a9-e6018df94150"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "bd7385d5-c754-542c-9518-060942de3701"
+          },
+          {
+            "type": "text",
+            "text": " something, the DC is reduced by 2, and if the creature you're speaking with is lower level than you, any success is a critical success. Whenever you attempt a Diplomacy check to "
+          },
+          {
+            "type": "ref",
+            "id": "5a415628-89cf-53d6-bd53-fd8ff05718fb"
+          },
+          {
+            "type": "text",
+            "text": ", you can't critically fail."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill:diplomacy"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "predicate": [
+          {
+            "gt": ["self:level", "target:level"]
+          },
+          {
+            "or": ["action:make-an-impression", "action:request"]
+          }
+        ]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill:diplomacy"],
+        "adjustment": {
+          "criticalFailure": "one-degree-better"
+        },
+        "predicate": ["action:gather-information"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.9USZSLGG4zmdZquw"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "b4177007-e958-57f4-a6c7-69de8bece4ae",
+    "pack": "season-of-ghosts",
+    "kind": "feat",
+    "slug": "feat:go-with-the-flow",
+    "name": "Go with the Flow",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["general", "secret", "skill"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature detects your attempt to "
+          },
+          {
+            "type": "ref",
+            "id": "9d26c6da-04e9-5491-86c1-7a4b23fe9da3"
+          },
+          {
+            "type": "text",
+            "text": ", and you're within 30 feet of at least one other creature."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have an occult connection to the world that helps you blend in with the cacophony of life around you. Attempt an "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:occultism"
+          },
+          {
+            "type": "text",
+            "text": " check against the creature's Perception DC. On a success, the creature mistakenly identifies another creature within 30 feet of you as you instead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.u96anl3ACNhBqnbT"
+    },
+    "data": {
+      "category": "skill",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "master in Occultism"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "A creature detects your attempt to Impersonate, and you're within 30 feet of at least one other creature."
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "day"
+        }
+      }
+    }
+  },
+  {
+    "id": "b19f06f1-a19e-5df9-b913-05e60b1ca1c1",
+    "pack": "season-of-ghosts",
+    "kind": "feat",
+    "slug": "feat:i-sense-malevolence",
+    "name": "I Sense Malevolence",
+    "level": 13,
+    "rarity": "rare",
+    "traits": ["reincarnated"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your time in the River of Souls has given you deep insight into the machinations of those who refuse to move on. You gain "
+          },
+          {
+            "type": "ref",
+            "id": "88ad9053-f255-52ea-9dc7-4c51adb8d9f5"
+          },
+          {
+            "type": "text",
+            "text": " as a 6th-rank occult innate spell, which you can cast once per day."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.aEcK9cX64xDrbzwH"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "8c4503bf-3dcd-5c9a-ab4a-b881cb959a34",
+    "pack": "season-of-ghosts",
+    "kind": "feat",
+    "slug": "feat:indomitable-spirit",
+    "name": "Indomitable Spirit",
+    "level": 17,
+    "rarity": "rare",
+    "traits": ["concentrate", "reincarnated"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your soul has accumulated countless particles of quintessence over myriad deaths and rebirths, and for one moment, this raw material from the Great Beyond envelops you and your comrades. Until the end of your next turn, you and any allies adjacent to you get a +4 circumstance bonus to AC and are "
+          },
+          {
+            "type": "ref",
+            "id": "6517bbf2-8085-534b-be6a-187d52739fa0"
+          },
+          {
+            "type": "text",
+            "text": ". The additional action can be used only to Strike or Stride."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "b309723c-2c09-5fd9-9787-500ba846e135"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.v84501yLBubHlGPz"
+    },
+    "data": {
+      "category": "ancestry",
+      "action": {
+        "cost": "one",
+        "frequency": {
+          "max": 1,
+          "per": "day"
+        }
+      }
+    }
+  },
+  {
+    "id": "c31d8f7b-e613-51cf-8016-be68cfb7da97",
+    "pack": "season-of-ghosts",
+    "kind": "feat",
+    "slug": "feat:ive-had-many-jobs",
+    "name": "I've Had Many Jobs",
+    "level": 5,
+    "rarity": "rare",
+    "traits": ["downtime", "reincarnated"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Finding and excelling at odd jobs is child's play to one who has worked many occupations during many lives. When you attempt to "
+          },
+          {
+            "type": "ref",
+            "id": "b03a543f-4d12-5c6b-a4f9-6afe141aa651"
+          },
+          {
+            "type": "text",
+            "text": ", you function as if you were trained in the skill used. If you're at least an expert in the skill used, the DC for your skill check is reduced by 2."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.asjDgf7Q9BWZoK5Y"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "919d2372-6c30-5fb0-ac33-af92f3380f0a",
+    "pack": "season-of-ghosts",
+    "kind": "feat",
+    "slug": "feat:lets-try-that-again",
+    "name": "Let's Try That Again",
+    "level": 1,
+    "rarity": "rare",
+    "traits": ["fortune", "reincarnated"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail a skill check."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You feel a sense of deja vu when you've made a mistake, almost as if you weren't so careless in a past life and could certainly do better if given another chance. Reroll the triggering skill check and use the new result, even if it's worse than your first roll."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.XKAPPvPpS4b8rSFp"
+    },
+    "data": {
+      "category": "ancestry",
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You fail a skill check."
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "day"
+        }
+      }
+    }
+  },
+  {
+    "id": "1f382e05-cf33-593a-99f6-b723e47445bb",
+    "pack": "season-of-ghosts",
+    "kind": "feat",
+    "slug": "feat:like-a-roach",
+    "name": "Like a Roach",
+    "level": 1,
+    "rarity": "rare",
+    "traits": ["downtime", "reincarnated"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Living with the bare necessities isn't terribly hard for someone who has defied death, and like a cockroach, you always know how to survive. When you "
+          },
+          {
+            "type": "ref",
+            "id": "897dec4f-1321-59a1-bb19-085290e409f0"
+          },
+          {
+            "type": "text",
+            "text": " during downtime, the DC for your skill check is reduced by 2. You don't need a minimum proficiency rank to Subsist in unusual environments, nor do you take a –5 penalty if you Subsist after 8 hours or less of exploration."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.uUSCoVhn5pWbkLgm"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "b7cc15bf-238f-50b8-a31a-8f37b61bde16",
+    "pack": "season-of-ghosts",
+    "kind": "feat",
+    "slug": "feat:lingering-echoes",
+    "name": "Lingering Echoes",
+    "level": 9,
+    "rarity": "rare",
+    "traits": ["reincarnated"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Not everyone is reincarnated, and you feel a strong connection with the spiritual echoes of those who didn't receive the same opportunity as you. You gain "
+          },
+          {
+            "type": "ref",
+            "id": "b74b8226-f3e5-51b2-85dd-83ed11cd93c3"
+          },
+          {
+            "type": "text",
+            "text": " as an occult innate spell that you can cast once per day. You can ask a fourth question of a corpse when you cast this spell. The corpse attempts its "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "class-or-spell-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " save against your spell DC or your class DC, whichever is higher."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.ZTIM5YyCiNxIO3Mp"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "88b3dc5b-f1ff-5905-aef1-e782114e9f3a",
+    "pack": "season-of-ghosts",
+    "kind": "feat",
+    "slug": "feat:linguistic-revival",
+    "name": "Linguistic Revival",
+    "level": 13,
+    "rarity": "rare",
+    "traits": ["reincarnated"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You achieved fluency in different languages with each reincarnation, and your brain remembers much of the grammar, idioms, and obscenities that you spouted in old lives. You gain "
+          },
+          {
+            "type": "ref",
+            "id": "055bd3d8-a0b8-539f-84f8-4baab9936d67"
+          },
+          {
+            "type": "text",
+            "text": " as a 5th-rank occult innate spell that you can cast once a day on only yourself. While the spell is active, you get a +2 circumstance bonus to Diplomacy checks while speaking to a creature in a language other than Common."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": [
+          {
+            "not": "language:speaking:common"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.xSOpBaHbrjiaQsME"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "6d63b14a-8814-5a24-aabb-4f886fc6f872",
+    "pack": "season-of-ghosts",
+    "kind": "feat",
+    "slug": "feat:pain-is-temporary",
+    "name": "Pain is Temporary",
+    "level": 13,
+    "rarity": "rare",
+    "traits": ["concentrate", "reincarnated"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sangpotshi practitioners know that suffering is a fleeting sensation that ultimately strengthens the soul and prepares it for a new reincarnation. Bolstered by this understanding, you've learned to temporarily steel yourself against all forms of pain. You gain resistance 10 to all damage until the end of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.j5VRy2iVz5aulQ1h"
+    },
+    "data": {
+      "category": "ancestry",
+      "action": {
+        "cost": "two",
+        "frequency": {
+          "max": 1,
+          "per": "ten-minutes"
+        },
+        "selfEffect": "61dcef5a-2142-5294-a252-099f8a05bdac"
+      }
+    }
+  },
+  {
+    "id": "1de45dcc-78f2-5864-9a95-b08d0fcf4c3c",
+    "pack": "season-of-ghosts",
+    "kind": "feat",
+    "slug": "feat:plant-soul-siblings",
+    "name": "Plant Soul Siblings",
+    "level": 9,
+    "rarity": "rare",
+    "traits": ["reincarnated"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're now able to connect with the spirits present in the greenery of the natural world. You gain "
+          },
+          {
+            "type": "ref",
+            "id": "29397615-a073-572b-a506-4a6b88f6529d"
+          },
+          {
+            "type": "text",
+            "text": " as a primal innate spell that you can cast once per day. You get a +2 circumstance bonus to Diplomacy checks to "
+          },
+          {
+            "type": "ref",
+            "id": "5a415628-89cf-53d6-bd53-fd8ff05718fb"
+          },
+          {
+            "type": "text",
+            "text": " from animals or plants."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["target:trait:plant", "target:trait:animal"]
+          },
+          "action:gather-information"
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.mlFDIQuh84VLj5IC"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Animal Soul Siblings"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "20ecc081-06c2-51dc-8797-c6c56bbe11a5",
+    "pack": "season-of-ghosts",
+    "kind": "feat",
+    "slug": "feat:rapid-retraining",
+    "name": "Rapid Retraining",
+    "level": 9,
+    "rarity": "rare",
+    "traits": ["downtime", "reincarnated"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Some feel trapped by their choices and have a tough time reinventing themselves. To you, this dilemma is just a natural part of reincarnation. "
+          },
+          {
+            "type": "ref",
+            "id": "8e368cf2-0d18-5c59-b5d3-8ceb1368b2ff"
+          },
+          {
+            "type": "text",
+            "text": " other feats or skill increases during downtime only takes 4 days instead of a week, and class features that require a choice can be retrained in a week instead of a month. You also never need to find a teacher to retrain, as the memories of abilities you possessed in past lives are superior to any instructor."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.WUmeSZZ0feYyZJf1"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "0be29a9f-79a9-51f0-8af6-49ef5abdd761",
+    "pack": "season-of-ghosts",
+    "kind": "feat",
+    "slug": "feat:reincarnated-ridiculer",
+    "name": "Reincarnated Ridiculer",
+    "level": 5,
+    "rarity": "rare",
+    "traits": ["reincarnated"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've practiced the art of taunting an enemy, ensuring they know death will only make you stronger. When you "
+          },
+          {
+            "type": "ref",
+            "id": "2a3671d0-7d0b-53db-8648-861d457f0175"
+          },
+          {
+            "type": "text",
+            "text": " an opponent, the target doesn't become temporarily immune to your attempts to Demoralize it unless you critically fail the check. If the target critically hit you with a Strike on its previous turn, the DC for this check is reduced by 4."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.SrngYpUpBOa73XTL"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "1dbc4f58-ea2f-5c58-b3b8-5295ea4dd0b6",
+    "pack": "season-of-ghosts",
+    "kind": "feat",
+    "slug": "feat:release-the-light",
+    "name": "Release the Light",
+    "level": 17,
+    "rarity": "rare",
+    "traits": ["light", "reincarnated", "visual"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're below 20 Hit Points."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Many people report seeing a bright light before their death. You're one of these people, and at rare intervals when hope seems dim, the light exudes outward from your soul. You shed bright light in a 30-foot radius (and dim light for another 30 feet beyond that) until the end of your next turn. Enemy creatures in the area that rely on sight must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": {
+              "against": "class-or-spell-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " save equal to your class DC or spell DC, whichever is higher."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round and dazzled for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is blinded for 2 rounds and dazzled for 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.SsME16puYnUzga3O"
+    },
+    "data": {
+      "category": "ancestry",
+      "action": {
+        "cost": "two",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You're below 20 Hit Points."
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "day"
+        }
+      }
+    }
+  },
+  {
+    "id": "3a1fce0c-3f4f-57f6-9a7d-265e5ac852ae",
+    "pack": "season-of-ghosts",
+    "kind": "feat",
+    "slug": "feat:see-you-in-hell",
+    "name": "See You in Hell",
+    "level": 17,
+    "rarity": "rare",
+    "traits": ["reincarnated"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're reduced to 0 Hit Points by a creature but not immediately killed."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You aren't sure if you'll be reincarnated again, so you might as well take this foe with you. A blast of spiritual energy lashes out from the depths of your soul, targeting the creature who attacked you. The creature takes spirit damage equal to the amount that reduced you to 0 Hit Points ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "class-or-spell-dc"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save with a DC equal to your class DC or spell DC, whichever is higher)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.D5atazp26amNzoqO"
+    },
+    "data": {
+      "category": "ancestry",
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You're reduced to 0 Hit Points by a creature but not immediately killed."
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "day"
+        }
+      }
+    }
+  },
+  {
+    "id": "acbd36d9-9cf2-5b6d-87c4-d100c63024aa",
+    "pack": "season-of-ghosts",
+    "kind": "feat",
+    "slug": "feat:sleep-of-the-reborn",
+    "name": "Sleep of the Reborn",
+    "level": 5,
+    "rarity": "rare",
+    "traits": ["reincarnated"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Philosophers compare the cycle of life, death, and rebirth to sleeping, dreaming, and waking. You take it to another level by reliving previous lives in dreams, always waking invigorated and thankful for a new chance at life. Whenever you rest for 8 hours, you gain the effects of a long-term rest. If you're an ancestry that neither sleeps nor dreams, you still receive this benefit by entering a reflective, meditative state during rest."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.zz2kOAHYBxbLtOV0"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "ab8296cf-abaf-5064-9ea5-779688277d49",
+    "pack": "season-of-ghosts",
+    "kind": "feat",
+    "slug": "feat:stone-soul-siblings",
+    "name": "Stone Soul Siblings",
+    "level": 13,
+    "rarity": "rare",
+    "traits": ["reincarnated"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your connection with nature's spirits has progressed to the point where you can even have casual conversation with pebbles and boulders. You gain "
+          },
+          {
+            "type": "ref",
+            "id": "2166561b-1296-5459-b2d9-8809ddd998db"
+          },
+          {
+            "type": "text",
+            "text": " as a primal innate spell that you can cast once per day. You get a +2 circumstance bonus to Diplomacy checks to Gather Information from stones."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["target:trait:stone", "action:gather-information"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.NPVi1iPfY1GpiC8A"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Plant Soul Siblings"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "aba19104-af42-5c25-819d-3ac71fe32c23",
+    "pack": "season-of-ghosts",
+    "kind": "feat",
+    "slug": "feat:this-is-what-its-like-to-die",
+    "name": "This is What it's Like to Die",
+    "level": 17,
+    "rarity": "rare",
+    "traits": ["reincarnated"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "It's one thing to remember your previous lives. It's quite another to remember how you died in each of those lives. You can recall dozens, if not more, of excruciating, humiliating, and devastating ends you've suffered over the eons, and you can inflict upon your enemies a vision of these pains. You gain "
+          },
+          {
+            "type": "ref",
+            "id": "e551a4eb-8b73-5a89-979e-a15f470a28ce"
+          },
+          {
+            "type": "text",
+            "text": " as an occult innate spell that you can cast once per day."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you gain this feat, choose any two of the following damage types: acid, bludgeoning, cold, electricity, fire, piercing, poison, slashing, or sonic. These damage types caused your deaths more often than not in your previous lives, and whenever a creature takes damage from a "
+          },
+          {
+            "type": "text",
+            "text": "phantasmagoria",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " spell you cast, you can swap the mental damage that spell normally causes for one of the two damage types you chose."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.20eTy6lRpCnMymTp"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "1ed2069a-7a2e-5af9-b8e0-f498fcb7131d",
+    "pack": "season-of-ghosts",
+    "kind": "feat",
+    "slug": "feat:unbreakable-resolve",
+    "name": "Unbreakable Resolve",
+    "level": 13,
+    "rarity": "rare",
+    "traits": ["fortune", "reincarnated"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail a Will save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The experience of coming back after death has granted you a strong sense of resolve; devilish words, slick spells, and conniving trickery can't easily catch you unprepared. Reroll the triggering save, using the second result only if it's better."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.e9H7w0X6yFEhn3h4"
+    },
+    "data": {
+      "category": "ancestry",
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You fail a Will save."
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "ten-minutes"
+        }
+      }
+    }
+  },
+  {
+    "id": "2a8b3f4e-5b76-593c-b66f-013418bf85b3",
+    "pack": "season-of-ghosts",
+    "kind": "feat",
+    "slug": "feat:weight-of-experience",
+    "name": "Weight of Experience",
+    "level": 1,
+    "rarity": "rare",
+    "traits": ["reincarnated"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The experience you've accumulated over multiple lifetimes envelops you like a weighted blanket, providing comfort and bestowing confidence under pressure. You gain the trained proficiency rank in one skill of your choice and the "
+          },
+          {
+            "type": "ref",
+            "id": "161d1c8a-4304-59c5-bd4b-e0f21e3afa13"
+          },
+          {
+            "type": "text",
+            "text": " skill feat in that skill as a bonus feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "skill",
+        "choices": [
+          {
+            "value": "acrobatics",
+            "label": "Acrobatics"
+          },
+          {
+            "value": "arcana",
+            "label": "Arcana"
+          },
+          {
+            "value": "athletics",
+            "label": "Athletics"
+          },
+          {
+            "value": "crafting",
+            "label": "Crafting"
+          },
+          {
+            "value": "deception",
+            "label": "Deception"
+          },
+          {
+            "value": "diplomacy",
+            "label": "Diplomacy"
+          },
+          {
+            "value": "intimidation",
+            "label": "Intimidation"
+          },
+          {
+            "value": "medicine",
+            "label": "Medicine"
+          },
+          {
+            "value": "nature",
+            "label": "Nature"
+          },
+          {
+            "value": "occultism",
+            "label": "Occultism"
+          },
+          {
+            "value": "performance",
+            "label": "Performance"
+          },
+          {
+            "value": "religion",
+            "label": "Religion"
+          },
+          {
+            "value": "society",
+            "label": "Society"
+          },
+          {
+            "value": "stealth",
+            "label": "Stealth"
+          },
+          {
+            "value": "survival",
+            "label": "Survival"
+          },
+          {
+            "value": "thievery",
+            "label": "Thievery"
+          }
+        ],
+        "prompt": "Select a skill."
+      },
+      {
+        "key": "Proficiency",
+        "selector": {
+          "choice": "skill",
+          "prefix": "skill"
+        },
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.rGU4nKAPCkC0lK4Z"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "33aa8cb5-f177-5a14-9ff4-fd7214d848ce",
+    "pack": "season-of-ghosts",
+    "kind": "feat",
+    "slug": "feat:wisdom-from-another-life",
+    "name": "Wisdom from Another Life",
+    "level": 1,
+    "rarity": "rare",
+    "traits": ["reincarnated"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You absorbed a wide variety of facts before you died, and your soul still remembers slivers of this precious knowledge. You gain the trained proficiency rank in one skill of your choice and the "
+          },
+          {
+            "type": "ref",
+            "id": "50ac17a9-a644-58e8-8ee0-ce4c6cfbf17b"
+          },
+          {
+            "type": "text",
+            "text": " skill feat as a bonus feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "skill",
+        "choices": [
+          {
+            "value": "acrobatics",
+            "label": "Acrobatics",
+            "predicate": ["skill:acrobatics:rank:0"]
+          },
+          {
+            "value": "arcana",
+            "label": "Arcana",
+            "predicate": ["skill:arcana:rank:0"]
+          },
+          {
+            "value": "athletics",
+            "label": "Athletics",
+            "predicate": ["skill:athletics:rank:0"]
+          },
+          {
+            "value": "crafting",
+            "label": "Crafting",
+            "predicate": ["skill:crafting:rank:0"]
+          },
+          {
+            "value": "deception",
+            "label": "Deception",
+            "predicate": ["skill:deception:rank:0"]
+          },
+          {
+            "value": "diplomacy",
+            "label": "Diplomacy",
+            "predicate": ["skill:diplomacy:rank:0"]
+          },
+          {
+            "value": "intimidation",
+            "label": "Intimidation",
+            "predicate": ["skill:intimidation:rank:0"]
+          },
+          {
+            "value": "medicine",
+            "label": "Medicine",
+            "predicate": ["skill:medicine:rank:0"]
+          },
+          {
+            "value": "nature",
+            "label": "Nature",
+            "predicate": ["skill:nature:rank:0"]
+          },
+          {
+            "value": "occultism",
+            "label": "Occultism",
+            "predicate": ["skill:occultism:rank:0"]
+          },
+          {
+            "value": "performance",
+            "label": "Performance",
+            "predicate": ["skill:performance:rank:0"]
+          },
+          {
+            "value": "religion",
+            "label": "Religion",
+            "predicate": ["skill:religion:rank:0"]
+          },
+          {
+            "value": "society",
+            "label": "Society",
+            "predicate": ["skill:society:rank:0"]
+          },
+          {
+            "value": "stealth",
+            "label": "Stealth",
+            "predicate": ["skill:stealth:rank:0"]
+          },
+          {
+            "value": "survival",
+            "label": "Survival",
+            "predicate": ["skill:survival:rank:0"]
+          },
+          {
+            "value": "thievery",
+            "label": "Thievery",
+            "predicate": ["skill:thievery:rank:0"]
+          }
+        ],
+        "prompt": "Select a skill."
+      },
+      {
+        "key": "Proficiency",
+        "selector": {
+          "choice": "skill",
+          "prefix": "skill"
+        },
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "50ac17a9-a644-58e8-8ee0-ce4c6cfbf17b"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.2HkagmqG9rsQfyfR"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "be954378-606d-5816-b236-70cc5ed0ecf6",
+    "pack": "season-of-ghosts",
+    "kind": "feat",
+    "slug": "feat:you-seem-somewhat-familiar",
+    "name": "You Seem Somewhat Familiar",
+    "level": 9,
+    "rarity": "rare",
+    "traits": ["reincarnated"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You succeed or critically succeed at a "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": " check about a creature."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You fought hundreds of foes in your various past lives, and now and then, something about a new opponent tugs at your memory, almost as if you defeated their grandparent long ago. You get a +2 circumstance bonus to your next attack roll, damage roll, or saving throw against this creature. You only receive this bonus once per creature."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:you-seem-somewhat-familiar",
+        "toggleable": true
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll", "damage", "saving-throw"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["option:you-seem-somewhat-familiar"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.DG3cRm3LrTEeBDMu"
+    },
+    "data": {
+      "category": "ancestry",
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You succeed or critically succeed at a Recall Knowledge check about a creature."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+]

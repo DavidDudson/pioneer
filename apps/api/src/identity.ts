@@ -1,4 +1,9 @@
-import { BugReportService, IdentityService, PreferencesService } from '@pioneer/identity/application';
+import {
+  BugReportService,
+  BugReportTriageService,
+  IdentityService,
+  PreferencesService,
+} from '@pioneer/identity/application';
 import type { CharacterSnapshotSource, OAuthProviderPort } from '@pioneer/identity/application';
 import { AuthPath, OAuthProvider } from '@pioneer/identity/domain';
 import {
@@ -91,9 +96,12 @@ export interface IdentityPorts {
 
 /** Identity's part of the composition root: service, configured providers, routes and authenticator. */
 export function identity(db: Database, env: Env, { clock, snapshots }: IdentityPorts): Identity {
-  const service = new IdentityService(new DrizzleUserRepository(db), new DrizzleSessionRepository(db), clock);
+  const users = new DrizzleUserRepository(db);
+  const service = new IdentityService(users, new DrizzleSessionRepository(db), clock);
   const preferences = new PreferencesService(new DrizzlePreferencesRepository(db), clock);
-  const bugReports = new BugReportService(new DrizzleBugReportRepository(db), snapshots, clock);
+  const bugReportRepository = new DrizzleBugReportRepository(db);
+  const bugReports = new BugReportService(bugReportRepository, snapshots, clock);
+  const triage = new BugReportTriageService(bugReportRepository, users);
   // Secure cookies unless the public origin is plain http (local development).
   const secure = env.PUBLIC_ORIGIN?.startsWith('https:') ?? true;
   const policy: CookiePolicy = { secure };
@@ -101,7 +109,7 @@ export function identity(db: Database, env: Env, { clock, snapshots }: IdentityP
   return {
     routes: identityRoutes(service, providers(env), policy)
       .use(preferenceRoutes(preferences, authenticator))
-      .use(bugReportRoutes(bugReports, authenticator))
+      .use(bugReportRoutes(bugReports, triage, authenticator))
       .use(sessionSweep(service, SESSION_SWEEP_INTERVAL)),
     authenticator,
     service,

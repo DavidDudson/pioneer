@@ -28,7 +28,8 @@
       "signIn": "Sign in",
       "settings": "Settings",
       "signOut": "Sign out",
-      "reportBug": "Report a bug"
+      "reportBug": "Report a bug",
+      "bugReports": "Bug reports"
     },
     "footer": {
       "legal": "Legal"

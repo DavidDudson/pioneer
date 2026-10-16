@@ -3,6 +3,9 @@
     <fr-link variant="caption" exact [to]="accountPath">{{ user.displayName }}</fr-link>
     <fr-link variant="caption" [to]="settingsPath">{{ 'shell.account.settings' | transloco }}</fr-link>
     <fr-link variant="caption" [to]="reportBugPath">{{ 'shell.account.reportBug' | transloco }}</fr-link>
+    @if (user.isMaintainer) {
+      <fr-link variant="caption" [to]="bugReportsPath">{{ 'shell.account.bugReports' | transloco }}</fr-link>
+    }
     <fr-async-button variant="ghost" size="sm" [action]="signOut">{{
       'shell.account.signOut' | transloco
     }}</fr-async-button>

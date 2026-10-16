@@ -1,4 +1,5 @@
 import { isEffectCommand } from './effect-commands';
+import { isExplorationCommand } from './exploration-commands';
 import { PlayCommandField } from './play-state';
 import type { PlayCommand } from './play-state';
 import { isRestCommand } from './rest-types';
@@ -11,7 +12,12 @@ export function needsMaxHitPoints(command: PlayCommand): boolean {
   if (isRestCommand(command)) {
     return command.field === PlayCommandField.Rest;
   }
-  if (isToggleCommand(command) || isEffectCommand(command) || isSpendCommand(command)) {
+  if (
+    isToggleCommand(command) ||
+    isEffectCommand(command) ||
+    isSpendCommand(command) ||
+    isExplorationCommand(command)
+  ) {
     return false;
   }
   switch (command.field) {
@@ -56,7 +62,12 @@ export function needsResourceMaxima(command: PlayCommand): boolean {
   if (isSpendCommand(command)) {
     return true;
   }
-  if (isToggleCommand(command) || isEffectCommand(command) || isSpendCommand(command)) {
+  if (
+    isToggleCommand(command) ||
+    isEffectCommand(command) ||
+    isSpendCommand(command) ||
+    isExplorationCommand(command)
+  ) {
     return false;
   }
   switch (command.field) {
@@ -95,7 +106,13 @@ export function needsResourceMaxima(command: PlayCommand): boolean {
 /** Whether `command` adds or changes a condition, and so needs to know which conditions the content has and which carry a value. */
 // oxlint-disable-next-line complexity -- a case for each play command, with the toggle edit told apart first
 export function needsConditionContent(command: PlayCommand): boolean {
-  if (isRestCommand(command) || isToggleCommand(command) || isEffectCommand(command) || isSpendCommand(command)) {
+  if (
+    isRestCommand(command) ||
+    isToggleCommand(command) ||
+    isEffectCommand(command) ||
+    isSpendCommand(command) ||
+    isExplorationCommand(command)
+  ) {
     return false;
   }
   switch (command.field) {

@@ -15,6 +15,7 @@ import { bugReports, users } from './identity.table';
 /** Runs against a throwaway Postgres database (see createTestDatabase); skipped without TEST_DATABASE_URL. */
 const adminUrl = testDatabaseUrl();
 const NOW = Temporal.Instant.from('2026-10-15T08:00:00Z');
+const amiriName = DisplayName.parse('Amiri');
 
 const SUBMISSION = BugReportSubmission.parse({
   route: '/characters/amiri',
@@ -52,7 +53,7 @@ describe.skipIf(adminUrl === undefined)('DrizzleBugReportRepository (postgres)',
   async function newUser(): Promise<UserId> {
     const id = UserId.parse(newId());
     const at = NOW.toString();
-    const displayName = DisplayName.parse('Amiri');
+    const displayName = amiriName;
     await database.db.insert(users).values({
       id,
       displayName,
@@ -135,6 +136,42 @@ describe.skipIf(adminUrl === undefined)('DrizzleBugReportRepository (postgres)',
     await database.db.delete(users).where(eq(users.id, amiri));
     const rows = await database.db.select().from(bugReports).where(eq(bugReports.id, stored.id));
     expect(rows).toStrictEqual([]);
+  });
+
+  test('lists the newest reports first, with the reporter name and whether a snapshot came with it', async () => {
+    const amiri = await newUser();
+    const older = reportBy(amiri, NOW.subtract({ hours: 24 }));
+    const newer = reportBy(amiri, NOW.add({ hours: 24 }), { snapshot: { format: 'pioneer-character' } });
+    await repository.insert(older);
+    await repository.insert(newer);
+    const all = await repository.list(100);
+    const listed = all.filter(({ reporter }) => reporter === amiri);
+    expect(listed.map(({ id }) => id)).toStrictEqual([newer.id, older.id]);
+    expect(listed.map(({ hasSnapshot }) => hasSnapshot)).toStrictEqual([true, false]);
+    expect(listed.map(({ reporterName }) => reporterName)).toStrictEqual([amiriName, amiriName]);
+  });
+
+  test('the list stops at the limit', async () => {
+    const amiri = await newUser();
+    await repository.insert(reportBy(amiri, NOW.add({ hours: 5 * 24 })));
+    await repository.insert(reportBy(amiri, NOW.add({ hours: 6 * 24 })));
+    expect(await repository.list(1)).toHaveLength(1);
+  });
+
+  test('a report reads back in full with its snapshot and the reporter name', async () => {
+    const stored = reportBy(await newUser(), NOW, { snapshot: { format: 'pioneer-character' } });
+    await repository.insert(stored);
+    expect(await repository.findDetail(stored.id)).toStrictEqual({ ...stored, reporterName: amiriName });
+  });
+
+  test('sets a status, and says when there is no such report', async () => {
+    const stored = reportBy(await newUser(), NOW);
+    await repository.insert(stored);
+    expect(await repository.setStatus(stored.id, BugReportStatus.Fixed)).toBe(true);
+    const found = await repository.findById(stored.id);
+    expect(found?.status).toBe(BugReportStatus.Fixed);
+    const unknown = BugReportId.parse(newId());
+    expect(await repository.setStatus(unknown, BugReportStatus.Fixed)).toBe(false);
   });
 
   test('every query the repository issued is served by an index', async () => {

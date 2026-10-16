@@ -23,6 +23,7 @@ export function toUser(row: UserRow): User {
     avatarUrl: row.avatarUrl ?? undefined,
     email: row.email ?? undefined,
     emailVerified: row.emailVerified,
+    role: row.role,
     createdAt: Temporal.Instant.from(row.createdAt),
     updatedAt: Temporal.Instant.from(row.updatedAt),
   });
@@ -35,6 +36,7 @@ function toValues(user: User): UserValues {
     avatarUrl: user.avatarUrl ?? SQL_NULL,
     email: user.email ?? SQL_NULL,
     emailVerified: user.emailVerified,
+    role: user.role,
     createdAt: user.createdAt.toString(),
     updatedAt: user.updatedAt.toString(),
   };
@@ -96,6 +98,11 @@ export class DrizzleUserRepository extends UserRepository {
   ): Promise<void> {
     const id = OAuthAccountId.parse(newId());
     await this.#db.insert(oauthAccounts).values({ id, userId, provider, subject, createdAt: now.toString() });
+  }
+
+  public override async findById(id: UserId): Promise<User | undefined> {
+    const [row] = await this.#db.select().from(users).where(eq(users.id, id)).limit(1);
+    return row === undefined ? undefined : toUser(row);
   }
 
   public override async update(user: User): Promise<User> {

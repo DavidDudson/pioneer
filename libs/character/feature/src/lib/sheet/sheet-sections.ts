@@ -18,6 +18,8 @@ export const SHEET_SECTIONS = {
   /** What the character can do now and ever, in the tab's mode (#353). */
   actions: { anchor: 'sheet-actions', headingKey: 'character.sheet.actionsHeading' },
   languages: { anchor: 'sheet-languages', headingKey: 'character.sheet.languagesHeading' },
+  /** What the character is doing while exploring (#501). */
+  explorationActivity: { anchor: 'sheet-exploration-activity', headingKey: 'character.sheet.exploration.heading' },
   roleplay: { anchor: 'sheet-roleplay', headingKey: 'character.sheet.roleplay.heading' },
   choices: { anchor: 'sheet-choices', headingKey: 'character.sheet.choicesHeading' },
   timeline: { anchor: 'sheet-timeline', headingKey: 'character.sheet.timelineHeading' },
@@ -60,6 +62,7 @@ export const SHEET_TAB_SECTIONS: Readonly<Record<SheetMode, readonly SheetSectio
   ],
   [SheetMode.Exploration]: [
     SHEET_SECTIONS.roleplay,
+    SHEET_SECTIONS.explorationActivity,
     SHEET_SECTIONS.actions,
     SHEET_SECTIONS.deity,
     SHEET_SECTIONS.languages,

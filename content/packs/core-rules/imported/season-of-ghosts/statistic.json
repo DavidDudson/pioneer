@@ -1,0 +1,50 @@
+[
+  {
+    "id": "9357c5df-e411-5b96-b091-fd3cd77922bd",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:tea-lore",
+    "name": "Tea Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:tea",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.tea",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "2347ad54-2978-5c39-9ab7-aafa509c7d17",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:willowshore-lore",
+    "name": "Willowshore Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:willowshore",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.willowshore",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  }
+]

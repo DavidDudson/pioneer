@@ -1,0 +1,2740 @@
+[
+  {
+    "id": "810a268c-ddf5-548f-a7d0-6df9c42e005e",
+    "pack": "season-of-ghosts",
+    "kind": "weapon",
+    "slug": "weapon:branch-of-the-great-sugi",
+    "name": "Branch of the Great Sugi",
+    "level": 7,
+    "rarity": "rare",
+    "traits": ["disarm", "finesse", "magical", "nonlethal", "reach", "trip"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This large tree branch is alive, despite having been harvested from the sugi tree it once belonged to. This long, flexible, and limber branch is a "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking whip",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". When used to Strike, the branch snaps with the sound of a cracking whip but fills the air surrounding the point of impact with the pleasant scent of freshly cut cedar and a sprinkling of fallen leaves on the ground."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—A Multitude of Branches",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You place the "
+          },
+          {
+            "type": "text",
+            "text": "branch of the great sugi",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " on the corpse of an unholy creature, then cause the branch to suddenly grow into a sugi tree, up to 25 feet tall with a 2-foot-wide trunk. As it grows, it emits a pulse of soothing energy, restoring "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d8+8"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points to all creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": ". A character can Climb the tree with a successful DC 10 Athletics check, and its branches effortlessly support the weight of any Medium or smaller creature. The sugi tree reverts to its whip form after 1 hour unless you transform it back before then."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—A Single Branch",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate) You transform the "
+          },
+          {
+            "type": "text",
+            "text": "branch of the great sugi",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " from its tree form back into its whip form."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.h7RtjyqHouB3pGgr"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 360
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "a-multitude-of-branches",
+          "name": "A Multitude of Branches",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "flail",
+      "baseItem": "whip",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "3fa09553-436d-5d55-ad5a-995b0dfd7441",
+    "pack": "season-of-ghosts",
+    "kind": "weapon",
+    "slug": "weapon:dragonfire-halfbow",
+    "name": "Dragonfire Halfbow",
+    "level": 12,
+    "rarity": "uncommon",
+    "traits": ["deadly-d10", "fire", "magical", "propulsive"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Crafted by layering bamboo with strips of sliced scales harvested from a fire-breathing dragon, this bow has a significant draw strength. This design is commonly seen in Hongal, as the shorter limb allows for easier maneuvering on horseback. While the wielder of this "
+          },
+          {
+            "type": "text",
+            "text": "+2 striking composite shortbow",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is mounted, they apply the bow's item bonus to Nature checks to Command their mount."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Dragon's Arrow",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You draw the bow back to its maximum draw length without nocking an arrow, and as you release the string, the dragonfire halfbow casts "
+          },
+          {
+            "type": "ref",
+            "id": "989ec875-261d-5d4f-a181-fedf889f9d4b"
+          },
+          {
+            "type": "text",
+            "text": " (heightened to 5th rank; "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 29,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save), targeted at a point of your choosing within the spell's range. You and your mount are immune to the effects of this "
+          },
+          {
+            "type": "text",
+            "text": "fireball",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ergvi4pLRMndtiQj"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1800
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "dragons-arrow",
+          "name": "Dragon's Arrow",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "bow",
+      "baseItem": "composite-shortbow",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing"
+      },
+      "range": 60,
+      "reload": 0,
+      "ammunition": {
+        "type": "arrows"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one-plus"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "56e3a5c4-38c4-577b-8d19-278975329572",
+    "pack": "season-of-ghosts",
+    "kind": "weapon",
+    "slug": "weapon:fiends-hunger",
+    "name": "Fiend's Hunger",
+    "level": 4,
+    "rarity": "unique",
+    "traits": ["agile", "finesse", "magical", "thrown-10", "versatile-s"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The blade of this "
+          },
+          {
+            "type": "text",
+            "text": "+1 low-grade silver dagger",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " has a sickly red tinge. Though once used to send souls to empower Kugaptee, the fury of those slain by the blade now allows its wielder to periodically strike back against fiends."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Avenging Soul",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, divine, mental)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You score a critical hit against a fiend"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Vengeful echoes of sacrificed souls lance into the psyche of the fiend struck. After the normal effects of the critical hit, the target must roll a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 18,
+            "options": ["inflicts:off-guard", "inflicts:slowed"]
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature becomes distracted by vengeful spirits and becomes "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " until the start of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but the creature is also "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but the creature is slowed 1 for 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ZwJXdOdnE8TcSHK1"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 100
+        }
+      },
+      "bulk": "light",
+      "material": {
+        "type": "silver",
+        "grade": "low"
+      },
+      "activations": [
+        {
+          "slug": "avenging-soul",
+          "name": "Avenging Soul",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "simple",
+      "group": "knife",
+      "baseItem": "dagger",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "0f5f02c5-7493-5dcf-82da-fdb3da5ae690",
+    "pack": "season-of-ghosts",
+    "kind": "weapon",
+    "slug": "weapon:four-tiger-blade",
+    "name": "Four-Tiger Blade",
+    "level": 12,
+    "rarity": "rare",
+    "traits": ["divine", "versatile-p"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When a once-in-a-lifetime alignment of the stars shone through the roof of a secluded blacksmith's forge, the smith took advantage to craft their masterpiece. For two hours, they hammered a lump of ordinary steel into a divine blade, etching constellations and wards down its length, then shared their creation's formula with a small group of close associates before passing away."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These weapons are the "
+          },
+          {
+            "type": "text",
+            "text": "four-tiger blades",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", and currently, only a dozen are known to exist—one associated with each month of the year. Each weapon is a "
+          },
+          {
+            "type": "text",
+            "text": "+2 striking ghost touch longsword",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " that leaves a noticeable trail of light originating from the engraved stars when it's swung. Those who pay close attention to the pattern of stars that shine on the blade might note that the depicted constellations change according to those currently in the night sky above."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Ghost Blocking Tiger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You attempt a Strike with the "
+          },
+          {
+            "type": "text",
+            "text": "four-tiger-blade",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Until the start of your next turn, you gain void resistance 10."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "6051947b-ef28-5fc1-8d8b-5cac338a0ddc"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Ghost Chasing Tiger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, divine, incapacitation, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Attempt a Strike against a creature you believe to be possessed. This attack deals no damage to the creature, but if the target is possessed, the possessing creature must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 29
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The possessing creature is unaffected, and you remain unaware of if the target is actually possessed or not."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The possessing creature is unaffected, but you sense that creature's control over the target and confirm that the target is possessed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You confirm that the target is possessed. The possessing creature can't control the target for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You confirm the target is possessed an instant before you automatically counteract the possession, causing the possessing creature to vacate the target's body."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.05L6c6B8XuU8imfM"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2000
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "ghost-chasing-tiger",
+          "name": "Ghost Chasing Tiger",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "longsword",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 1,
+        "property": ["3e294082-c3ff-58be-ab80-1608b9c6229a"]
+      }
+    }
+  },
+  {
+    "id": "62853dba-4239-54d8-bf2b-66a6c2ff9cf6",
+    "pack": "season-of-ghosts",
+    "kind": "weapon",
+    "slug": "weapon:lumber-lords-axe",
+    "name": "Lumber Lord's Axe",
+    "level": 11,
+    "rarity": "uncommon",
+    "traits": ["magical", "sweep"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This unassuming tool wouldn't look out of place on the belt of an industrious laborer. Grooves worn into the wooden handle over years of use and an irregularly sharpened blade give it the distinct impression of being cherished, and the potent scent of freshly chopped wood always clings to the axe's blade despite any attempt to clean it or remove the odor. A creature that holds or carries this "
+          },
+          {
+            "type": "text",
+            "text": "+2 striking cold iron battle axe",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " feels an obligation to tell the truth and receives a –4 status penalty to its attempts to Lie. A lumber lord's axe deals 1d6 additional slashing damage to creatures with the fungus or plant trait, as long as the creatures aren't disguised as non-fungus or non-plant creatures. It's up to GM discretion whether this additional damage applies against a creature disguised as a fungus or plant creature."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Transformative Polish",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You polish and sharpen the axe, after which its scent grows even more powerful and the axe's blade transforms into your choice of standard-grade adamantine or standard-grade dawnsilver for 1 hour; then after this duration, the woodcutter's axe reverts to cold iron."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "8f83c6c6-910c-5b2d-a70a-89d6387b5c38"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "damage",
+        "option": "option:lumber-lords-axe-fungus-plant",
+        "toggleable": true
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.QNRa5r2I00YtEoIV"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 900
+        }
+      },
+      "bulk": 1,
+      "material": {
+        "type": "cold-iron",
+        "grade": "standard"
+      },
+      "activations": [
+        {
+          "slug": "transformative-polish",
+          "name": "Transformative Polish",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "axe",
+      "baseItem": "battle-axe",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "164f9b12-7405-53cc-9e88-af3ad708d2fd",
+    "pack": "season-of-ghosts",
+    "kind": "weapon",
+    "slug": "weapon:purgatory-emissarys-staff",
+    "name": "Purgatory Emissary's Staff",
+    "level": 12,
+    "rarity": "rare",
+    "traits": ["magical", "monk", "staff", "two-hand-d8"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This ash wood staff is topped by a long tassel of bleached-white horsehair. Historically carried by the most important of court officials throughout various regions and periods of Tian Xia's history, "
+          },
+          {
+            "type": "text",
+            "text": "purgatory emissary's staves",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " are also strongly associated with psychopomps serving punitive sentences. It's thought this connection is a comical nod to the bureaucratic nature of the afterlife."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Psychopomps and spirits tend to regard you with a level of respect while you carry a "
+          },
+          {
+            "type": "text",
+            "text": "purgatory emissary's staff",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". While you wield this staff, you receive a +2 item bonus to all skill checks to adjust a psychopomp's or spirit's attitude."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When used as a weapon, a purgatory emissary's staff is a "
+          },
+          {
+            "type": "text",
+            "text": "+2 striking ghost touch staff",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You expend a number of charges from the staff to cast a spell from its list."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Cantrip",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "ad3bed02-6064-56d1-949c-7f5b8355cee7"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "1st",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "15904512-5f17-5bba-b1a0-1f892989912c"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "599db52f-69e4-5aa2-9cb6-f3c8a5339144"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "2nd",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "c441df15-0219-514f-a5f5-00da93a3e391"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "52cd674f-3e49-5527-b0c9-8a4137bc9c08"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "3rd",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "67633206-076f-520c-b8a2-8d30d756fa26"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "f27c5853-2de7-5506-a02e-1dcf562fb4b6"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "4th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "b434b2d9-47e5-519e-a542-6dae12c51157"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "b74b8226-f3e5-51b2-85dd-83ed11cd93c3"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "5th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "b2355f5f-2795-58d8-a713-df34a0257e46"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "055bd3d8-a0b8-539f-84f8-4baab9936d67"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "item",
+        "value": 2,
+        "predicate": [
+          "action:make-an-impression",
+          {
+            "or": ["target:trait:spirit", "target:trait:psychopomp"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.rntI1KvlK0pplLFj"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1820
+        }
+      },
+      "bulk": 1,
+      "category": "simple",
+      "group": "club",
+      "baseItem": "staff",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 1,
+        "property": ["3e294082-c3ff-58be-ab80-1608b9c6229a"]
+      }
+    }
+  },
+  {
+    "id": "ed04aaa1-fd8c-5f87-949d-4b8af9653b85",
+    "pack": "season-of-ghosts",
+    "kind": "weapon",
+    "slug": "weapon:senseis-parasol",
+    "name": "Sensei's Parasol",
+    "level": 11,
+    "rarity": "rare",
+    "traits": ["magical", "monk", "parry", "reach", "trip"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A master once said to his pupil that, in the hands of a skilled practitioner, even a parasol can become a deadly weapon. Returning the next day, the pupil excitedly turned over a parasol forged out of metal slats, explaining that it lowered the amount of skill one would need to exert deadly force. The master sighed, seeing that his pupil had failed to see the point, but accepted the gift nonetheless. Ingenuity was, after all, a virtue."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Since then, other smiths have imitated the pupil's design and crafted additional "
+          },
+          {
+            "type": "text",
+            "text": "sensei's parasols",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", and they're highly sought after by those who appreciate multipurpose tools. This weapon functions as a "
+          },
+          {
+            "type": "text",
+            "text": "+2 striking bo staff",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Your Attacks Are but Raindrops",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cause the metal slats of the parasol to open up, transforming it into a "
+          },
+          {
+            "type": "ref",
+            "id": "4498b531-0d64-51ae-9be9-a8e0bff2f0b2",
+            "label": "moderate sturdy shield"
+          },
+          {
+            "type": "text",
+            "text": " (Hardness 13, HP 104 [BT 52]). You can sustain this activation for up to 10 minutes, after which the "
+          },
+          {
+            "type": "text",
+            "text": "sensei's parasol",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " reverts back to bo staff form. If it's "
+          },
+          {
+            "type": "ref",
+            "id": "c945a9c5-1053-552c-8cc3-ac4832741d0f"
+          },
+          {
+            "type": "text",
+            "text": " as a shield, it reverts to its undamaged bo staff form. If it's destroyed as a shield, it reverts to bo staff form and becomes broken."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "540e3c66-6702-5539-98db-af71e4be9c78"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Defensive Redirection",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "sensei's parasol",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is in bo staff form and isn't broken"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature misses you with a melee Strike"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You redirect the missed Strike to target a creature or object within the triggering creature's reach. The triggering creature rolls a new Strike against the new target to determine the results of the redirected attack."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.4Di2VTnJaU4JFQGa"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1400
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "your-attacks-are-but-raindrops",
+          "name": "Your Attacks Are but Raindrops",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        },
+        {
+          "slug": "defensive-redirection",
+          "name": "Defensive Redirection",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "club",
+      "baseItem": "bo-staff",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "3e6b613d-cb54-5a89-832d-f974734480fb",
+    "pack": "season-of-ghosts",
+    "kind": "weapon",
+    "slug": "weapon:silversoul-bomb",
+    "name": "Silversoul Bomb",
+    "level": 3,
+    "rarity": "rare",
+    "traits": ["alchemical", "bomb", "consumable", "mental", "splash"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This rare alchemical bomb gathers and concentrates the emotions that linger in a burial ground where generations of beloved ancestors have been interred, infusing that powerful emotional energy into the alchemically prepared powdered silver stored within the bomb. This energy glows with a soft, silver radiance and, if stored in a clear container, allows a silversoul bomb to be used as a torch to illuminate an area."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A silversoul bomb grants +1 item bonus to attack rolls, and the bomb deals 2d4 mental damage and 2 mental splash damage. A creature that takes splash damage from the bomb and fails a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 17,
+            "options": ["inflicts:dazzled"]
+          },
+          {
+            "type": "text",
+            "text": " save is "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round as glowing silver particles cling to its face."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Nindorus are particularly harmed by silversoul bombs and take 1d6 persistent mental damage. Against nindorus, the bomb's item bonus also applies to its save DC to resist being dazzled or blinded. Creatures that have weakness to silver (including most nindorus) have an equal amount of weakness to the mental damage caused by a silversoul bomb, due to the silver infused into the energy within."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.oE3fHS3CUs15bZ4r"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 2,
+        "die": "d4",
+        "damageType": "mental"
+      },
+      "splash": 2,
+      "itemBonus": 1,
+      "range": 20,
+      "ammunition": {},
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "7556a013-9dbb-526e-8c81-d957e3c87eee",
+    "pack": "season-of-ghosts",
+    "kind": "weapon",
+    "slug": "weapon:silversoul-bomb-greater",
+    "name": "Silversoul Bomb (Greater)",
+    "level": 11,
+    "rarity": "rare",
+    "traits": ["alchemical", "bomb", "consumable", "mental", "splash"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This rare alchemical bomb gathers and concentrates the emotions that linger in a burial ground where generations of beloved ancestors have been interred, infusing that powerful emotional energy into the alchemically prepared powdered silver stored within the bomb. This energy glows with a soft, silver radiance and, if stored in a clear container, allows a silversoul bomb to be used as a torch to illuminate an area."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A silversoul bomb grants +2 item bonus to attack rolls, and the bomb deals 3d4 mental damage and 3 mental splash damage. A creature that takes splash damage from the bomb and fails a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 28,
+            "options": ["inflicts:dazzled", "inflicts:blinded"]
+          },
+          {
+            "type": "text",
+            "text": " save is "
+          },
+          {
+            "type": "ref",
+            "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round and then "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round thereafter as glowing silver particles cling to its face."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Nindorus are particularly harmed by silversoul bombs and take 2d6 persistent mental damage. Against nindorus, the bomb's item bonus also applies to its save DC to resist being dazzled or blinded. Creatures that have weakness to silver (including most nindorus) have an equal amount of weakness to the mental damage caused by a silversoul bomb, due to the silver infused into the energy within."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.mfc9IT94CPnKKBG8"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 3,
+        "die": "d4",
+        "damageType": "mental"
+      },
+      "splash": 3,
+      "itemBonus": 2,
+      "range": 20,
+      "ammunition": {},
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "22af12d6-cb9e-5c47-8178-bda7b54dfda0",
+    "pack": "season-of-ghosts",
+    "kind": "weapon",
+    "slug": "weapon:silversoul-bomb-major",
+    "name": "Silversoul Bomb (Major)",
+    "level": 17,
+    "rarity": "rare",
+    "traits": ["alchemical", "bomb", "consumable", "mental", "splash"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This rare alchemical bomb gathers and concentrates the emotions that linger in a burial ground where generations of beloved ancestors have been interred, infusing that powerful emotional energy into the alchemically prepared powdered silver stored within the bomb. This energy glows with a soft, silver radiance and, if stored in a clear container, allows a silversoul bomb to be used as a torch to illuminate an area."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A silversoul bomb grants +3 item bonus to attack rolls, and the bomb deals 4d4 mental damage and 4 mental splash damage. A creature that takes splash damage from the bomb is "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round unless it fails a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 37,
+            "options": ["inflicts:blinded"]
+          },
+          {
+            "type": "text",
+            "text": " save, in which case it's permanently "
+          },
+          {
+            "type": "ref",
+            "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+          },
+          {
+            "type": "text",
+            "text": " as glowing silver particles cling to its face."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Nindorus are particularly harmed by silversoul bombs and take 3d6 persistent mental damage. Against nindorus, the bomb's item bonus also applies to its save DC to resist being dazzled or blinded. Creatures that have weakness to silver (including most nindorus) have an equal amount of weakness to the mental damage caused by a silversoul bomb, due to the silver infused into the energy within."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.R7I0KwKM3PNZn0zJ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2500
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 4,
+        "die": "d4",
+        "damageType": "mental"
+      },
+      "splash": 4,
+      "itemBonus": 3,
+      "range": 20,
+      "ammunition": {},
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "2331b0e1-a259-5f85-9726-143eb9030420",
+    "pack": "season-of-ghosts",
+    "kind": "weapon",
+    "slug": "weapon:spirit-fan",
+    "name": "Spirit Fan",
+    "level": 7,
+    "rarity": "rare",
+    "traits": ["agile", "backstabber", "deadly-d6", "finesse", "monk"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This elegant black, gold-tipped "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking fighting fan",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is adorned with images of three golden leaves and a red rope tassel. If a creature is reduced to 0 Hit Points by a "
+          },
+          {
+            "type": "text",
+            "text": "spirit fan",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", the golden leaves on the fan light up, providing illumination equal to that of a torch for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "27b6a682-cc7c-5d46-acdb-d9724fae3dc0"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Release Life Energy",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate, vitality)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "spirit fan",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "'s leaves are illuminated"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You sweep the "
+          },
+          {
+            "type": "text",
+            "text": "spirit fan",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " in the direction of a single target you can see within 30 feet, releasing the life energy in the form of a streak of golden light. The "
+          },
+          {
+            "type": "text",
+            "text": "spirit fan",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " goes dark. If the target is a living creature, the energy restores "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d8+8",
+                "damageType": "vitality"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points. If the target is undead, it takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d8+8",
+                "damageType": "vitality"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 23,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.SNF8g7u8JYzqvsU1"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 360
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "release-life-energy",
+          "name": "Release Life Energy",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "knife",
+      "baseItem": "fighting-fan",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "acf2c3c5-d261-5bd9-ae72-33c9d9332895",
+    "pack": "season-of-ghosts",
+    "kind": "weapon",
+    "slug": "weapon:thundering-fury-dadao",
+    "name": "Thundering Fury Dadao",
+    "level": 12,
+    "rarity": "rare",
+    "traits": ["magical", "sonic", "versatile-p"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This massive, curved blade roars when it crashes down on opponents, seemingly intent on subduing them with sheer force. It's said materials for the first "
+          },
+          {
+            "type": "text",
+            "text": "thundering fury dadaos",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " came from the hide of Yorak, the Horned Thunder, a legendary kaiju that roams the Shanguang desert. The lack of embellishments on this "
+          },
+          {
+            "type": "text",
+            "text": "+2 striking thundering greatsword",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " belies a weapon of deadly efficacy."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activation—Thunder Dance",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You infuse the "
+          },
+          {
+            "type": "text",
+            "text": "thundering fury dadao",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " with the speed of lightning and the force of thunder. The weapon gains the agile and forceful traits for one round. You can Sustain this activation for up to 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "712354a4-679e-5b53-b789-825445e1a847"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.EcrZYy4PgbpiKyhE"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2000
+        }
+      },
+      "bulk": 2,
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "greatsword",
+      "damage": {
+        "dice": 1,
+        "die": "d12",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 1,
+        "property": ["20d890d1-7dff-59ce-98c5-9c009eb6a398"]
+      }
+    }
+  },
+  {
+    "id": "e2cf1586-3e63-5f7f-b5de-feac3776ff65",
+    "pack": "season-of-ghosts",
+    "kind": "weapon",
+    "slug": "weapon:ugly-cutes-gift",
+    "name": "Ugly Cute's Gift",
+    "level": 4,
+    "rarity": "unique",
+    "traits": ["agile", "free-hand", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This spiky, stony fragment shed from Ugly Cute's carapace fits comfortably over the hand. Though a little bulkier than the typical gauntlet, it still functions as a "
+          },
+          {
+            "type": "text",
+            "text": "+1 spiked gauntlet",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Ugly Cute's Favor",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You draw upon Ugly Cute's latent spiritual energy to infuse the gauntlet with forceful power. For 1 minute, "
+          },
+          {
+            "type": "text",
+            "text": "Ugly Cute's gift",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " gains the advantages of a "
+          },
+          {
+            "type": "ref",
+            "id": "3e294082-c3ff-58be-ab80-1608b9c6229a"
+          },
+          {
+            "type": "text",
+            "text": " property rune and deals an additional 2 spirit damage on a successful Strike."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "d325d87a-b0a5-5425-b771-3111f63bac7a"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.99ffrZOWek8ePE4n"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 60
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "ugly-cutes-favor",
+          "name": "Ugly Cute's Favor",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "simple",
+      "group": "brawling",
+      "baseItem": "spiked-gauntlet",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "e7501cdb-cca9-50d7-abd6-069cf8cc4b88",
+    "pack": "season-of-ghosts",
+    "kind": "weapon",
+    "slug": "weapon:vashus-ninth-life",
+    "name": "Vashu's Ninth Life",
+    "level": 9,
+    "rarity": "unique",
+    "traits": ["deadly-d8", "magical", "two-hand-d10", "versatile-p"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking ghost touch katana",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is made from a whisker stolen from the king of cats over 300 years ago by a catfolk rogue named Vashu Vigaru. He sought the magic of the whisker to preternaturally extend his life, and some believe he still lives, having successfully divested himself of the sword to escape the king's wrath in the end."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Whisker's Sense",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your turn ends"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You extend your senses through the blade, allowing you to react to nearby movement. "
+          },
+          {
+            "type": "text",
+            "text": "Vashu's Ninth Life",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " gains the parry trait and raises itself into parrying position, granting you a +1 circumstance bonus to AC until the start of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "ec235692-4634-5eef-917b-5443db639590"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Full of Life",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You slay a living creature with "
+          },
+          {
+            "type": "text",
+            "text": "Vashu's Ninth Life",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A portion of the slain creature's life force travels through the blade and into your soul, bolstering your own life. You gain the benefits of the "
+          },
+          {
+            "type": "ref",
+            "id": "730b86b0-c740-5759-ba8b-82ae1fede883"
+          },
+          {
+            "type": "text",
+            "text": " feat for 1 minute. This causes you to die from the dying condition at dying 5 rather than dying 4."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "5475daff-7a05-5b14-bc91-47a839a9aeb2"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.8pFegnc8KTHsvQZ0"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 700
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "whiskers-sense",
+          "name": "Whisker's Sense",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        },
+        {
+          "slug": "full-of-life",
+          "name": "Full of Life",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "katana",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": ["3e294082-c3ff-58be-ab80-1608b9c6229a"]
+      }
+    }
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "id": "cf2af84b-a77a-578a-87e8-2bcc446ae895",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:reincarnated",
+    "name": "Reincarnated",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "feat"]
+    }
+  },
+  {
+    "id": "9b0da42b-7d37-5aa4-8c94-5128b9807352",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:tea",
+    "name": "Tea",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "consumable"]
+    }
+  }
+]

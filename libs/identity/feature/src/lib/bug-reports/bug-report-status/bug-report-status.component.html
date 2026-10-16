@@ -1,0 +1,14 @@
+@switch (status()) {
+  @case ('open') {
+    <fr-text weight="semibold">{{ 'identity.bugReports.status.open' | transloco }}</fr-text>
+  }
+  @case ('confirmed') {
+    <fr-text weight="semibold" tone="accent">{{ 'identity.bugReports.status.confirmed' | transloco }}</fr-text>
+  }
+  @case ('fixed') {
+    <fr-text weight="semibold" tone="muted">{{ 'identity.bugReports.status.fixed' | transloco }}</fr-text>
+  }
+  @default {
+    <fr-text weight="semibold" tone="muted">{{ 'identity.bugReports.status.declined' | transloco }}</fr-text>
+  }
+}

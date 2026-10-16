@@ -1,6 +1,6 @@
 /**
- * Pioneer never interrupts: no modals, no toasts, no full page loads.
- * Templates may not use `<dialog>`, `popover`, `role="dialog|alertdialog"`,
+ * Pioneer never interrupts: no modals, no toasts, no full page loads. Popovers are allowed (ADR-0065).
+ * Templates may not use `<dialog>`, `role="dialog|alertdialog"`,
  * or an internal `href` (which reloads the document; use `routerLink`).
  * Feedback lives inline, next to the thing it is about.
  */
@@ -29,7 +29,6 @@ export const noInterruptions: Rule.RuleModule = {
     docs: { description: 'Disallow modals, toasts and full page loads in templates' },
     messages: {
       dialog: '`<dialog>` is a modal. Show the content inline or route to it.',
-      popover: '`popover` overlays the page. Show the content inline.',
       role: '`role="{{role}}"` is a modal. Show the content inline or route to it.',
       href: 'Internal `href` reloads the whole page. Use `routerLink`.',
       boundHref: 'Bound `href` may reload the whole page. Use `routerLink`, or a literal external `href`.',
@@ -51,9 +50,7 @@ export const noInterruptions: Rule.RuleModule = {
       },
       TextAttribute(node: unknown): void {
         const { name, value, keySpan } = node as AttributeNode;
-        if (name === 'popover') {
-          report(keySpan, 'popover');
-        } else if (name === 'role' && typeof value === 'string' && OVERLAY_ROLES.has(value)) {
+        if (name === 'role' && typeof value === 'string' && OVERLAY_ROLES.has(value)) {
           report(keySpan, 'role', { role: value });
         } else if (name === 'href' && typeof value === 'string' && !EXTERNAL_HREF.test(value)) {
           report(keySpan, 'href');
@@ -62,9 +59,7 @@ export const noInterruptions: Rule.RuleModule = {
       // Bound names arrive without brackets or `attr.`: `[attr.href]` is `href`.
       BoundAttribute(node: unknown): void {
         const { name, keySpan } = node as AttributeNode;
-        if (name === 'popover') {
-          report(keySpan, 'popover');
-        } else if (name === 'href') {
+        if (name === 'href') {
           report(keySpan, 'boundHref');
         }
       },

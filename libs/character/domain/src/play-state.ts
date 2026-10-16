@@ -24,6 +24,7 @@ import type { DeathTrack } from './death-track';
 import { EffectCommandField, EffectCommandSchema } from './effect-commands';
 import { ActiveEffectsSchema } from './effects';
 import type { EffectContent } from './effects';
+import { ExplorationActivitySchema, ExplorationCommandField, ExplorationCommandSchema } from './exploration-commands';
 import { ResourceCommandField, ResourceCommandSchema } from './resource-commands';
 import { ResourcesSpentSchema } from './resources';
 import { RestCommandField, RestCommandSchema } from './rest-types';
@@ -68,6 +69,8 @@ export const PlayStateSchema = z.strictObject({
   turn: TurnStateSchema.default(OUT_OF_ENCOUNTER),
   /** The spends since the turn began; the actions they took are already out of `turn`. */
   spendLog: SpendLogSchema.default([]),
+  /** What the character is doing while exploring, as the id of the action; none until it picks one. */
+  exploration: ExplorationActivitySchema,
   ...DeathTrackSchema.shape,
 });
 export type PlayState = z.infer<typeof PlayStateSchema>;
@@ -102,6 +105,7 @@ export const PlayCommandField = {
   ...SpendCommandField,
   /** A `RollOption` toggle set on or off (`toggle-commands.ts`). */
   ...ToggleCommandField,
+  ...ExplorationCommandField,
 } as const;
 export type PlayCommandField = ValueOf<typeof PlayCommandField>;
 
@@ -126,6 +130,7 @@ export const PlayCommandSchema = z.discriminatedUnion('field', [
   ...RestCommandSchema.options,
   ...SpendCommandSchema.options,
   ...ToggleCommandSchema.options,
+  ...ExplorationCommandSchema.options,
 ]);
 export type PlayCommand = z.infer<typeof PlayCommandSchema>;
 
@@ -293,6 +298,3 @@ function applyHitPointsEdit(play: PlayState, command: HitPointsCommand, max: Hit
     }
   }
 }
-
-/** Damage entered by hand lives in `untyped-damage.ts`; the play-state tests still read it from here. */
-export { untypedDamage } from './untyped-damage';

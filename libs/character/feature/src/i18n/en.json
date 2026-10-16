@@ -139,6 +139,14 @@
     },
     "skillsHeading": "Skills",
     "languagesHeading": "Languages",
+    "exploration": {
+      "heading": "Exploration activity",
+      "activity": {
+        "label": "Exploration activity",
+        "none": "None",
+        "hint": "What the character is doing while exploring. It suggests the skill of the initiative roll."
+      }
+    },
     "roleplay": {
       "heading": "Appearance and personality",
       "appearance": "Appearance",
@@ -444,6 +452,7 @@
     "staffNotHeld": "That staff is not in the character's inventory. Choose another.",
     "staffSlotWithoutStaff": "A slot can only be expended to add charges to a staff. Choose a staff first.",
     "staffSlotNotExpendable": "Only a spell slot of a prepared spellcasting entry can be expended for charges. Choose another.",
+    "explorationUnknown": "That is not an exploration activity in the content this character uses.",
     "effectUnknown": "That effect is not in the content this character uses.",
     "effectMissing": "That effect is no longer on the character. Reload the sheet and try again.",
     "effectFull": "This character has as many effects as it can hold. Remove one first.",
@@ -537,6 +546,19 @@
       "discrepancyWhy": "Why Pioneer's value is what it is",
       "ruleBreaking": "{count, plural, one {# item was kept as imported but breaks a rule} other {# items were kept as imported but break a rule}}.",
       "ruleBreakingReview": "Review them in the inventory",
+      "statistic": {
+        "named": "{name}",
+        "defenseUnarmored": "Unarmored defense",
+        "defenseLight": "Light armor",
+        "defenseMedium": "Medium armor",
+        "defenseHeavy": "Heavy armor",
+        "attackUnarmed": "Unarmed attacks",
+        "attackSimple": "Simple weapons",
+        "attackMartial": "Martial weapons",
+        "attackAdvanced": "Advanced weapons",
+        "spellcasting": "Spellcasting",
+        "spellDc": "Spell DC ({entry})"
+      },
       "notCarried": "Characters can't hold these yet, so they weren't kept: {fields}.",
       "groupSummary": "{kind} · {count, number} not carried over",
       "allMatched": "Every name matched content you have loaded."
