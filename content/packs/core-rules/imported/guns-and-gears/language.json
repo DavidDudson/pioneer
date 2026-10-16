@@ -1,0 +1,20 @@
+[
+  {
+    "id": "f36d6839-c1ce-575a-bc68-1c26a7601f13",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:jistkan",
+    "name": "Jistkan",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  }
+]

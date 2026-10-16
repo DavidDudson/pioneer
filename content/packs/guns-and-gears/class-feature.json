@@ -1,0 +1,6021 @@
+[
+  {
+    "id": "b5028417-e2f2-519d-9e11-d98b27e4609b",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:advanced-deed",
+    "name": "Advanced Deed",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["gunslinger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've learned a powerful new technique of your chosen way. You gain the advanced deed ability of the way you chose at 1st level."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "9f2a24cb-f0d2-5380-bbea-be2e5d3ff0ad",
+        "predicate": ["feature:way-of-the-drifter"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "6b73ebac-35ef-59ec-9186-f7a4a134a95b",
+        "predicate": ["feature:way-of-the-pistolero"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "f29e50fc-9066-59a2-84b1-94a189df48d3",
+        "predicate": ["feature:way-of-the-sniper"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "077079db-2916-5ab0-a405-f2550e4da65c",
+        "predicate": ["feature:way-of-the-spellshot"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "2abebf16-41ed-57b7-8af4-9561027c8cb4",
+        "predicate": ["feature:way-of-the-vanguard"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "4f31f358-b056-5010-9d3c-9606f031170d",
+        "predicate": ["feature:way-of-the-triggerbrand"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.3JLW5vPshsJf3nCY"
+    },
+    "data": {}
+  },
+  {
+    "id": "77c81173-a7cd-56c3-95d7-546dfbd344ce",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:advanced-design",
+    "name": "Advanced Design",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your weapon innovation uses the statistics of a level 0 advanced weapon of your choice. It must be common or you must have access to it. You treat this as a martial weapon for the purposes of proficiency."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.U7CBdITws4Sg3e5C"
+    },
+    "data": {
+      "tags": ["weapon-innovation-modification"]
+    }
+  },
+  {
+    "id": "ca7aad40-b028-5565-b187-e2dcac5044fc",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:advanced-rangefinder",
+    "name": "Advanced Rangefinder",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ranged Only",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A carefully tuned scope or targeting device makes your weapon especially good at hitting weak points. Your innovation gains the backstabber trait and increases its range increment by 20 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.P1GbGEePC8zDi8K4"
+    },
+    "data": {
+      "tags": ["ranged", "weapon-innovation-modification"]
+    }
+  },
+  {
+    "id": "c9c5ff97-7496-5895-9294-81b0e98494cd",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:aerodynamic-construction",
+    "name": "Aerodynamic Construction",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Melee Only",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You carefully engineer the shape of your weapon to maintain its momentum in attacks against successive targets. Your innovation gains the sweep trait and the versatile S trait."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.7Zw83ysONrNhJMr8"
+    },
+    "data": {
+      "tags": ["melee", "weapon-innovation-modification"]
+    }
+  },
+  {
+    "id": "f2c4fc0a-4a73-556b-afa1-49acef740c5d",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:antimagic-plating",
+    "name": "Antimagic Plating",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whether you used some clever adaptation of the magic-negating skymetal known as noqual or created magical protections of your own design, you've strengthened your armor against magic. While wearing the armor, you gain a +1 circumstance bonus to all saving throws against spells and to AC against spells. Against spells that target the armor directly, you instead gain a +4 circumstance bonus to all saving throws and to AC."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.ySkTxnoNuDluk6Cb"
+    },
+    "data": {
+      "tags": ["armor-innovation-modification"]
+    }
+  },
+  {
+    "id": "d0645324-1b19-5105-8e92-0aa6f1ecdbb9",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:anvils-hardness",
+    "name": "Anvil's Hardness",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your body is as durable as iron. Your proficiency rank for Fortitude saves increases to master. When you roll a success on a Fortitude save, you get a critical success instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["save:fortitude"],
+        "adjustment": {
+          "success": "one-degree-better"
+        }
+      },
+      {
+        "key": "Proficiency",
+        "selector": "save:fortitude",
+        "rank": "master"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.O04RZa20X6fcbLAy"
+    },
+    "data": {}
+  },
+  {
+    "id": "53ad784a-18e4-5d04-ab5a-94e41d9a0ef0",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:armor-innovation",
+    "name": "Armor Innovation",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your innovation is a cutting-edge suit of medium armor with a variety of attached gizmos and devices. Choose one of the sets of statistics on Innovation Armor Statistics table for your innovation armor (or choose another set of innovation armor statistics to which you have access). Your innovation armor can have fundamental and property runes added to it in the same way as ordinary armor. Because of the unique features of your innovation, everyone except you is untrained in it, even if they would normally be trained (or better) in medium armor. Choose one initial armor modification to apply to your innovation, either from the following or from other initial armor modifications to which you have access."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "9c214b59-3cef-5358-bf5d-44d4eb558800"
+                },
+                {
+                  "type": "text",
+                  "text": ":",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You designed your armor to inaudibly thrum at just the right frequency to create interference against force and sound waves. You gain resistance equal to 3 + half your level to force and sonic damage. When under the effects of Overdrive, the resistance increases by 2."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "08401aad-c6b6-5cf8-a88d-ab19081a6f8b"
+                },
+                {
+                  "type": "text",
+                  "text": ":",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The metals in your armor are carefully alloyed to ground electricity and protect from acidic chemical reactions. You gain resistance equal to 3 + half your level to acid and electricity damage. When under the effects of Overdrive, the resistance increases by 2."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "f3d566c3-fa3a-5f76-9c44-2ce7f5706048"
+                },
+                {
+                  "type": "text",
+                  "text": " (Power Suit only):",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Your armor supports your muscles with a carefully crafted exoskeleton. When you send your armor into overdrive, the exoskeleton supplements your feats of athletics as well. When under the effects of Overdrive, you gain a +1 circumstance bonus to Athletics checks; if you're a master in Crafting, this increases to a +2 circumstance bonus."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "9f4ad732-ebd3-565b-87c9-455649b093a1"
+                },
+                {
+                  "type": "text",
+                  "text": ":",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Just because you prefer science doesn't mean you can't build your armor with materials and gizmos designed to protect against otherworldly attacks. You gain resistance equal to 3 + half your level to void damage, or to vitality damage if you have void healing (such as if you're a dhampir). You gain the same amount of resistance to spirit damage. If you are sanctified (such as by also being a champion or cleric dedicated to a deity who allows or enforces sanctification) this resistance applies to unholy damage (if you are sanctified holy) or holy damage (if you are sanctified unholy), regardless of what other traits the damage has."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "b94af4a0-8aab-5449-bc35-ccc611feaa8f"
+                },
+                {
+                  "type": "text",
+                  "text": ":",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " A layer of insulation within your armor protects you from rapid temperature fluctuations. You gain resistance equal to half your level to cold and fire damage. When under the effects of Overdrive, the resistance increases by 2."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "59b496aa-acbc-50ff-adec-aaa4ffae022c"
+                },
+                {
+                  "type": "text",
+                  "text": ":",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You have boosters in your armor that increase your Speed. You gain a +5-foot status bonus to your Speed, which increases to a +10-foot status bonus when under the effects of Overdrive."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "45d797d9-e612-522a-bdcf-f533bad9e4b7"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "text",
+                  "text": "(Subterfuge Suit only)",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": ": You've designed your armor to help you blend in and dampen noise slightly. When you send your armor into overdrive, the dampeners increase their effect, improving your Stealth. When under the effects of Overdrive, you gain a +1 circumstance bonus to Stealth checks. If you're a master in Crafting, this increases to a +2 circumstance bonus."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.fpwtpm8pdwO1I6MO"
+    },
+    "data": {
+      "tags": ["inventor-innovation"]
+    }
+  },
+  {
+    "id": "7d1ec790-4fe0-5612-b9e9-a33353d121f1",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:attack-refiner",
+    "name": "Attack Refiner",
+    "level": 15,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your weapon makes minute recalibrations after every missed attack to ensure the next lands with vicious efficacy. Your innovation gains the backswing and forceful traits."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.ZcoOMwEY8FX7UzMo"
+    },
+    "data": {
+      "tags": ["weapon-innovation-modification"]
+    }
+  },
+  {
+    "id": "828641e8-28d0-5e66-b697-86373105ab16",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:automated-impediments",
+    "name": "Automated Impediments",
+    "level": 15,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your armor uses electromagnetic fields, subharmonic distortions, or other techniques to make it difficult for those close to you to move unless you allow it. While wearing your armor, all spaces adjacent to you are difficult terrain for your enemies."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.HC99e4WoM36W3lrL"
+    },
+    "data": {
+      "tags": ["armor-innovation-modification"]
+    }
+  },
+  {
+    "id": "512e7a03-fd17-547d-a387-6f3f8d74dfa9",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:blast-dodger",
+    "name": "Blast Dodger",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["gunslinger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your reflexes have a hair trigger. Your proficiency rank for Reflex saves increases to master. When you roll a success on a Reflex save, you get a critical success instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["save:reflex"],
+        "adjustment": {
+          "success": "one-degree-better"
+        }
+      },
+      {
+        "key": "Proficiency",
+        "selector": "save:reflex",
+        "rank": "master"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.Uz2Izzi5A8N6Dxjn"
+    },
+    "data": {}
+  },
+  {
+    "id": "eca6a2b8-4852-5f53-927f-869f2e5aed41",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:blunt-shot",
+    "name": "Blunt Shot",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ranged Only",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your weapon innovation can file the edges off your ammunition and adjust the blunt force of the shot to deliver an attack that can batter as much as pierce, or even knock an opponent right off their feet. Your innovation gains the concussive and ranged trip traits."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.O3r84Uv6HytaSIbX"
+    },
+    "data": {
+      "tags": ["ranged", "weapon-innovation-modification"]
+    }
+  },
+  {
+    "id": "5deebac1-ad1c-58c3-8ebe-e682646f7be0",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:breakthrough-innovation",
+    "name": "Breakthrough Innovation",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've made a breakthrough in your field of study and discovered a powerful new way to enhance your innovation. Choose a breakthrough modification of your innovation's type to apply to your innovation. You can choose an initial modification of your innovation's type instead if you prefer."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Breakthrough Armor Modifications"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "f2c4fc0a-4a73-556b-afa1-49acef740c5d"
+                },
+                {
+                  "type": "text",
+                  "text": " Whether you used some clever adaptation of the magic-negating skymetal known as noqual or created magical protections of your own design, you've strengthened your armor against magic. While wearing the armor, you gain a +1 circumstance bonus to all saving throws against spells and to AC against spells. Against spells that target the armor directly (like heat metal), you instead gain a +4 circumstance bonus to all saving throws and to AC."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "18f5bb0a-3844-56ea-a7e8-13189c3cfb5e"
+                },
+                {
+                  "type": "text",
+                  "text": " (Subterfuge Suit Only)",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You've modified your armor's exterior to let you blend into your surroundings with ease, as long as you stay still. While wearing your armor, you can Hide even without cover or concealment, as the pigmentation shifts to match your surroundings."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "504effc7-7246-5169-8b3a-79b3d3140083"
+                },
+                {
+                  "type": "text",
+                  "text": " You have encased your armor in robust plating. While wearing your armor, you gain resistance to slashing damage equal to half your level."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "15613e5c-309b-59b9-acf5-5529c1e2ebbe"
+                },
+                {
+                  "type": "text",
+                  "text": " You've improved upon your initial modification's ability to resist damage. The resistance from your initial armor modification adds your full level, instead of half your level (for instance, phlogistonic regulator's resistance would increase to your level). If you have more than one initial modification that gives resistance, choose which one this applies to."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "31a484b3-0727-5c8f-a8d0-9f28a3ef1e8d"
+                },
+                {
+                  "type": "text",
+                  "text": " (Power Suit Only)",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You've expanded your innovation into a heavy bulwark, and your groundbreaking design ensures you don't take any of the drawbacks for such heavy defenses. Your innovation becomes heavy armor, and your proficiency in your innovation armor (but no other heavy armor) advances to be equal to your proficiency in medium armor. If your Strength modifier is at least +3, you remove the Speed penalty entirely instead of reducing it to –5 feet. The armor's adjusted statistics are: "
+                },
+                {
+                  "type": "text",
+                  "text": "AC Bonus",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": " +5; "
+                },
+                {
+                  "type": "text",
+                  "text": "Dex Cap",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": " +1; "
+                },
+                {
+                  "type": "text",
+                  "text": "Check Penalty",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": " –2; "
+                },
+                {
+                  "type": "text",
+                  "text": "Speed Penalty",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": " –10 feet; "
+                },
+                {
+                  "type": "text",
+                  "text": "Strength",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": " +3; "
+                },
+                {
+                  "type": "text",
+                  "text": "Bulk",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": " 3; "
+                },
+                {
+                  "type": "text",
+                  "text": "Group",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": " composite; "
+                },
+                {
+                  "type": "text",
+                  "text": "Armor Traits",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": " bulwark, entrench."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "646f39a6-d199-5245-9daa-d1f27b7283e8"
+                },
+                {
+                  "type": "text",
+                  "text": " You've improved your speed boosters' power through a breakthrough that significantly increases the energy flow without risking exploding. You gain a +10-foot status bonus to your Speed, which increases to a +20-foot status bonus when you're in Overdrive. If you're legendary in Crafting, it instead increases to a +30-foot status bonus when you're in Overdrive. You must have the speed boosters modification to select this modification."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "edc3f5f9-8b27-5eb2-9161-d7fb3cc5706d"
+                },
+                {
+                  "type": "text",
+                  "text": " You've woven an incredibly powerful network of interlocking mesh around your armor, which catches piercing attacks and diffuses them. While wearing your armor, you gain resistance to piercing damage equal to half your level."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "c487b324-96c3-5a99-8b12-43120bcb670c"
+                },
+                {
+                  "type": "text",
+                  "text": " You've enhanced the tensile capabilities of your armor, enabling it to bend with bludgeoning attacks. While wearing your armor, you gain resistance to bludgeoning damage equal to half your level."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Breakthrough Construct Modifications"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Advanced Weaponry",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You've powered up your construct's weaponry. Choose one of your construct's unarmed attacks to gain your choice of one initial weapon modification, chosen from the list on page 18 or from other initial weapon modifications to which you have access. The unarmed attack must meet any requirements for the chosen traits (such as being a melee attack for entangling form), and since it's an unarmed attack, it can never meet certain requirements, such as being a simple weapon for complex simplicity."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Antimagic Construction",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Whether you used some clever adaptation of the magic-negating skymetal known as noqual or created magical protections entirely of your own devising, you've made your innovation highly resilient to spells. Your construct innovation gains a +2 circumstance bonus to all saving throws and AC against spells."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Climbing Limbs",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " With appendages that can claw or create suction, your construct becomes a capable climber. Your innovation gains a climb Speed equal to half its land Speed."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Durable Construction",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Your innovation is solidly built; it can take significant punishment before being destroyed. Increase its maximum HP by your level."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Marvelous Gears",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Your innovation gains expert proficiency in Intimidation, Stealth, and Survival. For any of these skills in which it was already an expert (because of being an advanced construct companion, for example), it gains master proficiency instead. If you have the revolutionary innovation class feature, these proficiencies improve to master, or legendary if your construct innovation was already an expert. You must have the wonder gears modification to select this modification."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Turret Configuration",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Your innovation can transform from a mobile construct to a stationary turret. Your construct companion can transform as a single action, which has the manipulate trait, turning into a turret in its space (or transforming back from a turret into its normal configuration). While it's a turret, your innovation is "
+                },
+                {
+                  "type": "ref",
+                  "id": "64278392-4910-5a32-b819-56f6e54952dd"
+                },
+                {
+                  "type": "text",
+                  "text": ", but the damage die from its projectile launcher increases to 1d6 and the range increment increases to 60 feet. You must have the projectile launcher modification to select this modification."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Breakthrough Weapon Modifications"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "ca7aad40-b028-5565-b187-e2dcac5044fc"
+                },
+                {
+                  "type": "text",
+                  "text": " (Ranged Only)",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " A carefully tuned scope or targeting device makes your weapon especially good at hitting weak points. Your innovation gains the backstabber trait and increases its range increment by 20 feet."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "c9c5ff97-7496-5895-9294-81b0e98494cd"
+                },
+                {
+                  "type": "text",
+                  "text": " (Melee Only)",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You carefully engineer the shape of your weapon to maintain its momentum in attacks against successive targets. Your innovation gains the sweep trait and the versatile S trait."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "17cbb7d6-456b-5752-a353-ab5c3add4103"
+                },
+                {
+                  "type": "text",
+                  "text": " (Melee Only)",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Your innovation is built for easy concealment and surprise attacks. It gains the backstabber and versatile P traits. If the weapon has light Bulk, it also gains the concealable trait."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "c62516f3-c533-5bd0-b079-6ddd54bc528e"
+                },
+                {
+                  "type": "text",
+                  "text": " (One-Handed Weapon Only; Can't Have the Two-Hand Trait)",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Combining your weapon with a gauntlet, you make it so you can quickly switch between attacking with your weapon and tinkering using your hands. Your innovation gains the free-hand trait."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "febf5661-fa09-503a-a3d1-ab0f5a0b6e8e"
+                },
+                {
+                  "type": "text",
+                  "text": " You've devised several alloys that contain useful properties of various metals, and you replace a number of parts of your weapon or its ammunition with pieces from these alloys. Your weapon innovation is cold iron and silver. This means you deal more damage to a variety of supernatural creatures, such as demons, devils, and fey."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "29fac4cc-8a6b-5be5-ac5f-a5037bbfaf07"
+                },
+                {
+                  "type": "text",
+                  "text": " (Ranged Only)",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Your weapon can shoot projectiles that split into simple ropes or nets around your foes' legs to trip your targets, and you can climb using the grappling hooks built into the weapon. Your weapon innovation gains the climbing and ranged trip traits, as well as the tethered trait if it is thrown."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "cf95b25c-757c-54a7-a856-44d3b8df336f"
+                },
+                {
+                  "type": "text",
+                  "text": " (Thrown Only)",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Your weapon has an extensible line that you can use to knock your enemies over, recall the weapon to your hand and even parry attacks. Your innovation gains the parry, ranged trip and tethered traits."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.78HIjRbGoONMpF31"
+    },
+    "data": {}
+  },
+  {
+    "id": "18f5bb0a-3844-56ea-a7e8-13189c3cfb5e",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:camouflage-pigmentation",
+    "name": "Camouflage Pigmentation",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've modified your armor's exterior to let you blend into your surroundings with ease, as long as you stay still. While wearing your armor, you can Hide even without cover or concealment, as the pigmentation shifts to match your surroundings."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.hxjdHBJHaB47mBUT"
+    },
+    "data": {
+      "tags": ["armor-innovation-modification", "subterfuge-suit-modification"]
+    }
+  },
+  {
+    "id": "e2f9d627-a956-5488-9281-3227a606f031",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:churning-mind",
+    "name": "Churning Mind",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The gears of your mind keep turning, making you resistant to mental manipulation. Your proficiency rank for Will saves increases to master. When you roll a success on a Will save, you get a critical success instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["save:will"],
+        "adjustment": {
+          "success": "one-degree-better"
+        }
+      },
+      {
+        "key": "Proficiency",
+        "selector": "save:will",
+        "rank": "master"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.VSbNezLoWtWRDok7"
+    },
+    "data": {}
+  },
+  {
+    "id": "57e14f42-5c6d-593f-9074-a1958aa7a74e",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:complete-reconfiguration",
+    "name": "Complete Reconfiguration",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When it comes to crafting and tinkering, you've become incredibly adept at changing your modifications to adjust your innovation's functionality. When you spend downtime to reconfigure your innovation and succeed at your Crafting check, you can swap any number of modifications, swap your offensive boost, or retrain any number of modification feats, rather than one. You still must swap a modification only with one of the same type (initial, breakthrough, or revolutionary)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.j0klWHkH3AxUAgok"
+    },
+    "data": {}
+  },
+  {
+    "id": "3c718730-cae6-5e3f-9d60-231614bf8f5f",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:complex-simplicity",
+    "name": "Complex Simplicity",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Increase your innovation's weapon damage die by one step (d4 to d6, d6 to d8, d8 to d10, d10 to d12). In addition, it gains two of the following traits of your choice: versatile B, versatile P, versatile S, or razing."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "complex-simplicity-first-trait",
+        "choices": [
+          {
+            "value": "razing",
+            "label": "Razing",
+            "predicate": [
+              {
+                "not": "weapon-innovation:trait:razing"
+              }
+            ]
+          },
+          {
+            "value": "versatile-b",
+            "label": "Versatile B",
+            "predicate": [
+              {
+                "nor": ["weapon-innovation:damage:type:bludgeoning", "weapon-innovation:trait:versatile-b"]
+              }
+            ]
+          },
+          {
+            "value": "versatile-p",
+            "label": "Versatile P",
+            "predicate": [
+              {
+                "nor": ["weapon-innovation:damage:type:piercing", "weapon-innovation:trait:versatile-p"]
+              }
+            ]
+          },
+          {
+            "value": "versatile-s",
+            "label": "Versatile S",
+            "predicate": [
+              {
+                "nor": ["weapon-innovation:damage:type:slashing", "weapon-innovation:trait:versatile-s"]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select a trait.",
+        "rollOption": "complex-simplicity-first-trait",
+        "predicate": [
+          {
+            "or": [
+              {
+                "nor": ["weapon-innovation:damage:type:bludgeoning", "weapon-innovation:trait:versatile-b"]
+              },
+              {
+                "nor": ["weapon-innovation:damage:type:piercing", "weapon-innovation:trait:versatile-p"]
+              },
+              {
+                "nor": ["weapon-innovation:damage:type:slashing", "weapon-innovation:trait:versatile-s"]
+              },
+              {
+                "not": "weapon-innovation:trait:razing"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "complex-simplicity-second-trait",
+        "choices": [
+          {
+            "value": "razing",
+            "label": "Razing",
+            "predicate": [
+              {
+                "nor": ["weapon-innovation:trait:razing", "complex-simplicity-first-trait:razing"]
+              }
+            ]
+          },
+          {
+            "value": "versatile-b",
+            "label": "Versatile B",
+            "predicate": [
+              {
+                "nor": [
+                  "weapon-innovation:damage:type:bludgeoning",
+                  "weapon-innovation:trait:versatile-b",
+                  "complex-simplicity-first-trait:versatile-b"
+                ]
+              }
+            ]
+          },
+          {
+            "value": "versatile-p",
+            "label": "Versatile P",
+            "predicate": [
+              {
+                "nor": [
+                  "weapon-innovation:damage:type:piercing",
+                  "weapon-innovation:trait:versatile-p",
+                  "complex-simplicity-first-trait:versatile-p"
+                ]
+              }
+            ]
+          },
+          {
+            "value": "versatile-s",
+            "label": "Versatile S",
+            "predicate": [
+              {
+                "nor": [
+                  "weapon-innovation:damage:type:slashing",
+                  "weapon-innovation:trait:versatile-s",
+                  "complex-simplicity-first-trait:versatile-s"
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select a trait.",
+        "rollOption": "complex-simplicity-second-trait",
+        "predicate": [
+          {
+            "or": [
+              {
+                "nor": ["weapon-innovation:damage:type:bludgeoning", "weapon-innovation:trait:versatile-b"]
+              },
+              {
+                "nor": ["weapon-innovation:damage:type:piercing", "weapon-innovation:trait:versatile-p"]
+              },
+              {
+                "nor": ["weapon-innovation:damage:type:slashing", "weapon-innovation:trait:versatile-s"]
+              },
+              {
+                "not": "weapon-innovation:trait:razing"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.qIOKqT93h6CX6V4k"
+    },
+    "data": {
+      "tags": ["simple-weapon", "weapon-innovation-modification"]
+    }
+  },
+  {
+    "id": "132829ad-6a40-5197-b1cc-7474dcddad18",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:deadly-strike",
+    "name": "Deadly Strike",
+    "level": 15,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Through precise calculation, you've found the perfect way for your weapon to deal damage on a well-placed strike. Your innovation gains the deadly d8 trait. If your innovation was already deadly, increase the die by up to two die sizes (d6 to d10, d8 to d12), to a maximum of deadly d12."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.KcK3d8zw0bCEoaEG"
+    },
+    "data": {
+      "tags": ["weapon-innovation-modification"]
+    }
+  },
+  {
+    "id": "504effc7-7246-5169-8b3a-79b3d3140083",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:dense-plating",
+    "name": "Dense Plating",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have encased your armor in robust plating. While wearing your armor, you gain resistance to slashing damage equal to half your level."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.svGLZdD4PF7miAKA"
+    },
+    "data": {
+      "tags": ["armor-innovation-modification"]
+    }
+  },
+  {
+    "id": "50a8c81e-d5fe-57ef-b652-ebe46467ed92",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:dynamic-weighting",
+    "name": "Dynamic Weighting",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your weapon is modified to be heavier and easier to manipulate or retrieve. Your innovation gains the two-hand trait, with a damage die one size higher than the weapon's normal weapon damage die size (for instance, a longsword would gain the two-hand d10 trait). Your innovation also gains the versatile B trait. If it was a thrown weapon, it gains the tethered trait."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.O9wpXEKtKYJOMIlK"
+    },
+    "data": {
+      "tags": [
+        "melee",
+        "not-agile-trait",
+        "not-attached-trait",
+        "not-free-hand-trait",
+        "one-handed",
+        "weapon-innovation-modification"
+      ]
+    }
+  },
+  {
+    "id": "cb9cc7bd-59cc-5a9c-8aaf-d1044b11aee5",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:enhanced-damage",
+    "name": "Enhanced Damage",
+    "level": 15,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've made your innovation more powerful than other weapons of its kind. Increase your innovation's weapon damage die by one step (d4 to d6, d6 to d8, d8 to d10, d10 to d12). As normal, you can't increase your die by more than one size, so this modification isn't cumulative with complex simplicity."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.KmFz27FVNXYWwgIc"
+    },
+    "data": {
+      "tags": ["weapon-innovation-modification"]
+    }
+  },
+  {
+    "id": "15613e5c-309b-59b9-acf5-5529c1e2ebbe",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:enhanced-resistance",
+    "name": "Enhanced Resistance",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've improved upon your initial modification's ability to resist damage. The resistance from your initial armor modification adds your full level, instead of half your level (for instance, phlogistonic regulator's resistance would increase to your level). If you have more than one initial modification that gives resistance, choose which one this applies to."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.T3742fu7oIM3W6Gz"
+    },
+    "data": {
+      "tags": ["armor-innovation-modification"]
+    }
+  },
+  {
+    "id": "227d784b-e8c6-522c-8add-b6400f8e7fa6",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:entangling-form",
+    "name": "Entangling Form",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've altered your weapon to including tangling wires or straps, or to have a flexible construction. Your innovation gains the disarm, grapple, and trip traits."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.Z1au5zxYcjZvdQpd"
+    },
+    "data": {
+      "tags": ["melee", "weapon-innovation-modification"]
+    }
+  },
+  {
+    "id": "adb90547-d89f-5255-ac5f-aa210cba7775",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:expert-overdrive",
+    "name": "Expert Overdrive",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've increased your skill in crafting, and you can put your devices into a more powerful state of overdrive. You become an expert in Crafting, and on a successful use of Overdrive, you increase the additional damage by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:crafting",
+        "rank": "expert"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.YMKxN56w617BYwu4"
+    },
+    "data": {}
+  },
+  {
+    "id": "817fcb2f-525b-5a08-98c5-e518fbc406ff",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:explode",
+    "name": "Explode",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your innovation is a creation barely held together by your own engineering, always on the edge of completely falling apart. Though this adds risk, it also means you can coax it to perform far beyond its design specifications using special unstable actions. See the definition of the unstable trait and how it affects your innovation."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While inventors can learn various unstable actions over their career, all at least know how to make their innovation Explode."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.pEm1RTNuzzQVKkR0"
+    },
+    "data": {}
+  },
+  {
+    "id": "429554a8-1a49-570a-92eb-c59aa1288eb6",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:extensible-weapon",
+    "name": "Extensible Weapon",
+    "level": 15,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Melee only",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've found a way to construct your weapon so that it can extend while leaving its balance unchanged. Your innovation gains the reach trait. If the weapon already had the reach trait, it increases your reach by an additional 10 feet, instead of the usual additional 5 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "reach",
+        "mode": "add",
+        "value": 5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.YQs4G9YK3VskY2F6"
+    },
+    "data": {
+      "tags": ["melee", "weapon-innovation-modification"]
+    }
+  },
+  {
+    "id": "9e9118e4-eb37-5044-a29b-34fdccc810fc",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:greater-deed",
+    "name": "Greater Deed",
+    "level": 15,
+    "rarity": "common",
+    "traits": ["gunslinger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've mastered the pinnacle technique of your chosen way. You gain the greater deed ability of the way you chose at 1st level."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "4c72e74d-dffb-5d18-a49a-e86c80721ff8",
+        "predicate": ["feature:way-of-the-drifter"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "a3ee33f2-f7f7-5f5e-8f46-9c4ed1ee136c",
+        "predicate": ["feature:way-of-the-pistolero"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "87a00ed1-776c-5e7f-9839-5e78a902fc43",
+        "predicate": ["feature:way-of-the-sniper"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "718e5d1f-c529-52e1-a1e9-612f2d2bfa78",
+        "predicate": ["feature:way-of-the-spellshot"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "8aa6e019-77dc-5a73-a879-6de871197ca6",
+        "predicate": ["feature:way-of-the-vanguard"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "dc324d1c-d5cd-50d3-95dd-d7c8efbb4d45",
+        "predicate": ["feature:way-of-the-triggerbrand"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.yc9RuXXxmZ9YidH6"
+    },
+    "data": {}
+  },
+  {
+    "id": "02614cd7-b360-5803-b3f6-04f76fd0942b",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:gunslinger-expertise",
+    "name": "Gunslinger Expertise",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["gunslinger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your special shots become harder for opponents to predict or resist. Your proficiency rank for your gunslinger class DC increases to expert."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "class-dc",
+        "rank": "expert"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.aKr6OE8vI2BsJzf1"
+    },
+    "data": {}
+  },
+  {
+    "id": "61092760-9313-5163-a27b-1df6dd9c63f5",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:gunslinger-weapon-mastery",
+    "name": "Gunslinger Weapon Mastery",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["gunslinger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You fully understand the best way to utilize your unique weapons. Your proficiency rank increases to master with simple and martial firearms and crossbows. Your proficiency rank for advanced firearms and crossbows, simple weapons, martial weapons, and unarmed attacks increases to expert. You gain access to the critical specialization effects for firearms and crossbows."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "attack:martial",
+        "rank": "expert"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:simple",
+        "rank": "expert"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:unarmed",
+        "rank": "expert"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.9nRT8aq05Fy2D3i3"
+    },
+    "data": {}
+  },
+  {
+    "id": "f10b80da-fdf8-55c7-adf3-de8a83455b4a",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:gunslingers-way",
+    "name": "Gunslinger's Way",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["gunslinger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "All gunslingers have a particular way they follow, a combination of philosophy and combat style that defines both how they fight and the weapons they excel with. At 1st level, your way grants you an initial deed, a unique reload action called a slinger's reload, and proficiency with a particular skill. You also gain advanced and greater deeds at later levels, as well as access to way-specific feats."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "27f3cfa3-2c63-5359-8459-afb553c3b0d3"
+          },
+          {
+            "type": "text",
+            "text": " You wander across the battlefield, equally at home in and out of the fray."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "25f8e303-01ca-565a-92fe-471756999d7f"
+          },
+          {
+            "type": "text",
+            "text": " You carefully maintain your distance at a duelist's 10 paces with pistol in hand."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "11a6c778-7100-57f0-8028-266e39e158f4"
+          },
+          {
+            "type": "text",
+            "text": " You practice a methodical style of shooting, striking from far cover."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "d5f2e217-6b17-52ed-b7e1-bcb0f9df1bf3"
+          },
+          {
+            "type": "text",
+            "text": " You rely on a brutal combat style that uses heavy weapons and explosive attacks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "58eed54c-29cb-5aa3-93ed-1e5b0c7ae39e"
+          },
+          {
+            "type": "text",
+            "text": " You prefer firearms that work well as weapons in both melee and ranged combat"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "way",
+        "choices": {
+          "kind": "class-feature",
+          "filter": ["item:tag:gunslinger-way"]
+        },
+        "prompt": "Select a way."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "way"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.LDqVxLKrwEqSegiu"
+    },
+    "data": {}
+  },
+  {
+    "id": "a6fbaaf2-1adf-5279-92bf-94c0a16a25e4",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:gunslinging-legend",
+    "name": "Gunslinging Legend",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["gunslinger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've learned unique techniques for wielding firearms and crossbows that give you unmatched skill in their use. Your proficiency rank increases to legendary with simple and martial firearms and crossbows and to master with advanced firearms and crossbows. Your proficiency rank for simple weapons, martial weapons, and unarmed attacks increases to master."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "attack:martial",
+        "rank": "master"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:simple",
+        "rank": "master"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:unarmed",
+        "rank": "master"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.ULOAZWZEokbJC6Rq"
+    },
+    "data": {}
+  },
+  {
+    "id": "c997bd89-b187-5869-8d0f-9f5dc72421eb",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:hampering-spikes",
+    "name": "Hampering Spikes",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've added long, snagging spikes to your weapon, which you can use to impede your foes' movement. Your innovation gains the hampering, trip, and versatile P traits."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.R8cfRNPdaCkd2bud"
+    },
+    "data": {
+      "tags": ["melee", "weapon-innovation-modification"]
+    }
+  },
+  {
+    "id": "9c214b59-3cef-5358-bf5d-44d4eb558800",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:harmonic-oscillator",
+    "name": "Harmonic Oscillator",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You designed your armor to inaudibly thrum at just the right frequency to create interference against force and sound waves. You gain resistance equal to 3 + half your level to force and sonic damage. When under the effects of Overdrive, the resistance increases by 2."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.dsy2w4LfjMIWgy5D"
+    },
+    "data": {
+      "tags": ["armor-innovation-modification"]
+    }
+  },
+  {
+    "id": "31a484b3-0727-5c8f-a8d0-9f28a3ef1e8d",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:heavy-construction",
+    "name": "Heavy Construction",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Power Suit only",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've expanded your innovation into a heavy bulwark, and your groundbreaking design ensures you don't take any of the drawbacks for such heavy defenses. Your innovation becomes heavy armor, and your proficiency in your innovation armor (but no other heavy armor) advances to be equal to your proficiency in medium armor. If your Strength modifier is at least +3, you remove the Speed penalty entirely instead of reducing it to –5 feet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The armor's adjusted statistics are: "
+          },
+          {
+            "type": "text",
+            "text": "AC Bonus",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " +5; "
+          },
+          {
+            "type": "text",
+            "text": "Dex Cap",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " +1; "
+          },
+          {
+            "type": "text",
+            "text": "Check Penalty",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " –2; "
+          },
+          {
+            "type": "text",
+            "text": "Speed Penalty",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " –10 feet; "
+          },
+          {
+            "type": "text",
+            "text": "Strength",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " +3; "
+          },
+          {
+            "type": "text",
+            "text": "Bulk",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " 3; "
+          },
+          {
+            "type": "text",
+            "text": "Group",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " composite; "
+          },
+          {
+            "type": "text",
+            "text": "Armor Traits",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " bulwark, entrench melee and ranged."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.yEfHCwsbsbP6K13Q"
+    },
+    "data": {
+      "tags": ["armor-innovation-modification", "power-suit-modification"]
+    }
+  },
+  {
+    "id": "31d1fdd1-7bb8-5967-b1c9-ebfe357c3619",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:hefty-composition",
+    "name": "Hefty Composition",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Blunt surfaces and sturdy construction make your weapon hefty and mace-like. Your innovation gains the shove, razing, and versatile B traits."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.Nbg4ZllDI9uCowZL"
+    },
+    "data": {
+      "tags": ["weapon-innovation-modification"]
+    }
+  },
+  {
+    "id": "646f39a6-d199-5245-9daa-d1f27b7283e8",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:hyper-boosters",
+    "name": "Hyper Boosters",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've improved your speed boosters' power through a breakthrough that significantly increases the energy flow without risking exploding. You gain a +10-foot status bonus to your Speed, which increases to a +20-foot status bonus when you're in Overdrive. If you're legendary in Crafting, it instead increases to a +30-foot status bonus when you're in Overdrive. You must have the speed boosters modification to select this modification."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["land-speed"],
+        "slug": "hyper-boosters",
+        "mode": "upgrade",
+        "value": 20,
+        "predicate": [
+          {
+            "or": ["self:effect:overdrive-success", "self:effect:overdrive-critical-success"]
+          }
+        ]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["land-speed"],
+        "slug": "hyper-boosters",
+        "mode": "upgrade",
+        "value": 30,
+        "predicate": [
+          "skill:crafting:rank:4",
+          {
+            "or": ["self:effect:overdrive-success", "self:effect:overdrive-critical-success"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.V5qmKLmI3RL68RGb"
+    },
+    "data": {
+      "tags": ["armor-innovation-modification"]
+    }
+  },
+  {
+    "id": "61f05b33-3c2e-5c48-9975-ec0604852a94",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:impossible-alloy",
+    "name": "Impossible Alloy",
+    "level": 15,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Other inventors claim it's not even technically possible, but you've managed to create several metal alloys that seem to work for only you. These alloys can damage opponents vulnerable to any one of the seven skymetals. Your innovation is treated as all seven skymetals (abysium, adamantine, djezet, inubrix, noqual, orichalcum, and siccatite). This means you deal more damage to a variety of creatures, though you don't apply any of the other special effects for weapons made of those skymetals."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.2xVLO3JDe4gYlqv4"
+    },
+    "data": {
+      "tags": ["weapon-innovation-modification"]
+    }
+  },
+  {
+    "id": "17cbb7d6-456b-5752-a353-ab5c3add4103",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:inconspicuous-appearance",
+    "name": "Inconspicuous Appearance",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Melee Only",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your innovation is built for easy concealment and surprise attacks. It gains the backstabber and versatile P traits. If the weapon has light Bulk, it also gains the concealable trait."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.h1hNr4jABip2ERDd"
+    },
+    "data": {
+      "tags": ["melee", "weapon-innovation-modification"]
+    }
+  },
+  {
+    "id": "d4465ae5-90bb-5f80-8870-0e16ee897a69",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:incredible-resistance",
+    "name": "Incredible Resistance",
+    "level": 15,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've improved upon your breakthrough modification's ability to resist damage. Choose one of the following breakthrough modifications your innovation has: dense plating, layered mesh, or tensile absorption. Increase the resistance you gain from that modification to be equal to your level, instead of half your level."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.82rxCGBb5qf9fwbp"
+    },
+    "data": {
+      "tags": ["armor-innovation-modification"]
+    }
+  },
+  {
+    "id": "6de3a6b7-bea3-504d-a7e1-dc14af171e01",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:infinite-invention",
+    "name": "Infinite Invention",
+    "level": 19,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your ability to adjust your innovation has reached impossible heights, and you can use these skills to make major adjustments in your spare time. During your daily preparations, you automatically fix your innovation if it's destroyed or broken, and you can change to a different innovation (armor, construct, weapon, or other type you have access to) and change your modifications and offensive boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you have any feats that had your previous innovation as a prerequisite, you can't use them until you retrain the feats as normal. However, it takes you only 1 day of downtime to retrain such a feat into a feat that has your new innovation as a prerequisite, instead of 1 week."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.rOaLbipkComjc6qh"
+    },
+    "data": {}
+  },
+  {
+    "id": "28fcb8d3-e444-598d-80e6-34996ef2c49a",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:innovation",
+    "name": "Innovation",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While you're always creating inventions, there's one that represents your preeminent work, the one that you hope- with refinement-might change the world. Choose one of the below innovations. Your innovation's level is equal to your level. If your innovation is destroyed, you can spend 1 day of downtime and attempt a Crafting check with a high DC for your level; on a success, you rebuild it. An innovation only works due to your constant maintenance and tinkering, and therefore has no market Price."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "innovation",
+        "choices": {
+          "kind": "class-feature",
+          "filter": ["item:tag:inventor-innovation"]
+        },
+        "prompt": "Select an innovation."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "innovation"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.jIAgXe2FetAKBwt7"
+    },
+    "data": {}
+  },
+  {
+    "id": "c62516f3-c533-5bd0-b079-6ddd54bc528e",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:integrated-gauntlet",
+    "name": "Integrated Gauntlet",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Combining your weapon with a gauntlet, you make it so you can quickly switch between attacking with your weapon and tinkering using your hands. Your innovation gains the free-hand trait. This cannot be used with weapons that have the two-hand or fatal aim traits."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.tPL4lrGLCB5XbgeV"
+    },
+    "data": {
+      "tags": ["not-fatal-trait", "not-two-handed-trait", "one-handed", "weapon-innovation-modification"]
+    }
+  },
+  {
+    "id": "20b0d69d-462f-5e25-a60b-83d1e30fa144",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:inventive-expertise",
+    "name": "Inventive Expertise",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Through innovation and experimentation, you've made your inventions more effective and reliable. Your proficiency rank for your inventor class DC increases to expert."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "class-dc",
+        "rank": "expert"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.mQVC1iDyNi2tfsF8"
+    },
+    "data": {}
+  },
+  {
+    "id": "07937d0a-4a7d-5920-997c-e4b0dd19a8b1",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:inventive-mastery",
+    "name": "Inventive Mastery",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your inventions are incredibly effective. Your proficiency rank for your inventor class DC increases to master."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "class-dc",
+        "rank": "master"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.Uu8VnpAo3XZZEKPd"
+    },
+    "data": {}
+  },
+  {
+    "id": "3bc808f6-bd80-53d6-b3f2-14ffec476f31",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:inventor-weapon-expertise",
+    "name": "Inventor Weapon Expertise",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You develop tricks for using your weapons more effectively. Your proficiency ranks for simple and martial weapons and unarmed attacks increase to expert."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you have a "
+          },
+          {
+            "type": "ref",
+            "id": "c51ad249-f649-5fa9-80ab-f2ca00b532e8"
+          },
+          {
+            "type": "text",
+            "text": ", you gain access to the critical specialization effect with your innovation."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "attack:martial",
+        "rank": "expert"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:simple",
+        "rank": "expert"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:unarmed",
+        "rank": "expert"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.0NyPgi6UACMTmAGE"
+    },
+    "data": {}
+  },
+  {
+    "id": "7d68a08f-6ff5-5222-881a-f712cf8bf02f",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:inventor-weapon-mastery",
+    "name": "Inventor Weapon Mastery",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You fully understand your weapons. Your proficiency ranks for simple and martial weapons and unarmed attacks increase to master."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "attack:martial",
+        "rank": "master"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:simple",
+        "rank": "master"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:unarmed",
+        "rank": "master"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.mJpPaoVlNmTK47x1"
+    },
+    "data": {}
+  },
+  {
+    "id": "edc3f5f9-8b27-5eb2-9161-d7fb3cc5706d",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:layered-mesh",
+    "name": "Layered Mesh",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've woven an incredibly powerful network of interlocking mesh around your armor, which catches piercing attacks and diffuses them. While wearing your armor, you gain resistance to piercing damage equal to half your level."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.hwqaS9m2RwGe0kJk"
+    },
+    "data": {
+      "tags": ["armor-innovation-modification"]
+    }
+  },
+  {
+    "id": "4df592d2-936d-53d3-9d0b-117963558a50",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:lead-constitution",
+    "name": "Lead Constitution",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["gunslinger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have gunpowder in your veins. Your proficiency rank for Fortitude saves increases to master. When you roll a success on a Fortitude save, you get a critical success instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["save:fortitude"],
+        "adjustment": {
+          "success": "one-degree-better"
+        }
+      },
+      {
+        "key": "Proficiency",
+        "selector": "save:fortitude",
+        "rank": "master"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.i7NKYQNGu5AaR1qb"
+    },
+    "data": {}
+  },
+  {
+    "id": "e60db89c-c29f-51bf-a34e-7c567df7acc7",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:legendary-overdrive",
+    "name": "Legendary Overdrive",
+    "level": 15,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your peerless inventing and Crafting ability has supercharged your Overdrives. You become legendary in Crafting, and on a successful Overdrive, you increase the additional damage by a total of 3, replacing the increase from master overdrive."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:crafting",
+        "rank": "legendary"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.o1omL2LdHvjEwh3P"
+    },
+    "data": {}
+  },
+  {
+    "id": "febf5661-fa09-503a-a3d1-ab0f5a0b6e8e",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:manifold-alloy",
+    "name": "Manifold Alloy",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've devised several alloys that contain useful properties of various metals, and you replace a number of parts of your weapon or its ammunition with pieces from these alloys. Your weapon innovation is cold iron and silver. This means you deal more damage to a variety of supernatural creatures, such as demons, devils, and fey."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.y62b9R6RUBbkZECA"
+    },
+    "data": {
+      "tags": ["weapon-innovation-modification"]
+    }
+  },
+  {
+    "id": "ed6695a0-f275-53c1-a07e-92df44c65573",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:master-overdrive",
+    "name": "Master Overdrive",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your mastery of invention and crafting enhances your Overdrive even further. You become a master in Crafting, and on a successful Overdrive, you increase the additional damage by a total of 2, replacing the increase from expert overdrive."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:crafting",
+        "rank": "master"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.SXv9bJFbntDOMRIL"
+    },
+    "data": {}
+  },
+  {
+    "id": "08401aad-c6b6-5cf8-a88d-ab19081a6f8b",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:metallic-reactance",
+    "name": "Metallic Reactance",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The metals in your armor are carefully alloyed to ground electricity and protect from acidic chemical reactions. You gain resistance equal to 3 + half your level to acid and electricity damage. When under the effects of Overdrive, the resistance increases by 2."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.xndlv9T3JgYYUtf8"
+    },
+    "data": {
+      "tags": ["armor-innovation-modification"]
+    }
+  },
+  {
+    "id": "ffd8bfcc-08af-5d81-8ce2-257e6617b522",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:modular-head",
+    "name": "Modular Head",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've constructed a multi-purpose, adjustable striking surface for your weapon, or you've made special ammunition you can swiftly alter. Your innovation gains the modular trait for bludgeoning, piercing, and slashing. When you Interact to use the modular trait, you can also choose to give the weapon the nonlethal trait if it doesn't currently have it, or to remove that trait if it's currently nonlethal."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:nonlethal-modular-head",
+        "toggleable": true,
+        "predicate": ["weapon-innovation:equipped"],
+        "display": {
+          "label": "Nonlethal Modular Head"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.qwhfPgE2tTW0hvPe"
+    },
+    "data": {
+      "tags": ["weapon-innovation-modification"]
+    }
+  },
+  {
+    "id": "ac924c58-2679-5c50-860e-7d18882bb95a",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:momentum-enhancer",
+    "name": "Momentum Enhancer",
+    "level": 15,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A special device lets your weapon move with uncanny speed. Your innovation gains the agile trait; if it had the reload ability, you can reload once per round as a free action."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.g9UMdKV1TxNdhpDO"
+    },
+    "data": {
+      "tags": ["melee", "weapon-innovation-modification"]
+    }
+  },
+  {
+    "id": "8d88f04a-71e4-57be-b32f-4933d6769708",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:multisensory-mask",
+    "name": "Multisensory Mask",
+    "level": 15,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Subterfuge Suit only",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've built a multisensory mask over your armor that protects you by distorting your figure from all senses, leaving behind only a hazy image, muffled sounds, and so forth. While wearing the armor, you gain "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1",
+            "label": "Concealment"
+          },
+          {
+            "type": "text",
+            "text": " against all creatures, even if they are using a nonvisual precise sense, such as a bat's echolocation. As normal for effects that leave your location obvious, you can't use this concealment to "
+          },
+          {
+            "type": "ref",
+            "id": "5a86b7d0-fc0e-52a6-9b0d-fb58ed15233d"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "7e4e48de-b626-5513-9518-73261c58b5f4"
+          },
+          {
+            "type": "text",
+            "text": ". If you use a hostile action, the concealment ends until you restore the mask as a single action, which has the manipulate trait."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "f410da96-b56a-5c7c-857b-7096defec0a1",
+        "predicate": ["option:multisensory-mask"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.ZrkyPG41iFicYsdX"
+    },
+    "data": {
+      "tags": ["armor-innovation-modification", "subterfuge-suit-modification"]
+    }
+  },
+  {
+    "id": "f3d566c3-fa3a-5f76-9c44-2ce7f5706048",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:muscular-exoskeleton",
+    "name": "Muscular Exoskeleton",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your armor supports your muscles with a carefully crafted exoskeleton. When you send your armor into overdrive, the exoskeleton supplements your feats of athletics as well. When under the effects of Overdrive, you gain a +1 circumstance bonus to Athletics checks; if you're a master in Crafting, this increases to a +2 circumstance bonus."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["skill:athletics"],
+        "slug": "muscular-exoskeleton",
+        "mode": "upgrade",
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["skill:crafting:rank", 3]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.OkxoJWrOXhM25mhi"
+    },
+    "data": {
+      "tags": ["armor-innovation-modification", "power-suit-modification"]
+    }
+  },
+  {
+    "id": "5b6f603b-6840-565b-8468-dfcb8f41646f",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:offensive-boost",
+    "name": "Offensive Boost",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've made additions to your innovation to upgrade your offensive capabilities. Your improvements make any Strikes that rely on your innovation deal an additional 1d6 damage, with a type determined by the boost you choose. If your innovation is armor, the boost applies to your melee unarmed Strikes and to your melee Strikes with one weapon you choose during daily preparations; if your innovation is a construct, the boost applies to your construct companion's Strikes; and if your innovation is a weapon, the boost applies to your Strikes with your innovation. You can spend downtime to switch to a different boost in the same way as switching your modification. Choose one of the following boosts, with the damage type in parentheses."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Chill (Cold)",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Your innovation rapidly absorbs heat, creating an intense chill."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ignition (Fire)",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Your innovation shoots out jets of searing flame."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Jolt (Electricity)",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Your innovation jolts foes with charges of electricity."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Momentum (Bludgeoning)",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Your innovation slams into foes with added momentum."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Saws (Slashing)",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Your innovation reveals spinning sawblades during your attacks."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Spike (Piercing)",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Your innovation reveals wicked spikes during your attacks."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Vitriol (Acid)",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Your innovation releases spurts of caustic acid."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Note: The included effect is only needed for construct innovations and armor innovations for selecting their daily preparation weapon.",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect: Offensive Boost"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "offensive-boost-damage",
+        "choices": [
+          {
+            "value": "cold",
+            "label": "Chill (Cold)"
+          },
+          {
+            "value": "fire",
+            "label": "Ignition (Fire)"
+          },
+          {
+            "value": "electricity",
+            "label": "Jolt (Electricity)"
+          },
+          {
+            "value": "bludgeoning",
+            "label": "Momentum (Bludgeoning)"
+          },
+          {
+            "value": "slashing",
+            "label": "Saws (Slashing)"
+          },
+          {
+            "value": "piercing",
+            "label": "Spike (Piercing)"
+          },
+          {
+            "value": "acid",
+            "label": "Vitriol (Acid)"
+          }
+        ],
+        "prompt": "Select an offensive boost.",
+        "rollOption": "offensive-boost"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.F8oXHnu9iNTcpXbJ"
+    },
+    "data": {}
+  },
+  {
+    "id": "1b0b8b0e-db8b-58fb-a564-f495018235f4",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:omnirange-stabilizers",
+    "name": "Omnirange Stabilizers",
+    "level": 15,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ranged only",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've modified your innovation to be dangerous and effective at any range. If your innovation had the volley trait, remove the volley trait. Otherwise, increase your innovation's range increment by 50 feet or an amount equal to the weapon's base range increment, whichever is more"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon", "item:tag:removed-volley"],
+        "property": "traits",
+        "mode": "remove",
+        "value": "volley-20"
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon", "item:tag:removed-volley"],
+        "property": "traits",
+        "mode": "remove",
+        "value": "volley-30"
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon", "item:tag:removed-volley"],
+        "property": "traits",
+        "mode": "remove",
+        "value": "volley-50"
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon", "item:tag:removed-volley"],
+        "property": "traits",
+        "mode": "remove",
+        "value": "volley-60"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.GoMoEtTu9uP7nxkg"
+    },
+    "data": {
+      "tags": ["ranged", "weapon-innovation-modification"]
+    }
+  },
+  {
+    "id": "9f4ad732-ebd3-565b-87c9-455649b093a1",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:otherworldly-protection",
+    "name": "Otherworldly Protection",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Just because you prefer science doesn't mean you can't build your armor with materials and gizmos designed to protect against otherworldly attacks. You gain resistance equal to 3 + half your level to void damage, or to vitality damage if you have void healing (such as if you're a dhampir). You gain the same amount of resistance to spirit damage. If you are sanctified (such as by also being a champion or cleric dedicated to a deity who allows or enforces sanctification) this resistance applies to unholy damage (if you are sanctified holy) or holy damage (if you are sanctified unholy), regardless of what other traits the damage has."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.jHE4fPwU0sSIAjMo"
+    },
+    "data": {
+      "tags": ["armor-innovation-modification"]
+    }
+  },
+  {
+    "id": "d1548bf1-cb11-59ad-8933-3b4cef4c68a5",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:overdrive",
+    "name": "Overdrive",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have a bevy of smaller devices of your own invention, from muscle stimulants to concussive pistons. When it's necessary, you can throw them into "
+          },
+          {
+            "type": "ref",
+            "id": "16d7b5f8-650d-5970-ae15-d77834e8bb0d"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "16d7b5f8-650d-5970-ae15-d77834e8bb0d"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.oP5zM5Yu41xcx3iu"
+    },
+    "data": {}
+  },
+  {
+    "id": "cc28acb2-44c8-5d44-9c6b-539f4a97420a",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:pacification-tools",
+    "name": "Pacification Tools",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Softer materials make your weapon suited to knock out instead of kill, and special protrusions let you catch weapons and disarm your foes. Your innovation gains the disarm, hampering, and nonlethal traits. You can choose whether to apply the nonlethal trait on each attack with your innovation."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:nonlethal-pacification-tools",
+        "toggleable": true,
+        "predicate": ["weapon-innovation:equipped"],
+        "display": {
+          "label": "Nonlethal Pacification Tools"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.pSXlZggdCCbkQqNr"
+    },
+    "data": {
+      "tags": ["melee", "weapon-innovation-modification"]
+    }
+  },
+  {
+    "id": "91d84fcc-4380-553b-b5ce-15584a934255",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:peerless-inventor",
+    "name": "Peerless Inventor",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are constantly inventing, and your skill at crafting is unimpeachable. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "41083bf2-459a-5fed-890a-4f0461b2cf27"
+          },
+          {
+            "type": "text",
+            "text": " skill feat, even if you don't meet its prerequisites."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "41083bf2-459a-5fed-890a-4f0461b2cf27"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.JH6um0St37UrjLNG"
+    },
+    "data": {}
+  },
+  {
+    "id": "d90275dd-e6ce-56c8-b9c3-395f58fb8aba",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:perfect-fortification",
+    "name": "Perfect Fortification",
+    "level": 15,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Power Suit only",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've outfitted your armor with such heavy fortifications that deadly attacks often lose their edge. Each time you're critically hit while wearing the armor, attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 13
+          },
+          {
+            "type": "text",
+            "text": ". On a success, it becomes a normal hit. This isn't cumulative with "
+          },
+          {
+            "type": "text",
+            "text": "fortification",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " runes or other abilities that reduce critical hits with a flat check. Additionally, you gain resistance 2 + half your level against precision damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.Q172fARBaNDR8Gqx"
+    },
+    "data": {
+      "tags": ["armor-innovation-modification", "power-suit-modification"]
+    }
+  },
+  {
+    "id": "b94af4a0-8aab-5449-bc35-ccc611feaa8f",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:phlogistonic-regulator",
+    "name": "Phlogistonic Regulator",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A layer of insulation within your armor protects you from rapid temperature fluctuations. You gain resistance equal to half your level to cold and fire damage. When under the effects of Overdrive, the resistance increases by 2."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.5Xj38QeMKcFdrzqH"
+    },
+    "data": {
+      "tags": ["armor-innovation-modification"]
+    }
+  },
+  {
+    "id": "f93efed8-6380-5a53-abd6-c91ae21c5713",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:physical-protections",
+    "name": "Physical Protections",
+    "level": 15,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your armor has so many adjustments and precautions that it can guard against all physical damage. While wearing your armor, you gain resistance to all physical damage (bludgeoning, piercing, and slashing damage, as well as persistent bleed damage) equal to half your level. You must have the dense plating, layered mesh, or tensile absorption breakthrough modification to select this modification."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.8jELNQUBMAXUj3zR"
+    },
+    "data": {
+      "tags": ["armor-innovation-modification"]
+    }
+  },
+  {
+    "id": "2f39267f-935e-5117-8f98-e18d156c7d19",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:razor-prongs",
+    "name": "Razor Prongs",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can knock down and slash your foes with sharp, curved blades. Your innovation gains the tearing, trip, and versatile S traits."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.fOulT6iKVqIK4jJX"
+    },
+    "data": {
+      "tags": ["melee", "weapon-innovation-modification"]
+    }
+  },
+  {
+    "id": "02bab63f-32bd-5502-a45e-d9edcfdb5273",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:reconfigure",
+    "name": "Reconfigure",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've become an expert in all crafts and are always adjusting your inventions. You can attempt to change the modifications on your innovation by spending 1 day of downtime tinkering with it and attempting a Crafting check, with a high DC for your level. On a success, you can change one modification you've chosen for your innovation to a different modification of the same kind (initial, breakthrough, or revolutionary)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you have any modification feats, on a successful check you can choose to instead retrain a modification feat to a different modification feat. The new feat has to meet the standard restrictions for retraining."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.J46wcNqKXvtokBD1"
+    },
+    "data": {}
+  },
+  {
+    "id": "c281c0d5-31d2-568d-a8f8-46a6983dcffc",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:revolutionary-innovation",
+    "name": "Revolutionary Innovation",
+    "level": 15,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are an unparalleled genius and have discovered a technique that will revolutionize your chosen field—or at least for the time being, your innovation! Choose a revolutionary modification to apply to your innovation. You can also choose an initial or breakthrough modification of the same type instead, if you prefer."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Revolutionary Armor Modifications"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "828641e8-28d0-5e66-b697-86373105ab16"
+                },
+                {
+                  "type": "text",
+                  "text": ":",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Your armor uses electromagnetic fields, subharmonic distortions, or other techniques to make it difficult for those close to you to move unless you allow it. While wearing your armor, all spaces adjacent to you are difficult terrain for your enemies."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Energy Barrier:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Your armor's defenses ablate any kind of energy coming your way. While wearing your armor, you gain resistance to all energy damage (acid, cold, electricity, fire, force, sonic, vitality, and void damage) equal to 2 + half your level. You must have the harmonic oscillator, metallic reactance, or phlogistonic regulator modification to select this modification."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "d4465ae5-90bb-5f80-8870-0e16ee897a69"
+                },
+                {
+                  "type": "text",
+                  "text": ":",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You've improved upon your breakthrough modification's ability to resist damage. Choose one of the following breakthrough modifications your innovation has: dense plating, layered mesh, or tensile absorption. Increase the resistance you gain from that modification to be equal to your level, instead of half your level."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "8d88f04a-71e4-57be-b32f-4933d6769708"
+                },
+                {
+                  "type": "text",
+                  "text": " (subterfuge suit only):",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You've built a multisensory mask over your armor that protects you by distorting your figure from all senses, leaving behind only a hazy image, muffled sounds, and so forth. While wearing the armor, you gain concealment against all creatures, even if they are using a nonvisual precise sense, such as a bat's echolocation. As normal for effects that leave your location obvious, you can't use this concealment to Hide or Sneak. If you use a hostile action, the concealment ends until you restore the mask as a single action, which has the manipulate trait."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "d90275dd-e6ce-56c8-b9c3-395f58fb8aba"
+                },
+                {
+                  "type": "text",
+                  "text": " (power suit only):",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You've outfitted your armor with such heavy fortifications that deadly attacks often lose their edge. Each time you're critically hit while wearing the armor, attempt a DC 13 flat check. On a success, it becomes a normal hit. This isn't cumulative with "
+                },
+                {
+                  "type": "text",
+                  "text": "fortification",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": " runes or other abilities that reduce critical hits with a flat check. Additionally, you gain resistance 2 + half your level against precision damage."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "f93efed8-6380-5a53-abd6-c91ae21c5713"
+                },
+                {
+                  "type": "text",
+                  "text": ":",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Your armor has so many adjustments and precautions that it can guard against all physical damage. While wearing your armor, you gain resistance to all physical damage (bludgeoning, piercing, and slashing damage, as well as persistent bleed damage) equal to half your level. You must have the dense plating, layered mesh, or tensile absorption breakthrough modification to select this modification."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "d89b4ad1-90cd-5fbc-880d-255f798abb91"
+                },
+                {
+                  "type": "text",
+                  "text": ":",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Whether you've done some dabbling in orichalcum alloys or found another engineering solution, you've built your innovation in such a way that it can hold an additional property rune. Your innovation can have one more property rune than a normal item of its kind (to a maximum of four property runes with a +3 "
+                },
+                {
+                  "type": "text",
+                  "text": "potency",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": " armor)."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Revolutionary Construct Modifications"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Flight Chassis:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You fit your construct with a means of flight, such as adding rotors or rebuilding it with wings and a lightweight construction. Your innovation gains a fly Speed of 25 feet."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Miracle Gears:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " As you perfect your innovation's cortex, it becomes much more intelligent. Its Intelligence modifier increases by 2, and it learns a language of your choice from among the languages you know. Your construct gains the ability to use actions that require greater Intelligence, like "
+                },
+                {
+                  "type": "ref",
+                  "id": "ed0f3425-17f0-51f3-bb5d-1ca7475499a5"
+                },
+                {
+                  "type": "text",
+                  "text": " and Decipher Writing. Finally, your construct becomes legendary in two Intelligence- or Charisma-based skills of your choice. You must have the marvelous gears modification to select this modification."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Resistant Coating:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Your innovation is hard to damage by any means. It gains resistance 5 to all damage (except adamantine)."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Runic Keystone:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You've incorporated a device similar to a "
+                },
+                {
+                  "type": "text",
+                  "text": "runestone",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": " into your innovation, allowing it to hold a property rune, even though it isn't a weapon or suit of armor. An armor property rune affects your innovation itself if it would affect the wearer of the armor. A weapon property rune grants whatever properties it would normally grant to a weapon to your innovation's unarmed attacks, following all the requirements as normal (for instance, a "
+                },
+                {
+                  "type": "text",
+                  "text": "vorpal",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": " rune would only apply to slashing melee unarmed attacks); if the rune affects only ranged attacks, it has no effect unless your innovation has a built-in ranged attack (from the projectile launcher initial modification, for example). If the rune would affect the physical shape or appearance of the weapon or armor itself, like "
+                },
+                {
+                  "type": "text",
+                  "text": "raiment",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": ", the rune has no effect when etched into your construct."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Wall Configuration:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Your innovation can transform from a mobile construct to a stationary battlefield emplacement. It can unfold as a 2-action activity that has the manipulate trait, changing from its usual form into a thin, straight wall of metal and gears up to 10 feet tall and 30 feet long. The wall must extend through your innovation's original space. While your construct is a wall, it can't take any actions except to use the same activity to transform back, and it can't defend itself easily, making it "
+                },
+                {
+                  "type": "ref",
+                  "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+                },
+                {
+                  "type": "text",
+                  "text": " and giving it an additional –2 status penalty to its AC. The wall blocks line of sight and effect unless your innovation has half its maximum HP or fewer, at which point holes in the wall allow creatures to see through and attack with cover, and Tiny creatures to slip through."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Revolutionary Weapon Modifications"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "7d1ec790-4fe0-5612-b9e9-a33353d121f1"
+                },
+                {
+                  "type": "text",
+                  "text": ":",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Your weapon makes minute recalibrations after every missed attack to ensure the next lands with vicious efficacy. Your innovation gains the backswing and forceful traits."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "132829ad-6a40-5197-b1cc-7474dcddad18"
+                },
+                {
+                  "type": "text",
+                  "text": ":",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Through precise calculation, you've found the perfect way for your weapon to deal damage on a well-placed strike. Your innovation gains the deadly d8 trait. If your innovation was already deadly, increase the die by up to two die sizes (d6 to d10, d8 to d12), to a maximum of deadly d12."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "cb9cc7bd-59cc-5a9c-8aaf-d1044b11aee5"
+                },
+                {
+                  "type": "text",
+                  "text": ":",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You've made your innovation more powerful than other weapons of its kind. Increase your innovation's weapon damage die by one step (d4 to d6, d6 to d8, d8 to d10, d10 to d12). As normal, you can't increase your die by more than one size, so this modification isn't cumulative with complex simplicity."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "429554a8-1a49-570a-92eb-c59aa1288eb6"
+                },
+                {
+                  "type": "text",
+                  "text": " (melee only):",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You've found a way to construct your weapon so that it can extend while leaving its balance unchanged. Your innovation gains the reach trait. If the weapon already had the reach trait, it increases your reach by an additional 10 feet, instead of the usual additional 5 feet."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "61f05b33-3c2e-5c48-9975-ec0604852a94"
+                },
+                {
+                  "type": "text",
+                  "text": ":",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Other inventors claim it's not even technically possible, but you've managed to create several metal alloys that seem to work for only you. These alloys can damage opponents vulnerable to any one of the seven skymetals. Your innovation is treated as all seven skymetals (abysium, adamantine, djezet, inubrix, noqual, orichalcum, and siccatite). This means you deal more damage to a variety of creatures, though you don't apply any of the other special effects for weapons made of those skymetals."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "ac924c58-2679-5c50-860e-7d18882bb95a"
+                },
+                {
+                  "type": "text",
+                  "text": ":",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " A special device lets your weapon move with uncanny speed. Your innovation gains the agile trait; if it had the reload ability, you can reload once per round as a free action."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "1b0b8b0e-db8b-58fb-a564-f495018235f4"
+                },
+                {
+                  "type": "text",
+                  "text": " (ranged only):",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You've modified your innovation to be dangerous and effective at any range. If your innovation had the volley trait, remove the volley trait. Otherwise, increase your innovation's range increment by 50 feet or an amount equal to the weapon's base range increment, whichever is more."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "d89b4ad1-90cd-5fbc-880d-255f798abb91"
+                },
+                {
+                  "type": "text",
+                  "text": ":",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Whether you've dabbled with orichalcum or found another engineering solution, you've built your innovation in such a way that it can hold an additional property rune. Your innovation can have one more property rune than a normal item of its kind (to a maximum of four property runes with a +3 "
+                },
+                {
+                  "type": "text",
+                  "text": "potency",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": " weapon)."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.tXbadIT3LzwuSR19"
+    },
+    "data": {}
+  },
+  {
+    "id": "29fac4cc-8a6b-5be5-ac5f-a5037bbfaf07",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:rope-shot",
+    "name": "Rope Shot",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ranged Only",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your weapon can shoot projectiles that split into simple ropes or nets around your foes' legs to trip your targets, and you can climb using the grappling hooks built into the weapon. Your weapon innovation gains the climbing and ranged trip traits, as well as the tethered trait if it is thrown."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.ptBLVvRqn1fA3A4l"
+    },
+    "data": {
+      "tags": ["ranged", "weapon-innovation-modification"]
+    }
+  },
+  {
+    "id": "d89b4ad1-90cd-5fbc-880d-255f798abb91",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:rune-capacity",
+    "name": "Rune Capacity",
+    "level": 15,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whether you've done some dabbling in orichalcum alloys or found another engineering solution, you've built your innovation in such a way that it can hold an additional property rune. Your innovation can have one more property rune than a normal item of its kind (to a maximum of four property runes with a +3 "
+          },
+          {
+            "type": "text",
+            "text": "potency",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " armor)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.rYfmpMBy7wd1VHeO"
+    },
+    "data": {
+      "tags": ["armor-innovation-modification", "weapon-innovation-modification"]
+    }
+  },
+  {
+    "id": "0115fc8a-afd4-5797-a888-ad07df29c9dc",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:segmented-frame",
+    "name": "Segmented Frame",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Hinges, clamps, and telescoping parts make your innovation collapsible and adjustable. It gains the modular trait for bludgeoning, piercing, and slashing. You can Interact to collapse the item down to light Bulk or to return it to your normal form. When it's collapsed to light Bulk, it has the concealable trait, which grants you a +2 circumstance bonus to Stealth checks and DCs to hide or conceal the weapon."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:innovation-collapsed",
+        "toggleable": true,
+        "display": {
+          "label": "Innovation Collapsed"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.ZCfPjOn6JJ8Zrgvg"
+    },
+    "data": {
+      "tags": ["weapon-innovation-modification"]
+    }
+  },
+  {
+    "id": "544f584e-74a6-5bd7-9b59-40d2115ea233",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:shootists-edge",
+    "name": "Shootist's Edge",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["gunslinger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You make shots others find impossible. Your proficiency rank for your gunslinger class DC increases to master. When using a ranged weapon in which you have master or greater proficiency, you ignore the penalty for attacking within the weapon's second and third range increments."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "ranged-attack-roll",
+        "option": "ignore-range-penalty:3",
+        "predicate": [
+          {
+            "gte": ["item:proficiency:rank", 3]
+          }
+        ]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "class-dc",
+        "rank": "master"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.RkofVX55ciXZyfAA"
+    },
+    "data": {}
+  },
+  {
+    "id": "a50da544-08a0-5fb5-8ee6-060f69b580ac",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:slingers-precision",
+    "name": "Slinger's Precision",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["gunslinger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You deal an extra +2 precision damage with Strikes made using non-repeating crossbows and you deal an extra 1d4 precision damage on Strikes using non-repeating firearms."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you have gunslinging legend, you instead deal +3 additional precision damage with Strikes using non-repeating crossbows and an additional 1d6 precision damage with Strikes using non-repeating firearms."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you are using a combination weapon whose ranged form is a firearm or crossbow, you use your proficiency with firearms and crossbows for attacks made with the melee configuration of that weapon."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["crossbow-weapon-group-damage"],
+        "slug": "slingers-precision-crossbow",
+        "mode": "upgrade",
+        "value": 3,
+        "predicate": ["feature:gunslinging-legend"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["firearm-weapon-group-damage"],
+        "slug": "slingers-precision-firearm",
+        "diceNumber": 1,
+        "dieSize": "d4",
+        "category": "precision",
+        "predicate": [
+          {
+            "not": "item:trait:repeating"
+          }
+        ]
+      },
+      {
+        "key": "MartialProficiency",
+        "slug": "slingers-precision-advanced",
+        "definition": [
+          "item:category:advanced",
+          "item:ranged-usage:trait:combination",
+          {
+            "or": ["item:ranged-usage:group:crossbow", "item:ranged-usage:group:firearm"]
+          }
+        ],
+        "value": "@rank.attack.advanced-firearms-crossbows",
+        "visible": false,
+        "priority": 41
+      },
+      {
+        "key": "MartialProficiency",
+        "slug": "slingers-precision-martial",
+        "definition": [
+          "item:category:martial",
+          "item:ranged-usage:trait:combination",
+          {
+            "or": ["item:ranged-usage:group:crossbow", "item:ranged-usage:group:firearm"]
+          }
+        ],
+        "value": "@rank.attack.martial-firearms-crossbows",
+        "visible": false,
+        "priority": 41
+      },
+      {
+        "key": "MartialProficiency",
+        "slug": "slingers-precision-simple",
+        "definition": [
+          "item:category:simple",
+          "item:ranged-usage:trait:combination",
+          {
+            "or": ["item:ranged-usage:group:crossbow", "item:ranged-usage:group:firearm"]
+          }
+        ],
+        "value": "@rank.attack.simple-firearms-crossbows",
+        "visible": false,
+        "priority": 41
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.vXbk7Nm1TOTTUNvF"
+    },
+    "data": {}
+  },
+  {
+    "id": "59b496aa-acbc-50ff-adec-aaa4ffae022c",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:speed-boosters",
+    "name": "Speed Boosters",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have boosters in your armor that increase your Speed. You gain a +5-foot status bonus to your Speed, which increases to a +10-foot status bonus when under the effects of Overdrive."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["land-speed"],
+        "slug": "speed-boosters",
+        "mode": "upgrade",
+        "value": 10,
+        "predicate": [
+          {
+            "or": ["self:effect:overdrive-success", "self:effect:overdrive-critical-success"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.sTWY6PLqr1X7icgZ"
+    },
+    "data": {
+      "tags": ["armor-innovation-modification"]
+    }
+  },
+  {
+    "id": "45d797d9-e612-522a-bdcf-f533bad9e4b7",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:subtle-dampeners",
+    "name": "Subtle Dampeners",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've designed your armor to help you blend in and dampen noise slightly. When you send your armor into overdrive, the dampeners increase their effect, improving your Stealth. When under the effects of Overdrive, you gain a +1 circumstance bonus to Stealth checks. If you're a master in Crafting, this increases to a +2 circumstance bonus."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["skill:stealth"],
+        "slug": "subtle-dampeners",
+        "mode": "upgrade",
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["skill:crafting:rank", 3]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.X3TtVdNhrydeQ3SX"
+    },
+    "data": {
+      "tags": ["armor-innovation-modification", "subterfuge-suit-modification"]
+    }
+  },
+  {
+    "id": "cf95b25c-757c-54a7-a856-44d3b8df336f",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:tangle-line",
+    "name": "Tangle Line",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Thrown Only",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your weapon has an extensible line that you can use to knock your enemies over, recall the weapon to your hand and even parry attacks. Your innovation gains the parry, ranged trip and tethered traits."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.WxkZMlETXo165XnC"
+    },
+    "data": {
+      "tags": ["thrown", "weapon-innovation-modification"]
+    }
+  },
+  {
+    "id": "c487b324-96c3-5a99-8b12-43120bcb670c",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:tensile-absorption",
+    "name": "Tensile Absorption",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've enhanced the tensile capabilities of your armor, enabling it to bend with bludgeoning attacks. While wearing your armor, you gain resistance to bludgeoning damage equal to half your level."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.SRS8102DGTzJ4NmC"
+    },
+    "data": {}
+  },
+  {
+    "id": "27f3cfa3-2c63-5359-8459-afb553c3b0d3",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:way-of-the-drifter",
+    "name": "Way of the Drifter",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["gunslinger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're a wanderer traveling from land to land with your gun and a melee weapon as company. Maybe you learned to fight with blade and pistol as a Shackles pirate, mastered the hand cannon and katana in Minkai, or practiced with a hatchet and clan pistol in Dongun Hold. You win battles by relying on mobility and flexible use of your weapons."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Slinger's Reload",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "ed6aa09d-5ce2-5708-ae59-6a9b7e9b2e9f"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Deeds",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Initial",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "733f4af3-3205-5cea-ab2f-ec4ab74723db"
+          },
+          {
+            "type": "text",
+            "text": "; "
+          },
+          {
+            "type": "text",
+            "text": "Advanced",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "9f2a24cb-f0d2-5380-bbea-be2e5d3ff0ad"
+          },
+          {
+            "type": "text",
+            "text": "; "
+          },
+          {
+            "type": "text",
+            "text": "Greater",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "4c72e74d-dffb-5d18-a49a-e86c80721ff8"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Way Skill",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Acrobatics"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "733f4af3-3205-5cea-ab2f-ec4ab74723db",
+        "predicate": ["class:gunslinger"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "ed6aa09d-5ce2-5708-ae59-6a9b7e9b2e9f",
+        "predicate": ["class:gunslinger"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:acrobatics",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.a3pSIKkDVTvvNSRO"
+    },
+    "data": {
+      "tags": ["gunslinger-way"]
+    }
+  },
+  {
+    "id": "25f8e303-01ca-565a-92fe-471756999d7f",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:way-of-the-pistolero",
+    "name": "Way of the Pistolero",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["gunslinger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whether you're a professional duelist or a pistol-twirling entertainer, you have quick feet and quicker hands that never seem to let you down, and an equally sharp wit and tongue that jab your foes. You might leave a hand free or cultivate the ambidexterity for twin weapons. Either way, you stay close enough to your enemies to leverage your superior reflexes while leaving enough space to safely fire."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Slinger's Reload",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "a5bc407b-ed13-59b1-93e7-a57901d1ba70"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Deeds",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Initial",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "dc80baab-0c6a-5e63-802b-223f83fac3e9"
+          },
+          {
+            "type": "text",
+            "text": "; "
+          },
+          {
+            "type": "text",
+            "text": "Advanced",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "6b73ebac-35ef-59ec-9186-f7a4a134a95b"
+          },
+          {
+            "type": "text",
+            "text": "; "
+          },
+          {
+            "type": "text",
+            "text": "Greater",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "a3ee33f2-f7f7-5f5e-8f46-9c4ed1ee136c"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Way Skill",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " choose Deception or Intimidation"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "a5bc407b-ed13-59b1-93e7-a57901d1ba70",
+        "predicate": ["class:gunslinger"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "dc80baab-0c6a-5e63-802b-223f83fac3e9",
+        "predicate": ["class:gunslinger"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "skill",
+        "choices": [
+          {
+            "value": "deception",
+            "label": "Deception"
+          },
+          {
+            "value": "intimidation",
+            "label": "Intimidation"
+          }
+        ],
+        "prompt": "Select a skill."
+      },
+      {
+        "key": "Proficiency",
+        "selector": {
+          "choice": "skill",
+          "prefix": "skill"
+        },
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.qRLRrHf0kzaJ7xt0"
+    },
+    "data": {
+      "tags": ["gunslinger-way"]
+    }
+  },
+  {
+    "id": "11a6c778-7100-57f0-8028-266e39e158f4",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:way-of-the-sniper",
+    "name": "Way of the Sniper",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["gunslinger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You practice a style of shooting that relies on unerring accuracy and perfect placement of your first shot. You keep hidden or at a distance, staying out of the fray and bringing unseen death to your foes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Slinger's Reload",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "6e66576d-45cd-5371-91ad-448f611d6b5a"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Deeds",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Initial",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "75842a38-dbe6-50f8-b90c-acadcf410acc"
+          },
+          {
+            "type": "text",
+            "text": "; "
+          },
+          {
+            "type": "text",
+            "text": "Advanced",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "f29e50fc-9066-59a2-84b1-94a189df48d3"
+          },
+          {
+            "type": "text",
+            "text": "; "
+          },
+          {
+            "type": "text",
+            "text": "Greater",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "87a00ed1-776c-5e7f-9839-5e78a902fc43"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Way Skill",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Stealth"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "6e66576d-45cd-5371-91ad-448f611d6b5a",
+        "predicate": ["class:gunslinger"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "75842a38-dbe6-50f8-b90c-acadcf410acc",
+        "predicate": ["class:gunslinger"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:stealth",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.QWXvksGJhOjXbBqi"
+    },
+    "data": {
+      "tags": ["gunslinger-way"]
+    }
+  },
+  {
+    "id": "0a85c291-a69a-5193-82e5-9905319aab54",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:way-of-the-spellshot",
+    "name": "Way of the Spellshot",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["gunslinger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've learned the intricacies of magic and technology, blending the two together with deadly results. You combine a knowledge of arcane theories with a strong connection to your chosen weapon that allows you to manifest unique effects, combining deadly skill with a firearm alongside an array of moderate spellcasting. You can imbue energy into your weapon and conjure bullets from thin air. As you progress, you eventually learn to phase bullets through walls or even to teleport yourself along the path of your bullets. You must select "
+          },
+          {
+            "type": "ref",
+            "id": "9847a0c7-d6dc-57bc-a139-8efb23e0f878"
+          },
+          {
+            "type": "text",
+            "text": " as your 2nd-level class feat."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Prerequisites",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You must be a gunslinger."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Spellshot Adjustments",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Instead of choosing a way from the options listed in the gunslinger class, you have the way of the spellshot. It has the following way skill, slinger's reload, and deeds. You gain these abilities at the same levels as normal for the class. You use Intelligence for your class DC."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Way Skill",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Arcana"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Slinger's Reload",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "2657c1d6-b4c5-5577-b7aa-f52459cbd884"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Deeds",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Initial",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "ec92c159-f048-51d2-bb9e-cd52660367e4"
+          },
+          {
+            "type": "text",
+            "text": "; "
+          },
+          {
+            "type": "text",
+            "text": "Advanced",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "077079db-2916-5ab0-a405-f2550e4da65c"
+          },
+          {
+            "type": "text",
+            "text": "; "
+          },
+          {
+            "type": "text",
+            "text": "Greater",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "718e5d1f-c529-52e1-a1e9-612f2d2bfa78"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "2657c1d6-b4c5-5577-b7aa-f52459cbd884"
+      },
+      {
+        "key": "GrantItem",
+        "item": "ec92c159-f048-51d2-bb9e-cd52660367e4"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:arcana",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.OmgtSDV1FubDUqWR"
+    },
+    "data": {
+      "tags": ["class-archetype", "gunslinger-way"]
+    }
+  },
+  {
+    "id": "d5f2e217-6b17-52ed-b7e1-bcb0f9df1bf3",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:way-of-the-vanguard",
+    "name": "Way of the Vanguard",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["gunslinger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You practice a unique combat style originated by dwarven siege engineers, using heavy weapons with wide attack areas to blast holes through enemy lines, clear an opening for your allies, and defend the conquered territory."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Slinger's Reload",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "b248bd84-b11d-594e-ba57-800b96237904"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Deeds",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Initial",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "ee6963cb-faf0-52f3-88a0-38bea8bec4e8"
+          },
+          {
+            "type": "text",
+            "text": "; "
+          },
+          {
+            "type": "text",
+            "text": "Advanced",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "2abebf16-41ed-57b7-8af4-9561027c8cb4"
+          },
+          {
+            "type": "text",
+            "text": "; "
+          },
+          {
+            "type": "text",
+            "text": "Greater",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "8aa6e019-77dc-5a73-a879-6de871197ca6"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Way Skill",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Athletics"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "b248bd84-b11d-594e-ba57-800b96237904",
+        "predicate": ["class:gunslinger"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "ee6963cb-faf0-52f3-88a0-38bea8bec4e8",
+        "predicate": ["class:gunslinger"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:athletics",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.vB0yVFxJVZwalt2g"
+    },
+    "data": {
+      "tags": ["gunslinger-way"]
+    }
+  },
+  {
+    "id": "c51ad249-f649-5fa9-80ab-f2ca00b532e8",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:weapon-innovation",
+    "name": "Weapon Innovation",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your innovation is a complex and impossible-looking weapon augmented by numerous mechanisms. It begins with the same statistics as a level 0 simple or martial weapon of your choice. The chosen weapon must be common or you must otherwise have access to it."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An innovation weapon can have fundamental and property runes added to it in the same way as an ordinary weapon. Because of the unique features of your innovation, everyone except you is untrained in it, even if they would normally be trained (or better) in simple or martial weapons."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you use the Overdrive action, you can choose to change the additional damage from Overdrive to fire damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose one initial weapon modification to apply to your innovation, either from the following or from other initial weapon modifications to which you have access. These modifications grant additional weapon traits, sometimes with extra abilities."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A modification might give your weapon the versatile trait with a damage type that the weapon could already deal, either from its base damage type or from an existing versatile trait. In that case, if you select that modification, you can instead choose to give the weapon the versatile trait for a different damage type: bludgeoning, piercing, or slashing."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "77c81173-a7cd-56c3-95d7-546dfbd344ce"
+                },
+                {
+                  "type": "text",
+                  "text": ":",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Your weapon innovation uses the statistics of a level 0 advanced weapon of your choice. It must be common or you must have access to it. You treat this as a martial weapon for the purposes of proficiency."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "eca6a2b8-4852-5f53-927f-869f2e5aed41"
+                },
+                {
+                  "type": "text",
+                  "text": " (ranged only):",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Your weapon innovation can file the edges off your ammunition and adjust the blunt force of the shot to deliver an attack that can batter as much as pierce, or even knock an opponent right off their feet. Your innovation gains the concussive and ranged trip traits."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "3c718730-cae6-5e3f-9d60-231614bf8f5f"
+                },
+                {
+                  "type": "text",
+                  "text": " (simple weapon only):",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Increase your innovation's weapon damage die by one step (d4 to d6, d6 to d8, d8 to d10, d10 to d12). In addition, it gains two of the following traits of your choice: versatile B, versatile P, versatile S, or razing."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "50a8c81e-d5fe-57ef-b652-ebe46467ed92"
+                },
+                {
+                  "type": "text",
+                  "text": " (one-handed melee weapon only; can't have the agile, attached, or free-hand trait):",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Your weapon is modified to be heavier and easier to manipulate or retrieve. Your innovation gains the two-hand trait, with a damage die one size higher than the weapon's normal weapon damage die size (for instance, a longsword would gain the two-hand d10 trait). Your innovation also gains the versatile B trait. If it was a thrown weapon, it gains the tethered trait."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "227d784b-e8c6-522c-8add-b6400f8e7fa6"
+                },
+                {
+                  "type": "text",
+                  "text": " (melee only):",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You've altered your weapon to including tangling wires or straps, or to have a flexible construction. Your innovation gains the disarm, grapple, and trip traits."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "c997bd89-b187-5869-8d0f-9f5dc72421eb"
+                },
+                {
+                  "type": "text",
+                  "text": " (melee only):",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You've added long, snagging spikes to your weapon, which you can use to impede your foes' movement. Your innovation gains the hampering, trip, and versatile P traits."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "31d1fdd1-7bb8-5967-b1c9-ebfe357c3619"
+                },
+                {
+                  "type": "text",
+                  "text": " (melee only):",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Blunt surfaces and sturdy construction make your weapon hefty and mace-like. Your innovation gains the shove, razing, and versatile B traits."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "ffd8bfcc-08af-5d81-8ce2-257e6617b522"
+                },
+                {
+                  "type": "text",
+                  "text": ":",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You've constructed a multi-purpose, adjustable striking surface for your weapon, or you've made special ammunition you can swiftly alter. Your innovation gains the modular trait for bludgeoning, piercing, and slashing. When you Interact to use the modular trait, you can also choose to give the weapon the nonlethal trait if it doesn't currently have it, or to remove that trait if it's currently nonlethal."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "cc28acb2-44c8-5d44-9c6b-539f4a97420a"
+                },
+                {
+                  "type": "text",
+                  "text": " (melee only):",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Softer materials make your weapon suited to knock out instead of kill, and special protrusions let you catch weapons and disarm your foes. Your innovation gains the disarm, hampering, and nonlethal traits. You can choose whether to apply the nonlethal trait on each attack with your innovation."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "2f39267f-935e-5117-8f98-e18d156c7d19"
+                },
+                {
+                  "type": "text",
+                  "text": " (melee only):",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You can knock down and slash your foes with sharp, curved blades. Your innovation gains the tearing, trip, and versatile S traits."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "0115fc8a-afd4-5797-a888-ad07df29c9dc"
+                },
+                {
+                  "type": "text",
+                  "text": ":",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Hinges, clamps, and telescoping parts make your innovation collapsible and adjustable. It gains the modular trait for bludgeoning, piercing, and slashing. You can Interact to collapse the item down to light Bulk or to return it to your normal form. When it's collapsed to light Bulk, it has the concealable trait, which grants you a +2 circumstance bonus to Stealth checks and DCs to hide or conceal the weapon."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.bok3P78CMchFibxC"
+    },
+    "data": {
+      "tags": ["inventor-innovation"]
+    }
+  },
+  {
+    "id": "ffa82ea1-1d92-58b0-b19c-ae3e23446328",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:weapon-specialization",
+    "name": "Weapon Specialization",
+    "level": 7,
+    "rarity": "common",
+    "traits": [
+      "alchemist",
+      "animist",
+      "bard",
+      "champion",
+      "cleric",
+      "commander",
+      "druid",
+      "fighter",
+      "gunslinger",
+      "inventor",
+      "investigator",
+      "kineticist",
+      "necromancer",
+      "ranger",
+      "rogue",
+      "sorcerer",
+      "summoner",
+      "swashbuckler",
+      "witch",
+      "wizard"
+    ],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've learned how to inflict greater injuries with the weapons you know best. You deal an additional 2 damage with weapons and unarmed attacks in which you are an expert. This damage increases to 3 if you're a master, and 4 if you're legendary."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["unarmed-damage", "weapon-damage"],
+        "type": "untyped",
+        "value": 2,
+        "slug": "weapon-specialization",
+        "predicate": [
+          {
+            "gte": ["item:proficiency:rank", 2]
+          }
+        ],
+        "display": {
+          "label": "Weapon Specialization"
+        }
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["unarmed-damage", "weapon-damage"],
+        "slug": "weapon-specialization",
+        "mode": "upgrade",
+        "value": 3,
+        "predicate": ["item:proficiency:rank:3"],
+        "priority": 0
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["unarmed-damage", "weapon-damage"],
+        "slug": "weapon-specialization",
+        "mode": "upgrade",
+        "value": 4,
+        "predicate": ["item:proficiency:rank:4"],
+        "priority": 0
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.9EqIasqfI8YIM3Pt"
+    },
+    "data": {}
+  }
+]

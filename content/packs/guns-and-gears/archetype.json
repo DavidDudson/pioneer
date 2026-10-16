@@ -1,0 +1,1255 @@
+[
+  {
+    "id": "a87c6206-e6ed-54b9-92aa-64e0f2972495",
+    "pack": "guns-and-gears",
+    "kind": "archetype",
+    "slug": "archetype:artillerist",
+    "name": "Artillerist",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The artillerist's maxim holds that while fights might be won with swords, battles are won with cannons. Or in a pinch, with trebuchets, siege towers, catapults, hwachas, and all other lethal miscellanea of a combat engineers' corp. As a true artillerist, you leave the penny-ante pistols and knives to those who only need to operate on a small scale. You're a consummate professional in the art of big guns, a maestro at merging mathematics and manpower to transform whatever castle wall, infantry battalion, or rampaging dragon offends you into a smoking crater in the ground."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're not just some daredevil demolitionist, though. You're part of a team, accustomed to coordinating with your unit to maximize your time and effectiveness. Whether jumping in to help your crew load the next round, quickly calculating the trajectory of the engine's next shot, or taking the shot yourself, your presence on the team ensures their chances of success are maximized, creating a whole that is greater than the sum of its parts."
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Leading with a Cannon"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "A proper artillerist is more than an engineer, though their skills in that field certainly shouldn't be underestimated. When a war becomes unavoidable, the presence of knights and pikemen might decide a skirmish or battle, but a well-trained artillerist with a reliable squad and a few good siege weapons can make the difference between prolonged months of battle with countless lives lost and a shorter, less bloody affair with fewer deaths and a more lasting victory."
+              },
+              {
+                "type": "line-break"
+              },
+              {
+                "type": "text",
+                "text": "Castles and fortifications are critical tools for holding land in a world full of empires, kingdoms, and duchies all vying for power. Many wars are won or lost not based on the military might of either side, but on a castle's ability to withstand an extended siege. Without a team of engineers capable of penetrating a castle or keep's defenses, the occupants can wait out an invading force for as long as they have enough food and water to keep their citizens and defenders healthy and fed. Many wars have been \"won\" when the besieged force manages to last through a single winter. Besieging armies whose supply lines break down due to snow-clogged passes or insufficient cold weather gear are forced to retreat due to losses from poor hygiene or hypothermia long before attrition has had an opportunity to impact their opponents."
+              },
+              {
+                "type": "line-break"
+              },
+              {
+                "type": "text",
+                "text": "An artillerist changes this dynamic, completely rewriting the rules of war. Rather than time being on the side of the besieged, it becomes the tool of the besieger. Each day that passes while a skilled artillerist hammers the castle walls with cannon fire and catapult stones brings the fortifications ever closer to crumbling down. Some wise nobles and warlords who realize their opponents have brought siege weapons, especially powerful black powder siege weapons like cannons, will choose to negotiate surrender before battle is even started, recognizing an inevitable defeat that can be staved off temporarily by sacrificing many soldiers but not thwarted without outside intervention."
+              },
+              {
+                "type": "line-break"
+              },
+              {
+                "type": "text",
+                "text": "Ruthless or evil artillerists, or the warlords they follow, might take things a step further, specifically targeting granaries to starve enemies out or launching rotting food, corpses, or diseased livestock into parts of the town near water sources. As food and water supplies dwindle, so too does the morale of the castle's inhabitants and defenders. Even a stubborn noble or warlord will find it hard to continue resisting a siege when their own troops mutiny and their citizens begin seeking a way out."
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.bkTCYlTFNifrM3sh"
+    },
+    "data": {
+      "dedication": "d770706c-cf2a-558f-8c40-7fdd03244cbb"
+    }
+  },
+  {
+    "id": "a01f29b8-1c5c-5046-bbd6-b5c0400c7ff2",
+    "pack": "guns-and-gears",
+    "kind": "archetype",
+    "slug": "archetype:beast-gunner",
+    "name": "Beast Gunner",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The art of creating the weapons most commonly referred to as \"beast guns\" is truly ancient, with the first iterations of the weapons created on the continent of Arcadia well over 10,000 years ago. This means that beast guns predate all other forms of firearm crafting in Arcadia, even the legendary star guns, whose secrets have been lost to the ages. The tradition of designing beast guns has persisted throughout Arcadia well into the modern era, though it has become increasingly rare as the proliferation of classic firearms and the prestige associated with star guns has allowed more people access to equivalent destructive power without the intense requirements behind crafting a beast gun. However, beast gunners remain virtually unknown outside of Arcadia."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The art of bonding to a beast gun and gaining the full magic of a beast gunner is an extended ritual with multiple steps, beginning with the hunt. A person seeking to bond to a beast gun typically does so with a brand new weapon made after they hunt down the creature themselves. This involves telling the story of the hunt, the beast, and the weapon created from the hunted creature. Finally, the weapon is carefully modified and tailored to ensure a proper bond between the beast gun and the prospective beast gunner. However, it's also possible to bond to an heirloom beast gun passed down through the generations by adding symbolic fresh components from the same kind of creature, after performing the same ritual hunt necessary to forge a new weapon with the intent of establishing a bond."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "To perform the ritual the prospective beast gunner must first plan a hunt to slay the creature corresponding to the beast gun, whether they wish to bond with a brand new beast gun or establish a link to an old beast gun. Typically, these ritualized hunts can include up to five assistants plus hunting beasts like canines or birds who help corner the beast and bring it down. If the assistants are significantly more powerful than the hunted creature, or if there are so many assistants the creature never stood a chance at survival, the magic simply fails during the bonding process and the hunt and organic materials are wasted, usually much to the shame and chagrin of the hunter. The same doesn't apply if the prospective beast gunner hunts the creature alone, even if they are significantly more powerful than the creature, such that the creature never stood a chance against them in a one on one fight."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're one of those who successfully completed the hunt and bonded with your prized weapon. Now, you seek to discover the hidden depths that others who think they know how to use beast guns can only imagine."
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Choosing your Beast Gun"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "A beast gunner's bond with their beast gun is deep and mystical, so if you hope to be a successful beast gunner, it's important to choose a beast gun that suits your temperament, magic, and combat style. For example, if you favor strength and intimidation, a screech shooter is the right choice for you, whereas a spider gun might be optimal if you prefer a more careful style of setting up the battlefield in advance. Similarly, a tentacle cannon is slow and methodical and can hold an enemy in place at close range, while a drake rifle is energetic and mobile and can be used to attack from a great distance. Each beast gun has a personality and magical abilities that attract people who value them. For this reason, some experienced beast gunners say the weapon chooses you."
+              }
+            ]
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "8th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "d988cab1-931d-581e-8d02-d25efed42c72"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.jTiXRtNNvMOnsg98"
+    },
+    "data": {
+      "dedication": "ebddb5f9-a5a2-5cd6-a33d-179a11b59c63"
+    }
+  },
+  {
+    "id": "a916719b-f27c-532a-be13-c0dadd93bd2f",
+    "pack": "guns-and-gears",
+    "kind": "archetype",
+    "slug": "archetype:bullet-dancer",
+    "name": "Bullet Dancer",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While most monastic orders and traditional fighting schools shun firearms as loud and unreliable technology for unskilled conscripts, you fuse flourishing feints and ricocheting gunplay into a whirling ballet of bullets. As a bullet dancer, you might become the target of brash duelists and gladiators looking to make a name for themselves. But you tend to welcome the attention and might have proven your reputation while dancing your deadly ballet in tournaments from Tymon to Goka. You've found your fluid motions and explosive attacks to be surefire crowd-pleasers, even as they serve to confound and shock your foes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ": "
+          },
+          {
+            "type": "text",
+            "text": "4th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "58a68920-6572-5a20-b890-519b0fd74fc8"
+          },
+          {
+            "type": "text",
+            "text": ", Qi Spells; "
+          },
+          {
+            "type": "text",
+            "text": "6th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "a6330067-2776-529b-a564-b05b32b77f2b"
+          },
+          {
+            "type": "text",
+            "text": "; "
+          },
+          {
+            "type": "text",
+            "text": "8th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Snap Shot; "
+          },
+          {
+            "type": "text",
+            "text": "12th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "b3a615f2-410e-50dc-bcf9-db5bb57db0d1"
+          },
+          {
+            "type": "text",
+            "text": "; "
+          },
+          {
+            "type": "text",
+            "text": "14th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "06f3c505-3be2-5f63-a291-e4bdb0bb36e8"
+          },
+          {
+            "type": "text",
+            "text": "; "
+          },
+          {
+            "type": "text",
+            "text": "16th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "60915615-1c09-5670-8782-3d3697d5e069"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "204c6ac3-70d0-5d5a-98c9-7c52fd0d8177"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.5nd8ON2kFGOsCdwQ"
+    },
+    "data": {
+      "dedication": "70f6f003-a5d2-54a2-a6e7-a19944e07981"
+    }
+  },
+  {
+    "id": "44778bea-c23c-51af-acf2-3f7a77c984f3",
+    "pack": "guns-and-gears",
+    "kind": "archetype",
+    "slug": "archetype:demolitionist",
+    "name": "Demolitionist",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As rippling explosions bring a castle's walls tumbling down, you grin and wipe the stone dust of your handiwork from your face. Brute force might work for others, but applying science to place the right explosives in just the right spot is essential to your craft."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.Mk7ECwe1a971WyWl"
+    },
+    "data": {
+      "dedication": "f147cd1f-cebc-5848-b926-13708be2a61b"
+    }
+  },
+  {
+    "id": "cf944833-f86c-5dc8-bd0d-f7ff890517a4",
+    "pack": "guns-and-gears",
+    "kind": "archetype",
+    "slug": "archetype:firework-technician",
+    "name": "Firework Technician",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The brilliant display of cascading lights and flickering aerial flowers, the thunderous boom, the sizzling crackle, and piercing screech—these are the stock and trade of your craft. You know how to perfectly pair light and sound to create fireworks displays that can amaze children and adults, comfort friends, and even confound your foes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As a fireworks technician, you might be an itinerant wanderer, roaming from town to town and developing your craft on your own. In that case, you make a living on the road, selling fireworks to the townsfolk, setting up public displays upon request and receipt of payment, and even tailoring individualized performances to those wealthy or interesting enough to be worthy of receiving their own private show."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "On the other hand, you might be part of an established fireworks house from Tian Xia or Vudra and rely on teamwork to perfect your various formulas and displays. Hoping to produce the next great innovation in fireworks technology, you often send back the notes from your studies and field demonstrations to esteemed colleagues from your fireworks house, seeking their opinions on your next big idea."
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Describing Your Fireworks Display"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "As a firework technician, the exact visuals of your character's special abilities might matter significantly to you. No two firework technicians use exactly the same fireworks display, even if they come from the same fireworks house and both use the same feat to generate the display. In fact, it's likely that when you use a feat from the firework technician archetype, the resulting display remains a bit different each time as you tinker, perfect, and refine your technique. Even so, you probably have a few themes that you prefer for each of your firework technician feats. For instance, your Coughing Dragon Display might appear in the sinuous serpentine shape of a literal imperial dragon, coughing out glittering trails. It might also resemble a simple series of geometric shapes, an enigmatic spiraling aeon trailing off in a shape with radial symmetry, a pattern shaped like a tree blossoming with flowers in the sky, or anything else you can imagine. To help your fellow players visualize what your character is doing, you might come up with some go-to descriptions or draw art depicting some of your favorite displays."
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.S4BZW9c5n6CctDxl"
+    },
+    "data": {
+      "dedication": "d7ccf3c3-53d0-53d5-bc2c-8b3f231e232d"
+    }
+  },
+  {
+    "id": "3b44eb15-3493-51a0-97a9-dafbaf690b05",
+    "pack": "guns-and-gears",
+    "kind": "archetype",
+    "slug": "archetype:gunslinger",
+    "name": "Gunslinger",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You like a weapon that makes an impression almost as much as you like making an impression."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.CSVoyUvynmM5LzPW"
+    },
+    "data": {
+      "dedication": "2664c0de-7476-558e-bade-920e1e9fe245",
+      "multiclass": "902953b6-b402-53f2-a045-1966a9831c3c"
+    }
+  },
+  {
+    "id": "ccea14b9-da49-517e-b509-f69af913f67c",
+    "pack": "guns-and-gears",
+    "kind": "archetype",
+    "slug": "archetype:inventor",
+    "name": "Inventor",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You revel in the creation of clever inventions, deploying your brilliance to defeat your foes. Explosives, gadgets, and innovative technologies? You have ideas for all of them, and you're eager to test your theories."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.aAm6jY2k5qBuWETd"
+    },
+    "data": {
+      "dedication": "862a69f6-6e16-55cc-93f8-511a4f4170b9",
+      "multiclass": "6c93e42e-1f0b-5108-9601-bbd810eebbe0"
+    }
+  },
+  {
+    "id": "70daaec0-6aac-536e-8d63-d82c616b9ef1",
+    "pack": "guns-and-gears",
+    "kind": "archetype",
+    "slug": "archetype:overwatch",
+    "name": "Overwatch",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "With a stalwart mind and sharp eyes, you observe the battlefield as though you and your allies are pieces on a chessboard. By predicting dangers and hazards and offering your insights to your comrades, you win battles through keen observation and teamwork. Whenever there's a threat or opening, you're the first to point it out, and you're ready to help your allies directly when necessary."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": ".As a group's overwatch, you might let the position go to your head. In such cases, you might think of yourself as the mastermind behind the chessboard and feel detached from your allies, thinking of them as little more than pawns on the field."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "But more likely your role allows you to feel a deeper connection to your allies, and your coordination and heroics stand out most when you subsume your individual ego to serve the group's needs. In that case, you might think of yourself as a part of a functional whole—if your party was a single living body, you serve as the eyes, but that doesn't mean you're the brain, the heart, or other vital organs. Everyone has a crucial role to play."
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Overwatch Training"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "Not just anyone can train to become their party's overwatch. A keen and incisive perception is necessary, of course, but that alone won't be sufficient. While many a ranger or rogue must sharpen their senses or face a short career, a true overwatch must be able to apply information received from all five senses (and any additional special senses they might have) to make split-second decisions that work toward achieving a tactical goal. Such a response can partially be trained through hours of daily drills designed to help a potential overwatch separate true threats and situations requiring their skills from false positives, and even situations where they would cause a problem if they didn't hold back. However, while training helps ingrain good practice into one's reflexes and muscle memory, ultimately, an overwatch candidate who lacks an innate degree of good tactical instinct will find such training slow to produce results, or in the worst case, even impossible."
+              },
+              {
+                "type": "line-break"
+              },
+              {
+                "type": "text",
+                "text": "Beyond senses and instinct, the role of overwatch requires the ability to innovate your enhanced visual gear to assist in removing blind spots and seeing what others miss. This is essential, since you must keep track of your team and nearby foes. While it isn't explicitly necessary for you to be the one with enough skill in Crafting to maintain and upgrade your enhanced visual gear, many successful overwatches choose to do so in order to better understand how every piece works together to create the whole."
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.yOEiNjHLQ6XuOruq"
+    },
+    "data": {
+      "dedication": "1e9881b4-6ef8-5c61-bdef-5ce10a90afaa"
+    }
+  },
+  {
+    "id": "6cad1855-9ee7-5f3e-88f9-f1bc5f6bd145",
+    "pack": "guns-and-gears",
+    "kind": "archetype",
+    "slug": "archetype:pistol-phenom",
+    "name": "Pistol Phenom",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "\"You saw what I can do, so you know I'm telling the truth when I say that I don't miss. That was just a warning shot. Now if you'd kindly empty out that coffer into my bag of holding, I don't see any need for this to get unpleasant... do you?\""
+          },
+          {
+            "type": "line-break"
+          },
+          {
+            "type": "text",
+            "text": "-Unidentified pistol-twirling half-elf desperado, just before absconding with the funds a corrupt Alkenstar shield marshal planned to use to bribe a judge."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You treat combat as an art and your pistol as an extension of your performance. You might wield a single pistol, a pair of pistols, or a pistol paired with a melee weapon to pull off showy maneuvers. However you slice it, though, the use of pistols or other one-handed firearms is crucial to your technique and style."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "To you, everything is a show, and you use your gun as a prop and instrument, not just to kill opponents but to trick, mislead, hinder, and even bully them into doing what you want them to do. While others tend to focus on delivering as much devastation downrange as possible, your style is all about control. By controlling a foe's attention and actions, you can bolster your own attacks and mitigate the foe's potential for mayhem. You control the tempo of the battle much as you would a staged performance, carefully ensuring your foe's actions don't fall outside of your intended script. You're both the director and the star of this show, and your enemies dance to the tune you play with your pistol... sometimes quite literally!"
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "What Makes a Phenom?"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "Many gunslingers can learn how to twirl a pistol or intimidate a foe, but it's not just your skills that make you a phenom, it's your style and attitude. As a pistol phenom, you understand how to grab everyone's attention with everything you do, especially the way you talk, the way you walk, and the way you use your gun. But what's more, you're well aware of that fact and the power you have over others, and you aren't afraid to flaunt it."
+              },
+              {
+                "type": "line-break"
+              },
+              {
+                "type": "text",
+                "text": "Despite this attitude, or perhaps because of it, as a pistol phenom you likely tend to get along well with groups of allies, understanding both how to take the spotlight to protect your allies and how to share it to make sure they get their time in the sun. The one exception to this can be other pistol phenoms. When two or more pistol phenoms gather in the same group, it's almost inevitable for a duel or other contest to arise. However, such a contest need not end in enmity. Depending on your temperament, and that of the other pistol phenom, the result of the exhilarating rivalry expressed during competition could be a lifelong friendship, albeit one in which you both keep score of your greatest achievements to compare exploits."
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.wMUAm1PJ1HjJ8fFU"
+    },
+    "data": {
+      "dedication": "53dbe2a5-4151-58d9-b869-f6d40522ce62"
+    }
+  },
+  {
+    "id": "12012357-b1f5-53aa-a5b6-9a07be6e4482",
+    "pack": "guns-and-gears",
+    "kind": "archetype",
+    "slug": "archetype:sniping-duo",
+    "name": "Sniping Duo",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Skilled shooters who don't let their egos get in the way of their efficacy are likely to say that sniping is a two-person job. Taking down a target without giving away your position or giving the opponent a window for reprisal is difficult work that requires teamwork and coordination, as well as a tight-knit bond and shared perspective. Sniping duos live and die by the credo \"two heads are better than one,\" focusing their skills and strategies toward deadly efficiency. Whether your spotter and partner is a fellow ranged combatant or a melee enthusiast, you've learned how to use the openings they provide to devastating effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "4th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Assisting Shot, "
+          },
+          {
+            "type": "ref",
+            "id": "2f25f02e-359e-567e-ab6a-2006de732d49"
+          },
+          {
+            "type": "text",
+            "text": "; "
+          },
+          {
+            "type": "text",
+            "text": "12th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "3993eb2e-f448-51e7-b00f-951d80039c4a"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "f3fe6245-0761-5a02-97bd-60688b4ccbe7"
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Choosing a Spotter"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "The most important aspect when choosing a spotter for the sniping duo archetype is the out of character component; make sure you team up with another player who is excited about the idea of roleplaying out teamwork and coordination in combat, and with granting you benefits and gaining benefits from you. The mechanics of the archetype are not very demanding of your spotter's actions, but that still doesn't mean every player is interested in the narrative component."
+              },
+              {
+                "type": "line-break"
+              },
+              {
+                "type": "text",
+                "text": "Mechanically, a good spotter is likely either another ranged attacker or a melee attacker, and depending on the type of spotter you choose, certain feats might become more or less enticing. For instance, Targeted Redirection is more useful with a melee spotter."
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.A5HwvubNii1d2UND"
+    },
+    "data": {
+      "dedication": "c49fc6a8-2034-5439-adfb-91261dcb436c"
+    }
+  },
+  {
+    "id": "411bb6cf-6bd4-5a98-9e78-d230299e5c5d",
+    "pack": "guns-and-gears",
+    "kind": "archetype",
+    "slug": "archetype:sterling-dynamo",
+    "name": "Sterling Dynamo",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While many people across Golarion use prosthetic devices, you've acquired and outfitted yourself with a particularly advanced combat model of clockwork prosthesis: a piece of cutting edge technology called a sterling dynamo. You know how to maintain your dynamo and how to customize it to suit your needs and style, incorporating any promising new technologies you encounter into its design."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "There's a significant distinction, however, between someone who merely has a sterling dynamo prosthesis and someone like you who is a true sterling dynamo. With their recent invention, people in Absalom and Dongun Hold with access to the technology have begun to adopt sterling dynamos as their prostheses of choice, among the wide variety of amazing options already available in both markets. However, not everyone who chooses to use sterling dynamo technology is a member of the sterling dynamo archetype."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "With the sterling dynamo archetype, you both use a sterling dynamo prosthesis and truly understand its advantages, limitations, and limitless potential. You don't have to literally be your own mechanic, as there's no requirement for a sterling dynamo to be particularly skilled at crafting, but even if you aren't, you can still \"feel\" what's right when it comes to adjusting and optimizing your dynamo. Whether you implement these improvements yourself or present your mechanic with ideas and insights that allow them to achieve something special on your behalf, your strength and ingenuity are what make you a sterling dynamo."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As you train to use your dynamo in all sorts of adventures, you may become capable of feats its original inventors never dreamed possible. In fact, as you progress in the archetype and explore the possibilities, you might find that these inventors want to interview you in order to apply your insights and help them create a new generation of the technology with even greater capabilities. The sterling dynamo's adaptability grants it vast potential, so the sky's the limit!"
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Prosthetics in Golarion"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "Prosthetics in Golarion don't require membership in an archetype or special organization to obtain. A character can purchase a simple prosthetic foot, eye, hand, or virtually any other body part for as little as 5 silver pieces, with more expensive prosthetics that are decorated with unique customizations or designs available for a corresponding mark-up. For more information on prosthetics, see page 69 of Pathfinder Lost Omens Grand Bazaar. The sterling dynamo prosthetic technology presented here was created through collaboration between a Dongun Hold prosthesis inventor, who created the flexible silvery clockwork joint system, and a researcher from the Clockwork Cathedral in Absalom, who created a prototype variant that increased how customizable the model was and sent it back to the dwarven inventor to iterate further. That iteration became the sterling dynamo that entered the market in late 4721 AR. It has been widely applauded for its adaptability in both combat and everyday use."
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.6KciIDJV6ZdJcAVa"
+    },
+    "data": {
+      "dedication": "0bc6e3a9-09c1-526e-88b5-96c69802b2d9"
+    }
+  },
+  {
+    "id": "243457d9-0399-5368-aae2-72a83b865b45",
+    "pack": "guns-and-gears",
+    "kind": "archetype",
+    "slug": "archetype:trapsmith",
+    "name": "Trapsmith",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Wielding a wrench or blowtorch, you manufacture snares that whir and tick with delicate precision. Your best work requires the right materials—a glorious set of brass fittings and cogwheels—with which you create snares that are as elegantly lethal as they are subtle. As a trapsmith, you're always improving your snares: adjusting timing, tweaking triggers, and finding new ways to hide them from foes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can select the dedication feat for the trapsmith archetype even if you haven't yet gained three feats from the snarecrafter archetype."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.lc3iBCamQ8jvr9dp"
+    },
+    "data": {
+      "dedication": "41bc0c3f-548a-54bc-ba87-4f4d348d7b96"
+    }
+  },
+  {
+    "id": "67445513-dbb6-52e0-a079-107b229e2187",
+    "pack": "guns-and-gears",
+    "kind": "archetype",
+    "slug": "archetype:trick-driver",
+    "name": "Trick Driver",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While cavaliers follow an old and tired tradition of mounted combat, you take a more modern road. Through aggressive use of vehicles, you roll across the battlefield, taking down your opponents. You go beyond simply operating a vehicle, pushing it to perform stunts that its builders never intended, transforming the vehicle into something much greater than a mere conveyance."
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Using Vehicles"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "While many of the options in this book are uncommon to allow you to insert the thematic elements into your game as you see fit, there are some options you should consider very carefully before including. This archetype is one of them. Vehicles are relatively complicated and can move very fast, which can make mapping encounters quite difficult. They can also move characters too far from the fight for other participants to respond. Think carefully before deciding whether to include the trick driver archetype, and make sure that vehicle use is right for your campaign's style and encounter area size."
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.nPcma8UOqWo7xw0P"
+    },
+    "data": {
+      "dedication": "ded19814-7dbe-5e78-ad5a-5ad75a170229"
+    }
+  },
+  {
+    "id": "12264d5c-b3f8-57d0-8621-42f48deabcff",
+    "pack": "guns-and-gears",
+    "kind": "archetype",
+    "slug": "archetype:vehicle-mechanic",
+    "name": "Vehicle Mechanic",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have always felt that vehicles are as much works of art as they are means of transportation. It doesn't matter if it's as common as a chariot or as complex as an airship, there's always some aspect of the vehicle you can improve upon. Pilots, drivers, and sailors alike value your expertise, and many seek you out to work on their vehicles. While you can make a great profit working on custom vehicles for wealthy clients, you still keep a vehicle of your own to tinker with as your personal passion project."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You might be part of a vehicle mechanic union, working with other mechanics and engineers to find fair jobs and support each other's labor. While some vehicle mechanic unions are secular, many realize the benefits of organizing alongside a sympathetic religion, and so they typically adopt the ideals of economically-focused gods like Abadar or deities interested in crafting such as the goddess Brigh—the Whisper in Bronze—the goddess of invention. Whether religious or secular, vehicle mechanic unions take the bonds between fellow union members seriously. While this might mean your character becomes obligated to help a fellow union member who needs your help, it also means you have steadfast allies you can fall back on in your own time of need. In dire straits, such a connection can be worth its weight in gold."
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Unions"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "Vehicle mechanics typically ply their trade to those who need to keep their vehicles finely tuned. As in most other such trades, some vehicle mechanics form unions to keep business practices fair and to protect each other from predatory employers. The Absalom Shipwright's Union is the largest union for vehicle mechanics in Absalom, with over a thousand builders, carpenters, and engineers among its membership. Almenia Oarstone (LG female dwarf shipwright) is the current leader of the union, having been a member for more than 60 years. It is said that you can count on one hand the number of ships that have docked in Absalom on which she has never worked. The Shipwright's Union manages shipbuilding and repairs in both the Devil's Own and the Sea King Shipyard, and sometimes dispatches members to handle jobs that need doing at the Docks."
+              }
+            ]
+          ]
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Using Vehicles"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "The vehicle mechanic plays best in a campaign where the PCs adventure together in one shared vehicle that the mechanic can enhance, such as in a pirate campaign on a single vessel. In this way, the vehicle mechanic archetype pairs excellently with a PC who has chosen the trick driver archetype. Vehicles are an element you should consider carefully before deciding to include, even in a guns and gears campaign. Vehicles are relatively complicated and can move very fast, which may make mapping encounters quite difficult. They can also move characters too far from the fight for other participants to respond. Think carefully before deciding whether to include the vehicle mechanic archetype, and make sure that vehicle use is right for your campaign's style and encounter area size."
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.Q72YDLPh0urLfWPm"
+    },
+    "data": {
+      "dedication": "b8509b8c-f44b-51c5-b81f-31658e87effe"
+    }
+  }
+]

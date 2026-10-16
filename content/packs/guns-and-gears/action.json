@@ -1,0 +1,2883 @@
+[
+  {
+    "id": "9dd41f49-da29-5f87-87dd-16e2f526d0d7",
+    "pack": "guns-and-gears",
+    "kind": "action",
+    "slug": "action:accidental-shot",
+    "name": "Accidental Shot",
+    "rarity": "common",
+    "traits": ["fortune"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You make a Strike with a ranged weapon, rolling the attack and damage twice and using the better results for each. The attack ignores circumstance penalties to the attack roll and any flat check required due to the target being "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "d851e3ca-be0d-55a7-a4d1-d7ed8b7ecafa"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.FzZAYGib08aEq5P2"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
+    }
+  },
+  {
+    "id": "2ca8104a-7423-5da0-9290-4c86bc8d696b",
+    "pack": "guns-and-gears",
+    "kind": "action",
+    "slug": "action:automaton-aim",
+    "name": "Automaton Aim",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You steady your body and observe the events of the battlefield to maximize the range of your next shot. You reduce the penalty for firing into your weapon's second range increment from –2 to 0 for the next ranged attack you make this turn. You can use this action a second time in the same turn to reduce the penalty from firing into your weapon's third range increment from –4 to 0 for the next ranged attack you make this turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.9sXQf1SyppS5B6O1"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "52824ff1-8326-5f47-adeb-4512fd7f1084",
+    "pack": "guns-and-gears",
+    "kind": "action",
+    "slug": "action:banshee-cry",
+    "name": "Banshee Cry",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature within 30 feet Casts a Spell or Activates an Item using a concentrate Activation"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You set off a firework that explodes with a loud screech near the creature. The creature must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "class-or-spell-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature must use an additional action on the triggering action or activity, or it's disrupted."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The triggering action is disrupted."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.b3h3QqvwS5fnaiu1"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "offensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A creature within 30 feet Casts a Spell or Activates an Item using a concentrate Activation"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "2494a5bd-7535-57a0-bb33-340e60832ebc",
+    "pack": "guns-and-gears",
+    "kind": "action",
+    "slug": "action:bullet-dancer-stance",
+    "name": "Bullet Dancer Stance",
+    "rarity": "common",
+    "traits": ["stance"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're unarmored and wielding a simple firearm or simple combination weapon"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You enter a specialized stance for a unique martial art centered around the use of simple firearms. While in this stance, the only Strikes you can make are those using bayonets, reinforced stocks, simple firearms, and simple combination weapons. You can use Flurry of Blows with these weapons. You can use other monk feats or monk abilities you have that normally require unarmed attacks with bayonets, reinforced stocks, and the melee component of simple combination weapons, so long as the feat or ability doesn't require a single, specific Strike. You can also use them with simple firearms when attacking within half the first range increment."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.SMF1hTWPHtmlS8Cd"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You're unarmored and wielding a simple firearm or simple combination weapon"
+            }
+          ]
+        }
+      ],
+      "selfEffect": "d29fb0c1-ff58-5fdc-9e8f-7b91da12fadf"
+    }
+  },
+  {
+    "id": "50cb1ff6-b71c-5890-b3d8-2b64d8067f44",
+    "pack": "guns-and-gears",
+    "kind": "action",
+    "slug": "action:call-gun",
+    "name": "Call Gun",
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You hold aloft a free hand and call the firearm or crossbow you chose during your daily preparations into your hand. As long as the weapon you chose is on the same plane, it appears in your hand."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.ESMIHOOahLQoqxW1"
+    },
+    "data": {
+      "cost": "one",
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "a1bc064b-3ed6-5ff9-9865-f96c187cf442",
+    "pack": "guns-and-gears",
+    "kind": "action",
+    "slug": "action:chassis-deflection",
+    "name": "Chassis Deflection",
+    "rarity": "common",
+    "traits": ["automaton"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A critical hit deals physical damage to you."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 17
+          },
+          {
+            "type": "text",
+            "text": ". If you are successful, the attack becomes a normal hit."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.uOlyklPCUWLtCaYI"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A critical hit deals physical damage to you."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "b248bd84-b11d-594e-ba57-800b96237904",
+    "pack": "guns-and-gears",
+    "kind": "action",
+    "slug": "action:clear-a-path",
+    "name": "Clear a Path",
+    "rarity": "common",
+    "traits": ["gunslinger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're wielding a two-handed firearm or two-handed crossbow."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You push outward with your weapon to clear some space before quickly reloading a fresh round. You make an Athletics check to "
+          },
+          {
+            "type": "ref",
+            "id": "082b982f-3ed4-5d9c-9722-9ab10198523a"
+          },
+          {
+            "type": "text",
+            "text": " an opponent within your reach using your weapon, then Interact to reload. For this Shove, you don't need a free hand, and you add the weapon's item bonus on attack rolls (if any) to the Athletics check. If your last action or activity this round included a ranged Strike with the weapon, use the same multiple attack penalty as the last Strike you attempted with the weapon for the Shove; the Shove still counts toward your multiple attack penalty on further attacks."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.tw1KDRPdBAkg5DlS"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You're wielding a two-handed firearm or two-handed crossbow."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "ea25a07b-e4fc-5e4e-a406-0eeadd9b7419",
+    "pack": "guns-and-gears",
+    "kind": "action",
+    "slug": "action:command-a-construct",
+    "name": "Command a Construct",
+    "rarity": "common",
+    "traits": ["auditory", "concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You instruct your construct companion to act as you instruct it, and according to its programming. Your construct companion gains 2 actions during this turn. See the minion trait for details."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.WJmc30zb7GmKaETx"
+    },
+    "data": {
+      "cost": "one",
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "3467883d-5148-5c72-a9f4-7aebd0703836",
+    "pack": "guns-and-gears",
+    "kind": "action",
+    "slug": "action:coughing-dragon",
+    "name": "Coughing Dragon",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose either auditory or visual effects. The display gains that trait, and you attempt to counteract one or more effects in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 60
+          },
+          {
+            "type": "text",
+            "text": " that have this trait. On a success, the effect is suppressed until the start of your next turn, rather than ending entirely. Use your "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:lore:fireworks"
+          },
+          {
+            "type": "text",
+            "text": " modifier as your counteract modifier, and your counteract rank is equal to half your level (rounded up). You can spend 2 versatile vials and 3 actions (instead of the usual Cost and actions) to create an even bigger coughing dragon display that attempts to counteract both auditory and visual effects at the same time."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.mech0dhb4eKbCAu0"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "6e66576d-45cd-5371-91ad-448f611d6b5a",
+    "pack": "guns-and-gears",
+    "kind": "action",
+    "slug": "action:covered-reload",
+    "name": "Covered Reload",
+    "rarity": "common",
+    "traits": ["gunslinger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You duck into a safe position or minimize your profile while reloading to make your next attack. Either "
+          },
+          {
+            "type": "ref",
+            "id": "ef51d835-6ab6-513d-b582-80753efde13b"
+          },
+          {
+            "type": "text",
+            "text": " or attempt to "
+          },
+          {
+            "type": "ref",
+            "id": "5a86b7d0-fc0e-52a6-9b0d-fb58ed15233d"
+          },
+          {
+            "type": "text",
+            "text": ", then Interact to reload. As normal, you must meet the requirements to Take Cover or Hide; you must be "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": ", benefiting from cover, or near a feature that allows you to Take Cover, and you need to be benefiting from cover or "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " to a creature to Hide from that creature."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.gBhWEy3ToxQeCLQm"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "718e5d1f-c529-52e1-a1e9-612f2d2bfa78",
+    "pack": "guns-and-gears",
+    "kind": "action",
+    "slug": "action:dispelling-bullet",
+    "name": "Dispelling Bullet",
+    "rarity": "common",
+    "traits": ["magical", "spellshot"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You imprint a bullet with a field of disruptive energy built upon your magical signature, disrupting the magic of whatever it hits. Make a firearm or crossbow Strike against a foe you can see. If you hit, you attempt to counteract a spell effect active on the target (your choice, or the highest-level effect if you don't choose). Your counteract rank is equal to half your level (rounded up), and your counteract check modifier is equal to your class DC – 10."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.Fe487XZBdqEI2InL"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "4c72e74d-dffb-5d18-a49a-e86c80721ff8",
+    "pack": "guns-and-gears",
+    "kind": "action",
+    "slug": "action:drifters-wake",
+    "name": "Drifter's Wake",
+    "rarity": "common",
+    "traits": ["gunslinger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You drift across the battlefield, striking down foes as you go. You Stride, and you can Strike up to three times at any points during your movement. Each attack must target a different enemy and must be made with a one-handed firearm, crossbow, melee weapon, or unarmed attack. Each attack counts toward your multiple attack penalty, but your multiple attack penalty doesn't increase until you've made all your attacks. Your movement doesn't trigger reactions."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.YMhmebfXAoOFXeSB"
+    },
+    "data": {
+      "cost": "three",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "ec92c159-f048-51d2-bb9e-cd52660367e4",
+    "pack": "guns-and-gears",
+    "kind": "action",
+    "slug": "action:energy-shot",
+    "name": "Energy Shot",
+    "rarity": "common",
+    "traits": ["magical", "spellshot"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You roll initiative."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You unleash a small surge of magical energy into your weapon, shrouding the bullet with potential energy and granting it the ability to deal energy damage to your foes to exploit their weaknesses. You can Interact to draw a ranged weapon. On your first three Strikes of this encounter with a firearm or crossbow, you deal an additional 1 acid, cold, fire or electricity damage per weapon damage die. You choose which damage type to deal as part of making each Strike."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "def56038-7ecc-50d6-a85e-347ed909749d"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.TSDbyYRQwhIyY2Oq"
+    },
+    "data": {
+      "cost": "free",
+      "category": "offensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You roll initiative."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "9f2a24cb-f0d2-5380-bbea-be2e5d3ff0ad",
+    "pack": "guns-and-gears",
+    "kind": "action",
+    "slug": "action:finish-the-job",
+    "name": "Finish The Job",
+    "rarity": "common",
+    "traits": ["gunslinger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " On your last action, you failed (but didn't critically fail) a Strike with a firearm or crossbow you're holding in one hand, and your other hand is either wielding a melee weapon or empty."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your last attack failed, but it set you up for another. Make a Strike with your other hand, using a one-handed melee weapon or unarmed attack. This Strike uses the same multiple attack penalty as the Strike that failed on the last action. Afterward, increase your multiple attack penalty normally."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.4IxCKbGaEM9nUhld"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "On your last action, you failed (but didn't critically fail) a Strike with a firearm or crossbow you're holding in one hand, and your other hand is either wielding a melee weapon or empty."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "87a00ed1-776c-5e7f-9839-5e78a902fc43",
+    "pack": "guns-and-gears",
+    "kind": "action",
+    "slug": "action:ghost-shot",
+    "name": "Ghost Shot",
+    "rarity": "common",
+    "traits": ["flourish", "gunslinger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Make a firearm or crossbow Strike. If you're "
+          },
+          {
+            "type": "ref",
+            "id": "d851e3ca-be0d-55a7-a4d1-d7ed8b7ecafa"
+          },
+          {
+            "type": "text",
+            "text": " from or "
+          },
+          {
+            "type": "ref",
+            "id": "61f1fec4-1bb4-585d-9c12-6059d15dd74b"
+          },
+          {
+            "type": "text",
+            "text": " by the target, the Strike adds the additional precision damage from "
+          },
+          {
+            "type": "ref",
+            "id": "75842a38-dbe6-50f8-b90c-acadcf410acc"
+          },
+          {
+            "type": "text",
+            "text": "; if you would already receive that additional damage on the Strike, the effects aren't cumulative. If you were undetected or "
+          },
+          {
+            "type": "ref",
+            "id": "fb2f276b-359e-5305-94d6-45249b045a75"
+          },
+          {
+            "type": "text",
+            "text": " by any creatures, you're now hidden from them instead, or undetected if the shot was made with a silencer."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.O1iircZOOCo42r9Y"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "9b3bef52-a3f4-5688-9d3c-d29e908cb29f",
+    "pack": "guns-and-gears",
+    "kind": "action",
+    "slug": "action:goblin-jubilee",
+    "name": "Goblin Jubilee",
+    "rarity": "common",
+    "traits": ["fire", "sonic", "visual"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Chaos fills a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 20
+          },
+          {
+            "type": "text",
+            "text": " within 120 feet. All creatures in the area takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(max(3,(3 + floor((@level - 10)/ 3))))d6",
+                "damageType": "fire"
+              },
+              {
+                "formula": "(max(3,(3 + floor((@level - 10)/ 3))))d6",
+                "damageType": "sonic"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": {
+              "against": "class-or-spell-dc"
+            },
+            "options": ["inflicts:blinded", "inflicts:dazzled", "inflicts:deafened"]
+          },
+          {
+            "type": "text",
+            "text": " save. Every 3 levels, the fire damage and sonic damage each increase by 1d6. You can expend 2 versatile vials instead of 1 to increase the fire and sonic damage by 1d6 each, or by 2d6 each at 16th level."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "4271da2e-7225-5aa7-9807-c499d8af6a5a"
+          },
+          {
+            "type": "text",
+            "text": " until the end of its next turn and takes half damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is dazzled and deafened for 1 minute and takes full damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round, dazzled and deafened for 1 minute, and takes double damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:goblin-jubilee-upgrade",
+        "toggleable": true,
+        "display": {
+          "label": "Goblin Jubilee — Expending 2 Versatile Vials"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.izvfZ561JTdeyh6i"
+    },
+    "data": {
+      "cost": "three",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "a3ee33f2-f7f7-5f5e-8f46-9c4ed1ee136c",
+    "pack": "guns-and-gears",
+    "kind": "action",
+    "slug": "action:grim-swagger",
+    "name": "Grim Swagger",
+    "rarity": "common",
+    "traits": ["auditory", "emotion", "fear", "gunslinger", "linguistic", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have a one-handed firearm or one-handed crossbow visibly worn or wielded."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You attempt to clear the room by promising a grim fate to anyone who doesn't do what you say, and quickly. Attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:deception"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:intimidation"
+          },
+          {
+            "type": "text",
+            "text": " check against the Will DCs of each creature within 30 feet, except for your allies. Regardless of whether you succeed or fail, each subject is temporarily immune to your Grim Swagger for 10 minutes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For example, if you attempt a Deception check, you lie and boast about your prowess or the large group of friends on their way to back you up. If you attempt an Intimidation check, you promise everyone in the room that you're going to be the last thing they see."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature becomes "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 3"
+          },
+          {
+            "type": "text",
+            "text": ". If it's lower level than you, it's also "
+          },
+          {
+            "type": "ref",
+            "id": "f7fea8f9-c457-5b9f-9283-f567fa557184"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature becomes "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 2"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.rI2MSXR1MQzgQUO7"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You have a one-handed firearm or one-handed crossbow visibly worn or wielded."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "733f4af3-3205-5cea-ab2f-ec4ab74723db",
+    "pack": "guns-and-gears",
+    "kind": "action",
+    "slug": "action:into-the-fray",
+    "name": "Into the Fray",
+    "rarity": "common",
+    "traits": ["gunslinger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You roll initiative."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You know trouble can lurk around every corner, and your hands never stray far from your holsters. You can Interact to draw a one-handed ranged weapon and can then Interact to draw a one-handed melee weapon. As your first action on your first turn, you can Stride as a free action toward an enemy you can perceive. If you can't perceive any enemies or can't end your movement closer to one, you can't use this Stride."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.Uq2qy9aGNQ5JcPI1"
+    },
+    "data": {
+      "cost": "free",
+      "category": "offensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You roll initiative."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "efab333d-e83c-5ae7-897d-56b734374dfc",
+    "pack": "guns-and-gears",
+    "kind": "action",
+    "slug": "action:jumping-jenny",
+    "name": "Jumping Jenny",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Target a flying creature within 60 feet. Until the start of your next turn, each time that creature attempts to Fly, they must succeed at an Acrobatics check to Maneuver in Flight against the DC of "
+          },
+          {
+            "type": "ref",
+            "id": "4844b6e3-1149-595b-b4e7-0880ef22448a"
+          },
+          {
+            "type": "text",
+            "text": ", or the Fly action is disrupted. If all the creature's attempts to Fly are disrupted, at the end of its turn, it falls harmlessly to the ground below."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.wt6jdjjje16Nx34f"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "4844b6e3-1149-595b-b4e7-0880ef22448a",
+    "pack": "guns-and-gears",
+    "kind": "action",
+    "slug": "action:launch-fireworks",
+    "name": "Launch Fireworks",
+    "rarity": "common",
+    "traits": ["manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Cost",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 versatile vial"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're holding or wearing an "
+          },
+          {
+            "type": "ref",
+            "id": "fa6fa403-567c-5444-b0a7-92dc8bbedbd2"
+          },
+          {
+            "type": "text",
+            "text": " and have a free hand"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You set off a fireworks display. You can launch a normal firework to simply create a visual or audible signal within 20 feet or you can choose one of the following special effects. You can also use the comet, flower, or salute fireworks displays, and feats can add more options. A specific fireworks display takes the listed number of actions to launch and has the listed traits."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Comet",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (visual) You shoot a streak of shining light in a "
+          },
+          {
+            "type": "template",
+            "shape": "line",
+            "size": 60
+          },
+          {
+            "type": "text",
+            "text": ". All spaces in that line are lit with bright light until the start of your next turn. As part of this action, you can also "
+          },
+          {
+            "type": "ref",
+            "id": "7aede910-07a5-5ffc-a163-5aa3a7638a4b"
+          },
+          {
+            "type": "text",
+            "text": " a single creature in the line, and your allies do not need to hear or understand you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Flower",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (visual) You ignite a ring of sparks, creating a shape that might be reminiscent of a flower blooming in the sky. Each enemy in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 20
+          },
+          {
+            "type": "text",
+            "text": " must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": {
+              "against": "class-or-spell-dc"
+            },
+            "options": ["inflicts:dazzled"]
+          },
+          {
+            "type": "text",
+            "text": " save. On a failure, the enemy is "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round, and on a critical failure they are dazzled for 2 rounds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Salute",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (auditory) You create a startling bang or whistle. When you launch a salute display, you can choose a "
+          },
+          {
+            "type": "ref",
+            "id": "6f53a234-670f-5b02-a986-7cce57585fc8"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "88ca1b7b-d5de-5978-9ff4-258c9aadef1a"
+          },
+          {
+            "type": "text",
+            "text": " ally within 60 feet. If the ally you chose is fascinated, the noise is so violent that it acts as a hostile effect for the purpose of their fascinated condition (though it has no negative repercussions) automatically ending most applications of the fascinated condition. If they're confused, the sound is so loud and violent that it might snap the ally out of confusion. They can immediately attempt the flat check to remove the confused condition which normally occurs when a creature is damaged. If the confused condition has special rules that remove the flat check when taking damage or make the flat check harder, those rules also apply to the salute."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.yUjuLbBMflVum8Yn"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You're holding or wearing an Alchemist's Toolkit and have a free hand"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "ee6963cb-faf0-52f3-88a0-38bea8bec4e8",
+    "pack": "guns-and-gears",
+    "kind": "action",
+    "slug": "action:living-fortification",
+    "name": "Living Fortification",
+    "rarity": "common",
+    "traits": ["gunslinger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You roll initiative."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You posture defensively with firearms or crossbows, acting like a walking tower. Interact to draw a firearm or crossbow. You then position that weapon defensively, as the parry trait, gaining a +1 circumstance bonus to AC until the end of your first turn, or a +2 circumstance bonus if the chosen weapon has the parry trait."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.9MJcQEMVVrmMyGyq"
+    },
+    "data": {
+      "cost": "free",
+      "category": "offensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You roll initiative."
+            }
+          ]
+        }
+      ],
+      "selfEffect": "1dffbd07-b1f7-5e69-9a84-a5cd80e94199"
+    }
+  },
+  {
+    "id": "75842a38-dbe6-50f8-b90c-acadcf410acc",
+    "pack": "guns-and-gears",
+    "kind": "action",
+    "slug": "action:one-shot-one-kill",
+    "name": "One Shot, One Kill",
+    "rarity": "common",
+    "traits": ["gunslinger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You roll Stealth for initiative."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your first shot is the deadliest. Interact to draw a firearm or crossbow. Your first successful Strike with that weapon during this encounter deals an additional 1d6 precision damage. This precision damage increases to 2d6 at 9th level and 3d6 at 15th level."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "strike-damage",
+        "option": "option:one-shot-one-kill",
+        "toggleable": true
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.Tlrde2xh7AhesXNB"
+    },
+    "data": {
+      "cost": "free",
+      "category": "offensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You roll Stealth for initiative."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "16d7b5f8-650d-5970-ae15-d77834e8bb0d",
+    "pack": "guns-and-gears",
+    "kind": "action",
+    "slug": "action:overdrive",
+    "name": "Overdrive",
+    "rarity": "common",
+    "traits": ["inventor", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per round"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Temporarily cranking the gizmos on your body into overdrive, you try to add greater power to your attacks. Attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:crafting"
+          },
+          {
+            "type": "text",
+            "text": " check that has a standard DC for your level."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "805fcea1-e876-5f5c-9c4e-23982b467f31"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your gizmos go into a state of incredible efficiency called critical overdrive, adding great power to your attacks. Your Strikes deal additional damage equal to your Intelligence modifier for 1 minute. After the Overdrive ends, your gizmos become unusable as they cool down or reset, and you can't use Overdrive for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your gizmos go into overdrive, adding power to your attacks. As critical success, except the additional damage is equal to half your Intelligence modifier."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your gizmos whine concerningly and begin to smoke. Your Strikes deal 1 additional fire damage for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Whoops! Something explodes. You take fire damage equal to half your level (rounded up), and you can't use Overdrive again for 1d4 rounds as your gizmos reset."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " When under the effects of Overdrive, you can still use the Overdrive action. You can't extend your Overdrive's duration this way, but you can turn an overdrive into a critical overdrive if you critically succeed. A failure has no effect on your current Overdrive, and you end your Overdrive on a critical failure."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["skill:crafting"],
+        "title": "Critical Success",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Your gizmos go into a state of incredible efficiency called critical Overdrive, adding great power to your attacks."
+              }
+            ]
+          }
+        ],
+        "outcome": ["criticalSuccess"],
+        "predicate": ["self:action:slug:overdrive"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["skill:crafting"],
+        "title": "Success",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Your gizmos go into Overdrive, adding power to your attacks."
+              }
+            ]
+          }
+        ],
+        "outcome": ["success"],
+        "predicate": ["self:action:slug:overdrive"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["skill:crafting"],
+        "title": "Failure",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Your gizmos whine concerningly and begin to smoke. Your Strikes deal 1 additional fire damage. Overdrive"
+              }
+            ]
+          }
+        ],
+        "outcome": ["failure"],
+        "predicate": ["self:action:slug:overdrive"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["skill:crafting"],
+        "title": "Critical Failure",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Whoops! Something explodes. You take (ceil(@actor.level / 2))[@actor.flags.system.inventor.explode] damage, and you can't use Overdrive again for 1d4 rounds as your gizmos reset."
+              }
+            ]
+          }
+        ],
+        "outcome": ["criticalFailure"],
+        "predicate": ["self:action:slug:overdrive"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.3D9kGfwg4LUZBR9A"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "round"
+      }
+    }
+  },
+  {
+    "id": "6b73ebac-35ef-59ec-9186-f7a4a134a95b",
+    "pack": "guns-and-gears",
+    "kind": "action",
+    "slug": "action:pistoleros-retort",
+    "name": "Pistolero's Retort",
+    "rarity": "common",
+    "traits": ["gunslinger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're wielding a one-handed firearm or one-handed crossbow."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A foe within the first range increment of the one-handed firearm or one-handed crossbow you're wielding critically fails an attack roll against you."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You punish your foe's failure with a shot. Make a Strike against the triggering foe with a one-handed firearm or one-handed crossbow."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.bCDMuu3tE4d6KHrJ"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You're wielding a one-handed firearm or one-handed crossbow."
+            }
+          ]
+        }
+      ],
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A foe within the first range increment of the one-handed firearm or one-handed crossbow you're wielding critically fails an attack roll against you."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "a5bc407b-ed13-59b1-93e7-a57901d1ba70",
+    "pack": "guns-and-gears",
+    "kind": "action",
+    "slug": "action:raconteurs-reload",
+    "name": "Raconteur's Reload",
+    "rarity": "common",
+    "traits": ["gunslinger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your rapid or forceful words draw the enemy's attention away from your hands long enough to chamber another bullet. Interact to reload and then attempt a Deception check to Create a Diversion or an Intimidation check to Demoralize."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.RADNqsvAt4gP9FOX"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "077079db-2916-5ab0-a405-f2550e4da65c",
+    "pack": "guns-and-gears",
+    "kind": "action",
+    "slug": "action:recall-ammunition",
+    "name": "Recall Ammunition",
+    "rarity": "common",
+    "traits": ["magical", "spellshot", "teleportation"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You miss with a firearm or crossbow Strike."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You create a bond to your ammunition, calling your missed shot back. The ammunition you just fired is reloaded back into your weapon. If the ammunition was a piece of magical or alchemical ammunition that normally requires one or more actions to activate, you must re-activate it before firing again."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.DYn1igFjCGJEiP22"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "interaction",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You miss with a firearm or crossbow Strike."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "ed6aa09d-5ce2-5708-ae59-6a9b7e9b2e9f",
+    "pack": "guns-and-gears",
+    "kind": "action",
+    "slug": "action:reloading-strike",
+    "name": "Reloading Strike",
+    "rarity": "common",
+    "traits": ["gunslinger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're wielding a firearm or crossbow in one hand, and your other hand either wields a one-handed melee weapon or is empty."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You make a melee attack and reload in one fluid movement. Strike an opponent within reach with your one-handed melee weapon (or, if your other hand is empty, with an unarmed attack), and then Interact to reload. You don't need a free hand to reload in this way and this reload does not trigger reactions."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.jSC5AYEfliOPpO3H"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You're wielding a firearm or crossbow in one hand, and your other hand either wields a one-handed melee weapon or is empty."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "b6e878ae-fda8-584d-b804-bc5f53c33552",
+    "pack": "guns-and-gears",
+    "kind": "action",
+    "slug": "action:resist-magic",
+    "name": "Resist Magic",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You attempt a saving throw against a harmful magical effect but haven't rolled yet."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your innate magic protects you. You gain a +1 circumstance bonus to the triggering saving throw. Additionally, if the triggering effect is arcane, if you roll a success, you get a critical success instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:resist-magic",
+        "toggleable": true
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["option:resist-magic", "item:magical"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["saving-throw"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "predicate": ["option:resist-magic", "item:trait:arcane"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.XeZwXzR1KBlJF770"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You attempt a saving throw against a harmful magical effect but haven't rolled yet."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "e6ff8fcd-6777-59ff-a882-26a686131549",
+    "pack": "guns-and-gears",
+    "kind": "action",
+    "slug": "action:set-explosives",
+    "name": "Set Explosives",
+    "rarity": "common",
+    "traits": ["concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have 1 or 2 bombs in hand"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You attach the bombs to an inanimate object within your reach, such as a door, wall, or column, and rig them to detonate at a set time. The bombs explode at a specific time you determine (such as after your next action or at the start of your next turn, to a maximum of 1 minute), dealing their damage and splash damage to the inanimate object. Combine this damage for the purpose of resistances and weaknesses, and this damage ignores an amount of the object's Hardness equal to your level. Any creatures adjacent to the hazard take the bombs' splash damage, also combined for the purpose of resistances and weaknesses. As a reminder, since you didn't throw the bombs, the "
+          },
+          {
+            "type": "ref",
+            "id": "9086046b-62e1-505a-94ca-d60c04b53861",
+            "label": "Bomber's Field Discovery"
+          },
+          {
+            "type": "text",
+            "text": " and similar effects don't apply. Making sure your timing is correct requires concentration, so you can't Set Explosives again while you're waiting for a previously set bomb to detonate."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.vvYsE7OiSSCXhPdr"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You have 1 or 2 bombs in hand"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "8aa6e019-77dc-5a73-a879-6de871197ca6",
+    "pack": "guns-and-gears",
+    "kind": "action",
+    "slug": "action:siegebreaker",
+    "name": "Siegebreaker",
+    "rarity": "common",
+    "traits": ["gunslinger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're wielding a firearm that has the kickback or scatter trait, or a two-handed crossbow."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "With unbelievable force, you charge and smash your weapon into a target before digging in your heels and pulling the trigger. "
+          },
+          {
+            "type": "ref",
+            "id": "1a0bed3d-5eb7-554f-ad07-4c8630afd0c8"
+          },
+          {
+            "type": "text",
+            "text": " or Stride, then make a Strike with the required firearm or crossbow against an adjacent target. This Strike deals an additional "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d8",
+                "damageType": "bludgeoning"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and ignores 10 points of the target's Hardness (if any), or of their shield's Hardness if the target uses Shield Block."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After the Strike, you become "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": " and position the required weapon defensively, as the parry trait, gaining a +1 circumstance bonus to AC, or a +2 circumstance bonus if the chosen weapon has the parry trait. Both effects last until the start of your next turn. If a force would move you while you're immobilized in this way, it must succeed at an appropriate check against your class DC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:siegebreaker-damage",
+        "toggleable": true
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["firearm-weapon-group-damage", "crossbow-weapon-group-damage"],
+        "diceNumber": 3,
+        "dieSize": "d8",
+        "predicate": [
+          "option:siegebreaker-damage",
+          {
+            "or": [
+              {
+                "and": [
+                  "item:group:firearm",
+                  {
+                    "or": ["item:trait:scatter", "item:trait:kickback"]
+                  }
+                ]
+              },
+              {
+                "and": ["item:group:crossbow", "item:usage:hands:2"]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.A4L90h7FIgO5EyBx"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You're wielding a firearm that has the kickback or scatter trait, or a two-handed crossbow."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "5fbb910b-347e-5822-9b07-d54bc912d300",
+    "pack": "guns-and-gears",
+    "kind": "action",
+    "slug": "action:spell-woven-shot",
+    "name": "Spell-Woven Shot",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are wielding a loaded magic firearm or magic crossbow"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Cast a Spell that takes 1 or 2 actions to cast and requires a spell attack roll. The effects of the spell do not occur immediately but are imbued into the required weapon. Make a Strike with that weapon. Your spell flies with the ammunition, using your attack roll result to determine the effects of both the Strike and the spell. This counts as two attacks for your multiple attack penalty, but you don't apply the penalty until after you've completed the Spell-Woven Shot."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.3MiV0maH8imtnVwS"
+    },
+    "data": {
+      "cost": "three",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You are wielding a loaded magic firearm or magic crossbow"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "6992b13b-119d-536d-abbb-0625bfd63169",
+    "pack": "guns-and-gears",
+    "kind": "action",
+    "slug": "action:spellsling",
+    "name": "Spellsling",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're wielding your bonded beast gun or another magic firearm"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Cast a Spell that takes 1 or 2 actions to cast and requires a spell attack roll. The effects of the spell do not occur immediately but are imbued into the beast gun you're wielding. Make a Strike with that beast gun. Your spell flies with the ammunition, using your attack roll result to determine the effects of both the Strike and the spell. Combine the Strike and spell's damage for the purpose of resistances and weaknesses. This counts as two attacks for the purposes of determining your multiple attack penalty, but you don't apply the penalty until after you've completed resolving the attack and spell."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If you also have the "
+          },
+          {
+            "type": "ref",
+            "id": "5fbb910b-347e-5822-9b07-d54bc912d300"
+          },
+          {
+            "type": "text",
+            "text": " action you can load and activate a piece of magical ammunition as a free action before making a Spellsling attack once per 10 minutes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.VNuOwXIHafSLHvsZ"
+    },
+    "data": {
+      "cost": "three",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You're wielding your bonded beast gun or another magic firearm"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "2abebf16-41ed-57b7-8af4-9561027c8cb4",
+    "pack": "guns-and-gears",
+    "kind": "action",
+    "slug": "action:spinning-crush",
+    "name": "Spinning Crush",
+    "rarity": "common",
+    "traits": ["gunslinger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're wielding a loaded firearm or loaded crossbow."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You go into a vicious spin, smashing your weapon into those nearby and increasing your momentum by firing. All creatures adjacent to you take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6+@attr.str",
+                "damageType": "bludgeoning"
+              }
+            ],
+            "label": "4d6 bludgeoning damage plus your Strength modifier"
+          },
+          {
+            "type": "text",
+            "text": "; this increases to "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d6+@attr.str",
+                "damageType": "bludgeoning"
+              }
+            ],
+            "label": "6d6"
+          },
+          {
+            "type": "text",
+            "text": " if your firearm has a striking rune, "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "8d6+@attr.str",
+                "damageType": "bludgeoning"
+              }
+            ],
+            "label": "8d6"
+          },
+          {
+            "type": "text",
+            "text": " if it has a greater striking rune, and "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10d6+@attr.str",
+                "damageType": "bludgeoning"
+              }
+            ],
+            "label": "10d6"
+          },
+          {
+            "type": "text",
+            "text": " if it has a major striking rune. This ability does not apply other effects that increase damage with your firearm Strikes such as weapon specialization. Creatures affected by this attack must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": {
+              "against": "class-dc"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save. A creature that fails its save is also pushed 10 feet directly away from you."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.6OZfIjiPjWTIe7Pr"
+    },
+    "data": {
+      "cost": "three",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You're wielding a loaded firearm or loaded crossbow."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "dc80baab-0c6a-5e63-802b-223f83fac3e9",
+    "pack": "guns-and-gears",
+    "kind": "action",
+    "slug": "action:ten-paces",
+    "name": "Ten Paces",
+    "rarity": "common",
+    "traits": ["gunslinger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You roll initiative."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You react to trouble with lightning speed, positioning yourself just right. You gain a +2 circumstance bonus to your initiative roll, and you can Interact to draw a one-handed firearm or one-handed crossbow. As your first action on your first turn, you can Step up to 10 feet as a free action."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "initiative",
+        "option": "option:ten-paces",
+        "toggleable": true
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["initiative"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["option:ten-paces"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.EeM0Czaep7G5ZSh5"
+    },
+    "data": {
+      "cost": "free",
+      "category": "offensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You roll initiative."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "2657c1d6-b4c5-5577-b7aa-f52459cbd884",
+    "pack": "guns-and-gears",
+    "kind": "action",
+    "slug": "action:thoughtful-reload",
+    "name": "Thoughtful Reload",
+    "rarity": "common",
+    "traits": ["gunslinger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As you sink deep into a state of analytical calm and focus on the foe before you, your hands reload a bullet instinctively. Attempt a Recall Knowledge check against an opponent you can see and then Interact to reload."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.9kIvFxA5V9rvNWiH"
+    },
+    "data": {
+      "cost": "one",
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "f29e50fc-9066-59a2-84b1-94a189df48d3",
+    "pack": "guns-and-gears",
+    "kind": "action",
+    "slug": "action:vital-shot",
+    "name": "Vital Shot",
+    "rarity": "common",
+    "traits": ["gunslinger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your careful shot against an unsuspecting opponent pierces a vital artery or organ. Make a ranged Strike. If the target is "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": ", the Strike deals an extra die of weapon damage, and the foe takes persistent bleed damage equal to the amount of precision damage from your "
+          },
+          {
+            "type": "ref",
+            "id": "75842a38-dbe6-50f8-b90c-acadcf410acc"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:vital-shot",
+        "toggleable": true
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["ranged-strike-damage"],
+        "diceNumber": 1,
+        "predicate": ["option:vital-shot", "target:condition:off-guard"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["ranged-strike-damage"],
+        "diceNumber": "ternary(gte(@level, 15), 3, ternary(gte(@level, 9), 2, 1))",
+        "dieSize": "d6",
+        "damageType": "bleed",
+        "predicate": ["option:vital-shot", "target:condition:off-guard"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.vO0Y1dVjNfbDyT4S"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  }
+]

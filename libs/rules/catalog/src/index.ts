@@ -19,7 +19,7 @@ import {
   warOfImmortalsPack,
 } from './json-packs';
 import { characterGuidePack, impossibleLandsPack } from './ogl-packs';
-import { impossibleMagicPack } from './orc-packs';
+import { gunsAndGearsPack, impossibleMagicPack } from './orc-packs';
 import { checkPackSources } from './source-check';
 
 export { BookRegistry, bookRegistry } from './book-registry';
@@ -83,6 +83,7 @@ export const officialPacks: readonly PackContentsLoader[] = [
   checkedLoader('dark-archive-remastered', darkArchiveRemasteredPack),
   checkedLoader('tian-xia-character-guide', tianXiaCharacterGuidePack),
   checkedLoader('impossible-magic', impossibleMagicPack),
+  checkedLoader('guns-and-gears', gunsAndGearsPack),
   checkedLoader('gm-core', gmCorePack),
 ];
 

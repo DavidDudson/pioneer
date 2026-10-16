@@ -1,0 +1,242 @@
+[
+  {
+    "id": "bd7b42f7-e6d1-54ee-b982-620991330ad2",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:attached-to-crossbow-or-firearm",
+    "name": "Attached to Crossbow or Firearm",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "7cca4754-0fb3-519d-a790-5c6a15ffb22d",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:capacity-5",
+    "name": "Capacity 5",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "0cc09a0b-c263-57b1-81ad-cd89e3daf20a",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:cobbled",
+    "name": "Cobbled",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "68bd7704-5140-5715-a388-27420756e617",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:construct",
+    "name": "Construct",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["ancestry", "creature", "heritage"]
+    }
+  },
+  {
+    "id": "d8098dce-de80-5118-8018-75e977c0d791",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:double-barrel",
+    "name": "Double Barrel",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "632a6f61-b3b3-52b6-bbb4-c74657241b9e",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:fatal-aim-d10",
+    "name": "Fatal Aim d10",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "d6b655b0-a4a1-5886-9fcd-a4e83d409c68",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:fey",
+    "name": "Fey",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry", "condition", "consumable", "creature", "effect", "heritage"]
+    }
+  },
+  {
+    "id": "c68b4ec8-a9b7-5095-87c8-c9209b9c60fb",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:gadget",
+    "name": "Gadget",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "consumable", "equipment"]
+    }
+  },
+  {
+    "id": "0c756c35-9282-5c40-a9a4-89731303233a",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:reckless",
+    "name": "Reckless",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "feat"]
+    }
+  },
+  {
+    "id": "dc9a4782-660e-52dc-a0fe-0f9457dcc667",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:spellshot",
+    "name": "Spellshot",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "condition", "effect", "feat"]
+    }
+  },
+  {
+    "id": "44e528e8-e73b-50dd-ad82-205f91bda2a8",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:steam",
+    "name": "Steam",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["equipment"]
+    }
+  },
+  {
+    "id": "9ebe86b4-15a0-5cde-a128-c05db56c51a1",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:volley-50",
+    "name": "Volley 50 ft.",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "weapon"]
+    }
+  }
+]

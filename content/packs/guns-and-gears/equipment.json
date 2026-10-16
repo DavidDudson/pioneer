@@ -1,0 +1,5256 @@
+[
+  {
+    "id": "cc884e52-7d93-50fb-b545-1492341988a0",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:air-cartridge-firing-system",
+    "name": "Air Cartridge Firing System",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Air cartridge firing mechanisms use a container of compressed air affixed to a sealed system that releases the air in a small burst to propel ammunition, and they're the default used in Arcadian air repeaters. Any firearm can be modified to replace its normal firing mechanism with an air cartridge firing system, allowing the weapon to be fired underwater or in other conditions that would normally prevent the ignition of black powder. The air cartridges lack much of the propulsive power of black powder, however, imposing a –10-foot penalty to the attached firearm's range increment. Weapons with the kickback trait don't gain that trait's benefits when using an air cartridge firing system. Attaching an air cartridge firing system takes one hour, though this time can overlap with the standard time required to maintain and clean your firearm to prevent misfires."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.gvtFrrvCSdsCOlOj"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 75
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "attached",
+        "to": "crossbow-or-firearm-firing-mechanism"
+      }
+    }
+  },
+  {
+    "id": "f15b54e8-5130-5aa0-8b02-a1e66eb50ba1",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:aquarium-lamp",
+    "name": "Aquarium Lamp",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["electricity", "light"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The aquarium lamp is a combination light source and exotic animal aquarium, intended to provide rich nobles amusement and illumination. It takes the shape of a glass cube 50 feet wide and seven feet high filled with sea water, flanked by two much smaller water tanks. A sparse brass frame around the device keeps the tanks themselves from touching the ground and serves as a mounting point for a pair of electrical coils on the top, which are enclosed within separate glass tubes. Six electric eels swim within the central tank, while a number of animals belonging to species considered to be the eels' natural prey swim in the smaller feeding tanks. With the simple pull of a lever attached to either smaller tank, one of the prey animals is released into the eel tank. Within seconds, the eels converge on the hapless animal, using their electrical charges to stun their victims. When this happens, the salty seawater conducts the electrical energy into transfer coils hidden within the brass frame, which send the energy to the top-mounted electrical coils. The end result produces enough light to fully illuminate a room as though it were midday."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This device is an expression of a recent trend among certain Avistani nobles to blend form and function in their manors' interior decorations. In such circles, ostentatious decorations that serve no functional purpose are derided as \"tacky\" and \"unrefined.\" If a noble in such company wishes not to be ridiculed, they must be sure that each decoration adds something to the room beyond the aesthetic. The aquarium lamp is the latest tool in this social arms race, and it's already proven popular with its target market."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When active, the aquarium lamp produces bright light in a 60-foot radius (and dim light for the next 60 feet). Each activation provides enough energy for 10 minutes of use, and the two feeding tanks combined carry enough prey animals for 50 activations before needing to be refilled, though electric eels usually need feeding only once per day, and won't go after the prey if they're all full. While electric eels are not aggressive to their aquarium keepers and will gradually learn to associate them with food, they can engage in violent social behavior, especially when they are young. This behavior leads to small fights involving tail slapping, biting, and discharged electricity, the last of which causes the lamp to illuminate without hitting the lever to release prey. The electric eels live around 15 years if kept well-fed."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.8Rels5G8re0MXFAS"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1500
+        }
+      },
+      "bulk": 20,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "43d62a1b-e3da-5f65-b188-115a2d53bcb1",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:blade-launcher",
+    "name": "Blade Launcher",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A blade launcher has a bow-like assembly mounted on a handled frame. The frame can be configured to fire either a dagger, dart, shuriken, or starknife. Configuring a blade launcher requires three Interact actions. Once properly configured, loading an appropriate thrown weapon into a blade launcher requires a single Interact action. A blade launcher can't fire weapons for which it's not currently configured. A weapon fired with a blade launcher loses the agile, monk, thrown, and versatile traits, if it has them, and has a range increment of 40 feet. Due to losing the thrown weapon trait, returning and most other effects that allow a weapon to return don't function; even if a launched weapon did return, you'd still need to load it into the blade launcher with an Interact action to fire the blade launcher again."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.n5Or4nmtKPoFr6Hm"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 18
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "3f6dc465-7c9b-5198-bc1c-72e599257d84",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:bomb-launcher",
+    "name": "Bomb Launcher",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This long, hollow tube is held in two hands and braced over the shoulder. Inside, it contains a small metal basket sized to hold alchemical bombs. A chute in the top delivers an alchemical bomb into the internal basket, while a lever on the underside pulls the basket back and locks it in place. Loading an alchemical bomb into a bomb launcher requires a single Interact action. With a pull of a trigger, the basket speeds forward, allowing you to Strike with the loaded alchemical bomb over long distances. Bombs fired with a bomb launcher have a range increment of 60 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:base:alchemical-bomb"],
+        "predicate": ["option:bomb-launcher"],
+        "property": "range-increment",
+        "mode": "upgrade",
+        "value": 60
+      },
+      {
+        "key": "RollOption",
+        "option": "option:bomb-launcher",
+        "toggleable": true
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ApMC9PSOnj7cPAGL"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 20
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "91b78267-79da-5fb5-b836-ecf0da3435f7",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:camouflage-suit",
+    "name": "Camouflage Suit",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This lightweight mesh fits easily over light armor. The suit is designed to incorporate local flora and ground clutter into the mesh to help you blend in seamlessly with the environment. Due to the abrasive nature of the materials used, this item is unsuitable for use by unarmored characters. You can prepare the suit for use within your current environment by using an exploration activity that takes at least 10 minutes, but sometimes longer if the materials are hard to find or the environment is unusual enough to warrant additional difficulty in preparing camouflage that can blend with it consistently."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A suit prepared in this manner grants you a +1 item bonus to Stealth checks while you attempt to Hide or Sneak in the specific environment it has been prepared for. The suit remains usable in this manner until you rest for the night, though it doesn't grant the benefit whenever you aren't in the appropriate environment. The GM might rule that some environments are unusual enough that you can't create a camouflage suit appropriate for the environment."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "0d5450f1-c8a3-5ae6-8b3e-c7067cf1f176"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.UXsHBUyx4b0dIPDf"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "b4284b21-a887-53e8-aa77-6abef74dc975",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:camouflage-suit-superb",
+    "name": "Camouflage Suit (Superb)",
+    "level": 9,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This lightweight mesh fits easily over light armor. The suit is designed to incorporate local flora and ground clutter into the mesh to help you blend in seamlessly with the environment. Due to the abrasive nature of the materials used, this item is unsuitable for use by unarmored characters. You can prepare the suit for use within your current environment by using an exploration activity that takes at least 10 minutes, but sometimes longer if the materials are hard to find or the environment is unusual enough to warrant additional difficulty in preparing camouflage that can blend with it consistently."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A superb camouflage suit is fashioned from especially well-blended materials grants you a +2 item bonus to Stealth checks while you attempt to Hide or Sneak in the specific environment it has been prepared for. The suit remains usable in this manner until you rest for the night, though it doesn't grant the benefit whenever you aren't in the appropriate environment. The GM might rule that some environments are unusual enough that you can't create a camouflage suit appropriate for the environment."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "0d5450f1-c8a3-5ae6-8b3e-c7067cf1f176"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Z8RZfkIrsifYeWg4"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 140
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "66158ae7-be0a-5d2b-836b-c8c49235e7cd",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:clockwork-bookshelf",
+    "name": "Clockwork Bookshelf",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["clockwork"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This device was originally created by an inventor who had way more books they wanted to access than available wall space to store them. Each of the bookshelf's six levels is actually loaded with a pair of shelves instead of a single shelf. A simple switch on the side of the bookshelf flips the corresponding shelf to the other side, revealing any books stored in the paired shelf. While this makes the clockwork bookshelf a little deeper than a normal bookshelf, in order to fit both shelves, it effectively allows you to store twice as many books using the same amount of wall space. Those who wish to keep volumes hidden from visitors (or perhaps stow a weapon or potion within a false book) often load the hidden shelf first, then switch to the second shelf lined with more respectable volumes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.MJ1wJbEXRw5KcvwN"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 15
+        }
+      },
+      "bulk": 4,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "21565cae-f2c4-5b3c-bfcd-1385dc5569c7",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:clockwork-box-packer",
+    "name": "Clockwork Box Packer",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["clockwork"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This handy clockwork device is too expensive for most warehouses and shipping docks to make use of it, but some nobles have purchased the item for their staff as a status symbol, and merchants who are in the shipping trade can afford to slowly reap the benefits of its usage. It takes 1 minute to wind a clockwork box packer; after which, it can function for up to 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can indicate how high you want the clockwork box packer to stack boxes and what the packing storage dimensions are. Once packing instructions have been input, you can load a crate onto the clockwork box packer, and it begins its task. Once the box is stacked, the clockwork box packer closes the box, if necessary, then ties a ribbon or cord around it from a supply loaded into the clockwork box packer in advance. Once the package is secure, the clockwork box packer stacks it and then swivels back into position, ready to accept another box. In this way, the clockwork device can finish within minutes a packing job that might take humanoid workers an hour"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.15nkBxrvIrbGQCdS"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": 4,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "73948797-babf-53e1-bd5d-8e807f459d31",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:clockwork-megaphone",
+    "name": "Clockwork Megaphone",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["clockwork"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A clockwork megaphone uses cunning clockwork gears to adjust the shape and angle of the cone within the megaphone, allowing you to raise or lower the volume, widen or contract the angle in which you project your voice, or both at the same time. This makes a clockwork megaphone far more useful than an ordinary megaphone for situations where you want to make sure that everyone in a particular venue or location can hear you without being so loud that your voice comes across as a painful shout. It takes 1 minute to wind up a clockwork megaphone, which allows it to remain active for up to 1 hour of adjustments, only counting the time you change the megaphone's settings, not the time you spend speaking. Since it automatically enters standby mode when not in use, this typically means you don't have to wind up the clockwork megaphone for months, or even years, depending on how often you adjust the settings each day."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.LiK84TSQJoe1e6D7"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 15
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "2c9b819a-3120-5012-9dd1-361e985d2d03",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:concealed-holster",
+    "name": "Concealed Holster",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This leather holster is crafted to better hide small firearms from view. Only firearms designed for use in one hand are small enough to disguise with this holster. You gain a +1 item bonus to Stealth checks and DCs to hide or conceal a firearm or hand crossbow in this holster."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:concealed-holster",
+        "toggleable": true,
+        "display": {
+          "label": "Concealing a Firearm"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["option:concealed-holster"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.3fHdvyWq5A9jvT9W"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 25
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "3647b466-7548-5dfe-9de0-28980d4e65df",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:darkvision-scope",
+    "name": "Darkvision Scope",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These scopes, popular with snipers and other sneaky sharpshooters who ply their trade in the dead of night, incorporate clouded crystals with magical properties into their design. While relatively useless under normal lighting conditions, these crystals can help bring things into focus when used in dim light. The scope is then given an enchantment to enhance these properties for use in darkness. The scope grants you a +1 item bonus to Perception checks involving sight in areas of dim light visible through the scope (as well as in areas of darkness, if the scope has been activated)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—See Through Night",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain darkvision until the beginning of your next turn, as long as you continue to look through the scope."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["option:looking-through-sight"]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:looking-through-sight",
+        "toggleable": true,
+        "display": {
+          "label": "Looking through sight into dim light"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.krKFJmE139HBqa9K"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 160
+        }
+      },
+      "bulk": "light",
+      "size": "small",
+      "usage": {
+        "type": "attached",
+        "to": "crossbow-or-firearm-firing-mechanism"
+      }
+    }
+  },
+  {
+    "id": "47ad534f-636b-5909-9363-4c2229c2d367",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:darkvision-scope-greater",
+    "name": "Darkvision Scope (Greater)",
+    "level": 15,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These scopes, popular with snipers and other sneaky sharpshooters who ply their trade in the dead of night, incorporate clouded crystals with magical properties into their design. While relatively useless under normal lighting conditions, these crystals can help bring things into focus when used in dim light. The scope is then given an enchantment to enhance these properties for use in darkness. The scope grants you a +2 item bonus to Perception checks involving sight in areas of dim light visible through the scope (as well as in areas of darkness, if the scope has been activated)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—See Through Night",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain greater darkvision until the beginning of your next turn, as long as you continue to look through the scope."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["option:looking-through-sight"]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:looking-through-sight",
+        "toggleable": true,
+        "display": {
+          "label": "Looking through sight into dim light"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.iPgSLZ44804wrXQC"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5500
+        }
+      },
+      "bulk": "light",
+      "size": "small",
+      "usage": {
+        "type": "attached",
+        "to": "crossbow-or-firearm-scope"
+      }
+    }
+  },
+  {
+    "id": "0bec4a34-bfeb-5fc4-8295-8a893fea4b82",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:day-goggles",
+    "name": "Day Goggles",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The darkened lenses of these goggles protect sensitive eyes from bright light but make seeing in the dark more difficult. While wearing day goggles, you gain a +1 item bonus to saving throws against visual light effects. However, while wearing the goggles, you take a -2 item penalty to visual Perception checks and you treat areas of bright light as dim light and areas of dim light as darkness for the purpose of whether you can see. While this is normally a disadvantage, if you have light blindness, you aren't "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " in bright light as long as you continue wearing the day goggles, since to your eyes, there is only dim light. You can wear the goggles around your neck or on your forehead, granting no benefits, but allowing you to move them over your eyes with a single Interact action, without having to withdraw them first."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["item:trait:visual", "item:trait:light"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "item",
+        "value": -2,
+        "predicate": ["item:trait:visual"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.85lwgBrZh0cB3PX4"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 30
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "worn",
+        "slot": "eyepiece"
+      }
+    }
+  },
+  {
+    "id": "e0272139-205b-51a6-bd3c-c4944240858e",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:deployable-cover",
+    "name": "Deployable Cover",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This thick mat of canvas, foliage, and wood is mounted on a tripod of flexible metal struts, folded into a baton-like shape, and clamped shut. You can rapidly deploy it on the ground with an Interact action to create cover. Deployable cover completely blocks one edge of the chosen square, allowing you (and others) to gain standard cover when you use the "
+          },
+          {
+            "type": "ref",
+            "id": "ef51d835-6ab6-513d-b582-80753efde13b"
+          },
+          {
+            "type": "text",
+            "text": " action. Before it can be used again, deployable cover must be carefully folded and clamped shut, which takes 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.NocVi59Vtbi3kvsJ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 15
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "320236db-8e3c-5644-a0ee-932440ac0926",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:deployable-cover-ballistic-cover",
+    "name": "Deployable Cover (Ballistic Cover)",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This thick mat of canvas, foliage, and wood is mounted on a tripod of flexible metal struts, folded into a baton-like shape, and clamped shut. You can rapidly deploy it on the ground with an Interact action to create cover. Deployable cover completely blocks one edge of the chosen square, allowing you (and others) to gain standard cover when you use the "
+          },
+          {
+            "type": "ref",
+            "id": "ef51d835-6ab6-513d-b582-80753efde13b"
+          },
+          {
+            "type": "text",
+            "text": " action. Before it can be used again, deployable cover must be carefully folded and clamped shut, which takes 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Specially crafted to protect against bullet fire, a ballistic cover also works against other physical projectiles, such as arrows, bolts, and thrown weapons. While a creature has cover from Taking Cover behind a ballistic cover, it gains resistance 2 to piercing damage from ranged weapons and ranged unarmed attacks."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ozOVlLALtDChFJwc"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 35
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "056706f2-8972-56b7-988e-5641b991a6ca",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:earplugs",
+    "name": "Earplugs",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These small pieces of cloth and stuffing have been crafted to dramatically muffle sound and easily slide into and out of the ear canals of humanoid creatures. You can insert or remove earplugs from your ears or a willing creature's ears with a single Interact action using one hand. They take a -2 circumstance penalty to all auditory Perception checks but also gain a +2 circumstance bonus to saving throws against auditory effects."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["option:auditory"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "circumstance",
+        "value": -2,
+        "predicate": ["option:auditory"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ksNUlyRHFUSK9xmz"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 1
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "0907feeb-bb5c-53c7-9001-312f9e69e4e6",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:electrocable",
+    "name": "Electrocable",
+    "level": 3,
+    "rarity": "rare",
+    "traits": ["electricity", "fire"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This foot‐long length of conductive cable is capped on both ends by grounded handles containing Stasian coils. These coils can be turned on or off as a single action. While on, the coils electrify the cable, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "electricity"
+              },
+              {
+                "formula": "1d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage in a thin precise line to anything the cable touches, though the cable is too unwieldy to use as a weapon. Electrocables are typically used to \"cut\" a thin straight line through metal. They ignore 10 points of a metal object's hardness."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.njHnUB4bwW26slzD"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 45
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "bda38761-2e2f-5534-84e4-02f6eb305207",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:extendable-pincer",
+    "name": "Extendable Pincer",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["clockwork"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This extendable rod features a pincer on one end and clamped handle on the other. By squeezing the handle, the pincer opens or closes. As an Interact action, you can extend or retract the rod by 5 feet to one of three settings, allowing you to Interact to pick up an object with the pincer either within your own space, in an adjacent space, or exactly 10 feet away."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.1YkOplOqn9OgGLyg"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "4a1f842a-f7a2-5e36-a2f9-8e3504bfe54c",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:firearm-cleaning-kit",
+    "name": "Firearm Cleaning Kit",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This kit contains cleaning cloth, oil, small steel brushes, and other minor tools necessary for proper cleaning and maintenance of a firearm. Without a firearm cleaning kit, you can't perform the necessary tasks during your daily preparations to ensure that your firearm isn't at risk of misfiring under normal use conditions."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.1RiYM3lQDx30XEfB"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 1
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "579b40dd-7ed7-56e2-b75d-1ae9a7c6defb",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:fireworks-display",
+    "name": "Fireworks Display",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These displays are designed to create distinctive effects you can use to make onlookers marvel and even to gain an advantage in combat."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Note: This item is to be used by the Firework Technician archetype.",
+            "marks": ["emphasis"]
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.X0ropI44pV3rgTHT"
+    },
+    "data": {
+      "bulk": "negligible",
+      "usage": {
+        "type": "other"
+      }
+    }
+  },
+  {
+    "id": "7a6eb608-0f1c-538f-bba4-654d70bb7567",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:frog-chair",
+    "name": "Frog Chair",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["clockwork", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This clockwork traveler's chair is shaped like a wheeled frog, with springs attached to the bottom and an extensible tongue on the front."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Frog Hop",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You activate the wheelchair's springs to make hopping leaps. For 1 minute, whenever you "
+          },
+          {
+            "type": "ref",
+            "id": "1a0bed3d-5eb7-554f-ad07-4c8630afd0c8"
+          },
+          {
+            "type": "text",
+            "text": " with the wheelchair, you can jump 30 feet in any direction without touching the ground. You must land on a space of solid ground within 30 feet of you, or else you fall after using your next action."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Grrrabbit!",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per minute"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You activate the wheelchair's tongue to grab a nearby object and bring it to you. "
+          },
+          {
+            "type": "ref",
+            "id": "f87b0582-e87a-5335-b480-28482fa849b1"
+          },
+          {
+            "type": "text",
+            "text": " to pick up an unattended object within 15 feet and bring it to your empty hand. If you don't have a hand to take the object, it falls in your space instead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.MmQw3qu51AuqXKCC"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 475
+        }
+      },
+      "bulk": 3,
+      "activations": [
+        {
+          "slug": "frog-hop",
+          "name": "Frog Hop",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        },
+        {
+          "slug": "grrrabbit",
+          "name": "Grrrabbit!",
+          "frequency": {
+            "max": 1,
+            "per": "minute"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "8d5da299-1c0c-5efb-8988-5913b3d27644",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:galvanic-mortal-coil",
+    "name": "Galvanic Mortal Coil",
+    "level": 10,
+    "rarity": "rare",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This porous steel coil wraps around a shard of onyx, supplementing the closely guarded science of galvaspheres with the dark magics of unlife. When embedded in a body comprised of flesh, the blood and other fluids catalyze electrical pulses within the coil, activating the necromantic energies. In living creatures, this causes a dangerous surge that can damage the heart. In corpses, however, this can create a limited window of reanimation, with access to the corpse's final memories. Galvanic mortal coils are even rarer than other galvaspheres, and thought by most to be merely hypothetical."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You drive the coil into a living creature that has 0 HP while attaching the other end to yourself, in order to siphon their life force. The galvanic mortal coil increases the target's dying condition by 1. If this kills the target, the coil casts "
+          },
+          {
+            "type": "ref",
+            "id": "18377ab1-5227-575a-9895-fa1920850f0d"
+          },
+          {
+            "type": "text",
+            "text": " on you."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (10 minutes) (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You implant the coil into a corpse. The coil casts "
+          },
+          {
+            "type": "ref",
+            "id": "b74b8226-f3e5-51b2-85dd-83ed11cd93c3"
+          },
+          {
+            "type": "text",
+            "text": " on the body."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.2idzJUvuy8Zu6y78"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 970
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "galvanic-mortal-coil",
+          "name": "Galvanic Mortal Coil",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "19c3a912-459b-5a23-a1e1-4a541701c1ef",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:grappling-gun",
+    "name": "Grappling Gun",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This wooden, pistol-like device features a large reel coiled with 100 feet of thin metal cord and can fire a grappling hook up to 100 feet. To reload the grappling gun, you must manually recoil the cord by turning the reel's crank, and then lock in the grappling hook. Reloading a grappling gun takes 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.7C5xxZw1VTiyUg37"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "ecde7201-c8cd-54c7-b13f-bbf91920355c",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:grappling-gun-clockwork",
+    "name": "Grappling Gun (Clockwork)",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This wooden, pistol-like device features a large reel coiled with 100 feet of thin metal cord and can fire a grappling hook up to 100 feet. To reload the grappling gun, you must manually recoil the cord by turning the reel's crank, and then lock in the grappling hook. Reloading a grappling gun takes 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Clockwork controls the reel on this grappling gun, reeling the grappling hook back in when you pull a lever. Reloading a clockwork grappling gun takes three Interact actions."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.TyWs8hIOYxjcm037"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 15
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "bcd41bd6-f37a-5536-bb6a-646b83df8a09",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:gunners-bandolier",
+    "name": "Gunner's Bandolier",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This incredibly spacious bandolier can hold up to 4 one-handed crossbows or firearms that take no more than 1 action to completely reload (typically meaning that weapons with the capacity or repeating traits won't fit in the bandolier's holsters). A gunner's bandolier can be etched with runes as though it were a ranged weapon. When you invest the gunner's bandolier, you can attune it to each of the 4 weapons holstered in it."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You empower one of the attuned weapons in the bandolier, granting it the runes etched onto the gunner's bandolier and removing the runes from any previously drawn weapon. Then, you Interact to draw the weapon."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " All weapons that were attuned to the bandolier when you invested it, not including any weapons you're currently wielding, return to the bandolier, and one of the returned weapons is automatically reloaded."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.vLsoZKRzYQV6FQve"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 60
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "7aa6071e-11fb-50e5-9525-8fe30823e7da",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:gunners-saddle",
+    "name": "Gunner's Saddle",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Developed by marauders from the Mana Wastes, this clockwork saddle comes with a retractable weapon mount that can be used as a tripod to stabilize a weapon with the kickback trait. Just like a normal tripod, you Interact to deploy the tripod to stabilize the firearm, and then again to retract the tripod to move it. The saddle uses complex hydraulics to protect the steed from the firearm's recoil."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.zSILrZ6pYWbWUm2D"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 20
+        }
+      },
+      "bulk": 2,
+      "usage": {
+        "type": "worn",
+        "slot": "saddle"
+      }
+    }
+  },
+  {
+    "id": "72853688-e24a-5521-9eaf-d2355ef4fe04",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:heated-cloak",
+    "name": "Heated Cloak",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This fine cloak is lined with tiny tubes of slowly reacting alchemical reagents. These chemicals generate heat, which is circulated throughout the cloak by the wearer's movements. While active, the wearer is protected from severe cold. The cloak offers no protection from extreme or incredible cold. It operates for 24 hours and can be reset with a simple process that takes 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.e2hDvrdz0t0hzE5y"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 160
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "worn",
+        "slot": "cloak"
+      }
+    }
+  },
+  {
+    "id": "37cacefe-eacf-5cd9-9ee0-b2cbaa4dd185",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:holy-steam-ball",
+    "name": "Holy Steam Ball",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["divine", "holy", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The "
+          },
+          {
+            "type": "text",
+            "text": "holy steam ball",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is an odd-looking device that's nevertheless effective at reinforcing its user's mind against fiendish control. It's a hollow black-rubber ball with small, flexible twin tubes sticking out from its center. Sealed within the rubber ball is vapor made from a mixture of evaporated holy water and a special type of incense smoke. The tube's twin prongs are placed into the user's nostrils, after which the user squeezes the rubber ball to activate the device, forcing the vapor into the user's body through their nose. The holy power contained within the vapor strengthens the user's will against creatures that are weak to holy water, making it tougher for malevolent creatures to subvert the user's mind."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When the "
+          },
+          {
+            "type": "text",
+            "text": "holy steam ball",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " was first introduced in Mendev fifty years ago, few trusted it's efficacy. The nation had seen many charlatans peddle so-called \"anti-demon\" products, and most thought this was no different. Only when soldiers of the Mendevian Crusades used the ball and personally testified to its effectiveness did suspicion gave way to enthusiastic use. Nobody remembers who first invented the "
+          },
+          {
+            "type": "text",
+            "text": "holy steam ball",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "; they're likely lost to history because most initially thought it was a scam. After receiving endorsement from the Mendevian Crusade, a team of alchemists and inventors were able to determine the vapor's exact composition and mass produce them. The "
+          },
+          {
+            "type": "text",
+            "text": "holy steam ball",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "'s highly specialized purpose kept it from widespread use outside of the nations that once bordered the Worldwound. Yet with the return of the Whispering Tyrant in the past few years, the growing undead threat presents a new opportunity for more citizens to use "
+          },
+          {
+            "type": "text",
+            "text": "holy steam balls",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " for protection against the mind control powers of vampires and other undead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After using a "
+          },
+          {
+            "type": "text",
+            "text": "holy steam ball",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you must refill it before the next use in a process that takes five minutes to complete."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "holy steam ball",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is filled with evaporated "
+          },
+          {
+            "type": "ref",
+            "id": "69117d38-92e5-5416-a51f-8dddf680e9d7"
+          },
+          {
+            "type": "text",
+            "text": " and incense smoke;"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You release the stored steam and smoke to grant yourself its protections. Each use of the "
+          },
+          {
+            "type": "text",
+            "text": "holy steam ball",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " lasts for 1 hour and gives you a +2 item bonus to Will saving throws against possession effects from fiends and undead and effects from fiends and undead that cause the "
+          },
+          {
+            "type": "ref",
+            "id": "3f5dc8b4-dcc0-5a99-8501-aff382e8d341"
+          },
+          {
+            "type": "text",
+            "text": " condition."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "b949858d-442b-59af-afb4-038c9ac47ad2"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.OdBdmv0Y1P7wQWTo"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 30
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "6cd599b2-ba06-5a82-bda5-0f228219ab75",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:ignitor",
+    "name": "Ignitor",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["clockwork"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An ignitor uses interlocking clockwork to create a small spark in order to ignite flammable materials. While holding the ignitor, you can Interact with it to ignite a flammable object within reach."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.m4U2P5A1Dk1C1wr1"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "94690168-6854-5820-a943-59285e1b414f",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:immaculate-holsters",
+    "name": "Immaculate Holsters",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This pristine leather belt is made of treated and polished black leather with silver fittings; it features a pair of matching leather holsters that can each fit a one-handed firearm or hand crossbow."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Immaculatize",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Up to two firearms currently holstered in the immaculate holsters are instantly cleaned and oiled, protecting them from accidental misfires (though not misfires caused as a result of using a feat or ability). The holstered weapons are also reloaded with non-magical 0-level ammunition appropriate to a weapon of their type; if a firearm has multiple chambers, such as a slide pistol, each empty chamber is loaded. Immaculate holsters can't reload the cartridge of a repeating weapon."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.6uHwCTK8dX1reraz"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 52
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "immaculatize",
+          "name": "Immaculatize",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "2d3cb0c2-fd71-51ed-881a-f51af6ca765f",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:immovable-tripod",
+    "name": "Immovable Tripod",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This copper tripod has a magical core that can't be moved once magically locked in place—a perfect example of engineering ingenuity applied to magic items. This eccentric magical power is put to a pragmatic use of stabilizing weapons without the need for solid ground on which to stabilize them. In addition to extraplanar and aquatic environments, these devices have seen use by flying and climbing snipers who would otherwise have no way to mitigate their weapons' fierce kickback."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You deploy the tripod and press a button to lock it into place, allowing you to deploy the tripod in midair, underwater, or anywhere else where you don't have a solid horizontal surface available. If you Activate the tripod by pushing the button again, you release and retrieve the tripod. While anchored, the tripod can be moved only if 8,000 pounds of pressure are applied to it or if a creature uses Athletics to Force Open the tripod with a DC of 40 (though most intelligent creatures can just push the button to release the tripod)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["strike-attack-roll"],
+        "slug": "kickback",
+        "suppress": true
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.QsRmhxeuf9v4h3Dp"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 700
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "61c0e201-5773-57ec-9bfd-d0d9c631363c",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:large-bore-modifications",
+    "name": "Large Bore Modifications",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These modifications include a heavier stock and larger replacement barrel designed to increase the stopping power of firearms. "
+          },
+          {
+            "type": "text",
+            "text": "Large bore modifications",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can only be applied to firearms with the kickback or scatter traits, and attaching "
+          },
+          {
+            "type": "text",
+            "text": "large bore modifications",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " takes 1 hour, though this time can overlap with the standard time required to maintain and clean your firearm to prevent misfires."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you attach "
+          },
+          {
+            "type": "text",
+            "text": "large bore modifications",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to a kickback weapon, the bonus to damage granted by the kickback trait increases from 1 to 2 additional Damage and the Strength requirement to fire the weapon without penalty increases to +4."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you attach "
+          },
+          {
+            "type": "text",
+            "text": "large bore modifications",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to a weapon with the scatter trait, the radius of the scatter effect increases by 5 feet, but the weapon imposes a -2 penalty on attack rolls if the wielder's Strength modifier is less than +2. If the weapon has both the kickback and scatter traits, apply both sets of modifications with the Strength requirement raised to +4 to avoid penalties when firing."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ranged-strike-attack-roll"],
+        "type": "circumstance",
+        "value": -2,
+        "slug": "large-bore-scatter",
+        "predicate": [
+          "item:trait:scatter",
+          {
+            "lt": ["attribute:str:mod", 2]
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ranged-strike-attack-roll"],
+        "type": "circumstance",
+        "value": -2,
+        "slug": "large-bore-kickback",
+        "predicate": [
+          "item:trait:kickback",
+          {
+            "lt": ["attribute:str:mod", 4]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.N9bhBhJ6JawzVitu"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 120
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "attached",
+        "to": "firearm"
+      }
+    }
+  },
+  {
+    "id": "e34b2e8b-51a1-5014-a0c7-7640e333e727",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:light-writer",
+    "name": "Light Writer",
+    "level": 6,
+    "rarity": "rare",
+    "traits": ["clockwork", "light"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The light writer is a cutting edge invention, first created in Absalom in late 4721, combining magic and clockwork innovation to allow its operator to create a true-to-life, monochromatic portrait of people or a scene over the course of 20 minutes of exposure. It consists of two flat metal squares, one larger than the other, connected by a tube of leather similar to that found on a bellows. The smaller square, which sits at the front of the device, has a small glass lens in the center of it. The larger square contains a specially treated metallic plate on the inside; its exterior also has both a small control stick connected via flexible wire, and a small metal tube attached to the top and pointing forward. The user presses a button on the control stick to activate the light writer. Upon activation, magical light illuminates the tube, producing a steady light for 20 minutes. This light is captured by the lens and projected onto the metal plate, slowly creating an image of the scene in front of the lens. The plate can then be removed, allowing the image to be displayed anywhere the owner desires. The light writer is mounted on a tripod and must be perfectly still during operation to prevent any defects from appearing in the plate image. If creating a captured image of a living creature, it is equally important for that creature to remain still throughout the process, to avoid a ghostlike blurring of the final image"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.P3zAUF2yTOeS1GSH"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 200
+        }
+      },
+      "bulk": 2,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "7c6d4b6c-4645-5807-ad52-a05864391ea0",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:lucky-draw-bandolier",
+    "name": "Lucky Draw Bandolier",
+    "level": 9,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This beige bandolier has a rectangular holster, which allows it to contain a standard-sized Harrow deck, and red pockets embroidered with goldwork in a strange but appealing mixture of Alkenstar and Varisian motifs."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Secret Ace",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You draw a card from the bandolier and Interact to load the card into a gun or crossbow you're wielding that requires 1 action to reload. The drawn card immediately transforms into magical ammunition with a type depending on the drawn card's suit, and a new copy of that card returns to the deck, ready to be drawn again. When the card transforms into ammunition, it transforms into a firearm round or crossbow bolt appropriate for the weapon you chose to reload, even if magical ammunition of the drawn variety would normally be limited to ammunition of a different type (such as a storm arrow normally only being available in arrow form). Either draw a card from the Harrow deck or roll 1d6 to determine the suit of the card. The result determines the type of magical ammunition the card becomes, as per the table below. Magical ammunition created this way lasts 10 minutes or until you fire it, whichever comes first."
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "d6"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "Ability (Suit)"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "Ammunition"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "1"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Strength (Hammer)"
+              }
+            ],
+            [
+              {
+                "type": "ref",
+                "id": "ca851b8e-cb71-52bc-a797-5e5b9d465f67"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Dexterity (Key)"
+              }
+            ],
+            [
+              {
+                "type": "ref",
+                "id": "8796f450-36d8-5d8e-9078-c93fd29fd67f"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "3"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Constitution (Shield)"
+              }
+            ],
+            [
+              {
+                "type": "ref",
+                "id": "bce3e48f-fad0-5e51-8920-19cd715d5e05"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "4"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Intelligence (Book)"
+              }
+            ],
+            [
+              {
+                "type": "ref",
+                "id": "08b450ac-8abd-506e-8343-2a6d0af301f6",
+                "label": "Explosive shot"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "5"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Wisdom (Star)"
+              }
+            ],
+            [
+              {
+                "type": "ref",
+                "id": "21e11220-258b-5b4e-84bc-0f126e2c0712"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "6"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Charisma (Crown)"
+              }
+            ],
+            [
+              {
+                "type": "ref",
+                "id": "e57b3012-d741-5303-aecf-8060d6cc5174"
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.yUPUxRqyYdZaPhkF"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 700
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "secret-ace",
+          "name": "Secret Ace",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "61e53c39-d3a8-54c7-87a0-1bc1da4b1736",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:magnifying-scope",
+    "name": "Magnifying Scope",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These scopes use magically enhanced lenses to extend the range of your weapon and help spot distant foes. The scope grants you a +1 item bonus to visual Perception checks to "
+          },
+          {
+            "type": "ref",
+            "id": "d45207be-e539-50ce-9463-f4edc3671076"
+          },
+          {
+            "type": "text",
+            "text": " creatures through the scope."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Zoom In",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You zoom in on your targets to make it easier to hit them at a distance. You increase the range increment of the weapon to which the scope is attached by 5 feet until the beginning of your next turn or until you're no longer wielding the weapon, whichever comes first."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["option:seeking-through-scope"]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:seeking-through-scope",
+        "toggleable": true,
+        "display": {
+          "label": "Seeking Creatures Through Scope"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.uTELMvkoRORmr5pm"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 70
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "attached",
+        "to": "crossbow-or-firearm-scope"
+      }
+    }
+  },
+  {
+    "id": "5142d01a-baea-5982-bf18-a44792b1bce3",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:magnifying-scope-greater",
+    "name": "Magnifying Scope (Greater)",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These scopes use magically enhanced lenses to extend the range of your weapon and help spot distant foes. The scope grants you a +2 item bonus to visual Perception checks to "
+          },
+          {
+            "type": "ref",
+            "id": "d45207be-e539-50ce-9463-f4edc3671076"
+          },
+          {
+            "type": "text",
+            "text": " creatures through the scope."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Zoom In",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You zoom in on your targets to make it easier to hit them at a distance. You increase the range increment of the weapon to which the scope is attached by 10 feet until the beginning of your next turn or until you're no longer wielding the weapon, whichever comes first."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["option:seeking-through-scope"]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:seeking-through-scope",
+        "toggleable": true,
+        "display": {
+          "label": "Seeking Creatures Through Scope"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.BR2vQLRif2Pgq5eN"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 800
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "attached",
+        "to": "crossbow-or-firearm-scope"
+      }
+    }
+  },
+  {
+    "id": "e433f76d-6757-5b61-89e1-be196069e7a6",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:magnifying-scope-major",
+    "name": "Magnifying Scope (Major)",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These scopes use magically enhanced lenses to extend the range of your weapon and help spot distant foes. The scope grants you a +3 item bonus to visual Perception checks to "
+          },
+          {
+            "type": "ref",
+            "id": "d45207be-e539-50ce-9463-f4edc3671076"
+          },
+          {
+            "type": "text",
+            "text": " creatures through the scope."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Zoom In",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You zoom in on your targets to make it easier to hit them at a distance. You increase the range increment of the weapon to which the scope is attached by 20 feet until the beginning of your next turn or until you're no longer wielding the weapon, whichever comes first."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "item",
+        "value": 3,
+        "predicate": ["option:seeking-through-scope"]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:seeking-through-scope",
+        "toggleable": true,
+        "display": {
+          "label": "Seeking Creatures Through Scope"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.7uxALss5g34y49HF"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 16000
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "attached",
+        "to": "crossbow-or-firearm-scope"
+      }
+    }
+  },
+  {
+    "id": "73b2d71c-eb1c-5822-87ce-163263768634",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:mechanical-torch",
+    "name": "Mechanical Torch",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["clockwork"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Powered by electricity, you can turn a mechanical torch on and off by toggling a lever on the torch with an Interact action. When active, the torch sheds bright light in either a 20-foot radius (and dim light to the next 40 feet) or a 40-foot cone (and dim light to the next 40 feet). Changing this area requires a single Interact action to flip a switch. The torch carries sufficient charge to operate for ten minutes. You can recharge the torch in 1 minute via an integrated crank-charging mechanism, turning the clockwork gears and generating sparks to power the torch, though doing so requires two hands."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:lit-mechanical-torch",
+        "toggleable": true,
+        "value": true,
+        "suboptions": [
+          {
+            "value": "cone",
+            "label": "cone"
+          },
+          {
+            "value": "radius",
+            "label": "emanation"
+          }
+        ],
+        "display": {
+          "label": "Mechanical Torch is lit"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.dj6sdn6b8Rw1Taih"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "04f60200-3a67-5656-8688-a30c3bf3cbce",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:net-launcher",
+    "name": "Net Launcher",
+    "level": 1,
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This wide, hollow tube is two to three feet long and fires an unattached net at much greater range than one can be thrown. A net launcher can be wielded while propped up on your shoulder or cradled under your arm. A net must be carefully folded to be launched without tangling. Properly loading a net into a net launcher takes 1 minute. A net fired with a net launcher can target a Medium or smaller creature within 40 feet, rather than 20 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.4CuEQqahVT8TmNld"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 16
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "8f6cae9a-f2bd-5cb9-896d-0d91fbed3f3b",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:nightbreeze-machine",
+    "name": "Nightbreeze Machine",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["air", "clockwork"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The nightbreeze machine can turn a scorching hot room into a comfortable one with just the pull of a lever. Its outer shell is a brass cube half as tall as the average human that houses a series of flat metal \"blades\" in a circular arrangement. When placed on a flat surface, a creature within reach can Interact to flip the lever, turning the machine on. When the machine is active, the blades begin to spin rapidly, setting the air in the room into motion, which cools off the room's inhabitants. A front-mounted metal grate prevents anyone from coming into accidental contact with the spinning blades without impeding airflow."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The nightbreeze machine was recently commissioned by Malduoni, Keeper of the First Law, leader of the nation of Rahadoum. He tasked the country's brightest inventors with creating devices that would, in his words, \"Ensure that no mortal need fear death from the desert heat.\" This machine was the first creation to come out of this consolidated engineering effort, but it won't be the last."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A nightbreeze machine can affect an enclosed area of no more than 50 feet by 50 feet and has negligible effect when used in a larger enclosed area or outside. While active, it reduces the effects of severe heat by one step to mild heat, and reduces extreme heat to severe heat. A nightbreeze machine isn't powerful enough to reduce the effects of incredible heat, though fortunately such heat isn't found naturally in the deserts of Rahadoum. A nightbreeze machine runs for 8 hours, after which it must be wound in a process that takes 10 minutes to complete. The 8 hours of activity don't have to be consecutive."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.7Z6cpy4rXCOaYJJH"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 125
+        }
+      },
+      "bulk": 4,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "16776652-794e-53c1-9ee3-3847a0bc410d",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:paper-shredder",
+    "name": "Paper Shredder",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["clockwork"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whether it's a parchment with ominous pentagrams and dangerous magical symbols inscribed upon it, incriminating legal documents, or just simply paper waste, sometimes you just need to make sure a document is completely destroyed in a way that makes it nearly impossible to read afterwards. Enter the paper shredder, a clockwork device that performs exactly this function."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "With 1 minute of wind-up, a paper shredder can function for up to 1 hour of shredding, and it automatically enters standby mode when not in use, meaning the device can typically go for weeks between wind-ups unless you shred an exceptionally large volume of paper."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Setting a piece of paper or parchment into the paper shredder takes a single Interact action, which means you can shred up to three pages of paper or parchment each round. If the page is longer than normal, it takes longer to shred, as determined by the GM. Additionally, only one person can use the shredder each round, limiting it to shredding three pages per round regardless of how many people are available to feed paper into it. The paper shredders rips and tears the paper or parchment apart into tiny disjointed strips. This is typically sufficient to destroy Rune Trap and other similar dangerous magical traps on the paper, though the GM might determine that particularly resilient magical traps find some way to survive their shredding. If the paper is magically protected or otherwise has more Hardness than a normal sheet of paper or parchment, the shredder can't shred it. After churning such hardened paper for 1 round, the shredder spits it back out without harming the shredder. This prevents shredding any other paper during that round."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.e011UgQLOJtdUqoW"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 30
+        }
+      },
+      "bulk": 2,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "aabd24f8-19df-5280-8dde-94105020c41a",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:portable-weapon-mount-monopod",
+    "name": "Portable Weapon Mount (Monopod)",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Powerful firearms like the arquebus were originally used to defend fortifications or ships, mounted on casements or pintles to steady their aim and offset their recoil. More mobile means of stabilizing weapons with kickback were developed as firearms began to spread across the Inner Sea. The standard tripod takes an Interact action to deploy using one hand."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Monopods are lighter and can be deployed with a single hand using the same action as drawing the firearm. They still require an Interact action to retrieve. Monopods are less stable than a tripod, and firing a kickback weapon from a monopod without the necessary Strength reduces the penalty to a -1 circumstance penalty instead of removing it entirely."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.5wanv9n8UnUQ852q"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 2
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "ad16e061-9f9a-50a3-a3b9-47b768459bb0",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:portable-weapon-mount-shielded-tripod",
+    "name": "Portable Weapon Mount (Shielded Tripod)",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Powerful firearms like the arquebus were originally used to defend fortifications or ships, mounted on casements or pintles to steady their aim and offset their recoil. More mobile means of stabilizing weapons with kickback were developed as firearms began to spread across the Inner Sea. The standard tripod takes an Interact action to deploy using one hand."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A shielded tripod resembles a squat shield on a tripod. You can deploy and retrieve a shielded tripod with an Interact action, as normal, but while a shielded tripod is in your square, you can use the "
+          },
+          {
+            "type": "ref",
+            "id": "ef51d835-6ab6-513d-b582-80753efde13b"
+          },
+          {
+            "type": "text",
+            "text": " action to gain standard cover behind the tripod's shield. You can't use this cover to Hide or "
+          },
+          {
+            "type": "ref",
+            "id": "7e4e48de-b626-5513-9518-73261c58b5f4"
+          },
+          {
+            "type": "text",
+            "text": ", as normal for times when your cover still leaves your position obvious."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["strike-attack-roll"],
+        "slug": "kickback",
+        "suppress": true
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.RKPAHGFV3mq3a3dt"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": 3,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "5a7c83e8-04ab-5018-b928-2217e7173026",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:printing-press",
+    "name": "Printing Press",
+    "level": 9,
+    "rarity": "rare",
+    "traits": ["clockwork"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The printing press is a revolutionary machine that combines movable type with a mechanical inking system and screw press, allowing for the mass production of large volumes of text. Using the press, a worker can produce up to 3,600 identical pages per day. In order to use the printing press, you must first set the type for the page you want to print. Time required to set type varies depending on the number of characters used; from 1 hour for small pages with brief text, to 8 hours for a full-sized normal page of text, though extreme examples may be outside this range. When you prepare a page for printing, you can include engraved images in addition to text. No magical properties of text are transferred in the printing process, so it cannot be used to mass-produce magical scrolls, spellbooks, or similar spells or magic items."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.kXK9szN2gcYoPSdN"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 600
+        }
+      },
+      "bulk": 20,
+      "usage": {
+        "type": "other"
+      }
+    }
+  },
+  {
+    "id": "a3157ac5-8486-513f-8c87-2766d43b36c6",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:sambuca",
+    "name": "Sambuca",
+    "level": 3,
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A sambuca is a long, covered troop bridge designed to help troops move from sea to land. Preparing it for use requires lashing together two galleys or other ships of similar size. The sambuca is then mounted across the ships on one end with its length suspended upward, and attached to pulleys fastened to the tops of the ships' masts. Once the ships are moved into position, the sambuca can be lowered to rest on a battlement or other surface, allowing troops to rush from the ships onto their intended destination."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The sambuca has AC 17, Fort +11, Ref +5, Hardness 8, HP 32 (BT 16), and object immunities. It's covered on all sides to protect those who cross, granting them greater cover. The end of the sambuca can be lowered by teams operating the pulleys in concert. This requires three crew members on each ship, and they can lower the far end of the sambuca by 15 feet each round they work."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.6eOp2hxFeQNr3KQA"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 120
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "other"
+      }
+    }
+  },
+  {
+    "id": "8b960fa3-2e13-5f63-acbe-c1185a2f31c0",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:scope-of-limning",
+    "name": "Scope of Limning",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The dwarven gunsmiths of Dongun Hold originally created these scopes to help them clear out vermin in underground areas. This scope captures the sound that echoes off a creature hit by the firearm and transforms it into light, illuminating the target for all to see."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Outline",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (auditory, light, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If your next Strike from the weapon to which the scope is attached hits a creature, the sound of the impact transforms into light, causing the creature to glow until the end of your next turn. A visible creature can't be "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " while they glow. If a creature is "
+          },
+          {
+            "type": "ref",
+            "id": "53cf375b-c3fa-5d92-afde-135a3c001674"
+          },
+          {
+            "type": "text",
+            "text": ", they're concealed while glowing, rather than being undetected. Because the effect requires a solid impact, incorporeal creatures are unaffected unless the bullet can deal force damage or has the effects of the ghost touch property rune."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.divPto5fH5FdrV1V"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 900
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "attached",
+        "to": "firearm-scope"
+      }
+    }
+  },
+  {
+    "id": "97208042-6e66-5b1e-91cd-ff10cc9e8d98",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:scope-of-truth",
+    "name": "Scope of Truth",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The "
+          },
+          {
+            "type": "text",
+            "text": "scope of truth",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a bit bigger than most to accommodate larger lenses, which have been magically prepared with tiny shards from crystal balls to reveal the truth. The scope grants you a +2 item bonus to Perception checks made to "
+          },
+          {
+            "type": "ref",
+            "id": "d45207be-e539-50ce-9463-f4edc3671076"
+          },
+          {
+            "type": "text",
+            "text": " in areas you can see through the scope."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Reveal All",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " For the next 10 minutes, you can see things through the scope as they actually are. The GM rolls a secret counteract check with a +20 counteract modifier and a counteract rank of 7 against any illusion or polymorph effect in the area, but only for the purpose of determining whether you see through it, not to end the spell or effect. For instance, if the check succeeds against a polymorph spell, you can see the creature's true form, but you don't end the spell."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["option:seeking-through-scope"]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:seeking-through-scope",
+        "toggleable": true,
+        "display": {
+          "label": "Seeking Through Scope"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.YoPUrPBjITTTgMKS"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "reveal-all",
+          "name": "Reveal All",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "attached",
+        "to": "crossbow-or-firearm-scope"
+      }
+    }
+  },
+  {
+    "id": "e0c3c28d-ebf7-57a1-b621-a0e3b2720550",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:silencer",
+    "name": "Silencer",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "One of the more prolifically used devices developed in the infamous Alkenstar Gunworks, these small firearm components are capable of muffling most of the weapons' explosive sound when fired. Without a silencer, a firearm's shot makes a loud and distinctive bang, which can easily be heard through doors and thin walls, but firearms equipped with silencers only make a quiet noise when fired. Due to engineering constraints, a silencer can't be attached to any firearm with the scatter trait. Attaching a silencer to a firearm takes 1 minute, and the silencer is consumed the first time a shot is fired through it."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.0BEbpOMBo7ET8NsR"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 1
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "510a7ad9-1e9d-5aa3-a359-b06c6ae53792",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:spider-chair",
+    "name": "Spider Chair",
+    "level": 12,
+    "rarity": "uncommon",
+    "traits": ["clockwork", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This clockwork traveler's chair has spinnerets and spider legs that allow it to roll up walls, fire web lines to pull you to a location, and obstruct foes with webs. While using the chair, you gain a climb Speed equal to your Speed."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Web Swing",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per minute"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The chair shoots a web line at a solid wall, floor, or ceiling up to 60 feet away and then pulls itself and you to that location."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Web",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cause the chair to launch an enormous web to hinder your foes, with the effects of a 4th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "9e63871b-e287-5e26-8383-f5c4c9fe2bc7"
+          },
+          {
+            "type": "text",
+            "text": " spell."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:climb",
+        "mode": "upgrade",
+        "value": "@stat.speed.land"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.6nJZGgIJIY3x0b1Q"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1800
+        }
+      },
+      "bulk": 3,
+      "activations": [
+        {
+          "slug": "web-swing",
+          "name": "Web Swing",
+          "frequency": {
+            "max": 1,
+            "per": "minute"
+          }
+        },
+        {
+          "slug": "web",
+          "name": "Web",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "279d7745-d7ad-5ad8-9bfc-4da1e34b55c6",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:spirit-singer",
+    "name": "Spirit-Singer",
+    "level": 5,
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Etheric spirit-singers create an eerie spectral sound based on the presence of spiritual essence and other ethereal energies. All spirit-singers can be used as musical instruments by manipulating the sensitivity to ethereal energies. However, they have an even greater benefit in areas heavy with spiritual essence. When played in the presence of a significant spiritual disturbance, such as a haunt or an incorporeal undead, a spirit-singer grants you a +1 item bonus to Performance checks. While playing a spirit-singer, you also gain a +1 item bonus to checks to detect a haunt or incorporeal undead, and you can roll a check to notice a haunt even if you aren't actively Searching for it, due to the distortions of the spirit-singer's music. A haunt or incorporeal undead that is intelligent enough to notice the effects it is having on the spirit-singer's music and that can't otherwise communicate with the living might choose to use the spirit-singer to do so if it wishes. For instance, it could try to guide the spirit-singer player towards a location by creating distortions in that direction or, if it understands language, it could try to answer questions by creating one distortion for yes and two distortions for no. Unless stated otherwise in its usage entry, a spirit-singer functions like a heavy musical instrument; rather than carrying it, the musician places the spirit-singer in a particular position and uses both hands to play."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:performance"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["environment:spiritual-disturbance", "option:playing"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "item",
+        "value": 1,
+        "predicate": [
+          "option:playing",
+          {
+            "or": ["action:detect-haunt", "action:detect-incorporeal-undead"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.qwHO8kRNKPqCM80x"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 150
+        }
+      },
+      "bulk": 16,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "084f92fa-ff10-53ae-8413-2adca228b651",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:spirit-singer-handheld",
+    "name": "Spirit-Singer (Handheld)",
+    "level": 6,
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Etheric spirit-singers create an eerie spectral sound based on the presence of spiritual essence and other ethereal energies. All spirit-singers can be used as musical instruments by manipulating the sensitivity to ethereal energies. However, they have an even greater benefit in areas heavy with spiritual essence. When played in the presence of a significant spiritual disturbance, such as a haunt or an incorporeal undead, a spirit-singer grants you a +1 item bonus to Performance checks. While playing a spirit-singer, you also gain a +1 item bonus to checks to detect a haunt or incorporeal undead, and you can roll a check to notice a haunt even if you aren't actively Searching for it, due to the distortions of the spirit-singer's music. A haunt or incorporeal undead that is intelligent enough to notice the effects it is having on the spirit-singer's music and that can't otherwise communicate with the living might choose to use the spirit-singer to do so if it wishes. For instance, it could try to guide the spirit-singer player towards a location by creating distortions in that direction or, if it understands language, it could try to answer questions by creating one distortion for yes and two distortions for no. Unless stated otherwise in its usage entry, a spirit-singer functions like a heavy musical instrument; rather than carrying it, the musician places the spirit-singer in a particular position and uses both hands to play."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:performance"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["environment:spiritual-disturbance", "option:playing"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "item",
+        "value": 1,
+        "predicate": [
+          "option:playing",
+          {
+            "or": ["action:detect-haunt", "action:detect-incorporeal-undead"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.POETsrh8lz9VnBEG"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 200
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "09c2bb5d-460f-581d-8598-3bf8378da266",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:spirit-singer-incredible",
+    "name": "Spirit-Singer (Incredible)",
+    "level": 11,
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Etheric spirit-singers create an eerie spectral sound based on the presence of spiritual essence and other ethereal energies. All spirit-singers can be used as musical instruments by manipulating the sensitivity to ethereal energies. However, they have an even greater benefit in areas heavy with spiritual essence. When played in the presence of a significant spiritual disturbance, such as a haunt or an incorporeal undead, a spirit-singer grants you a +2 item bonus to Performance checks. While playing a spirit-singer, you also gain a +2 item bonus to checks to detect a haunt or incorporeal undead, and you can roll a check to notice a haunt even if you aren't actively Searching for it, due to the distortions of the spirit-singer's music. A haunt or incorporeal undead that is intelligent enough to notice the effects it is having on the spirit-singer's music and that can't otherwise communicate with the living might choose to use the spirit-singer to do so if it wishes. For instance, it could try to guide the spirit-singer player towards a location by creating distortions in that direction or, if it understands language, it could try to answer questions by creating one distortion for yes and two distortions for no. Unless stated otherwise in its usage entry, a spirit-singer functions like a heavy musical instrument; rather than carrying it, the musician places the spirit-singer in a particular position and uses both hands to play."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This spirit-singer is fine-tuned to the point that you can analyze its song more intricately. While playing the spirit-singer, you can notice haunts that normally require you to have a master proficiency in Perception to detect."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:performance"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["environment:spiritual-disturbance", "option:playing"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "item",
+        "value": 2,
+        "predicate": [
+          "option:playing",
+          {
+            "or": ["action:detect-haunt", "action:detect-incorporeal-undead"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.aU3vBG9EinYgYlWb"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1250
+        }
+      },
+      "bulk": 16,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "9167ccdd-1ba8-5f24-bb63-5bf199d34eea",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:spirit-singer-incredible-handheld",
+    "name": "Spirit-Singer (Incredible Handheld)",
+    "level": 12,
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Etheric spirit-singers create an eerie spectral sound based on the presence of spiritual essence and other ethereal energies. All spirit-singers can be used as musical instruments by manipulating the sensitivity to ethereal energies. However, they have an even greater benefit in areas heavy with spiritual essence. When played in the presence of a significant spiritual disturbance, such as a haunt or an incorporeal undead, a spirit-singer grants you a +2 item bonus to Performance checks. While playing a spirit-singer, you also gain a +2 item bonus to checks to detect a haunt or incorporeal undead, and you can roll a check to notice a haunt even if you aren't actively Searching for it, due to the distortions of the spirit-singer's music. A haunt or incorporeal undead that is intelligent enough to notice the effects it is having on the spirit-singer's music and that can't otherwise communicate with the living might choose to use the spirit-singer to do so if it wishes. For instance, it could try to guide the spirit-singer player towards a location by creating distortions in that direction or, if it understands language, it could try to answer questions by creating one distortion for yes and two distortions for no. Unless stated otherwise in its usage entry, a spirit-singer functions like a heavy musical instrument; rather than carrying it, the musician places the spirit-singer in a particular position and uses both hands to play."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This spirit-singer is fine-tuned to the point that you can analyze its song more intricately. While playing the spirit-singer, you can notice haunts that normally require you to have a master proficiency in Perception to detect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This spirit-singer functions just like an incredible spirit-singer, except for its Usage and Bulk."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:performance"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["environment:spiritual-disturbance", "option:playing"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "item",
+        "value": 2,
+        "predicate": [
+          "option:playing",
+          {
+            "or": ["action:detect-haunt", "action:detect-incorporeal-undead"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.MHvmgUSQlMAevvoF"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1650
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "d0db0535-9eb8-594e-999b-a98a5fa6e154",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:steam-winch",
+    "name": "Steam Winch",
+    "level": 8,
+    "rarity": "rare",
+    "traits": ["steam"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This hefty winch is powered by a small steam engine and includes a 100-foot length of steel cable, which enables you to haul a heavier load than you could with a hand cranked winch or comealong. A steam winch allows you to slowly pull a heavy load (usually up to 50 Bulk) along a flat surface or up and down a vertical expanse."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Attaching a steam winch to a device takes three Interact actions, while starting the winch (and getting it warm enough to operate) takes 10 minutes. Once in operation, a steam winch requires regular maintenance to function. Every 20 minutes, the boiler must be refilled and heat levels maintained."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.EiCCWG0Xta0ZBUfA"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 425
+        }
+      },
+      "bulk": 2,
+      "usage": {
+        "type": "other"
+      }
+    }
+  },
+  {
+    "id": "dd913488-4e38-5d6c-9b43-9ccacc864f77",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:steamflight-pack",
+    "name": "Steamflight Pack",
+    "level": 15,
+    "rarity": "rare",
+    "traits": ["clockwork", "steam"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The steamflight pack allows its user to fly without using magic or wings. Each steamflight pack looks like a large brass backpack with two large nozzles mounted on the sides pointing downward. It also features metal arms reaching around the front that terminate in handles with activation buttons on them. When the user holds down an activation button, a complex series of mechanisms pumps water from the large tank in the backpack and releases it through the nozzles as powerful jets of steam, enabling the user to fly short distances. Tilting the handle adjusts the nozzles' angles, allowing the user to control the direction of their flight."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When active, the steamflight pack gives the user a fly Speed of 20 feet. It carries enough water for 20 minutes of operation and can be refilled in five minutes with a supply of normal water and a funnel."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—On/Off Switch",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You turn the steamflight pack on or off."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.QbyF8jJ93SnN6NVL"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6000
+        }
+      },
+      "bulk": 2,
+      "usage": {
+        "type": "worn",
+        "slot": "backpack"
+      }
+    }
+  },
+  {
+    "id": "c5f95cf2-6ff0-54cd-b49c-68a15bcb1801",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:storm-chair",
+    "name": "Storm Chair",
+    "level": 14,
+    "rarity": "rare",
+    "traits": ["electricity", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This traveler's chair uses Stasian technology to ride lightning."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Electroball",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (electricity, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You create a ball of electricity around the chair, surrounding it in a damaging aura of electricity and using electromagnetism to briefly levitate. For 1 minute, you gain a fly Speed equal to your Speed and adjacent creatures that hit you with a melee attack, as well as creatures that touch or hit you with an unarmed attack, take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "electricity"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage each time. As normal, this applies to creatures who choose to touch you, not when you touch or attack another creature."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "525d5b10-4224-5b64-87f3-94e3486187f8"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Ride the Lightning",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (electricity, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You release the majority of the stored up energy from your "
+          },
+          {
+            "type": "text",
+            "text": "storm chair",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", devastating foes in a chain of electricity. This has the effects of "
+          },
+          {
+            "type": "ref",
+            "id": "088c1f48-de0f-5b8a-83b3-24ce61a928bc"
+          },
+          {
+            "type": "text",
+            "text": " with a DC of 31 ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 31,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": ")."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.RBlbAZSGAJOBsmjv"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4400
+        }
+      },
+      "bulk": 3,
+      "activations": [
+        {
+          "slug": "electroball",
+          "name": "Electroball",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        },
+        {
+          "slug": "ride-the-lightning",
+          "name": "Ride the Lightning",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "f50136b5-b98d-5aa0-ab8d-b34cf82c3450",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:timepiece-desktop-clock",
+    "name": "Timepiece (Desktop Clock)",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["clockwork"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Clockwork timepieces come in a variety of sizes and aesthetic styles, but they're all designed to display the accurate time of day down to the second."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Clockwork timepieces have a 24-hour activation cycle, after which they must wound in a process that takes 1 minute to complete."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Desktop clocks have been designed to be small enough to only take up a quarter of a typical writing desk's surface area, but they're still too bulky and heavy to be lugged around casually."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.KKhw57JFYEUO4TnK"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": 3,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "03e808a8-6526-57f3-8e7f-9ccf7d052b19",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:timepiece-grand-clock",
+    "name": "Timepiece (Grand Clock)",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["clockwork"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Clockwork timepieces come in a variety of sizes and aesthetic styles, but they're all designed to display the accurate time of day down to the second."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Clockwork timepieces have a 24-hour activation cycle, after which they must wound in a process that takes 1 minute to complete."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These towering, ten-foot-tall clocks have been painstakingly handcrafted by skilled artisans and feature loud chimes that can be heard hourly throughout a manor. Owners of grand clocks usually tend to display them prominently in a study, lounge area, or foyer."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.zVXDnx8i0KLf6fkF"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": 16,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "8e8ffa65-fce1-58d5-ad09-0cb23b6593ad",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:tripod",
+    "name": "Tripod",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Tripods are designed for use with kickback weapons, as a way for gunslingers with lower strength to accurately use these more powerful weapons by sacrificing mobility instead. They can be set up and attached to a firearm with a single Interact action using one hand, setting the tripod in your square. If the kickback weapon requires two hands, you can change your grip on the weapon as part of this action. While this sturdy piece of engineering is in use, you don't take the -2 penalty for firing a kickback weapon, even if your Strength isn't high enough to avoid the penalty. However, you must retrieve the tripod with a single Interact action before you can move the firearm to a different position. Normally, when you're "
+          },
+          {
+            "type": "ref",
+            "id": "d851e3ca-be0d-55a7-a4d1-d7ed8b7ecafa"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "61f1fec4-1bb4-585d-9c12-6059d15dd74b"
+          },
+          {
+            "type": "text",
+            "text": ", you become observed if you do anything except "
+          },
+          {
+            "type": "ref",
+            "id": "5a86b7d0-fc0e-52a6-9b0d-fb58ed15233d"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "7e4e48de-b626-5513-9518-73261c58b5f4"
+          },
+          {
+            "type": "text",
+            "text": ", or Step. However, deploying or retrieving a tripod with an Interact action doesn't automatically make you observed, so long as you don't set up or remove the tripod when it's in a spot where creatures can see the tripod itself."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["strike-attack-roll"],
+        "slug": "kickback",
+        "suppress": true
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ty9LXqqYAnlsTh46"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 2
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "79c8d249-26dc-5bb8-96c8-8fa8c8730978",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:underwater-firing-mechanism",
+    "name": "Underwater firing Mechanism",
+    "level": 9,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This device replaces the attached firearm's normal firing mechanism (normally, most guns use a flintlock or matchlock firing mechanism). When the firearm's wielder fires the weapon, a small rune etched on a piece of stone affixed inside the mechanism releases a magical spark that's propelled through the firing mechanism and into the firearm, launching its bullet. An "
+          },
+          {
+            "type": "text",
+            "text": "underwater firing mechanism",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " allows the attached firearm to be fired underwater or in other conditions that would normally prevent the ignition of black powder. Attaching an "
+          },
+          {
+            "type": "text",
+            "text": "underwater firing mechanism",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to a firearm takes 1 hour, though this time can overlap with the standard time required to maintain and clean your firearm to prevent misfires."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.E5gjsRSO6SFFlKpB"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 600
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "attached",
+        "to": "crossbow-or-firearm-firing-mechanism"
+      }
+    }
+  },
+  {
+    "id": "88d5dffc-a5e1-5fe8-9705-87d5b261ef2d",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:violet-ray",
+    "name": "Violet Ray",
+    "level": 12,
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "One of the many wondrous devices brought into the world by Stasian technology is the seemingly miraculous violet ray. Physicians claim it anything from headaches to heartburn, or nausea to deafness, all with an easy and painless treatment. The device is a glass vacuum with an insulated handle connected to a small Stasian coil. When powered, the glass tube fills with purple light and becomes warm to the touch. Pressing the tube to one's body is said to increase blood flow, eliminate toxins, and many other beneficial effects. A violet ray functions as a "
+          },
+          {
+            "type": "ref",
+            "id": "050458fd-ce2e-53a2-ac9d-e9a790d70513"
+          },
+          {
+            "type": "text",
+            "text": " and provides a +2 item bonus to Medicine checks to "
+          },
+          {
+            "type": "ref",
+            "id": "e03baa02-2fea-552f-9996-c41bfa074713"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "07fc0cb2-53f2-5552-82e6-5e43003875eb"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "1a89ca53-58a9-5dc9-913e-3dfa46e5e1b0"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "18c1b923-595b-5203-a0be-010205e51c44"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Electric Love",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You apply the violet ray to an adjacent creature and attempt to counteract the "
+          },
+          {
+            "type": "ref",
+            "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "6f53a234-670f-5b02-a986-7cce57585fc8"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "4271da2e-7225-5aa7-9807-c499d8af6a5a"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f"
+          },
+          {
+            "type": "text",
+            "text": " condition with a counteract rank of 6 and a counteract modifier of +22, using the source of the condition to determine the condition's counteract rank and DC. If the condition was caused by an ongoing effect and you don't remove that effect, the condition returns after 1 minute. Each use of this ability can only counteract a single condition."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:medicine"],
+        "type": "item",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["action:treat-wounds", "action:administer-first-aid", "action:treat-disease", "action:treat-poison"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.pXOPMJC9NAuwXz3w"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1893
+        }
+      },
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "electric-love",
+          "name": "Electric Love",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "dd8e2a00-e82b-5e05-864b-a79139c42256",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:waterproof-firearm-carrying-case",
+    "name": "Waterproof Firearm Carrying Case",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This buttoned, leather case protects a firearm and up to 6 rounds of ammunition from being damaged by water or other environmental effects."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.AxUJfrOmu7dY3XHP"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 2
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "f02b4cd6-2ec7-5710-9a58-5522c2970323",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:wind-up-wings-flutterback",
+    "name": "Wind-up Wings (Flutterback)",
+    "level": 3,
+    "rarity": "rare",
+    "traits": ["clockwork"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These delicate clockwork wings enable thrown weapons to soar through the air at high speeds, performing turns and other aerial maneuvers mid-flight. Wind-up wings also have different types of special effects depending on the type. Wind-up wings must be attached to a thrown weapon and wound to function. A thrown weapon with an attached set of wind-up wings can't have anything else attached to it, or the wings cease to function. Attaching or detaching a pair of wind-up wings to a thrown weapon requires a repair kit, and the process takes 10 minutes. Winding an attached pair of wind-up wings takes three Interact actions. There are a variety of wind-up wings, with different effects."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you make a thrown Strike with the weapon to which a pair of flutterback wind-up wings are attached, and the wings are wound, the wings fly the weapon back to your hand after the Strike is complete. If your hands are full when the weapon returns, the wings hover in place 3 feet above the ground. At the end of your turn, the wings are wound down; they don't function again until wound. If you aren't holding the weapon when the flutterback wind-up wings become wound down, the weapon falls to the ground."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.vDQSR3fgfYqLp0aB"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "attached",
+        "to": "a-thrown-weapon"
+      }
+    }
+  },
+  {
+    "id": "81ba388e-1251-5c27-9714-ab8c073cc6b0",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:wind-up-wings-homing",
+    "name": "Wind-up Wings (Homing)",
+    "level": 12,
+    "rarity": "rare",
+    "traits": ["clockwork"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These delicate clockwork wings enable thrown weapons to soar through the air at high speeds, performing turns and other aerial maneuvers mid-flight. Wind-up wings also have different types of special effects depending on the type. Wind-up wings must be attached to a thrown weapon and wound to function. A thrown weapon with an attached set of wind-up wings can't have anything else attached to it, or the wings cease to function. Attaching or detaching a pair of wind-up wings to a thrown weapon requires a repair kit, and the process takes 10 minutes. Winding an attached pair of wind-up wings takes three Interact actions. There are a variety of wind-up wings, with different effects."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you make a thrown Strike with the weapon to which a pair of homing wind-up wings are attached, and the wings are wound, the wings seek out your target, flying through cover and avoiding obstacles. You ignore the target's "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " condition and reduce the target's cover by one step (lesser cover to no cover, standard cover to lesser cover, or greater cover to standard cover). After the Strike is complete, the wings are wound down; they don't function again until wound."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.PxHexTD0gzPtMFj6"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1800
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "attached",
+        "to": "a-thrown-weapon"
+      }
+    }
+  }
+]

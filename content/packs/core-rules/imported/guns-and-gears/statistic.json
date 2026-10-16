@@ -1,0 +1,98 @@
+[
+  {
+    "id": "613f5469-c8ce-5d01-9912-25746e596dd0",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:cryptography-lore",
+    "name": "Cryptography Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:cryptography",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.cryptography",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "482060cf-4688-50aa-8118-9777be7e890b",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:fireworks-lore",
+    "name": "Fireworks Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:fireworks",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.fireworks",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "94a2c21e-75fa-59eb-8867-c20d99bf002f",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:mana-wastes-lore",
+    "name": "Mana Wastes Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:mana-wastes",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.mana-wastes",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "3882582b-9076-5fd2-8d18-03711cd47d6c",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:scouting-lore",
+    "name": "Scouting Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:scouting",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.scouting",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  }
+]
