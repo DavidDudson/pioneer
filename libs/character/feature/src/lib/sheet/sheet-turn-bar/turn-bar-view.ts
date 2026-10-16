@@ -26,6 +26,7 @@ export interface TurnBarView {
   readonly phase: TurnPhase;
   readonly pips: readonly ActionPip[];
   readonly reactionUsed: boolean;
+  readonly canEnter: boolean;
   readonly canStart: boolean;
   readonly canEnd: boolean;
   readonly canLeave: boolean;
@@ -79,6 +80,7 @@ export function turnBarView(turn: TurnState): TurnBarView {
     phase: turn.phase,
     pips: pipsOf(turn),
     reactionUsed: turn.reactionUsed,
+    canEnter: turn.phase === TurnPhase.OutOfEncounter,
     canStart: turn.phase !== TurnPhase.Turn,
     canEnd: turn.phase === TurnPhase.Turn,
     canLeave: turn.phase !== TurnPhase.OutOfEncounter,

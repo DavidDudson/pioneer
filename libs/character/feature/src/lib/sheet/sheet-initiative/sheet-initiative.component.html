@@ -1,0 +1,17 @@
+<fr-stack gap="xs">
+  <fr-text weight="semibold">{{ 'character.sheet.initiative.heading' | transloco }}</fr-text>
+  <fr-select
+    [ariaLabel]="'character.sheet.initiative.label' | transloco"
+    [options]="options()"
+    [value]="current()?.selector"
+    (valueChange)="pick($event)"
+  />
+  <fr-stack direction="horizontal" align="center" gap="xs" wrap>
+    <fr-button size="sm" [disabled]="current() === undefined" (pressed)="roll()">
+      {{ (rolled() ? 'character.sheet.initiative.reroll' : 'character.sheet.initiative.roll') | transloco }}
+    </fr-button>
+    <fr-button size="sm" [variant]="ghost" (pressed)="closed.emit()">
+      {{ (rolled() ? 'character.sheet.initiative.done' : 'character.sheet.initiative.skip') | transloco }}
+    </fr-button>
+  </fr-stack>
+</fr-stack>

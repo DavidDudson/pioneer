@@ -276,9 +276,19 @@
       "pipQuickenedFor": "Quickened action: {restriction}",
       "reactionReady": "Reaction ready",
       "reactionSpent": "Reaction spent",
+      "enter": "Enter encounter",
       "start": "Start turn",
       "end": "End turn",
       "leave": "Leave encounter"
+    },
+    "initiative": {
+      "heading": "Roll initiative",
+      "label": "Statistic to roll initiative with",
+      "option": "{name} {modifier}",
+      "roll": "Roll initiative",
+      "reroll": "Roll again",
+      "skip": "Skip",
+      "done": "Done"
     },
     "spend": {
       "label": "Used this turn",

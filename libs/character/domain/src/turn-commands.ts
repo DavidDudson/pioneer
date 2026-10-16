@@ -58,12 +58,17 @@ export interface TurnRun {
 
 /**
  * `play` after a turn-cycle `command`, and what the bookkeeping did, in order. Dice come from `run.random`. A command
- * from a phase it does not apply to (Start turn mid-turn, End turn off-turn, Leave encounter out of one) changes
+ * from a phase it does not apply to (Start turn mid-turn, End turn off-turn, Enter encounter in one, Leave encounter out of one) changes
  * nothing, so a stale or direct call never runs the bookkeeping twice.
  */
 export function applyTurnCommand(play: PlayState, command: TurnCommand, { inputs, random }: TurnRun): TurnOutcome {
   const { phase } = play.turn;
   switch (command.field) {
+    case TurnCommandField.EnterEncounter: {
+      return phase === TurnPhase.OutOfEncounter
+        ? { play: { ...play, turn: { ...play.turn, phase: TurnPhase.OffTurn } }, events: [] }
+        : unchanged(play);
+    }
     case TurnCommandField.StartTurn: {
       return phase === TurnPhase.Turn ? unchanged(play) : started(play, inputs, random);
     }

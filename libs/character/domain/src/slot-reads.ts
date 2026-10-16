@@ -2,7 +2,7 @@ import { grantLookup, resolveGrants } from '@pioneer/rules/grants';
 import type { ContentLookup, GrantResolution, RootSlotDefinition } from '@pioneer/rules/grants';
 import type { NamespaceTable } from '@pioneer/rules/predicate';
 import { Level, SlotKey } from '@pioneer/rules/sdk';
-import type { ChoiceValue, ContentRegistry, VariantRuleEntry } from '@pioneer/rules/sdk';
+import type { ChoiceValue, ContentRegistry, RollOption, VariantRuleEntry } from '@pioneer/rules/sdk';
 
 import { boostContent } from './attribute-boosts';
 import type { BoostContent } from './attribute-boosts';
@@ -35,6 +35,8 @@ export interface SlotContent {
   readonly languages: LanguageContent;
   readonly spells: SpellContent;
   readonly feats: FeatContent;
+  /** The roll options a roll supplies (an initiative roll's), which the facts every predicate reads include. */
+  readonly situation?: readonly RollOption[] | undefined;
 }
 
 /** The slot content a registry gives, for a character with `variants` in force. */

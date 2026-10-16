@@ -30,6 +30,8 @@ import { buildRules, equippedInputs, equippedRules } from './equipped';
 import type { EquippedRules } from './equipped';
 import { favoredWeapons } from './favored-weapons';
 import { grantedStrikes } from './granted-strikes';
+import { contentRolledAs } from './initiative-roll';
+import type { RollAs } from './initiative-roll';
 import { itemContent } from './inventory-content';
 import type { SlotContent } from './slot-offer';
 import { characterSpellcasting } from './spellcasting-build';
@@ -99,13 +101,16 @@ export interface StatisticSources {
   readonly slots: SlotContent;
   readonly inputs: StatisticInputs;
   readonly variants: readonly VariantRuleEntry[];
+  /** What the statistics are derived as, when not as plain checks: initiative (#506). */
+  readonly as?: RollAs | undefined;
 }
 
 /** The rules the character's items, conditions and build put in play, with those of its enabled variant rules first. */
 function rulesInPlay(
   document: CharacterDocument,
-  { registry, slots, variants }: Pick<StatisticSources, 'registry' | 'slots' | 'variants'>,
+  { registry, slots: read, variants, as }: Pick<StatisticSources, 'registry' | 'slots' | 'variants' | 'as'>,
 ): EquippedRules {
+  const slots = { ...read, situation: as?.options };
   const items = itemContent(registry);
   const equipped = equippedRules(document, items, slots);
   return {
@@ -129,7 +134,8 @@ export function characterStatistics(
   if (content === undefined) {
     return new Map();
   }
-  return deriveStatistics(content, sources.inputs, { ...rulesInPlay(document, sources), situation });
+  const rolled = contentRolledAs(content, sources.as);
+  return deriveStatistics(rolled, sources.inputs, { ...rulesInPlay(document, sources), situation });
 }
 
 /**
@@ -158,6 +164,8 @@ export interface RollSetup {
 export interface RollRequest {
   readonly selector: Selector;
   readonly chosen: ReadonlySet<RuleId>;
+  /** What the roll is made as, when not a plain check: initiative (#506). */
+  readonly as?: RollAs | undefined;
 }
 
 /**
@@ -169,10 +177,11 @@ export interface RollRequest {
 export function rollSetup(
   document: CharacterDocument,
   sources: StatisticSources,
-  { selector, chosen }: RollRequest,
+  { selector, chosen, as }: RollRequest,
 ): RollSetup | undefined {
-  const derived = characterStatistics(document, sources);
-  return rollSetups(document, sources, { derived, claims: new Map([[selector, chosen]]) }).get(selector);
+  const rolled = { ...sources, as };
+  const derived = characterStatistics(document, rolled);
+  return rollSetups(document, rolled, { derived, claims: new Map([[selector, chosen]]) }).get(selector);
 }
 
 /** The sheet's own derivation, and the situations claimed for each statistic's roll. */
@@ -202,7 +211,8 @@ export function rollSetups(
   if (content === undefined) {
     return new Map();
   }
-  const rederivation = { content, inputs: sources.inputs, rules: rulesInPlay(document, sources) };
+  const rules = rulesInPlay(document, sources);
+  const rederivation = { content: contentRolledAs(content, sources.as), inputs: sources.inputs, rules };
   const setups = [...claims].flatMap(([selector, chosen]): [Selector, RollSetup][] => {
     const setup = setupFor(derived.get(selector), chosen, rederivation);
     return setup === undefined ? [] : [[selector, setup]];

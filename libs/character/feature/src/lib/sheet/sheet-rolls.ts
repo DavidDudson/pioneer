@@ -1,7 +1,7 @@
 import { computed, inject, Injectable, signal } from '@angular/core';
 import { TranslocoService } from '@jsverse/transloco';
-import { PlayCommandField } from '@pioneer/character/domain';
-import type { RollSetup } from '@pioneer/character/domain';
+import { initiativeRoll, PlayCommandField } from '@pioneer/character/domain';
+import type { RollAs, RollSetup } from '@pioneer/character/domain';
 import { LocaleFormat } from '@pioneer/frontier';
 import { RANDOM_SOURCE, rollView } from '@pioneer/play/ui';
 import type { RollView } from '@pioneer/play/ui';
@@ -49,6 +49,7 @@ interface PendingCheck {
   readonly name: string;
   readonly selector: Selector;
   readonly chosen: ReadonlySet<RuleId>;
+  readonly as?: RollAs | undefined;
 }
 
 /** A check being set up, with what rolling it offers and how those choices change it. */
@@ -56,6 +57,7 @@ export interface CheckSetup extends RollSetup {
   readonly name: string;
   readonly selector: Selector;
   readonly chosen: ReadonlySet<RuleId>;
+  readonly as?: RollAs | undefined;
 }
 
 /** `1d20+7`, `1d20-1`, or a bare `1d20` for a +0 check: the statistic's total added to one d20. */
@@ -116,7 +118,7 @@ export class SheetRolls implements StatisticRoller {
     const offered = sheetRollSetup(registry, character, pending);
     return offered === undefined
       ? undefined
-      : { ...offered, name: pending.name, selector: pending.selector, chosen: pending.chosen };
+      : { ...offered, name: pending.name, selector: pending.selector, chosen: pending.chosen, as: pending.as };
   });
 
   /**
@@ -141,6 +143,22 @@ export class SheetRolls implements StatisticRoller {
     const { selector } = statistic;
     this.saveError.set(undefined);
     this.#pending.set({ name, selector, chosen: new Set(this.#state.claims().get(selector)) });
+  }
+
+  /**
+   * Rolls initiative with `selector` at once (#506): the statistic derived as an initiative check, so the modifiers
+   * aimed at initiative and the options an initiative roll supplies count, with the situations claimed for the
+   * statistic. The roll is kept nowhere but the last roll; nothing about initiative is play state.
+   */
+  public rollInitiative(name: string, selector: Selector): void {
+    const as = initiativeRoll(selector);
+    const chosen = this.#state.claims().get(selector) ?? new Set<RuleId>();
+    const offered = this.#offered(selector, chosen, as);
+    this.saveError.set(undefined);
+    this.#state.release(selector);
+    if (offered !== undefined) {
+      this.#finish(name, offered.statistic, this.#reasons({ ...offered, name, selector, chosen, as }));
+    }
   }
 
   /** Claims the situation of a conditional line for the next roll of `selector`, or lets it go. */
@@ -192,12 +210,12 @@ export class SheetRolls implements StatisticRoller {
   }
 
   /** What rolling `selector` offers with `chosen` claimed; undefined while the content loads or it has no value. */
-  #offered(selector: Selector, chosen: ReadonlySet<RuleId>): RollSetup | undefined {
+  #offered(selector: Selector, chosen: ReadonlySet<RuleId>, as?: RollAs): RollSetup | undefined {
     const registry = this.#state.engine();
     const character = this.#state.character();
     return registry === undefined || character === undefined
       ? undefined
-      : sheetRollSetup(registry, character, { selector, chosen });
+      : sheetRollSetup(registry, character, { selector, chosen, as });
   }
 
   /** The toggles `setup` is rolled with, worded: the situations claimed, then the `RollOption` toggles that are on. */
