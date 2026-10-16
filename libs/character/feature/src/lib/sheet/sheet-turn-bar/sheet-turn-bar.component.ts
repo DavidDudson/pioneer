@@ -16,6 +16,7 @@ import {
 import { RollCard } from '@pioneer/play/ui';
 
 import { PlayStore } from '../../data/play-store';
+import { SheetAttacksMade } from '../sheet-attacks-made/sheet-attacks-made.component';
 import { describeSaveError } from '../sheet-field';
 import { SheetInitiative } from '../sheet-initiative/sheet-initiative.component';
 import { phaseKey, pipKey, pipTone, turnBarView, turnLog } from './turn-bar-view';
@@ -35,6 +36,7 @@ import type { TurnBarView, TurnLogLine } from './turn-bar-view';
     AsyncRegion,
     Badge,
     RollCard,
+    SheetAttacksMade,
     SheetInitiative,
     Skeleton,
     Stack,

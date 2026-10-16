@@ -14,6 +14,8 @@ export const StrikesMessage = {
   NoDamage: 'rules.strikes.noDamage',
   /** "Attack +9 / +4 / -1": the attack modifier at the first, second and third attack of a turn. */
   Attacks: 'rules.strikes.attacks',
+  /** "Next attack: +4": the modifier of the attack that comes next this turn, after the ones made. */
+  NextAttack: 'rules.strikes.nextAttack',
   /** "Steel Shield: Hardness 5, HP 20, Broken Threshold 10": a held shield beside the Strikes. */
   Shield: 'rules.strikes.shield',
   /** "1d6 persistent fire": a bomb's persistent damage beside its damage. */

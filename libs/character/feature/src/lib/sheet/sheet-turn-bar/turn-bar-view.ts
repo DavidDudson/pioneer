@@ -26,6 +26,8 @@ export interface TurnBarView {
   readonly phase: TurnPhase;
   readonly pips: readonly ActionPip[];
   readonly reactionUsed: boolean;
+  /** The attacks made this turn; undefined outside a running turn, which counts none. */
+  readonly attacks: number | undefined;
   readonly canEnter: boolean;
   readonly canStart: boolean;
   readonly canEnd: boolean;
@@ -80,6 +82,7 @@ export function turnBarView(turn: TurnState): TurnBarView {
     phase: turn.phase,
     pips: pipsOf(turn),
     reactionUsed: turn.reactionUsed,
+    attacks: turn.phase === TurnPhase.Turn ? turn.attacks : undefined,
     canEnter: turn.phase === TurnPhase.OutOfEncounter,
     canStart: turn.phase !== TurnPhase.Turn,
     canEnd: turn.phase === TurnPhase.Turn,

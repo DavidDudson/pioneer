@@ -17,7 +17,7 @@ import { newId } from '@pioneer/shared/kernel';
 
 import { injectContentRegistry } from '../data/content-registry-query';
 import { PlayStore } from '../data/play-store';
-import { ACTION_CONTENT_KINDS, spendCostOf } from './sheet-actions';
+import { ACTION_CONTENT_KINDS, makesAttack, spendCostOf } from './sheet-actions';
 import { raisedEdit, shieldIds } from './sheet-shields';
 
 /** The payment a spend records beside its cost, as the spend names it. */
@@ -60,12 +60,14 @@ export class SheetSpender extends ActionUser {
       return;
     }
     const recorded = pays ? paymentOf(line.payment) : frequencyOf(registry, request);
+    const attacks = line.attack === true || makesAttack(registry, line.id);
     await this.#play.send({
       field: PlayCommandField.SpendAction,
       id: SpendId.parse(newId()),
       action: line.id,
       cost,
       ...recorded,
+      ...(attacks ? { attack: true as const } : {}),
     });
     await this.#raised(line.id);
   }

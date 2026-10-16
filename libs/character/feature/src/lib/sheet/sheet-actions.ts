@@ -25,6 +25,17 @@ export const ACTION_CONTENT_KINDS: readonly ContentKind[] = [
   ContentKind.Effect,
 ];
 
+const ATTACK = Trait.parse('attack');
+
+/** Whether the entry `id` has the attack trait, so using it is an attack that moves the multiple attack penalty on. */
+export function makesAttack(registry: ContentRegistry, id: ContentId): boolean {
+  return (
+    entriesById(registry)
+      .get(id)
+      ?.traits.some((trait) => trait === ATTACK) ?? false
+  );
+}
+
 /** The entries of the registry that can be on the list, by id. */
 function entriesById(registry: ContentRegistry): ReadonlyMap<ContentId, ContentEntry> {
   return new Map(registry.packs.flatMap((pack) => pack.otherEntries).map((entry) => [entry.id, entry]));

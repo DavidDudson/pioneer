@@ -80,6 +80,11 @@ export function applyTurnCommand(play: PlayState, command: TurnCommand, { inputs
         ? unchanged(play)
         : { play: { ...play, turn: OUT_OF_ENCOUNTER, spendLog: [] }, events: [] };
     }
+    case TurnCommandField.SetAttacks: {
+      return phase === TurnPhase.Turn
+        ? { play: { ...play, turn: { ...play.turn, attacks: command.count } }, events: [] }
+        : unchanged(play);
+    }
     default: {
       return command satisfies never;
     }

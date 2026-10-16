@@ -571,6 +571,8 @@ export { RepertoireSwap, repertoireSwap, repertoireSwapRefusal } from './reperto
 export { applyTurnCommand, turnCommandInputs, type TurnCommandInputs, type TurnRun } from './turn-commands';
 export {
   ActionCount,
+  AttackCount,
+  attacksMoved,
   economyConditions,
   isTurnCommand,
   OUT_OF_ENCOUNTER,

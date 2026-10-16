@@ -1,6 +1,7 @@
 import {
   ActionCount,
   ActionRestriction,
+  AttackCount,
   ConditionDurationKind,
   ConditionInstanceId,
   endTurn,
@@ -23,6 +24,7 @@ describe(turnBarView, () => {
       actions: ActionCount.parse(0),
       quickened: QuickenedAction.parse(0),
       reactionUsed: false,
+      attacks: AttackCount.parse(0),
     });
     expect(view.pips).toStrictEqual([]);
     expect([view.canStart, view.canEnd, view.canLeave]).toStrictEqual([true, false, false]);
@@ -35,6 +37,7 @@ describe(turnBarView, () => {
       quickened: QuickenedAction.parse(1),
       quickenedFor: ActionRestriction.parse('Strike only'),
       reactionUsed: false,
+      attacks: AttackCount.parse(0),
     });
     expect(view.pips.map(({ state, quickened }) => [state, quickened])).toStrictEqual([
       [PipState.Left, false],

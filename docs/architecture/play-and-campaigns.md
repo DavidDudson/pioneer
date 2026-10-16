@@ -94,7 +94,8 @@ Start turn, End turn and Leave encounter are play commands (`startTurn`, `endTur
 runs the bookkeeping with its own dice and answers the PATCH with the play state and the events in order, so the turn
 bar words them and shows a roll card for each persistent damage roll; the events are not stored. The turn in play
 state is the phase, the ordinary actions left, the quickened action left with the restriction its condition carries,
-and whether the reaction is spent.
+whether the reaction is spent, and the attacks made this turn. Start turn and End turn clear the attacks. `setAttacks` sets
+the count by hand during a turn (for an attack the sheet could not see); off-turn it changes nothing.
 
 `spendAction` and `undoSpend` are play commands too. A spend names the action, spell or activation used by content id,
 its cost (a count of actions, the reaction or a free action) and what it pays besides: for an action with a frequency or
@@ -108,6 +109,11 @@ spend (too few actions, reaction spent, off-turn, no use, slot or Focus Point le
 encounter nothing is counted, so a spend only logs. Start turn and Leave encounter clear the log, and the actions of a
 spend cannot be undone once the turn is over. The log is play state and the actions left are the turn's, so the log
 never has to be summed.
+
+A spend that is an attack (a Strike, or an action or spell with the `attack` trait) carries `attack: true`. On a
+running turn it counts one more attack, and `undoSpend` takes it back, so the multiple attack penalty always follows
+the attacks the log holds. Each Strike marks the step its next attack takes (the first, the second, then the third for
+every later one); the count is kept past three so that taking attacks back is exact.
 
 The sheet offers only what the turn can pay for. The Now view lists the actions the turn has the actions for, and a
 Strike, spell or item activation shows its Use button only when the actions, slot or Focus Point it takes are left; a

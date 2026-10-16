@@ -39,8 +39,8 @@
   @if (row().traits.length > 0) {
     <pio-chip-list [chips]="row().traits" />
   }
-  @if (row().attacks; as attacks) {
-    <fr-text>{{ attacks }}</fr-text>
+  @for (line of attackLines(); track line.text) {
+    <fr-text [weight]="line.weight">{{ line.text }}</fr-text>
   }
   <pio-statistic-conditions
     [conditions]="row().attackConditions"

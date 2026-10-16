@@ -1,0 +1,11 @@
+@if (made() !== undefined) {
+  <fr-badge [tone]="badgeTone.Neutral">
+    {{ 'character.sheet.turn.attacksMade' | transloco: { count: made() } }}
+  </fr-badge>
+  <fr-async-button size="sm" [action]="fewer" [describeError]="describeError">
+    {{ 'character.sheet.turn.attackFewer' | transloco }}
+  </fr-async-button>
+  <fr-async-button size="sm" [action]="more" [describeError]="describeError">
+    {{ 'character.sheet.turn.attackMore' | transloco }}
+  </fr-async-button>
+}

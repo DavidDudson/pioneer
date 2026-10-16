@@ -51,6 +51,8 @@ export const SpendRequestSchema = z.strictObject({
   slot: SlotCountKey.optional(),
   /** Whether it spends a Focus Point, which undoing the spend regains. */
   focus: z.literal(true).optional(),
+  /** Whether it is an attack, which moves the multiple attack penalty on and undoing the spend moves it back. */
+  attack: z.literal(true).optional(),
 });
 export type SpendRequest = z.infer<typeof SpendRequestSchema>;
 

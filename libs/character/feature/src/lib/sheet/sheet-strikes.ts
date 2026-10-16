@@ -93,6 +93,7 @@ export function usableStrikes(strikes: readonly NamedStrike[], turn: TurnState |
       id: named.strike.weapon.origin.entry,
       name: named.name,
       cost: ActionCost.One,
+      attack: true,
       ...affordability(turn, ActionCost.One, undefined),
     },
   }));
