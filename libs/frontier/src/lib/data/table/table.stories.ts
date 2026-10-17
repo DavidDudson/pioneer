@@ -112,3 +112,13 @@ export const ColumnVisibility: TableStory = { args: { columns: HIDEABLE_COLUMNS 
 export const HiddenFromTheStart: TableStory = {
   args: { columns: HIDEABLE_COLUMNS, columnVisibility: ['ancestry', 'level'] },
 };
+
+/** The sort comes in through `sorting` and goes out through `sortingChange`, so a page can keep it in its URL. */
+export const SortedFromTheStart: TableStory = {
+  args: {
+    sorting: [
+      { column: 'level', descending: true },
+      { column: 'name', descending: false },
+    ],
+  },
+};
