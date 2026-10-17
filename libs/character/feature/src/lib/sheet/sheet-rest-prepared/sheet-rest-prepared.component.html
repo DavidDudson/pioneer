@@ -1,0 +1,32 @@
+@for (entry of entries(); track entry.key) {
+  <fr-stack gap="xs">
+    <fr-text weight="semibold">{{
+      'character.sheet.prepared.heading' | transloco: { tradition: (traditions[entry.tradition] | transloco) }
+    }}</fr-text>
+    @for (rank of entry.ranks; track rank.key) {
+      <fr-stack direction="horizontal" align="center" gap="sm" wrap>
+        <fr-text>{{ rank.heading.key | transloco: rank.heading.params }}</fr-text>
+        <fr-button [disabled]="disabled()" (pressed)="toggle(rank.key)">
+          {{
+            (open() === rank.key ? 'character.sheet.rest.preparedDone' : 'character.sheet.rest.preparedChange')
+              | transloco
+          }}
+        </fr-button>
+      </fr-stack>
+      @if (open() === rank.key) {
+        @for (slot of rank.slots; track slot.key) {
+          <fr-stack gap="2xs">
+            <fr-text variant="caption" tone="subtle">{{ slot.label.key | transloco: slot.label.params }}</fr-text>
+            <pio-spell-picker
+              [ariaLabel]="slot.label.key | transloco: slot.label.params"
+              [placeholder]="'character.sheet.prepared.placeholder' | transloco"
+              [rows]="slot.rows"
+              [value]="staged()[slot.key] ?? slot.current"
+              (valueChange)="picked.emit({ slot: slot.key, spell: $event })"
+            />
+          </fr-stack>
+        }
+      }
+    }
+  </fr-stack>
+}

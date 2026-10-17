@@ -405,10 +405,15 @@ Each resource names the boundary it resets on (`round`, `turn`, `rest`, `day`, `
 The actions sit in the Rest and preparations section of the Downtime tab. Choosing one lists what it would restore
 (nothing, when there is nothing to), and confirming applies it as one command. Each runs only when the player chooses
 it: opening the app or the sheet never starts a session or a rest. Daily preparations restores spell slots, focus
-points and the uses that reset each day; prepared spells, staff charges and re-investing items join it in their own
+points and the uses that reset each day; staff charges and re-investing items join it in their own
 stories. Rest gives back Hit Points, eases the conditions whose content says Rest recovers them (fatigued, drained)
 and lowers doomed; the uses that reset by the minute, ten minutes or
 hour come back with the item frequencies story.
+
+A prepared caster can also change the spells prepared in their slots at daily preparations: Change on each rank of a
+prepared entry opens a picker per slot, the changes join the preview, and confirming applies them with the rest of the
+preparations. The spells replace the build's own picks for those slots (there is no separate per-day copy), checked as
+`selectSlot` checks them.
 
 ### Staves and charged items
 

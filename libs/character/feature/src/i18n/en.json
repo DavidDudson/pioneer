@@ -414,6 +414,9 @@
       "slotPick": "Slot to expend for charges",
       "slotNone": "No slot",
       "slotOption": "{source} rank {rank}",
+      "preparedChange": "Change",
+      "preparedDone": "Done",
+      "preparedSpell": "{spell} is prepared in {slot}",
       "heading": "Rest and preparations"
     },
     "packsHeading": "Content packs",
@@ -483,6 +486,8 @@
     "staffNotHeld": "That staff is not in the character's inventory. Choose another.",
     "staffSlotWithoutStaff": "A slot can only be expended to add charges to a staff. Choose a staff first.",
     "staffSlotNotExpendable": "Only a spell slot of a prepared spellcasting entry can be expended for charges. Choose another.",
+    "preparedSlotNotPrepared": "Daily preparations only change prepared spells. Choose a slot of a prepared spellcasting entry.",
+    "preparedSlotRepeated": "A slot can be changed once in one daily preparations. Remove the repeat.",
     "explorationUnknown": "That is not an exploration activity in the content this character uses.",
     "effectUnknown": "That effect is not in the content this character uses.",
     "effectMissing": "That effect is no longer on the character. Reload the sheet and try again.",

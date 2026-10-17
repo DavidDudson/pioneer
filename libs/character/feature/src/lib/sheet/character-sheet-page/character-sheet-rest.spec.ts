@@ -9,6 +9,7 @@ import { id, MERISIEL, openSheet, present } from '../../testing/sheet-page-harne
 import { textOf } from '../../testing/sheet-tabs-testing';
 import { cutTo } from '../../testing/test-packs';
 import { FEAT_CONTENT_KINDS } from '../sheet-feats';
+import { SPELL_CONTENT_KINDS } from '../sheet-prepared-spells';
 
 const PLAY_URL = `/api/characters/${id}/play`;
 
@@ -188,6 +189,66 @@ describe('CharacterSheetPage rest actions', () => {
         command: { field: 'dailyPreparations', staff },
       });
       request.flush(playOf(0, 0, 2));
+    });
+  });
+
+  describe('changing prepared spells', () => {
+    const WIZARD = {
+      ...MERISIEL,
+      build: { choices: { ...MERISIEL.build.choices, class: playerCoreClassId('wizard') }, spellAccess: [] },
+    };
+    const SPELL_PACKS = cutTo(SPELL_CONTENT_KINDS);
+
+    async function openPreparations(): Promise<HTMLElement> {
+      const { root } = await openSheet(WIZARD, { tab: SheetMode.Downtime, play: playOf(0, 0), packs: SPELL_PACKS });
+      await vi.waitFor(() => {
+        expect(restOf(root).querySelectorAll('button')).toHaveLength(4);
+      });
+      buttonOf(root, 'Daily preparations').click();
+      await vi.waitFor(() => {
+        expect(textOf(restOf(root))).toContain('Cantrips, cast at 1st rank');
+      });
+      return root;
+    }
+
+    it('offers Change per rank of a prepared entry, with no slot open to pick in at first', async () => {
+      const root = await openPreparations();
+
+      expect(textOf(restOf(root))).toContain('1st rank');
+      expect([...restOf(root).querySelectorAll('button')].filter((button) => textOf(button) === 'Change')).toHaveLength(
+        2,
+      );
+      expect(restOf(root).querySelectorAll('pio-spell-picker')).toHaveLength(0);
+    });
+
+    it('opens a picker for each slot of the rank when its Change is pressed, and closes them on Done', async () => {
+      const root = await openPreparations();
+      const change = present(
+        [...restOf(root).querySelectorAll('button')].findLast((button) => textOf(button) === 'Change'),
+      );
+
+      change.click();
+      await vi.waitFor(() => {
+        expect(restOf(root).querySelectorAll('pio-spell-picker')).toHaveLength(2);
+      });
+      expect(textOf(restOf(root))).toContain('1st rank slot 1');
+
+      buttonOf(root, 'Done').click();
+      await vi.waitFor(() => {
+        expect(restOf(root).querySelectorAll('pio-spell-picker')).toHaveLength(0);
+      });
+    });
+
+    it('applies daily preparations without a prepared change when no spell is changed', async () => {
+      const root = await openPreparations();
+
+      buttonOf(root, 'Confirm').click();
+
+      await vi.waitFor(() => {
+        const request = TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: PLAY_URL });
+        expect(request.request.body).toStrictEqual({ expectedRevision: 1, command: { field: 'dailyPreparations' } });
+        request.flush(playOf(0, 0, 2));
+      });
     });
   });
 });

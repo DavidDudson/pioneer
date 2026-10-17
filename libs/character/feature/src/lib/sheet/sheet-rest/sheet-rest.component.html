@@ -30,6 +30,12 @@
               }
             </fr-stack>
           }
+          <pio-sheet-rest-prepared
+            [entries]="preparedEntries()"
+            [staged]="staged()"
+            [disabled]="busy()"
+            (picked)="stagePick($event)"
+          />
           @if (preview(); as shown) {
             <fr-stack gap="xs">
               <fr-text weight="semibold">{{ shown.action.previewKey | transloco }}</fr-text>
