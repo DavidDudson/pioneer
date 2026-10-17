@@ -4,8 +4,8 @@ import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { heldCount } from '@pioneer/character/domain';
 import { AsyncData, AsyncPending, AsyncRegion, Grid, Segmented, Skeleton, Stack } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
-import { ENTRY_PREVIEWS, FocusSpellsView, SpellAccessListView } from '@pioneer/rules/ui';
-import type { EntryPreviews, FocusLine } from '@pioneer/rules/ui';
+import { ENTRY_PREVIEWS, FocusSpellsView, InnateSpellsView, SpellAccessListView } from '@pioneer/rules/ui';
+import type { EntryPreviews, FocusLine, InnateLine } from '@pioneer/rules/ui';
 import { filter, merge } from 'rxjs';
 
 import { CharacterStore } from '../../data/character-store';
@@ -14,11 +14,18 @@ import { PlayStore } from '../../data/play-store';
 import { sheetCounted } from '../sheet-counted';
 import { sheetEntryPreviews } from '../sheet-entry-previews';
 import { sheetFocus } from '../sheet-focus-spells';
+import { sheetInnate } from '../sheet-innate-spells';
 import { sheetSpellAccess, SPELL_CONTENT_KINDS } from '../sheet-prepared-spells';
 import type { SheetSpellAccess } from '../sheet-prepared-spells';
 import { SheetPreparedSpells } from '../sheet-prepared-spells/sheet-prepared-spells.component';
 import { preparedFieldsOf } from '../sheet-spell-picks';
-import { filterFocus, filterPrepared, SPELL_TARGET_FILTER_MESSAGES, SpellTargetFilter } from '../sheet-spell-targets';
+import {
+  filterFocus,
+  filterInnate,
+  filterPrepared,
+  SPELL_TARGET_FILTER_MESSAGES,
+  SpellTargetFilter,
+} from '../sheet-spell-targets';
 import type { SpellSpend } from '../sheet-spell-use';
 import { SheetSpender } from '../sheet-spender';
 import { SpellAccess } from '../spell-access/spell-access.component';
@@ -38,6 +45,7 @@ const LOADING_SLOTS = 3;
     AsyncRegion,
     FocusSpellsView,
     Grid,
+    InnateSpellsView,
     SheetPreparedSpells,
     Segmented,
     Skeleton,
@@ -111,6 +119,14 @@ export class SheetSpells {
           spend: this.spend(),
         });
   });
+  /** The character's innate spells; undefined without an innate entry or while the spells load. */
+  protected readonly innate = computed((): InnateLine | undefined => {
+    const registry = this.spells.data();
+    const character = this.#store.selected();
+    return registry === undefined || character === undefined
+      ? undefined
+      : sheetInnate(registry, character, (key, params) => this.#i18n.translate(key, params));
+  });
   /** Which spells the lists show by what they target. */
   protected readonly targetFilter = signal<SpellTargetFilter>(SpellTargetFilter.All);
   /** The filter's choices, worded in the viewer's locale. */
@@ -126,6 +142,11 @@ export class SheetSpells {
   protected readonly shownFocus = computed((): FocusLine | undefined => {
     const focusLine = this.focus();
     return focusLine === undefined ? undefined : filterFocus(focusLine, this.targetFilter());
+  });
+  /** The innate spells that pass the filter. */
+  protected readonly shownInnate = computed((): InnateLine | undefined => {
+    const innateLine = this.innate();
+    return innateLine === undefined ? undefined : filterInnate(innateLine, this.targetFilter());
   });
   /** The uncommon and rare spells the build has access to, and those it may add; undefined while the spells load. */
   protected readonly access = computed((): SheetSpellAccess | undefined => {

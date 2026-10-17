@@ -1,5 +1,5 @@
 import { TargetValue } from '@pioneer/rules/sdk';
-import type { FocusLine, SpellDetailLine } from '@pioneer/rules/ui';
+import type { FocusLine, InnateLine, SpellDetailLine } from '@pioneer/rules/ui';
 
 import type { PreparedEntryFields } from './sheet-spell-picks';
 
@@ -48,6 +48,20 @@ export function filterPrepared(
             .filter((rank) => rank.fields.length > 0),
         }))
         .filter((entry) => entry.ranks.length > 0);
+}
+
+/** The innate spells that pass `filter`; an innate spell not worded yet always does. */
+export function filterInnate(innate: InnateLine, filter: SpellTargetFilter): InnateLine {
+  return filter === SpellTargetFilter.All
+    ? innate
+    : {
+        entries: innate.entries
+          .map((entry) => ({
+            ...entry,
+            spells: entry.spells.filter((spell) => passesTargetFilter(spell.detail, filter)),
+          }))
+          .filter((entry) => entry.spells.length > 0),
+      };
 }
 
 /** The focus spells that pass `filter`; a focus spell not worded yet always does. */

@@ -1,0 +1,30 @@
+@if (innate(); as line) {
+  <fr-stack gap="sm">
+    <fr-heading [level]="3">{{ Message.Heading | transloco }}</fr-heading>
+    @for (entry of line.entries; track entry.key) {
+      <fr-stack gap="2xs">
+        <fr-text weight="semibold">{{ traditions[entry.tradition] | transloco }}</fr-text>
+        @if (entry.spells.length === 0) {
+          <fr-empty-state [title]="Message.None | transloco" />
+        }
+        <fr-list gap="2xs">
+          @for (spell of entry.spells; track spell.key) {
+            <fr-list-item>
+              <fr-stack direction="horizontal" gap="xs" align="center" wrap>
+                <pio-focus-spell-row [spell]="spell" />
+                <fr-badge>{{ Message.Rank | transloco: { rank: spell.rank } }}</fr-badge>
+              </fr-stack>
+            </fr-list-item>
+          }
+        </fr-list>
+      </fr-stack>
+    }
+  </fr-stack>
+} @else {
+  <fr-stack gap="sm">
+    <fr-skeleton width="sm" />
+    <fr-list gap="2xs">
+      <fr-list-item><fr-skeleton width="md" /></fr-list-item>
+    </fr-list>
+  </fr-stack>
+}

@@ -38,6 +38,7 @@ export const SpellListMessage = {
   Counteract: 'rules.spellList.counteract',
   TagCantrip: 'rules.spellList.tag.cantrip',
   TagFocus: 'rules.spellList.tag.focus',
+  TagInnate: 'rules.spellList.tag.innate',
   TagSignature: 'rules.spellList.tag.signature',
   TagAttack: 'rules.spellList.tag.attack',
   EffectDamage: 'rules.spellList.effect.damage',

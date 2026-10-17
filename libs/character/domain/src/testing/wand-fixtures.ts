@@ -51,6 +51,7 @@ export function wandEntry(tradition: 'arcane' | 'divine', ranks: readonly number
     pools: [],
     signatures: false,
     focusSpells: [],
+    innateSpells: [],
     deitySpells: false,
     // oxlint-disable-next-line typescript/no-unsafe-type-assertion -- the engine's entry has more fields than a wand reads
   } as unknown as SpellcastingInPlay;

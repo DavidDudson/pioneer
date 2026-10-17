@@ -59,6 +59,11 @@ interface EntryFocusSpells {
 }
 
 /** The spells the `RepertoireSpells` elements in play give a spontaneous entry, each once; none for another (ADR-0062). */
+/** The spells the `InnateSpells` elements in play give an innate entry, each rank and spell once; none for another (ADR-0067). */
+interface EntryInnateSpells {
+  readonly innateSpells: readonly GrantedSpell[];
+}
+
 interface EntryGrantedSpells {
   readonly grantedSpells: readonly GrantedSpell[];
 }
@@ -91,6 +96,7 @@ export interface SpellcastingInPlay
     EntrySignatures,
     EntryFocusSpells,
     EntryGrantedSpells,
+    EntryInnateSpells,
     EntryRepertoireCounts,
     EntryDeityRepertoire {
   /** Whether a `DeitySpells` element in play adds the character's deity's spells to its list (ADR-0048). */
@@ -225,6 +231,7 @@ function gather(gathered: Gathered, rule: RuleInPlay, facts: PredicateFacts): vo
  * (ADR-0045), and whether a `DeitySpells` element in play adds the deity's spells to its list (ADR-0048). A spontaneous
  * entry a `SignatureSpells` element in play names has signature spells (ADR-0047); a prepared or innate one never does.
  * A focus entry has the spells the `FocusSpells` elements in play name it (ADR-0050); any other entry has none. A spontaneous entry's repertoire spells are those of its `RepertoireSpells` elements (ADR-0062).
+ * An innate entry has the spells the `InnateSpells` elements in play name it (ADR-0067).
  */
 export function spellcastingInPlay({ rules, facts }: ModifierInputs): readonly SpellcastingInPlay[] {
   const gathered: Gathered = {
@@ -234,6 +241,7 @@ export function spellcastingInPlay({ rules, facts }: ModifierInputs): readonly S
     deitySpells: new Set(),
     signatures: new Set(),
     focusSpells: new Map(),
+    innateSpells: new Map(),
     grantedSpells: new Map(),
     repertoireCounts: new Map(),
     deityRepertoire: new Map(),
@@ -248,6 +256,7 @@ export function spellcastingInPlay({ rules, facts }: ModifierInputs): readonly S
     deitySpells,
     signatures,
     focusSpells,
+    innateSpells,
     grantedSpells,
     repertoireCounts,
     deityRepertoire,
@@ -261,6 +270,7 @@ export function spellcastingInPlay({ rules, facts }: ModifierInputs): readonly S
         deitySpells: deitySpells.has(entry.slug),
         signatures: spontaneous && signatures.has(entry.slug),
         focusSpells: focus,
+        innateSpells: entry.preparation === SpellPreparation.Innate ? (innateSpells.get(entry.slug) ?? []) : [],
         grantedSpells: spontaneous ? (grantedSpells.get(entry.slug) ?? []) : [],
         repertoireCounts: spontaneous ? (repertoireCounts.get(entry.slug) ?? []) : [],
         deityRepertoire: spontaneous ? (deityRepertoire.get(entry.slug) ?? []) : [],

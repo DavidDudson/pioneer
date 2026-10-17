@@ -217,6 +217,10 @@ const repertoireSpells = element('RepertoireSpells', {
   entry: slugText,
   spells: uniqueArray(grantedSpell, { minLength: 1, maxLength: LIST_MAX }),
 });
+const innateSpells = element('InnateSpells', {
+  entry: slugText,
+  spells: uniqueArray(grantedSpell, { minLength: 1, maxLength: LIST_MAX }),
+});
 const repertoireCount = element('RepertoireCount', {
   entry: slugText,
   rank: integer({ min: 1, max: SPELL_RANK_MAX }),
@@ -271,6 +275,7 @@ export const ruleElementJson: Arbitrary<object> = oneof(
   repertoireCount,
   repertoireDeitySpells,
   focusSpells,
+  innateSpells,
   language,
   actorTraits,
   strike,

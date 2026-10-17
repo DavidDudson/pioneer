@@ -283,6 +283,10 @@ the spells (`characterFocus`) for the play state's focus points (#345). A choice
 spell) is a listed `ChoiceSet`, picked in Choices. The sheet lists focus spells under Spellcasting, by entry, with the
 pool and the rank they are cast at.
 
+An innate entry has the innate spells its `InnateSpells` elements name
+([ADR-0067](../adr/0067-innate-spells-are-a-rule-element.md)), each at the rank it is cast at and a cantrip at half the level
+rounded up (`characterInnate`). They take no slot and no repertoire place. The sheet lists them under Spellcasting.
+
 Each slot's status is worked out on every read, never stored (`characterSlots`,
 [ADR-0035](../adr/0035-character-reads-carry-slot-status.md)). `GET` and `PATCH /characters/:id` answer with the
 character and its slots:

@@ -32,6 +32,7 @@ function entry(slug: string, tradition: 'arcane' | 'primal', ranks: readonly num
     pools: [],
     signatures: false,
     focusSpells: [],
+    innateSpells: [],
     deitySpells: false,
   } as unknown as SpellcastingInPlay;
 }

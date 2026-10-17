@@ -37,6 +37,7 @@ const SORCERER = {
   pools: [],
   signatures: false,
   focusSpells: [],
+  innateSpells: [],
   deitySpells: false,
 } as unknown as SpellcastingInPlay;
 

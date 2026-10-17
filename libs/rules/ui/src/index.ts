@@ -54,6 +54,8 @@ export { type AddLanguage, LanguageAdd } from './lib/languages/language-add.comp
 export { TRADITION_MESSAGES } from './lib/spellcasting/spellcasting-messages';
 export { type FocusEntryLine, type FocusLine, type FocusSpellLine } from './lib/focus-spells/focus-spells-line';
 export { FocusSpellsView } from './lib/focus-spells/focus-spells.component';
+export { type InnateEntryLine, type InnateLine, type InnateSpellLine } from './lib/innate-spells/innate-spells-line';
+export { InnateSpellsView } from './lib/innate-spells/innate-spells.component';
 export {
   type StaffCastOptionLine,
   type StaffCastRequest,
