@@ -20,6 +20,8 @@ import type { ContentRegistry } from '@pioneer/rules/sdk';
 import { message, ValidationError } from '@pioneer/shared/kernel';
 import type { Temporal } from '@pioneer/shared/kernel';
 
+import { contentRefusal } from './spend-content';
+
 /** The message each refused spend answers with. */
 const SPEND_MESSAGES = {
   [SpendProblem.TooFewActions]: 'character.validation.spendTooFewActions',
@@ -31,6 +33,8 @@ const SPEND_MESSAGES = {
   [SpendProblem.NoFocusLeft]: 'character.validation.spendNoFocusLeft',
   [SpendProblem.AlreadySpent]: 'character.validation.spendAlreadySpent',
   [SpendProblem.PaymentConflict]: 'character.validation.spendPaymentConflict',
+  [SpendProblem.AttackNotAllowed]: 'character.validation.spendAttackNotAllowed',
+  [SpendProblem.PaymentNotAllowed]: 'character.validation.spendPaymentNotAllowed',
   [SpendProblem.NotSpent]: 'character.validation.spendNotSpent',
 } as const satisfies Record<SpendProblem, string>;
 
@@ -54,21 +58,32 @@ function spendOf(command: PlayCommand): SpendCommand | undefined {
   return isSpendCommand(command) ? command : undefined;
 }
 
+/** The problem the content of a spent action has with the spend: its cost, the attack flag or the payment. */
+function contentProblem(command: SpendCommand, registry: ContentRegistry): SpendProblem | undefined {
+  if (command.field !== SpendCommandField.SpendAction) {
+    return undefined;
+  }
+  const range = actionCosts(registry).get(command.action);
+  if (range !== undefined && !costAllowed(command.cost, range)) {
+    return SpendProblem.CostNotAllowed;
+  }
+  return contentRefusal(command, registry);
+}
+
 /**
  * Refuses a spend, or taking one back, that the turn, the frequency or the action's own content rules out, so the edit
- * is never partly applied. The content gives the cost, not the client; an action the content has no cost for, such as
- * a Strike or a spell, is checked against the turn alone.
+ * is never partly applied. The content gives the cost, not the client, and says whether the attack flag and a spell's
+ * slot or Focus Point are allowed; an action the content has no entry for, such as a Strike, is checked against the
+ * turn alone.
  */
 function checkSpend(play: PlayState, edit: PlayCommand, { counted, points, registry }: SpendContext): void {
   const command = spendOf(edit);
   if (command === undefined) {
     return;
   }
-  if (command.field === SpendCommandField.SpendAction) {
-    const range = actionCosts(registry).get(command.action);
-    if (range !== undefined && !costAllowed(command.cost, range)) {
-      refuse(SpendProblem.CostNotAllowed);
-    }
+  const refused = contentProblem(command, registry);
+  if (refused !== undefined) {
+    refuse(refused);
   }
   const problem = spendRefusal(play, command, { counted, points });
   if (problem !== undefined) {
