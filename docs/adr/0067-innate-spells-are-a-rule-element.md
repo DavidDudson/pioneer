@@ -39,6 +39,10 @@ Alternatives:
   `<flag>:<option>`, as focus spells and a divine font's pool spells are (ADR-0050, ADR-0045). A feat whose entry slug
   is its own slug (`fey-influence`) lets the import attach an export's innate caster by the feat's name.
 - The sheet lists innate spells under Spellcasting, by entry, with the rank each is cast at.
+- A Pathbuilder import pairs each `innate` caster with the innate entry of the same name and picks the feature choice
+  (an open `ChoiceSet` of the entry's own feature) whose option makes the entry grant what the export lists. Pathbuilder
+  lists a heightened spell at the rank it is printed at, so an entry that casts the spell at that rank or higher matches.
+  A listed spell the entry does not grant is a gap (`not-granted`); one whose feat the character lacks is `no-entry`.
 
 ## Consequences
 

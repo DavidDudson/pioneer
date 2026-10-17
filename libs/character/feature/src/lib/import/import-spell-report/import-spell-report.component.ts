@@ -8,6 +8,7 @@ import type { SpellGap } from '@pioneer/interop/pathbuilder';
 const REASON_KEYS = {
   [SpellGapReason.NoEntry]: 'character.import.result.spellGapReason.noEntry',
   [SpellGapReason.NoSlot]: 'character.import.result.spellGapReason.noSlot',
+  [SpellGapReason.NotGranted]: 'character.import.result.spellGapReason.notGranted',
   [SpellGapReason.NotOffered]: 'character.import.result.spellGapReason.notOffered',
 } as const satisfies Record<SpellGapReason, string>;
 

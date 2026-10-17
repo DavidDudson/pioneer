@@ -31,6 +31,13 @@ const FIGMENT: SpellGap = {
   reason: SpellGapReason.NoEntry,
 };
 
+const GROWN_OF_OAK: SpellGap = {
+  caster: PathbuilderName.parse('Grown of Oak'),
+  rank: 2,
+  name: PathbuilderName.parse('Oaken Resilience'),
+  reason: SpellGapReason.NotGranted,
+};
+
 async function render(spellGaps: readonly SpellGap[]): Promise<string> {
   TestBed.configureTestingModule({ providers: [provideI18n({ en: async () => frontierMessages })] });
   TestBed.inject(TranslocoService).setTranslation({ character: en, ...rulesMessages }, 'en', { merge: true });
@@ -57,10 +64,11 @@ describe(ImportSpellReport, () => {
   });
 
   it('says why each spell found no slot', async () => {
-    const text = await render([FATED_HEALING, SHIELD, FIGMENT]);
+    const text = await render([FATED_HEALING, SHIELD, FIGMENT, GROWN_OF_OAK]);
 
     expect(text).toContain('No slot offers it');
     expect(text).toContain('Every slot of its rank is taken');
     expect(text).toContain('No spellcasting to put it in');
+    expect(text).toContain('Its feat does not grant it');
   });
 });

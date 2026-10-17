@@ -12,7 +12,7 @@ import { buildImportReport, MatchStatus, Occurrences } from './import-report';
 import type { ReportRow } from './import-report';
 import type { PathbuilderImport } from './read-pathbuilder-export';
 import { SkillGap } from './skill-placement';
-import { SpellGap } from './spell-placement';
+import { SpellGap } from './spell-listing';
 
 /** Why a name was not carried over. */
 export const UnmatchedReason = {

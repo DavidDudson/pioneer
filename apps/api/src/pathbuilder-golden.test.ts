@@ -107,11 +107,11 @@ const spellPickCount = (choices: Readonly<Record<string, unknown>>): number =>
 /**
  * Pathbuilder's spells over the official packs (#311): the casters the character has an entry for fill its slots,
  * and what no slot took is a gap. A caster the build lacks (an archetype, a class not carried over) leaves its spells
- * as gaps; focus spells and `perDay` are not placed.
+ * as gaps; an innate caster's feat grants its spells, so only a feat the import does not place leaves them as gaps. Focus spells and `perDay` are not placed.
  */
 describe('Pathbuilder spells over the official packs', () => {
   test(
-    "Briar Rose's Druid fills its prepared slots; the Animist and the innate casters have no entry",
+    "Briar Rose's Druid fills its prepared slots; the Animist and the innate casters whose feats are not placed have no entry",
     async () => {
       const { character, report } = await service.importPathbuilder(actor, briarRoseExport);
       expect(spellPickCount(character.document.build.choices)).toBe(21);
@@ -119,7 +119,6 @@ describe('Pathbuilder spells over the official packs', () => {
         'Animist Prepared no-entry: 12',
         'Animist Apparition no-entry: 21',
         'Vigilant Goloma no-entry: 1',
-        'Grown of Oak no-entry: 1',
         'Dream Magic no-entry: 1',
       ]);
     },
