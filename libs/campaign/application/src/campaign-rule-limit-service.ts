@@ -1,17 +1,43 @@
-import { CampaignRuleLimitId, CORE_LIMIT_DEFAULTS, LIMIT_CEILINGS, RuleLimitKey } from '@pioneer/campaign/domain';
-import type { Campaign, CampaignId, CampaignRuleLimits, RuleLimitChange } from '@pioneer/campaign/domain';
+import {
+  CampaignRuleLimitId,
+  CORE_LIMIT_DEFAULTS,
+  LIMIT_CEILINGS,
+  RuleLimitKey,
+  RuleLimitSource,
+} from '@pioneer/campaign/domain';
+import type {
+  Campaign,
+  CampaignId,
+  CampaignRuleLimits,
+  RuleLimitChange,
+  RuleLimitOverrides,
+} from '@pioneer/campaign/domain';
 import { ForbiddenError, message, newId, NotFoundError, ValidationError } from '@pioneer/shared/kernel';
 import type { Clock, UserId } from '@pioneer/shared/kernel';
 
 import { mayManageRuleLimits, mayViewCampaign } from './campaign-policy';
 import type { CampaignRepository } from './campaign-repository';
 import type { CampaignRuleLimitRepository } from './campaign-rule-limit-repository';
+import type { CampaignVariantLimits } from './campaign-variant-limits';
 import { RuleLimitMessage } from './rule-limit-message';
 
 /** The ports `CampaignRuleLimitService` works through. */
 export interface CampaignRuleLimitPorts {
   readonly campaigns: CampaignRepository;
   readonly limits: CampaignRuleLimitRepository;
+  readonly variantLimits: CampaignVariantLimits;
+}
+
+/** Where `limit`'s number comes from: the GM's own beats a variant rule's, which beats the core rules' (ADR-0064). */
+function sourceOf(
+  limit: RuleLimitKey,
+  set: ReadonlyMap<RuleLimitKey, unknown>,
+  variant: RuleLimitOverrides,
+): RuleLimitSource {
+  if (set.has(limit)) {
+    return RuleLimitSource.Campaign;
+  }
+  return variant[limit] === undefined ? RuleLimitSource.Core : RuleLimitSource.Variant;
 }
 
 /** The order the limits are listed in. */
@@ -19,16 +45,19 @@ const LIMIT_ORDER: readonly RuleLimitKey[] = Object.values(RuleLimitKey);
 
 /**
  * The table limits of a campaign (ADR-0064). Every member reads them; only the GM sets or resets one. A limit with no
- * row is the core rules' number. Framework-free, like `CampaignVariantService`.
+ * row is the number of the variant rules the campaign has on, else the core rules'. Framework-free, like
+ * `CampaignVariantService`.
  */
 export class CampaignRuleLimitService {
   readonly #campaigns: CampaignRepository;
   readonly #limits: CampaignRuleLimitRepository;
+  readonly #variantLimits: CampaignVariantLimits;
   readonly #clock: Clock;
 
-  public constructor({ campaigns, limits }: CampaignRuleLimitPorts, clock: Clock) {
+  public constructor({ campaigns, limits, variantLimits }: CampaignRuleLimitPorts, clock: Clock) {
     this.#campaigns = campaigns;
     this.#limits = limits;
+    this.#variantLimits = variantLimits;
     this.#clock = clock;
   }
 
@@ -88,14 +117,16 @@ export class CampaignRuleLimitService {
   async #view(actor: UserId, campaign: Campaign): Promise<CampaignRuleLimits> {
     const rows = await this.#limits.listForCampaign(campaign.id);
     const set = new Map(rows.map((row) => [row.limit, row.value]));
+    const variant = await this.#variantLimits.of(campaign.id);
     return {
       manageable: mayManageRuleLimits(actor, campaign),
       limits: LIMIT_ORDER.map((limit) => ({
         limit,
-        value: set.get(limit) ?? CORE_LIMIT_DEFAULTS[limit],
+        value: set.get(limit) ?? variant[limit] ?? CORE_LIMIT_DEFAULTS[limit],
         core: CORE_LIMIT_DEFAULTS[limit],
         ceiling: LIMIT_CEILINGS[limit],
         custom: set.has(limit),
+        source: sourceOf(limit, set, variant),
       })),
     };
   }

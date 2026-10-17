@@ -1,11 +1,11 @@
 import { afterAll, beforeAll, beforeEach, describe, expect, test } from 'bun:test';
 
-import { CampaignRuleLimitService } from '@pioneer/campaign/application';
+import { CampaignRuleLimitService, InMemoryCampaignVariantLimits } from '@pioneer/campaign/application';
 import { RuleLimitKey, RuleLimitValue } from '@pioneer/campaign/domain';
 import type { CampaignId, CampaignMemberId } from '@pioneer/campaign/domain';
 import { CampaignBuilder } from '@pioneer/campaign/domain/testing';
 import { DrizzleCampaignRepository, DrizzleCampaignRuleLimitRepository } from '@pioneer/campaign/infrastructure';
-import { CharacterRuleLimitService } from '@pioneer/character/application';
+import { CharacterRuleLimitService, InMemoryVariantLimits } from '@pioneer/character/application';
 import { CharacterCommand, CORE_RULE_LIMITS, InvestedCount } from '@pioneer/character/domain';
 import type { Character, CharacterId } from '@pioneer/character/domain';
 import { CharacterBuilder } from '@pioneer/character/domain/testing';
@@ -69,12 +69,16 @@ describe.skipIf(adminUrl === undefined)('campaign table limits over postgres', (
     memberId = member.id;
 
     repository = new DrizzleCampaignRuleLimitRepository(database.db);
-    service = new CampaignRuleLimitService({ campaigns, limits: repository }, clock);
+    service = new CampaignRuleLimitService(
+      { campaigns, limits: repository, variantLimits: new InMemoryCampaignVariantLimits() },
+      clock,
+    );
     limits = new CharacterRuleLimitService(
       {
         characters,
         limits: new DrizzleCharacterRuleLimitRepository(database.db),
         campaigns: new CampaignPackDirectory(database.db),
+        variantLimits: new InMemoryVariantLimits(),
       },
       clock,
     );

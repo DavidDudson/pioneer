@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { RuleLimitKey, RuleLimitValue } from '@pioneer/campaign/domain';
+import { RuleLimitKey, RuleLimitSource, RuleLimitValue } from '@pioneer/campaign/domain';
 import type { RuleLimitSetting } from '@pioneer/campaign/domain';
 import { AsyncButton, Badge, InlineEdit, InlineField, ListItem, NumberInput, Stack, Text } from '@pioneer/frontier';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
@@ -14,6 +14,13 @@ const LIMIT_LABELS: Readonly<Record<RuleLimitKey, string>> = {
   [RuleLimitKey.HandsMax]: 'campaign.ruleLimits.handsMax',
   [RuleLimitKey.PropertyRunesPerGrade]: 'campaign.ruleLimits.propertyRunesPerGrade',
   [RuleLimitKey.ItemsMax]: 'campaign.ruleLimits.itemsMax',
+};
+
+/** Where each number comes from, said in words. */
+const SOURCE_LABELS: Readonly<Record<RuleLimitSource, string>> = {
+  [RuleLimitSource.Core]: 'campaign.ruleLimits.source.core',
+  [RuleLimitSource.Variant]: 'campaign.ruleLimits.source.variant',
+  [RuleLimitSource.Campaign]: 'campaign.ruleLimits.source.campaign',
 };
 
 /** Draft placeholder while the limits load; never shown, as editing waits for them. */
@@ -39,6 +46,7 @@ export class CampaignRuleLimitRow {
   readonly #i18n = inject(TranslocoService);
 
   protected readonly label = computed((): string => LIMIT_LABELS[this.setting().limit]);
+  protected readonly source = computed((): string => SOURCE_LABELS[this.setting().source]);
 
   protected readonly edit = new InlineEdit<number>({
     source: computed((): number => this.setting().value),

@@ -43,6 +43,7 @@ describe('SheetRuleLimits', () => {
     }
     expect(text).toContain('Core rules: 10');
     expect(text).not.toContain('Changed');
+    expect(text).toContain('From the core rules');
   });
 
   it('marks a changed limit and offers a reset for the owner, who returns it to the core rules’', async () => {
@@ -71,5 +72,25 @@ describe('SheetRuleLimits', () => {
     expect(textOf(panel)).toContain('Abomination Vaults decides the table limits this character is held to.');
     expect(panel.querySelectorAll('button')).toHaveLength(0);
     expect(panel.querySelectorAll('input')).toHaveLength(0);
+  });
+
+  it('says a number comes from a variant rule, and that the owner’s own beats it', async () => {
+    const fromVariant = panelOf(await open(ruleLimitSettingsOf({}, { investedMax: 12 })));
+    expect(textOf(fromVariant)).toContain('From a variant rule');
+    expect(textOf(fromVariant)).not.toContain('Changed');
+  });
+
+  it('says a number is the owner’s once they set it', async () => {
+    const panel = panelOf(await open(ruleLimitSettingsOf({ investedMax: 9 }, { investedMax: 12 })));
+    expect(textOf(panel)).toContain('Set by you');
+  });
+
+  it('says a number is the campaign GM’s while a campaign decides', async () => {
+    const settings = ruleLimitSettingsOf({ handsMax: 1 }) as { limits: object[] };
+    const limits = settings.limits.map((each) => ({ ...each, source: 'campaign' }));
+    const panel = panelOf(
+      await open({ ...settings, limits, decidedBy: 'campaign', manageable: false, campaign: 'Abomination Vaults' }),
+    );
+    expect(textOf(panel)).toContain("Set by the campaign's GM");
   });
 });

@@ -4,6 +4,7 @@ import {
   CampaignVariantService,
   InMemoryCampaignPackRepository,
   InMemoryCampaignRuleLimitRepository,
+  InMemoryCampaignVariantLimits,
   InMemoryCampaignVariantRepository,
   InMemoryPackCatalog,
   InMemoryVariantRuleCatalog,
@@ -31,5 +32,12 @@ export function variantService(
 
 /** A table limit service over in-memory ports, for route tests. */
 export function ruleLimitService(campaigns: CampaignRepository, clock: Clock): CampaignRuleLimitService {
-  return new CampaignRuleLimitService({ campaigns, limits: new InMemoryCampaignRuleLimitRepository() }, clock);
+  return new CampaignRuleLimitService(
+    {
+      campaigns,
+      limits: new InMemoryCampaignRuleLimitRepository(),
+      variantLimits: new InMemoryCampaignVariantLimits(),
+    },
+    clock,
+  );
 }

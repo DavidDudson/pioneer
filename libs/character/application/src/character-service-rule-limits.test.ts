@@ -25,6 +25,7 @@ import { EffectiveVariants } from './effective-variants';
 import { InMemoryAttachedCampaignPacks } from './in-memory-attached-campaign-packs';
 import { InMemoryCharacterRepository } from './in-memory-character-repository';
 import { InMemoryCharacterRuleLimitRepository } from './in-memory-character-rule-limit-repository';
+import { InMemoryVariantLimits } from './in-memory-variant-limits';
 
 const amiri = UserId.parse(newId());
 
@@ -55,7 +56,12 @@ describe('a character held to its campaign’s table limits', () => {
     const clock = fixedClock('2026-10-17T10:00:00Z');
     const repository = new InMemoryCharacterRepository();
     const limits = new CharacterRuleLimitService(
-      { characters: repository, limits: new InMemoryCharacterRuleLimitRepository(), campaigns },
+      {
+        characters: repository,
+        limits: new InMemoryCharacterRuleLimitRepository(),
+        campaigns,
+        variantLimits: new InMemoryVariantLimits(),
+      },
       clock,
     );
     const content = new CharacterContent(fixedContent(core, ITEM_FIXTURES), new NoPacks(), {

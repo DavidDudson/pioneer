@@ -27,5 +27,7 @@ export { InMemoryVariantRuleCatalog } from './in-memory-variant-rule-catalog';
 export { VariantRuleCatalog } from './variant-rule-catalog';
 export { CampaignRuleLimitRepository } from './campaign-rule-limit-repository';
 export { CampaignRuleLimitService, type CampaignRuleLimitPorts } from './campaign-rule-limit-service';
+export { CampaignVariantLimits } from './campaign-variant-limits';
+export { InMemoryCampaignVariantLimits } from './in-memory-campaign-variant-limits';
 export { InMemoryCampaignRuleLimitRepository } from './in-memory-campaign-rule-limit-repository';
 export { RuleLimitMessage } from './rule-limit-message';

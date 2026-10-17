@@ -4,6 +4,7 @@ import {
   CharacterAllyService,
   CharacterPackService,
   CharacterUnenabledService,
+  CharacterVariantLimits,
   CharacterVariantService,
   CharacterService,
   FeatDisplayService,
@@ -76,7 +77,12 @@ function packServices(db: Database, clock: Clock, { content, repository }: Chara
     clock,
   );
   const ruleLimits = new CharacterRuleLimitService(
-    { characters: repository, limits: new DrizzleCharacterRuleLimitRepository(db), campaigns },
+    {
+      characters: repository,
+      limits: new DrizzleCharacterRuleLimitRepository(db),
+      campaigns,
+      variantLimits: new CharacterVariantLimits({ content, packs, variants }),
+    },
     clock,
   );
   const allies = new CharacterAllyService({ characters: repository, campaigns });

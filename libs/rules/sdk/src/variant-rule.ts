@@ -6,6 +6,7 @@ import { EntrySlug } from './content-id';
 import { ContentText } from './content-text';
 import { RuleElements } from './rule-element';
 import { SourceRef } from './source-ref';
+import { VariantRuleLimits } from './variant-rule-limits';
 
 /**
  * A structural change a variant rule needs that rule elements cannot make. It is declared as data so the builder
@@ -28,6 +29,7 @@ const StructureList = z.array(VariantStructureSchema).readonly();
  */
 export const VariantRuleData = z.strictObject({
   structure: StructureList.optional(),
+  limits: VariantRuleLimits.optional(),
 });
 export type VariantRuleData = z.infer<typeof VariantRuleData>;
 
@@ -49,5 +51,7 @@ export const VariantRuleDefinition = z.strictObject({
   rules: RuleElements,
   /** The structural changes it needs beyond `rules`; absent when it needs none. */
   structure: StructureList.optional(),
+  /** The table limits it changes while it is in force (ADR-0064); absent when it changes none. */
+  limits: VariantRuleLimits.optional(),
 });
 export type VariantRuleDefinition = z.infer<typeof VariantRuleDefinition>;

@@ -1,6 +1,6 @@
 import { afterAll, beforeAll, beforeEach, describe, expect, test } from 'bun:test';
 
-import { CharacterRuleLimitService } from '@pioneer/character/application';
+import { CharacterRuleLimitService, InMemoryVariantLimits } from '@pioneer/character/application';
 import { CharacterCommand, CORE_RULE_LIMITS, InvestedCount, RuleLimitSettingValue } from '@pioneer/character/domain';
 import type { Character } from '@pioneer/character/domain';
 import { CharacterBuilder } from '@pioneer/character/domain/testing';
@@ -36,7 +36,12 @@ describe.skipIf(adminUrl === undefined)('character table limits over postgres', 
     await characters.insert(kyra, { actor: amiri, command: CharacterCommand.CreateCharacter });
     repository = new DrizzleCharacterRuleLimitRepository(database.db);
     service = new CharacterRuleLimitService(
-      { characters, limits: repository, campaigns: new CampaignPackDirectory(database.db) },
+      {
+        characters,
+        limits: repository,
+        campaigns: new CampaignPackDirectory(database.db),
+        variantLimits: new InMemoryVariantLimits(),
+      },
       clock,
     );
   });

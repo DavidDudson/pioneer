@@ -20,6 +20,7 @@ import { CharacterService } from './character-service';
 import { InMemoryAttachedCampaignPacks } from './in-memory-attached-campaign-packs';
 import { InMemoryCharacterRepository } from './in-memory-character-repository';
 import { InMemoryCharacterRuleLimitRepository } from './in-memory-character-rule-limit-repository';
+import { InMemoryVariantLimits } from './in-memory-variant-limits';
 
 const amiri = UserId.parse(newId());
 const ezren = UserId.parse(newId());
@@ -36,7 +37,12 @@ describe('the table limits a character sets for itself', () => {
     const repository = new InMemoryCharacterRepository();
     campaigns = new InMemoryAttachedCampaignPacks();
     service = new CharacterRuleLimitService(
-      { characters: repository, limits: new InMemoryCharacterRuleLimitRepository(), campaigns },
+      {
+        characters: repository,
+        limits: new InMemoryCharacterRuleLimitRepository(),
+        campaigns,
+        variantLimits: new InMemoryVariantLimits(),
+      },
       clock,
     );
     const content = fixedContent(new ContentPackBuilder().withId('player-core').withAncestry('human').build());

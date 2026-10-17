@@ -21,6 +21,7 @@
       <fr-text variant="caption" tone="subtle">{{
         'campaign.ruleLimits.core' | transloco: { value: setting().core }
       }}</fr-text>
+      <fr-text variant="caption" tone="subtle">{{ source() | transloco }}</fr-text>
     </fr-stack>
     @if (setting().custom) {
       <fr-badge>{{ 'campaign.ruleLimits.changed' | transloco }}</fr-badge>

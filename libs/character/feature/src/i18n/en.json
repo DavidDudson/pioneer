@@ -696,6 +696,12 @@
     "propertyRunesPerGrade": "Property runes per potency rune grade",
     "itemsMax": "Lines in an inventory",
     "core": "Core rules: {value}",
+    "source": {
+      "core": "From the core rules",
+      "variant": "From a variant rule",
+      "campaign": "Set by the campaign's GM",
+      "character": "Set by you"
+    },
     "changed": "Changed",
     "reset": "Reset",
     "resetting": "Resetting",

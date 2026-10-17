@@ -22,6 +22,7 @@ import type { Clock } from '@pioneer/shared/kernel';
 import type { ContractRouter, RequestAuthenticator } from '@pioneer/shared/server';
 
 import { CampaignPackEnablementDirectory } from './campaign-pack-enablement-directory';
+import { CampaignVariantLimitsOfContent } from './campaign-variant-limits';
 import { CampaignVariantRuleCatalog } from './campaign-variant-rule-catalog';
 import type { Database } from './database';
 import { HomebrewPackCatalog } from './homebrew-pack-catalog';
@@ -36,6 +37,19 @@ function variantService(db: Database, repository: DrizzleCampaignRepository, clo
       campaigns: repository,
       variants: new DrizzleCampaignVariantRepository(db),
       catalog: new CampaignVariantRuleCatalog(db, content),
+    },
+    clock,
+  );
+}
+
+/** The table-limit service: the variant rules a campaign has on are read from the stored content. */
+function ruleLimitService(db: Database, repository: DrizzleCampaignRepository, clock: Clock): CampaignRuleLimitService {
+  const content = new StoredContentSource(new ContentRepository(db));
+  return new CampaignRuleLimitService(
+    {
+      campaigns: repository,
+      limits: new DrizzleCampaignRuleLimitRepository(db),
+      variantLimits: new CampaignVariantLimitsOfContent(db, content),
     },
     clock,
   );
@@ -68,9 +82,6 @@ export function campaigns(db: Database, clock: Clock, authenticator: RequestAuth
     clock,
   );
   const variants = variantService(db, repository, clock);
-  const ruleLimits = new CampaignRuleLimitService(
-    { campaigns: repository, limits: new DrizzleCampaignRuleLimitRepository(db) },
-    clock,
-  );
+  const ruleLimits = ruleLimitService(db, repository, clock);
   return campaignRoutes({ campaigns: service, invites, party, packs, variants, ruleLimits }, authenticator);
 }
