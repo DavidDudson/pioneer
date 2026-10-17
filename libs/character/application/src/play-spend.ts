@@ -37,6 +37,8 @@ const SPEND_MESSAGES = {
   [SpendProblem.PaymentNotAllowed]: 'character.validation.spendPaymentNotAllowed',
   [SpendProblem.NotSpent]: 'character.validation.spendNotSpent',
   [SpendProblem.NoSuchSpell]: 'character.validation.spendNoSuchSpell',
+  [SpendProblem.NotSustained]: 'character.validation.spendNotSustained',
+  [SpendProblem.DismissNotAllowed]: 'character.validation.spendDismissNotAllowed',
   [SpendProblem.AlreadySustained]: 'character.validation.spendAlreadySustained',
   [SpendProblem.SustainLimit]: 'character.validation.spendSustainLimit',
   [SpendProblem.TooManySpells]: 'character.validation.spendTooManySpells',
@@ -63,7 +65,7 @@ function spendOf(command: PlayCommand): SpendCommand | undefined {
 }
 
 /** The problem the content of a spent action has with the spend: its cost, the attack flag or the payment. */
-function contentProblem(command: SpendCommand, registry: ContentRegistry): SpendProblem | undefined {
+function contentProblem(command: SpendCommand, play: PlayState, registry: ContentRegistry): SpendProblem | undefined {
   if (command.field !== SpendCommandField.SpendAction) {
     return undefined;
   }
@@ -71,7 +73,7 @@ function contentProblem(command: SpendCommand, registry: ContentRegistry): Spend
   if (range !== undefined && !costAllowed(command.cost, range)) {
     return SpendProblem.CostNotAllowed;
   }
-  return contentRefusal(command, registry);
+  return contentRefusal(command, registry, play);
 }
 
 /**
@@ -85,7 +87,7 @@ function checkSpend(play: PlayState, edit: PlayCommand, { counted, points, regis
   if (command === undefined) {
     return;
   }
-  const refused = contentProblem(command, registry);
+  const refused = contentProblem(command, play, registry);
   if (refused !== undefined) {
     refuse(refused);
   }

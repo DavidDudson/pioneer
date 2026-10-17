@@ -117,6 +117,10 @@ export const SpendProblem = {
   NotSpent: 'not-spent',
   /** The spell to sustain or dismiss is not active. */
   NoSuchSpell: 'no-such-spell',
+  /** The spell is not sustained, or not for as long as the cast says. */
+  NotSustained: 'not-sustained',
+  /** The spell can be ended at will but not with the Dismiss action. */
+  DismissNotAllowed: 'dismiss-not-allowed',
   /** The spell was already sustained, or cast, since the last End turn. */
   AlreadySustained: 'already-sustained',
   /** The spell has run to the longest it can be kept up. */
