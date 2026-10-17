@@ -11,6 +11,8 @@ import type {
   SourceRef,
 } from '@pioneer/rules/sdk';
 
+import type { StatBlockCreature } from '../creature-stat-block/creature-stat-block';
+
 /** One line an entry adds to a statistic of the character the preview is for. */
 export interface PreviewEffect {
   /** The statistic's name ("Perception"). */
@@ -35,6 +37,8 @@ export interface EntryPreview {
    * for an entry the character has; empty when it changes nothing.
    */
   readonly effects?: readonly PreviewEffect[];
+  /** A creature's stat block, shown in place of the generic card. */
+  readonly creature?: StatBlockCreature;
 }
 
 /** How a preview finds an entry. The page that shows it knows which content is loaded, so it provides this. */

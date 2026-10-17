@@ -1,6 +1,13 @@
 import type { LinkTarget } from '@pioneer/frontier';
-import { ContentKind, ContentKindSchema, slugName } from '@pioneer/rules/sdk';
-import type { ContentEntry, ContentId, ContentRegistry, ContentText } from '@pioneer/rules/sdk';
+import { ContentId as ContentIdSchema, contentId, ContentKind, ContentKindSchema, slugName } from '@pioneer/rules/sdk';
+import type {
+  ContentEntry,
+  ContentId,
+  ContentPack,
+  ContentRegistry,
+  ContentText,
+  PackCreature,
+} from '@pioneer/rules/sdk';
 import type { EntryPreview, RichTextLinks } from '@pioneer/rules/ui';
 
 import { BROWSE_KINDS } from '../browser/browse-kinds';
@@ -30,27 +37,58 @@ export function entryTarget(entry: ContentEntry): LinkTarget {
   return [CONTENT_PATH, entry.kind, slugName(entry.slug)];
 }
 
+/**
+ * A creature of `pack` as the entry it came from. A pack files creatures as flat stat blocks, so the envelope's
+ * rarity, rules and description are not in it: the description is the one the entry's shard holds.
+ */
+function creatureEntry(pack: ContentPack, creature: PackCreature): ContentEntry {
+  const { slug, name, sources, traits, level, ...data } = creature;
+  return {
+    id: ContentIdSchema.parse(contentId(pack.id, slug)),
+    pack: pack.id,
+    kind: ContentKind.Creature,
+    slug,
+    name,
+    level,
+    rarity: 'common',
+    traits,
+    sources,
+    description: [],
+    rules: [],
+    data,
+  };
+}
+
+/** Every entry the registry's packs hold, creatures included; a later pack's entry of the same id comes later. */
+function registryEntries(registry: ContentRegistry): readonly ContentEntry[] {
+  return registry.packs.flatMap((pack) => [
+    ...pack.otherEntries,
+    ...pack.creatures.map((creature) => creatureEntry(pack, creature)),
+  ]);
+}
+
 /** The entry of `kind` named `name` in its slug. A later pack's entry of the same slug wins, as in the registry. */
 export function findEntry(registry: ContentRegistry, kind: ContentKind, name: string | null): ContentEntry | undefined {
-  return registry.packs
-    .flatMap((pack) => pack.otherEntries)
-    .findLast((entry) => entry.kind === kind && slugName(entry.slug) === name);
+  return registryEntries(registry).findLast((entry) => entry.kind === kind && slugName(entry.slug) === name);
 }
 
 /** What the page shows of `entry`: its card, with `description` as the text when it has loaded. */
 export function entryCard(entry: ContentEntry, description: ContentEntry['description'] | undefined): EntryPreview {
-  return {
+  const card: EntryPreview = {
     name: entry.name,
     level: 'level' in entry ? entry.level : undefined,
     traits: entry.traits,
     summary: description ?? entry.description,
     sources: entry.sources,
   };
+  return entry.kind === ContentKind.Creature
+    ? { ...card, creature: { name: entry.name, level: entry.level, traits: entry.traits, data: entry.data } }
+    : card;
 }
 
 /** Every entry of the registry by id; a later pack's entry of the same id wins. */
 export function entryIndex(registry: ContentRegistry): ReadonlyMap<ContentId, ContentEntry> {
-  return new Map(registry.packs.flatMap((pack) => pack.otherEntries).map((entry) => [entry.id, entry]));
+  return new Map(registryEntries(registry).map((entry) => [entry.id, entry]));
 }
 
 /** The rich text links of a page over `index`: a reference to an entry it holds is named and linked. */

@@ -221,3 +221,5 @@ export type { ActionUse, UsableLine, UsePayment } from './lib/actions/action-use
 export { UseButtons } from './lib/actions/use-buttons.component';
 export { ActionsViewKind } from './lib/actions/actions-list';
 export { ActionsView } from './lib/actions/actions.component';
+export { StatBlockLayout, type StatBlockCreature } from './lib/creature-stat-block/creature-stat-block';
+export { CreatureStatBlockView } from './lib/creature-stat-block/creature-stat-block.component';

@@ -1,0 +1,20 @@
+<fr-stack gap="sm">
+  <fr-stack gap="xs">
+    <fr-heading [level]="headingLevel()">{{ creature().name }}</fr-heading>
+    <fr-text element="p" variant="caption" tone="muted">{{ view().level }}</fr-text>
+    <fr-stack gap="2xs" direction="horizontal" wrap>
+      @for (trait of view().traits; track trait) {
+        <fr-badge>{{ trait }}</fr-badge>
+      }
+    </fr-stack>
+  </fr-stack>
+  <pio-stat-lines [lines]="headLines()" />
+  <pio-stat-lines [lines]="view().defences" />
+  <pio-stat-strikes [strikes]="strikes()" [headingLevel]="headingLevel()" />
+  @if (full()) {
+    <pio-stat-abilities [abilities]="view().abilities" [headingLevel]="headingLevel()" />
+    <pio-stat-spellcasting [entries]="view().spellcasting" />
+    <pio-stat-items [items]="view().items" />
+    <pio-stat-passages [passages]="view().recallKnowledge" [headingLevel]="headingLevel()" />
+  }
+</fr-stack>

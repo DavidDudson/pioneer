@@ -1,0 +1,8 @@
+<fr-stack gap="2xs">
+  @for (line of lines(); track line.label) {
+    <fr-text element="p">
+      <fr-text weight="medium">{{ line.label }}</fr-text>
+      {{ line.text }}
+    </fr-text>
+  }
+</fr-stack>
