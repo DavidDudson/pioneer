@@ -66,6 +66,7 @@ export {
   DiscrepancyKind,
   DiscrepancyReport,
   LAND_SPEED,
+  FOCUS_POINTS,
   MAX_HIT_POINTS,
   type PioneerSpellDc,
   type PioneerSpellSlots,
@@ -76,6 +77,7 @@ export {
   RankDiscrepancy,
   TotalDiscrepancy,
 } from './discrepancy-report';
+export { documentFocus, type FocusPlacement, placeFocus } from './focus-placement';
 export type { ImportedCaster, ImportedSpellRank } from './read-spells';
 export {
   placeSpells,

@@ -1,9 +1,9 @@
 import { characterGrants, characterSpellcasting } from '@pioneer/character/domain';
 import type { CharacterDocument } from '@pioneer/character/domain';
 import type { SpellcastingInPlay } from '@pioneer/rules/engine';
-import { ChoiceValue, SlotRank, SpellPreparation } from '@pioneer/rules/sdk';
-import type { SlotKey } from '@pioneer/rules/sdk';
+import { SlotRank, SpellPreparation } from '@pioneer/rules/sdk';
 
+import { openPicks, picking } from './choice-search';
 import { matchKey } from './content-lookup';
 import type { ImportedCaster } from './read-spells';
 import { listed, SpellGapReason } from './spell-listing';
@@ -26,11 +26,6 @@ interface Placed {
   readonly document: CharacterDocument;
   readonly choices: SpellPicks;
   readonly gaps: readonly SpellGap[];
-}
-
-/** The document with one more pick, to read what it would grant. */
-function picking(document: CharacterDocument, key: SlotKey, value: ChoiceValue): CharacterDocument {
-  return { ...document, build: { ...document.build, choices: { ...document.build.choices, [key]: value } } };
 }
 
 /** Whether the caster's name is the entry's (Fey Influence's `fey-influence`), either way round. */
@@ -68,22 +63,6 @@ function missing(entry: SpellcastingInPlay | undefined, spells: readonly Listed[
   return entry === undefined ? [...spells] : spells.filter((spell) => !grants(entry, spell));
 }
 
-/** The pick of an open choice of the entry's feature that makes the entry grant the wanted spells, if any does. */
-function pickFor(
-  { caster, spells }: Wanted,
-  entry: SpellcastingInPlay,
-  trial: Placed & { readonly content: SpellPlacementContent },
-): readonly [SlotKey, ChoiceValue] | undefined {
-  const { document, content } = trial;
-  const open = characterGrants(document, content.slots).open.filter((slot) => slot.origin.entry === entry.origin.entry);
-  const picks = open.flatMap((slot) =>
-    slot.options.map((option): readonly [SlotKey, ChoiceValue] => [slot.key, ChoiceValue.parse(option.value)]),
-  );
-  return picks.find(
-    ([key, value]) => missing(entryOf(caster, picking(document, key, value), content), spells).length === 0,
-  );
-}
-
 function gapsOf({ caster }: Wanted, left: readonly Listed[], reason: SpellGapReason): SpellGap[] {
   return left.map(({ rank, name }) => ({ caster: caster.name, rank, name, reason }));
 }
@@ -98,12 +77,14 @@ function placeCaster(placed: Placed, wanted: Wanted, content: SpellPlacementCont
   if (left.length === 0) {
     return placed;
   }
-  const pick = pickFor(wanted, entry, { ...placed, content });
+  const pick = openPicks(placed.document, content, (slot) => slot.origin.entry === entry.origin.entry).find(
+    (each) => missing(entryOf(wanted.caster, picking(placed.document, each), content), wanted.spells).length === 0,
+  );
   if (pick === undefined) {
     return { ...placed, gaps: [...placed.gaps, ...gapsOf(wanted, left, SpellGapReason.NotGranted)] };
   }
   const [key, value] = pick;
-  return { ...placed, document: picking(placed.document, key, value), choices: { ...placed.choices, [key]: value } };
+  return { ...placed, document: picking(placed.document, pick), choices: { ...placed.choices, [key]: value } };
 }
 
 /**

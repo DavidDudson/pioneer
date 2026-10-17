@@ -3,6 +3,7 @@ import type { Character, SlotContent } from '@pioneer/character/domain';
 import {
   ARMOR_CLASS,
   discrepancyReport,
+  documentFocus,
   LAND_SPEED,
   MAX_HIT_POINTS,
   RANKED_STATISTICS,
@@ -78,8 +79,10 @@ function pioneerValues(character: Character, { registry, slots, variants }: Deri
     variants,
   });
   const ranks = buildRanks(document, slots);
+  const focus = documentFocus(document, slots);
   return {
     spellSlots: spellSlots(inputs.spellcasting),
+    focusPoints: focus.entries.length === 0 ? undefined : focus.pool,
     spellDcs: inputs.spellcasting.flatMap(({ slug, tradition, attribute }): PioneerSpellDc[] => {
       const selector = SelectorSchema.parse(`spell-dc:${slug}`);
       const total = derived(statistics, selector);

@@ -85,3 +85,8 @@ Alternatives:
 - Feats can't be picked on the sheet until #466, so feat-granted focus spells are reachable only through the API.
 - Domains whose spells only later books print offer no Domain Initiate option until those books import.
 - The Foundry export (roadmap) writes no focus entry; Foundry players add their focus spells by hand.
+- A Pathbuilder import compares the export's focus cantrips and focus spells with `characterFocus`. Nothing is placed in
+  a slot, since focus spells come from the features that grant them, but an open choice that gives a listed spell (a
+  mystery, a devotion spell, a domain) is picked. A listed spell the character still lacks is reported with the
+  spell gaps (`no-entry` without a focus entry of its tradition and attribute, otherwise `not-granted`), and the focus
+  pool is compared with Pathbuilder's `focusPoints`. Rituals have no counterpart in the character yet and stay uncarried.

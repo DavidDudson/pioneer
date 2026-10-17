@@ -96,6 +96,7 @@ const CASTING_KEYS: Readonly<Record<string, string>> = {
 export const ARMOR_CLASS = Selector.parse('ac');
 export const MAX_HIT_POINTS = Selector.parse('hp:max');
 export const LAND_SPEED = Selector.parse('speed');
+export const FOCUS_POINTS = Selector.parse('focus-points');
 
 /** The spell DC the engine derived for one of the character's spellcasting entries. */
 export interface PioneerSpellDc {
@@ -113,6 +114,8 @@ export interface PioneerSpellSlots extends CasterHome {
 
 /** What the engine derived for the imported character: totals by statistic, ranks of the statistics ranked, the spell DCs and the spell slots. */
 export interface PioneerValues {
+  /** The Focus Points the engine's focus spells give the pool (ADR-0050); undefined when the character has no focus entry. */
+  readonly focusPoints: number | undefined;
   readonly spellSlots: readonly PioneerSpellSlots[];
   readonly totals: ReadonlyMap<Selector, number>;
   readonly ranks: ReadonlyMap<Selector, Proficiency>;
@@ -154,6 +157,9 @@ function reportedTotals(value: PathbuilderImport): Map<Selector, number> {
   }
   if (attributes?.speed !== undefined) {
     totals.set(LAND_SPEED, attributes.speed + (attributes.speedBonus ?? 0));
+  }
+  if (value.reported.focusPoints !== undefined) {
+    totals.set(FOCUS_POINTS, value.reported.focusPoints);
   }
   return totals;
 }
@@ -212,10 +218,15 @@ function spellSlotPairs(value: PathbuilderImport, { spellSlots }: PioneerValues)
   });
 }
 
+/** The engine's number for `selector`: a derived statistic's total, or the focus pool. */
+function totalOf(values: PioneerValues, selector: Selector): number | undefined {
+  return selector === FOCUS_POINTS ? values.focusPoints : values.totals.get(selector);
+}
+
 function totalDifferences(value: PathbuilderImport, values: PioneerValues): [number, TotalDiscrepancy[]] {
   const compared: Pair[] = [
     ...[...reportedTotals(value)].flatMap(([selector, pathbuilder]): Pair[] => {
-      const pioneer = values.totals.get(selector);
+      const pioneer = totalOf(values, selector);
       return pioneer === undefined ? [] : [{ selector, pathbuilder, pioneer }];
     }),
     ...spellDcPairs(value, values),
