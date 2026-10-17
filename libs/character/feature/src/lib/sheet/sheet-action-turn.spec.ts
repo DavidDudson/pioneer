@@ -1,4 +1,4 @@
-import { SpendCount, SpendKind, TurnPhase, TurnStateSchema } from '@pioneer/character/domain';
+import { QuickenedAction, SpendCount, SpendKind, TurnPhase, TurnStateSchema } from '@pioneer/character/domain';
 import type { ActionCostRange, SpendCost, TurnState } from '@pioneer/character/domain';
 import { ActionCost } from '@pioneer/rules/sdk';
 import { describe, expect, it } from 'vitest';
@@ -6,6 +6,7 @@ import { describe, expect, it } from 'vitest';
 import { offTurnWithoutTrigger, TurnReasonMessage, turnReason } from './sheet-action-turn';
 
 const TWO_ACTIONS: SpendCost = { kind: SpendKind.Actions, count: SpendCount.parse(2) };
+const THREE_ACTIONS: SpendCost = { kind: SpendKind.Actions, count: SpendCount.parse(3) };
 const REACTION: SpendCost = { kind: SpendKind.Reaction };
 const FREE: SpendCost = { kind: SpendKind.Free };
 
@@ -22,6 +23,14 @@ describe(turnReason, () => {
     expect(turnReason(turn(TurnPhase.Turn, 1), TWO_ACTIONS)).toStrictEqual({
       key: TurnReasonMessage.TooFewActions,
       params: { count: 2, left: 1 },
+    });
+  });
+
+  it('counts an unrestricted quickened action among those left', () => {
+    const quickened = turn(TurnPhase.Turn, 0, { quickened: QuickenedAction.parse(1) });
+    expect(turnReason(quickened, THREE_ACTIONS)).toStrictEqual({
+      key: TurnReasonMessage.TooFewActions,
+      params: { count: 3, left: 1 },
     });
   });
 

@@ -34,6 +34,11 @@ export function turnReason(turn: TurnState | undefined, fewest: SpendCost | unde
     return message(TurnReasonMessage.OffTurn);
   }
   return fewest.kind === SpendKind.Actions
-    ? message(TurnReasonMessage.TooFewActions, { count: fewest.count, left: turn.actions })
+    ? message(TurnReasonMessage.TooFewActions, { count: fewest.count, left: actionsLeft(turn) })
     : undefined;
+}
+
+/** The actions that can pay an ordinary cost: those left, and the quickened one when it carries no restriction. */
+function actionsLeft({ actions, quickened, quickenedFor }: TurnState): number {
+  return actions + (quickened > 0 && quickenedFor === undefined ? 1 : 0);
 }
