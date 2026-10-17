@@ -6,7 +6,7 @@ import { Size } from '../size';
 
 /** Longest list most arbitraries generate. */
 export const LIST_MAX = 3;
-export const SMALLINT_MAX = 32_767;
+const SMALLINT_MAX = 32_767;
 const SLUG_WORDS_MAX = 3;
 
 const word: Arbitrary<string> = stringMatching(/^[a-z\d]{1,6}$/u);

@@ -15,7 +15,7 @@ import {
 import type { Arbitrary } from 'fast-check';
 
 import { ActionCategory, FrequencyPeriod, UP_TO_MAX } from '../action';
-import { Attribute, ATTRIBUTE_MODIFIER_MAX, ATTRIBUTE_MODIFIER_MIN } from '../attribute';
+import { Attribute } from '../attribute';
 import { ConditionGroup } from '../condition';
 import { contentId, entrySlug, PackId, Slug } from '../content-id';
 import { ContentKind } from '../content-kind';
@@ -23,10 +23,8 @@ import { DisplayCategory, Rarity } from '../entry-fields';
 import { FeatCategory, UNLIMITED } from '../feat';
 import type { RegisteredKind } from '../kind-data';
 import { ActionCost } from '../rich-text';
-import { SenseAcuity } from '../sense';
-import { StatisticKind } from '../statistic';
 import { CONTENT_LEVEL_MAX, LEVEL_MAX, LEVEL_MIN } from '../units';
-import { actorFormulaText, keyPathText, predicateJson, skillSelectorText, withTrigger } from './arbitraries';
+import { predicateJson, skillSelectorText, withTrigger } from './arbitraries';
 import {
   ancestryData,
   archetypeData,
@@ -35,68 +33,23 @@ import {
   deityOrPhilosophyData,
   heritageData,
 } from './build-kind-arbitraries';
+import { creatureData } from './creature-arbitraries';
 import { EQUIPMENT_KIND_ARBITRARIES } from './equipment-kind-arbitraries';
-import {
-  contentIdJson,
-  damageType,
-  LIST_MAX,
-  positive,
-  size,
-  SMALLINT_MAX,
-  slugText,
-  smallint,
-  withOptional,
-} from './json-arbitraries';
+import { contentIdJson, LIST_MAX, positive, slugText, withOptional } from './json-arbitraries';
 import { effectData, ritualData, spellcastingTraditionData, spellData } from './magic-kind-arbitraries';
 import { richTextJson } from './rich-text-arbitraries';
 import { ruleElementJson } from './rule-element-arbitraries';
+import { senseData, statisticData } from './rules-core-kind-arbitraries';
 
 const AON_ID_MAX = 99_999;
 
 const contentText: Arbitrary<string> = stringMatching(/^[A-Za-z][A-Za-z ]{0,19}$/u);
-const modifier: Arbitrary<number> = integer({ min: -SMALLINT_MAX, max: SMALLINT_MAX });
 const aonUrl: Arbitrary<string> = integer({ min: 1, max: AON_ID_MAX }).map(
   (id) => `https://2e.aonprd.com/Feats.aspx?ID=${id}`,
 );
 
 const rarity: Arbitrary<string> = constantFrom(...Object.values(Rarity));
 const displayCategory: Arbitrary<string> = constantFrom(...Object.values(DisplayCategory));
-const statisticKind: Arbitrary<string> = constantFrom(...Object.values(StatisticKind));
-const attribute: Arbitrary<string> = constantFrom(...Object.values(Attribute));
-
-const attributeModifier: Arbitrary<number> = integer({ min: ATTRIBUTE_MODIFIER_MIN, max: ATTRIBUTE_MODIFIER_MAX });
-const adjustments: Arbitrary<object[]> = array(record({ type: damageType, value: positive }), { maxLength: LIST_MAX });
-
-const creatureData: Arbitrary<object> = record({
-  size,
-  perception: modifier,
-  attributes: record({
-    str: attributeModifier,
-    dex: attributeModifier,
-    con: attributeModifier,
-    int: attributeModifier,
-    wis: attributeModifier,
-    cha: attributeModifier,
-  }),
-  armorClass: smallint,
-  saves: record({ fortitude: modifier, reflex: modifier, will: modifier }),
-  hitPoints: smallint,
-  immunities: array(slugText, { maxLength: LIST_MAX }),
-  weaknesses: adjustments,
-  resistances: adjustments,
-  speed: smallint,
-});
-
-const statisticData: Arbitrary<object> = withOptional(
-  record({
-    selector: keyPathText,
-    domains: array(keyPathText, { maxLength: LIST_MAX }),
-    base: actorFormulaText,
-    kind: statisticKind,
-  }),
-  { keyAttribute: attribute },
-);
-
 const actionUse = {
   category: constantFrom(...Object.values(ActionCategory)),
   requirementsText: richTextJson,
@@ -150,11 +103,6 @@ const conditionData: Arbitrary<object> = withOptional(
   record({ valued: boolean(), overrides: conditionRefs, implies: conditionRefs, recovery: constant({}) }),
   { group: constantFrom(...Object.values(ConditionGroup)) },
 );
-
-const senseData: Arbitrary<object> = withOptional(constant({}), {
-  acuity: constantFrom(...Object.values(SenseAcuity)),
-  unlimitedRange: boolean(),
-});
 
 const contentKind: Arbitrary<string> = constantFrom(...Object.values(ContentKind));
 const traitData: Arbitrary<object> = record({ appliesTo: uniqueArray(contentKind, { maxLength: LIST_MAX }) });

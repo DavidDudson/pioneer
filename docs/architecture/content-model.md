@@ -45,7 +45,7 @@ turns them into the definitions it holds today and wraps each in `PackEntry`.
 | Magic      | `spell` (incl. focus spells and cantrips), `ritual`, `spellcasting-tradition`                                    |
 | Equipment  | `weapon`, `armor`, `shield`, `equipment`, `consumable`, `rune`, `treasure`, `kit`                                |
 | Play       | `effect` (spell and feat effects, GM effects)                                                                    |
-| Bestiary   | `creature`, `hazard` (later milestone)                                                                           |
+| Bestiary   | `creature` (see [Creatures](#creatures)), `hazard` (later milestone)                                             |
 
 Class progression (features by level, feat slots, skill increases, boosts) is data on the `class` entry, expressed
 as `GrantItem` and slot-granting rule elements keyed by level, and its skill increase levels. The builder's feat and
@@ -290,6 +290,32 @@ invested or identified is play state, not content.
   a staff whose list is not typed yet, listed by the coverage report.
 - **Kits.** `items` are `ContentId`s with a `quantity`, and a container in a kit lists its `contents` the same
   way. A kit has no level or Bulk; a class kit carries its class's trait.
+
+### Creatures
+
+A `creature` entry holds a full stat block in `data` (`CreatureData`, `libs/rules/sdk/src/creature.ts`); its level,
+rarity and traits are the envelope's. The core numbers are required: `size`, `perception`, `attributes`,
+`armorClass`, `saves`, `hitPoints`, the three IWR lists and the land `speed`. The rest is optional, so an entry
+written with only the core numbers still validates (`creature-stat-block.ts`):
+
+- **`skills`**: a `skill` slug (`stealth`, `warfare-lore`), its printed `modifier` and an optional `note`.
+- **`senses`**: a `sense` slug, its `acuity` (precise, imprecise, vague) and `range` in feet.
+- **`languages`** and **`conditions`**: slugs, unique. `conditions` are those the creature starts a fight with.
+- **`speeds`**: the other kinds of movement (`burrow`, `climb`, `fly`, `swim`), each with its `speed`.
+- **`strikes`**: a `name`, melee or ranged, the printed attack `bonus`, a list of `damage` parts (dice, die, flat
+  `bonus`, type, persistent), `traits`, a melee `reach` or ranged `increment`, and `effects` prose ("plus Grab").
+  The bonus is printed because a creature has no proficiencies to derive it from.
+- **`abilities`**: passive traits, actions, reactions and free actions. An ability is an inline structure, not an
+  `action` entry: it belongs to one stat block, and has no entry of its own to link to or search. It has a
+  `name`, `traits`, a `description`, `rules`, and optionally a `cost`, `trigger`, `requirements` and `frequency`
+  (those of `action`, whose glyphs and frequencies it reuses). A reaction needs a trigger. The same structure
+  serves hazards when they arrive.
+- **`spellcasting`**: a named entry with a `tradition`, a `preparation` (prepared, spontaneous, innate, focus: the
+  vocabulary of ADR-0040, ADR-0041 and ADR-0050), the printed `dc` and `attack`, and its `spells`: each a spell
+  `ContentId` at a `rank` (a cantrip is rank 1, as in the spell kind), with `uses` per day when innate, or
+  `constant`.
+- **`items`**: carried equipment, by `ContentId` and `quantity`.
+- **`recallKnowledge`**: the line that says what a check reveals, as rich text.
 
 ### Rich text
 
