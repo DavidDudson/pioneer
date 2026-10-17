@@ -463,8 +463,9 @@ version 3, #472). `inventory.coins` holds platinum, gold, silver and copper, eac
   (`armorWorn`) and a two-handed item in one hand (`needsTwoHands`). The limits (hands, invested, property runes per
   grade, lines) are `RuleLimits`, the core rules' unless a table sets its own, and `inventoryViolations` derives the
   rules an inventory breaks on every read ([ADR-0064](../adr/0064-rule-limits-are-table-data.md)).
-  A character in a campaign is held to the campaign's limits (`GET /characters/:id/rule-limits`, owner only); one outside
-  a campaign is held to the core rules'. In-app edits are checked against `storableLimits`: the table's limits clamped
+  A character in a campaign is held to the campaign's limits and one outside a campaign to its own, else the core rules'
+  (`GET /characters/:id/rule-limits`, owner only; the owner sets their own through
+  `/characters/:id/rule-limit-settings`). In-app edits are checked against `storableLimits`: the table's limits clamped
   to the core numbers, since the schema stores the player's lines up to those only.
 - **Investing.** `investItem { id, invested }` invests an item with the `invested` trait, or armour with runes
   (`notInvestable` otherwise), while it is worn or held as it is used (`investNotWorn`), at most 10

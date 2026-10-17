@@ -5,11 +5,11 @@ import { RuleLimitKey, RuleLimitValue } from '@pioneer/campaign/domain';
 import type { CampaignId, CampaignMemberId } from '@pioneer/campaign/domain';
 import { CampaignBuilder } from '@pioneer/campaign/domain/testing';
 import { DrizzleCampaignRepository, DrizzleCampaignRuleLimitRepository } from '@pioneer/campaign/infrastructure';
-import { CharacterRuleLimits } from '@pioneer/character/application';
+import { CharacterRuleLimitService } from '@pioneer/character/application';
 import { CharacterCommand, CORE_RULE_LIMITS, InvestedCount } from '@pioneer/character/domain';
 import type { Character, CharacterId } from '@pioneer/character/domain';
 import { CharacterBuilder } from '@pioneer/character/domain/testing';
-import { DrizzleCharacterRepository } from '@pioneer/character/infrastructure';
+import { DrizzleCharacterRepository, DrizzleCharacterRuleLimitRepository } from '@pioneer/character/infrastructure';
 import { fixedClock, newId, UserId } from '@pioneer/shared/kernel';
 import { createTestDatabase, QueryRecorder, testDatabaseUrl, unindexedQueries } from '@pioneer/shared/server/testing';
 import type { TestDatabase } from '@pioneer/shared/server/testing';
@@ -30,7 +30,7 @@ describe.skipIf(adminUrl === undefined)('campaign table limits over postgres', (
   let database: TestDatabase;
   let repository: DrizzleCampaignRuleLimitRepository;
   let service: CampaignRuleLimitService;
-  let limits: CharacterRuleLimits;
+  let limits: CharacterRuleLimitService;
   let kyra: Character;
   let kyraId: CharacterId;
   let campaignId: CampaignId;
@@ -70,7 +70,14 @@ describe.skipIf(adminUrl === undefined)('campaign table limits over postgres', (
 
     repository = new DrizzleCampaignRuleLimitRepository(database.db);
     service = new CampaignRuleLimitService({ campaigns, limits: repository }, clock);
-    limits = new CharacterRuleLimits(new CampaignPackDirectory(database.db));
+    limits = new CharacterRuleLimitService(
+      {
+        characters,
+        limits: new DrizzleCharacterRuleLimitRepository(database.db),
+        campaigns: new CampaignPackDirectory(database.db),
+      },
+      clock,
+    );
   });
 
   beforeEach(async () => {

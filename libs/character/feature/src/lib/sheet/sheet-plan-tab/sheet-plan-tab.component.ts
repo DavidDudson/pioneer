@@ -62,8 +62,8 @@ import { SheetPickFields } from '../sheet-pick-fields/sheet-pick-fields.componen
 import { SHEET_SECTIONS, SHEET_TAB_SECTIONS } from '../sheet-sections';
 import { SheetState } from '../sheet-state';
 import { rememberTab } from '../sheet-tab';
+import { SheetTableRules } from '../sheet-table-rules/sheet-table-rules.component';
 import { SheetUnenabledContent } from '../sheet-unenabled-content/sheet-unenabled-content.component';
-import { SheetVariantRules } from '../sheet-variant-rules/sheet-variant-rules.component';
 
 /** Focuses an inline field by its read view's button, which scrolls it into view. */
 function focusField(field: ElementRef<HTMLElement>): void {
@@ -102,7 +102,7 @@ function focusField(field: ElementRef<HTMLElement>): void {
     SheetFeats,
     SheetLevelPlan,
     SheetPacks,
-    SheetVariantRules,
+    SheetTableRules,
     SheetPickFields,
     SheetUnenabledContent,
     Stack,

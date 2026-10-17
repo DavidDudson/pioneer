@@ -1,0 +1,21 @@
+<fr-async-region [errorMessage]="'character.ruleLimits.loadError' | transloco">
+  <ng-template frAsyncPending>
+    <fr-stack gap="sm">
+      @for (placeholder of placeholders; track placeholder) {
+        <fr-skeleton width="md" />
+      }
+    </fr-stack>
+  </ng-template>
+  <ng-template let-rules [frAsyncData]="store.settings">
+    <fr-stack gap="md">
+      @if (rules.campaign; as campaign) {
+        <fr-message tone="info">{{ 'character.ruleLimits.campaignDecides' | transloco: { campaign } }}</fr-message>
+      }
+      <fr-list gap="sm">
+        @for (setting of rules.limits; track setting.limit) {
+          <pio-sheet-rule-limit-row [setting]="setting" [manageable]="rules.manageable" />
+        }
+      </fr-list>
+    </fr-stack>
+  </ng-template>
+</fr-async-region>

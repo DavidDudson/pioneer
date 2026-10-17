@@ -409,6 +409,7 @@
     },
     "packsHeading": "Content packs",
     "variantRulesHeading": "Variant rules",
+    "ruleLimitsHeading": "Table limits",
     "roll": {
       "heading": "{name} check",
       "breakdown": "Breakdown",
@@ -674,6 +675,21 @@
     "packs": "Packs:",
     "items": "Items:",
     "entry": "{name} ({pack})"
+  },
+  "ruleLimits": {
+    "loadError": "Could not load the table limits.",
+    "campaignDecides": "{campaign} decides the table limits this character is held to. Leave the campaign to set your own.",
+    "investedMax": "Items invested",
+    "handsMax": "Hands to hold things in",
+    "propertyRunesPerGrade": "Property runes per potency rune grade",
+    "itemsMax": "Lines in an inventory",
+    "core": "Core rules: {value}",
+    "changed": "Changed",
+    "reset": "Reset",
+    "resetting": "Resetting",
+    "resetDone": "Reset",
+    "changeFailed": "Could not change the limit. Try again.",
+    "ceilingRefusal": "At most {maximum}."
   },
   "variantRules": {
     "loadError": "Could not load the variant rules.",
