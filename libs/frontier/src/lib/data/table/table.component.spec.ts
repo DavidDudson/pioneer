@@ -171,6 +171,18 @@ describe(Table, () => {
     expect(names(rendered.host)).toStrictEqual(['Valeros', 'Kyra', 'Merisiel']);
   });
 
+  it('reports the sort a press makes through the sort model', async () => {
+    const rendered = await render();
+    await sortByName(rendered, 2);
+    expect(rendered.fixture.componentInstance.sorting()).toStrictEqual([{ column: 'name', descending: true }]);
+  });
+
+  it('shows the sort it is given', async () => {
+    const rendered = await render({ sorting: [{ column: 'name', descending: true }] });
+    expect(nameHeader(rendered.host).getAttribute('aria-sort')).toBe('descending');
+    expect(names(rendered.host)).toStrictEqual(['Valeros', 'Merisiel', 'Kyra']);
+  });
+
   it('keeps a sort when data changes', async () => {
     const rendered = await render();
     await sortByName(rendered);

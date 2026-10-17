@@ -3,11 +3,13 @@ import { FlexRender, injectTable } from '@tanstack/angular-table';
 import type { RowData } from '@tanstack/angular-table';
 import { cva } from 'class-variance-authority';
 
+import type { TableViewSort } from '../table-view/table-view.types';
 import { ColumnChooser } from './column-chooser/column-chooser.component';
 import type { ColumnChoice, ColumnToggle } from './column-chooser/column-chooser.component';
 import { TableHeaderCell } from './header-cell/header-cell.component';
 import { TABLE_FEATURES } from './table-features';
 import type { TableColumn, TableFeatureSet, TableHeader } from './table-features';
+import { sortAfter, toSortingState } from './table-sort';
 
 const ARIA_SORT = { asc: 'ascending', desc: 'descending' } as const;
 
@@ -62,7 +64,8 @@ function sameIds(left: readonly string[], right: readonly string[]): boolean {
  *
  * Columns the schema marks `hideable` (or `defaultHidden`) can be shown and hidden from a *Columns* panel above
  * the table. `[(columnVisibility)]` is the ids of the hidden columns; it stays `undefined` until the user changes
- * it, which means each column's `defaultHidden`. At least one column always stays visible.
+ * it, which means each column's `defaultHidden`. At least one column always stays visible. `[(sorting)]` is the sorted
+ * columns, so a page can keep them in its URL (see `injectTableView`).
  */
 @Component({
   selector: 'fr-table',
@@ -80,6 +83,8 @@ export class Table<TData extends RowData> {
   public readonly rowId = input<((row: TData) => string) | undefined>(undefined);
   /** Ids of the hidden columns; `undefined` is each column's `defaultHidden`. */
   public readonly columnVisibility = model<readonly string[] | undefined>(undefined);
+  /** The sorted columns, first wins; pressing a header changes it. Empty is the order of `data`. */
+  public readonly sorting = model<readonly TableViewSort[]>([]);
 
   /** Every column, with what the *Columns* control needs of it. Read from the definitions, before the table exists. */
   private readonly known = computed(() => this.columns().flatMap((column) => describe(column)));
@@ -103,7 +108,13 @@ export class Table<TData extends RowData> {
       features: TABLE_FEATURES,
       columns: [...this.columns()],
       data: [...this.data()],
-      state: { columnVisibility: Object.fromEntries(this.hidden().map((id) => [id, false])) },
+      state: {
+        columnVisibility: Object.fromEntries(this.hidden().map((id) => [id, false])),
+        sorting: toSortingState(this.sorting()),
+      },
+      onSortingChange: (updater): void => {
+        this.sorting.set(sortAfter(this.sorting(), updater));
+      },
       ...(rowId === undefined ? {} : { getRowId: rowId }),
     };
   });

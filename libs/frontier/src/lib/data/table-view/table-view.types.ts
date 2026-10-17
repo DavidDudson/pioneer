@@ -24,9 +24,9 @@ export interface TableViewSort {
  * encodes to nothing.
  */
 export interface TableView {
-  readonly sort?: readonly TableViewSort[];
+  readonly sort?: readonly TableViewSort[] | undefined;
   /** The ids of the hidden columns, as `fr-table`'s `columnVisibility`. */
-  readonly hidden?: readonly string[];
+  readonly hidden?: readonly string[] | undefined;
   readonly pageSize?: number | undefined;
   readonly search?: string | undefined;
   /** The facet filter state, already written by the page's facet codec: the `f` segment is opaque here. */

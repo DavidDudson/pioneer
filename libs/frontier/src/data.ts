@@ -20,6 +20,12 @@ export {
   type TextColumn,
 } from './lib/data/table/table-schema';
 export { decodeTableView, encodeTableView, TYPICAL_VIEW_LENGTH } from './lib/data/table-view/table-view';
+export {
+  injectTableView,
+  type FacetTextCodec,
+  type TableViewOptions,
+  type TableViewState,
+} from './lib/data/table-view/table-view-state';
 export { tableViewColumns } from './lib/data/table-view/table-view-schema';
 export type {
   TableView,
