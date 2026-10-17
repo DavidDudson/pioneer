@@ -1,0 +1,8 @@
+<fr-stack gap="sm">
+  @for (passage of passages(); track passage.label) {
+    <fr-stack gap="2xs">
+      <fr-text weight="medium">{{ passage.label }}</fr-text>
+      <pio-rich-text [text]="passage.text" [headingLevel]="headingLevel()" />
+    </fr-stack>
+  }
+</fr-stack>

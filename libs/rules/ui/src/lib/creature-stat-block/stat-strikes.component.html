@@ -1,0 +1,16 @@
+<fr-stack gap="2xs">
+  @for (strike of strikes(); track strike.summary) {
+    <fr-stack gap="2xs">
+      <fr-text element="p">
+        <fr-text weight="medium">{{ strike.summary }}</fr-text>
+        {{ strike.traitsText }}
+      </fr-text>
+      @if (strike.damage; as damage) {
+        <pio-stat-lines [lines]="[damage]" />
+      }
+      @if (strike.effects; as effects) {
+        <pio-rich-text [text]="effects" [headingLevel]="headingLevel()" />
+      }
+    </fr-stack>
+  }
+</fr-stack>

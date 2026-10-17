@@ -1,0 +1,23 @@
+<fr-stack gap="sm">
+  @for (ability of abilities(); track ability.name) {
+    <fr-stack gap="2xs">
+      <fr-stack gap="2xs" direction="horizontal" align="center" wrap>
+        <fr-text weight="medium">{{ ability.name }}</fr-text>
+        @if (ability.cost; as cost) {
+          <fr-text [attr.aria-label]="actionCosts[cost].label | transloco">{{
+            actionCosts[cost].glyph | transloco
+          }}</fr-text>
+        }
+        @for (trait of ability.traits; track trait) {
+          <fr-badge>{{ trait }}</fr-badge>
+        }
+      </fr-stack>
+      <pio-stat-lines [lines]="ability.lines" />
+      @for (passage of ability.passages; track passage.label) {
+        <fr-text weight="medium">{{ passage.label }}</fr-text>
+        <pio-rich-text [text]="passage.text" [headingLevel]="headingLevel()" />
+      }
+      <pio-rich-text [text]="ability.description" [headingLevel]="headingLevel()" />
+    </fr-stack>
+  }
+</fr-stack>
