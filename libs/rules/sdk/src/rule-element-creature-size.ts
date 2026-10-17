@@ -29,3 +29,5 @@ export const CreatureSizeElement = z.strictObject({
   ...ruleElementBase,
 });
 export type CreatureSizeElement = z.infer<typeof CreatureSizeElement>;
+
+export { BattleFormElement } from './rule-element-battle-form';

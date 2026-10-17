@@ -38,10 +38,16 @@ describe(checkRulesJson, () => {
 
 describe('checkRulesJson for rule elements', () => {
   it('names an unknown element key', () => {
-    expect(checkRulesJson(RulesSchema.RuleElement, '{ "key": "BattleForm", "value": 10 }')).toStrictEqual({
+    expect(checkRulesJson(RulesSchema.RuleElement, '{ "key": "Teleport", "value": 10 }')).toStrictEqual({
       status: CheckStatus.Invalid,
-      issues: [{ path: ['key'], message: message(RulesMessage.UnknownElement, { key: 'BattleForm' }) }],
+      issues: [{ path: ['key'], message: message(RulesMessage.UnknownElement, { key: 'Teleport' }) }],
     });
+  });
+
+  it('accepts a battle form', () => {
+    const json =
+      '{ "key": "BattleForm", "form": { "size": "large", "speeds": { "fly": 30 } }, "brackets": [{ "start": 4, "tempHP": 5 }] }';
+    expect(checkRulesJson(RulesSchema.RuleElement, json).status).toBe(CheckStatus.Valid);
   });
 
   it('points into a nested field', () => {

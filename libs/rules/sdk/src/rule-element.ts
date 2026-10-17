@@ -6,7 +6,7 @@ import { RulesMessage } from './messages';
 import { ActorTraitsElement } from './rule-element-actor-traits';
 import { AuraElement } from './rule-element-aura';
 import { RuleElementKey } from './rule-element-base';
-import { CreatureSizeElement } from './rule-element-creature-size';
+import { BattleFormElement, CreatureSizeElement } from './rule-element-creature-size';
 import { DamageAlterationElement, DamageDiceElement } from './rule-element-damage';
 import { ImmunityElement, ResistanceElement, WeaknessElement } from './rule-element-defences';
 import { FastHealingElement, TempHPElement } from './rule-element-healing';
@@ -78,6 +78,7 @@ const Element = z.discriminatedUnion('key', [
   FastHealingElement,
   TempHPElement,
   CreatureSizeElement,
+  BattleFormElement,
   AdjustDegreeOfSuccessElement,
   RollTwiceElement,
   SubstituteRollElement,

@@ -174,7 +174,7 @@ const SIZES: ReadonlyMap<string, string> = new Map([
 ]);
 
 /** A size field of Foundry's: a code in Pioneer's name, a number of steps as it is, any other (a pick) as it is. */
-function sizeOf(size: unknown): unknown {
+export function sizeOf(size: unknown): unknown {
   return typeof size === 'string' ? (SIZES.get(size) ?? size) : size;
 }
 

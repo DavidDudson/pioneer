@@ -366,6 +366,7 @@ export { ActorTraitsElement } from './rule-element-actor-traits';
 export { AdjustStrikeElement, StrikeElement, StrikeProperty } from './rule-element-strike';
 export { NoteElement } from './rule-element-note';
 export { FastHealingElement, FastHealingType, TempHPElement } from './rule-element-healing';
+export { BattleFormBracket, BattleFormElement, FormMovement } from './rule-element-battle-form';
 export { CreatureSizeElement, SizeSteps } from './rule-element-creature-size';
 export { AuraAffects, AuraElement, AuraEvent } from './rule-element-aura';
 export {
