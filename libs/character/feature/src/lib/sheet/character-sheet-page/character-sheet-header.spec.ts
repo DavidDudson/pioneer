@@ -96,6 +96,7 @@ describe('CharacterSheetPage header', () => {
         'TTrained',
         'EExpert',
         'TTrained',
+        'TTrained',
       ]);
     });
     // The item fixtures name their entries after their slugs.
