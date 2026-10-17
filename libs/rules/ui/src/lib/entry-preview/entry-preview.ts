@@ -1,7 +1,7 @@
 import { InjectionToken } from '@angular/core';
 import type { Provider } from '@angular/core';
 import type { LinkTarget } from '@pioneer/frontier';
-import type { BreakdownLine } from '@pioneer/rules/engine';
+import type { EffectLine } from '@pioneer/rules/engine';
 import { slugName } from '@pioneer/rules/sdk';
 import type {
   ConditionValue,
@@ -16,11 +16,11 @@ import type {
 
 import type { StatBlockCreature } from '../creature-stat-block/creature-stat-block';
 
-/** One line an entry adds to a statistic of the character the preview is for. */
+/** One effect an entry has on the character the preview is for, as the engine summarises it. */
 export interface PreviewEffect {
-  /** The statistic's name ("Perception"). */
-  readonly statistic: string;
-  readonly line: BreakdownLine;
+  /** The name of the statistic the line changes ("Perception"); undefined for a line that changes none (a sense). */
+  readonly statistic: string | undefined;
+  readonly line: EffectLine;
 }
 
 /** What a preview shows of an entry: enough to recognise it without leaving the page. */
@@ -36,8 +36,8 @@ export interface EntryPreview {
   /** The value of a valued condition the character has (frightened 2), shown beside the name. */
   readonly value?: ConditionValue;
   /**
-   * The lines the entry adds to the character's statistics, with its value applied. Absent when the preview is not
-   * for an entry the character has; empty when it changes nothing.
+   * What the entry would do to the character, or is doing, with its value applied. Absent when the preview is not
+   * for a character (the public browser); empty when it changes nothing.
    */
   readonly effects?: readonly PreviewEffect[];
   /** A creature's stat block, shown in place of the generic card. */

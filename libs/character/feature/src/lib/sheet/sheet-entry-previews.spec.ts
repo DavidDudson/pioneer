@@ -93,7 +93,7 @@ function fetching(
   // The registry came from a module of its own; the loader here is a fake.
   TestBed.resetTestingModule();
   TestBed.configureTestingModule({ providers: [{ provide: ContentLoader, useValue: { registry } }] });
-  return TestBed.runInInjectionContext(() => sheetFetchingPreviews(held));
+  return TestBed.runInInjectionContext(() => sheetFetchingPreviews(held, () => undefined));
 }
 function firstFeat(registry: ContentRegistry): ContentId {
   const feat = registry.packs.flatMap((pack) => pack.otherEntries).find((entry) => entry.kind === ContentKind.Feat);

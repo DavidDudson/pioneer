@@ -1,9 +1,10 @@
 import type { TranslocoService } from '@jsverse/transloco';
 import type { LocaleFormat } from '@pioneer/frontier';
 import type { BreakdownLine, ModifierLabel } from '@pioneer/rules/engine';
+import type { FormulaValue } from '@pioneer/rules/formula';
 import type { SummaryFormat } from '@pioneer/rules/predicate';
 import { OriginHopKind } from '@pioneer/rules/sdk';
-import type { ContentId, InventoryItemId, Origin } from '@pioneer/rules/sdk';
+import type { ContentId, InventoryItemId, ModifierType, Origin } from '@pioneer/rules/sdk';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { BreakdownMessage, MODIFIER_TYPE_MESSAGES } from './breakdown-messages';
@@ -55,7 +56,22 @@ export function labelName(
 
 /** "+1 status": a modifier line's signed value and its type; just the type for a failed line, which has no value. */
 export function lineValue({ modifier, value }: BreakdownLine, i18n: TranslocoService, format: LocaleFormat): string {
-  const type: string = i18n.translate(MODIFIER_TYPE_MESSAGES[modifier.type]);
+  return modifierValue({ type: modifier.type, value }, i18n, format);
+}
+
+/** What a modifier is worded from: its type and its value, if it has one. */
+interface ModifierWords {
+  readonly type: ModifierType;
+  readonly value: FormulaValue | undefined;
+}
+
+/** "+1 status": a signed value and the type of the modifier it belongs to; just the type when there is no value. */
+export function modifierValue(
+  { type: modifierType, value }: ModifierWords,
+  i18n: TranslocoService,
+  format: LocaleFormat,
+): string {
+  const type: string = i18n.translate(MODIFIER_TYPE_MESSAGES[modifierType]);
   const text: string = i18n.translate(BreakdownMessage.LineValue, {
     hasValue: value === undefined ? 'no' : 'yes',
     value: value === undefined ? '' : format.number(value, SIGNED),

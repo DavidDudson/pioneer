@@ -85,7 +85,7 @@ export class SheetState {
   public readonly conditionPreviews: EntryPreviews = sheetConditionPreviews(this.#engineRegistry, this.character);
 
   /** The previews for the names of the character's actions, Strikes and effects, fetched when the registry lacks one. */
-  public readonly previews: EntryPreviews = sheetFetchingPreviews(this.#engineRegistry);
+  public readonly previews: EntryPreviews = sheetFetchingPreviews(this.#engineRegistry, this.character);
 
   readonly #claims = signal<SituationClaims>(NO_CLAIMS);
 

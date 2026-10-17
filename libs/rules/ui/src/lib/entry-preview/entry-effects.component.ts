@@ -2,13 +2,17 @@ import { ChangeDetectionStrategy, Component, computed, inject, input } from '@an
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { List, ListItem, LocaleFormat, Stack, Text } from '@pioneer/frontier';
-import { LineStatusKind } from '@pioneer/rules/engine';
+import { EffectChange, EffectStatusKind } from '@pioneer/rules/engine';
+import type { DamageAdjustmentEffect, EffectStatus, ImmunityEffect } from '@pioneer/rules/engine';
+import { DamageGroupSchema, DamageTypeSchema } from '@pioneer/rules/sdk';
+import type { DamageAdjustmentTarget } from '@pioneer/rules/sdk';
 import { filter, merge } from 'rxjs';
 
-import { LINE_STATUS_MESSAGES } from '../breakdown/breakdown-messages';
-import { lineValue } from '../breakdown/line-words';
+import { modifierValue } from '../breakdown/line-words';
+import { DAMAGE_GROUP_MESSAGES, DefencesMessage } from '../defences/defences-messages';
+import { DAMAGE_TYPE_MESSAGES } from '../rich-text/rich-text-messages';
 import type { PreviewEffect } from './entry-preview';
-import { EntryPreviewMessage } from './entry-preview-messages';
+import { EFFECT_STATUS_MESSAGES, EntryPreviewMessage } from './entry-preview-messages';
 
 /**
  * The lines an entry adds to a character's statistics, worded ("Perception -2 status"), or that it adds none. A line
@@ -42,11 +46,68 @@ export class EntryEffectsView {
 
   /** "Perception -2 status", with the reason it doesn't count when it doesn't. */
   #effect({ statistic, line }: PreviewEffect): string {
-    const value = lineValue(line, this.#i18n, this.#format);
-    if (line.status.kind === LineStatusKind.Applied) {
-      return this.#i18n.translate(EntryPreviewMessage.Effect, { statistic, value });
+    switch (line.change) {
+      case EffectChange.Bonus:
+      case EffectChange.Penalty: {
+        const value = modifierValue(line, this.#i18n, this.#format);
+        return this.#marked(line.status, EntryPreviewMessage.Effect, { statistic: statistic ?? '', value });
+      }
+      case EffectChange.Set: {
+        const value = line.value === undefined ? '' : this.#format.number(line.value);
+        return this.#marked(line.status, EntryPreviewMessage.EffectSet, { statistic: statistic ?? '', value });
+      }
+      case EffectChange.Weakness:
+      case EffectChange.Resistance:
+      case EffectChange.Immunity: {
+        return this.#defence(line);
+      }
+      case EffectChange.Sense: {
+        return this.#marked(line.status, EntryPreviewMessage.EffectSense, {});
+      }
+      case EffectChange.NotSummarised: {
+        return this.#i18n.translate(EntryPreviewMessage.EffectNotSummarised, { element: line.element });
+      }
+      default: {
+        return line satisfies never;
+      }
     }
-    const status: string = this.#i18n.translate(LINE_STATUS_MESSAGES[line.status.kind]);
-    return this.#i18n.translate(EntryPreviewMessage.EffectMarked, { statistic, value, status });
+  }
+
+  /** "Weakness 5 fire", "Resistance 5 physical", "Immunity fire". */
+  #defence(line: DamageAdjustmentEffect | ImmunityEffect): string {
+    if (line.change === EffectChange.Immunity) {
+      const damageType = DamageTypeSchema.safeParse(line.immunity);
+      const target = damageType.success
+        ? this.#i18n.translate(DAMAGE_TYPE_MESSAGES[damageType.data])
+        : String(line.immunity);
+      return this.#marked(line.status, DefencesMessage.Immunity, { target });
+    }
+    const key = line.change === EffectChange.Weakness ? DefencesMessage.Weakness : DefencesMessage.Resistance;
+    return this.#marked(line.status, key, {
+      hasValue: line.value === undefined ? 'no' : 'yes',
+      value: line.value === undefined ? '' : this.#format.number(line.value),
+      target: this.#target(line.damage),
+      hasExceptions: line.exceptions.length === 0 ? 'no' : 'yes',
+      exceptions: this.#format.list(line.exceptions, 'disjunction'),
+    });
+  }
+
+  /** The line's words, then the status that keeps it from counting when it doesn't. */
+  #marked(status: EffectStatus, key: string, params: Readonly<Record<string, string>>): string {
+    const words: string = this.#i18n.translate(key, params);
+    if (status.kind === EffectStatusKind.Applied) {
+      return words;
+    }
+    const mark: string = this.#i18n.translate(EFFECT_STATUS_MESSAGES[status.kind]);
+    return this.#i18n.translate(EntryPreviewMessage.EffectMarked, { words, status: mark });
+  }
+
+  /** A damage type's name, or a group's; `all` reads as "all damage". */
+  #target(target: DamageAdjustmentTarget): string {
+    const group = DamageGroupSchema.safeParse(target);
+    if (group.success) {
+      return this.#i18n.translate(DAMAGE_GROUP_MESSAGES[group.data]);
+    }
+    return this.#i18n.translate(DAMAGE_TYPE_MESSAGES[DamageTypeSchema.parse(target)]);
   }
 }
