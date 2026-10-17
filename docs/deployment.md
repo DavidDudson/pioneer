@@ -61,6 +61,11 @@ The `Image` workflow (`.github/workflows/image.yml`) runs on every PR and every 
 Each publish from `main` then deploys that `sha-` tag to production (`deploy.yml`, see
 [Production](production.md#deploys)). Deploy a `sha-` tag; `main` moves on every merge.
 
+The AWS Lambda Web Adapter the image copies in is mirrored from public ECR to `ghcr.io/daviddudson/lambda-adapter` by
+the `Mirror adapter` workflow (`.github/workflows/mirror-adapter.yml`), digest for digest, so builds do not depend on
+`public.ecr.aws`. When the pinned version changes, update `SOURCE` and `TARGET` there and the reference in the
+Dockerfile, then run the workflow. The package must be public (or readable by this repository) for local builds.
+
 ## Without Compose
 
 Run the image against any Postgres, either the published one or a local build:

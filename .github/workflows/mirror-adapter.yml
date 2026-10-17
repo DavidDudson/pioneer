@@ -1,0 +1,45 @@
+name: Mirror adapter
+
+# Copies the AWS Lambda Web Adapter (ADR-0015) from public ECR to GHCR, digest for digest, so image builds do not
+# depend on public.ecr.aws. The Dockerfile pulls the GHCR copy. Run it when the pinned version changes.
+# See docs/deployment.md.
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/mirror-adapter.yml
+
+permissions: {}
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
+env:
+  SOURCE: public.ecr.aws/awsguru/aws-lambda-adapter:1.1.0@sha256:17cfd08eff1dfea3f6a9a1e9c65fdac80aa4919b6085e746615530f43f57d2f1
+  TARGET: ghcr.io/daviddudson/lambda-adapter:1.1.0
+
+jobs:
+  mirror:
+    name: Mirror
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      packages: write # push to ghcr.io
+    steps:
+      - uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
+      - uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f # v4.6.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      # Copies the manifest list and every platform's layers without rebuilding, so the digest is unchanged.
+      - name: Copy
+        run: docker buildx imagetools create --tag "$TARGET" "$SOURCE"
+      - name: Verify digest
+        run: |
+          want="${SOURCE##*@}"
+          got=$(docker buildx imagetools inspect "$TARGET" --format '{{json .Manifest.Digest}}' | tr -d '"')
+          test "$got" = "$want" || { echo "digest mismatch: want $want, got $got" >&2; exit 1; }
