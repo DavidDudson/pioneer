@@ -2,12 +2,12 @@ import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { CONFIG_MODULES } from './foundry-config';
-import { FoundryDocument } from './foundry-document';
+import { FoundryActor, FoundryDocument } from './foundry-document';
 import { FoundryJournal } from './foundry-journal';
 import { mergeLang } from './foundry-lang';
 
 /**
- * A foundryvtt/pf2e source archive, read: the documents of its item packs, its journals, and its English lang tables. The CLI
+ * A foundryvtt/pf2e source archive, read: the documents of its item and actor packs, its journals, and its English lang tables. The CLI
  * extracts the files matching `RELEASE_FILES` and passes their text in; this module never touches the archive. The
  * config modules among them are the CLI's to load (`foundry-config.ts`).
  */
@@ -69,6 +69,13 @@ export interface PackDocument {
   readonly document: FoundryDocument;
 }
 
+/** An actor of an actor pack (a creature, a hazard), by the same path. */
+export interface ActorDocument {
+  readonly pack: FoundryPack;
+  readonly path: string;
+  readonly actor: FoundryActor;
+}
+
 /** A journal of a journal pack (the archetypes journal), by the same path. */
 export interface JournalDocument {
   readonly pack: FoundryPack;
@@ -86,6 +93,7 @@ export interface UnreadableDocument {
 export interface FoundryRelease {
   readonly documents: readonly PackDocument[];
   readonly journals: readonly JournalDocument[];
+  readonly actors: readonly ActorDocument[];
   readonly unreadable: readonly UnreadableDocument[];
   readonly lang: FoundryLang;
 }
@@ -114,6 +122,15 @@ function readDocument(pack: FoundryPack, path: string, text: string): PackDocume
   }
 }
 
+function readActor(pack: FoundryPack, path: string, text: string): ActorDocument | UnreadableDocument {
+  try {
+    const actor = FoundryActor.safeParse(JSON.parse(text));
+    return actor.success ? { pack, path, actor: actor.data } : { pack, path, error: z.prettifyError(actor.error) };
+  } catch (error) {
+    return { pack, path, error: String(error) };
+  }
+}
+
 function readJournal(pack: FoundryPack, path: string, text: string): JournalDocument | UnreadableDocument {
   try {
     const journal = FoundryJournal.safeParse(JSON.parse(text));
@@ -126,7 +143,7 @@ function readJournal(pack: FoundryPack, path: string, text: string): JournalDocu
 }
 
 /** Foundry's pack types the importer reads. */
-const PackType = { Item: 'Item', Journal: 'JournalEntry' } as const;
+const PackType = { Item: 'Item', Journal: 'JournalEntry', Actor: 'Actor' } as const;
 type PackType = ValueOf<typeof PackType>;
 
 /** Packs of `type` by source directory. */
@@ -158,27 +175,33 @@ function englishLang(files: ReadonlyMap<string, string>, manifest: Manifest): Fo
 }
 
 /**
- * Reads the item packs, journals and lang table out of an archive's files, keyed by their archive path (top-level
- * directory included). Packs of other document types (actors, macros, tables) are not read.
+ * Reads the item and actor packs, journals and lang table out of an archive's files, keyed by their archive path
+ * (top-level directory included). Packs of other document types (macros, tables) are not read.
  */
 export function readFoundryRelease(archiveFiles: ReadonlyMap<string, string>): FoundryRelease {
   const files = new Map([...archiveFiles].map(([path, text]) => [withoutRoot(path), text]));
   const manifest = Manifest.parse(JSON.parse(required(files, MANIFEST)));
   const items = packsOf(manifest, PackType.Item);
   const journals = packsOf(manifest, PackType.Journal);
+  const actors = packsOf(manifest, PackType.Actor);
   const reads = [...files]
     .toSorted(([left], [right]) => left.localeCompare(right))
-    .flatMap(([path, text]): (PackDocument | JournalDocument | UnreadableDocument)[] => {
+    .flatMap(([path, text]): (PackDocument | JournalDocument | ActorDocument | UnreadableDocument)[] => {
       const itemPack = packOf(items, path);
       const journalPack = packOf(journals, path);
+      const actorPack = packOf(actors, path);
       if (itemPack !== undefined) {
         return [readDocument(itemPack, path, text)];
+      }
+      if (actorPack !== undefined) {
+        return [readActor(actorPack, path, text)];
       }
       return journalPack === undefined ? [] : [readJournal(journalPack, path, text)];
     });
   return {
     documents: reads.filter((read) => 'document' in read),
     journals: reads.filter((read) => 'journal' in read),
+    actors: reads.filter((read) => 'actor' in read),
     unreadable: reads.filter((read) => 'error' in read),
     lang: englishLang(files, manifest),
   };

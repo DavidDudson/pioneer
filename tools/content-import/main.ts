@@ -23,6 +23,7 @@ import {
   packOutput,
   readFoundryRelease,
   RELEASE_FILES,
+  selectCreatures,
   selectEntries,
   sha256,
   SkipReason,
@@ -46,6 +47,7 @@ import { bookRegistry, officialPacks } from '@pioneer/rules/catalog';
 import { BookId, PackId } from '@pioneer/rules/sdk';
 
 import { formatCoverage } from './coverage-table.ts';
+import { formatCreatures } from './creature-report.ts';
 import { loadFoundryConfig } from './foundry-config-loader';
 import type { PackTargets } from './pack-writes.ts';
 import { applyRules, committedEntries, previousImport, writeChecks, writeOutput } from './write-output.ts';
@@ -260,6 +262,7 @@ const config = await loadFoundryConfig(files, path.join(CACHE, pin.tag));
 const selection = selectEntries(release, books);
 console.log(`${pack} at ${pin.tag}, books ${[...books].join(', ')}`);
 console.log(formatReport(dryRunReport(selection), selection));
+console.log(formatCreatures(selectCreatures(release, books)));
 const known = await knownEntries(targets);
 const translation = translateImport(selection.selected, {
   pack,

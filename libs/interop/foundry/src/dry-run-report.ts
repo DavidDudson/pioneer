@@ -1,8 +1,9 @@
 import { ContentKindSchema } from '@pioneer/rules/sdk';
-import type { BookId, ContentKind } from '@pioneer/rules/sdk';
+import type { BookId, ContentKind, CreatureRole } from '@pioneer/rules/sdk';
 
+import { creatureFieldGaps } from './creature-field-gaps';
 import type { FoundryItemType } from './foundry-document';
-import type { Selection, SkipReason } from './select-entries';
+import type { CreatureSelection, Selection, SkipReason } from './select-entries';
 import { SkipReason as Reason } from './select-entries';
 import type { EnvelopeTranslation } from './translate-envelope';
 import type { ImportTranslation } from './translate-import';
@@ -145,4 +146,46 @@ export function kindDataReport({
     kindDataGaps: keyCounts(kindDataGaps.map(({ reason, field }) => `${reason} ${field}`)),
     vocabularyGaps: keyCounts(vocabularyGaps.map(({ kind, reason }) => `${kind} ${reason}`)),
   };
+}
+
+interface CreatureCount {
+  readonly book: BookId;
+  readonly role: CreatureRole;
+  readonly level: number;
+  readonly count: number;
+}
+
+/** What a creature import would bring in, by book, role and level; what it would skip; and what it has no home for. */
+export interface CreatureReport {
+  readonly imported: readonly CreatureCount[];
+  readonly skipped: readonly SkipCount[];
+  /** Foundry actor fields and embedded item types the stat block has no home for, by how many creatures have each. */
+  readonly fieldGaps: readonly KeyCount[];
+}
+
+export function creatureReport({ selected, skipped }: CreatureSelection): CreatureReport {
+  const imported = [
+    ...tally(
+      selected,
+      ({ book, role, actor }) => `${book}\u0000${role}\u0000${actor.system.details.level?.value ?? ''}`,
+    ).values(),
+  ]
+    .map(([{ book, role, actor }, count]) => ({ book, role, level: actor.system.details.level?.value ?? 0, count }))
+    .toSorted(
+      (left, right) =>
+        left.book.localeCompare(right.book) || left.role.localeCompare(right.role) || left.level - right.level,
+    );
+  const grouped = skipped.map(({ reason, detail }) => ({ reason, detail: UNGROUPED.has(reason) ? '' : detail }));
+  const skips = [...tally(grouped, ({ reason, detail }) => `${reason}\u0000${detail}`).values()]
+    .map(([{ reason, detail }, count]) => ({ reason, detail, count }))
+    .toSorted(
+      (left, right) =>
+        REASON_ORDER.indexOf(left.reason) - REASON_ORDER.indexOf(right.reason) ||
+        right.count - left.count ||
+        left.detail.localeCompare(right.detail),
+    );
+  const fieldGaps = [...creatureFieldGaps(selected)]
+    .map(([key, count]) => ({ key, count }))
+    .toSorted((left, right) => right.count - left.count || left.key.localeCompare(right.key));
+  return { imported, skipped: skips, fieldGaps };
 }
