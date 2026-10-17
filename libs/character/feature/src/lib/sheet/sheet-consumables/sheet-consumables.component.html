@@ -1,0 +1,26 @@
+<fr-async-region>
+  <ng-template frAsyncPending><fr-skeleton width="lg" /></ng-template>
+  <ng-template [frAsyncData]="playQuery">
+    @if (consumables().length > 0) {
+      <fr-stack gap="xs">
+        @for (shown of consumables(); track shown.line.key) {
+          <fr-stack direction="horizontal" align="center" gap="xs" wrap>
+            <fr-text>{{ shown.summary }}</fr-text>
+            <fr-async-button
+              size="sm"
+              [action]="use(shown.line)"
+              [disabled]="!shown.line.affordable || busy()"
+              [describeError]="describeError"
+            >
+              {{ 'character.sheet.consumables.use' | transloco }}
+            </fr-async-button>
+          </fr-stack>
+        }
+        @if (rolled(); as last) {
+          <fr-text variant="caption" tone="muted">{{ last.name }}</fr-text>
+          <pio-roll-card [roll]="last.view" />
+        }
+      </fr-stack>
+    }
+  </ng-template>
+</fr-async-region>

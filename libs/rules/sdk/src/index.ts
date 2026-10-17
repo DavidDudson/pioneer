@@ -41,7 +41,7 @@ export {
 } from './effect';
 export { RitualCheckPick, RitualData } from './ritual';
 export { ArmorData, CheckPenalty, ArmorGroup, ArmorItemCategory, ShieldData } from './armor';
-export { ConsumableCategory, ConsumableData } from './consumable';
+export { ConsumableActivation, ConsumableCategory, ConsumableData } from './consumable';
 export { Charges, STAFF_CANTRIP, StaffRank, staffCharges, StaffSpells } from './staff';
 export type { StaffRankSpells } from './staff';
 export { EquipmentData, type ItemContainer, KitData, TreasureCategory, TreasureData } from './equipment';

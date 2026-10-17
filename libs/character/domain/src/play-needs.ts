@@ -23,6 +23,7 @@ export function needsMaxHitPoints(command: PlayCommand): boolean {
   switch (command.field) {
     case PlayCommandField.Damage:
     case PlayCommandField.BlockWithShield:
+    case PlayCommandField.UseConsumable:
     case PlayCommandField.Heal:
     case PlayCommandField.SetHp: {
       return true;
@@ -81,6 +82,7 @@ export function needsResourceMaxima(command: PlayCommand): boolean {
     case PlayCommandField.RefundUse:
     case PlayCommandField.CastWand:
     case PlayCommandField.OverchargeWand:
+    case PlayCommandField.UseConsumable:
     case PlayCommandField.CastStaff:
     case PlayCommandField.UncastStaff: {
       return true;
@@ -125,6 +127,7 @@ export function needsConditionContent(command: PlayCommand): boolean {
     case PlayCommandField.RemoveCondition:
     case PlayCommandField.Damage:
     case PlayCommandField.BlockWithShield:
+    case PlayCommandField.UseConsumable:
     case PlayCommandField.Heal:
     case PlayCommandField.SetHp:
     case PlayCommandField.SetTempHp:
@@ -158,6 +161,9 @@ export function needsRestContent(command: PlayCommand): boolean {
 
 /** Whether `command` applies an effect, or changes the badge of one, and so needs the effects the content has. */
 export function needsEffectContent(command: PlayCommand): boolean {
+  if (command.field === PlayCommandField.UseConsumable) {
+    return command.effect !== undefined;
+  }
   return (
     isEffectCommand(command) &&
     (command.field === PlayCommandField.ApplyEffect || command.field === PlayCommandField.SetEffectBadge)

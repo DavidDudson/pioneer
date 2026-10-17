@@ -145,7 +145,12 @@ const ITEMS: Readonly<Record<ItemFixture, ItemFixtureFields>> = {
   [ItemFixture.SteelShield]: { kind: ContentKind.Shield, data: { bulk: 1, acBonus: 2, hardness: 5, hitPoints: 20 } },
   [ItemFixture.HealingPotion]: {
     kind: ContentKind.Consumable,
-    data: { bulk: 'light', category: 'potion', usage: { type: 'held', hands: 'one' } },
+    data: {
+      bulk: 'light',
+      category: 'potion',
+      usage: { type: 'held', hands: 'one' },
+      damage: { formula: '1d8', kind: 'healing' },
+    },
   },
   [ItemFixture.Diamond]: { kind: ContentKind.Treasure, data: { bulk: 'negligible', category: 'gem' } },
   [ItemFixture.Greatsword]: {

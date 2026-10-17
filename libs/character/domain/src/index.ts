@@ -606,6 +606,17 @@ export {
   type TurnState,
 } from './turn-state';
 export {
+  afterConsumable,
+  ConsumableCommandField,
+  ConsumableCommandSchema,
+  consumableInventoryAfter,
+  ConsumableProblem,
+  consumableProblem,
+  heldConsumable,
+  isConsumableCommand,
+} from './consumable-commands';
+export type { ConsumableCommand, HeldConsumable } from './consumable-commands';
+export {
   blocked,
   blockProblem,
   conditionAfterBlock,

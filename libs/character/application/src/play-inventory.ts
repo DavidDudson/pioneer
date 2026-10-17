@@ -1,6 +1,7 @@
 import {
   characterGrants,
   characterSpellcasting,
+  isConsumableCommand,
   isShieldCommand,
   isWandCommand,
   itemContent,
@@ -13,6 +14,7 @@ import {
 } from '@pioneer/character/domain';
 import type {
   Character,
+  ConsumableCommand,
   CountedMaxima,
   PlayEdit,
   PlayState,
@@ -23,6 +25,7 @@ import type { ContentRegistry } from '@pioneer/rules/sdk';
 import { message, ValidationError } from '@pioneer/shared/kernel';
 import type { Temporal } from '@pioneer/shared/kernel';
 
+import { checkConsumable, consumableInventory } from './play-consumable';
 import { WAND_MESSAGES } from './play-defaults';
 import { checkShield, shieldInventoryAfter, shieldsOf } from './play-shield';
 
@@ -71,9 +74,17 @@ function shielded(edit: InventoryEdit, command: PlayEdit): Character | undefined
   return after === undefined ? undefined : character.withInventory(after, now);
 }
 
-/** Whether `command` can change the inventory: a wand cast or overcharge, which can break or destroy the wand, or a block. */
+/** A consumable used, checked against what the character holds, and the character with the stack down by one or the item gone. */
+function consumed(edit: InventoryEdit, command: ConsumableCommand): Character | undefined {
+  const { character, registry, now } = edit;
+  checkConsumable(character, registry, command);
+  const after = consumableInventory(character.document.inventory, command);
+  return after === undefined ? undefined : character.withInventory(after, now);
+}
+
+/** Whether `command` can change the inventory: a wand cast or overcharge, which can break or destroy the wand, a block, or a consumable used. */
 export function changesInventory(command: PlayEdit): boolean {
-  return isWandCommand(command) || isShieldCommand(command);
+  return isWandCommand(command) || isShieldCommand(command) || isConsumableCommand(command);
 }
 
 /**
@@ -81,5 +92,11 @@ export function changesInventory(command: PlayEdit): boolean {
  * destroyed by a block. Undefined when the inventory stays as it is.
  */
 export function inventoryAfter(edit: InventoryEdit, command: PlayEdit): Character | undefined {
-  return isWandCommand(command) ? wanded(edit, command) : shielded(edit, command);
+  if (isWandCommand(command)) {
+    return wanded(edit, command);
+  }
+  if (isConsumableCommand(command)) {
+    return consumed(edit, command);
+  }
+  return shielded(edit, command);
 }

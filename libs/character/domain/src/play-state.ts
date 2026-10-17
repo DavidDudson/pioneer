@@ -6,8 +6,15 @@ import * as z from 'zod';
 
 import { ActiveConditionsSchema, ConditionCommandField, ConditionCommandSchema } from './conditions';
 import type { ConditionValued } from './conditions';
+import {
+  afterConsumable,
+  ConsumableCommandField,
+  ConsumableCommandSchema,
+  isConsumableCommand,
+} from './consumable-commands';
+import type { ConsumableCommand } from './consumable-commands';
 import { applyCountingCommand, isCountingCommand } from './counting-commands';
-import type { CountingCommand } from './counting-commands';
+import type { CountingCommand, CountingLimits } from './counting-commands';
 import {
   afterRecoveryCheck,
   DeathTrackSchema,
@@ -20,16 +27,13 @@ import {
 } from './death-track';
 import { EffectCommandField, EffectCommandSchema } from './effect-commands';
 import { ActiveEffectsSchema } from './effects';
-import type { EffectContent } from './effects';
 import { ExplorationActivitySchema, ExplorationCommandField, ExplorationCommandSchema } from './exploration-commands';
 import { afterDamage, afterHealing, afterSetting, trackOf, withTempHitPoints, withTrack } from './hit-point-edits';
 import { ResourceCommandField, ResourceCommandSchema } from './resource-commands';
 import { ResourcesSpentSchema } from './resources';
 import { RestCommandField, RestCommandSchema } from './rest-types';
-import type { RestLimits } from './rest-types';
 import { afterBlock, ShieldCommandField, ShieldCommandSchema, ShieldDamageSchema } from './shield-commands';
 import type { ShieldContent } from './shield-commands';
-import type { SpendLimits } from './spend-commands';
 import { SpendCommandField, SpendCommandSchema, SpendLogSchema } from './spend-log';
 import { ToggleCommandField, ToggleCommandSchema, TogglesSchema } from './toggle-commands';
 import { TurnEventSchema } from './turn-events';
@@ -109,6 +113,8 @@ export const PlayCommandField = {
   ...SpendCommandField,
   /** Shield Block (`shield-commands.ts`). */
   ...ShieldCommandField,
+  /** A consumable used (`consumable-commands.ts`). */
+  ...ConsumableCommandField,
   /** A `RollOption` toggle set on or off (`toggle-commands.ts`). */
   ...ToggleCommandField,
   ...ExplorationCommandField,
@@ -136,6 +142,7 @@ export const PlayCommandSchema = z.discriminatedUnion('field', [
   ...RestCommandSchema.options,
   ...SpendCommandSchema.options,
   ...ShieldCommandSchema.options,
+  ...ConsumableCommandSchema.options,
   ...ToggleCommandSchema.options,
   ...ExplorationCommandSchema.options,
 ]);
@@ -167,13 +174,9 @@ export const PatchedPlay = CharacterPlay.extend({ events: z.array(TurnEventSchem
 export type PatchedPlay = z.infer<typeof PatchedPlay>;
 
 /** What bounds a play edit, as the build and the rules give it. */
-export interface PlayLimits extends RestLimits {
+export interface PlayLimits extends CountingLimits {
   /** Whether each condition the content has carries a value. */
   readonly valued: ConditionValued;
-  /** The effects the content has, with the clock and badge each starts from. */
-  readonly effects: EffectContent;
-  /** The time a spend is stamped with. */
-  readonly spend: SpendLimits;
   /** The shields the character holds, with the Hardness and Hit Points their content gives. */
   readonly shields: ShieldContent;
 }
@@ -185,13 +188,16 @@ export interface PlayLimits extends RestLimits {
  * its maximum.
  */
 export function applyPlayCommand(play: PlayState, command: PlayCommand, limits: PlayLimits): PlayState {
+  if (isConsumableCommand(command)) {
+    return afterConsumable(play, command, limits);
+  }
   return isCountingCommand(command)
     ? applyCountingCommand(play, command, limits)
     : applyHitPointsEdit(play, command, limits);
 }
 
 /** The edits of Hit Points and the death track: every play edit that does not count. */
-type HitPointsCommand = Exclude<PlayCommand, CountingCommand>;
+type HitPointsCommand = Exclude<PlayCommand, CountingCommand | ConsumableCommand>;
 
 /** `play` after an edit of Hit Points or the death track. */
 function applyHitPointsEdit(play: PlayState, command: HitPointsCommand, limits: PlayLimits): PlayState {

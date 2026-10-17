@@ -75,6 +75,7 @@ export const CharacterCommand = {
   SpendAction: 'spendAction',
   UndoSpend: 'undoSpend',
   BlockWithShield: 'blockWithShield',
+  UseConsumable: 'useConsumable',
   SetAppearance: 'setAppearance',
   SetPersonality: 'setPersonality',
 } as const;
@@ -149,4 +150,5 @@ export const PLAY_COMMANDS = {
   [PlayCommandField.SpendAction]: CharacterCommand.SpendAction,
   [PlayCommandField.UndoSpend]: CharacterCommand.UndoSpend,
   [PlayCommandField.BlockWithShield]: CharacterCommand.BlockWithShield,
+  [PlayCommandField.UseConsumable]: CharacterCommand.UseConsumable,
 } as const satisfies Record<PlayCommandField | TurnCommandField, CharacterCommand>;

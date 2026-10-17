@@ -2,12 +2,13 @@ import type { ValueOf } from '@pioneer/shared/kernel';
 import { issueParams, message } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
-import { Uses } from './action';
+import { ActionCount, isVariableCost, Uses } from './action';
 import { ContentId } from './content-id';
 import { DamageTypeSchema } from './damage';
 import { DamageFormula } from './damage-formula';
 import { RulesMessage } from './messages';
 import { physicalFields, Usage } from './physical-item';
+import { ActionCostSchema } from './rich-text';
 import { DamageKind } from './spell';
 import { SpellRank } from './spell-rank';
 import { uniqueItems } from './unique-items';
@@ -49,6 +50,17 @@ const ConsumableSpell = z.strictObject({ spell: ContentId, rank: SpellRank });
 
 const AMMUNITION_TYPES_MAX = 8;
 
+const UP_TO = { ...issueParams(message(RulesMessage.ActionUpTo)), path: ['upTo'] };
+
+/** What using a consumable costs: the glyph on its Activate line, and with a cost that counts actions, the most it can take. */
+export const ConsumableActivation = z
+  .strictObject({
+    cost: ActionCostSchema,
+    upTo: ActionCount.optional(),
+  })
+  .refine(({ cost, upTo }) => upTo === undefined || isVariableCost(cost, upTo), UP_TO);
+export type ConsumableActivation = z.infer<typeof ConsumableActivation>;
+
 /**
  * A consumable's `data` on the `ContentEntry` envelope, ammunition included. `uses` is how many times it can be used
  * before it is spent, once when absent; a `kept` one stays when spent (a wand, cast once a day). Ammunition names the
@@ -61,6 +73,9 @@ export const ConsumableData = z
     category: z.enum(ConsumableCategory),
     uses: Uses.optional(),
     kept: z.boolean().optional(),
+    activation: ConsumableActivation.optional(),
+    /** The effect using it puts on the character (an elixir's bonus for an hour), by content id. */
+    effect: ContentId.optional(),
     damage: ConsumableDamage.optional(),
     spell: ConsumableSpell.optional(),
     ammunition: z.array(AmmunitionType).min(1).max(AMMUNITION_TYPES_MAX).readonly().check(uniqueItems).optional(),

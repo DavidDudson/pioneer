@@ -7,6 +7,7 @@ import { DefencesView, SpellcastingView, StatisticsView, StrikesView } from '@pi
 import type { NamedStrike } from '@pioneer/rules/ui';
 
 import { SheetActions } from '../sheet-actions/sheet-actions.component';
+import { SheetConsumables } from '../sheet-consumables/sheet-consumables.component';
 import { SheetPickFields } from '../sheet-pick-fields/sheet-pick-fields.component';
 import { SHEET_SECTIONS, SHEET_TAB_SECTIONS } from '../sheet-sections';
 import { SheetShields } from '../sheet-shields/sheet-shields.component';
@@ -41,6 +42,7 @@ import { SheetWands } from '../sheet-wands/sheet-wands.component';
     SheetStaves,
     SheetSpendLog,
     SheetTurnBar,
+    SheetConsumables,
     SheetShields,
     SheetWands,
     SpellcastingView,
