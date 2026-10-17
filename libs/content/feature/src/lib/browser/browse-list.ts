@@ -8,13 +8,12 @@ import type {
   FilterState,
 } from '@pioneer/rules/sdk';
 
+import { registryEntries } from '../entry/entry-lookup';
 import type { BrowseKind } from './browse-kinds';
 
 /** The entries of `kinds` in the registry's packs. A later pack's entry of the same id wins, as in the registry. */
 export function entriesOf(registry: ContentRegistry, kinds: readonly BrowseKind[]): readonly ContentEntry[] {
-  const held = registry.packs.flatMap((pack) =>
-    pack.otherEntries.filter((entry) => kinds.some((kind) => kind === entry.kind)),
-  );
+  const held = registryEntries(registry).filter((entry) => kinds.some((kind) => kind === entry.kind));
   return [...new Map(held.map((entry) => [entry.id, entry])).values()];
 }
 

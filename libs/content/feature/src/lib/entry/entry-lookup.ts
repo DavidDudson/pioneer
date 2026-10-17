@@ -60,7 +60,7 @@ function creatureEntry(pack: ContentPack, creature: PackCreature): ContentEntry 
 }
 
 /** Every entry the registry's packs hold, creatures included; a later pack's entry of the same id comes later. */
-function registryEntries(registry: ContentRegistry): readonly ContentEntry[] {
+export function registryEntries(registry: ContentRegistry): readonly ContentEntry[] {
   return registry.packs.flatMap((pack) => [
     ...pack.otherEntries,
     ...pack.creatures.map((creature) => creatureEntry(pack, creature)),

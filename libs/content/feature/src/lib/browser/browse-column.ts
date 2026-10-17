@@ -3,6 +3,10 @@ export const BrowseColumn = {
   Name: 'name',
   Kind: 'kind',
   Level: 'level',
+  Role: 'role',
+  Size: 'size',
+  HitPoints: 'hitPoints',
+  ArmorClass: 'armorClass',
   Traits: 'traits',
   Source: 'source',
 } as const;
@@ -12,6 +16,10 @@ export const BrowseColumnCode = {
   Name: 'name',
   Kind: 'kind',
   Level: 'lvl',
+  Role: 'role',
+  Size: 'size',
+  HitPoints: 'hp',
+  ArmorClass: 'ac',
   Traits: 'trt',
   Source: 'src',
 } as const;

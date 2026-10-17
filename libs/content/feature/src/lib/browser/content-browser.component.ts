@@ -13,6 +13,7 @@ import type { Signal } from '@angular/core';
 import { TranslocoService } from '@jsverse/transloco';
 import { ContentBrowserView, EMPTY_BROWSER_STATE } from '@pioneer/content/ui';
 import type {
+  BrowseCreature,
   BrowseRow,
   ContentBrowserEntry,
   ContentBrowserList,
@@ -22,12 +23,14 @@ import type {
 import { LocaleFormat } from '@pioneer/frontier';
 import type { AsyncQuery, SelectOption } from '@pioneer/frontier';
 import type { TableViewSort } from '@pioneer/frontier/data';
-import type { ContentEntry, FilterState } from '@pioneer/rules/sdk';
-import { RARITY_TONES, RICH_TEXT_LINKS } from '@pioneer/rules/ui';
+import { ContentKind } from '@pioneer/rules/sdk';
+import type { ContentEntry, CreatureData, FilterState } from '@pioneer/rules/sdk';
+import { RARITY_TONES, RICH_TEXT_LINKS, SIZE_MESSAGES } from '@pioneer/rules/ui';
 import type { Chip, EntryPreview, RichTextLinks } from '@pioneer/rules/ui';
 
 import { injectEntryDescription } from '../entry/entry-description';
 import { entryCard, entryIndex, entryLinks, entryTarget, findEntry } from '../entry/entry-lookup';
+import { ROLE_MESSAGES, SIZE_ORDER } from './browse-creature';
 import { BROWSE_KINDS, facetsOf, isBrowseKind, KIND_MESSAGES } from './browse-kinds';
 import type { BrowseKind } from './browse-kinds';
 import { browseList, entriesOf } from './browse-list';
@@ -201,8 +204,21 @@ export class ContentBrowser {
       ref: refOf(entry),
       kind: isBrowseKind(entry.kind) ? this.#i18n.translate(KIND_MESSAGES[entry.kind]) : '',
       level: this.#levelText(entry),
+      levelValue: 'level' in entry && typeof entry.level === 'number' ? entry.level : undefined,
+      creature: entry.kind === ContentKind.Creature ? this.#creatureOf(entry.data) : undefined,
       traits,
       sources: entry.sources,
+    };
+  }
+
+  /** The creature's role and size in the UI language, and its Hit Points and Armor Class. */
+  #creatureOf({ role, size, hitPoints, armorClass }: CreatureData): BrowseCreature {
+    return {
+      role: this.#i18n.translate(ROLE_MESSAGES[role]),
+      size: this.#i18n.translate(SIZE_MESSAGES[size]),
+      sizeOrder: SIZE_ORDER.indexOf(size),
+      hitPoints,
+      armorClass,
     };
   }
 
