@@ -1,5 +1,5 @@
-import { contentKey, SourceKind, slugKind } from '@pioneer/rules/sdk';
-import type { ContentEntry, ContentKind } from '@pioneer/rules/sdk';
+import { contentKey, ContentKind, SourceKind, slugKind } from '@pioneer/rules/sdk';
+import type { ContentEntry, CreatureRole } from '@pioneer/rules/sdk';
 
 import { BacklogGapType, BacklogItemType } from './import-backlog';
 import type { BacklogEntryItem, BacklogGap, BacklogItem } from './import-backlog';
@@ -74,5 +74,28 @@ export function importCoverage(
       entries.filter((entry) => entry.kind === kind),
       items.filter(({ slug }) => slugKind(slug) === kind),
     ),
+  );
+}
+
+/** How many creatures there are of one role and level. */
+export interface CreatureCoverage {
+  readonly role: CreatureRole;
+  readonly level: number;
+  readonly count: number;
+}
+
+/** Creatures per role and level, roles then levels ascending, over the creature entries among `entries`. */
+export function creatureCoverage(entries: readonly ContentEntry[]): readonly CreatureCoverage[] {
+  const counts = new Map<string, CreatureCoverage>();
+  for (const entry of entries) {
+    if (entry.kind === ContentKind.Creature) {
+      const { role } = entry.data;
+      const { level } = entry;
+      const key = `${role}\u0000${level}`;
+      counts.set(key, { role, level, count: (counts.get(key)?.count ?? 0) + 1 });
+    }
+  }
+  return [...counts.values()].toSorted(
+    (left, right) => left.role.localeCompare(right.role) || left.level - right.level,
   );
 }

@@ -14,6 +14,8 @@ import { parseArgs } from 'node:util';
 import {
   archiveUrl,
   carrySources,
+  creatureCoverage,
+  creatureEntry,
   BacklogItemType,
   FOUNDRY_BOOK_TITLES,
   dryRunReport,
@@ -46,7 +48,7 @@ import type {
 import { bookRegistry, officialPacks } from '@pioneer/rules/catalog';
 import { BookId, PackId } from '@pioneer/rules/sdk';
 
-import { formatCoverage } from './coverage-table.ts';
+import { formatCoverage, formatCreatureCoverage } from './coverage-table.ts';
 import { formatCreatures } from './creature-report.ts';
 import { loadFoundryConfig } from './foundry-config-loader';
 import type { PackTargets } from './pack-writes.ts';
@@ -262,9 +264,10 @@ const config = await loadFoundryConfig(files, path.join(CACHE, pin.tag));
 const selection = selectEntries(release, books);
 console.log(`${pack} at ${pin.tag}, books ${[...books].join(', ')}`);
 console.log(formatReport(dryRunReport(selection), selection));
-console.log(formatCreatures(selectCreatures(release, books)));
+const creatures = selectCreatures(release, books);
+console.log(formatCreatures(creatures));
 const known = await knownEntries(targets);
-const translation = translateImport(selection.selected, {
+const translation = translateImport([...selection.selected, ...creatures.selected.map((each) => creatureEntry(each))], {
   pack,
   vocabularyPack: VOCABULARY_PACK,
   books: [...books],
@@ -281,6 +284,7 @@ const generated = packOutput(translation, { known });
 const output = { ...generated, entries: carrySources(generated.entries, await committedEntries(targets)) };
 console.log(formatLeftOut(output.backlog));
 console.log(formatCoverage(importCoverage(output.entries, output.backlog)));
+console.log(formatCreatureCoverage(creatureCoverage(output.entries)));
 if (!dryRun && rulesOnly !== undefined) {
   const { written, applied } = await applyRules(output, targets, rulesOnly);
   console.log(

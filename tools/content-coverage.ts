@@ -9,7 +9,7 @@
  */
 import path from 'node:path';
 
-import { ImportFile, importCoverage } from '@pioneer/interop/foundry';
+import { creatureCoverage, ImportFile, importCoverage } from '@pioneer/interop/foundry';
 import type { BacklogItem } from '@pioneer/interop/foundry';
 import {
   bookRegistry,
@@ -25,7 +25,7 @@ import type { BookCoverage, PrerequisiteCoverage, StaffCoverage, TriggerCoverage
 import { ContentRegistry } from '@pioneer/rules/sdk';
 import { Glob } from 'bun';
 
-import { formatCoverage } from './content-import/coverage-table.ts';
+import { formatCoverage, formatCreatureCoverage } from './content-import/coverage-table.ts';
 
 const ROOT = path.join(import.meta.dir, '..');
 const IMPORTS = path.join(ROOT, 'content', 'import');
@@ -73,6 +73,7 @@ for (const load of contents) {
 }
 const backlog = await backlogs();
 console.log(formatCoverage(importCoverage(entries, backlog)));
+console.log(formatCreatureCoverage(creatureCoverage(entries)));
 
 const registry = new ContentRegistry();
 const loads = await Promise.allSettled(contentCatalog.map(async (loader) => registry.load(loader)));

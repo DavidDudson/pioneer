@@ -158,7 +158,7 @@ function entryItems(
 function documentItems({ envelopes }: ImportTranslation): BacklogItem[] {
   return envelopes.failures
     .map(({ pack, document, reason, detail }) => ({
-      foundry: compendiumUuid(pack, idOf(document)),
+      foundry: compendiumUuid(pack, idOf(document), document.type),
       document,
       reason,
       detail,

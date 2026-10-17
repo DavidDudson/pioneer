@@ -78,6 +78,12 @@ const VisionField = z.looseObject({ vision: z.string().max(VALUE_MAX).optional()
 const SenseRule = z.looseObject({ key: z.literal(SENSE_RULE), selector: z.string().max(VALUE_MAX) });
 /** A feat's `subfeatures.senses`, keyed by sense slug. */
 const SensesBySlug = z.record(z.string().max(VALUE_MAX), z.unknown());
+/** A creature's `details.languages` and `perception.senses`. */
+const CreatureLanguageList = z.looseObject({ value: Values.default([]) });
+const CreatureLanguages = z.looseObject({ details: z.looseObject({ languages: CreatureLanguageList }) });
+const CreatureSense = z.looseObject({ type: z.string().max(VALUE_MAX) });
+const CreatureSenseList = z.array(CreatureSense).max(LIST_MAX);
+const CreatureSenses = z.looseObject({ perception: z.looseObject({ senses: CreatureSenseList }) });
 const SubfeatureSenses = z.looseObject({ subfeatures: z.looseObject({ senses: SensesBySlug }) });
 
 const DAMAGE_TYPES: ReadonlySet<string> = new Set(Object.values(DamageType));
@@ -129,6 +135,9 @@ export function traitItems(selected: readonly SelectedEntry[], { config, known }
 }
 
 export function languagesOf({ type, document }: SelectedEntry): readonly string[] {
+  if (type === FoundryItemType.Npc) {
+    return CreatureLanguages.safeParse(document.system).data?.details.languages.value ?? [];
+  }
   if (type !== FoundryItemType.Ancestry) {
     return [];
   }
@@ -147,13 +156,17 @@ export function sensesOf({ type, document }: SelectedEntry): readonly string[] {
     vision.data.vision !== NORMAL_VISION
       ? [vision.data.vision]
       : [];
+  const fromCreature =
+    type === FoundryItemType.Npc
+      ? (CreatureSenses.safeParse(document.system).data?.perception.senses.map((sense) => sense.type) ?? [])
+      : [];
   const fromRules = document.system.rules.flatMap((rule) => {
     const sense = SenseRule.safeParse(rule);
     return sense.success ? [sense.data.selector] : [];
   });
   const subfeatures = SubfeatureSenses.safeParse(document.system);
   const fromSubfeatures = subfeatures.success ? Object.keys(subfeatures.data.subfeatures.senses) : [];
-  return [...fromVision, ...fromRules, ...fromSubfeatures];
+  return [...fromVision, ...fromCreature, ...fromRules, ...fromSubfeatures];
 }
 
 export function languageItem(slug: string, book: BookId, config: FoundryConfig): Item | Gap {

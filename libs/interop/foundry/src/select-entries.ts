@@ -169,6 +169,11 @@ export function selectEntries(release: FoundryRelease, targets: ReadonlySet<Book
 /** The actor packs that hold NPCs rather than monsters; every other bestiary pack holds monsters. */
 const NPC_PACKS: ReadonlySet<string> = new Set(['pathfinder-npc-core', 'npc-gallery']);
 
+/** Whether a bestiary pack, by its source directory, holds NPCs rather than monsters. */
+export function creatureRole(directory: string): CreatureRole {
+  return NPC_PACKS.has(directory) ? CreatureRole.Npc : CreatureRole.Monster;
+}
+
 /** A creature to import: an `npc` actor of a target book, with the role its pack gives it. */
 export interface SelectedCreature extends ActorDocument {
   readonly book: BookId;
@@ -192,7 +197,7 @@ function selectCreature(entry: ActorDocument, targets: ReadonlySet<BookId>): Sel
   if (typeof book !== 'string') {
     return { pack, path, ...book };
   }
-  return { ...entry, book, role: NPC_PACKS.has(pack.directory) ? CreatureRole.Npc : CreatureRole.Monster };
+  return { ...entry, book, role: creatureRole(pack.directory) };
 }
 
 /**

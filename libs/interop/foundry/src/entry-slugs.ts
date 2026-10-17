@@ -30,6 +30,7 @@ export const FOUNDRY_TYPE_KINDS: Readonly<Record<FoundryItemType, ContentKind>> 
   [FoundryItemType.Feat]: ContentKind.Feat,
   [FoundryItemType.Heritage]: ContentKind.Heritage,
   [FoundryItemType.Kit]: ContentKind.Kit,
+  [FoundryItemType.Npc]: ContentKind.Creature,
   [FoundryItemType.Shield]: ContentKind.Shield,
   [FoundryItemType.Spell]: ContentKind.Spell,
   [FoundryItemType.Treasure]: ContentKind.Treasure,

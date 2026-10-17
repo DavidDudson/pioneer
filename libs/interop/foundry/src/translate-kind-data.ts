@@ -2,6 +2,7 @@ import {
   ActionData,
   ConditionData,
   ContentKind,
+  CreatureData,
   EffectData,
   KIND_DATA,
   RitualData,
@@ -29,6 +30,7 @@ import { ANCESTRY_FIELDS, ancestryData, HERITAGE_FIELDS, heritageData } from './
 import { BACKGROUND_FIELDS, backgroundData } from './translate-background';
 import { CLASS_FIELDS, classData } from './translate-class';
 import { CONDITION_FIELDS, conditionData } from './translate-condition';
+import { CREATURE_FIELDS, creatureData } from './translate-creature';
 import { DEITY_FIELDS, deityData } from './translate-deity';
 import { EFFECT_FIELDS, effectData } from './translate-effect';
 import { ancestryFeatureData, classFeatureData, FEAT_FIELDS, featData } from './translate-feat';
@@ -55,6 +57,7 @@ export type ImportedKindData =
   | { readonly kind: typeof ContentKind.Class; readonly data: DataOf<typeof ContentKind.Class> }
   | { readonly kind: typeof ContentKind.ClassFeature; readonly data: DataOf<typeof ContentKind.ClassFeature> }
   | { readonly kind: typeof ContentKind.Condition; readonly data: ConditionData }
+  | { readonly kind: typeof ContentKind.Creature; readonly data: CreatureData }
   | { readonly kind: typeof ContentKind.DamageType; readonly data: DamageTypeData }
   | { readonly kind: typeof ContentKind.Deity; readonly data: DataOf<typeof ContentKind.Deity> }
   | { readonly kind: typeof ContentKind.Effect; readonly data: EffectData }
@@ -120,6 +123,10 @@ const TRANSLATORS: Readonly<Partial<Record<ContentKind, KindTranslator>>> = {
   [ContentKind.Condition]: (input) => {
     const data = parsedWith({ schema: ConditionData, fields: CONDITION_FIELDS, build: conditionData }, input);
     return data && { kind: ContentKind.Condition, data };
+  },
+  [ContentKind.Creature]: (input) => {
+    const data = parsedWith({ schema: CreatureData, fields: CREATURE_FIELDS, build: creatureData }, input);
+    return data && { kind: ContentKind.Creature, data };
   },
   [ContentKind.Deity]: (input) => {
     const data = parsedWith({ schema: KIND_DATA[ContentKind.Deity], fields: DEITY_FIELDS, build: deityData }, input);
