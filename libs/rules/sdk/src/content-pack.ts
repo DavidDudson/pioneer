@@ -7,7 +7,7 @@ import { ContentEntry } from './content-entry';
 import { PackId } from './content-id';
 import type { EntrySlug } from './content-id';
 import { ContentText } from './content-text';
-import { CreatureDefinition } from './creature';
+import { CreatureDefinition, NPC_ONLY, npcDetailsOnNpc } from './creature';
 import { envelope } from './entry-envelope';
 import { ContentLicenseSchema } from './license';
 import { RulesMessage } from './messages';
@@ -52,7 +52,7 @@ const sourced = { sources: envelope.sources };
 export const PackAncestry = AncestryDefinition.extend({ ...sourced, rules: envelope.rules.optional() });
 export type PackAncestry = z.infer<typeof PackAncestry>;
 
-export const PackCreature = CreatureDefinition.extend(sourced);
+export const PackCreature = CreatureDefinition.extend(sourced).refine(npcDetailsOnNpc, NPC_ONLY);
 export type PackCreature = z.infer<typeof PackCreature>;
 
 export const PackStatistic = StatisticDefinition.extend(sourced);

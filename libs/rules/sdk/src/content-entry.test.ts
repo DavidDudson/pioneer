@@ -56,6 +56,7 @@ const giantRat = {
   rules: [],
   externalIds: { foundry: 'Compendium.pf2e.pathfinder-monster-core.Actor.abc123' },
   data: {
+    role: 'monster',
     size: 'small',
     perception: 5,
     attributes: { str: 1, dex: 3, con: 2, int: -4, wis: 1, cha: -3 },

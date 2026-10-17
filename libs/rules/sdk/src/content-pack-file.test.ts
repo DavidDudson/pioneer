@@ -54,6 +54,7 @@ const creature = entry(
     kind: 'creature',
     slug: 'creature:mud-crab',
     data: {
+      role: 'monster',
       size: 'small',
       perception: 3,
       attributes: { str: 2, dex: 1, con: 2, int: -5, wis: 0, cha: -4 },

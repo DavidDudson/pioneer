@@ -294,10 +294,16 @@ invested or identified is play state, not content.
 ### Creatures
 
 A `creature` entry holds a full stat block in `data` (`CreatureData`, `libs/rules/sdk/src/creature.ts`); its level,
-rarity and traits are the envelope's. The core numbers are required: `size`, `perception`, `attributes`,
+rarity and traits are the envelope's. The core numbers are required: `role`, `size`, `perception`, `attributes`,
 `armorClass`, `saves`, `hitPoints`, the three IWR lists and the land `speed`. The rest is optional, so an entry
 written with only the core numbers still validates (`creature-stat-block.ts`):
 
+- **`role`**: `monster` or `npc`, a field of the one `creature` kind rather than a separate `npc` kind, so there is one
+  browser and one stat block (`hazard` joins as a third value). A monster's creature type is one of its traits. An
+  NPC may also carry `npc` details, optional and refused on a monster: `ancestry` (a slug), `occupation`,
+  `levelRange` (`min` to `max`, the levels the archetype is written for) and `classHints` (class slugs, "fights like a
+  fighter"). The browser filters creatures by the common level, rarity and traits facets and by `role` and `size`
+  (`CREATURE_FACETS`).
 - **`skills`**: a `skill` slug (`stealth`, `warfare-lore`), its printed `modifier` and an optional `note`.
 - **`senses`**: a `sense` slug, its `acuity` (precise, imprecise, vague) and `range` in feet.
 - **`languages`** and **`conditions`**: slugs, unique. `conditions` are those the creature starts a fight with.
