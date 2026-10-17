@@ -23,6 +23,11 @@ export function itemUuid(pack: FoundryPack, document: string): string {
   return `Compendium.pf2e.${pack.name}.Item.${document}`;
 }
 
+/** `Compendium.pf2e.<pack>.Actor.<document>`: how Foundry names a creature of a bestiary pack. */
+export function actorUuid(pack: FoundryPack, document: string): string {
+  return `Compendium.pf2e.${pack.name}.Actor.${document}`;
+}
+
 function uuidsOf({ pack, document }: PackDocument): readonly string[] {
   const { _id: id, name } = document;
   return [itemUuid(pack, id), itemUuid(pack, name)];

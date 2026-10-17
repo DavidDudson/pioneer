@@ -5,6 +5,7 @@ import {
   ContentText,
   EntrySlug,
   ExternalId,
+  Level,
   Rarity,
   RaritySchema,
   SourceKind,
@@ -17,9 +18,10 @@ import { describeEntries } from './describe-entries';
 import type { UnknownMarkup, UntranslatedEnricher } from './describe-entries';
 import type { EntryReferences } from './entry-references';
 import { entrySlugOf } from './entry-slugs';
+import { FoundryItemType } from './foundry-document';
 import type { FoundryDocument } from './foundry-document';
 import type { UnresolvedText } from './foundry-lang';
-import { itemUuid } from './foundry-links';
+import { actorUuid, itemUuid } from './foundry-links';
 import type { FoundryLang, FoundryPack, PackDocument } from './foundry-release';
 import type { ImportedEnvelope } from './imported-envelope';
 import type { SelectedEntry } from './select-entries';
@@ -116,9 +118,9 @@ interface Failed {
 
 const DEFAULT_RARITY: Rarity = Rarity.Common;
 
-/** `Compendium.pf2e.<pack>.Item.<id>`, the UUID Foundry links a compendium item by. */
-export function compendiumUuid(pack: FoundryPack, documentId: string): ExternalId {
-  return ExternalId.parse(itemUuid(pack, documentId));
+/** `Compendium.pf2e.<pack>.Item.<id>`, the UUID Foundry links a compendium item by; `Actor` for a creature. */
+export function compendiumUuid(pack: FoundryPack, documentId: string, type?: string): ExternalId {
+  return ExternalId.parse(type === FoundryItemType.Npc ? actorUuid(pack, documentId) : itemUuid(pack, documentId));
 }
 
 interface TraitTranslation {
@@ -144,7 +146,7 @@ function translateTraits(entry: ContentId, values: readonly string[], known: Rea
 interface Scalars {
   readonly slug: EntrySlug;
   readonly name: ContentText;
-  readonly level?: ContentLevel;
+  readonly level?: ContentLevel | Level;
   readonly rarity: Rarity;
 }
 
@@ -162,9 +164,11 @@ function nameOf({ name }: FoundryDocument): ContentText | Failed {
   return text.success ? text.data : { reason: EnvelopeFailureReason.InvalidName, detail: name };
 }
 
-function levelOf({ system }: FoundryDocument): ContentLevel | Failed | undefined {
+/** A creature's level runs from -1 to 25; every other kind's from 0 to 30. */
+function levelOf({ system, type }: FoundryDocument): ContentLevel | Level | Failed | undefined {
   const value = system.level?.value;
-  const level = value === undefined ? undefined : ContentLevel.safeParse(value);
+  const schema = type === FoundryItemType.Npc ? Level : ContentLevel;
+  const level = value === undefined ? undefined : schema.safeParse(value);
   if (level?.success === false) {
     return { reason: EnvelopeFailureReason.InvalidLevel, detail: String(value) };
   }
@@ -235,7 +239,7 @@ function translate({ source, slug }: Slugged, context: EnvelopeContext): Transla
       traits: traits.traits,
       sources: [{ kind: SourceKind.Book, book }],
       rules: rules.rules,
-      externalIds: { foundry: compendiumUuid(foundryPack, documentId) },
+      externalIds: { foundry: compendiumUuid(foundryPack, documentId, document.type) },
     },
     untranslatedRules: rules.untranslated,
     droppedRules: rules.dropped,

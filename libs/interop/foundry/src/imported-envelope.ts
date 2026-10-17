@@ -4,6 +4,7 @@ import type {
   ContentText,
   EntrySlug,
   ExternalId,
+  Level,
   PackId,
   Rarity,
   RichText,
@@ -27,7 +28,7 @@ export interface EnvelopeFields {
   readonly pack: PackId;
   readonly slug: EntrySlug;
   readonly name: ContentText;
-  readonly level?: ContentLevel;
+  readonly level?: ContentLevel | Level;
   readonly rarity: Rarity;
   readonly traits: readonly Trait[];
   readonly sources: readonly SourceRef[];

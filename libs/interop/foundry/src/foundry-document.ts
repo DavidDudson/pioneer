@@ -59,8 +59,9 @@ export const FoundryDocument = z.looseObject({
 export type FoundryDocument = z.infer<typeof FoundryDocument>;
 
 /**
- * Foundry item types the importer translates, each to one Pioneer kind (or several, by `category`). Every other
- * type in an item pack (`campaignFeature`, and anything Foundry adds later) is skipped as unsupported.
+ * Foundry document types the importer translates, each to one Pioneer kind (or several, by `category`). Every other
+ * type in an item pack (`campaignFeature`, and anything Foundry adds later) is skipped as unsupported. `npc` is an
+ * actor's, which `creatureEntry` presents to the pipeline as an item.
  */
 export const FoundryItemType = {
   Action: 'action',
@@ -78,6 +79,7 @@ export const FoundryItemType = {
   Feat: 'feat',
   Heritage: 'heritage',
   Kit: 'kit',
+  Npc: 'npc',
   Shield: 'shield',
   Spell: 'spell',
   Treasure: 'treasure',

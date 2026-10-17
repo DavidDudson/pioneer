@@ -12,6 +12,7 @@ export {
   creatureReport,
   type CreatureReport,
 } from './dry-run-report';
+export { creatureEntry } from './creature-entry';
 export {
   FoundryActor,
   FoundryActorType,
@@ -112,4 +113,4 @@ export {
 export { type PackFile, packFiles, packOutput, type PackOutput, type PackOutputContext } from './pack-output';
 export { referencedIds } from './pack-references';
 export { carrySources } from './carried-sources';
-export { importCoverage, type KindCoverage } from './import-coverage';
+export { creatureCoverage, type CreatureCoverage, importCoverage, type KindCoverage } from './import-coverage';

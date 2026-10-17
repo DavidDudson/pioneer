@@ -2,7 +2,7 @@
  * The coverage table the importer prints after a run and `bun run content:coverage` prints over the committed packs
  * (content-model.md, "Coverage report"), so both report the same numbers the same way.
  */
-import type { KindCoverage } from '@pioneer/interop/foundry';
+import type { CreatureCoverage, KindCoverage } from '@pioneer/interop/foundry';
 
 const HEADINGS = ['kind', 'entries', 'rules translated', 'complete', 'with page', 'with AoN', 'left out'];
 const PERCENT = 100;
@@ -46,5 +46,17 @@ export function formatCoverage(rows: readonly KindCoverage[]): string {
         .map((cell, column) => (column === 0 ? cell.padEnd(widths[column] ?? 0) : cell.padStart(widths[column] ?? 0)))
         .join('  '),
     )
+    .join('\n');
+}
+
+/** The creatures per role and level, one line per role. */
+export function formatCreatureCoverage(rows: readonly CreatureCoverage[]): string {
+  const roles = [...new Set(rows.map(({ role }) => role))];
+  return roles
+    .map((role) => {
+      const levels = rows.filter((row) => row.role === role);
+      const all = levels.reduce((sum, { count }) => sum + count, 0);
+      return `creatures ${role} ${all}: ${levels.map(({ level, count }) => `${level}:${count}`).join(' ')}`;
+    })
     .join('\n');
 }

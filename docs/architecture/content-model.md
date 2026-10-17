@@ -687,7 +687,16 @@ flowchart LR
   a registered book. Hazard actors are skipped as `hazard`, other actor types as `unsupported-type`. A creature's
   role is `npc` when its pack is NPC Core or the NPC gallery, else `monster`. `--dry-run` prints the creatures a
   book would bring by level and role, what it would skip, and the actor fields and item types the stat block has
-  no home for; nothing is written for creatures until the translation stories.
+  no home for. A selected creature is presented to the item pipeline as an `npc` document (`creatureEntry`: its
+  publication, level and traits moved up to where an item keeps them, its public notes as the description, no rule
+  elements) and files under `creature:<slug>`, with a Foundry UUID naming it an `Actor`. `translateCreature` builds the
+  core statistics: `role`, `size`, `perception`, `attributes` (the `abilities` modifiers), `armorClass`, `saves`,
+  `hitPoints` (`attributes.hp.max`), the IWR lists, the land `speed` (0 for a creature with none, a banshee) and the
+  other `speeds`, `skills` (`system.skills`, less the Lores, which are embedded items), `senses` and `languages`. The
+  creatures' traits, languages and senses add to the `core-rules` vocabulary as an item's do. What the stat block has no
+  home for goes to the backlog with its field and raw value: a `details` or `saveDetail` note, `attributes.allSaves`,
+  a resistance's `doubleVs`, a weakness or resistance to a material or a kind of damage that is not a damage type
+  (`cold-iron`, `splash-damage`), and focus `resources`. The coverage report adds the creatures per role and level.
   `just content-import --pack player-core --book player-core --dry-run` prints what would be imported by Foundry
   type and book, what is skipped and why, what did not translate, what pack output leaves out, and the coverage
   table; without `--dry-run` it also writes the pack (Pack output, below).
