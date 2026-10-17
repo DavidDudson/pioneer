@@ -23748,7 +23748,162 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellcastingEntry",
+        "slug": "grown-of-oak",
+        "tradition": "primal",
+        "attribute": "wis",
+        "preparation": "innate"
+      },
+      {
+        "key": "InnateSpells",
+        "entry": "grown-of-oak",
+        "spells": [
+          {
+            "rank": 2,
+            "spell": "d649aded-ca36-5663-ba2c-edc97e35bd6c"
+          }
+        ],
+        "predicate": [
+          {
+            "and": [
+              {
+                "gte": ["self:level", 6]
+              },
+              {
+                "lt": ["self:level", 7]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "InnateSpells",
+        "entry": "grown-of-oak",
+        "spells": [
+          {
+            "rank": 3,
+            "spell": "d649aded-ca36-5663-ba2c-edc97e35bd6c"
+          }
+        ],
+        "predicate": [
+          {
+            "and": [
+              {
+                "gte": ["self:level", 7]
+              },
+              {
+                "lt": ["self:level", 9]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "InnateSpells",
+        "entry": "grown-of-oak",
+        "spells": [
+          {
+            "rank": 4,
+            "spell": "d649aded-ca36-5663-ba2c-edc97e35bd6c"
+          }
+        ],
+        "predicate": [
+          {
+            "and": [
+              {
+                "gte": ["self:level", 9]
+              },
+              {
+                "lt": ["self:level", 11]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "InnateSpells",
+        "entry": "grown-of-oak",
+        "spells": [
+          {
+            "rank": 5,
+            "spell": "d649aded-ca36-5663-ba2c-edc97e35bd6c"
+          }
+        ],
+        "predicate": [
+          {
+            "and": [
+              {
+                "gte": ["self:level", 11]
+              },
+              {
+                "lt": ["self:level", 13]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "InnateSpells",
+        "entry": "grown-of-oak",
+        "spells": [
+          {
+            "rank": 6,
+            "spell": "d649aded-ca36-5663-ba2c-edc97e35bd6c"
+          }
+        ],
+        "predicate": [
+          {
+            "and": [
+              {
+                "gte": ["self:level", 13]
+              },
+              {
+                "lt": ["self:level", 15]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "InnateSpells",
+        "entry": "grown-of-oak",
+        "spells": [
+          {
+            "rank": 7,
+            "spell": "d649aded-ca36-5663-ba2c-edc97e35bd6c"
+          }
+        ],
+        "predicate": [
+          {
+            "and": [
+              {
+                "gte": ["self:level", 15]
+              },
+              {
+                "lt": ["self:level", 17]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "InnateSpells",
+        "entry": "grown-of-oak",
+        "spells": [
+          {
+            "rank": 8,
+            "spell": "d649aded-ca36-5663-ba2c-edc97e35bd6c"
+          }
+        ],
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.GmSY4YVyzgAZ4I78"
     },

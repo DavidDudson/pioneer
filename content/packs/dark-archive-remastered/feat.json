@@ -4047,6 +4047,51 @@
         "key": "Proficiency",
         "selector": "spellcasting",
         "rank": "trained"
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "dream-magic",
+        "tradition": "occult",
+        "attribute": "wis",
+        "preparation": "innate"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "dream-magic",
+        "rollOption": "dream-magic",
+        "prompt": "Select a spell.",
+        "choices": [
+          {
+            "value": "dream-message",
+            "label": "Dream Message"
+          },
+          {
+            "value": "sleep",
+            "label": "Sleep"
+          }
+        ]
+      },
+      {
+        "key": "InnateSpells",
+        "entry": "dream-magic",
+        "spells": [
+          {
+            "rank": 4,
+            "spell": "d6b0d1ae-f695-5de3-a7ba-b3eef2060313"
+          }
+        ],
+        "predicate": ["dream-magic:dream-message"]
+      },
+      {
+        "key": "InnateSpells",
+        "entry": "dream-magic",
+        "spells": [
+          {
+            "rank": 4,
+            "spell": "2912dc70-d45f-5b60-bdb4-919d43f7e199"
+          }
+        ],
+        "predicate": ["dream-magic:sleep"]
       }
     ],
     "externalIds": {

@@ -2803,6 +2803,75 @@
         "type": "status",
         "value": 2,
         "predicate": ["fey-influence:unicorn", "option:poison"]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "fey-ascension",
+        "tradition": "primal",
+        "attribute": "cha",
+        "preparation": "innate",
+        "predicate": [
+          {
+            "or": [
+              "fey-influence:anteater",
+              "fey-influence:cursed-bluebird",
+              "fey-influence:faun",
+              "fey-influence:gremlin"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "InnateSpells",
+        "entry": "fey-ascension",
+        "spells": [
+          {
+            "rank": 3,
+            "spell": "cfa1a3f3-2450-52eb-95d6-875232fd5219"
+          }
+        ],
+        "predicate": ["fey-influence:anteater"]
+      },
+      {
+        "key": "InnateSpells",
+        "entry": "fey-ascension",
+        "spells": [
+          {
+            "rank": 4,
+            "spell": "2e1a723b-ad9f-53b0-bee3-21b8401988f0"
+          }
+        ],
+        "predicate": ["fey-influence:cursed-bluebird"]
+      },
+      {
+        "key": "InnateSpells",
+        "entry": "fey-ascension",
+        "spells": [
+          {
+            "rank": 1,
+            "spell": "a3738cb8-aa5d-5084-b250-86fe19b7498d"
+          },
+          {
+            "rank": 1,
+            "spell": "2912dc70-d45f-5b60-bdb4-919d43f7e199"
+          },
+          {
+            "rank": 2,
+            "spell": "fe6baaa0-276d-5d8b-864b-0ae0bb8fcee0"
+          }
+        ],
+        "predicate": ["fey-influence:faun"]
+      },
+      {
+        "key": "InnateSpells",
+        "entry": "fey-ascension",
+        "spells": [
+          {
+            "rank": 3,
+            "spell": "acb0c992-4961-5fbc-83d6-4f655b5ceea9"
+          }
+        ],
+        "predicate": ["fey-influence:gremlin"]
       }
     ],
     "externalIds": {
@@ -3070,6 +3139,141 @@
         "key": "Proficiency",
         "selector": "spellcasting",
         "rank": "trained"
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "fey-influence",
+        "tradition": "primal",
+        "attribute": "cha",
+        "preparation": "innate"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "fey-influence",
+        "rollOption": "fey-influence",
+        "prompt": "Select a feature.",
+        "choices": [
+          {
+            "value": "anteater",
+            "label": "Anteater"
+          },
+          {
+            "value": "cat-sith",
+            "label": "Cat Sith"
+          },
+          {
+            "value": "cursed-bluebird",
+            "label": "Cursed Bluebird"
+          },
+          {
+            "value": "dryad",
+            "label": "Dryad"
+          },
+          {
+            "value": "faun",
+            "label": "Faun"
+          },
+          {
+            "value": "gremlin",
+            "label": "Gremlin"
+          },
+          {
+            "value": "monarch",
+            "label": "Monarch"
+          },
+          {
+            "value": "unicorn",
+            "label": "Unicorn"
+          }
+        ]
+      },
+      {
+        "key": "InnateSpells",
+        "entry": "fey-influence",
+        "spells": [
+          {
+            "rank": 1,
+            "spell": "c9d16d82-fcfd-5431-9d05-06caca157602"
+          }
+        ],
+        "predicate": ["fey-influence:anteater"]
+      },
+      {
+        "key": "InnateSpells",
+        "entry": "fey-influence",
+        "spells": [
+          {
+            "rank": 1,
+            "spell": "2e1a723b-ad9f-53b0-bee3-21b8401988f0"
+          }
+        ],
+        "predicate": ["fey-influence:cat-sith"]
+      },
+      {
+        "key": "InnateSpells",
+        "entry": "fey-influence",
+        "spells": [
+          {
+            "rank": 1,
+            "spell": "4f616729-3f27-5aee-a02e-426f121c6fa3"
+          }
+        ],
+        "predicate": ["fey-influence:cursed-bluebird"]
+      },
+      {
+        "key": "InnateSpells",
+        "entry": "fey-influence",
+        "spells": [
+          {
+            "rank": 1,
+            "spell": "04e10500-24ff-5259-ad16-55b9555f98f2"
+          }
+        ],
+        "predicate": ["fey-influence:dryad"]
+      },
+      {
+        "key": "InnateSpells",
+        "entry": "fey-influence",
+        "spells": [
+          {
+            "rank": 1,
+            "spell": "f94a3b5e-8e3c-5781-81a5-5eca9bd19421"
+          }
+        ],
+        "predicate": ["fey-influence:faun"]
+      },
+      {
+        "key": "InnateSpells",
+        "entry": "fey-influence",
+        "spells": [
+          {
+            "rank": 1,
+            "spell": "42ecad5f-026b-577a-9b47-b97ae76568c9"
+          }
+        ],
+        "predicate": ["fey-influence:gremlin"]
+      },
+      {
+        "key": "InnateSpells",
+        "entry": "fey-influence",
+        "spells": [
+          {
+            "rank": 1,
+            "spell": "193cd153-9b8b-5415-8d18-949ff386cd16"
+          }
+        ],
+        "predicate": ["fey-influence:monarch"]
+      },
+      {
+        "key": "InnateSpells",
+        "entry": "fey-influence",
+        "spells": [
+          {
+            "rank": 1,
+            "spell": "949e0a89-f44b-598d-8adb-3d9d31db900e"
+          }
+        ],
+        "predicate": ["fey-influence:unicorn"]
       }
     ],
     "externalIds": {

@@ -5410,6 +5410,239 @@
         "key": "ActorTraits",
         "add": ["unholy"],
         "predicate": ["sanctification:unholy"]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "mortal-herald",
+        "tradition": "divine",
+        "attribute": "cha",
+        "preparation": "innate"
+      },
+      {
+        "key": "InnateSpells",
+        "entry": "mortal-herald",
+        "spells": [
+          {
+            "rank": 6,
+            "spell": "949e0a89-f44b-598d-8adb-3d9d31db900e"
+          }
+        ],
+        "predicate": [
+          {
+            "not": "deity:primary:font:harm"
+          },
+          {
+            "and": [
+              {
+                "gte": ["self:level", 12]
+              },
+              {
+                "lt": ["self:level", 13]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "InnateSpells",
+        "entry": "mortal-herald",
+        "spells": [
+          {
+            "rank": 7,
+            "spell": "949e0a89-f44b-598d-8adb-3d9d31db900e"
+          }
+        ],
+        "predicate": [
+          {
+            "not": "deity:primary:font:harm"
+          },
+          {
+            "and": [
+              {
+                "gte": ["self:level", 13]
+              },
+              {
+                "lt": ["self:level", 15]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "InnateSpells",
+        "entry": "mortal-herald",
+        "spells": [
+          {
+            "rank": 8,
+            "spell": "949e0a89-f44b-598d-8adb-3d9d31db900e"
+          }
+        ],
+        "predicate": [
+          {
+            "not": "deity:primary:font:harm"
+          },
+          {
+            "and": [
+              {
+                "gte": ["self:level", 15]
+              },
+              {
+                "lt": ["self:level", 17]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "InnateSpells",
+        "entry": "mortal-herald",
+        "spells": [
+          {
+            "rank": 9,
+            "spell": "949e0a89-f44b-598d-8adb-3d9d31db900e"
+          }
+        ],
+        "predicate": [
+          {
+            "not": "deity:primary:font:harm"
+          },
+          {
+            "and": [
+              {
+                "gte": ["self:level", 17]
+              },
+              {
+                "lt": ["self:level", 19]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "InnateSpells",
+        "entry": "mortal-herald",
+        "spells": [
+          {
+            "rank": 10,
+            "spell": "949e0a89-f44b-598d-8adb-3d9d31db900e"
+          }
+        ],
+        "predicate": [
+          {
+            "not": "deity:primary:font:harm"
+          },
+          {
+            "gte": ["self:level", 19]
+          }
+        ]
+      },
+      {
+        "key": "InnateSpells",
+        "entry": "mortal-herald",
+        "spells": [
+          {
+            "rank": 6,
+            "spell": "1330902b-a95f-54ea-9a07-3764617bd887"
+          }
+        ],
+        "predicate": [
+          "deity:primary:font:harm",
+          {
+            "and": [
+              {
+                "gte": ["self:level", 12]
+              },
+              {
+                "lt": ["self:level", 13]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "InnateSpells",
+        "entry": "mortal-herald",
+        "spells": [
+          {
+            "rank": 7,
+            "spell": "1330902b-a95f-54ea-9a07-3764617bd887"
+          }
+        ],
+        "predicate": [
+          "deity:primary:font:harm",
+          {
+            "and": [
+              {
+                "gte": ["self:level", 13]
+              },
+              {
+                "lt": ["self:level", 15]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "InnateSpells",
+        "entry": "mortal-herald",
+        "spells": [
+          {
+            "rank": 8,
+            "spell": "1330902b-a95f-54ea-9a07-3764617bd887"
+          }
+        ],
+        "predicate": [
+          "deity:primary:font:harm",
+          {
+            "and": [
+              {
+                "gte": ["self:level", 15]
+              },
+              {
+                "lt": ["self:level", 17]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "InnateSpells",
+        "entry": "mortal-herald",
+        "spells": [
+          {
+            "rank": 9,
+            "spell": "1330902b-a95f-54ea-9a07-3764617bd887"
+          }
+        ],
+        "predicate": [
+          "deity:primary:font:harm",
+          {
+            "and": [
+              {
+                "gte": ["self:level", 17]
+              },
+              {
+                "lt": ["self:level", 19]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "InnateSpells",
+        "entry": "mortal-herald",
+        "spells": [
+          {
+            "rank": 10,
+            "spell": "1330902b-a95f-54ea-9a07-3764617bd887"
+          }
+        ],
+        "predicate": [
+          "deity:primary:font:harm",
+          {
+            "gte": ["self:level", 19]
+          }
+        ]
       }
     ],
     "externalIds": {
