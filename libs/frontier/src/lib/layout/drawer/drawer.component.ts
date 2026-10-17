@@ -1,13 +1,12 @@
 import { DOCUMENT } from '@angular/common';
 import {
-  afterNextRender,
   ChangeDetectionStrategy,
   Component,
   computed,
   effect,
+  DestroyRef,
   ElementRef,
   inject,
-  Injector,
   input,
   model,
   signal,
@@ -23,36 +22,43 @@ import { cva } from 'class-variance-authority';
 import { Button, ButtonVariant } from '../../actions/button/button.component';
 import { Icon } from '../../icon/icon.component';
 import { Heading } from '../../text/heading/heading.component';
+import { showDialog, watchNarrow } from './drawer-overlay';
+import type { DrawerWidth } from './drawer-width';
+import {
+  endResize,
+  nearestWidth,
+  openStorage,
+  readWidth,
+  startResize,
+  WIDTH_LABELS,
+  WIDTHS,
+  writeWidth,
+} from './drawer-width';
 
-/** How wide a docked drawer is. Resizing steps between them, so the width is always a token. */
-export const DrawerWidth = { Narrow: 'narrow', Default: 'default', Wide: 'wide' } as const;
-export type DrawerWidth = (typeof DrawerWidth)[keyof typeof DrawerWidth];
-
-/** Narrowest to widest, the order the resize handle steps through. */
-const WIDTHS: readonly DrawerWidth[] = [DrawerWidth.Narrow, DrawerWidth.Default, DrawerWidth.Wide];
-/** Each width in rem, as `--container-drawer-*` sets them, for placing a drag between steps. */
-const WIDTH_REM: Readonly<Record<DrawerWidth, number>> = { narrow: 20, default: 28, wide: 40 };
-/** Each width's message key, spelled out in full. */
-const WIDTH_LABELS: Readonly<Record<DrawerWidth, string>> = {
-  narrow: 'frontier.drawer.width.narrow',
-  default: 'frontier.drawer.width.default',
-  wide: 'frontier.drawer.width.wide',
-};
-const STORAGE_KEY = 'fr-drawer-width';
 const OPEN_VALUE = 'open';
 const REM_FALLBACK_PX = 16;
 
 const hostVariants = cva('min-w-none', {
   variants: {
     open: { true: 'block @lg:shrink-0', false: 'hidden' },
+    // A modal drawer sits in the top layer, so its host takes no room in the page.
+    overlay: { true: '', false: '' },
     width: {
       narrow: '@lg:w-drawer-narrow',
       default: '@lg:w-drawer-default',
       wide: '@lg:w-drawer-wide',
     } satisfies Record<DrawerWidth, string>,
   },
+  compoundVariants: [{ open: true, overlay: true, class: 'contents' }],
 });
-const panelClasses = cva('flex gap-sm')();
+const panelVariants = cva('flex gap-sm border-none text-fg-default', {
+  variants: {
+    overlay: {
+      true: 'fixed inset-none m-none size-full max-h-none max-w-none overflow-auto bg-surface-base p-md backdrop:bg-surface-overlay',
+      false: 'static m-none w-full bg-transparent p-none',
+    },
+  },
+});
 const contentClasses = cva('flex min-w-none flex-1 flex-col gap-md')();
 const headerClasses = cva('flex items-center justify-between gap-sm')();
 const handleClasses = cva(
@@ -60,14 +66,12 @@ const handleClasses = cva(
 )();
 const headingClasses = cva('min-w-none focus:outline-hidden')();
 
-function isWidth(value: string | null | undefined): value is DrawerWidth {
-  return WIDTHS.some((width) => width === value);
-}
-
 /**
  * A right-hand panel docked beside the page's content. Open, it takes its width from the row and the content
  * narrows and reflows to make room; it never covers anything, and the page stays interactive: focus is not trapped.
- * Below the `lg` container size it stacks under the content, full width, instead of sitting beside it.
+ * Below the `lg` container size of the row it sits in (ADR-0065) it is instead a full-screen modal `<dialog>`: focus
+ * is trapped, Escape closes it and the page behind is inert. It is the one modal Pioneer allows. Crossing `lg` while
+ * open switches between the two without closing.
  *
  * `open` is mirrored in a query parameter (`param`, `drawer` unless renamed), so a reload or a shared link keeps the
  * drawer as it was. Opening moves focus to the title; closing, by the close button or by Escape while focus is
@@ -105,7 +109,6 @@ export class Drawer {
 
   protected readonly closeIcon = LucideX;
   protected readonly ButtonVariant = ButtonVariant;
-  protected readonly panelClasses = panelClasses;
   protected readonly contentClasses = contentClasses;
   protected readonly headerClasses = headerClasses;
   protected readonly handleClasses = handleClasses;
@@ -116,23 +119,35 @@ export class Drawer {
 
   private readonly document = inject(DOCUMENT);
   private readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
-  private readonly injector = inject(Injector);
+  private readonly destroyRef = inject(DestroyRef);
   private readonly router = inject(Router);
   private readonly route = inject(ActivatedRoute);
   private readonly heading = viewChild<ElementRef<HTMLElement>>('heading');
+  private readonly panel = viewChild<ElementRef<HTMLDialogElement>>('panel');
   private readonly storage = openStorage(this.document);
 
   public readonly width = signal<DrawerWidth>(readWidth(this.storage));
+  /** Whether the row the drawer sits in is below `lg`, so the drawer is a full-screen modal. */
+  protected readonly overlay = signal(false);
   protected readonly widthLabel = computed(() => WIDTH_LABELS[this.width()]);
   protected readonly widthIndex = computed(() => WIDTHS.indexOf(this.width()));
-  protected readonly hostClasses = computed(() => hostVariants({ open: this.open(), width: this.width() }));
+  protected readonly hostClasses = computed(() =>
+    hostVariants({ open: this.open(), overlay: this.overlay(), width: this.width() }),
+  );
+  protected readonly panelClasses = computed(() => panelVariants({ overlay: this.overlay() }));
 
   private readonly queryParams = toSignal(this.route.queryParamMap);
   private readonly queryOpen = computed(() => this.queryParams()?.get(this.param()) === OPEN_VALUE);
   private opener: HTMLElement | undefined;
   private urlSeen = false;
+  private titleFocused = true;
+  private stopWatching: (() => void) | undefined;
+  private shown: { readonly dialog: HTMLDialogElement; readonly modal: boolean } | undefined;
 
   public constructor() {
+    this.destroyRef.onDestroy(() => {
+      this.stopWatching?.();
+    });
     // The address bar is the source of truth for a reload or a shared link.
     // At first only an open address counts: a closed one cannot override a drawer the page opened.
     effect(() => {
@@ -156,10 +171,24 @@ export class Drawer {
     effect(() => {
       writeWidth(this.storage, this.width());
     });
+    // Runs once the dialog exists and again when the mode changes.
+    effect(() => {
+      const dialog = this.panel()?.nativeElement;
+      const modal = this.overlay();
+      untracked(() => {
+        this.showPanel(dialog, modal);
+      });
+    });
   }
 
   public close(): void {
     this.open.set(false);
+  }
+
+  /** Escape in a modal drawer would only close the dialog; close the drawer, so the address and focus follow. */
+  protected cancelFromDialog(event: Event): void {
+    event.preventDefault();
+    this.close();
   }
 
   /** Escape closes the drawer only while focus is inside it, so it never steals the key from the page. */
@@ -216,6 +245,34 @@ export class Drawer {
     }
   }
 
+  /** Shows the dialog docked or modal, only when it is new or its mode changed; a new one takes focus to the title. */
+  private showPanel(dialog: HTMLDialogElement | undefined, modal: boolean): void {
+    if (dialog === undefined) {
+      this.shown = undefined;
+      return;
+    }
+    if (this.shown?.dialog === dialog && this.shown.modal === modal) {
+      return;
+    }
+    showDialog(dialog, modal);
+    this.shown = { dialog, modal };
+    this.watchContainer();
+    if (!this.titleFocused) {
+      this.titleFocused = true;
+      this.heading()?.nativeElement.focus();
+    }
+  }
+
+  /** Starts watching the row's width once the host is in the page; the first reading arrives before the next paint. */
+  private watchContainer(): void {
+    const container = this.host.nativeElement.parentElement;
+    if (this.stopWatching === undefined && container !== null) {
+      this.stopWatching = watchNarrow(container, this.remPx(), (narrow) => {
+        this.overlay.set(narrow);
+      });
+    }
+  }
+
   /** On open focus goes to the title; on close it goes back to what had it when the drawer opened. */
   private moveFocus(open: boolean): void {
     const active = this.document.activeElement;
@@ -223,13 +280,8 @@ export class Drawer {
       if (active instanceof HTMLElement && !this.host.nativeElement.contains(active)) {
         this.opener = active;
       }
-      // The title exists once the open drawer has rendered.
-      afterNextRender(
-        () => {
-          this.heading()?.nativeElement.focus();
-        },
-        { injector: this.injector },
-      );
+      // The title takes focus once the dialog is shown, in showPanel.
+      this.titleFocused = false;
       return;
     }
     const { opener } = this;
@@ -243,54 +295,5 @@ export class Drawer {
   private remPx(): number {
     const size = this.document.defaultView?.getComputedStyle(this.document.documentElement).fontSize;
     return Number(size?.replace('px', '')) || REM_FALLBACK_PX;
-  }
-}
-
-function startResize(event: PointerEvent): void {
-  if (event.currentTarget instanceof HTMLElement) {
-    event.preventDefault();
-    event.currentTarget.setPointerCapture(event.pointerId);
-  }
-}
-
-function endResize(event: PointerEvent): void {
-  if (event.currentTarget instanceof HTMLElement && event.currentTarget.hasPointerCapture(event.pointerId)) {
-    event.currentTarget.releasePointerCapture(event.pointerId);
-  }
-}
-
-/** The width closest to a drag that ended `rem` wide. */
-function nearestWidth(rem: number): DrawerWidth {
-  let nearest: DrawerWidth = DrawerWidth.Default;
-  for (const width of WIDTHS) {
-    if (Math.abs(WIDTH_REM[width] - rem) < Math.abs(WIDTH_REM[nearest] - rem)) {
-      nearest = width;
-    }
-  }
-  return nearest;
-}
-
-function openStorage(document: Document): Storage | undefined {
-  try {
-    return document.defaultView?.localStorage;
-  } catch {
-    return undefined;
-  }
-}
-
-function readWidth(storage: Storage | undefined): DrawerWidth {
-  try {
-    const stored = storage?.getItem(STORAGE_KEY);
-    return isWidth(stored) ? stored : DrawerWidth.Default;
-  } catch {
-    return DrawerWidth.Default;
-  }
-}
-
-function writeWidth(storage: Storage | undefined, width: DrawerWidth): void {
-  try {
-    storage?.setItem(STORAGE_KEY, width);
-  } catch {
-    // Storage full or blocked: the width still applies for this session.
   }
 }

@@ -90,7 +90,8 @@ export { Grid, GridAlign, GridColumns, GridMinItem, GridQuery } from './lib/layo
 export { Page } from './lib/layout/page/page.component';
 export { PageAside } from './lib/layout/page-aside/page-aside.component';
 export { PageBody } from './lib/layout/page-body/page-body.component';
-export { Drawer, DrawerWidth } from './lib/layout/drawer/drawer.component';
+export { Drawer } from './lib/layout/drawer/drawer.component';
+export { DrawerWidth } from './lib/layout/drawer/drawer-width';
 export { PageHeader } from './lib/layout/page-header/page-header.component';
 export { Section } from './lib/layout/section/section.component';
 export { Shell } from './lib/layout/shell/shell.component';

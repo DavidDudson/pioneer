@@ -136,6 +136,8 @@ const OWNERS: ReadonlyMap<string, readonly string[]> = new Map([
   // Interactive
   ['details', ['layout/disclosure/']],
   ['summary', ['layout/disclosure/']],
+  // The one modal (ADR-0065): `fr-drawer` on narrow screens.
+  ['dialog', ['layout/drawer/']],
 ]);
 
 /** Elements no primitive may ever render → why, and what to use instead. */
@@ -143,7 +145,6 @@ const BANNED: ReadonlyMap<string, string> = new Map([
   ['select', '`fr-select` builds on @angular/aria, so a native select never gets an owner'],
   ['template', 'Angular templates use `ng-template`'],
   ['slot', 'Angular projects content with `ng-content`'],
-  ['dialog', 'modals are banned (AGENTS.md interaction rules); show the content inline or route to it'],
   ['noscript', 'Angular templates only render with JavaScript running'],
   // Rendered inside a component, these leave its custom-element host between list and item, which is invalid.
   // Axe fails it and screen readers miscount the items.
