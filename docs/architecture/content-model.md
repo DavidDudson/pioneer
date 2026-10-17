@@ -302,8 +302,10 @@ written with only the core numbers still validates (`creature-stat-block.ts`):
   browser and one stat block (`hazard` joins as a third value). A monster's creature type is one of its traits. An
   NPC may also carry `npc` details, optional and refused on a monster: `ancestry` (a slug), `occupation`,
   `levelRange` (`min` to `max`, the levels the archetype is written for) and `classHints` (class slugs, "fights like a
-  fighter"). The browser filters creatures by the common level, rarity and traits facets and by `role` and `size`
-  (`CREATURE_FACETS`).
+  fighter"). The browser lists creatures as the `creature` kind, public like every other, and filters them by the
+  common level, rarity and traits facets and by `role` and `size` (`CREATURE_FACETS`). A list with creatures adds the
+  role, size, HP and AC columns, and its level column sorts by number (a creature runs from -1). Search and the global
+  search find them like any entry.
 - **`skills`**: a `skill` slug (`stealth`, `warfare-lore`), its printed `modifier` and an optional `note`.
 - **`senses`**: a `sense` slug, its `acuity` (precise, imprecise, vague) and `range` in feet.
 - **`languages`** and **`conditions`**: slugs, unique. `conditions` are those the creature starts a fight with.

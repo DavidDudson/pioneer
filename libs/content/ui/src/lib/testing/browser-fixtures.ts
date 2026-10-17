@@ -31,6 +31,8 @@ export const BROWSER_ROWS: readonly BrowseRow[] = PACK.otherEntries.map((entry) 
     ref: { kind: ContentKind.Feat, name },
     kind: FEAT_LABEL,
     level: '1',
+    levelValue: 1,
+    creature: undefined,
     traits: entry.traits.map((trait) => ({ label: trait, tone: 'neutral' as const })),
     sources: [BOOK],
   };

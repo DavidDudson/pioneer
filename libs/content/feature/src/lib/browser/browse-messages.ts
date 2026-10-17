@@ -4,6 +4,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoService } from '@jsverse/transloco';
 import type { BrowseRow } from '@pioneer/content/ui';
 import type { TableColumn } from '@pioneer/frontier/data';
+import { ContentKind } from '@pioneer/rules/sdk';
 import { filter, merge } from 'rxjs';
 
 import { browseColumns } from './browse-columns';
@@ -25,6 +26,11 @@ export function injectBrowseColumns(kinds: () => readonly BrowseKind[]): Signal<
   const changed = injectMessagesChanged();
   return computed(() => {
     changed();
-    return browseColumns((key) => i18n.translate(key), kinds().length === 1);
+    const listed = kinds();
+    return browseColumns(
+      (key) => i18n.translate(key),
+      listed.length === 1,
+      listed.some((kind) => kind === ContentKind.Creature),
+    );
   });
 }

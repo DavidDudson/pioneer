@@ -106,6 +106,32 @@ describe('ContentBrowserPage', () => {
     expect(TestBed.inject(Router).url).toContain('kind=feat,spell');
   });
 
+  it('lists creatures with their role, size, Hit Points and Armor Class', async () => {
+    const { root } = await open('/content?kind=creature');
+    await expect(loaded(root, 1)).resolves.toStrictEqual(['Giant Rat']);
+    expect(headers(root)).toStrictEqual(expect.arrayContaining(['Role', 'Size', 'HP', 'AC']));
+    const cells = [...root.querySelectorAll('fr-table tbody tr td')].map((cell) => cell.textContent.trim());
+    expect(cells).toStrictEqual(expect.arrayContaining(['Monster', 'Small', '8', '14']));
+  });
+
+  it('keeps the creature columns out of a list with no creature', async () => {
+    const { root } = await open('/content?kind=feat');
+    await loaded(root, 4);
+    expect(headers(root)).not.toContain('HP');
+  });
+
+  it('filters creatures by role and size from the link', async () => {
+    const { root } = await open('/content?kind=creature&f=role:monster~size:small');
+    await expect(loaded(root, 1)).resolves.toStrictEqual(['Giant Rat']);
+  });
+
+  it('keeps a creature out of a list the role filter rules out', async () => {
+    const { root } = await open('/content?kind=creature&f=role:npc');
+    await vi.waitFor(() => {
+      expect(root.textContent).toContain('Nothing matches');
+    });
+  });
+
   it('keeps a kind picked when it is the last one deselected', async () => {
     const { root } = await open('/content?kind=feat');
     await loaded(root, 4);

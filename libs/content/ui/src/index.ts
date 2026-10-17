@@ -1,5 +1,5 @@
 export { default as contentBrowserMessages } from './i18n/en.json';
-export type { BrowseRow } from './lib/browse-row';
+export type { BrowseCreature, BrowseRow } from './lib/browse-row';
 export type { ContentBrowserEntry, ContentBrowserList } from './lib/browser-list';
 export {
   ContentBrowserTier,
