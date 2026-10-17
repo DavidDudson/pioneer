@@ -1,7 +1,7 @@
 import { inject } from '@angular/core';
 import type { LinkTarget } from '@pioneer/frontier';
 import { ContentLoader } from '@pioneer/rules/data-access';
-import { ContentKindSchema } from '@pioneer/rules/sdk';
+import { ContentKind } from '@pioneer/rules/sdk';
 import type { ContentEntry, ContentId, ContentRegistry } from '@pioneer/rules/sdk';
 import { entryTarget } from '@pioneer/rules/ui';
 import type { EntryPreview, EntryPreviews } from '@pioneer/rules/ui';
@@ -51,31 +51,54 @@ export function sheetEntryPreviews(registry: () => ContentRegistry | undefined):
   return { preview: (id) => sheetEntryPreview(registry(), id) };
 }
 
+/** The kinds the sheet's action, Strike, effect and condition rows name, so a card fetches these and no others. */
+const FETCHED_PREVIEW_KINDS: readonly ContentKind[] = [
+  ContentKind.Action,
+  ContentKind.Condition,
+  ContentKind.Effect,
+  ContentKind.Weapon,
+];
+
 /**
- * The previews for the rows that name entries of any kind (actions, Strikes, effects): from the registry the sheet has
- * loaded, and for an entry it doesn't hold, from every kind's bundles, fetched when its card first opens and kept for
- * the next. Each card links to the entry's page.
+ * The previews for the rows that name entries of those kinds (actions, Strikes, effects): from the registry the sheet
+ * has loaded, and for an entry it doesn't hold, from the bundles of `kinds`, fetched when its card first opens and
+ * kept for the next. Each card links to the entry's page, whether the sheet or the fetch holds the entry.
  */
-export function sheetFetchingPreviews(registry: () => ContentRegistry | undefined): EntryPreviews {
+export function sheetFetchingPreviews(
+  registry: () => ContentRegistry | undefined,
+  kinds: readonly ContentKind[] = FETCHED_PREVIEW_KINDS,
+): EntryPreviews {
   const loader = inject(ContentLoader);
-  const kept: { everything: Promise<ContentRegistry> | undefined } = { everything: undefined };
-  const fetchAll = async (): Promise<ContentRegistry> => {
-    kept.everything ??= loader.registry(ContentKindSchema.options);
+  const kept: { attempt: Promise<ContentRegistry> | undefined; fetched: ContentRegistry | undefined } = {
+    attempt: undefined,
+    fetched: undefined,
+  };
+  const fetchKinds = async (): Promise<ContentRegistry> => {
+    kept.attempt ??= loader.registry(kinds);
+    const { attempt } = kept;
     try {
-      return await kept.everything;
+      kept.fetched = await attempt;
+      return kept.fetched;
     } catch (error) {
-      kept.everything = undefined;
+      // Only its own failure: a retry already under way is not this attempt's to forget.
+      if (kept.attempt === attempt) {
+        kept.attempt = undefined;
+      }
       throw error;
     }
   };
   const target = (id: ContentId): LinkTarget | undefined => {
     const held = registry();
-    const entry = held === undefined ? undefined : sheetEntry(held, id);
+    const entry = (held === undefined ? undefined : sheetEntry(held, id)) ?? sheetEntryIn(kept.fetched, id);
     return entry === undefined ? undefined : entryTarget(entry);
   };
   return {
     ...sheetEntryPreviews(registry),
-    load: async (id) => sheetEntryPreview(await fetchAll(), id),
+    load: async (id) => sheetEntryPreview(await fetchKinds(), id),
     target,
   };
+}
+
+function sheetEntryIn(registry: ContentRegistry | undefined, id: ContentId): ContentEntry | undefined {
+  return registry === undefined ? undefined : sheetEntry(registry, id);
 }
