@@ -88,7 +88,7 @@ describe('table limits with variant rules in force', () => {
   test('a variant rule’s number beats the core rules’, and a limit it leaves out stays core', async () => {
     variants.enabled = [variantId('lavish'), variantId('plain')];
     const settings = await service.ruleLimitSettings(amiri, character.id);
-    expect(await service.of(character)).toStrictEqual({ ...CORE_RULE_LIMITS, investedMax: 12, itemsMax: 800 });
+    expect<object>(await service.of(character)).toStrictEqual({ ...CORE_RULE_LIMITS, investedMax: 12, itemsMax: 800 });
     expect(sourceOf(settings, 'investedMax')).toBe(RuleLimitSource.Variant);
     expect(sourceOf(settings, 'handsMax')).toBe(RuleLimitSource.Core);
     expect(settings.limits[0]).toMatchObject({ value: 12, core: 10, custom: false });
@@ -97,7 +97,7 @@ describe('table limits with variant rules in force', () => {
   test('the owner’s explicit number beats a variant rule’s, even a lower one', async () => {
     variants.enabled = [variantId('lavish')];
     const settings = await service.set(amiri, character.id, { limit: 'investedMax', value: setting(9) });
-    expect(await service.of(character)).toStrictEqual({ ...CORE_RULE_LIMITS, investedMax: 9, itemsMax: 800 });
+    expect<object>(await service.of(character)).toStrictEqual({ ...CORE_RULE_LIMITS, investedMax: 9, itemsMax: 800 });
     expect(sourceOf(settings, 'investedMax')).toBe(RuleLimitSource.Character);
     expect(sourceOf(settings, 'itemsMax')).toBe(RuleLimitSource.Variant);
   });
@@ -114,13 +114,13 @@ describe('table limits with variant rules in force', () => {
     const forward = await service.of(character);
     variants.enabled = [variantId('hoarder'), variantId('lavish')];
     const backward = await service.of(character);
-    expect(forward).toStrictEqual({ ...CORE_RULE_LIMITS, investedMax: 12, itemsMax: 1000 });
-    expect(backward).toStrictEqual(forward);
+    expect<object>(forward).toStrictEqual({ ...CORE_RULE_LIMITS, investedMax: 12, itemsMax: 1000 });
+    expect<object>(backward).toStrictEqual(forward);
   });
 
   test('a variant rule may lower a limit', async () => {
     variants.enabled = [variantId('one-handed')];
-    expect(await service.of(character)).toStrictEqual({ ...CORE_RULE_LIMITS, handsMax: 1 });
+    expect<object>(await service.of(character)).toStrictEqual({ ...CORE_RULE_LIMITS, handsMax: 1 });
   });
 
   test('a variant rule no pack defines changes nothing', async () => {
