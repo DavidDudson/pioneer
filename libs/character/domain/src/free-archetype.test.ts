@@ -63,7 +63,7 @@ const variantPack = ContentPack.define({
       slug: 'variant-rule:plain',
       name: 'Plain',
       sources: [{ kind: 'book', book: 'gm-core', page: 1 }],
-      rules: [],
+      rules: freeArchetypeRules(),
     },
   ],
 });
@@ -115,6 +115,10 @@ describe('the Free Archetype variant', () => {
   });
 
   test('opens no slots without the variant, or with one that has no extra slots', () => {
+    const [plainEntry] = plain;
+    const own = featSlots(fighter(20).build().document, withoutFree).filter((slot) => slot.entry === plainEntry?.id);
+    expect(plainEntry).toBeDefined();
+    expect(own).toHaveLength(0);
     expect(variantSlots(withoutFree, 20)).toHaveLength(0);
   });
 

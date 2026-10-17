@@ -86,9 +86,12 @@ describe('PathbuilderImportService.importPathbuilder: Free Archetype', () => {
   });
 
   test('names the feat as not offered, and enables nothing, when no pack defines the variant', async () => {
-    const { character, report, enabled } = await importMordred(mordredPack(false));
+    const pack = mordredPack(false);
+    const { character, report, enabled } = await importMordred(pack);
     expect(enabled).toStrictEqual([]);
-    expect(Object.values(character.document.build.choices)).not.toContain('sorcerer-dedication');
+    expect(Object.values(character.document.build.choices)).not.toContain(
+      pack.idOf(ContentKind.Feat, 'sorcerer-dedication'),
+    );
     expect(leftBehind(report, UnmatchedReason.NotOffered)).toContain('Sorcerer Dedication');
   });
 });

@@ -58,7 +58,8 @@ const FREE_ARCHETYPE_LABEL = 'free archetype';
 
 /**
  * The Free Archetype variant rule an export with feats in "Free Archetype N" slots needs, from the loaded packs;
- * undefined for an export without any, or content that doesn't define the variant.
+ * undefined for an export without any, or content that doesn't define the variant. `extraSlots` is Free Archetype's
+ * alone among the packs, so the structure picks it out.
  */
 export function freeArchetypeVariant(
   value: PathbuilderImport,
