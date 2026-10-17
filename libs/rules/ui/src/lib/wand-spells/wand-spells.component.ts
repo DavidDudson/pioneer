@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, input, output } from '@angular/core
 import { TranslocoPipe } from '@jsverse/transloco';
 import { Badge, Heading, Stack, Text } from '@pioneer/frontier';
 
-import { EntryHover } from '../entry-preview/entry-hover.component';
+import { ContentPreview } from '../entry-preview/content-preview.component';
 import { WandControls } from './wand-controls.component';
 import type { WandLine } from './wand-spells-line';
 import { WAND_BLOCK_MESSAGES, WandSpellsMessage } from './wand-spells-messages';
@@ -21,7 +21,7 @@ import { WAND_BLOCK_MESSAGES, WandSpellsMessage } from './wand-spells-messages';
  */
 @Component({
   selector: 'pio-wand-spells',
-  imports: [Badge, EntryHover, Heading, Stack, Text, TranslocoPipe, WandControls],
+  imports: [Badge, ContentPreview, Heading, Stack, Text, TranslocoPipe, WandControls],
   templateUrl: './wand-spells.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

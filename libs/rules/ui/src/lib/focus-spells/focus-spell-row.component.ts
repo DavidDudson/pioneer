@@ -3,7 +3,7 @@ import { TranslocoPipe } from '@jsverse/transloco';
 import { Badge, Stack, Text } from '@pioneer/frontier';
 
 import { UseButtons } from '../actions/use-buttons.component';
-import { EntryHover } from '../entry-preview/entry-hover.component';
+import { ContentPreview } from '../entry-preview/content-preview.component';
 import { SpellDetails } from '../spell-list/spell-details.component';
 import type { FocusSpellLine } from './focus-spells-line';
 
@@ -13,7 +13,7 @@ import type { FocusSpellLine } from './focus-spells-line';
  */
 @Component({
   selector: 'pio-focus-spell-row',
-  imports: [Badge, EntryHover, SpellDetails, Stack, Text, TranslocoPipe, UseButtons],
+  imports: [Badge, ContentPreview, SpellDetails, Stack, Text, TranslocoPipe, UseButtons],
   templateUrl: './focus-spell-row.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

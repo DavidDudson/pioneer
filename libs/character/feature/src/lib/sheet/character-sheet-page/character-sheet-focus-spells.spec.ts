@@ -47,7 +47,7 @@ async function focusOf(root: HTMLElement): Promise<HTMLElement> {
 /** Each spell's name and badges: the first row of its details. */
 function spellsIn(focus: HTMLElement): string[] {
   return [...focus.querySelectorAll('pio-spell-details')].map((details) =>
-    [...details.querySelectorAll('pio-entry-hover fr-text, fr-badge')].map((part) => textOf(part)).join(' '),
+    [...details.querySelectorAll('pio-content-preview fr-text, fr-badge')].map((part) => textOf(part)).join(' '),
   );
 }
 

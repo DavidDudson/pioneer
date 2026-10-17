@@ -16,7 +16,7 @@ async function render(lines: readonly KitLine[]): Promise<HTMLElement> {
 
 /** Each line's own text, indented by how deep its list is. */
 const shown = (host: HTMLElement): string[] =>
-  [...host.querySelectorAll('pio-entry-hover > fr-text')].map((text) => {
+  [...host.querySelectorAll('pio-content-preview > fr-text')].map((text) => {
     let depth = 0;
     for (let at = text.parentElement; at !== null && at !== host; at = at.parentElement) {
       depth += at.tagName === 'FR-LIST' ? 1 : 0;

@@ -1,5 +1,6 @@
 import { InjectionToken } from '@angular/core';
 import type { Provider } from '@angular/core';
+import type { LinkTarget } from '@pioneer/frontier';
 import type { BreakdownLine } from '@pioneer/rules/engine';
 import type {
   ConditionValue,
@@ -45,6 +46,14 @@ export interface EntryPreview {
 export interface EntryPreviews {
   /** The entry's preview, or `undefined` when it isn't loaded (its reference then shows without one). */
   readonly preview: (id: ContentId) => EntryPreview | undefined;
+  /**
+   * Fetches the preview of an entry `preview` doesn't hold, when its card first opens. Resolves `undefined` for an
+   * entry that doesn't exist and rejects when the fetch fails. A page that holds all it previews leaves it out; with
+   * it, every reference is previewable, and the card shows a skeleton until the fetch settles.
+   */
+  readonly load?: (id: ContentId) => Promise<EntryPreview | undefined>;
+  /** Where the entry opens in full (its page or panel), for the card's link; none when the page can't open it. */
+  readonly target?: (id: ContentId) => LinkTarget | undefined;
 }
 
 const NO_PREVIEWS: EntryPreviews = { preview: (): undefined => undefined };
@@ -56,4 +65,9 @@ export const ENTRY_PREVIEWS = new InjectionToken<EntryPreviews>('ENTRY_PREVIEWS'
 /** Gives the references and rows below a page their previews. */
 export function provideEntryPreviews(previews: EntryPreviews): Provider {
   return { provide: ENTRY_PREVIEWS, useValue: previews };
+}
+
+/** Whether `previews` can show a card for `id`: it holds the entry, or can fetch it when the card opens. */
+export function canPreview(previews: EntryPreviews, id: ContentId): boolean {
+  return previews.load !== undefined || previews.preview(id) !== undefined;
 }

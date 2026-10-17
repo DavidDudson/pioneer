@@ -14,7 +14,7 @@ const SUMMARY_BLOCKS = 1;
  * The card a reference or row opens: name, level, traits, the opening of the description and where it comes from.
  * For an entry the character has with a value (frightened 2) it also shows the value and the statistics the entry
  * changes, with that value applied. A creature shows its stat block instead. It is presentational;
- * `pio-entry-hover` finds the entry and places the card.
+ * `pio-content-preview` finds the entry and places the card.
  *
  * ```html
  * <pio-entry-preview [preview]="preview" />

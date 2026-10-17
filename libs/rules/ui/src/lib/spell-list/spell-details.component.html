@@ -1,8 +1,8 @@
 <fr-stack gap="2xs">
   <fr-stack direction="horizontal" gap="xs" align="center" wrap>
-    <pio-entry-hover [entry]="spell().id">
+    <pio-content-preview [entry]="spell().id">
       <fr-text weight="semibold" tabindex="0">{{ spell().name }}</fr-text>
-    </pio-entry-hover>
+    </pio-content-preview>
     @for (tag of spell().tags; track tag) {
       <fr-badge>{{ tag | transloco }}</fr-badge>
     }

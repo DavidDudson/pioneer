@@ -12,9 +12,9 @@
     </fr-stack>
     <fr-stack gap="3xs">
       <fr-stack direction="horizontal" gap="xs" align="center" wrap>
-        <pio-entry-hover [entry]="wand.id">
+        <pio-content-preview [entry]="wand.id">
           <fr-text tabindex="0" [tone]="wand.blocked || wand.broken ? 'subtle' : 'default'">{{ wand.spell }}</fr-text>
-        </pio-entry-hover>
+        </pio-content-preview>
         <fr-badge>{{ Message.Rank | transloco: { rank: wand.rank } }}</fr-badge>
       </fr-stack>
       @if (wand.blocked; as blocked) {
