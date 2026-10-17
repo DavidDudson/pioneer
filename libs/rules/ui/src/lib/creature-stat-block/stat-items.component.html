@@ -1,0 +1,9 @@
+@if (items().length > 0) {
+  <fr-stack gap="2xs" direction="horizontal" wrap>
+    <fr-text weight="medium">{{ Message.Items | transloco }}</fr-text>
+    @for (item of items(); track item.ref.id) {
+      <pio-rich-ref [node]="item.ref" />
+      <fr-text>{{ item.quantity }}</fr-text>
+    }
+  </fr-stack>
+}

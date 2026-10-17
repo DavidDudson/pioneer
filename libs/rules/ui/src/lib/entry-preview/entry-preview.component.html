@@ -1,23 +1,5 @@
-<fr-stack gap="xs">
-  <fr-stack gap="xs" direction="horizontal" align="center">
-    <fr-heading [level]="headingLevel()">{{ preview().name }}</fr-heading>
-    @if (preview().value; as value) {
-      <fr-badge>{{ value }}</fr-badge>
-    }
-  </fr-stack>
-  @if (preview().level; as level) {
-    <fr-text element="p" variant="caption" tone="muted">{{ Message.Level | transloco: { level } }}</fr-text>
-  }
-  @if (preview().traits.length > 0) {
-    <fr-stack gap="2xs" direction="horizontal" wrap>
-      @for (trait of preview().traits; track trait) {
-        <fr-badge>{{ trait }}</fr-badge>
-      }
-    </fr-stack>
-  }
-  <pio-rich-text [text]="summary()" [headingLevel]="headingLevel()" />
-  @if (preview().effects; as effects) {
-    <pio-entry-effects [effects]="effects" />
-  }
-  <pio-source-line [sources]="preview().sources" />
-</fr-stack>
+@if (preview().creature; as creature) {
+  <pio-creature-stat-block [creature]="creature" [layout]="statLayout()" [headingLevel]="headingLevel()" />
+} @else {
+  <pio-entry-card [preview]="preview()" [summary]="summary()" [headingLevel]="headingLevel()" />
+}

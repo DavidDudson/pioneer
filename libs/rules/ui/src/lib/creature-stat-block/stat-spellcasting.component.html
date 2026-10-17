@@ -1,0 +1,19 @@
+<fr-stack gap="sm">
+  @for (entry of entries(); track entry.heading) {
+    <fr-stack gap="2xs">
+      <fr-text weight="medium">{{ entry.heading }}</fr-text>
+      <fr-text element="p">{{ entry.numbers }}</fr-text>
+      <fr-list gap="2xs">
+        @for (rank of entry.ranks; track rank.rank) {
+          <fr-list-item>
+            <fr-text weight="medium">{{ rank.rank }}</fr-text>
+            @for (spell of rank.spells; track spell.ref.id) {
+              <pio-rich-ref [node]="spell.ref" />
+              {{ spell.uses }}
+            }
+          </fr-list-item>
+        }
+      </fr-list>
+    </fr-stack>
+  }
+</fr-stack>

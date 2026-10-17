@@ -64,6 +64,17 @@ describe('EntryPage', () => {
     expect(card).toContain('Raise a shield');
   });
 
+  it('shows a creature as its stat block', async () => {
+    const { root } = await open('/content/creature/giant-rat');
+    await vi.waitFor(() => {
+      expect(root.querySelector('pio-creature-stat-block')).not.toBeNull();
+    });
+    const card = present(root.querySelector('pio-creature-stat-block')).textContent;
+    expect(card).toContain('Giant Rat');
+    expect(card).toContain('Creature -1');
+    expect(card).toContain('Melee jaws +7');
+  });
+
   it('links a reference to the entry it names, and shows the label of one it cannot find', async () => {
     const { root } = await open('/content/feat/shield-block');
     await headed(root);

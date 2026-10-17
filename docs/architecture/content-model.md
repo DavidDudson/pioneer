@@ -323,6 +323,13 @@ written with only the core numbers still validates (`creature-stat-block.ts`):
 - **`items`**: carried equipment, by `ContentId` and `quantity`.
 - **`recallKnowledge`**: the line that says what a check reveals, as rich text.
 
+The content browser shows a creature as a stat block (`pio-creature-stat-block` in `libs/rules/ui`), laid out like
+the printed one, in each tier: the preview keeps to the name, perception, defences, speeds and Strikes; the panel and
+the page show every part, and the parts a creature lacks are left out. A pack files creatures as flat stat blocks, so
+the browser rebuilds the entry from the pack's `creatures`; its description comes from the kind's description shard.
+Spells and items link through the page's rich text links. Printed numbers have no breakdown to open, since a creature
+has no modifiers to derive them from.
+
 ### Rich text
 
 Descriptions are stored as a small, safe document AST, not HTML: `RichText` in `libs/rules/sdk` (`rich-text.ts`),
