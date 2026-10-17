@@ -1,6 +1,7 @@
 /** Merisiel's sheet in a routed page, for the sheet page specs. */
 import { HttpTestingController } from '@angular/common/http/testing';
 import { ApplicationRef } from '@angular/core';
+import type { Provider } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
@@ -92,7 +93,6 @@ const MERISIEL_SLOTS = [
   { status: 'filled', key: 'flaw:1:ancestry:0', subject: { kind: 'flaw' }, selection: 'int' },
 ];
 
-/** Merisiel as the server sends her sheet. */
 /** A sheet's languages before an ancestry grants any: none known, none to add. */
 const NO_LANGUAGES = { known: [], open: 0 } as const;
 
@@ -127,6 +127,7 @@ export interface SheetOptions {
   readonly ruleLimitSettings?: object;
   /** What the server has the character using that its campaign has not enabled; nothing by default. */
   readonly unenabledContent?: object;
+  readonly providers?: readonly Provider[];
 }
 
 /** What a character in no campaign uses that no campaign has enabled: nothing. */
@@ -237,6 +238,7 @@ export async function openSheet(character: object = MERISIEL, options: SheetOpti
       provideRouter([{ path: 'characters', children: characterRoutes }], withComponentInputBinding()),
       ...provideServerStateTesting([], options.packs),
       provideI18n({ en: async () => frontierMessages }),
+      ...(options.providers ?? []),
     ],
   });
   const harness = await RouterTestingHarness.create(sheetUrl(options.tab));

@@ -28,6 +28,10 @@
     "importPioneer": "Import from Pioneer JSON"
   },
   "sheet": {
+    "sidePanel": {
+      "title": "Content",
+      "open": "Search content"
+    },
     "identityHeading": "Identity",
     "attributesHeading": "Attributes",
     "defencesHeading": "Defences",

@@ -8,7 +8,7 @@
     <fr-link to="/play/rules">{{ 'shell.nav.rules' | transloco }}</fr-link>
   </fr-stack>
   <fr-stack frShellActions direction="horizontal" gap="xs" align="center">
-    @if (globalSearch(); as search) {
+    @if (!shellSearch.hidden() && globalSearch(); as search) {
       <ng-container [ngComponentOutlet]="search" />
     }
     <fr-segmented

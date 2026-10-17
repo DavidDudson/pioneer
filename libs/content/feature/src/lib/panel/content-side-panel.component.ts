@@ -70,6 +70,8 @@ export class ContentSidePanel {
     return selected === undefined ? undefined : { kinds: [selected.kind], query: '', filters: [], selected };
   });
 
+  readonly #drawerOpen = computed(() => this.#params()?.get(DRAWER_PARAM) === DRAWER_OPEN);
+
   public constructor() {
     effect(() => {
       const words = this.#fromAddress();
@@ -81,16 +83,18 @@ export class ContentSidePanel {
         }
       });
     });
-  }
-
-  /** Opens the drawer on the search box. */
-  public async reveal(): Promise<void> {
-    await this.#navigate({ [DRAWER_PARAM]: DRAWER_OPEN }, true);
-    this.focusSearch();
+    // However the drawer opens (the shortcut, the sheet's button, a link), the cursor goes to the search box.
+    effect(() => {
+      if (this.#drawerOpen()) {
+        untracked(() => {
+          this.#focusSearch();
+        });
+      }
+    });
   }
 
   /** Puts the cursor in the search box once the drawer has taken its own focus. */
-  public focusSearch(): void {
+  #focusSearch(): void {
     afterNextRender(
       () => {
         this.combobox().focus();
@@ -127,13 +131,18 @@ export class ContentSidePanel {
   protected async back(): Promise<void> {
     await this.#navigate({ [PanelParam.Entry]: undefined }, false);
     this.combobox().open();
-    this.focusSearch();
+    this.#focusSearch();
   }
 
   protected async shortcut(event: KeyboardEvent): Promise<void> {
     if (isSearchShortcut(event)) {
       event.preventDefault();
-      await this.reveal();
+      if (this.#drawerOpen()) {
+        this.#focusSearch();
+      } else {
+        // The drawer opening puts the cursor in the box.
+        await this.#navigate({ [DRAWER_PARAM]: DRAWER_OPEN }, true);
+      }
     }
   }
 

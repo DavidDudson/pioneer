@@ -6,3 +6,4 @@ export { IdlePreloading, PREFETCH_WHEN_IDLE } from './idle-preloading';
 export { IDLE_SCHEDULER, type IdleScheduler } from './idle-scheduler';
 export { loadWithMessages, provideMessageScope } from './message-scope';
 export { type DisplayChoices, LocalePreferences, PREFERENCE_STORAGE } from './locale-preferences';
+export { ShellSearch } from './shell-search';

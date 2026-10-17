@@ -13,9 +13,17 @@ export const appRoutes: Routes = [
     // Signing out re-runs guards on the current page (SessionStore), so it is left at once.
     runGuardsAndResolvers: 'always',
     data: PREFETCH_WHEN_IDLE,
+    // The sheet's side panel searches the rules content, which the character feature may not import.
     loadChildren: async () => {
-      const { characterRoutes } = await import('@pioneer/character/feature');
-      return characterRoutes;
+      const [{ characterRoutes, SHEET_SIDE_PANEL }, { provideSheetSidePanelMessages, sheetSidePanel }] =
+        await Promise.all([import('@pioneer/character/feature'), import('./sheet-side-panel')]);
+      return [
+        {
+          path: '',
+          providers: [{ provide: SHEET_SIDE_PANEL, useValue: sheetSidePanel }, ...provideSheetSidePanelMessages()],
+          children: characterRoutes,
+        },
+      ];
     },
   },
   {
