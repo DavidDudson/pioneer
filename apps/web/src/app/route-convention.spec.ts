@@ -33,7 +33,14 @@ async function treeOf(category: string): Promise<Routes> {
   if (!Array.isArray(loaded)) {
     throw new TypeError(`${category} does not load routes`);
   }
-  return loaded;
+  return unwrap(loaded);
+}
+
+/** A lone pathless route with no data only provides for its children (the campaigns key item search): look inside. */
+function unwrap(routes: Routes): Routes {
+  const [only] = routes;
+  const isWrapper = routes.length === 1 && only?.path === '' && only.data === undefined && only.children !== undefined;
+  return isWrapper ? unwrap(only.children ?? []) : routes;
 }
 
 /** The routes with a path of their own, which show as a step of the trail: a redirect never does. */

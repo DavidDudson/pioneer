@@ -37,20 +37,27 @@ export const campaignRoutes: Routes = [
       },
       {
         path: ':id',
-        // Opening a campaign is the likely next step from the list.
-        data: { ...PREFETCH_WHEN_IDLE, [CRUMB]: campaignCrumb },
-        loadComponent: loadWithMessages(async () => {
-          const { CampaignHomePage } = await import('./home/campaign-home-page/campaign-home-page.component');
-          return CampaignHomePage;
-        }),
-      },
-      {
-        path: ':id/inventory',
-        loadComponent: loadWithMessages(async () => {
-          const { CampaignInventoryPage } =
-            await import('./home/campaign-inventory-page/campaign-inventory-page.component');
-          return CampaignInventoryPage;
-        }),
+        data: { [CRUMB]: campaignCrumb },
+        children: [
+          {
+            path: '',
+            // Opening a campaign is the likely next step from the list.
+            data: PREFETCH_WHEN_IDLE,
+            loadComponent: loadWithMessages(async () => {
+              const { CampaignHomePage } = await import('./home/campaign-home-page/campaign-home-page.component');
+              return CampaignHomePage;
+            }),
+          },
+          {
+            path: 'inventory',
+            data: { [CRUMB]: 'campaign.inventory.title' },
+            loadComponent: loadWithMessages(async () => {
+              const { CampaignInventoryPage } =
+                await import('./home/campaign-inventory-page/campaign-inventory-page.component');
+              return CampaignInventoryPage;
+            }),
+          },
+        ],
       },
     ],
   },
