@@ -87,8 +87,11 @@ describe('CharacterSheetPage options that train a skill again', () => {
     expect(
       rows.filter((row) => row.note !== undefined).map((row) => [row.name, row.note, row.disabledReason]),
     ).toStrictEqual([
+      ['Absalom Street Preacher', MARK, undefined],
       ['Acolyte', MARK, undefined],
+      ['Blooded by the Dead', MARK, undefined],
       ['Combat Chaplain', MARK, undefined],
+      ['Local Savior', MARK, undefined],
       ['Otherworldly Mission', MARK, undefined],
       ['Pilgrim', MARK, undefined],
       ['Revenant', MARK, undefined],

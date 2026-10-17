@@ -15,7 +15,7 @@ import { VariantRuleLimits } from '@pioneer/rules/sdk';
 
 describe('the campaign context’s table limits against the character context’s', () => {
   test('a campaign’s default for each limit is the core rules’ number', () => {
-    expect(CORE_LIMIT_DEFAULTS).toStrictEqual(CORE_RULE_LIMITS);
+    expect<object>(CORE_LIMIT_DEFAULTS).toStrictEqual(CORE_RULE_LIMITS);
   });
 
   test('the campaign names exactly the limits the character context holds', () => {
@@ -23,7 +23,7 @@ describe('the campaign context’s table limits against the character context’
   });
 
   test('a character’s ceiling for each limit is the campaign’s', () => {
-    expect(CHARACTER_CEILINGS).toStrictEqual(CAMPAIGN_CEILINGS);
+    expect<object>(CHARACTER_CEILINGS).toStrictEqual(CAMPAIGN_CEILINGS);
   });
 
   test('a variant rule declares exactly the limits the character context holds', () => {

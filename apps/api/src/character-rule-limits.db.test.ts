@@ -58,7 +58,7 @@ describe.skipIf(adminUrl === undefined)('character table limits over postgres', 
     await service.set(amiri, kyra.id, { limit: 'investedMax', value: twelve });
     await service.set(amiri, kyra.id, { limit: 'investedMax', value: RuleLimitSettingValue.parse(8) });
     const rows = await repository.listForCharacter(kyra.id);
-    expect(rows.map((row) => [row.limit, row.value, row.setBy])).toStrictEqual([['investedMax', 8, amiri]]);
+    expect<object>(rows.map((row) => [row.limit, row.value, row.setBy])).toStrictEqual([['investedMax', 8, amiri]]);
   });
 
   test('the number set is in force, and a reset returns the core rules’', async () => {
@@ -84,6 +84,6 @@ describe.skipIf(adminUrl === undefined)('character table limits over postgres', 
     await database.db.execute(sql`update character_rule_limits set set_by = ${stranger}`);
     await database.db.execute(sql`delete from users where id = ${stranger}`);
     const [row] = await repository.listForCharacter(kyra.id);
-    expect([row?.value, row?.setBy]).toStrictEqual([12, undefined]);
+    expect<object>([row?.value, row?.setBy]).toStrictEqual([12, undefined]);
   });
 });

@@ -29,8 +29,6 @@ import type { SpellSpend } from '../sheet-spell-use';
 import { SheetSpender } from '../sheet-spender';
 import { SpellAccess } from '../spell-access/spell-access.component';
 
-const LOADING_SLOTS = 3;
-
 /**
  * The open character's spell picks under its spellcasting entries (#478): a pick per prepared slot, its focus spells
  * (ADR-0050), and the uncommon and rare spells it has access to. The spells load only once the character has an entry, so a sheet without one never
@@ -62,9 +60,6 @@ export class SheetSpells {
   public readonly casts = input(false);
   /** Whether one of its entries is a focus entry, so its focus spells show a placeholder while they load. */
   public readonly focuses = input(false);
-
-  /** Placeholder pickers while the spells load: a 1st-level caster's first row. */
-  protected readonly loadingSlots = Array.from({ length: LOADING_SLOTS }, (_unused, index) => index);
 
   readonly #store = inject(CharacterStore);
   readonly #play = inject(PlayStore);

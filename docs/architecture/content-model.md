@@ -500,7 +500,13 @@ when idle. Content browser search is server-side through per-locale `tsvector` (
 
 ### Registering a pack without touching the compiler's limit
 
-The catalog's pack loaders (`libs/rules/catalog/src/*-packs.js`) are plain JavaScript, with their types in the `.d.ts` beside each (`export function xPack(): Promise<PackContents>`). The compiler never reads a loader's `import('….json')`, so a pack costs it nothing: the same project checked in 1s and 0.4 GB, not 60s and 4.4 GB, and no number of packs reaches TS2859 ("Excessive complexity comparing types"). Bun and the Angular bundler read the `.js` and resolve `@pioneer/content/packs/*` as before. To register a pack, add its `xPack()` loader to a `*-packs.js` file, its declaration to the matching `.d.ts`, and its call in `index.ts`. Do not import pack JSON from a `.ts` file: the compiler infers the type of every file it reaches.
+The catalog's pack loaders (`libs/rules/catalog/src/*-packs.js`) are plain JavaScript, with their types in the
+`.d.ts` beside each (`export function xPack(): Promise<PackContents>`). The compiler never reads a loader's
+`import('….json')`, so a pack costs it nothing: the same project checked in 1s and 0.4 GB, not 60s and 4.4 GB, and no
+number of packs reaches TS2859 ("Excessive complexity comparing types"). Bun and the Angular bundler read the `.js`
+and resolve `@pioneer/content/packs/*` as before. To register a pack, add its `xPack()` loader to a `*-packs.js`
+file, its declaration to the matching `.d.ts`, and its call in `index.ts`. Do not import pack JSON from a `.ts` file:
+the compiler infers the type of every file it reaches.
 
 ## Search
 
