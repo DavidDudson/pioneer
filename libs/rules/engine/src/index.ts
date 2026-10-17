@@ -79,3 +79,17 @@ export {
   type AvailableActionsInput,
 } from './available-actions';
 export { type FormReplacement, FormSource } from './statistic-result';
+export {
+  type DamageAdjustmentEffect,
+  EffectChange,
+  type EffectLine,
+  EffectMode,
+  type EffectStatus,
+  EffectStatusKind,
+  type ImmunityEffect,
+  type ModifierEffect,
+  type NotSummarisedEffect,
+  type SenseEffect,
+  type SetEffect,
+} from './effect-line';
+export { type EffectScope, summariseEffects, type SummarisedEntry } from './effect-summary';
