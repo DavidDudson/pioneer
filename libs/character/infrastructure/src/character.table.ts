@@ -3,12 +3,15 @@ import type {
   CharacterLevel,
   CharacterName,
   CharacterPackId,
+  CharacterRuleLimitId,
   CharacterSchemaVersion,
   CharacterVariantRuleId,
   FeatDisplayId,
   FeatDisplaySection,
   PlayState,
   PlayStateId,
+  RuleLimitField,
+  RuleLimitSettingValue,
   SheetMode,
   SheetModeId,
   StoredCharacterDocument,
@@ -199,5 +202,34 @@ export const characterVariantRules = pgTable(
     uniqueIndex('character_variant_rules_character_variant_idx').on(table.characterId, table.variantId),
     // Serves clearing `enabled_by` when the user is deleted.
     index('character_variant_rules_enabled_by_idx').on(table.enabledBy),
+  ],
+);
+
+/**
+ * The table limits a character has set, one row per character and limit, used while it is in no campaign (a character
+ * in a campaign is held to the campaign's and ignores these; ADR-0064). A limit with no row is the core rules' number.
+ * The audit log keys rows by `id`, so a setting has its own id. The foreign key on `set_by` (to users, on delete set
+ * null) is in the migration, as identity's tables are outside this context's boundary; deleting the character deletes
+ * its rows too.
+ */
+export const characterRuleLimits = pgTable(
+  'character_rule_limits',
+  {
+    id: uuid().$type<CharacterRuleLimitId>().primaryKey(),
+    characterId: uuid()
+      .$type<CharacterId>()
+      .notNull()
+      .references(() => characters.id, { onDelete: 'cascade' }),
+    limit: text().$type<RuleLimitField>().notNull(),
+    value: smallint().$type<RuleLimitSettingValue>().notNull(),
+    // Null once the user who set it is deleted: the character keeps the limit.
+    setBy: uuid().$type<UserId>(),
+    setAt: timestamp({ withTimezone: true, mode: 'string' }).notNull(),
+  },
+  (table) => [
+    // A limit is set once per character; also serves the character's list and the cascade when it is deleted.
+    uniqueIndex('character_rule_limits_character_limit_idx').on(table.characterId, table.limit),
+    // Serves clearing `set_by` when the user is deleted.
+    index('character_rule_limits_set_by_idx').on(table.setBy),
   ],
 );

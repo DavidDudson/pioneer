@@ -1,0 +1,39 @@
+<fr-list-item>
+  <fr-stack direction="horizontal" gap="sm" align="center" wrap>
+    <fr-stack gap="3xs" grow>
+      @if (manageable()) {
+        <fr-inline-field [label]="label() | transloco" [edit]="edit">
+          <fr-number-input
+            frInlineEditor
+            [ariaLabel]="label() | transloco"
+            [min]="1"
+            [max]="setting().ceiling"
+            [value]="edit.draft()"
+            (valueChange)="edit.change($event)"
+            (committed)="edit.flushSoon()"
+            (cancelled)="edit.cancel()"
+          />
+        </fr-inline-field>
+      } @else {
+        <fr-text weight="medium">{{ label() | transloco }}</fr-text>
+        <fr-text>{{ setting().value }}</fr-text>
+      }
+      <fr-text variant="caption" tone="subtle">{{
+        'character.ruleLimits.core' | transloco: { value: setting().core }
+      }}</fr-text>
+    </fr-stack>
+    @if (setting().custom) {
+      <fr-badge>{{ 'character.ruleLimits.changed' | transloco }}</fr-badge>
+      @if (manageable()) {
+        <fr-async-button
+          size="sm"
+          [action]="reset"
+          [describeError]="describeError"
+          [pendingLabel]="'character.ruleLimits.resetting' | transloco"
+          [successLabel]="'character.ruleLimits.resetDone' | transloco"
+          >{{ 'character.ruleLimits.reset' | transloco }}</fr-async-button
+        >
+      }
+    }
+  </fr-stack>
+</fr-list-item>

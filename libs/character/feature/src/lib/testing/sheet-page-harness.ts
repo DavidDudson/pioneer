@@ -18,6 +18,7 @@ import {
   prebuildServerStateTesting,
   provideServerStateTesting,
 } from './provide-server-state-testing';
+import { ruleLimitSettingsOf } from './rule-limit-settings-testing';
 
 /**
  * Loads the sheet page's chunk (the page, the engine and the tabs under it) before the first test of each spec file.
@@ -122,6 +123,7 @@ export interface SheetOptions {
   readonly characterPacks?: object;
   /** The variant rules the server has the character using; none, for its owner to change, by default. */
   readonly characterVariantRules?: object;
+  readonly ruleLimitSettings?: object;
   /** What the server has the character using that its campaign has not enabled; nothing by default. */
   readonly unenabledContent?: object;
 }
@@ -259,6 +261,9 @@ export async function openSheet(character: object = MERISIEL, options: SheetOpti
       // The Plan tab's warning reads what its campaign has not enabled once it renders; other tabs never ask.
       for (const read of TestBed.inject(HttpTestingController).match(`/api/characters/${id}/unenabled-content`)) {
         read.flush(options.unenabledContent ?? NO_UNENABLED);
+      }
+      for (const read of TestBed.inject(HttpTestingController).match(`/api/characters/${id}/rule-limit-settings`)) {
+        read.flush(options.ruleLimitSettings ?? ruleLimitSettingsOf());
       }
       // Through the application, not `harness.detectChanges()`, so render hooks (roving focus) run as in the app.
       await TestBed.inject(ApplicationRef).whenStable();

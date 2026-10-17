@@ -33,5 +33,8 @@ export {
   type CharacterUnenabledPorts,
   type OwnChoices,
 } from './character-unenabled-service';
-export { CharacterRuleLimits } from './character-rule-limits';
+export { CharacterRuleLimitMessage } from './character-rule-limit-message';
+export { CharacterRuleLimitRepository } from './character-rule-limit-repository';
+export { CharacterRuleLimitService, type CharacterRuleLimitPorts } from './character-rule-limit-service';
+export { InMemoryCharacterRuleLimitRepository } from './in-memory-character-rule-limit-repository';
 export { EffectiveRuleLimits } from './effective-rule-limits';

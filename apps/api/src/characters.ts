@@ -1,6 +1,6 @@
 import {
   CharacterContent,
-  CharacterRuleLimits,
+  CharacterRuleLimitService,
   CharacterAllyService,
   CharacterPackService,
   CharacterUnenabledService,
@@ -18,9 +18,11 @@ import {
   characterUnenabledRoutes,
   characterVariantRoutes,
   characterRoutes,
+  characterRuleLimitRoutes,
   featDisplayRoutes,
   DrizzleCharacterPackRepository,
   DrizzleCharacterRepository,
+  DrizzleCharacterRuleLimitRepository,
   DrizzleCharacterVariantRepository,
   DrizzleFeatDisplayRepository,
   DrizzleSheetModeRepository,
@@ -47,6 +49,7 @@ interface PackServices {
   readonly packs: CharacterPackService;
   readonly allies: CharacterAllyService;
   readonly variants: CharacterVariantService;
+  readonly ruleLimits: CharacterRuleLimitService;
   readonly unenabled: CharacterUnenabledService;
 }
 
@@ -72,9 +75,13 @@ function packServices(db: Database, clock: Clock, { content, repository }: Chara
     { characters: repository, variants: new DrizzleCharacterVariantRepository(db), content, packs, campaigns },
     clock,
   );
+  const ruleLimits = new CharacterRuleLimitService(
+    { characters: repository, limits: new DrizzleCharacterRuleLimitRepository(db), campaigns },
+    clock,
+  );
   const allies = new CharacterAllyService({ characters: repository, campaigns });
   const unenabled = new CharacterUnenabledService({ characters: repository, content, packs, variants, campaigns });
-  return { packs, variants, allies, unenabled };
+  return { packs, variants, ruleLimits, allies, unenabled };
 }
 
 /** The character context as mounted: its routes, and the Pioneer file export other contexts are wired to. */
@@ -90,10 +97,10 @@ export interface Characters {
 export function characters(db: Database, clock: Clock, authenticator: RequestAuthenticator): Characters {
   const content = new StoredContentSource(new ContentRepository(db));
   const repository = new DrizzleCharacterRepository(db);
-  const { packs, variants, allies, unenabled } = packServices(db, clock, { content, repository });
+  const { packs, variants, ruleLimits, allies, unenabled } = packServices(db, clock, { content, repository });
   const characterContent = new CharacterContent(content, packs, {
     variants,
-    limits: new CharacterRuleLimits(new CampaignPackDirectory(db)),
+    limits: ruleLimits,
   });
   const service = new CharacterService(repository, characterContent, clock);
   const importer = new PathbuilderImportService(
@@ -119,6 +126,7 @@ export function characters(db: Database, clock: Clock, authenticator: RequestAut
       .use(characterAllyRoutes(allies, authenticator))
       .use(characterPackRoutes(packs, authenticator))
       .use(characterVariantRoutes(variants, authenticator))
+      .use(characterRuleLimitRoutes(ruleLimits, authenticator))
       .use(characterUnenabledRoutes(unenabled, authenticator))
       .use(playRoutes(play, authenticator)),
   };

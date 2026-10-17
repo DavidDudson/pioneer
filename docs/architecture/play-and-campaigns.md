@@ -494,6 +494,8 @@ character_variant_rules  id, character_id, variant_id, enabled_by, enabled_at
                       (the variant rules a character outside campaigns uses; in a campaign it uses the campaign's, ADR-0061)
 campaign_rule_limits    id, campaign_id, limit, value, set_by, set_at
                       (the table limits a GM set, one row per campaign and limit; none means the core rules', ADR-0064)
+character_rule_limits   id, character_id, limit, value, set_by, set_at
+                      (the table limits a character outside campaigns set for itself; in a campaign it is held to the campaign's, ADR-0064)
 campaign_links        id, campaign_id, token_hash (unique), created_at, last_used_at, revoked_at
                       (one live link per campaign; a new one revokes the last)
 ```
@@ -560,6 +562,12 @@ rules screen. `POST /campaigns/:id/rule-limits/:limit` sets one, `DELETE` on the
 `GET /campaigns/:id/rule-limits` lists them with the core defaults. Any member reads; the GM alone writes. A limit with
 no row is the core rules' number, and each has a ceiling so a typo stores nothing absurd. The characters attached to
 the campaign are held to these ([ADR-0064](../adr/0064-rule-limits-are-table-data.md)).
+
+A character outside a campaign sets its own, next to its variant rules on the Plan tab.
+`GET /characters/:id/rule-limit-settings` lists them, and `POST` and `DELETE` on
+`/characters/:id/rule-limit-settings/:limit` set and reset one. Only the owner reads or writes (anyone else gets a 404).
+A character in a campaign is held to the campaign's, so a change is a 409; its own rows stay while it is attached and
+are in force again once it leaves.
 
 ## Accounts
 

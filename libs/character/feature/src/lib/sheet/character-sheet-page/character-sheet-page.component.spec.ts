@@ -29,6 +29,7 @@ describe('CharacterSheetPage', () => {
       ['Class features', true],
       ['Content packs', true],
       ['Variant rules', true],
+      ['Table limits', true],
     ]);
     await openTab(root, 'Encounter', 'Defences');
     expect(regionsOf(root)).toStrictEqual([
@@ -69,6 +70,7 @@ describe('CharacterSheetPage', () => {
       'Class features',
       'Content packs',
       'Variant rules',
+      'Table limits',
     ]);
 
     links[2]?.click();
@@ -151,7 +153,9 @@ describe('CharacterSheetPage', () => {
     const { root } = await openSheet();
     const inlineLabels = (): string[] =>
       [...root.querySelectorAll('section fr-inline-field')]
-        .filter((field) => field.closest('pio-level-timeline') === null)
+        .filter(
+          (field) => field.closest('pio-level-timeline') === null && field.closest('pio-sheet-rule-limits') === null,
+        )
         .map((field) => present(field.querySelector('fr-text')).textContent.trim());
     // The feat slot renders once the feats' content has loaded, which can trail the sheet's first paint.
     await vi.waitFor(() => {

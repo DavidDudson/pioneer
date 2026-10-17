@@ -5,6 +5,7 @@ import { SOURCE_PACKS } from '@pioneer/rules/ui';
 import type { SourcePack } from '@pioneer/rules/ui';
 
 import { CharacterPackStore } from './character-pack-store';
+import { CharacterRuleLimitSettingStore } from './character-rule-limit-setting-store';
 import { CharacterRuleLimitStore } from './character-rule-limit-store';
 import { CharacterVariantStore } from './character-variant-store';
 
@@ -29,6 +30,7 @@ const SOURCE_PACKS_PROVIDER: Provider = { provide: SOURCE_PACKS, useFactory: sou
 export const CHARACTER_CONTENT_PROVIDERS: readonly Provider[] = [
   CharacterPackStore,
   CharacterRuleLimitStore,
+  CharacterRuleLimitSettingStore,
   CharacterVariantStore,
   SOURCE_PACKS_PROVIDER,
 ];

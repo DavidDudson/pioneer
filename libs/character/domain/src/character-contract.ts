@@ -10,6 +10,7 @@ import { CharacterId, CharacterName } from './character-fields';
 import { CharacterLanguages } from './character-languages';
 import { CharacterPacks, EnablePackBody } from './character-packs';
 import { PatchCharacterBody } from './character-patch';
+import { CharacterRuleLimitContract } from './character-rule-limit-contract';
 import { CharacterSlot } from './character-slot';
 import { CharacterVariantRules, EnableVariantRuleBody } from './character-variant-rules';
 import { ClearedPick } from './dependent-picks';
@@ -268,4 +269,5 @@ export const CharacterContract = {
     body: NoBody,
     response: UnenabledContent,
   }),
+  ...CharacterRuleLimitContract,
 } as const;

@@ -417,6 +417,17 @@ export {
   runedItemOf,
   workingPropertyRunes,
 } from './item-runes';
+export {
+  CharacterRuleLimitId,
+  CharacterRuleLimitSetting,
+  CharacterRuleLimitSettings,
+  LIMIT_CEILINGS,
+  RULE_LIMIT_FIELDS,
+  RuleLimitFieldSchema,
+  RuleLimitSettingValue,
+  SetRuleLimitSettingBody,
+} from './character-rule-limit-settings';
+export type { CharacterRuleLimit, RuleLimitField, RuleLimitSettingChange } from './character-rule-limit-settings';
 export { eraseRune, etchRune, RuneAction, type RuneEdit, type RuneTransfer, transferRune } from './rune-edits';
 export { runeRefusal } from './rune-refusal';
 export {

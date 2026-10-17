@@ -18,12 +18,13 @@ import { fixedClock, newId, UserId, ValidationError } from '@pioneer/shared/kern
 import { rejection } from '@pioneer/shared/kernel/testing';
 
 import { CharacterContent } from './character-content';
-import { CharacterRuleLimits } from './character-rule-limits';
+import { CharacterRuleLimitService } from './character-rule-limit-service';
 import { CharacterService } from './character-service';
 import { EffectivePacks } from './effective-packs';
 import { EffectiveVariants } from './effective-variants';
 import { InMemoryAttachedCampaignPacks } from './in-memory-attached-campaign-packs';
 import { InMemoryCharacterRepository } from './in-memory-character-repository';
+import { InMemoryCharacterRuleLimitRepository } from './in-memory-character-rule-limit-repository';
 
 const amiri = UserId.parse(newId());
 
@@ -51,11 +52,17 @@ describe('a character held to its campaign’s table limits', () => {
   beforeEach(async () => {
     const core = new ContentPackBuilder().withId('player-core').withAncestry('human').build();
     campaigns = new InMemoryAttachedCampaignPacks();
+    const clock = fixedClock('2026-10-17T10:00:00Z');
+    const repository = new InMemoryCharacterRepository();
+    const limits = new CharacterRuleLimitService(
+      { characters: repository, limits: new InMemoryCharacterRuleLimitRepository(), campaigns },
+      clock,
+    );
     const content = new CharacterContent(fixedContent(core, ITEM_FIXTURES), new NoPacks(), {
       variants: new NoVariants(),
-      limits: new CharacterRuleLimits(campaigns),
+      limits,
     });
-    service = new CharacterService(new InMemoryCharacterRepository(), content, fixedClock('2026-10-17T10:00:00Z'));
+    service = new CharacterService(repository, content, clock);
     character = await service.create(amiri, { name: CharacterName.parse('Kyra'), ancestry: humanAncestryId });
   });
 

@@ -30,7 +30,9 @@ lets a GM change them for a campaign, and lets a character outside a campaign se
 ## Where limits live and how they combine
 
 - A campaign stores its limits in `campaign_rule_limits`, one row per limit (the GM sets them). A character in a
-  campaign reads the campaign's; a character outside a campaign has the core rules' until it can set its own.
+  campaign reads the campaign's; a character outside a campaign reads its own `character_rule_limits` (its owner sets
+  them), else the core rules'. Attaching to a campaign switches the set and detaching brings the character's own back
+  untouched, as for packs and variant rules (ADR-0061).
 - A campaign can lower a limit and its characters are held to it. A raise past the core number only stops the flags on
   imported lines: in-app edits are clamped back to the core numbers by `storableLimits`, because the schema stores the
   player's lines up to those only.
