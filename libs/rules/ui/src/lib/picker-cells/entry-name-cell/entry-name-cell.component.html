@@ -1,1 +1,15 @@
-<fr-link [to]="to()">{{ name() }}</fr-link>
+<ng-template #label>
+  @if (to(); as target) {
+    <fr-link [to]="target">{{ name() }}</fr-link>
+  } @else {
+    <fr-text [attr.tabindex]="previewable() ? 0 : null">{{ name() }}</fr-text>
+  }
+</ng-template>
+
+@if (entry(); as id) {
+  <pio-content-preview [entry]="id">
+    <ng-container *ngTemplateOutlet="label" />
+  </pio-content-preview>
+} @else {
+  <ng-container *ngTemplateOutlet="label" />
+}

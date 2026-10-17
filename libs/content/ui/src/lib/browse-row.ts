@@ -1,5 +1,5 @@
 import type { LinkTarget } from '@pioneer/frontier';
-import type { SourceRef } from '@pioneer/rules/sdk';
+import type { ContentId, SourceRef } from '@pioneer/rules/sdk';
 import type { Chip } from '@pioneer/rules/ui';
 
 import type { ContentEntryRef } from './browser-state';
@@ -17,6 +17,8 @@ export interface BrowseCreature {
 /** An entry as the list shows it: the level and kind already in the UI locale. */
 export interface BrowseRow {
   readonly id: string;
+  /** The entry's content id, which its name previews. */
+  readonly entry: ContentId;
   readonly name: string;
   /** Where the entry opens on its own page. */
   readonly to: LinkTarget;

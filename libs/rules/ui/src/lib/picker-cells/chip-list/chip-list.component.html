@@ -1,5 +1,12 @@
 <fr-stack direction="horizontal" gap="2xs" wrap>
   @for (chip of chips(); track chip.label) {
-    <fr-tag [label]="chip.label" [tone]="chip.tone ?? 'neutral'" />
+    <ng-template #tag><fr-tag [label]="chip.label" [tone]="chip.tone ?? 'neutral'" /></ng-template>
+    @if (chip.entry; as entry) {
+      <pio-content-preview [entry]="entry">
+        <fr-text [attr.tabindex]="previewable(entry) ? 0 : null"><ng-container *ngTemplateOutlet="tag" /></fr-text>
+      </pio-content-preview>
+    } @else {
+      <ng-container *ngTemplateOutlet="tag" />
+    }
   }
 </fr-stack>

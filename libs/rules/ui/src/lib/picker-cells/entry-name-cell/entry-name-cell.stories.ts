@@ -13,3 +13,6 @@ export default meta;
 
 /** An entry's name, linking to its page. */
 export const Name: EntryNameStory = {};
+
+/** A name with no page to open is text. */
+export const Unlinked: EntryNameStory = { args: { to: undefined } };
