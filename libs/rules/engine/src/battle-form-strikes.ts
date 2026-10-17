@@ -146,6 +146,17 @@ function readerFor({ inputs, scope }: FormStrikeRules): ResolveReference {
   return resolverFor({ inputs: scope.character, proficiency }, (): undefined => undefined, { item: NO_ITEM });
 }
 
+/** The character's statistics with those the form Strikes bring; a form's wins on the same selector. */
+function merged(own: StrikeSources['results'], made: readonly StrikeSources[]): StrikeSources['results'] {
+  const results = new Map(own);
+  for (const { results: given } of made) {
+    for (const [selector, result] of given) {
+      results.set(selector, result);
+    }
+  }
+  return results;
+}
+
 /**
  * The weapons and statistics a character's Strikes come from while a battle form is in force (rules-engine.md,
  * "Battle forms"): the form's Strikes replace the character's weapon Strikes, and only its unarmed ones stay when the
@@ -162,12 +173,11 @@ export function strikesUnderForm(sources: StrikeSources, rules: FormStrikeRules)
     ({ predicate }) => predicate === undefined || truthOf(predicate, rules.inputs.facts) === Truth.True,
   );
   const made = strikes.map((strike) => madeFrom(strike, reading));
-  const kept = form.form.keepsOwnUnarmed === true ? sources.weapons.filter((each) => isUnarmed(each)) : [];
-  const results = new Map(sources.results);
-  for (const { results: given } of made) {
-    for (const [selector, result] of given) {
-      results.set(selector, result);
-    }
-  }
-  return { weapons: [...kept, ...made.flatMap(({ weapons }) => weapons)], results };
+  const named = new Set(strikes.map(({ slug }) => slug));
+  const unarmed = sources.weapons.filter((each) => isUnarmed(each) && !named.has(each.slug));
+  const kept = form.form.keepsOwnUnarmed === true ? unarmed : [];
+  return {
+    weapons: [...kept, ...made.flatMap(({ weapons }) => weapons)],
+    results: merged(sources.results, made),
+  };
 }

@@ -135,6 +135,13 @@ describe('battle form: Strikes', () => {
     expect(Number(valued(claw.damage?.bonus).total)).toBe(7);
   });
 
+  test('a form Strike replaces a kept unarmed Strike of the same slug', () => {
+    const strikes = strikesWith([formRule({ strikes: [{ ...CLAW, slug: 'fist' }], keepsOwnUnarmed: true })]);
+
+    expect(slugs(strikes)).toEqual(['fist']);
+    expect(strikes[0]?.weapon.origin).not.toEqual(CHARACTER.weapons?.[1]?.origin);
+  });
+
   test('a Strike whose predicate does not hold is left out', () => {
     const bite = { ...CLAW, slug: 'bite', predicate: ['form:animal'] };
     const strikes = strikesWith([formRule({ strikes: [CLAW, bite] })]);
