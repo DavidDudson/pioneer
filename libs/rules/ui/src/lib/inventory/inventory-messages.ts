@@ -15,6 +15,7 @@ export const InventoryMessage = {
   Invested: 'rules.inventory.invested',
   RuleBreaking: 'rules.inventory.ruleBreaking',
   ApprovedByGm: 'rules.inventory.approvedByGm',
+  KeyItem: 'rules.inventory.keyItem',
 } as const;
 
 export const PLACEMENT_MESSAGES: Readonly<Record<InventoryPlacement, string>> = {

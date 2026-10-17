@@ -63,3 +63,8 @@ export function mayManageRuleLimits(actor: UserId, campaign: Campaign): boolean 
 export function mayManageItemApprovals(actor: UserId, campaign: Campaign): boolean {
   return campaign.roleOf(actor) === CampaignRole.Gm;
 }
+
+/** Who may create, give, take back and archive a campaign's key items: its GM. Every member may read them. */
+export function mayManageKeyItems(actor: UserId, campaign: Campaign): boolean {
+  return campaign.roleOf(actor) === CampaignRole.Gm;
+}

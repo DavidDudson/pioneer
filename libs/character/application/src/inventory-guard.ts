@@ -3,6 +3,7 @@ import {
   inventoryTarget,
   itemContent,
   itemRefusal,
+  keyItemRefusal,
   kitContent,
   kitRefusal,
   runeContent,
@@ -46,7 +47,7 @@ function contentRefusal(
 }
 
 /**
- * Refuses an edit to an item the character hasn't, an item past the limit, a kit no loaded pack has, holding an item
+ * Refuses removing or selling a key item (`keyItemRefusal`), an edit to an item the character hasn't, an item past the limit, a kit no loaded pack has, holding an item
  * none has or past the limit (`kitRefusal`), holding more than two hands hold, an investment past the limit, a move
  * that would put a container inside itself, content no loaded pack has as an item, stowing in an item that holds
  * nothing, carrying an item in a way its content isn't carried, investing an item that isn't invested, and a rune the
@@ -59,6 +60,7 @@ export async function assertInventoryAllows(
   patch: CharacterPatch,
   { content, tableLimits }: { readonly content: ContentSource; readonly tableLimits?: RuleLimits },
 ): Promise<void> {
+  refuse(keyItemRefusal(character.document.inventory, patch));
   const target = inventoryTarget(patch);
   if (target === undefined) {
     return;

@@ -7,6 +7,7 @@ import { CoinsSchema } from './coins';
 import { CarrySchema, CarryState, handsInUse, investedCount, STOWED } from './item-carry';
 import type { Carry } from './item-carry';
 import { ItemOrigin, playerLimits } from './item-origin';
+import { KeyItemId } from './key-item-id';
 import { CORE_RULE_LIMITS } from './rule-limits';
 import type { RuleLimits } from './rule-limits';
 import { ItemRunesSchema } from './rune-etching';
@@ -36,6 +37,8 @@ export type InventoryItemName = z.infer<typeof InventoryItemName>;
  * An invested item stays invested while it is off, but only works while it is worn or held as it is used
  * (`activeState`). A broken item stays broken, through daily preparations too, until the player marks it repaired.
  * A line with no `origin` is the player's; an `import` line is kept as imported, however far it is past the limits.
+ * A line with a `keyItem` is the holder's copy of a campaign's key item: the GM gave it, so it is kept as given, never
+ * held to the limits or flagged, and the player cannot remove or sell it.
  */
 export const InventoryItemSchema = z.strictObject({
   id: InventoryItemId,
@@ -48,6 +51,7 @@ export const InventoryItemSchema = z.strictObject({
   broken: z.literal(true).optional(),
   runes: ItemRunesSchema.optional(),
   origin: z.literal(ItemOrigin.Import).optional(),
+  keyItem: KeyItemId.optional(),
 });
 export type InventoryItem = z.infer<typeof InventoryItemSchema>;
 

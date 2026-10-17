@@ -1,6 +1,7 @@
 import {
   CampaignInviteService,
   CampaignItemApprovalService,
+  CampaignKeyItemService,
   CampaignPackService,
   CampaignPartyService,
   CampaignRuleLimitService,
@@ -11,13 +12,14 @@ import {
   campaignRoutes,
   DrizzleCampaignInviteRepository,
   DrizzleCampaignItemApprovalRepository,
+  DrizzleCampaignKeyItemRepository,
   DrizzleCampaignPackRepository,
   DrizzleCampaignPartyRepository,
   DrizzleCampaignRepository,
   DrizzleCampaignRuleLimitRepository,
   DrizzleCampaignVariantRepository,
 } from '@pioneer/campaign/infrastructure';
-import type { CharacterFlaggedItems } from '@pioneer/character/application';
+import type { CharacterFlaggedItems, CharacterKeyItems } from '@pioneer/character/application';
 import { PackAccessPolicy } from '@pioneer/homebrew/application';
 import { DrizzlePackDependencyRepository, DrizzlePackDirectory } from '@pioneer/homebrew/infrastructure';
 import { ContentRepository, StoredContentSource } from '@pioneer/rules/infrastructure';
@@ -27,6 +29,7 @@ import type { ContractRouter, RequestAuthenticator } from '@pioneer/shared/serve
 import { CampaignPackEnablementDirectory } from './campaign-pack-enablement-directory';
 import { CampaignVariantLimitsOfContent } from './campaign-variant-limits';
 import { CampaignVariantRuleCatalog } from './campaign-variant-rule-catalog';
+import { CharacterKeyItemHolders } from './character-key-item-holders';
 import type { Database } from './database';
 import { HomebrewPackCatalog } from './homebrew-pack-catalog';
 import { OwnedCharacterDirectory } from './owned-character-directory';
@@ -63,6 +66,7 @@ function ruleLimitService(db: Database, repository: DrizzleCampaignRepository, c
 export interface CampaignParts {
   readonly authenticator: RequestAuthenticator;
   readonly flaggedItems: CharacterFlaggedItems;
+  readonly keyItems: CharacterKeyItems;
 }
 
 /** The pack service: a homebrew pack is enabled only where its access policy allows. */
@@ -94,11 +98,29 @@ function itemApprovalService(
   );
 }
 
+/** The key items service: giving one writes a line into the holder's inventory through the character context. */
+function keyItemService(
+  db: Database,
+  repository: DrizzleCampaignRepository,
+  { clock, keyItems }: { readonly clock: Clock; readonly keyItems: CharacterKeyItems },
+): CampaignKeyItemService {
+  return new CampaignKeyItemService(
+    {
+      campaigns: repository,
+      keyItems: new DrizzleCampaignKeyItemRepository(db),
+      party: new DrizzleCampaignPartyRepository(db),
+      characters: new OwnedCharacterDirectory(db),
+      holders: new CharacterKeyItemHolders(keyItems),
+    },
+    clock,
+  );
+}
+
 /** The campaign context's part of the composition root: services and routes. */
 export function campaigns(
   db: Database,
   clock: Clock,
-  { authenticator, flaggedItems }: CampaignParts,
+  { authenticator, flaggedItems, keyItems: characterKeyItems }: CampaignParts,
 ): ContractRouter['app'] {
   const repository = new DrizzleCampaignRepository(db);
   const inviteRepository = new DrizzleCampaignInviteRepository(db);
@@ -118,8 +140,9 @@ export function campaigns(
   const variants = variantService(db, repository, clock);
   const ruleLimits = ruleLimitService(db, repository, clock);
   const itemApprovals = itemApprovalService(db, repository, { clock, flaggedItems });
+  const keyItems = keyItemService(db, repository, { clock, keyItems: characterKeyItems });
   return campaignRoutes(
-    { campaigns: service, invites, party, packs, variants, ruleLimits, itemApprovals },
+    { campaigns: service, invites, party, packs, variants, ruleLimits, itemApprovals, keyItems },
     authenticator,
   );
 }

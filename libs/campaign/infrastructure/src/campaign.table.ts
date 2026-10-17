@@ -10,8 +10,13 @@ import type {
   CampaignItemApprovalId,
   CampaignRuleLimitId,
   ItemRule,
+  KeyItemId,
+  KeyItemName,
+  KeyItemNotes,
+  KeyItemRunes,
   ReviewedCount,
   ReviewedItemId,
+  ReviewedName,
   ReviewedRuneId,
   RuleLimitKey,
   RuleLimitValue,
@@ -22,7 +27,7 @@ import type {
 } from '@pioneer/campaign/domain';
 import type { UserId, Version } from '@pioneer/shared/kernel';
 import { sql } from 'drizzle-orm';
-import { index, integer, pgTable, smallint, text, timestamp, uniqueIndex, uuid } from 'drizzle-orm/pg-core';
+import { index, integer, jsonb, pgTable, smallint, text, timestamp, uniqueIndex, uuid } from 'drizzle-orm/pg-core';
 
 /**
  * Drizzle schema for the campaign aggregate. Migrations live in apps/api/migrations. Every lookup a
@@ -255,5 +260,37 @@ export const campaignItemApprovals = pgTable(
     index('campaign_item_approvals_character_idx').on(table.characterId),
     // Serves clearing `approved_by` when the user is deleted.
     index('campaign_item_approvals_approved_by_idx').on(table.approvedBy),
+  ],
+);
+
+/**
+ * The key items a campaign's GM created: named, story-significant items given to characters (ADR-0064). A key item is
+ * archived, never deleted (ADR-0062), and keeps its holder, so the history shows who had it. `holder_id` is null while
+ * the party stash holds it. The foreign keys on `holder_id` (to characters, restrict: characters are archived, never
+ * deleted) are in the migration, as the character context's table is outside this one's boundary. `runes` holds the
+ * runes as the GM stated them, past the table's caps, so it is not checked against the rules' limits.
+ */
+export const campaignKeyItems = pgTable(
+  'campaign_key_items',
+  {
+    id: uuid().$type<KeyItemId>().primaryKey(),
+    campaignId: uuid()
+      .$type<CampaignId>()
+      .notNull()
+      .references(() => campaigns.id, { onDelete: 'cascade' }),
+    name: text().$type<KeyItemName>().notNull(),
+    baseItemId: uuid().$type<ReviewedRuneId>().notNull(),
+    baseItemName: text().$type<ReviewedName>().notNull(),
+    runes: jsonb().$type<KeyItemRunes>().notNull(),
+    notes: text().$type<KeyItemNotes>().notNull(),
+    holderId: uuid().$type<CharacterId>(),
+    createdAt: timestamp({ withTimezone: true, mode: 'string' }).notNull(),
+    archivedAt: timestamp({ withTimezone: true, mode: 'string' }),
+  },
+  (table) => [
+    // Serves a campaign's live list, which orders by creation; also the cascade when the campaign is deleted.
+    index('campaign_key_items_campaign_idx').on(table.campaignId, table.createdAt),
+    // Serves the holder's foreign key check when a character is deleted.
+    index('campaign_key_items_holder_idx').on(table.holderId),
   ],
 );

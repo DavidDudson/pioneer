@@ -111,6 +111,7 @@ export function sheetInventory(
       runes: lineRunes(item, entry, runes),
       breaks: breaks.get(item.id) ?? [],
       approved: approvedBreaks.get(item.id) ?? [],
+      keyItem: item.keyItem !== undefined,
       contents: (contents.get(item.id) ?? []).map((inside) => lineOf(inside)),
     };
   };

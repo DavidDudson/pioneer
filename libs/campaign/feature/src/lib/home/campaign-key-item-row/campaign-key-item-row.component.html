@@ -1,0 +1,17 @@
+<fr-list-item>
+  <fr-stack gap="xs">
+    <fr-stack direction="horizontal" gap="sm" align="center" wrap>
+      <fr-text weight="medium">{{ keyItem().name }}</fr-text>
+      <fr-text tone="subtle">{{ 'campaign.keyItems.base' | transloco: { name: keyItem().base.name } }}</fr-text>
+      <fr-badge>{{ 'campaign.keyItems.badge' | transloco }}</fr-badge>
+    </fr-stack>
+    @for (rune of runes(); track rune.key) {
+      <fr-text variant="caption" tone="subtle">{{ rune.key | transloco: rune.params }}</fr-text>
+    }
+    <fr-text variant="caption">{{ keyItem().notes }}</fr-text>
+    <fr-text variant="caption" tone="subtle">{{ holder().key | transloco: holder().params }}</fr-text>
+    @if (manageable()) {
+      <pio-campaign-key-item-holder [keyItem]="keyItem()" />
+    }
+  </fr-stack>
+</fr-list-item>

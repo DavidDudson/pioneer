@@ -3,6 +3,7 @@ import {
   CharacterRuleLimitService,
   CharacterAllyService,
   CharacterFlaggedItems,
+  CharacterKeyItems,
   CharacterPackService,
   CharacterUnenabledService,
   CharacterVariantLimits,
@@ -97,6 +98,8 @@ export interface Characters {
   readonly pioneerFiles: PioneerFileService;
   /** The rules each character's inventory breaks, for the campaign's review of its party. */
   readonly flaggedItems: CharacterFlaggedItems;
+  /** The lines a campaign's GM writes into inventories for its key items. */
+  readonly keyItems: CharacterKeyItems;
 }
 
 /**
@@ -128,6 +131,7 @@ export function characters(db: Database, clock: Clock, authenticator: RequestAut
   return {
     pioneerFiles,
     flaggedItems: new CharacterFlaggedItems(characterContent),
+    keyItems: new CharacterKeyItems(repository, clock),
     routes: characterRoutes(service, authenticator)
       .use(pathbuilderImportRoutes(importer, authenticator))
       .use(pioneerFileRoutes(pioneerFiles, authenticator))

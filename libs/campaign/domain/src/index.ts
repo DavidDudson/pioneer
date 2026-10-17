@@ -74,3 +74,16 @@ export {
   ReviewedName,
   ReviewedRuneId,
 } from './campaign-item-approvals';
+export {
+  CampaignKeyItems,
+  type CampaignKeyItem,
+  CreateKeyItemBody,
+  GiveKeyItemBody,
+  KeyItemBase,
+  KeyItemId,
+  KeyItemName,
+  KeyItemNotes,
+  KeyItemRunes,
+  KeyItemView,
+  KeyPropertyRune,
+} from './campaign-key-items';

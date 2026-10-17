@@ -1,3 +1,4 @@
+import { inject } from '@angular/core';
 import type { Routes } from '@angular/router';
 import { signInRequired } from '@pioneer/identity/data-access';
 import { PREFETCH_WHEN_IDLE } from '@pioneer/shared/web';
@@ -30,9 +31,23 @@ export const appRoutes: Routes = [
     // Campaigns are groups of accounts, so they need one too.
     canActivate: [signInRequired],
     runGuardsAndResolvers: 'always',
+    // The key item picker searches the rules content, which the campaign feature may not import.
     loadChildren: async () => {
-      const { campaignRoutes } = await import('@pioneer/campaign/feature');
-      return campaignRoutes;
+      const [{ campaignRoutes, KEY_ITEM_CONTENT_SEARCH }, { keyItemContentSearch }, { ContentLoader }] =
+        await Promise.all([
+          import('@pioneer/campaign/feature'),
+          import('./key-item-content-search'),
+          import('@pioneer/rules/data-access'),
+        ]);
+      return [
+        {
+          path: '',
+          providers: [
+            { provide: KEY_ITEM_CONTENT_SEARCH, useFactory: () => keyItemContentSearch(inject(ContentLoader)) },
+          ],
+          children: campaignRoutes,
+        },
+      ];
     },
   },
   {

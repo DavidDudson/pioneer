@@ -67,7 +67,7 @@ async function answerServerState(): Promise<void> {
 }
 
 /** Opens Valeros's sheet at `url` with the item fixtures and kits loaded, once his character has loaded. */
-async function openSheet(url: string): Promise<HTMLElement> {
+async function openSheet(url: string, character: object): Promise<HTMLElement> {
   await prebuildServerStateTesting(SHEET_PACKS);
   TestBed.configureTestingModule({
     providers: [
@@ -88,19 +88,22 @@ async function openSheet(url: string): Promise<HTMLElement> {
   await vi.waitFor(() => {
     TestBed.inject(HttpTestingController)
       .expectOne(`/api/characters/${id}`)
-      .flush({ character: VALEROS, slots: [], languages: { known: [], open: 0 } });
+      .flush({ character, slots: [], languages: { known: [], open: 0 } });
   });
   await answerServerState();
   return present(harness.routeNativeElement);
 }
 
-/** Opens Valeros's sheet with the item fixtures loaded and waits for the inventory to list his items. */
-export async function openInventory(): Promise<HTMLElement> {
-  const sheet = await openSheet(`/characters/${id}/exploration`);
+/** Opens the sheet of `character` (Valeros unless given) with the item fixtures loaded and waits for the inventory to list their items, `rows` of them. */
+export async function openInventory(
+  character: object = VALEROS,
+  rows: number = VALEROS.inventory.items.length,
+): Promise<HTMLElement> {
+  const sheet = await openSheet(`/characters/${id}/exploration`, character);
   const section = present(sheet.querySelector<HTMLElement>('pio-inventory-section'));
   await vi.waitFor(async () => {
     await settle();
-    expect(section.querySelectorAll('pio-inventory-row')).toHaveLength(VALEROS.inventory.items.length);
+    expect(section.querySelectorAll('pio-inventory-row')).toHaveLength(rows);
   });
   return section;
 }
@@ -159,7 +162,7 @@ export async function patchSent(): Promise<TestRequest> {
 
 /** Opens Valeros's sheet, with `query` in the URL when given, and waits for the shop to list what it offers. */
 export async function openShop(query = ''): Promise<HTMLElement> {
-  const sheet = await openSheet(`/characters/${id}/downtime${query}`);
+  const sheet = await openSheet(`/characters/${id}/downtime${query}`, VALEROS);
   const shop = present(sheet.querySelector<HTMLElement>('pio-shop'));
   await vi.waitFor(async () => {
     await settle();

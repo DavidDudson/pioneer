@@ -1,0 +1,28 @@
+<fr-stack gap="sm">
+  <fr-heading variant="label" [level]="4">{{ 'campaign.keyItems.form.propertyRunes' | transloco }}</fr-heading>
+  <fr-combobox
+    [options]="options()"
+    [loading]="loading()"
+    [placeholder]="'campaign.keyItems.form.runePlaceholder' | transloco"
+    (searched)="find($event)"
+    (valueChange)="add($event)"
+  />
+  <fr-list gap="xs">
+    @for (rune of runes(); track rune.rune) {
+      <fr-list-item>
+        <fr-stack direction="horizontal" gap="sm" align="center">
+          <fr-stack grow
+            ><fr-text>{{ rune.name }}</fr-text></fr-stack
+          >
+          <fr-button
+            size="sm"
+            variant="ghost"
+            [ariaLabel]="'campaign.keyItems.form.removeRune' | transloco: { name: rune.name }"
+            (pressed)="remove(rune.rune)"
+            >{{ 'campaign.keyItems.form.remove' | transloco }}</fr-button
+          >
+        </fr-stack>
+      </fr-list-item>
+    }
+  </fr-list>
+</fr-stack>

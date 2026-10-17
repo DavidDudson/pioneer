@@ -12,7 +12,6 @@ import {
 } from '@pioneer/character/domain';
 import type { Character, InventoryItem, ItemContent, ItemEntry } from '@pioneer/character/domain';
 import {
-  AsyncButton,
   Grid,
   InlineField,
   LocaleFormat,
@@ -28,6 +27,7 @@ import * as z from 'zod';
 import { CharacterStore } from '../../../data/character-store';
 import { sheetField } from '../../sheet-field';
 import { CarryChoice, carryOf, choiceOf, injectCarryOptions } from '../carry-options';
+import { ItemRemove } from '../item-remove/item-remove.component';
 import { injectPlaceOptions } from '../place-options';
 import { LOOSE } from '../sheet-inventory';
 
@@ -53,7 +53,7 @@ interface InvestLabels {
  */
 @Component({
   selector: 'pio-item-edits',
-  imports: [AsyncButton, Grid, InlineField, NumberInput, Select, Stack, TextInput, ToggleButton, TranslocoPipe],
+  imports: [Grid, InlineField, ItemRemove, NumberInput, Select, Stack, TextInput, ToggleButton, TranslocoPipe],
   templateUrl: './item-edits.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -101,13 +101,8 @@ export class ItemEdits {
     const item = this.#item();
     return isInvestable(item, this.#entry()) || item?.invested === true;
   });
-  /** Whether removing loses what adding again can't restore: the player's name, or where its contents were. */
-  protected readonly lossy = computed((): boolean => {
-    const item = this.#item();
-    const holds = this.#store.selected()?.document.inventory.items.some((each) => each.container === this.id());
-    return item?.name !== undefined || holds === true;
-  });
-
+  /** Whether the GM gave the item as a key item: its player cannot change how many there are, or remove or sell it. */
+  protected readonly locked = computed((): boolean => this.#item()?.keyItem !== undefined);
   protected readonly quantity = sheetField<number>(this.#holder, {
     read: () => this.#item()?.quantity ?? NO_QUANTITY,
     empty: NO_QUANTITY,
@@ -168,8 +163,4 @@ export class ItemEdits {
       this.#store.patch({ field: CharacterPatchField.InvestItem, id: this.id(), invested: InvestedDraft.parse(value) }),
     format: (value) => this.#investLabels()[value ? 'on' : 'off'],
   });
-
-  protected readonly remove = async (): Promise<void> => {
-    await this.#store.patch({ field: CharacterPatchField.RemoveItem, id: this.id() });
-  };
 }

@@ -1,16 +1,18 @@
 <fr-stack gap="xs">
   <fr-grid [columns]="3">
-    <fr-inline-field [label]="'character.sheet.inventory.quantityOf' | transloco: { name: name() }" [edit]="quantity">
-      <fr-number-input
-        frInlineEditor
-        [ariaLabel]="'character.sheet.inventory.quantityOf' | transloco: { name: name() }"
-        [min]="1"
-        [value]="quantity.draft()"
-        (valueChange)="quantity.change($event)"
-        (committed)="quantity.flushSoon()"
-        (cancelled)="quantity.cancel()"
-      />
-    </fr-inline-field>
+    @if (!locked()) {
+      <fr-inline-field [label]="'character.sheet.inventory.quantityOf' | transloco: { name: name() }" [edit]="quantity">
+        <fr-number-input
+          frInlineEditor
+          [ariaLabel]="'character.sheet.inventory.quantityOf' | transloco: { name: name() }"
+          [min]="1"
+          [value]="quantity.draft()"
+          (valueChange)="quantity.change($event)"
+          (committed)="quantity.flushSoon()"
+          (cancelled)="quantity.cancel()"
+        />
+      </fr-inline-field>
+    }
     <fr-inline-field [label]="'character.sheet.inventory.nameOf' | transloco: { name: name() }" [edit]="rename">
       <fr-text-input
         frInlineEditor
@@ -57,14 +59,5 @@
       </fr-inline-field>
     }
   </fr-grid>
-  <fr-stack direction="horizontal" justify="end">
-    <fr-async-button
-      size="sm"
-      [action]="remove"
-      [confirmLabel]="lossy() ? ('character.sheet.inventory.removeConfirm' | transloco: { name: name() }) : undefined"
-      [pendingLabel]="'character.sheet.inventory.removing' | transloco"
-    >
-      {{ 'character.sheet.inventory.remove' | transloco: { name: name() } }}
-    </fr-async-button>
-  </fr-stack>
+  <pio-item-remove [id]="id()" [name]="name()" />
 </fr-stack>

@@ -20,7 +20,13 @@ import { Elysia } from 'elysia';
 import type { AnyElysia } from 'elysia';
 
 import { campaignRoutes } from './campaign-routes';
-import { packService, itemApprovalService, ruleLimitService, variantService } from './testing/campaign-pack-fixtures';
+import {
+  itemApprovalService,
+  keyItemService,
+  packService,
+  ruleLimitService,
+  variantService,
+} from './testing/campaign-pack-fixtures';
 
 const amiri = UserId.parse(newId());
 const ezren = UserId.parse(newId());
@@ -51,6 +57,7 @@ function app(clock: Clock = new ManualClock('2026-10-10T10:00:00Z')): AnyElysia 
         variants: variantService(campaigns, clock),
         ruleLimits: ruleLimitService(campaigns, clock),
         itemApprovals: itemApprovalService(campaigns, clock),
+        keyItems: keyItemService(campaigns, clock),
       },
       new FakeAuthenticator(),
     ),

@@ -1,0 +1,31 @@
+<fr-surface>
+  <fr-stack gap="md">
+    <fr-heading variant="subheading" [level]="2">{{ 'campaign.keyItems.heading' | transloco }}</fr-heading>
+    <fr-async-region [errorMessage]="'campaign.keyItems.loadError' | transloco">
+      <ng-template frAsyncPending>
+        <fr-stack gap="sm">
+          @for (placeholder of placeholders; track placeholder) {
+            <fr-skeleton width="md" />
+          }
+        </fr-stack>
+      </ng-template>
+      <ng-template let-key [frAsyncData]="store.keyItems">
+        <fr-stack gap="md">
+          @if (key.keyItems.length === 0) {
+            <fr-empty-state [icon]="emptyIcon" [title]="'campaign.keyItems.none' | transloco" />
+          }
+          <fr-list gap="sm">
+            @for (keyItem of key.keyItems; track keyItem.id) {
+              <pio-campaign-key-item-row [keyItem]="keyItem" [manageable]="key.manageable" />
+            }
+          </fr-list>
+          @if (key.manageable) {
+            <pio-campaign-key-item-form />
+          } @else {
+            <fr-text variant="caption" tone="subtle">{{ 'campaign.keyItems.gmOnly' | transloco }}</fr-text>
+          }
+        </fr-stack>
+      </ng-template>
+    </fr-async-region>
+  </fr-stack>
+</fr-surface>

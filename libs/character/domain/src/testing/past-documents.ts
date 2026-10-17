@@ -84,6 +84,12 @@ const VERSION_8 = {
   schemaVersion: 8,
 };
 
+/** Version 9, before inventory lines could be a key item's (#924): no line had a `keyItem`. */
+const VERSION_9 = {
+  ...VERSION_8,
+  schemaVersion: 9,
+};
+
 /**
  * One stored document of every past schema version, in the shape that version wrote. A new upgrade step adds the
  * shape it upgrades from; `character-document.test.ts` fails until it does.
@@ -97,4 +103,5 @@ export const PAST_DOCUMENTS: ReadonlyMap<CharacterSchemaVersion, unknown> = new 
   [CharacterSchemaVersion.parse(VERSION_6.schemaVersion), VERSION_6],
   [CharacterSchemaVersion.parse(VERSION_7.schemaVersion), VERSION_7],
   [CharacterSchemaVersion.parse(VERSION_8.schemaVersion), VERSION_8],
+  [CharacterSchemaVersion.parse(VERSION_9.schemaVersion), VERSION_9],
 ]);
