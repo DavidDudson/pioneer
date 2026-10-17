@@ -104,6 +104,10 @@ export const SpendProblem = {
   NoFocusLeft: 'no-focus-left',
   /** A staff cast pays for itself, so the spend can't also expend a slot or a Focus Point. */
   PaymentConflict: 'payment-conflict',
+  /** The spend is flagged an attack, but the action's content has no attack trait. */
+  AttackNotAllowed: 'attack-not-allowed',
+  /** The spell's content rules out the slot or the Focus Point the spend pays with. */
+  PaymentNotAllowed: 'payment-not-allowed',
   /** No spend in the log has that id. */
   NotSpent: 'not-spent',
 } as const;
