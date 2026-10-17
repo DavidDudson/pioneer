@@ -6,13 +6,15 @@ import {
   SpendKind,
   turnAllows,
 } from '@pioneer/character/domain';
-import type { Character, ResourcesSpent, SpendCost, TurnState } from '@pioneer/character/domain';
+import type { ActionCostRange, Character, ResourcesSpent, SpendCost, TurnState } from '@pioneer/character/domain';
 import { ActionOriginKind } from '@pioneer/rules/engine';
 import type { AvailableAction } from '@pioneer/rules/engine';
 import { ACTION_COUNT, ActionCost, ContentKind, Trait } from '@pioneer/rules/sdk';
 import type { ContentEntry, ContentId, ContentRegistry } from '@pioneer/rules/sdk';
 import type { ActionLine } from '@pioneer/rules/ui';
+import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
+import { offTurnWithoutTrigger, turnReason } from './sheet-action-turn';
 import { traitNames } from './sheet-build';
 import { EQUIPMENT_CONTENT_KINDS } from './sheet-equipment';
 import { sheetSources } from './sheet-sources';
@@ -71,7 +73,7 @@ export function sheetActions(
   const priorities = new Map(context.first.map((id, place): [ContentId, number] => [id, place]));
   return actions.map((action: AvailableAction): ActionLine => {
     const range = costs.get(action.action);
-    const afford = affordability(play.turn, action.cost, range?.upTo);
+    const fit = turnFit(play.turn, action.cost, range);
     return {
       id: action.action,
       name: entries.get(action.action)?.name ?? action.action,
@@ -82,15 +84,34 @@ export function sheetActions(
       source:
         action.origin.kind === ActionOriginKind.Granted ? entries.get(action.origin.source.entry)?.name : undefined,
       status: action.status,
-      reasons: action.reasons,
+      reasons: [...action.reasons, ...fit.reasons],
       roll: action.roll,
       priority: priorities.get(action.action),
       dormant: context.dormant.has(action.action),
       upTo: range?.upTo,
-      affordable: afford.affordable,
-      affordableUpTo: afford.affordableUpTo,
+      affordable: fit.affordable,
+      affordableUpTo: fit.affordableUpTo,
     };
   });
+}
+
+/** What the turn leaves of an action, with the reason it can't be used when it can't. */
+interface TurnFit extends Affordability {
+  readonly reasons: readonly MessageDescriptor[];
+}
+
+/**
+ * Whether the turn can pay for an action of `cost`, and why not: off turn a free action needs a trigger, so one without
+ * is out of reach there as an action is when the turn has too few left.
+ */
+function turnFit(
+  turn: TurnState | undefined,
+  cost: ActionCost | undefined,
+  range: ActionCostRange | undefined,
+): TurnFit {
+  const afford = offTurnWithoutTrigger(turn, range) ? { affordable: false } : affordability(turn, cost, range?.upTo);
+  const reason = afford.affordable === false ? turnReason(turn, spendCostOf(cost, undefined)) : undefined;
+  return { ...afford, reasons: reason === undefined ? [] : [reason] };
 }
 
 /**

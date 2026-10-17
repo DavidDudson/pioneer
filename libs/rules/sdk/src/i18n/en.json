@@ -221,6 +221,11 @@
       "filterTrait": "Trait",
       "filterSource": "Source",
       "grantedBy": "Granted by {name}",
+      "turn": {
+        "tooFewActions": "Needs {count, plural, one {# action} other {# actions}}, {left} left.",
+        "offTurn": "Not your turn: only reactions and free actions with a trigger.",
+        "reactionSpent": "Reaction already spent."
+      },
       "passive": "No cost",
       "source": {
         "basic": "Basic action",
