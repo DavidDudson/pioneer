@@ -4,7 +4,7 @@ import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { EmptyState, List, ListItem, LocaleFormat, Skeleton, Text } from '@pioneer/frontier';
 import { NoteRoll } from '@pioneer/rules/engine';
 import type { ExtraDice, Strike, StrikeDamage, StatisticResult, WeaponInputs } from '@pioneer/rules/engine';
-import { StatisticKind } from '@pioneer/rules/sdk';
+import { OriginHopKind, StatisticKind } from '@pioneer/rules/sdk';
 import type { ContentId, Slug } from '@pioneer/rules/sdk';
 import { filter, merge } from 'rxjs';
 
@@ -109,6 +109,7 @@ export class StrikesView {
       const offered = claims ? (situations?.offered ?? []) : [];
       return {
         key: strike.weapon.slug,
+        entry: strike.weapon.origin.hops[0]?.kind === OriginHopKind.Inventory ? strike.weapon.origin.entry : undefined,
         use,
         name: nameKey === undefined ? name : this.#i18n.translate(nameKey),
         traits: traits.map((label): Chip => ({ label })),

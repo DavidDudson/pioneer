@@ -25,11 +25,11 @@ import type { AsyncQuery, SelectOption } from '@pioneer/frontier';
 import type { TableViewSort } from '@pioneer/frontier/data';
 import { ContentKind } from '@pioneer/rules/sdk';
 import type { ContentEntry, CreatureData, FilterState } from '@pioneer/rules/sdk';
-import { ENTRY_PREVIEWS, RARITY_TONES, RICH_TEXT_LINKS, SIZE_MESSAGES } from '@pioneer/rules/ui';
+import { ENTRY_PREVIEWS, entryTarget, RARITY_TONES, RICH_TEXT_LINKS, SIZE_MESSAGES } from '@pioneer/rules/ui';
 import type { Chip, EntryPreview, EntryPreviews, RichTextLinks } from '@pioneer/rules/ui';
 
 import { injectEntryDescription } from '../entry/entry-description';
-import { entryCard, entryIndex, entryLinks, entryPreviews, entryTarget, findEntry } from '../entry/entry-lookup';
+import { entryCard, entryIndex, entryLinks, entryPreviews, findEntry } from '../entry/entry-lookup';
 import { ROLE_MESSAGES, SIZE_ORDER } from './browse-creature';
 import { BROWSE_KINDS, facetsOf, isBrowseKind, KIND_MESSAGES } from './browse-kinds';
 import type { BrowseKind } from './browse-kinds';

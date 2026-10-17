@@ -5,12 +5,14 @@ import { ContentId, FocusPoints, SpellRank } from '@pioneer/rules/sdk';
 import { provideTanStackQuery, QueryClient } from '@tanstack/angular-query-experimental';
 import { describe, expect, it, vi } from 'vitest';
 
+import { ActionRow } from '../actions/action-row.component';
 import { FocusSpellsView } from '../focus-spells/focus-spells.component';
 import { InventoryView } from '../inventory/inventory.component';
 import { KitContents } from '../shop/kit-contents/kit-contents.component';
 import { kitLine } from '../shop/kit-contents/kit-contents.fixtures';
 import { ShopOffersView } from '../shop/shop-offers.component';
 import { SpellAccessListView } from '../spell-access/spell-access-list.component';
+import { STANDING_ACTIONS } from '../testing/action-fixtures';
 import { FIGHTER_INVENTORY } from '../testing/inventory-fixtures';
 import { provideRichTextTesting } from '../testing/provide-rich-text-testing';
 import { LONGSWORD } from '../testing/shop-fixtures';
@@ -50,6 +52,11 @@ const ROWS: readonly Row<unknown>[] = [
   },
   { name: 'inventory item', component: InventoryView, inputs: { groups: FIGHTER_INVENTORY } },
   { name: 'shop offer', component: ShopOffersView, inputs: { offers: [LONGSWORD] } },
+  {
+    name: 'action',
+    component: ActionRow,
+    inputs: { action: { line: STANDING_ACTIONS[0], detail: '', reasons: [] } },
+  },
   { name: 'kit item', component: KitContents, inputs: { lines: [kitLine('Longsword', 1)] } },
 ];
 

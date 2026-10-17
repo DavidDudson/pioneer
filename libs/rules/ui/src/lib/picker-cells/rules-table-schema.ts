@@ -41,7 +41,7 @@ export interface EntryNameColumn<TRow> extends ColumnOptions {
   readonly id: string;
   readonly value: (row: TRow) => string;
   readonly to?: (row: TRow) => LinkTarget;
-  readonly entry?: (row: TRow) => ContentId;
+  readonly entry?: (row: TRow) => ContentId | undefined;
 }
 
 /** Cheapest first: a free action, a reaction, then one to three actions, a cost that varies, none at all. */

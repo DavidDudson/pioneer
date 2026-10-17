@@ -4,7 +4,7 @@ import { TranslocoService } from '@jsverse/transloco';
 import { BadgeTone } from '@pioneer/frontier';
 import { Picker } from '@pioneer/frontier/data';
 import type { PickerSort } from '@pioneer/frontier/data';
-import { Rarity } from '@pioneer/rules/sdk';
+import { ContentId, Rarity } from '@pioneer/rules/sdk';
 import { filter, merge } from 'rxjs';
 
 import type { Chip } from '../picker-cells/chip-list/chip-list.component';
@@ -87,7 +87,13 @@ export class FeatPicker {
       notes: say(FeatPickerMessage.Notes),
     };
     return new FeatTableSchema<FeatPickerRow>()
-      .addText({ id: FeatPickerColumn.Name, header: headers.name, value: (row) => row.name, width: 'md' })
+      .addEntryName({
+        id: FeatPickerColumn.Name,
+        header: headers.name,
+        value: (row) => row.name,
+        entry: (row) => ContentId.safeParse(row.id).data,
+        width: 'md',
+      })
       .addLevel({ id: FeatPickerColumn.Level, header: headers.level, value: (row) => row.level, width: 'sm' })
       .addTag({
         id: 'category',

@@ -2,8 +2,10 @@ import { InjectionToken } from '@angular/core';
 import type { Provider } from '@angular/core';
 import type { LinkTarget } from '@pioneer/frontier';
 import type { BreakdownLine } from '@pioneer/rules/engine';
+import { slugName } from '@pioneer/rules/sdk';
 import type {
   ConditionValue,
+  ContentEntry,
   ContentId,
   ContentLevel,
   ContentText,
@@ -70,4 +72,12 @@ export function provideEntryPreviews(previews: EntryPreviews): Provider {
 /** Whether `previews` can show a card for `id`: it holds the entry, or can fetch it when the card opens. */
 export function canPreview(previews: EntryPreviews, id: ContentId): boolean {
   return previews.load !== undefined || previews.preview(id) !== undefined;
+}
+
+/** The root of the content browser's routes in the app. */
+const CONTENT_PATH = '/content';
+
+/** Where `entry` opens in full: `/content/feat/power-attack`. */
+export function entryTarget(entry: ContentEntry): LinkTarget {
+  return [CONTENT_PATH, entry.kind, slugName(entry.slug)];
 }
