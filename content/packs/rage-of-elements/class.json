@@ -275,7 +275,9 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            "item:trait:kineticist",
+            {
+              "or": ["item:trait:kineticist", "item:trait:archetype"]
+            },
             {
               "lte": ["item:level", "self:level"]
             }
@@ -295,7 +297,9 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            "item:trait:kineticist",
+            {
+              "or": ["item:trait:kineticist", "item:trait:archetype"]
+            },
             {
               "lte": ["item:level", "self:level"]
             }
@@ -325,7 +329,9 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            "item:trait:kineticist",
+            {
+              "or": ["item:trait:kineticist", "item:trait:archetype"]
+            },
             {
               "lte": ["item:level", "self:level"]
             }
@@ -355,7 +361,9 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            "item:trait:kineticist",
+            {
+              "or": ["item:trait:kineticist", "item:trait:archetype"]
+            },
             {
               "lte": ["item:level", "self:level"]
             }
@@ -385,7 +393,9 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            "item:trait:kineticist",
+            {
+              "or": ["item:trait:kineticist", "item:trait:archetype"]
+            },
             {
               "lte": ["item:level", "self:level"]
             }
@@ -415,7 +425,9 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            "item:trait:kineticist",
+            {
+              "or": ["item:trait:kineticist", "item:trait:archetype"]
+            },
             {
               "lte": ["item:level", "self:level"]
             }
@@ -445,7 +457,9 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            "item:trait:kineticist",
+            {
+              "or": ["item:trait:kineticist", "item:trait:archetype"]
+            },
             {
               "lte": ["item:level", "self:level"]
             }
@@ -475,7 +489,9 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            "item:trait:kineticist",
+            {
+              "or": ["item:trait:kineticist", "item:trait:archetype"]
+            },
             {
               "lte": ["item:level", "self:level"]
             }
@@ -505,7 +521,9 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            "item:trait:kineticist",
+            {
+              "or": ["item:trait:kineticist", "item:trait:archetype"]
+            },
             {
               "lte": ["item:level", "self:level"]
             }
@@ -535,7 +553,9 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            "item:trait:kineticist",
+            {
+              "or": ["item:trait:kineticist", "item:trait:archetype"]
+            },
             {
               "lte": ["item:level", "self:level"]
             }
@@ -565,7 +585,9 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            "item:trait:kineticist",
+            {
+              "or": ["item:trait:kineticist", "item:trait:archetype"]
+            },
             {
               "lte": ["item:level", "self:level"]
             }

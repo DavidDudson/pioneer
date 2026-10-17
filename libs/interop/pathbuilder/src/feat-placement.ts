@@ -29,6 +29,9 @@ const MAX_ROUNDS = 8;
 /** Skill and general feat slots share a level and their feats; the type Pathbuilder names says which it filled. */
 const SHARED_KINDS: ReadonlySet<string> = new Set(['skill', 'general']);
 
+/** A word of a slot label that only says the level. */
+const LEVEL_WORD = /^\d+$/u;
+
 function documentWith(document: CharacterDocument, picks: FeatPicks): CharacterDocument {
   return { ...document, build: { ...document.build, choices: { ...document.build.choices, ...picks } } };
 }
@@ -39,11 +42,29 @@ function kindWord(text: string | undefined): string {
   return SHARED_KINDS.has(word) ? word : 'other';
 }
 
-/** The open slots at `wanted`'s level that offer it, those named for its type first. */
+/** Whether Pathbuilder's label for the slot ("Animist Feat 4", "Free Archetype 4") is the slot's prompt less the level. */
+function labelled(slot: FeatSlot, feat: ImportedFeat): boolean {
+  const words = matchKey(feat.slot ?? '')
+    .split(' ')
+    .filter((word) => !LEVEL_WORD.test(word));
+  const prompt = matchKey(slot.prompt ?? '').split(' ');
+  return words.length > 0 && words.every((word) => prompt.includes(word));
+}
+
+/**
+ * The open slots at `wanted`'s level that offer it: the one Pathbuilder labels first (a class feat slot also offers
+ * archetype feats, so a dedication fits it and a Free Archetype slot alike), then those named for its type.
+ */
 function candidates(slots: readonly FeatSlot[], { feat, id }: Wanted): FeatSlot[] {
   const fits = slots.filter((slot) => slot.level === feat.level && slot.options.some((option) => option.value === id));
-  const named = fits.filter((slot) => kindWord(slot.prompt) === kindWord(feat.type));
-  return [...named, ...fits.filter((slot) => !named.includes(slot))];
+  const named = new Set(fits.filter((slot) => kindWord(slot.prompt) === kindWord(feat.type)));
+  const rank = (slot: FeatSlot): number => {
+    if (labelled(slot, feat)) {
+      return 0;
+    }
+    return named.has(slot) ? 1 : 2;
+  };
+  return fits.toSorted((left, right) => rank(left) - rank(right));
 }
 
 /** Each wanted feat in the first open slot it fits that no other took, the most constrained feats choosing first. */

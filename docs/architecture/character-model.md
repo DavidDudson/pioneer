@@ -413,6 +413,10 @@ each saves in place, and focus stays in the section.
 
 ### Archetype dedications
 
+A class feat slot offers the class's feats and every archetype feat (`item:trait:archetype`), as Player Core lets a
+character take an archetype feat in place of a class feat. A Pathbuilder import puts such a feat in the slot its
+label names ("Animist Feat 4", "Free Archetype 4") and only then in another that offers it.
+
 After a dedication feat, a character can't take another dedication until they have two other feats from that
 archetype (Player Core). The count is the `archetype` entry's `dedicationLock` (2 when absent), so a homebrew or
 variant archetype can change it. The engine adds this rule to every feat slot's offer: a dedication whose lock is
