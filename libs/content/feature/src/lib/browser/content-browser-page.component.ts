@@ -27,11 +27,11 @@ import { injectTableView, Table, tableViewColumns } from '@pioneer/frontier/data
 import type { TableColumn, TableView, TableViewSchema } from '@pioneer/frontier/data';
 import { filterParamName } from '@pioneer/rules/sdk';
 import type { ContentEntry, FilterState, QueryParams } from '@pioneer/rules/sdk';
-import { FacetFilterView, RARITY_TONES } from '@pioneer/rules/ui';
-import type { Chip } from '@pioneer/rules/ui';
+import { ENTRY_PREVIEWS, FacetFilterView, RARITY_TONES } from '@pioneer/rules/ui';
+import type { Chip, EntryPreviews } from '@pioneer/rules/ui';
 import { filter, merge } from 'rxjs';
 
-import { entryTarget } from '../entry/entry-lookup';
+import { entryIndex, entryPreviews, entryTarget } from '../entry/entry-lookup';
 import { browseColumns } from './browse-columns';
 import {
   ALL_FACETS,
@@ -112,6 +112,7 @@ const rowIdOf = (row: BrowseRow): string => row.id;
     TranslocoPipe,
   ],
   templateUrl: './content-browser-page.component.html',
+  providers: [{ provide: ENTRY_PREVIEWS, useFactory: (): EntryPreviews => inject(ContentBrowserPage).previews }],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContentBrowserPage {
@@ -147,6 +148,12 @@ export class ContentBrowserPage {
   protected readonly state: Signal<FilterState> = computed(() => filterState(this.view.filters(), this.#facets()));
 
   protected readonly registry = injectBrowseRegistry(() => this.kinds());
+  readonly #index = computed(() => {
+    const registry = this.registry.data();
+    return registry === undefined ? undefined : entryIndex(registry);
+  });
+  /** What a name in the table previews on hover and focus: the entries the table was built from. */
+  public readonly previews: EntryPreviews = entryPreviews(() => this.#index());
   readonly #entries: Signal<readonly ContentEntry[] | undefined> = computed(() => {
     const registry = this.registry.data();
     return registry === undefined ? undefined : entriesOf(registry, this.kinds());
@@ -235,6 +242,7 @@ export class ContentBrowserPage {
     const traits = entry.traits.map((trait): Chip => ({ label: trait, tone }));
     return {
       id: entry.id,
+      entry: entry.id,
       name: entry.name,
       to: entryTarget(entry),
       kind: isBrowseKind(entry.kind) ? this.#i18n.translate(KIND_MESSAGES[entry.kind]) : '',

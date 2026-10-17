@@ -79,6 +79,20 @@ describe('ContentBrowserPage', () => {
     ]);
   });
 
+  it('previews an entry from its name in the table, with a link to open it', async () => {
+    const { root } = await open('/content');
+    await loaded(root, 4);
+    const name = present(
+      [...root.querySelectorAll('fr-table tbody a')].find((link) => link.textContent.trim() === 'Power-attack'),
+    );
+    name.dispatchEvent(new FocusEvent('focusin', { bubbles: true }));
+    await vi.waitFor(() => {
+      const card = present(document.querySelector('[role="tooltip"]'));
+      expect(card.textContent).toContain('Power-attack');
+      expect(card.querySelector('a')?.getAttribute('href')).toBe('/content/feat/power-attack');
+    });
+  });
+
   it('restores a filtered list from its link', async () => {
     const { root } = await open('/content?kind=feat&f=traits:fighter');
     await expect(loaded(root, 2)).resolves.toStrictEqual(['Power-attack', 'Shield-block']);
