@@ -152,6 +152,34 @@ describe(Combobox, () => {
     expect(rendered.input.value).toBe('Power Attack');
   });
 
+  it('shows the query while nothing is picked, and puts it back over typing on Escape', async () => {
+    const rendered = render();
+    rendered.fixture.componentRef.setInput('query', 'attack');
+    await settle(rendered);
+    expect(rendered.input.value).toBe('attack');
+    type(rendered, 'shield');
+    await press(rendered, 'Escape');
+    expect(rendered.input.value).toBe('attack');
+  });
+
+  it('replaces what was typed when the query is set again', async () => {
+    const rendered = render();
+    rendered.fixture.componentRef.setInput('query', 'attack');
+    await settle(rendered);
+    type(rendered, 'shield');
+    rendered.fixture.componentRef.setInput('query', 'charge');
+    await settle(rendered);
+    expect(rendered.input.value).toBe('charge');
+  });
+
+  it('opens its list from outside', async () => {
+    const rendered = render();
+    rendered.fixture.componentInstance.open();
+    await settle(rendered);
+    expect(rendered.input.getAttribute('aria-expanded')).toBe('true');
+    expect(optionElements(rendered)).toHaveLength(3);
+  });
+
   it('commits on Enter while the list is closed, leaving the value as it was', async () => {
     const rendered = render(FEATS, 'power-attack');
     await press(rendered, 'Enter');
