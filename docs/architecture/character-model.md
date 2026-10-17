@@ -426,6 +426,13 @@ the feats still needed (`FeatOption.locked`). `selectSlot` refuses a locked dedi
 (`rules.choices.invalid.dedicationLocked`), so the lock holds across levels, and replacing a feat that lifted it
 flags the dedication after. The sheet's picker shows the dedication disabled, with the archetype and the count.
 
+**Free Archetype** ([#704](https://github.com/DavidDudson/pioneer/issues/704)): a variant rule whose `structure` says
+`extraSlots` and whose `rules` hold a feat `ChoiceSet` (archetype feats up to the slot's level) and its `GrantItem` at 2nd
+level and each even level above. While it is enabled it is a grant root (`variantGrantRoots`), so those slots open
+beside the character's own, keyed by the variant and the rule index of their `ChoiceSet`, and labelled "Free archetype
+feat, level 2". They offer archetype feats under the dedication lock like any other feat slot. A pick is kept when the
+variant is off, reads as hidden, and is read again when it comes back.
+
 The engine also reports each archetype the character has: its feats taken, the feats still needed, and the
 earliest planned level at which another dedication becomes legal. The Plan tab shows this per archetype ("Medic:
 1 of 2 feats before your next dedication") and marks the level where the lock clears. A planned dedication above
@@ -636,6 +643,9 @@ characters; the player sees them.
   `classBoosts` in its `secondClass` boost set, and the variant rule is enabled for the character (a
   `character_variant_rules` row, as the owner enabling it would write). Otherwise the report lists the second class as
   unmatched, or as not offered when the content matches but the variant isn't there, and nothing is enabled.
+  An export with feats in "Free Archetype N" slots enables the Free Archetype variant rule the same way, before the
+  feats are placed, so they fill its slots ([#309](https://github.com/DavidDudson/pioneer/issues/309)); with no pack
+  that defines the variant those feats are listed as not offered.
 - **Pioneer JSON:** the `CharacterDocument` without its id and owner, with content named by pack and slug
   ([ADR-0056](../adr/0056-pioneer-character-file-format.md)). Homebrew entries referenced by the character are
   embedded so the file is portable; an import makes them for the importer or reuses identical ones, and reports a

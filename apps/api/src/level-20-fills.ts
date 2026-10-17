@@ -39,7 +39,7 @@ interface Offered {
 function grantsOf(document: CharacterDocument, content: SlotContent): GrantResolution {
   const picks = new Map(Object.entries(document.build.choices).map(([key, value]) => [SlotKey.parse(key), value]));
   return resolveGrants({
-    roots: [],
+    roots: content.variantRoots,
     lookup: content.lookup,
     level: BUILD_LEVEL,
     situation: [],

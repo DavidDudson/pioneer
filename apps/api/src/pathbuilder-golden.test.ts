@@ -14,8 +14,11 @@ import { fixedClock, newId, UserId } from '@pioneer/shared/kernel';
 /** Time to load every official pack. */
 const LOAD_TIMEOUT_MS = 60_000;
 
-/** Every total and rank the engine derives for either character: AC, Hit Points, Speed, the ranks (saves, skills, armor, weapons, casting), DCs and the spell slots of the caster it pairs with. */
+/** Every total and rank the engine derives for Mordred: AC, Hit Points, Speed, the ranks (saves, skills, armor, weapons, casting), DCs and the spell slots of the caster it pairs with. */
 const COMPARED = 41;
+
+/** Briar Rose's too, and the DC of her Dream Magic, which her Free Archetype feat now places. */
+const COMPARED_BRIAR = 42;
 
 const registry = new ContentRegistry();
 await Promise.all(contentCatalog.map(async (loader) => registry.load(loader)));
@@ -48,19 +51,18 @@ describe('Pathbuilder exports over the official packs', () => {
     'Briar Rose differs in AC, Hit Points and the skill ranks her build does not reach',
     async () => {
       const { report } = await service.importPathbuilder(actor, briarRoseExport);
-      expect(report.discrepancies.compared).toBe(COMPARED);
+      expect(report.discrepancies.compared).toBe(COMPARED_BRIAR);
       /** AC: Pathbuilder counts the +2 of armor runes on clothing it exports as not worn (acItemBonus 2); Pioneer wears only what the export marks worn, so it has no item bonus. */
       expect(summary(report.discrepancies.differences)).toStrictEqual([
         'ac: Pathbuilder 30, Pioneer 28',
         'hp:max: Pathbuilder 151, Pioneer 140',
         'focus-points: Pathbuilder 3, Pioneer 1',
-        'skill:acrobatics: Pathbuilder trained, Pioneer untrained',
+        'spell-dc:dream-magic: Pathbuilder 28, Pioneer 30',
         'skill:arcana: Pathbuilder expert, Pioneer trained',
         'skill:crafting: Pathbuilder trained, Pioneer untrained',
         'skill:intimidation: Pathbuilder trained, Pioneer untrained',
         'skill:medicine: Pathbuilder trained, Pioneer untrained',
         'skill:nature: Pathbuilder master, Pioneer expert',
-        'skill:occultism: Pathbuilder expert, Pioneer trained',
         'skill:performance: Pathbuilder trained, Pioneer untrained',
         'skill:religion: Pathbuilder master, Pioneer trained',
         'skill:society: Pathbuilder trained, Pioneer untrained',
@@ -86,7 +88,6 @@ describe('Pathbuilder exports over the official packs', () => {
         'skill:nature: Pathbuilder trained, Pioneer untrained',
         'skill:occultism: Pathbuilder expert, Pioneer trained',
         'skill:performance: Pathbuilder trained, Pioneer untrained',
-        'skill:religion: Pathbuilder expert, Pioneer trained',
         'skill:survival: Pathbuilder trained, Pioneer untrained',
       ]);
     },
@@ -119,7 +120,6 @@ describe('Pathbuilder spells over the official packs', () => {
         'Animist Prepared no-entry: 12',
         'Animist Apparition no-entry: 21',
         'Vigilant Goloma no-entry: 1',
-        'Dream Magic no-entry: 1',
         'divine wis focus no-entry: 3',
         'occult wis focus no-entry: 3',
       ]);
@@ -138,8 +138,7 @@ describe('Pathbuilder spells over the official packs', () => {
         'Archetype Sorcerer no-entry: 4',
         'Fey Influence no-entry: 1',
         'Fey Ascension no-entry: 1',
-        'Mortal Herald no-entry: 1',
-        'divine cha focus not-granted: 2',
+        'divine cha focus not-granted: 1',
       ]);
     },
     LOAD_TIMEOUT_MS,

@@ -1,5 +1,5 @@
-import type { RootSlotDefinition } from '@pioneer/rules/grants';
-import { ContentKind, RollOption, SlotKey, VariantStructure } from '@pioneer/rules/sdk';
+import type { GrantRoot, RootSlotDefinition } from '@pioneer/rules/grants';
+import { ContentId, ContentKind, OriginHopKind, RollOption, SlotKey, VariantStructure } from '@pioneer/rules/sdk';
 import type { VariantRuleEntry } from '@pioneer/rules/sdk';
 
 /** The slot the character's ancestry is picked in (character-model.md, "Choice slots"). */
@@ -35,6 +35,20 @@ export function characterRootSlots(variants: readonly VariantRuleEntry[]): reado
     (variant) => variant.definition.structure?.includes(VariantStructure.SecondClass) === true,
   );
   return dualClass ? [...CHARACTER_ROOT_SLOTS, SECOND_CLASS_ROOT_SLOT] : CHARACTER_ROOT_SLOTS;
+}
+
+/**
+ * The variant rules in force that add feat slots of their own (a `structure` of `extraSlots`: Free Archetype's), as
+ * grant roots, so the `ChoiceSet`s in their rules open slots beside the character's. A pick for a slot it does not
+ * have is kept and read again when the variant comes back.
+ */
+export function variantGrantRoots(variants: readonly VariantRuleEntry[]): readonly GrantRoot[] {
+  return variants
+    .filter((variant) => variant.definition.structure?.includes(VariantStructure.ExtraSlots) === true)
+    .map(({ id }): GrantRoot => {
+      const entry = ContentId.parse(id);
+      return { entry, hop: { kind: OriginHopKind.Variant, rule: entry } };
+    });
 }
 
 /** Whether `rootSlots` hold the second class's slot. */

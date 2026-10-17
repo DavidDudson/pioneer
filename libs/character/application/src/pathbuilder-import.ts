@@ -9,6 +9,7 @@ import {
 import type { Character, CharacterDocument, SlotContent } from '@pioneer/character/domain';
 import {
   ImportKind,
+  matchKey,
   PathbuilderProblem,
   placeBoosts,
   placeFeats,
@@ -50,6 +51,25 @@ export function dualClassVariant(value: PathbuilderImport, registry: ContentRegi
     : registry
         .variantRules()
         .find((entry) => entry.definition.structure?.includes(VariantStructure.SecondClass) === true);
+}
+
+/** The label Pathbuilder gives the feat slots of Free Archetype: "Free Archetype 2", "Free Archetype 4"…. */
+const FREE_ARCHETYPE_LABEL = 'free archetype';
+
+/**
+ * The Free Archetype variant rule an export with feats in "Free Archetype N" slots needs, from the loaded packs;
+ * undefined for an export without any, or content that doesn't define the variant.
+ */
+export function freeArchetypeVariant(
+  value: PathbuilderImport,
+  registry: ContentRegistry,
+): VariantRuleEntry | undefined {
+  const free = value.feats.some(({ slot }) => slot !== undefined && matchKey(slot).startsWith(FREE_ARCHETYPE_LABEL));
+  return free
+    ? registry
+        .variantRules()
+        .find((entry) => entry.definition.structure?.includes(VariantStructure.ExtraSlots) === true)
+    : undefined;
 }
 
 /**

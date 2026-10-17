@@ -31,7 +31,13 @@ import type { Clock, UserId } from '@pioneer/shared/kernel';
 import type { CharacterRepository } from './character-repository';
 import type { CharacterVariantRepository } from './character-variant-repository';
 import { importDiscrepancies } from './pathbuilder-discrepancies';
-import { dualClassVariant, importedCharacter, matchedAncestry, readExport } from './pathbuilder-import';
+import {
+  dualClassVariant,
+  freeArchetypeVariant,
+  importedCharacter,
+  matchedAncestry,
+  readExport,
+} from './pathbuilder-import';
 import { importedInventory } from './pathbuilder-inventory';
 import type { InventoryContent } from './pathbuilder-inventory';
 
@@ -70,6 +76,19 @@ export interface PathbuilderImportPorts {
  * Makes characters from Pathbuilder exports. Framework-free, like `CharacterService`, whose policy it shares: the
  * character is the actor's.
  */
+/** The variant rules an export asks for: Dual Class for a second class, Free Archetype for its free feat slots. */
+interface ImportVariants {
+  readonly dual: VariantRuleEntry | undefined;
+  /** Those the loaded packs define, in force while the export is placed. */
+  readonly wanted: readonly VariantRuleEntry[];
+}
+
+function importVariants(value: PathbuilderImport, content: ContentRegistry): ImportVariants {
+  const dual = dualClassVariant(value, content);
+  const free = freeArchetypeVariant(value, content);
+  return { dual, wanted: [dual, free].filter((each) => each !== undefined) };
+}
+
 export class PathbuilderImportService {
   readonly #characters: CharacterRepository;
   readonly #content: ContentSource;
@@ -96,20 +115,20 @@ export class PathbuilderImportService {
     const value = readExport(raw);
     const content = await this.#content.registry();
     const lookup = registryLookup(content);
-    const ancestry = matchedAncestry(value, lookup);
     const create = this.#newCharacter(actor, value, {
-      ancestry,
+      ancestry: matchedAncestry(value, lookup),
       inventory: importedInventory(value, inventoryContent(content, lookup)),
     });
-    const dual = dualClassVariant(value, content);
-    const slots = slotContent(content, dual === undefined ? [] : [dual]);
+    const variants = importVariants(value, content);
+    const slots = slotContent(content, variants.wanted);
     const { character, unplaced, skillGaps, spellGaps, notOffered, dualClass } = importedCharacter(
       value,
       { lookup, slots },
       create,
     );
     const saved = await this.#characters.insert(character, { actor, command: CharacterCommand.ImportPathbuilder });
-    await this.#enable(actor, saved, dualClass ? dual : undefined);
+    const enabled = dualClass ? variants.wanted : variants.wanted.filter((each) => each !== variants.dual);
+    await this.#enable(actor, saved, enabled);
     const report = characterImportReport(value, lookup, {
       notOffered,
       unplacedBoosts: unplaced,
@@ -119,7 +138,7 @@ export class PathbuilderImportService {
       discrepancies: importDiscrepancies(value, character, {
         registry: content,
         slots,
-        variants: dual === undefined ? [] : [dual],
+        variants: enabled,
       }),
       ruleBreaking: ruleBreaking(character.document.inventory, content),
     });
@@ -138,15 +157,17 @@ export class PathbuilderImportService {
       Character.create({ id, ownerId: actor, name: value.name, ancestry, level: value.level, choices, inventory, now });
   }
 
-  /** The variant rule `character` needs, enabled for its owner; nothing when it needs none. */
-  async #enable(actor: UserId, character: Character, variant: VariantRuleEntry | undefined): Promise<void> {
-    if (variant !== undefined) {
-      await this.#variants.enable(actor, character.id, {
-        id: CharacterVariantRuleId.parse(newId()),
-        variantId: variant.id,
-        enabledBy: actor,
-        enabledAt: this.#clock.now(),
-      });
-    }
+  /** The variant rules `character` needs, enabled for its owner; nothing when it needs none. */
+  async #enable(actor: UserId, character: Character, variants: readonly VariantRuleEntry[]): Promise<void> {
+    await Promise.all(
+      variants.map(async (variant) =>
+        this.#variants.enable(actor, character.id, {
+          id: CharacterVariantRuleId.parse(newId()),
+          variantId: variant.id,
+          enabledBy: actor,
+          enabledAt: this.#clock.now(),
+        }),
+      ),
+    );
   }
 }

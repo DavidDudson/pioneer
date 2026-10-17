@@ -132,8 +132,10 @@ describe('core rules pack', () => {
     expect(registry.statistics()).toHaveLength(selectors.length);
     const withoutLevel = contentId(coreRules.id, EntrySlug.parse('variant-rule:proficiency-without-level'));
     const dualClass = contentId(coreRules.id, EntrySlug.parse('variant-rule:dual-class'));
+    const freeArchetype = contentId(coreRules.id, EntrySlug.parse('variant-rule:free-archetype'));
     expect(registry.variantRules().map(({ id }) => id)).toStrictEqual([
       VariantRuleId.parse(dualClass),
+      VariantRuleId.parse(freeArchetype),
       VariantRuleId.parse(withoutLevel),
     ]);
   });
