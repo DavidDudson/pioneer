@@ -63,15 +63,19 @@ function knownOf({ envelope, kindData }: VocabularyEntry): KnownEntry {
   return { id: envelope.id, pack: envelope.pack, kind: kindData.kind, slug: envelope.slug };
 }
 
+/** The traits Pioneer knows: its `trait` entries, by name. */
+function traitsOf(known: readonly KnownEntry[]): ReadonlySet<Trait> {
+  const entries = known.filter(({ kind }) => kind === ContentKind.Trait);
+  return new Set(entries.map(({ slug }) => Trait.parse(slugName(slug))));
+}
+
 export function translateImport(selected: readonly SelectedEntry[], context: ImportContext): ImportTranslation {
   const { pack, vocabularyPack, known } = context;
   const vocabulary = importVocabulary(selected, { ...context, pack: vocabularyPack });
   const all = [...known, ...vocabulary.entries.map((entry) => knownOf(entry))];
   const slugs = entrySlugs(selected);
   const references = entryReferences(pack, slugs, { known: all, release: context.documents ?? [] });
-  const traits = new Set(
-    all.filter(({ kind }) => kind === ContentKind.Trait).map(({ slug }) => Trait.parse(slugName(slug))),
-  );
+  const traits = traitsOf(all);
   const { documents, lang } = context;
   const envelopes = translateEnvelopes(selected, {
     pack,
@@ -97,6 +101,7 @@ export function translateImport(selected: readonly SelectedEntry[], context: Imp
       archetypes: archetypes.byFeat,
       senses: context.config.senses,
       links,
+      lang,
     });
     return { source, envelope: { ...envelope, rules: [...envelope.rules, ...rules] }, ...rest };
   });

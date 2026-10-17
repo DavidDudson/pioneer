@@ -1,4 +1,5 @@
 import { BookId, ContentId, contentId, ContentKind, EntrySlug, entrySlug, PackId, Slug } from '@pioneer/rules/sdk';
+import * as z from 'zod';
 
 import type { KnownEntry } from '../entry-references';
 import { foundryConfig } from '../foundry-config';
@@ -41,9 +42,33 @@ export interface DocumentFixture {
   readonly system?: object;
   /** Foundry's pack, when not the one its type usually lives in (a class feature in `classfeatures`). */
   readonly pack?: FoundryPack;
+  /** The items an actor embeds. */
+  readonly items?: readonly object[];
 }
 
-function selected({ id, name, type, system = {}, pack: given }: DocumentFixture): SelectedEntry {
+const FixtureShape = z.looseObject({
+  id: z.string(),
+  name: z.string(),
+  type: z.string(),
+  system: z.looseObject({}).optional(),
+  pack: z.looseObject({ name: z.string(), directory: z.string() }).optional(),
+  items: z.array(z.looseObject({})).optional(),
+});
+
+/** A fixture kept as JSON text, so a real document with its embedded items stays a few lines long. */
+export function parseFixture(json: string): DocumentFixture {
+  const { id, name, type, system, pack: given, items } = FixtureShape.parse(JSON.parse(json));
+  return {
+    id,
+    name,
+    type,
+    ...(system === undefined ? {} : { system }),
+    ...(given === undefined ? {} : { pack: given }),
+    ...(items === undefined ? {} : { items }),
+  };
+}
+
+function selected({ id, name, type, system = {}, pack: given, items }: DocumentFixture): SelectedEntry {
   if (!isFoundryItemType(type)) {
     throw new Error(`${type} is not a Foundry item type`);
   }
@@ -51,7 +76,13 @@ function selected({ id, name, type, system = {}, pack: given }: DocumentFixture)
   return {
     pack: foundryPack,
     path: `packs/pf2e/${foundryPack.directory}/${id}.json`,
-    document: FoundryDocument.parse({ _id: id, name, type, system: { publication: remaster, ...system } }),
+    document: FoundryDocument.parse({
+      _id: id,
+      name,
+      type,
+      system: { publication: remaster, ...system },
+      ...(items === undefined ? {} : { items }),
+    }),
     type,
     book: playerCore,
   };

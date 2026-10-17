@@ -165,7 +165,7 @@ const TRANSLATORS: Readonly<Partial<Record<ContentKind, KindTranslator>>> = {
  * What a document's data may refer to: the import's references, the archetypes linking each feat, what each Foundry
  * sense fixes, and what links in an action's trigger and requirements resolve against.
  */
-export type KindDataContext = Pick<KindInput, 'references' | 'archetypes' | 'senses' | 'links'>;
+export type KindDataContext = Pick<KindInput, 'references' | 'archetypes' | 'senses' | 'links' | 'lang'>;
 
 /**
  * The kind data of a translated document, when its kind has a translator (`TRANSLATORS`), with the rule elements
@@ -174,7 +174,7 @@ export type KindDataContext = Pick<KindInput, 'references' | 'archetypes' | 'sen
 export function translateKindData(
   entry: SelectedEntry,
   envelope: ImportedEnvelope,
-  { references, archetypes, senses, links }: KindDataContext,
+  { references, archetypes, senses, links, lang }: KindDataContext,
 ): KindDataTranslation {
   const translator = TRANSLATORS[documentKind(entry)];
   if (translator === undefined) {
@@ -193,6 +193,7 @@ export function translateKindData(
     archetypes,
     ...(senses === undefined ? {} : { senses }),
     ...(links === undefined ? {} : { links }),
+    ...(lang === undefined ? {} : { lang }),
   });
   return { ...(kindData === undefined ? {} : { kindData }), rules, gaps: log.gaps };
 }

@@ -697,6 +697,16 @@ flowchart LR
   home for goes to the backlog with its field and raw value: a `details` or `saveDetail` note, `attributes.allSaves`,
   a resistance's `doubleVs`, a weakness or resistance to a material or a kind of damage that is not a damage type
   (`cold-iron`, `splash-damage`), and focus `resources`. The coverage report adds the creatures per role and level.
+  The actor's embedded items make the rest of the stat block: `melee` items are `strikes` (the printed bonus, damage
+  parts parsed from `4d12+19`, `reach-30` and `range-increment-60` as `reach` and `increment`, and the attack effects
+  named from Foundry's lang table or the ability they point at); `action` items are `abilities` (cost, trigger,
+  requirements and frequency read from the description once its `@Localize` glossary text expands, the rest as rich
+  text, and the item's rule elements through the usual translators, with the untranslated ones in the backlog);
+  `spellcastingEntry` items with the `spell` items placed in them are `spellcasting`, each spell resolved by name to a
+  spell entry (a "(Constant)" or "(At Will)" qualifier is read off the name; a spell no loaded pack has is reported
+  by name); `lore` items join `skills`; carried gear links to its equipment entry (reported by name when none
+  exists); and `condition` items are `conditions`. A persistent damage part, a damage formula longer than dice plus a
+  flat bonus, and an `effect` item are reported, not translated.
   `just content-import --pack player-core --book player-core --dry-run` prints what would be imported by Foundry
   type and book, what is skipped and why, what did not translate, what pack output leaves out, and the coverage
   table; without `--dry-run` it also writes the pack (Pack output, below).

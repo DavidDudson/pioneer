@@ -6,7 +6,7 @@ import type * as z from 'zod';
 import type { FoundryLinks } from './enricher-context';
 import type { EntryReferences } from './entry-references';
 import type { FoundryDocument } from './foundry-document';
-import type { FoundryPack } from './foundry-release';
+import type { FoundryLang, FoundryPack } from './foundry-release';
 import type { ImportedEnvelope } from './imported-envelope';
 import type { ArchetypeLink } from './translate-archetype';
 import type { FoundrySenses } from './translate-senses';
@@ -60,6 +60,8 @@ export interface KindInput {
   readonly archetypes: ReadonlyMap<ContentId, readonly ArchetypeLink[]>;
   /** What each Foundry sense fixes; without it a feat's senses keep the acuity and range they give. */
   readonly senses?: FoundrySenses;
+  /** Foundry's English lang table, for the `@Localize` text of an embedded item; without it keys stay unresolved. */
+  readonly lang?: FoundryLang;
   /** What links in rich text fields resolve against (`foundryLinks`); without them every link stays text. */
   readonly links?: FoundryLinks;
 }
