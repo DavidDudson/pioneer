@@ -14,6 +14,7 @@ import { PlayStore } from '../data/play-store';
 import { sheetBuildPicks } from './sheet-build-picks';
 import type { BuildPicks } from './sheet-build-picks';
 import { sheetConditionPreviews } from './sheet-condition-previews';
+import { sheetFetchingPreviews } from './sheet-entry-previews';
 import { readsEquipment, EQUIPMENT_CONTENT_KINDS, sheetInvestments } from './sheet-equipment';
 import { sheetFocus } from './sheet-focus-spells';
 import { sheetIdentity } from './sheet-identity';
@@ -82,6 +83,9 @@ export class SheetState {
    * from the engine's registry.
    */
   public readonly conditionPreviews: EntryPreviews = sheetConditionPreviews(this.#engineRegistry, this.character);
+
+  /** The previews for the names of the character's actions, Strikes and effects, fetched when the registry lacks one. */
+  public readonly previews: EntryPreviews = sheetFetchingPreviews(this.#engineRegistry);
 
   readonly #claims = signal<SituationClaims>(NO_CLAIMS);
 

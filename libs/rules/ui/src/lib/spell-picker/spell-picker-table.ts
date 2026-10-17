@@ -1,5 +1,5 @@
 import type { PickerSort, TableColumn } from '@pioneer/frontier/data';
-import { AreaValue, CastActions, DefenseValue, Rarity, TargetValue } from '@pioneer/rules/sdk';
+import { AreaValue, CastActions, ContentId, DefenseValue, Rarity, TargetValue } from '@pioneer/rules/sdk';
 
 import type { Chip } from '../picker-cells/chip-list/chip-list.component';
 import { RARITY_TONES } from '../picker-cells/chip-list/chip-list.component';
@@ -62,10 +62,11 @@ function defenseChips(row: SpellPickerRow, say: Say): readonly Chip[] {
 /** What identifies the spell and how it is cast: name, rank, traditions and cast cost. */
 function castingColumns(schema: SpellTableSchema<SpellPickerRow>, say: Say): SpellTableSchema<SpellPickerRow> {
   return schema
-    .addText({
+    .addEntryName({
       id: SpellPickerColumn.Name,
       header: say(SpellPickerMessage.Name),
       value: (row) => row.name,
+      entry: (row) => ContentId.safeParse(row.id).data,
       width: 'md',
     })
     .addRank({

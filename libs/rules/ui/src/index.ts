@@ -9,6 +9,7 @@ export { ContentPreview } from './lib/entry-preview/content-preview.component';
 export { EntryPreviewView } from './lib/entry-preview/entry-preview.component';
 export {
   ENTRY_PREVIEWS,
+  entryTarget,
   type EntryPreview,
   type EntryPreviews,
   type PreviewEffect,

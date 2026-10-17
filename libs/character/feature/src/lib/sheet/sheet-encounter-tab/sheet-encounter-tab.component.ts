@@ -3,8 +3,8 @@ import { TranslocoPipe } from '@jsverse/transloco';
 import { SheetMode, TurnPhase } from '@pioneer/character/domain';
 import { AsyncData, AsyncPending, AsyncRegion, Section, SectionIndex, SectionLink, Stack } from '@pioneer/frontier';
 import { ActionMode, SpellPreparation } from '@pioneer/rules/sdk';
-import { DefencesView, SpellcastingView, StatisticsView, StrikesView } from '@pioneer/rules/ui';
-import type { NamedStrike } from '@pioneer/rules/ui';
+import { DefencesView, ENTRY_PREVIEWS, SpellcastingView, StatisticsView, StrikesView } from '@pioneer/rules/ui';
+import type { EntryPreviews, NamedStrike } from '@pioneer/rules/ui';
 
 import { SheetActions } from '../sheet-actions/sheet-actions.component';
 import { SheetConsumables } from '../sheet-consumables/sheet-consumables.component';
@@ -52,6 +52,7 @@ import { SheetWands } from '../sheet-wands/sheet-wands.component';
     TranslocoPipe,
   ],
   templateUrl: './sheet-encounter-tab.component.html',
+  providers: [{ provide: ENTRY_PREVIEWS, useFactory: (): EntryPreviews => inject(SheetState).previews }],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SheetEncounterTab {

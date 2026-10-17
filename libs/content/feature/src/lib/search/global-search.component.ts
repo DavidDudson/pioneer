@@ -7,10 +7,10 @@ import { Combobox } from '@pioneer/frontier/data';
 import type { ComboboxOption } from '@pioneer/frontier/data';
 import { ContentKind } from '@pioneer/rules/sdk';
 import type { ContentId } from '@pioneer/rules/sdk';
+import { entryTarget } from '@pioneer/rules/ui';
 
 import { BROWSE_KINDS } from '../browser/browse-kinds';
 import { injectBrowseSearch, searchFromQuery } from '../browser/browse-search';
-import { entryTarget } from '../entry/entry-lookup';
 import { GlobalSearchIndex } from './global-search-index';
 import { mergeBelow, nameMatches } from './global-search-results';
 import { isSearchShortcut } from './global-search-shortcut';

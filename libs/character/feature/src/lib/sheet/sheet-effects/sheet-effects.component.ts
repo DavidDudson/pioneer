@@ -3,11 +3,14 @@ import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { EffectCommandField, EffectSourceKind } from '@pioneer/character/domain';
 import type { PlayCommand } from '@pioneer/character/domain';
 import { AsyncButton, AsyncData, AsyncPending, AsyncRegion, Badge, Skeleton, Stack, Text } from '@pioneer/frontier';
+import { ENTRY_PREVIEWS, EntryNameCell } from '@pioneer/rules/ui';
+import type { EntryPreviews } from '@pioneer/rules/ui';
 
 import { injectContentRegistry } from '../../data/content-registry-query';
 import { PlayStore } from '../../data/play-store';
 import { EFFECT_CONTENT_KINDS, effectOptions, effectViews, steppedView } from '../sheet-effects';
 import type { EffectOption, EffectView } from '../sheet-effects';
+import { sheetEntryPreviews } from '../sheet-entry-previews';
 import { describeSaveError } from '../sheet-field';
 import { SheetEffectAdd } from './sheet-effect-add.component';
 
@@ -26,12 +29,14 @@ import { SheetEffectAdd } from './sheet-effect-add.component';
     AsyncPending,
     AsyncRegion,
     Badge,
+    EntryNameCell,
     Skeleton,
     Stack,
     Text,
     TranslocoPipe,
   ],
   templateUrl: './sheet-effects.component.html',
+  providers: [{ provide: ENTRY_PREVIEWS, useFactory: (): EntryPreviews => inject(SheetEffects).previews }],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SheetEffects {
@@ -39,6 +44,8 @@ export class SheetEffects {
   readonly #play = inject(PlayStore);
 
   protected readonly registry = injectContentRegistry(EFFECT_CONTENT_KINDS);
+  /** What an effect's name previews: its entry, from the registry the list was built from. */
+  public readonly previews: EntryPreviews = sheetEntryPreviews(() => this.registry.data());
   protected readonly playQuery = this.#play.play;
   protected readonly allySource = EffectSourceKind.Ally;
   protected readonly gmSource = EffectSourceKind.Gm;

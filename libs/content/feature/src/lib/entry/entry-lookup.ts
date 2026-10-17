@@ -1,12 +1,10 @@
 import type { LinkTarget } from '@pioneer/frontier';
 import { ContentKind, ContentKindSchema, slugName } from '@pioneer/rules/sdk';
 import type { ContentEntry, ContentId, ContentRegistry, ContentText } from '@pioneer/rules/sdk';
+import { entryTarget } from '@pioneer/rules/ui';
 import type { EntryPreview, EntryPreviews, RichTextLinks } from '@pioneer/rules/ui';
 
 import { BROWSE_KINDS } from '../browser/browse-kinds';
-
-/** The root of the content browser's routes in the app. */
-const CONTENT_PATH = '/content';
 
 /**
  * The kinds loaded beside the entry's own, so a reference in its text names and links the entry it points at: the
@@ -23,11 +21,6 @@ export function entryKinds(kind: ContentKind): readonly ContentKind[] {
 export function kindOfParam(param: string | null): ContentKind | undefined {
   const parsed = ContentKindSchema.safeParse(param);
   return parsed.success ? parsed.data : undefined;
-}
-
-/** Where `entry` opens: `/content/feat/power-attack`. */
-export function entryTarget(entry: ContentEntry): LinkTarget {
-  return [CONTENT_PATH, entry.kind, slugName(entry.slug)];
 }
 
 /** The entry of `kind` named `name` in its slug. A later pack's entry of the same slug wins, as in the registry. */

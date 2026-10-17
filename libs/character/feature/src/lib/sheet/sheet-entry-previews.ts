@@ -1,4 +1,9 @@
+import { inject } from '@angular/core';
+import type { LinkTarget } from '@pioneer/frontier';
+import { ContentLoader } from '@pioneer/rules/data-access';
+import { ContentKindSchema } from '@pioneer/rules/sdk';
 import type { ContentEntry, ContentId, ContentRegistry } from '@pioneer/rules/sdk';
+import { entryTarget } from '@pioneer/rules/ui';
 import type { EntryPreview, EntryPreviews } from '@pioneer/rules/ui';
 
 /** Entries by registry: a loaded registry never changes, so each is indexed once. */
@@ -44,4 +49,33 @@ export function sheetEntryPreview(registry: ContentRegistry | undefined, id: Con
  */
 export function sheetEntryPreviews(registry: () => ContentRegistry | undefined): EntryPreviews {
   return { preview: (id) => sheetEntryPreview(registry(), id) };
+}
+
+/**
+ * The previews for the rows that name entries of any kind (actions, Strikes, effects): from the registry the sheet has
+ * loaded, and for an entry it doesn't hold, from every kind's bundles, fetched when its card first opens and kept for
+ * the next. Each card links to the entry's page.
+ */
+export function sheetFetchingPreviews(registry: () => ContentRegistry | undefined): EntryPreviews {
+  const loader = inject(ContentLoader);
+  const kept: { everything: Promise<ContentRegistry> | undefined } = { everything: undefined };
+  const fetchAll = async (): Promise<ContentRegistry> => {
+    kept.everything ??= loader.registry(ContentKindSchema.options);
+    try {
+      return await kept.everything;
+    } catch (error) {
+      kept.everything = undefined;
+      throw error;
+    }
+  };
+  const target = (id: ContentId): LinkTarget | undefined => {
+    const held = registry();
+    const entry = held === undefined ? undefined : sheetEntry(held, id);
+    return entry === undefined ? undefined : entryTarget(entry);
+  };
+  return {
+    ...sheetEntryPreviews(registry),
+    load: async (id) => sheetEntryPreview(await fetchAll(), id),
+    target,
+  };
 }

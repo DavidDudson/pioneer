@@ -27,11 +27,11 @@ import { injectTableView, Table, tableViewColumns } from '@pioneer/frontier/data
 import type { TableColumn, TableView, TableViewSchema } from '@pioneer/frontier/data';
 import { filterParamName } from '@pioneer/rules/sdk';
 import type { ContentEntry, FilterState, QueryParams } from '@pioneer/rules/sdk';
-import { ENTRY_PREVIEWS, FacetFilterView, RARITY_TONES } from '@pioneer/rules/ui';
+import { ENTRY_PREVIEWS, entryTarget, FacetFilterView, RARITY_TONES } from '@pioneer/rules/ui';
 import type { Chip, EntryPreviews } from '@pioneer/rules/ui';
 import { filter, merge } from 'rxjs';
 
-import { entryIndex, entryPreviews, entryTarget } from '../entry/entry-lookup';
+import { entryIndex, entryPreviews } from '../entry/entry-lookup';
 import { browseColumns } from './browse-columns';
 import {
   ALL_FACETS,
