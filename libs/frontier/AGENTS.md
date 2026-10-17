@@ -37,7 +37,7 @@ Read this before touching any UI.
   list, term and definition roles instead). Elements with no owner yet
   (`cite`, `fieldset`, `progress`, …) fail lint:
   add a primitive first. `<select>` is banned for good (`fr-select` builds on
-  `@angular/aria`), as is `<dialog>` (no modals). Only `div`, `span` and the landmark and sectioning
+  `@angular/aria`); `<dialog>` is owned by `fr-drawer` alone (the one modal). Only `div`, `span` and the landmark and sectioning
   elements are free; any element missing from the ownership map
   (`tools/eslint/no-native-elements.ts`) fails, so classify it there first.
 - **Tokens only.** Components take token names (`gap="md"`, `tone="muted"`),
@@ -112,11 +112,12 @@ Pioneer never interrupts the user. Lint enforces each rule
    error under the field, a save's tick beside the value (`InlineEdit<T>`), a
    region's load failure in place of that region. No snackbars, no toast
    libraries, no `role="status"` popups floating over the page.
-2. **No modals.** No `<dialog>`, `role="dialog|alertdialog"`, CDK or
+2. **No modals**, with one exception: `fr-drawer` below the `lg` container size is a full-screen `<dialog>`
+   (ADR-0065). Everywhere else, no `<dialog>`, `role="dialog|alertdialog"`, CDK or
    Material dialogs, bottom sheets, or `alert`/`confirm`/`prompt`. Show the
    content inline (expand in place with `fr-disclosure`, inline edit), in the docked `fr-drawer`, or give it
    its own route. Secondary content prefers the drawer: it sits beside the page and pushes the content
-   aside, never over it, and it does not trap focus (ADR-0065). A `popover`, tooltip or hover card is allowed
+   aside, never over it, and it does not trap focus (ADR-0065), except on narrow screens, where it is the exception above. A `popover`, tooltip or hover card is allowed
    for a transient, non-blocking description only: nothing in it is acted on. See rule 4 for when a
    confirmation is allowed at all.
 3. **No full page loads. Always partial load + skeleton.**

@@ -1,7 +1,7 @@
 import { ApplicationRef } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { provideRouter, Router } from '@angular/router';
-import { beforeEach, describe, expect, it, onTestFinished } from 'vitest';
+import { beforeEach, describe, expect, it, onTestFinished, vi } from 'vitest';
 
 import { provideFrontierI18nTesting } from '../../testing/provide-frontier-i18n-testing';
 import { element, part, renderProjected } from '../../testing/render-projected';
@@ -24,9 +24,64 @@ async function render(url: string, inputs: Readonly<Record<string, unknown>> = {
   return root;
 }
 
+/** Opens after the host is in the page, so the drawer can find the row it sits in. */
+const renderOpen = async (): Promise<HTMLElement> => {
+  const root = await render('/spells');
+  await TestBed.inject(Router).navigateByUrl('/spells?drawer=open');
+  await settle();
+  return root;
+};
+
 const handle = (root: HTMLElement): HTMLElement => part(root, '[role="separator"]');
 
 const step = (root: HTMLElement): string | null => handle(root).getAttribute('aria-valuenow');
+
+/** Neither `<dialog>` methods nor `ResizeObserver` exist in jsdom: record the first and let a test drive the second. */
+const dialog = { calls: [] as string[] };
+const observed: { resize: (width: number) => void } = { resize: () => undefined };
+
+function fakeBrowser(): void {
+  dialog.calls = [];
+  const define = (name: string, open: boolean): void => {
+    Object.defineProperty(HTMLDialogElement.prototype, name, {
+      configurable: true,
+      value(this: HTMLDialogElement): void {
+        dialog.calls.push(name);
+        this.toggleAttribute('open', open);
+      },
+    });
+  };
+  define('show', true);
+  define('showModal', true);
+  define('close', false);
+  vi.stubGlobal(
+    'ResizeObserver',
+    class {
+      public readonly observe = vi.fn<() => void>();
+      public readonly disconnect = vi.fn<() => void>();
+      public constructor(notify: (entries: unknown[]) => void) {
+        observed.resize = (width: number): void => {
+          notify([{ contentRect: { width } }]);
+        };
+      }
+    },
+  );
+  onTestFinished(() => {
+    vi.unstubAllGlobals();
+    for (const name of ['show', 'showModal', 'close']) {
+      Reflect.deleteProperty(HTMLDialogElement.prototype, name);
+    }
+  });
+}
+
+/** Container widths in px either side of `lg`, which is 56rem: 896px at the default font size. */
+const BELOW_LG = 600;
+const ABOVE_LG = 1000;
+
+const resizeTo = async (width: number): Promise<void> => {
+  observed.resize(width);
+  await settle();
+};
 
 const keydown = async (target: Element, key: string): Promise<void> => {
   target.dispatchEvent(new KeyboardEvent('keydown', { key, bubbles: true, cancelable: true }));
@@ -36,6 +91,7 @@ const keydown = async (target: Element, key: string): Promise<void> => {
 describe(Drawer, () => {
   beforeEach(() => {
     localStorage.clear();
+    fakeBrowser();
     TestBed.configureTestingModule({
       providers: [provideRouter([{ path: '**', children: [] }]), ...provideFrontierI18nTesting()],
     });
@@ -43,22 +99,21 @@ describe(Drawer, () => {
 
   it('renders nothing while closed', async () => {
     const root = await render('/spells');
-    expect(root.querySelector('aside')).toBeNull();
+    expect(root.querySelector('dialog')).toBeNull();
     expect(root.classList.contains('hidden')).toBe(true);
   });
 
-  it('opens from the query parameter as a labelled complementary landmark with its content', async () => {
+  it('opens from the query parameter as a labelled dialog with its content', async () => {
     const root = await render('/spells?drawer=open');
-    expect(part(root, 'aside').getAttribute('aria-label')).toBe('Fireball');
+    expect(part(root, 'dialog').getAttribute('aria-label')).toBe('Fireball');
     expect(part(root, 'h2').textContent.trim()).toBe('Fireball');
     expect(part(root, 'p').textContent).toBe('A burst of flame');
   });
 
-  it('opens when asked, writing the query parameter, and is not modal', async () => {
-    const root = await render('/spells', { open: true });
+  it('opens when asked, writing the query parameter, and is docked, not modal', async () => {
+    await render('/spells', { open: true });
     expect(TestBed.inject(Router).url).toBe('/spells?drawer=open');
-    expect(root.querySelector('[aria-modal]')).toBeNull();
-    expect(root.querySelector('dialog')).toBeNull();
+    expect(dialog.calls).toStrictEqual(['show']);
   });
 
   it('moves focus to the title on open', async () => {
@@ -72,14 +127,14 @@ describe(Drawer, () => {
     const root = await render('/spells?drawer=open&sort=name');
     part(root, 'button').click();
     await settle();
-    expect(root.querySelector('aside')).toBeNull();
+    expect(root.querySelector('dialog')).toBeNull();
     expect(TestBed.inject(Router).url).toBe('/spells?sort=name');
   });
 
   it('closes on Escape while focus is inside it', async () => {
     const root = await render('/spells?drawer=open');
     await keydown(part(root, 'button'), 'Escape');
-    expect(root.querySelector('aside')).toBeNull();
+    expect(root.querySelector('dialog')).toBeNull();
   });
 
   it('returns focus to what had it when the drawer opened', async () => {
@@ -97,7 +152,56 @@ describe(Drawer, () => {
 
   it('reads another parameter when told to', async () => {
     const root = await render('/spells?detail=open', { param: 'detail' });
-    expect(root.querySelector('aside')).not.toBeNull();
+    expect(root.querySelector('dialog')).not.toBeNull();
+  });
+
+  describe('overlay below lg', () => {
+    it('shows the open drawer as a modal dialog and takes no room in the page', async () => {
+      const root = await renderOpen();
+      await resizeTo(BELOW_LG);
+      expect(dialog.calls).toStrictEqual(['show', 'close', 'showModal']);
+      expect(root.classList.contains('contents')).toBe(true);
+    });
+
+    it('hides the resize handle and keeps the stored width', async () => {
+      localStorage.setItem('fr-drawer-width', 'wide');
+      const root = await renderOpen();
+      await resizeTo(BELOW_LG);
+      expect(root.querySelector('[role="separator"]')).toBeNull();
+      expect(localStorage.getItem('fr-drawer-width')).toBe('wide');
+    });
+
+    it('closes on the dialog cancel (Escape), dropping the query parameter', async () => {
+      const root = await renderOpen();
+      await resizeTo(BELOW_LG);
+      part(root, 'dialog').dispatchEvent(new Event('cancel', { cancelable: true }));
+      await settle();
+      expect(TestBed.inject(Router).url).toBe('/spells');
+    });
+
+    it('returns focus to the opener on close', async () => {
+      const opener = document.createElement('button');
+      document.body.append(opener);
+      onTestFinished(() => {
+        opener.remove();
+      });
+      opener.focus();
+      const root = await renderOpen();
+      await resizeTo(BELOW_LG);
+      part(root, 'button').click();
+      await settle();
+      expect(document.activeElement).toBe(opener);
+    });
+
+    it('switches mode across lg without closing, on the same dialog', async () => {
+      const root = await renderOpen();
+      const panel = part(root, 'dialog');
+      await resizeTo(BELOW_LG);
+      await resizeTo(ABOVE_LG);
+      expect(dialog.calls).toStrictEqual(['show', 'close', 'showModal', 'close', 'show']);
+      expect(part(root, 'dialog')).toBe(panel);
+      expect(handle(root).getAttribute('aria-valuetext')).toBe('Default width');
+    });
   });
 
   describe('resize handle', () => {

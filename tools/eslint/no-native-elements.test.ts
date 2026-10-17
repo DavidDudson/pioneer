@@ -20,6 +20,7 @@ tester.run('no-native-elements', noNativeElements, {
     { filename: FEATURE, code: `<ng-container><router-outlet /></ng-container>` },
     { filename: frontier('layout/box/box.component.html'), code: `<div><span><ng-content /></span></div>` },
     { filename: frontier('media/image/image.component.html'), code: `<img />` },
+    { filename: frontier('layout/drawer/drawer.component.html'), code: `<dialog></dialog>` },
     { filename: frontier('feedback/meter/meter.component.html'), code: `<meter></meter>` },
     {
       filename: frontier('shell/shell.component.html'),
@@ -66,7 +67,12 @@ tester.run('no-native-elements', noNativeElements, {
         errors: [{ messageId: 'unowned' }],
       }),
     ),
-    ...['select', 'template', 'slot', 'dialog', 'noscript'].map((name) => ({
+    {
+      filename: frontier('layout/card/card.component.html'),
+      code: `<dialog></dialog>`,
+      errors: [{ messageId: 'owned' }],
+    },
+    ...['select', 'template', 'slot', 'noscript'].map((name) => ({
       filename: frontier('controls/select/select.component.html'),
       code: `<${name}></${name}>`,
       errors: [{ messageId: 'banned' }],
