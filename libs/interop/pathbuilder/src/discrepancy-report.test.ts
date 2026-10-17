@@ -237,6 +237,7 @@ describe('discrepancyReport', () => {
       ranks: new Map(),
       spellDcs: [],
       spellSlots: [],
+      focusPoints: undefined,
     });
     expect(report).toStrictEqual({ compared: 0, differences: [] });
   });

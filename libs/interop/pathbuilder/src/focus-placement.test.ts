@@ -77,7 +77,7 @@ function exporting(tradition: string, cantrips: readonly string[], spells: reado
     ...mordred,
     reported: {
       ...mordred.reported,
-      focus: { [tradition]: { cha: { focusCantrips: cantrips, focusSpells: spells } } },
+      focus: { [tradition]: { cha: { focusCantrips: [...cantrips], focusSpells: [...spells] } } },
     },
   };
 }

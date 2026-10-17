@@ -102,13 +102,13 @@ describe('PlayService turn cycle', () => {
   test('Set attacks is kept on a turn, cleared by End turn and Start turn, and ignored off-turn', async () => {
     const setAttacks: PlayEdit = { field: TurnCommandField.SetAttacks, count: AttackCount.parse(2) };
     const idle = await play.patch(amiri, kyra.id, { expectedRevision: FIRST_VERSION, command: setAttacks });
-    expect(idle.play.turn.attacks).toBe(0);
+    expect(idle.play.turn.attacks).toBe(AttackCount.parse(0));
     const started = await play.patch(amiri, kyra.id, { expectedRevision: idle.revision, command: startTurn });
     const set = await play.patch(amiri, kyra.id, { expectedRevision: started.revision, command: setAttacks });
-    expect(set.play.turn.attacks).toBe(2);
+    expect(set.play.turn.attacks).toBe(AttackCount.parse(2));
     expect(repository.audits.at(-1)?.command).toBe(CharacterCommand.SetAttacks);
     const ended = await play.patch(amiri, kyra.id, { expectedRevision: set.revision, command: endTurn });
-    expect(ended.play.turn.attacks).toBe(0);
+    expect(ended.play.turn.attacks).toBe(AttackCount.parse(0));
   });
 
   test('Enter encounter goes off-turn without refilling anything, and is audited', async () => {

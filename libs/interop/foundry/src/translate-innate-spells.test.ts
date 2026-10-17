@@ -14,7 +14,7 @@ function keyed(slug: string, key: string): Record<string, unknown>[] {
   const rules: readonly Record<string, unknown>[] = innateSpellRules(slug).map((rule) =>
     Object.fromEntries(Object.entries(rule)),
   );
-  return rules.filter((rule) => rule.key === key);
+  return rules.filter((rule) => rule['key'] === key);
 }
 
 const FEATS = [
@@ -61,7 +61,9 @@ describe('innateSpellRules', () => {
   });
 
   test('Grown of Oak is one rank below a druid’s highest, by level', () => {
-    const ranks = keyed('feat:grown-of-oak', InnateSpells).map((rule) => (rule.spells as { rank: number }[])[0]?.rank);
+    const ranks = keyed('feat:grown-of-oak', InnateSpells).map(
+      (rule) => (rule['spells'] as { rank: number }[])[0]?.rank,
+    );
 
     expect(ranks).toStrictEqual([2, 3, 4, 5, 6, 7, 8]);
   });
