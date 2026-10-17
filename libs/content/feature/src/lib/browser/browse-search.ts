@@ -8,9 +8,6 @@ import type { CreateQueryResult } from '@tanstack/angular-query-experimental';
 
 import type { BrowseKind } from './browse-kinds';
 
-/** The query param that holds the words searched for: `q=fire`. */
-export const SEARCH_PARAM = 'q';
-
 /** The most matches the browser asks for: the server's largest page. */
 const MATCHES_MAX = SearchLimit.parse(200);
 const FIRST_PAGE = SearchOffset.parse(0);

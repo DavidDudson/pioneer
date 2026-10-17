@@ -60,6 +60,9 @@ const chip = (root: HTMLElement, label: string): HTMLElement =>
       each.textContent.trim().startsWith(label),
     ),
   );
+/** The table's column headers, left to right. */
+const headers = (root: HTMLElement): string[] =>
+  [...root.querySelectorAll('fr-table thead th')].map((header) => header.textContent.trim());
 
 describe('ContentBrowserPage', () => {
   beforeAll(async () => {
@@ -77,12 +80,12 @@ describe('ContentBrowserPage', () => {
   });
 
   it('restores a filtered list from its link', async () => {
-    const { root } = await open('/content?kind=feat&f.traits=fighter');
+    const { root } = await open('/content?kind=feat&f=traits:fighter');
     await expect(loaded(root, 2)).resolves.toStrictEqual(['Power-attack', 'Shield-block']);
   });
 
   it('restores an exclusion and a range from its link', async () => {
-    const { root } = await open('/content?kind=feat&f.traits=!fighter&f.level=..1');
+    const { root } = await open('/content?kind=feat&f=traits:!fighter~level:..1');
     await expect(loaded(root, 1)).resolves.toStrictEqual(['Toughness']);
   });
 
@@ -91,12 +94,12 @@ describe('ContentBrowserPage', () => {
     await loaded(root, 4);
     chip(root, 'fighter (2)').click();
     await expect(loaded(root, 2)).resolves.toStrictEqual(['Power-attack', 'Shield-block']);
-    expect(TestBed.inject(Router).url).toContain('f.traits=fighter');
+    expect(TestBed.inject(Router).url).toContain('f=traits:fighter');
     harness.fixture.destroy();
   });
 
   it('lists another kind when it is picked, keeping the filters it shares', async () => {
-    const { root } = await open('/content?kind=feat&f.level=..1');
+    const { root } = await open('/content?kind=feat&f=level:..1');
     await loaded(root, 3);
     chip(root, 'Spells').click();
     await expect(loaded(root, 4)).resolves.toContain('Heal');
@@ -115,9 +118,54 @@ describe('ContentBrowserPage', () => {
   });
 
   it('says so when no entry matches', async () => {
-    const { root } = await open('/content?kind=feat&f.traits=fighter,!fighter&f.level=9..');
+    const { root } = await open('/content?kind=feat&f=traits:fighter,!fighter~level:9..');
     await vi.waitFor(() => {
       expect(root.textContent).toContain('Nothing matches');
+    });
+  });
+
+  describe('table view', () => {
+    it('shows the filters of the link as chips in the filter bar', async () => {
+      const { root } = await open('/content?kind=feat&f=traits:fighter');
+      await loaded(root, 2);
+      expect(present(root.querySelector('fr-filter-bar')).textContent).toContain('fighter');
+    });
+
+    it('ignores the per-facet params of an old link', async () => {
+      const { root } = await open('/content?kind=feat&f.traits=fighter');
+      await expect(loaded(root, 4)).resolves.toHaveLength(4);
+    });
+
+    it('hides the kind column for one kind and shows it for several', async () => {
+      const { root } = await open('/content?kind=feat');
+      await expect(loaded(root, 4)).resolves.toHaveLength(4);
+      expect(headers(root).join(' ')).not.toContain('Kind');
+      chip(root, 'Spells').click();
+      await vi.waitFor(() => {
+        expect(headers(root).join(' ')).toContain('Kind');
+      });
+    });
+
+    it('restores hidden columns from the link', async () => {
+      const { root } = await open('/content?kind=feat&c=-src,~kind');
+      await expect(loaded(root, 4)).resolves.toHaveLength(4);
+      expect(headers(root).join(' ')).toContain('Kind');
+      expect(headers(root).join(' ')).not.toContain('Source');
+    });
+
+    it('writes a sort to the link and restores it', async () => {
+      const { root } = await open('/content?kind=feat&s=-name');
+      await expect(loaded(root, 4)).resolves.toStrictEqual([
+        'Toughness',
+        'Shield-block',
+        'Power-attack',
+        'Incredible-initiative',
+      ]);
+    });
+
+    it('drops params it does not know', async () => {
+      const { root } = await open('/content?kind=feat&s=zzz&c=*&n=-1&x=1');
+      await expect(loaded(root, 4)).resolves.toHaveLength(4);
     });
   });
 
@@ -129,7 +177,7 @@ describe('ContentBrowserPage', () => {
     });
 
     it('applies the filters to the matches', async () => {
-      const { root } = await open('/content?kind=feat&q=i&f.traits=fighter');
+      const { root } = await open('/content?kind=feat&q=i&f=traits:fighter');
       await expect(loaded(root, 1)).resolves.toStrictEqual(['Shield-block']);
     });
 
@@ -142,7 +190,7 @@ describe('ContentBrowserPage', () => {
 
     it('writes typed words to the link and lists the matches', async () => {
       const { root } = await open('/content?kind=feat');
-      await loaded(root, 4);
+      await expect(loaded(root, 4)).resolves.toHaveLength(4);
       const box = present(root.querySelector<HTMLInputElement>('fr-search-input input'));
       box.value = 'tough';
       box.dispatchEvent(new Event('input'));
@@ -161,7 +209,7 @@ describe('ContentBrowserPage', () => {
 
     it('says the search failed when the server cannot be reached', async () => {
       const { root, delivery } = await open('/content?kind=feat');
-      await loaded(root, 4);
+      await expect(loaded(root, 4)).resolves.toHaveLength(4);
       delivery.offline = true;
       await TestBed.inject(Router).navigateByUrl('/content?kind=feat&q=power');
       await vi.waitFor(() => {

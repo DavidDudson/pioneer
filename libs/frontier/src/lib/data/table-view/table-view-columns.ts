@@ -1,4 +1,4 @@
-import { MINUS, PLUS } from './table-view-keys';
+import { MINUS, SHOW } from './table-view-keys';
 import { listOf, listText } from './table-view-text';
 import type { TableViewColumn } from './table-view.types';
 
@@ -7,7 +7,7 @@ function defaultHiddenIds(columns: readonly TableViewColumn[]): readonly string[
 }
 
 /**
- * `-src,+bk`: only the columns that differ from the defaults, in schema order. `-` hides a column shown by default
+ * `-src,~bk`: only the columns that differ from the defaults, in schema order. `-` hides a column shown by default
  * and `+` shows one hidden by default.
  */
 export function columnsText(hidden: readonly string[], columns: readonly TableViewColumn[]): string {
@@ -17,7 +17,7 @@ export function columnsText(hidden: readonly string[], columns: readonly TableVi
     if (isHidden === (column.defaultHidden === true)) {
       return [];
     }
-    return [`${isHidden ? MINUS : PLUS}${column.code}`];
+    return [`${isHidden ? MINUS : SHOW}${column.code}`];
   });
   return listText(tokens);
 }
@@ -30,7 +30,7 @@ export function hiddenOf(text: string, columns: readonly TableViewColumn[]): rea
     const id = ids.get(token.slice(1));
     if (id !== undefined && token.startsWith(MINUS)) {
       hidden.add(id);
-    } else if (id !== undefined && token.startsWith(PLUS)) {
+    } else if (id !== undefined && token.startsWith(SHOW)) {
       hidden.delete(id);
     }
   }

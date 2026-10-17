@@ -561,6 +561,8 @@ Behaviour:
   narrows the list is one param, `f.<facet id>`: values joined by commas with `!` marking an exclusion
   (`f.traits=fire,!evil`), or a range as `min..max` with either end left out (`f.level=..5`). Params that don't
   read are dropped, never an error, so an old link still opens.
+  The content browser writes them as one `f` segment of its table view (ADR-0068), a segment per facet, the same
+  values after `<facet id>:`: `f=level:..5~traits:fire,!evil`.
 - An entry whose field is missing (no level) counts under **Unknown** rather than vanishing from every
   selection. A `set` or `flag` facet can pick or exclude Unknown like any value; a `range` drops unknown entries
   once a bound is set. A value's count is how many entries picking only that value would leave.

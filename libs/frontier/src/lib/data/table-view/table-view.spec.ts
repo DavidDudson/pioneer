@@ -73,12 +73,19 @@ describe('table view codec', () => {
     expect(encodeTableView({ ...view, hidden: ['source'] }, SCHEMA)).toStrictEqual({
       s: '-lvl,name',
       f: 'tr:fire~tr!ice',
-      c: '-src,+bk',
+      c: '-src,~bk',
     });
   });
 
+  it('survives a trip through a query string, where + reads back as a space', () => {
+    const view: TableView = { hidden: ['source'], sort: [{ column: 'level', descending: true }] };
+    const text = new URLSearchParams(encodeTableView(view, SCHEMA)).toString();
+    const query = Object.fromEntries(new URLSearchParams(text));
+    expect(decodeTableView(query, SCHEMA)).toStrictEqual(view);
+  });
+
   it('reads params back to a view', () => {
-    expect(decodeTableView({ s: '-lvl,name', c: '-src,+bk', n: '50', q: 'fire' }, SCHEMA)).toStrictEqual({
+    expect(decodeTableView({ s: '-lvl,name', c: '-src,~bk', n: '50', q: 'fire' }, SCHEMA)).toStrictEqual({
       sort: [
         { column: 'level', descending: true },
         { column: 'name', descending: false },

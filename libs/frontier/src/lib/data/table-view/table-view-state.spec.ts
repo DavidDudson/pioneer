@@ -94,6 +94,14 @@ describe('table view state', () => {
     });
   });
 
+  it('writes several parts and the page params in one navigation', async () => {
+    const { state, router } = await open('/list?kind=feat');
+    const navigate = vi.spyOn(router, 'navigate');
+    await state.apply({ search: 'fire', facets: 'traits:fire' }, { params: { kind: 'spell' } });
+    expect(navigate).toHaveBeenCalledTimes(1);
+    expect(decodeURIComponent(router.url)).toBe('/list?kind=spell&f=traits:fire&q=fire');
+  });
+
   it('replaces the history entry while typing a search, and pushes for everything else', async () => {
     const { state, router } = await open('/list');
     const navigate = vi.spyOn(router, 'navigate');

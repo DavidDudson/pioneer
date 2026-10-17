@@ -16,9 +16,17 @@ export interface FacetTextCodec {
 }
 
 export interface TableViewOptions {
-  readonly schema: TableViewSchema;
+  /** Or a function of signals, for a table whose columns change with the page (a kind picked). */
+  readonly schema: TableViewSchema | (() => TableViewSchema);
   /** Without one, the bar's filters are not kept in the URL. */
   readonly facets?: FacetTextCodec;
+}
+
+export interface ApplyOptions {
+  /** Replace the history entry instead of pushing one. */
+  readonly replaceUrl?: boolean;
+  /** The page's own params to write in the same navigation. */
+  readonly params?: Params;
 }
 
 const TABLE_KEYS: readonly string[] = Object.values(TableViewKey);
@@ -35,7 +43,7 @@ function paramsFor(view: TableView, schema: TableViewSchema): Params {
  *
  * ```html
  * <fr-filter-bar [fields]="fields" [value]="view.filters()" (valueChange)="view.setFilters($event)" />
- * <fr-table [sorting]="view.sorting()" (sortingChange)="view.setSorting()"
+ * <fr-table [sorting]="view.sorting()" (sortingChange)="view.setSorting($event)"
  *           [columnVisibility]="view.hidden()" (columnVisibilityChange)="view.setHidden($event)" … />
  * ```
  *
@@ -45,7 +53,7 @@ function paramsFor(view: TableView, schema: TableViewSchema): Params {
 export class TableViewState {
   readonly #router = inject(Router);
   readonly #route = inject(ActivatedRoute);
-  readonly #schema: TableViewSchema;
+  readonly #schema: () => TableViewSchema;
   readonly #facets: FacetTextCodec | undefined;
   readonly #query = toSignal(this.#route.queryParams, { initialValue: this.#route.snapshot.queryParams });
 
@@ -60,9 +68,10 @@ export class TableViewState {
   public readonly pageSize: Signal<number | undefined>;
 
   public constructor(options: TableViewOptions) {
-    this.#schema = options.schema;
+    const { schema } = options;
+    this.#schema = typeof schema === 'function' ? schema : (): TableViewSchema => schema;
     this.#facets = options.facets;
-    this.view = computed(() => decodeTableView(this.#query(), this.#schema));
+    this.view = computed(() => decodeTableView(this.#query(), this.#schema()));
     this.sorting = computed(() => this.view().sort ?? []);
     this.hidden = computed(() => this.view().hidden);
     this.filters = computed(() => this.#decodeFilters(this.view().facets));
@@ -71,37 +80,41 @@ export class TableViewState {
   }
 
   public async setSorting(sorting: readonly TableViewSort[]): Promise<void> {
-    await this.#commit({ sort: sorting });
+    await this.apply({ sort: sorting });
   }
 
   public async setHidden(hidden: readonly string[] | undefined): Promise<void> {
-    await this.#commit({ hidden });
+    await this.apply({ hidden });
   }
 
   public async setFilters(filters: readonly FilterCondition[]): Promise<void> {
-    await this.#commit({ facets: this.#facets?.encode(filters) });
+    await this.apply({ facets: this.#facets?.encode(filters) });
   }
 
   public async setPageSize(pageSize: number | undefined): Promise<void> {
-    await this.#commit({ pageSize });
+    await this.apply({ pageSize });
   }
 
   /** The search text as typed: replaces the history entry. */
   public async setSearch(search: string): Promise<void> {
-    await this.#commit({ search }, true);
+    await this.apply({ search }, { replaceUrl: true });
   }
 
   #decodeFilters(text: string | undefined): readonly FilterCondition[] {
     return text === undefined || this.#facets === undefined ? NO_FILTERS : this.#facets.decode(text);
   }
 
-  async #commit(patch: Partial<TableView>, replaceUrl = false): Promise<void> {
+  /**
+   * Changes several parts of the view in one navigation, and the page's own params with them (`params`, where
+   * `undefined` removes one). The setters are this with one part.
+   */
+  public async apply(patch: Partial<TableView>, options: ApplyOptions = {}): Promise<void> {
     const next: TableView = { ...this.view(), ...patch };
     await this.#router.navigate([], {
       relativeTo: this.#route,
-      queryParams: paramsFor(next, this.#schema),
+      queryParams: { ...options.params, ...paramsFor(next, this.#schema()) },
       queryParamsHandling: 'merge',
-      replaceUrl,
+      replaceUrl: options.replaceUrl ?? false,
     });
   }
 }

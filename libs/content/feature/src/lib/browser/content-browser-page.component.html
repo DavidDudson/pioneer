@@ -24,6 +24,7 @@
         </ng-template>
         <ng-template let-shown [frAsyncData]="browse">
           <fr-stack gap="md">
+            <fr-filter-bar [fields]="fields()" [value]="view.filters()" (valueChange)="filtered($event)" />
             <pio-facet-filter [counts]="shown.counts" [state]="state()" (stateChange)="filter($event)" />
             <fr-text element="p" variant="caption" tone="muted">{{
               Message.Count | transloco: { count: total() }
@@ -40,7 +41,11 @@
                 [data]="rows()"
                 [columns]="columns()"
                 [rowId]="rowId"
+                [sorting]="view.sorting()"
+                [columnVisibility]="view.hidden()"
                 [caption]="Message.Caption | transloco"
+                (sortingChange)="view.setSorting($event)"
+                (columnVisibilityChange)="view.setHidden($event)"
               />
               @if (hasMore()) {
                 <fr-stack direction="horizontal">
