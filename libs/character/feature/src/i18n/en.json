@@ -335,8 +335,7 @@
       "heroPoints": "Hero Points",
       "focusPoints": "Focus Points",
       "held": "{current} of {max}",
-      "spend": "Spend",
-      "regain": "Regain"
+      "spend": "Spend"
     },
     "conditions": {
       "label": "Conditions",

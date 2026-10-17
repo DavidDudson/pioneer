@@ -1,0 +1,24 @@
+<div
+  role="toolbar"
+  frRovingFocus="horizontal"
+  [class]="groupClasses()"
+  [attr.id]="id() ?? null"
+  [attr.aria-label]="ariaLabel() ?? null"
+  [attr.aria-labelledby]="labelledBy() ?? null"
+  [attr.aria-describedby]="describedBy() ?? null"
+  [attr.aria-invalid]="ariaInvalid() || null"
+>
+  @for (place of places(); track place) {
+    <fr-button
+      frRovingFocusItem
+      [rovingSelected]="place === value() || (value() === 0 && place === 1)"
+      [variant]="variant"
+      [size]="size"
+      [disabled]="disabled()"
+      [toggled]="place <= value()"
+      [ariaLabel]="labelOf(place)"
+      (pressed)="press(place)"
+      >{{ place }}</fr-button
+    >
+  }
+</div>

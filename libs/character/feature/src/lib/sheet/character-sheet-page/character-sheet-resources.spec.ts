@@ -5,7 +5,7 @@ import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { id, MERISIEL, openSheet, present } from '../../testing/sheet-page-harness';
-import { render, textOf } from '../../testing/sheet-tabs-testing';
+import { textOf } from '../../testing/sheet-tabs-testing';
 import { cutTo } from '../../testing/test-packs';
 import { SPELL_CONTENT_KINDS } from '../sheet-prepared-spells';
 
@@ -31,9 +31,19 @@ function resourcesOf(root: HTMLElement): HTMLElement {
   return present(root.querySelector<HTMLElement>('pio-sheet-resources'));
 }
 
-function buttonOf(root: HTMLElement, name: string, row = 0): HTMLButtonElement {
-  const rows = [...resourcesOf(root).querySelectorAll<HTMLElement>('fr-stack fr-stack')];
-  return present([...present(rows[row]).querySelectorAll('button')].find((button) => textOf(button) === name));
+/** The pips of the group named `group`, in order. */
+function pipsOf(root: HTMLElement, group: string): HTMLButtonElement[] {
+  const toolbar = present(
+    [...resourcesOf(root).querySelectorAll('[role="toolbar"]')].find(
+      (each) => each.getAttribute('aria-label') === group,
+    ),
+  );
+  return [...toolbar.querySelectorAll('button')];
+}
+
+/** Which pips are filled, as 1 and 0. */
+function filled(pips: readonly HTMLButtonElement[]): string {
+  return pips.map((pip) => (pip.getAttribute('aria-pressed') === 'true' ? '1' : '0')).join('');
 }
 
 describe('CharacterSheetPage hero and focus points', () => {
@@ -41,38 +51,31 @@ describe('CharacterSheetPage hero and focus points', () => {
     await prebuildServerStateTesting([], SPELL_PACKS);
   }, PREBUILD_TIMEOUT);
 
-  it('shows hero points held out of 3, and no focus points without a focus spell', async () => {
+  it('shows hero points held as filled pips out of 3, and no focus points without a focus spell', async () => {
     const { root } = await openSheet(as('cleric'), { play: spentOf({ 'hero-points': 2 }), packs: SPELL_PACKS });
 
     await vi.waitFor(() => {
-      const text = textOf(resourcesOf(root));
-      expect(text).toContain('Hero Points');
-      expect(text).toContain('1 of 3');
-      expect(text).not.toContain('Focus Points');
+      expect(filled(pipsOf(root, 'Hero Points'))).toBe('100');
     });
-    const meter = present(resourcesOf(root).querySelector('meter'));
-    expect([meter.value, meter.max]).toStrictEqual([1, 3]);
+    expect(textOf(resourcesOf(root))).not.toContain('Focus Points');
   });
 
   it("shows a bard's focus pool of 1 beside the hero points", async () => {
     const { root } = await openSheet(as('bard'), { play: spentOf({ 'focus-points': 1 }), packs: SPELL_PACKS });
 
     await vi.waitFor(() => {
-      const text = textOf(resourcesOf(root));
-      expect(text).toContain('Hero Points');
-      expect(text).toContain('3 of 3');
-      expect(text).toContain('Focus Points');
-      expect(text).toContain('0 of 1');
+      expect(filled(pipsOf(root, 'Hero Points'))).toBe('111');
+      expect(filled(pipsOf(root, 'Focus Points'))).toBe('0');
     });
   });
 
-  it('spends a hero point at the revision last read, and shows what the server answers', async () => {
+  it('spends a hero point by pressing the last filled pip, at the revision last read', async () => {
     const { root } = await openSheet(as('cleric'), { play: spentOf({}), packs: SPELL_PACKS });
     await vi.waitFor(() => {
-      expect(textOf(resourcesOf(root))).toContain('3 of 3');
+      expect(filled(pipsOf(root, 'Hero Points'))).toBe('111');
     });
 
-    buttonOf(root, 'Spend').click();
+    present(pipsOf(root, 'Hero Points')[2]).click();
 
     await vi.waitFor(() => {
       const request = TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: PLAY_URL });
@@ -83,28 +86,59 @@ describe('CharacterSheetPage hero and focus points', () => {
       request.flush(spentOf({ 'hero-points': 1 }, 2));
     });
     await vi.waitFor(() => {
-      expect(textOf(resourcesOf(root))).toContain('2 of 3');
+      expect(filled(pipsOf(root, 'Hero Points'))).toBe('110');
     });
   });
 
-  it('regains a point, and has nothing to regain at the maximum or to spend at 0', async () => {
+  it('regains a point by pressing the next empty pip', async () => {
     const { root } = await openSheet(as('cleric'), { play: spentOf({ 'hero-points': 3 }), packs: SPELL_PACKS });
     await vi.waitFor(() => {
-      expect(textOf(resourcesOf(root))).toContain('0 of 3');
+      expect(filled(pipsOf(root, 'Hero Points'))).toBe('000');
     });
-    expect(buttonOf(root, 'Spend').disabled).toBe(true);
 
-    buttonOf(root, 'Regain').click();
+    present(pipsOf(root, 'Hero Points')[0]).click();
 
     await vi.waitFor(() => {
       const request = TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: PLAY_URL });
       expect(request.request.body).toMatchObject({ command: { field: 'regainResource', resource: 'hero-points' } });
       request.flush(spentOf({ 'hero-points': 2 }, 2));
     });
-    render();
     await vi.waitFor(() => {
-      expect(textOf(resourcesOf(root))).toContain('1 of 3');
+      expect(filled(pipsOf(root, 'Hero Points'))).toBe('100');
     });
-    expect(buttonOf(root, 'Spend').disabled).toBe(false);
+  });
+
+  it('sets the points when a press jumps more than one pip', async () => {
+    const { root } = await openSheet(as('cleric'), { play: spentOf({ 'hero-points': 3 }), packs: SPELL_PACKS });
+    await vi.waitFor(() => {
+      expect(filled(pipsOf(root, 'Hero Points'))).toBe('000');
+    });
+
+    present(pipsOf(root, 'Hero Points')[2]).click();
+
+    await vi.waitFor(() => {
+      const request = TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: PLAY_URL });
+      expect(request.request.body).toMatchObject({
+        command: { field: 'setResource', resource: 'hero-points', current: 3 },
+      });
+      request.flush(spentOf({}, 2));
+    });
+  });
+
+  it('puts the pips back when the server refuses the press', async () => {
+    const { root } = await openSheet(as('cleric'), { play: spentOf({}), packs: SPELL_PACKS });
+    await vi.waitFor(() => {
+      expect(filled(pipsOf(root, 'Hero Points'))).toBe('111');
+    });
+
+    present(pipsOf(root, 'Hero Points')[2]).click();
+
+    await vi.waitFor(() => {
+      const request = TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: PLAY_URL });
+      request.flush({ title: 'Conflict' }, { status: 409, statusText: 'Conflict' });
+    });
+    await vi.waitFor(() => {
+      expect(filled(pipsOf(root, 'Hero Points'))).toBe('111');
+    });
   });
 });
