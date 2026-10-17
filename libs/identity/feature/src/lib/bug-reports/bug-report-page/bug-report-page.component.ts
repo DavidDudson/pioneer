@@ -9,7 +9,6 @@ import {
   Button,
   DateDisplay,
   Heading,
-  Link,
   Page,
   PageBody,
   PageHeader,
@@ -20,7 +19,6 @@ import {
 } from '@pioneer/frontier';
 import { BugReportId, BugReportStatus } from '@pioneer/identity/domain';
 import type { BugReportDetail } from '@pioneer/identity/domain';
-import { BUG_REPORTS_PATH } from '@pioneer/shared/kernel';
 
 import { BugReportDesk } from '../../data/bug-report-desk';
 import { BugReportStatusLabel } from '../bug-report-status/bug-report-status.component';
@@ -42,7 +40,6 @@ import { saveSnapshot } from '../save-snapshot';
     Button,
     DateDisplay,
     Heading,
-    Link,
     Page,
     PageBody,
     PageHeader,
@@ -64,7 +61,6 @@ export class BugReportPage {
   public readonly id = input.required({ transform: (id: string): BugReportId => BugReportId.parse(id) });
 
   protected readonly report = this.#desk.detail(() => this.id());
-  protected readonly listPath = BUG_REPORTS_PATH;
 
   protected readonly markOpen = async (): Promise<void> => this.#desk.setStatus(this.id(), BugReportStatus.Open);
   protected readonly markConfirmed = async (): Promise<void> =>

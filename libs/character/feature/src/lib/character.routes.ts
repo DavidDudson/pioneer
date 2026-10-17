@@ -1,5 +1,6 @@
 import type { Routes } from '@angular/router';
 import { SheetMode } from '@pioneer/character/domain';
+import { CRUMB } from '@pioneer/frontier';
 import { rollMessages } from '@pioneer/play/ui';
 import { diceMessages } from '@pioneer/rules/dice';
 import { engineMessages } from '@pioneer/rules/engine';
@@ -9,6 +10,7 @@ import { rulesMessages } from '@pioneer/rules/sdk';
 import { Locale } from '@pioneer/shared/kernel';
 import { loadWithMessages, PREFETCH_WHEN_IDLE, provideMessageScope } from '@pioneer/shared/web';
 
+import { characterCrumb } from './crumbs';
 import { CharacterStore } from './data/character-store';
 
 /**
@@ -19,6 +21,7 @@ import { CharacterStore } from './data/character-store';
 export const characterRoutes: Routes = [
   {
     path: '',
+    data: { [CRUMB]: 'character.list.title' },
     providers: [
       CharacterStore,
       provideMessageScope('character', { [Locale.English]: async () => import('../i18n/en.json') }),
@@ -39,6 +42,7 @@ export const characterRoutes: Routes = [
       },
       {
         path: 'import/pathbuilder',
+        data: { [CRUMB]: 'character.import.title' },
         loadComponent: loadWithMessages(async () => {
           const { PathbuilderImportPage } =
             await import('./import/pathbuilder-import-page/pathbuilder-import-page.component');
@@ -47,6 +51,7 @@ export const characterRoutes: Routes = [
       },
       {
         path: 'import/pioneer',
+        data: { [CRUMB]: 'character.import.pioneer.title' },
         loadComponent: loadWithMessages(async () => {
           const { PioneerImportPage } = await import('./import/pioneer-import-page/pioneer-import-page.component');
           return PioneerImportPage;
@@ -55,7 +60,7 @@ export const characterRoutes: Routes = [
       {
         path: ':id',
         // Opening a character is the likely next step from the list.
-        data: PREFETCH_WHEN_IDLE,
+        data: { ...PREFETCH_WHEN_IDLE, [CRUMB]: characterCrumb },
         loadComponent: loadWithMessages(async () => {
           const { CharacterSheetPage } = await import('./sheet/character-sheet-page/character-sheet-page.component');
           return CharacterSheetPage;
@@ -71,6 +76,7 @@ export const characterRoutes: Routes = [
           },
           {
             path: SheetMode.Plan,
+            data: { [CRUMB]: 'character.sheet.tabs.plan' },
             loadComponent: async () => {
               const { SheetPlanTab } = await import('./sheet/sheet-plan-tab/sheet-plan-tab.component');
               return SheetPlanTab;
@@ -78,6 +84,7 @@ export const characterRoutes: Routes = [
           },
           {
             path: SheetMode.Encounter,
+            data: { [CRUMB]: 'character.sheet.tabs.encounter' },
             loadComponent: async () => {
               const { SheetEncounterTab } = await import('./sheet/sheet-encounter-tab/sheet-encounter-tab.component');
               return SheetEncounterTab;
@@ -85,6 +92,7 @@ export const characterRoutes: Routes = [
           },
           {
             path: SheetMode.Exploration,
+            data: { [CRUMB]: 'character.sheet.tabs.exploration' },
             loadComponent: async () => {
               const { SheetExplorationTab } =
                 await import('./sheet/sheet-exploration-tab/sheet-exploration-tab.component');
@@ -93,6 +101,7 @@ export const characterRoutes: Routes = [
           },
           {
             path: SheetMode.Downtime,
+            data: { [CRUMB]: 'character.sheet.tabs.downtime' },
             loadComponent: async () => {
               const { SheetDowntimeTab } = await import('./sheet/sheet-downtime-tab/sheet-downtime-tab.component');
               return SheetDowntimeTab;

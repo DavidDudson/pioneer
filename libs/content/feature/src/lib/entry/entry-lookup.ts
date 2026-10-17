@@ -27,7 +27,7 @@ export function entryKinds(kind: ContentKind): readonly ContentKind[] {
 }
 
 /** The kind a link names, or `undefined` when it is no kind. */
-export function kindOfParam(param: string | null): ContentKind | undefined {
+export function kindOfParam(param: string | null | undefined): ContentKind | undefined {
   const parsed = ContentKindSchema.safeParse(param);
   return parsed.success ? parsed.data : undefined;
 }

@@ -1,4 +1,5 @@
 import type { Routes } from '@angular/router';
+import { CRUMB } from '@pioneer/frontier';
 import { signInRequired } from '@pioneer/identity/data-access';
 import { Locale } from '@pioneer/shared/kernel';
 import { loadWithMessages, provideMessageScope } from '@pioneer/shared/web';
@@ -40,6 +41,7 @@ export const identityRoutes: Routes = [
       },
       {
         path: 'bug-reports',
+        data: { [CRUMB]: 'identity.bugReports.title' },
         // Maintainers only; to anyone else the API answers not found.
         canActivate: [signInRequired],
         runGuardsAndResolvers: 'always',
@@ -55,6 +57,7 @@ export const identityRoutes: Routes = [
           },
           {
             path: ':id',
+            data: { [CRUMB]: 'identity.bugReport.title' },
             loadComponent: loadWithMessages(async () => {
               const { BugReportPage } = await import('./bug-reports/bug-report-page/bug-report-page.component');
               return BugReportPage;

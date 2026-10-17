@@ -94,6 +94,7 @@ export { PageBody } from './lib/layout/page-body/page-body.component';
 export { Drawer } from './lib/layout/drawer/drawer.component';
 export { DrawerWidth } from './lib/layout/drawer/drawer-width';
 export { PageHeader } from './lib/layout/page-header/page-header.component';
+export { CRUMB, type Crumb } from './lib/layout/page-header/route-crumbs';
 export { Section } from './lib/layout/section/section.component';
 export { Shell } from './lib/layout/shell/shell.component';
 export { Stack, StackAlign, StackDirection, StackJustify } from './lib/layout/stack/stack.component';

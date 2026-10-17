@@ -1,8 +1,10 @@
 import type { EnvironmentProviders, Provider } from '@angular/core';
 import type { Routes } from '@angular/router';
+import { CRUMB } from '@pioneer/frontier';
 import { Locale } from '@pioneer/shared/kernel';
 import { loadWithMessages, PREFETCH_WHEN_IDLE, provideMessageScope } from '@pioneer/shared/web';
 
+import { campaignCrumb } from './crumbs';
 import { CampaignItemReviewStore } from './data/campaign-item-review-store';
 import { CampaignKeyItemStore } from './data/campaign-key-item-store';
 import { CampaignRuleLimitStore } from './data/campaign-rule-limit-store';
@@ -23,6 +25,7 @@ function campaignProviders(): (Provider | EnvironmentProviders)[] {
 export const campaignRoutes: Routes = [
   {
     path: '',
+    data: { [CRUMB]: 'campaign.list.title' },
     providers: campaignProviders(),
     children: [
       {
@@ -35,7 +38,7 @@ export const campaignRoutes: Routes = [
       {
         path: ':id',
         // Opening a campaign is the likely next step from the list.
-        data: PREFETCH_WHEN_IDLE,
+        data: { ...PREFETCH_WHEN_IDLE, [CRUMB]: campaignCrumb },
         loadComponent: loadWithMessages(async () => {
           const { CampaignHomePage } = await import('./home/campaign-home-page/campaign-home-page.component');
           return CampaignHomePage;

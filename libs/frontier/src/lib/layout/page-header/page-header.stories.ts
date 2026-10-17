@@ -22,13 +22,12 @@ export const Default: PageHeaderStory = {};
 /** `title` is `undefined` while the page's subject loads: the heading shows a skeleton. */
 export const LoadingTitle: PageHeaderStory = { args: { title: undefined, description: undefined } };
 
-/** Breadcrumbs above the title, actions beside it, tabs below it. */
+/** Actions beside the title, tabs below it. Breadcrumbs come from the active route, not from the page. */
 export const AllSlots: PageHeaderStory = {
   render: (args) => ({
     props: args,
     template: `
       <fr-page-header [title]="title" [description]="description">
-        <fr-link frPageBreadcrumbs to="/characters">Characters</fr-link>
         <fr-stack frPageActions direction="horizontal" gap="sm">
           <fr-button>Export</fr-button>
           <fr-button variant="primary">Level up</fr-button>

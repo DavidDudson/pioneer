@@ -43,3 +43,13 @@ export const Narrow: BreadcrumbsStory = {
 };
 
 export const SingleItem: BreadcrumbsStory = { args: { items: [{ label: 'Content Browser' }] } };
+
+/** A name that has not loaded yet (`label` is `undefined`): a skeleton stands in, and the page renders at once. */
+export const LoadingName: BreadcrumbsStory = {
+  args: {
+    items: [{ label: 'Characters', to: '/characters' }, { label: undefined }],
+  },
+  play: async ({ canvasElement }) => {
+    await expect(canvasElement.querySelector('li:last-child [aria-busy="true"]')).not.toBeNull();
+  },
+};
