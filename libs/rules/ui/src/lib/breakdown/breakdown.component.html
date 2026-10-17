@@ -3,6 +3,9 @@
   @if (breakdown.pinned; as pinned) {
     <fr-text>{{ pinned }}</fr-text>
   }
+  @if (breakdown.form; as form) {
+    <fr-text>{{ form }}</fr-text>
+  }
   <fr-text variant="caption" tone="muted">{{ breakdown.base }}</fr-text>
   <pio-base-terms [terms]="breakdown.terms" />
   <fr-text variant="caption" tone="muted">{{ Message.Modifiers | transloco }}</fr-text>

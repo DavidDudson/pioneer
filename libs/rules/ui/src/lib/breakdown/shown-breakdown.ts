@@ -45,6 +45,8 @@ export interface ShownOverride {
 export interface ShownBreakdown {
   /** "Set by the GM pins it to 20; computed 18."; undefined when no set override pinned the total. */
   readonly pinned: string | undefined;
+  /** "22 from Plant Form (arboreal); yours 19"; undefined when no battle form replaces the statistic. */
+  readonly form: string | undefined;
   readonly base: string;
   readonly terms: readonly ShownTerm[];
   readonly lines: readonly ShownLine[];

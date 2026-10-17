@@ -2,14 +2,38 @@ import { FORMULA_VALUE_MAX, TextPosition } from '@pioneer/rules/formula';
 import type { FormulaReference, FormulaValue } from '@pioneer/rules/formula';
 import type { Selector } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
-import type { MessageDescriptor } from '@pioneer/shared/kernel';
+import type { MessageDescriptor, ValueOf } from '@pioneer/shared/kernel';
 
 import type { BaseTerm } from './base-term';
-import type { BreakdownLine, OverrideLine } from './breakdown';
+import type { BreakdownLine, ModifierLabel, OverrideLine } from './breakdown';
 import { EngineMessage } from './messages';
 import type { RuleId } from './rule-in-play';
 import type { StatisticEdge } from './statistic-graph';
 import type { MissingInput } from './statistic-inputs';
+
+/** Whose value a statistic shows while a battle form is in play. */
+export const FormSource = { Form: 'form', Own: 'own' } as const;
+export type FormSource = ValueOf<typeof FormSource>;
+
+/**
+ * How a battle form bears on a statistic it replaces. When `source` is `form`, the total is the form's `base` plus
+ * the applied lines left after the form removed armour and item bonuses, and `own` is what the character's own would
+ * have been. When it is `own`, the character's own was higher and nothing changed: `value` is the form's, which lost.
+ */
+export interface FormReplacement {
+  readonly source: FormSource;
+  /** The form's rule element. */
+  readonly rule: RuleId;
+  readonly label: ModifierLabel;
+  /** The form's own value for the statistic, before any line. */
+  readonly base: FormulaValue;
+  /** What the form gives in all: its base plus the lines that still apply. */
+  readonly value: FormulaValue;
+  /** The total the character's own statistic has without the form. */
+  readonly own: FormulaValue;
+  /** "22 from Plant Form (arboreal); yours 19", worded by the sheet with the form's name. */
+  readonly summary: ModifierLabel;
+}
 
 /**
  * A statistic's breakdown: its base formula term by term and the value they add up to, the `Change`s that turned
@@ -33,6 +57,8 @@ export interface StatisticValue {
   readonly overrides: readonly OverrideLine[];
   /** The set override that pinned the total, if one did; the sheet flags the statistic wherever it appears. */
   readonly pinnedBy: RuleId | undefined;
+  /** Set when a battle form replaces this statistic; absent otherwise. */
+  readonly form?: FormReplacement;
 }
 
 /** Why a statistic has no value, pointing into its base formula. */

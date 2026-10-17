@@ -2,6 +2,7 @@ import { Truth } from '@pioneer/rules/predicate';
 import { RuleElementKey, SenseAcuity } from '@pioneer/rules/sdk';
 import type { ContentId, Feet, Origin } from '@pioneer/rules/sdk';
 
+import { battleFormInPlay } from './battle-form';
 import type { ModifierInputs } from './rule-in-play';
 import { truthOf } from './rule-value';
 
@@ -73,6 +74,15 @@ function precedes(left: SenseInPlay, right: SenseInPlay): boolean {
 
 /** The grants of `elements` whose predicate holds, after the ancestry's vision. */
 function grantsOf({ rules, facts }: ModifierInputs, vision: AncestryVision | undefined): SenseGrant[] {
+  const form = battleFormInPlay({ rules, facts });
+  if (form?.form.senses !== undefined) {
+    return form.form.senses.map(({ sense, acuity = SenseAcuity.Precise, range }) => ({
+      sense,
+      acuity,
+      range,
+      origin: form.origin,
+    }));
+  }
   const grants: SenseGrant[] =
     vision === undefined ? [] : [{ ...vision, acuity: SenseAcuity.Precise, range: undefined }];
   for (const { element, origin } of rules) {
@@ -87,6 +97,7 @@ function grantsOf({ rules, facts }: ModifierInputs, vision: AncestryVision | und
 /**
  * The character's senses: the ancestry's vision and the senses of the `Sense` elements in play, taking each element's
  * acuity and range as written. An element whose predicate fails or depends on the situation gives none on the sheet.
+ * A battle form that lists senses replaces all of them, the ancestry's included: its senses alone are the character's.
  * Without an acuity a sense is precise, and without a range it is unlimited, as in Foundry. Of the grants of one sense,
  * a grant another beats on acuity or range without being worse on the other is dropped, so where one is best on both it
  * alone remains; grants neither beats (imprecise scent 30 feet, vague scent unlimited) both remain. Grants that read

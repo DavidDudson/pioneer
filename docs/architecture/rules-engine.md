@@ -722,8 +722,32 @@ its `start` spell rank, so a heightened form is data. A value is a number or a f
 (`18 + @level`). Records in Foundry (skills, senses, Strikes) are lists here, and a Strike's `slug` names it. A weakness
 or resistance may name a damage trait (`water`, `holy`) as well as a damage type; the engine decides what it matches.
 The importer reads the element in full; one that depends on a pick (Dragon Form's damage type and speeds), a formula
-over `@item`, or a Strike without a damage type stays in the backlog. This layer defines the schema only: the engine
-does not apply a form yet.
+over `@item`, or a Strike without a damage type stays in the backlog. The engine applies the replaced statistics only;
+Strikes, temporary Hit Points, defences and traits follow.
+
+#### Replaced statistics
+
+`battleFormInPlay` picks the form in force: a `BattleForm` element whose predicate holds, the one with the smallest
+rule id if several do (polymorph exclusivity comes with form transformation). Only `form` is read; `brackets` wait for
+a spell rank to heighten to. The form stage runs after the modifier phase and any set override, which keeps a pin:
+
+- **Armor Class** is the form's `armorClass.modifier` plus the lines that still apply. The form removes every positive
+  item bonus (armour's among them); status, circumstance and untyped lines and item penalties stay. Armour's check
+  penalty on skills stays too, unless `ignoreCheckPenalty`; a removed line is `Suppressed` with the reason `form`, and
+  the form is the rule that removed it. The form's value stands only if it beats the character's own total ("use your
+  own if higher"); otherwise nothing changes.
+- **Skills** the form lists are set the same way, with `ownIfHigher: false` setting them outright.
+- **Speeds**: when the form lists speeds, each `speed:<movement>` is set to the form's value (0 for one it does not
+  list), whether or not that is higher. Status and circumstance lines still apply.
+- **Senses**: a form that lists senses replaces all of the character's (`sensesInPlay`); one that lists none leaves
+  them.
+- **Size** (`vitalsInPlay`): a form that names a size sets it before `CreatureSize` elements apply, and the reach is
+  that size's.
+
+A replaced statistic carries a `form` (`FormReplacement`): which rule, the form's base and total, the character's own
+total, whether the form's or the character's own stands (`source`), and a message-keyed `summary` ("22 from Plant Form
+(arboreal); yours 19"). Its `computed` and `total` are the form's base plus the applied lines when the form stands.
+A form value with no value (a formula over a missing class) fails the statistic.
 
 ### Strike dice and notes
 
