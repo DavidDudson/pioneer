@@ -175,6 +175,7 @@ export { characterInnate, type InnateEntrySpells, type InnateSpell } from './inn
 export { type ListedChoice, listedChoices } from './listed-choices';
 export {
   cantripRank,
+  isPreparedSlotKey,
   isSpellSlotKey,
   type PickedPreparation,
   type PreparedRank,
@@ -486,6 +487,9 @@ export { applyRestCommand, preparedDaily, refocused, rested, sessionStarted } fr
 export { conditionRecovery, restHealing, restRecovery } from './rest-limits';
 export {
   isRestCommand,
+  PREPARED_PICKS_MAX,
+  type PreparedPick,
+  PreparedPickSchema,
   type RecoveryConditions,
   type RestChange,
   RestChangeKind,

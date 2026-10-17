@@ -1,3 +1,4 @@
+import { ChoiceValue, SlotKey } from '@pioneer/rules/sdk';
 import type { ConditionEffect, ConditionValue, ContentId, HitPoints } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
@@ -29,12 +30,21 @@ export const RestCommandField = {
 } as const;
 export type RestCommandField = ValueOf<typeof RestCommandField>;
 
+/** The most prepared slots one daily preparations can change: far above the slots any character has. */
+export const PREPARED_PICKS_MAX = 100;
+
+/** A prepared slot and the spell to prepare in it, as `selectSlot` asks for it. */
+export const PreparedPickSchema = z.strictObject({ slot: SlotKey, selection: ChoiceValue });
+export type PreparedPick = z.infer<typeof PreparedPickSchema>;
+
 export const RestCommandSchema = z.discriminatedUnion('field', [
   z.object({ field: z.literal(RestCommandField.Rest) }),
   z.object({
     field: z.literal(RestCommandField.DailyPreparations),
     staff: InventoryItemId.optional(),
     slot: StaffSlotSchema.optional(),
+    /** The spells to prepare in place of the build's, which replace them on the build in the same edit. */
+    prepared: z.array(PreparedPickSchema).max(PREPARED_PICKS_MAX).optional(),
   }),
   z.object({ field: z.literal(RestCommandField.Refocus) }),
   z.object({ field: z.literal(RestCommandField.StartSession) }),

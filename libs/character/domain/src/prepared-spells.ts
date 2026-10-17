@@ -287,3 +287,8 @@ export function problemOf(spell: SpellOption, place: SlotPlace): PreparedPickPro
 export function isSpellSlotKey(slot: SlotKey): boolean {
   return slot.startsWith(PREPARED_PREFIX) || slot.startsWith(REPERTOIRE_PREFIX);
 }
+
+/** Whether `slot` is a prepared slot's key (an entry's or a pool's), the slots daily preparations may change. */
+export function isPreparedSlotKey(slot: SlotKey): boolean {
+  return slot.startsWith(PREPARED_PREFIX);
+}

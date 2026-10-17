@@ -27,6 +27,7 @@ import type { Temporal } from '@pioneer/shared/kernel';
 
 import { checkConsumable, consumableInventory } from './play-consumable';
 import { WAND_MESSAGES } from './play-defaults';
+import { preparedAfter, preparedPicksOf } from './play-prepared';
 import { checkShield, shieldInventoryAfter, shieldsOf } from './play-shield';
 
 /** What an edit that can change the inventory reads: the character and its play state, and the content it plays by. */
@@ -82,9 +83,17 @@ function consumed(edit: InventoryEdit, command: ConsumableCommand): Character | 
   return after === undefined ? undefined : character.withInventory(after, now);
 }
 
-/** Whether `command` can change the inventory: a wand cast or overcharge, which can break or destroy the wand, a block, or a consumable used. */
+/**
+ * Whether `command` can change the character: a wand cast or overcharge, which can break or destroy the wand, a
+ * block, a consumable used, or daily preparations that prepare other spells.
+ */
 export function changesInventory(command: PlayEdit): boolean {
-  return isWandCommand(command) || isShieldCommand(command) || isConsumableCommand(command);
+  return (
+    isWandCommand(command) ||
+    isShieldCommand(command) ||
+    isConsumableCommand(command) ||
+    preparedPicksOf(command).length > 0
+  );
 }
 
 /**
@@ -94,6 +103,9 @@ export function changesInventory(command: PlayEdit): boolean {
 export function inventoryAfter(edit: InventoryEdit, command: PlayEdit): Character | undefined {
   if (isWandCommand(command)) {
     return wanded(edit, command);
+  }
+  if (preparedPicksOf(command).length > 0) {
+    return preparedAfter(edit, command);
   }
   if (isConsumableCommand(command)) {
     return consumed(edit, command);
