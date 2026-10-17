@@ -102,7 +102,7 @@ function withoutRemoved(lines: readonly BreakdownLine[], by: FormInPlay, replace
   );
 }
 
-function summaryOf(form: FormInPlay, replacement: Omit<FormReplacement, 'summary'>): ModifierLabel {
+export function summaryOf(form: FormInPlay, replacement: Omit<FormReplacement, 'summary'>): ModifierLabel {
   const key = replacement.source === FormSource.Form ? EngineMessage.FormReplaces : EngineMessage.FormOwnHigher;
   return {
     message: message(key, { value: replacement.value, own: replacement.own, form: form.origin.entry }),

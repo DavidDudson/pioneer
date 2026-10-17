@@ -722,8 +722,8 @@ its `start` spell rank, so a heightened form is data. A value is a number or a f
 (`18 + @level`). Records in Foundry (skills, senses, Strikes) are lists here, and a Strike's `slug` names it. A weakness
 or resistance may name a damage trait (`water`, `holy`) as well as a damage type; the engine decides what it matches.
 The importer reads the element in full; one that depends on a pick (Dragon Form's damage type and speeds), a formula
-over `@item`, or a Strike without a damage type stays in the backlog. The engine applies the replaced statistics only;
-Strikes, temporary Hit Points, defences and traits follow.
+over `@item`, or a Strike without a damage type stays in the backlog.
+The engine applies the replaced statistics, Strikes and temporary Hit Points; defences and traits follow.
 
 #### Replaced statistics
 
@@ -748,6 +748,24 @@ A replaced statistic carries a `form` (`FormReplacement`): which rule, the form'
 total, whether the form's or the character's own stands (`source`), and a message-keyed `summary` ("22 from Plant Form
 (arboreal); yours 19"). Its `computed` and `total` are the form's base plus the applied lines when the form stands.
 A form value with no value (a formula over a missing class) fails the statistic.
+
+#### Strikes and temporary Hit Points
+
+`deriveStrikes` asks `strikesUnderForm` (`battle-form-strikes.ts`) which weapons and statistics the Strikes come from
+while a form is in force; it needs the rule elements in play (`StrikeRulesInput`), and without a form nothing changes.
+
+- **Weapon Strikes are suppressed.** The form's `strikes` replace them. The character's own unarmed Strikes (weapons of
+  category `unarmed`, the fist) stay only when the form sets `keepsOwnUnarmed`. A form Strike whose predicate does not
+  hold is left out.
+- **Attack**: the form Strike's `modifier` is its whole attack modifier, a number or a formula over the character. The
+  higher of it and the character's best own unarmed attack stands, and the Strike's attack carries a `form`
+  (`FormReplacement`) saying which. A character with no unarmed Strike has nothing to compare, so the form's stands.
+- **Damage**: the form's dice, die and type, with its flat `damage.modifier` as the Strike's damage bonus (the
+  character's Strength does not add). `DamageDice`, `DamageAlteration` and `Note` elements reach a form Strike as they
+  do a weapon's. A form Strike has no damage line unless it names dice and a type.
+- A form Strike is a `WeaponInputs` of category `unarmed` unless it names one, with the form as its origin.
+- **Temporary Hit Points** (`vitalsInPlay`): `tempHP` joins the `TempHP` elements, so the highest of them counts and
+  the form is an origin of the amount when it gives it. It is derived, so it goes when the form does.
 
 ### Strike dice and notes
 

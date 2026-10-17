@@ -1,6 +1,7 @@
 import { DamageType, DiceCount, Modifier, ModifierTarget, Selector, Trait } from '@pioneer/rules/sdk';
 import type { DamageAmount, DieSize, PersistentDamage, Slug } from '@pioneer/rules/sdk';
 
+import { strikesUnderForm } from './battle-form-strikes';
 import type { ModifierInputs } from './rule-in-play';
 import type { WeaponInputs } from './source-inputs';
 import type { StatisticResult } from './statistic-result';
@@ -135,13 +136,17 @@ function damageOf(
 /**
  * Each weapon's Strike (rules-engine.md, step 7), in the weapons' order: the attack and flat damage statistics
  * `deriveStatistics` made for it, its dice and its multiple attack penalty. With `rules`, the dice and notes that
- * `DamageDice`, `DamageAlteration` and `Note` elements in play give (`strikeRules`).
+ * `DamageDice`, `DamageAlteration` and `Note` elements in play give (`strikeRules`). A battle form in force replaces the weapons' Strikes with its own (`strikesUnderForm`).
  */
 export function deriveStrikes(
-  weapons: readonly WeaponInputs[],
-  results: ReadonlyMap<Selector, StatisticResult>,
+  derivedWeapons: readonly WeaponInputs[],
+  derivedResults: ReadonlyMap<Selector, StatisticResult>,
   rules?: StrikeRulesInput,
 ): readonly Strike[] {
+  const { weapons, results } =
+    rules === undefined
+      ? { weapons: derivedWeapons, results: derivedResults }
+      : strikesUnderForm({ weapons: derivedWeapons, results: derivedResults }, rules);
   return weapons.map((weapon): Strike => {
     const changes = rulesOf(weapon, rules);
     return {
