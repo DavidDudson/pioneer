@@ -79,6 +79,8 @@ export {
   type CampaignKeyItem,
   CreateKeyItemBody,
   GiveKeyItemBody,
+  promotedKeyItemId,
+  PromoteItemBody,
   KeyItemBase,
   KeyItemId,
   KeyItemName,

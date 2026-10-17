@@ -81,6 +81,8 @@ export const CharacterCommand = {
   /** The campaign's GM gives a character a key item, or takes it back (#924); the line is the GM's to write. */
   GiveKeyItem: 'giveKeyItem',
   TakeBackKeyItem: 'takeBackKeyItem',
+  /** The GM promotes a line the character already has to a key item (#926); the line is linked, not added. */
+  LinkKeyItem: 'linkKeyItem',
 } as const;
 export type CharacterCommand = ValueOf<typeof CharacterCommand>;
 

@@ -43,3 +43,4 @@ export { CharacterVariantLimits, type CharacterVariantLimitPorts } from './chara
 export { InMemoryVariantLimits } from './in-memory-variant-limits';
 export { CharacterFlaggedItems, type FlaggedLine } from './character-flagged-items';
 export { CharacterKeyItems } from './character-key-items';
+export { CharacterKeyItemPromotion, type KeyLink, type PromotableLine } from './character-key-item-promotion';

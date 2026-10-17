@@ -1,4 +1,4 @@
-import { KeyItemId, ReviewedName } from '@pioneer/campaign/domain';
+import { KeyItemId, KeyItemNotes, promotedKeyItemId, ReviewedName, sameLine } from '@pioneer/campaign/domain';
 import type {
   Campaign,
   CampaignId,
@@ -8,8 +8,9 @@ import type {
   CreateKeyItemBody,
   GiveKeyItemBody,
   KeyItemView,
+  PromoteItemBody,
 } from '@pioneer/campaign/domain';
-import { ForbiddenError, newId, NotFoundError } from '@pioneer/shared/kernel';
+import { ConflictError, ForbiddenError, newId, NotFoundError } from '@pioneer/shared/kernel';
 import type { Clock, UserId } from '@pioneer/shared/kernel';
 
 import type { CampaignKeyItemRepository } from './campaign-key-item-repository';
@@ -17,7 +18,8 @@ import type { CampaignPartyRepository } from './campaign-party-repository';
 import { mayManageKeyItems, mayViewCampaign } from './campaign-policy';
 import type { CampaignRepository } from './campaign-repository';
 import type { CharacterDirectory } from './character-directory';
-import type { KeyItemHolders } from './key-item-holders';
+import type { FlaggedItems } from './flagged-items';
+import type { KeyItemHolders, LineToPromote } from './key-item-holders';
 
 /** A key item of a campaign, as a route names it. */
 export interface KeyItemRef {
@@ -32,6 +34,7 @@ export interface CampaignKeyItemPorts {
   readonly party: CampaignPartyRepository;
   readonly characters: CharacterDirectory;
   readonly holders: KeyItemHolders;
+  readonly flagged: FlaggedItems;
 }
 
 /**
@@ -46,14 +49,16 @@ export class CampaignKeyItemService {
   readonly #party: CampaignPartyRepository;
   readonly #characters: CharacterDirectory;
   readonly #holders: KeyItemHolders;
+  readonly #flagged: FlaggedItems;
   readonly #clock: Clock;
 
-  public constructor({ campaigns, keyItems, party, characters, holders }: CampaignKeyItemPorts, clock: Clock) {
+  public constructor({ campaigns, keyItems, party, characters, holders, flagged }: CampaignKeyItemPorts, clock: Clock) {
     this.#campaigns = campaigns;
     this.#keyItems = keyItems;
     this.#party = party;
     this.#characters = characters;
     this.#holders = holders;
+    this.#flagged = flagged;
     this.#clock = clock;
   }
 
@@ -72,6 +77,51 @@ export class CampaignKeyItemService {
       createdAt: this.#clock.now(),
     });
     return this.#view(actor, campaign);
+  }
+
+  /**
+   * The GM turns a flagged item into a key item held by its character: the key item copies the base item, runes and
+   * name, and the line becomes linked to it, so it is flagged no more. A player is refused with a 403. A line that is
+   * gone, or no longer breaks that rule (the review list was stale), is a 404; one that is another key item's a 409.
+   * The key item's id is derived from the line and the key item is created before the line is linked, so trying
+   * again after a failure part-way finishes the job and cannot make a second key item.
+   */
+  public async promote(actor: UserId, id: CampaignId, target: PromoteItemBody): Promise<CampaignKeyItems> {
+    const campaign = await this.#managed(actor, id);
+    const keyItem = promotedKeyItemId(id, target);
+    const line = await this.#promotable(target, keyItem);
+    const items = await this.#keyItems.listForCampaign(id);
+    if (!items.some((each) => each.id === keyItem)) {
+      await this.#flaggedLine(id, target);
+      await this.#keyItems.insert(actor, id, this.#promoted(keyItem, target.character, line));
+    }
+    await this.#holders.link(actor, target.character, { item: target.item, keyItem });
+    return this.#view(actor, campaign);
+  }
+
+  /** What the character's line is, when it can become `keyItem`: a missing line is a 404, another key item's a 409. */
+  async #promotable(target: PromoteItemBody, keyItem: KeyItemId): Promise<LineToPromote> {
+    const line = await this.#holders.describe(target.character, target.item);
+    if (line === undefined) {
+      throw new NotFoundError('InventoryItem', target.item);
+    }
+    if (line.keyItem !== undefined && line.keyItem !== keyItem) {
+      throw new ConflictError(`Inventory item ${target.item} is already a key item`);
+    }
+    return line;
+  }
+
+  /** The key item a line becomes: what it copies, held by the character it is the line of. */
+  #promoted(id: KeyItemId, holder: CharacterId, { name, base, runes }: LineToPromote): CampaignKeyItem {
+    return { id, name, base, runes, notes: KeyItemNotes.parse(''), holder, createdAt: this.#clock.now() };
+  }
+
+  /** The flagged item the GM means; one that is not flagged any more is a 404. */
+  async #flaggedLine(id: CampaignId, target: PromoteItemBody): Promise<void> {
+    const items = await this.#flagged.of(id);
+    if (!items.some((each) => sameLine(each, target))) {
+      throw new NotFoundError('FlaggedItem', target.item);
+    }
   }
 
   /**

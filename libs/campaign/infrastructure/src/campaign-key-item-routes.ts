@@ -16,6 +16,9 @@ export function campaignKeyItemRoutes(
     .handleSignedIn(CampaignContract.createKeyItem, auth, async ({ actor, params, body }) =>
       service.create(actor, params.id, body),
     )
+    .handleSignedIn(CampaignContract.promoteKeyItem, auth, async ({ actor, params, body }) =>
+      service.promote(actor, params.id, body),
+    )
     .handleSignedIn(CampaignContract.giveKeyItem, auth, async ({ actor, params, body }) =>
       service.give(actor, params, body),
     )

@@ -19,7 +19,11 @@ import {
   DrizzleCampaignRuleLimitRepository,
   DrizzleCampaignVariantRepository,
 } from '@pioneer/campaign/infrastructure';
-import type { CharacterFlaggedItems, CharacterKeyItems } from '@pioneer/character/application';
+import type {
+  CharacterFlaggedItems,
+  CharacterKeyItemPromotion,
+  CharacterKeyItems,
+} from '@pioneer/character/application';
 import { PackAccessPolicy } from '@pioneer/homebrew/application';
 import { DrizzlePackDependencyRepository, DrizzlePackDirectory } from '@pioneer/homebrew/infrastructure';
 import { ContentRepository, StoredContentSource } from '@pioneer/rules/infrastructure';
@@ -67,6 +71,7 @@ export interface CampaignParts {
   readonly authenticator: RequestAuthenticator;
   readonly flaggedItems: CharacterFlaggedItems;
   readonly keyItems: CharacterKeyItems;
+  readonly keyItemPromotion: CharacterKeyItemPromotion;
 }
 
 /** The pack service: a homebrew pack is enabled only where its access policy allows. */
@@ -102,7 +107,7 @@ function itemApprovalService(
 function keyItemService(
   db: Database,
   repository: DrizzleCampaignRepository,
-  { clock, keyItems }: { readonly clock: Clock; readonly keyItems: CharacterKeyItems },
+  { clock, parts }: { readonly clock: Clock; readonly parts: CampaignParts },
 ): CampaignKeyItemService {
   return new CampaignKeyItemService(
     {
@@ -110,18 +115,15 @@ function keyItemService(
       keyItems: new DrizzleCampaignKeyItemRepository(db),
       party: new DrizzleCampaignPartyRepository(db),
       characters: new OwnedCharacterDirectory(db),
-      holders: new CharacterKeyItemHolders(keyItems),
+      holders: new CharacterKeyItemHolders(parts.keyItems, parts.keyItemPromotion),
+      flagged: new PartyFlaggedItems(db, parts.flaggedItems),
     },
     clock,
   );
 }
 
 /** The campaign context's part of the composition root: services and routes. */
-export function campaigns(
-  db: Database,
-  clock: Clock,
-  { authenticator, flaggedItems, keyItems: characterKeyItems }: CampaignParts,
-): ContractRouter['app'] {
+export function campaigns(db: Database, clock: Clock, parts: CampaignParts): ContractRouter['app'] {
   const repository = new DrizzleCampaignRepository(db);
   const inviteRepository = new DrizzleCampaignInviteRepository(db);
   const directory = new UserMemberDirectory(db);
@@ -139,10 +141,10 @@ export function campaigns(
   const packs = packService(db, repository, clock);
   const variants = variantService(db, repository, clock);
   const ruleLimits = ruleLimitService(db, repository, clock);
-  const itemApprovals = itemApprovalService(db, repository, { clock, flaggedItems });
-  const keyItems = keyItemService(db, repository, { clock, keyItems: characterKeyItems });
+  const itemApprovals = itemApprovalService(db, repository, { clock, flaggedItems: parts.flaggedItems });
+  const keyItems = keyItemService(db, repository, { clock, parts });
   return campaignRoutes(
     { campaigns: service, invites, party, packs, variants, ruleLimits, itemApprovals, keyItems },
-    authenticator,
+    parts.authenticator,
   );
 }

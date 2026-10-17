@@ -1,6 +1,8 @@
 import { KeyItemHolders } from '@pioneer/campaign/application';
-import type { CampaignKeyItem, CharacterId as CampaignCharacterId } from '@pioneer/campaign/domain';
-import type { CharacterKeyItems } from '@pioneer/character/application';
+import type { LineLink, LineToPromote } from '@pioneer/campaign/application';
+import { KeyItemBase, KeyItemId as CampaignKeyItemId, KeyItemName, KeyItemRunes } from '@pioneer/campaign/domain';
+import type { CampaignKeyItem, CharacterId as CampaignCharacterId, ReviewedItemId } from '@pioneer/campaign/domain';
+import type { CharacterKeyItemPromotion, CharacterKeyItems, PromotableLine } from '@pioneer/character/application';
 import {
   CharacterId,
   InventoryItemId,
@@ -33,6 +35,16 @@ export function lineOf(keyItem: CampaignKeyItem): KeyItemLine {
   };
 }
 
+/** What a key item copies from an inventory line, as the campaign context states it. */
+function toLineToPromote({ item, itemName, name, runes, property, keyItem }: PromotableLine): LineToPromote {
+  return {
+    name: KeyItemName.parse(name),
+    base: KeyItemBase.parse({ item, name: itemName }),
+    runes: KeyItemRunes.parse({ ...runes, property }),
+    keyItem: keyItem === undefined ? undefined : CampaignKeyItemId.parse(keyItem),
+  };
+}
+
 /**
  * The campaign context's `KeyItemHolders` over the character context: giving a key item adds a line to the holder's
  * inventory linked to it, taking it back removes the line. It lives in the composition root because neither context
@@ -40,10 +52,12 @@ export function lineOf(keyItem: CampaignKeyItem): KeyItemLine {
  */
 export class CharacterKeyItemHolders extends KeyItemHolders {
   readonly #keyItems: CharacterKeyItems;
+  readonly #promotion: CharacterKeyItemPromotion;
 
-  public constructor(keyItems: CharacterKeyItems) {
+  public constructor(keyItems: CharacterKeyItems, promotion: CharacterKeyItemPromotion) {
     super();
     this.#keyItems = keyItems;
+    this.#promotion = promotion;
   }
 
   public override async give(actor: UserId, character: CampaignCharacterId, keyItem: CampaignKeyItem): Promise<void> {
@@ -56,5 +70,20 @@ export class CharacterKeyItemHolders extends KeyItemHolders {
     keyItem: CampaignKeyItem,
   ): Promise<void> {
     await this.#keyItems.takeBack(actor, CharacterId.parse(character), KeyItemId.parse(keyItem.id));
+  }
+
+  public override async describe(
+    character: CampaignCharacterId,
+    item: ReviewedItemId,
+  ): Promise<LineToPromote | undefined> {
+    const line = await this.#promotion.describe(CharacterId.parse(character), InventoryItemId.parse(item));
+    return line === undefined ? undefined : toLineToPromote(line);
+  }
+
+  public override async link(actor: UserId, character: CampaignCharacterId, line: LineLink): Promise<void> {
+    await this.#promotion.link(actor, CharacterId.parse(character), {
+      item: InventoryItemId.parse(line.item),
+      keyItem: KeyItemId.parse(line.keyItem),
+    });
   }
 }

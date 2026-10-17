@@ -1,9 +1,17 @@
 import { computed, inject, Injectable } from '@angular/core';
 import { CampaignContract } from '@pioneer/campaign/domain';
-import type { CampaignId, CampaignKeyItems, CharacterId, CreateKeyItemBody, KeyItemId } from '@pioneer/campaign/domain';
+import type {
+  CampaignId,
+  CampaignKeyItems,
+  CharacterId,
+  CreateKeyItemBody,
+  KeyItemId,
+  PromoteItemBody,
+} from '@pioneer/campaign/domain';
 import { ApiClient } from '@pioneer/shared/web';
 import { injectQuery, QueryClient } from '@tanstack/angular-query-experimental';
 
+import { itemReviewKey } from './campaign-item-review-store';
 import { CampaignStore } from './campaign-store';
 
 /** TanStack Query key for a campaign's key items. */
@@ -42,6 +50,16 @@ export class CampaignKeyItemStore {
   public async create(body: CreateKeyItemBody): Promise<void> {
     const id = this.#openId();
     await this.#store(id, await this.#api.call(CampaignContract.createKeyItem, { params: { id }, body }));
+  }
+
+  /**
+   * Turns a flagged item into a key item held by its character. The item is flagged no more, so the review list is
+   * read again.
+   */
+  public async promote(body: PromoteItemBody): Promise<void> {
+    const id = this.#openId();
+    await this.#store(id, await this.#api.call(CampaignContract.promoteKeyItem, { params: { id }, body }));
+    await this.#client.invalidateQueries({ queryKey: itemReviewKey(id) });
   }
 
   /** Gives the key item to a character in the party, or moves it from the one holding it. */

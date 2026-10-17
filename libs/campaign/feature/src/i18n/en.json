@@ -118,6 +118,11 @@
     "revoking": "Revoking",
     "revoked": "Revoked",
     "changeFailed": "Could not change the approval. Try again.",
+    "promote": "Make key item",
+    "promoting": "Making key item",
+    "promoted": "Key item made",
+    "promoteConfirm": "Make {item} a key item held by {character}? Press again",
+    "promoteFailed": "Could not make it a key item. The item may have changed; check the list and try again.",
     "rule": {
       "invested": "Invested items: {count}",
       "hands": "Hands in use: {count}",

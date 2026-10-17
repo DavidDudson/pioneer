@@ -15,7 +15,7 @@ import {
 import type { Inventory } from './inventory';
 import { CarryState, Hands, INVESTED_MAX } from './item-carry';
 import { KeyItemId } from './key-item-id';
-import { keyItemLine, keyItemRefusal, withKeyItem, withoutKeyItem } from './key-items';
+import { keyItemLine, keyItemRefusal, withKeyItem, withKeyLink, withoutKeyItem } from './key-items';
 import { inventoryViolations } from './rule-violations';
 import { ItemFixture, itemFixtureContent, itemFixtureId, runeFixtureContent } from './testing';
 
@@ -137,5 +137,26 @@ describe('keyItemRefusal', () => {
       container: undefined,
     });
     expect(keyItemRefusal(everyday, { field: CharacterPatchField.RemoveItem, id: idAt(1) })).toBeUndefined();
+  });
+});
+
+describe('withKeyLink', () => {
+  const rope = { id: idAt(1), item: itemFixtureId(ItemFixture.Rope), quantity: one, container: undefined };
+
+  test('links the existing line to the key item and adds none', () => {
+    const first = investItem(addItem(EMPTY_INVENTORY, rope), idAt(1));
+    const stuffed = investItem(addItem(first, { ...rope, id: idAt(2) }), idAt(2));
+    const linked = withKeyLink(stuffed, idAt(2), caliburn);
+
+    expect(linked.items).toHaveLength(2);
+    expect(keyItemLine(linked, caliburn)?.id).toBe(idAt(2));
+    expect(keyItemLine(stuffed, caliburn)).toBeUndefined();
+  });
+
+  test('leaves every other line as it was', () => {
+    const held = addItem(addItem(EMPTY_INVENTORY, rope), { ...rope, id: idAt(2) });
+    const linked = withKeyLink(held, idAt(2), caliburn);
+
+    expect(linked.items[0]).toStrictEqual(held.items[0]);
   });
 });
