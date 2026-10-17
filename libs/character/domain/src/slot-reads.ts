@@ -1,5 +1,5 @@
 import { grantLookup, resolveGrants } from '@pioneer/rules/grants';
-import type { ContentLookup, GrantResolution, RootSlotDefinition } from '@pioneer/rules/grants';
+import type { ContentLookup, GrantResolution, GrantRoot, RootSlotDefinition } from '@pioneer/rules/grants';
 import type { NamespaceTable } from '@pioneer/rules/predicate';
 import { Level, SlotKey } from '@pioneer/rules/sdk';
 import type { ChoiceValue, ContentRegistry, RollOption, VariantRuleEntry } from '@pioneer/rules/sdk';
@@ -7,7 +7,7 @@ import type { ChoiceValue, ContentRegistry, RollOption, VariantRuleEntry } from 
 import { boostContent } from './attribute-boosts';
 import type { BoostContent } from './attribute-boosts';
 import type { CharacterDocument } from './character-document';
-import { characterRootSlots } from './character-slots';
+import { characterRootSlots, variantGrantRoots } from './character-slots';
 import { featContent } from './feat-content';
 import type { FeatContent } from './feat-content';
 import { languageContent } from './language-content';
@@ -30,6 +30,8 @@ export interface SlotContent {
   readonly namespaces: NamespaceTable;
   /** The slots the character has itself: the second class's too while Dual Class is in force. */
   readonly rootSlots: readonly RootSlotDefinition[];
+  /** The variant rules in force that add slots of their own (Free Archetype's feat slots), as grant roots. */
+  readonly variantRoots: readonly GrantRoot[];
   readonly boosts: BoostContent;
   readonly skills: SkillContent;
   readonly languages: LanguageContent;
@@ -46,6 +48,7 @@ export function slotContent(registry: ContentRegistry, variants: readonly Varian
     lookup: grantLookup(registry),
     namespaces: registry.rollOptionNamespaces(),
     rootSlots,
+    variantRoots: variantGrantRoots(variants),
     boosts: boostContent(registry, rootSlots),
     skills: skillContent(registry),
     languages: languageContent(registry),
@@ -60,9 +63,12 @@ export interface SlotContext extends SlotContent {
 }
 
 /** The character's grants at `level` over `picks`, with its own slots as roots. */
-export function resolveSlotsAt(level: Level, { picks, lookup, namespaces, rootSlots }: SlotContext): GrantResolution {
+export function resolveSlotsAt(
+  level: Level,
+  { picks, lookup, namespaces, rootSlots, variantRoots }: SlotContext,
+): GrantResolution {
   return resolveGrants({
-    roots: [],
+    roots: variantRoots,
     lookup,
     level,
     situation: [],

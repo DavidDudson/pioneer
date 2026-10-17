@@ -279,6 +279,16 @@ export class ContentPackBuilder {
     return this;
   }
 
+  /** A variant rule named `name` that needs `structure` and puts `rules` in play for every character it is on. */
+  public withVariantRuleElements(
+    name: string,
+    structure: z.input<typeof VariantRuleDefinition>['structure'],
+    rules: z.input<typeof VariantRuleDefinition>['rules'],
+  ): this {
+    this.#variantRules.push({ slug: `variant-rule:${name}`, name, rules, structure });
+    return this;
+  }
+
   public withNamespace(namespace: string, kind: NamespaceKind): this {
     this.#namespaces[namespace] = kind;
     return this;

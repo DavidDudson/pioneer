@@ -1,5 +1,12 @@
 import { contentId, ContentId, ContentKind, RollOption, slugName } from '@pioneer/rules/sdk';
-import type { ContentEntry, ContentPack, ContentRegistry, PackAncestry, Trait } from '@pioneer/rules/sdk';
+import type {
+  ContentEntry,
+  ContentPack,
+  ContentRegistry,
+  PackAncestry,
+  Trait,
+  VariantRuleDefinition,
+} from '@pioneer/rules/sdk';
 
 import type { ContentLookup, EntryFacts, GrantEntry } from './grant-entry';
 
@@ -179,9 +186,27 @@ function envelopeEntry(entry: ContentEntry): GrantEntry | undefined {
   };
 }
 
+/** A variant rule as grants read it: the feat slots (`ChoiceSet`s) it adds while it is in force, as Free Archetype does. */
+function variantEntry(pack: ContentPack, variant: VariantRuleDefinition): GrantEntry | undefined {
+  const [source, ...sources] = variant.sources;
+  if (source === undefined) {
+    return undefined;
+  }
+  return {
+    id: ContentId.parse(contentId(pack.id, variant.slug)),
+    kind: ContentKind.VariantRule,
+    slug: slugName(variant.slug),
+    name: variant.name,
+    rules: variant.rules,
+    sources: [source, ...sources],
+    rollOptions: [],
+  };
+}
+
 function packEntries(pack: ContentPack): GrantEntry[] {
   return [
     ...pack.ancestries.flatMap((each) => ancestryEntry(pack, each) ?? []),
+    ...pack.variantRules.flatMap((each) => variantEntry(pack, each) ?? []),
     ...pack.otherEntries.flatMap((each) => envelopeEntry(each) ?? []),
   ];
 }

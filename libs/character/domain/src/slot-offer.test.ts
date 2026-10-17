@@ -45,6 +45,7 @@ const content: SlotContent = {
   lookup: lookupOf([elf, human]),
   namespaces: CORE_NAMESPACES,
   rootSlots: CHARACTER_ROOT_SLOTS,
+  variantRoots: [],
   boosts: BOOST_FIXTURES,
   skills: NO_SKILLS,
   languages: NO_LANGUAGES,

@@ -20,6 +20,328 @@
     }
   },
   {
+    "id": "e3987b2d-66c3-5fc9-a208-c77d07fbe9ef",
+    "pack": "core-rules",
+    "kind": "variant-rule",
+    "slug": "variant-rule:free-archetype",
+    "name": "Free Archetype",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core",
+        "page": 85
+      }
+    ],
+    "description": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "free-archetype-2",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:archetype",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Free archetype feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 2]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "free-archetype-2"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 2]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "free-archetype-4",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:archetype",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Free archetype feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 4]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "free-archetype-4"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 4]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "free-archetype-6",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:archetype",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Free archetype feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 6]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "free-archetype-6"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 6]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "free-archetype-8",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:archetype",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Free archetype feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 8]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "free-archetype-8"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 8]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "free-archetype-10",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:archetype",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Free archetype feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 10]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "free-archetype-10"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 10]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "free-archetype-12",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:archetype",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Free archetype feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 12]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "free-archetype-12"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 12]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "free-archetype-14",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:archetype",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Free archetype feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 14]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "free-archetype-14"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 14]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "free-archetype-16",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:archetype",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Free archetype feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 16]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "free-archetype-16"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 16]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "free-archetype-18",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:archetype",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Free archetype feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 18]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "free-archetype-18"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 18]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "free-archetype-20",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:archetype",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Free archetype feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 20]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "free-archetype-20"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 20]
+          }
+        ]
+      }
+    ],
+    "data": {
+      "structure": ["extraSlots"]
+    }
+  },
+  {
     "id": "a8e09e01-8dbe-5055-920b-453ebd93493d",
     "pack": "core-rules",
     "kind": "variant-rule",

@@ -45,9 +45,10 @@ Pack switched off:
   character's (404 for anyone else).
 - The engine takes the set as `StatisticSources.variants`, in play ahead of the character's items. The server derives
   with `CharacterContent#variantRules`; the sheet loads the same set from the API.
-- `VariantRuleData` and `VariantRuleDefinition` declare `structure`, a closed set (`extraSlots`, `secondClass`). It
-  carries no behaviour for `extraSlots` yet; `secondClass` adds the second class root slot
-  (`characterRootSlots`, character-model.md, "Choice slots"), taken from the variants `slotContent` is given.
+- `VariantRuleData` and `VariantRuleDefinition` declare `structure`, a closed set (`extraSlots`, `secondClass`). `extraSlots`
+  makes the variant a grant root of its own (`variantGrantRoots`), whose rule elements open the extra slots, and
+  `secondClass` adds the second class root slot (`characterRootSlots`, character-model.md, "Choice slots"), both
+  taken from the variants `slotContent` is given.
 
 ## Consequences
 
