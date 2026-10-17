@@ -29,6 +29,9 @@ export type { LoadMoreQuery, PageFetch } from './lib/async/load-more/load-more-q
 
 // Plain controls (inline editing)
 export { DateInput } from './lib/controls/date-input/date-input.component';
+export { FilterBar } from './lib/controls/filter-bar/filter-bar.component';
+export { FilterKind, FilterOperator } from './lib/controls/filter-bar/filter-bar.types';
+export type { FilterCondition, FilterField, FilterOption } from './lib/controls/filter-bar/filter-bar.types';
 export { FilterChips } from './lib/controls/filter-chips/filter-chips.component';
 export { NumberInput } from './lib/controls/number-input/number-input.component';
 export { OptionalNumberInput } from './lib/controls/optional-number-input/optional-number-input.component';

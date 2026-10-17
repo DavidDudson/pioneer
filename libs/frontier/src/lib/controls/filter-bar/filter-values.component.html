@@ -1,0 +1,25 @@
+@if (isRange()) {
+  <div [class]="rangeClasses">
+    <fr-optional-number-input
+      [value]="min()"
+      [ariaLabel]="minLabel() | transloco"
+      [placeholder]="'frontier.filterBar.any' | transloco"
+      (valueChange)="setMin($event)"
+    />
+    @if (isBetween()) {
+      <fr-optional-number-input
+        [value]="max()"
+        [ariaLabel]="'frontier.filterBar.max' | transloco"
+        [placeholder]="'frontier.filterBar.any' | transloco"
+        (valueChange)="setMax($event)"
+      />
+    }
+  </div>
+} @else {
+  <fr-filter-chips
+    [options]="options()"
+    [value]="selected()"
+    [ariaLabel]="field().label"
+    (valueChange)="choose($event)"
+  />
+}
