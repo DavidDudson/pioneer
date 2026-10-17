@@ -9,32 +9,17 @@
             @for (row of rows; track row.resource) {
               <fr-stack direction="horizontal" align="center" gap="sm" wrap>
                 <fr-text weight="semibold">{{ row.labelKey | transloco }}</fr-text>
-                <fr-meter
-                  [label]="row.labelKey | transloco"
-                  [value]="row.current"
+                <fr-pips
+                  [ariaLabel]="row.labelKey | transloco"
                   [max]="row.max"
-                  [optimum]="row.max"
+                  [value]="shown(row)"
+                  [disabled]="busy()"
+                  (valueChange)="set(row, $event)"
                 />
-                <fr-text tone="muted">{{
-                  'character.sheet.resources.held' | transloco: { current: row.current, max: row.max }
-                }}</fr-text>
-                <fr-async-button
-                  size="sm"
-                  [action]="spend(row.resource)"
-                  [disabled]="busy() || row.current === 0"
-                  [describeError]="describeError"
-                >
-                  {{ 'character.sheet.resources.spend' | transloco }}
-                </fr-async-button>
-                <fr-async-button
-                  size="sm"
-                  [action]="regain(row.resource)"
-                  [disabled]="busy() || row.current === row.max"
-                  [describeError]="describeError"
-                >
-                  {{ 'character.sheet.resources.regain' | transloco }}
-                </fr-async-button>
               </fr-stack>
+            }
+            @if (error(); as message) {
+              <fr-text tone="danger">{{ message }}</fr-text>
             }
           </fr-stack>
         } @else {

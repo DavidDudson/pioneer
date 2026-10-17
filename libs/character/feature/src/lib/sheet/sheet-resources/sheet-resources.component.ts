@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@a
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { currentResource, PlayCommandField, Resource, ResourceCount } from '@pioneer/character/domain';
 import type { PlayCommand, ResourceMaxima, ResourcesSpent } from '@pioneer/character/domain';
-import { AsyncButton, AsyncData, AsyncPending, AsyncRegion, Meter, Skeleton, Stack, Text } from '@pioneer/frontier';
+import { AsyncData, AsyncPending, AsyncRegion, Pips, Skeleton, Stack, Text } from '@pioneer/frontier';
 
 import { PlayStore } from '../../data/play-store';
 import { describeSaveError } from '../sheet-field';
@@ -37,13 +37,14 @@ function viewsOf(spent: ResourcesSpent, maxima: ResourceMaxima): readonly Resour
 }
 
 /**
- * Hero points and focus points for the sheet header (#345), each a meter of the points held with a button to spend one
- * and one to regain one. Hero points always show; the focus pool shows once the character's focus spells give one.
+ * Hero points and focus points for the sheet header (#345, #633), each a row of pips, one per point, filled for the points
+ * held: a press fills up to a pip or empties the last filled one. Hero points always show; the focus pool shows once the
+ * character's focus spells give one.
  * Spending the last hero point of a dying character is Heroic Recovery, which the server applies.
  */
 @Component({
   selector: 'pio-sheet-resources',
-  imports: [AsyncButton, AsyncData, AsyncPending, AsyncRegion, Meter, Skeleton, Stack, Text, TranslocoPipe],
+  imports: [AsyncData, AsyncPending, AsyncRegion, Pips, Skeleton, Stack, Text, TranslocoPipe],
   templateUrl: './sheet-resources.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -64,26 +65,53 @@ export class SheetResources {
   /** Whether an edit is in flight: they share one revision, so a second would meet a conflict nothing caused. */
   protected readonly busy = signal(false);
 
-  protected readonly spend =
-    (resource: Resource): (() => Promise<void>) =>
-    async (): Promise<void> =>
-      this.#send({ field: PlayCommandField.SpendResource, resource, amount: ONE });
-  protected readonly regain =
-    (resource: Resource): (() => Promise<void>) =>
-    async (): Promise<void> =>
-      this.#send({ field: PlayCommandField.RegainResource, resource, amount: ONE });
+  /** The points a pip press asked for, until the server answers: the pips show it, then what was saved. */
+  readonly #asked = signal<Partial<Record<Resource, ResourceCount>>>({});
 
-  /** The server's reason (a conflict), else the sheet's own wording. */
-  protected readonly describeError = (error: unknown): string => {
-    const { key, params } = describeSaveError(error);
-    return this.#i18n.translate(key, params);
+  /** What went wrong with the last press, in words; undefined when it went through. */
+  protected readonly error = signal<string | undefined>(undefined);
+
+  /** The points the pips of `row` show: the press in flight, else what is held. */
+  protected readonly shown = ({ resource, current }: ResourceView): ResourceCount => this.#asked()[resource] ?? current;
+
+  /**
+   * A press on a pip of `row` set the points held to `value`: one more or one less is a regain or a spend (a spend of
+   * the last hero point of a dying character is Heroic Recovery, which the server applies), a bigger jump sets the points.
+   */
+  protected readonly set = async (row: ResourceView, value: number): Promise<void> => {
+    const asked = ResourceCount.parse(Math.max(value, 0));
+    const step = asked - row.current;
+    if (step === 0) {
+      return;
+    }
+    const { resource } = row;
+    const command: PlayCommand =
+      Math.abs(step) === 1
+        ? {
+            field: step > 0 ? PlayCommandField.RegainResource : PlayCommandField.SpendResource,
+            resource,
+            amount: ONE,
+          }
+        : { field: PlayCommandField.SetResource, resource, current: asked };
+    this.#asked.update((now) => ({ ...now, [resource]: asked }));
+    await this.#send(command, resource);
   };
 
-  async #send(command: PlayCommand): Promise<void> {
+  /** The server's reason (a conflict), else the sheet's own wording. */
+  #describe(error: unknown): string {
+    const { key, params } = describeSaveError(error);
+    return this.#i18n.translate(key, params);
+  }
+
+  async #send(command: PlayCommand, resource: Resource): Promise<void> {
     this.busy.set(true);
+    this.error.set(undefined);
     try {
       await this.#play.send(command);
+    } catch (error: unknown) {
+      this.error.set(this.#describe(error));
     } finally {
+      this.#asked.update(({ [resource]: _answered, ...rest }) => rest);
       this.busy.set(false);
     }
   }
