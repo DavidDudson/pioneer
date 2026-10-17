@@ -9,7 +9,14 @@
       <fr-text variant="caption" tone="subtle">{{ rune.key | transloco: rune.params }}</fr-text>
     }
     <fr-text variant="caption">{{ keyItem().notes }}</fr-text>
-    <fr-text variant="caption" tone="subtle">{{ holder().key | transloco: holder().params }}</fr-text>
+    @if (sheet(); as link) {
+      <fr-stack direction="horizontal" gap="xs" align="center" wrap>
+        <fr-text variant="caption" tone="subtle">{{ 'campaign.keyItems.heldByLabel' | transloco }}</fr-text>
+        <fr-link [to]="link.to">{{ link.name }}</fr-link>
+      </fr-stack>
+    } @else {
+      <fr-text variant="caption" tone="subtle">{{ holder().key | transloco: holder().params }}</fr-text>
+    }
     @if (manageable()) {
       <pio-campaign-key-item-holder [keyItem]="keyItem()" />
     }

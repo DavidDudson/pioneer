@@ -40,7 +40,12 @@
       <pio-campaign-variant-rules />
       <pio-campaign-rule-limits />
       <pio-campaign-item-review />
-      <pio-campaign-key-items />
+      <fr-surface>
+        <fr-stack gap="sm">
+          <fr-heading variant="subheading" [level]="2">{{ 'campaign.home.inventoryHeading' | transloco }}</fr-heading>
+          <fr-link [to]="['inventory']">{{ 'campaign.home.inventoryLink' | transloco }}</fr-link>
+        </fr-stack>
+      </fr-surface>
       @if (store.isGm() && store.selected.data(); as campaign) {
         <pio-campaign-invite-panel [campaignId]="campaign.id" />
       }

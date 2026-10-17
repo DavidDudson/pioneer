@@ -164,6 +164,7 @@ export class CampaignKeyItemService {
       notes,
       holder,
       holderName: holder === undefined ? undefined : ReviewedName.optional().parse(named.get(holder)?.name),
+      holderOwned: holder !== undefined && named.get(holder)?.ownerId === actor,
     }));
     return { manageable: mayManageKeyItems(actor, campaign), keyItems };
   }

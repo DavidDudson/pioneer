@@ -21,7 +21,9 @@
     "detailsHeading": "Campaign",
     "started": "Started",
     "members": "Members",
-    "memberCount": "{count, plural, one {# member} other {# members}}"
+    "memberCount": "{count, plural, one {# member} other {# members}}",
+    "inventoryLink": "Open the Party Inventory",
+    "inventoryHeading": "Party Inventory"
   },
   "roster": {
     "heading": "Members",
@@ -171,6 +173,13 @@
       "creating": "Creating",
       "created": "Created",
       "createFailed": "Could not create the key item. Check the name and the base item, then try again."
+    },
+    "heldByLabel": "Held by",
+    "noneHeld": "No key items for this holder.",
+    "filter": {
+      "label": "Show key items held by",
+      "all": "Everyone",
+      "stash": "Party stash"
     }
   },
   "ruleLimits": {
@@ -233,5 +242,9 @@
     "alwaysOnRefusal": "Official packs are always on.",
     "requiredByRefusal": "{packs} still extend this pack. Disable them first.",
     "changed": "The packs changed while enabling. Try again."
+  },
+  "inventory": {
+    "title": "Party Inventory",
+    "back": "Back to the campaign"
   }
 }

@@ -8,6 +8,7 @@ import {
   DescriptionItem,
   DescriptionList,
   Heading,
+  Link,
   Page,
   PageBody,
   PageHeader,
@@ -20,7 +21,6 @@ import {
 import { CampaignStore } from '../../data/campaign-store';
 import { CampaignInvitePanel } from '../campaign-invite-panel/campaign-invite-panel.component';
 import { CampaignItemReviewPanel } from '../campaign-item-review/campaign-item-review.component';
-import { CampaignKeyItemsPanel } from '../campaign-key-items/campaign-key-items.component';
 import { CampaignMemberList } from '../campaign-member-list/campaign-member-list.component';
 import { CampaignPacksPanel } from '../campaign-packs/campaign-packs.component';
 import { CampaignPartyPanel } from '../campaign-party/campaign-party.component';
@@ -36,7 +36,6 @@ import { CampaignVariantRulesPanel } from '../campaign-variant-rules/campaign-va
     AsyncRegion,
     CampaignInvitePanel,
     CampaignItemReviewPanel,
-    CampaignKeyItemsPanel,
     CampaignMemberList,
     CampaignPacksPanel,
     CampaignPartyPanel,
@@ -46,6 +45,7 @@ import { CampaignVariantRulesPanel } from '../campaign-variant-rules/campaign-va
     DescriptionItem,
     DescriptionList,
     Heading,
+    Link,
     Page,
     PageBody,
     PageHeader,
