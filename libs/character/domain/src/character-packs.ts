@@ -19,6 +19,10 @@ export type PackPublisher = z.infer<typeof PackPublisher>;
 export const AttachedCampaignName = z.string().min(1).brand<'AttachedCampaignName'>();
 export type AttachedCampaignName = z.infer<typeof AttachedCampaignName>;
 
+/** A campaign's id, so the sheet can link to the campaign; the character context only carries it. */
+export const AttachedCampaignId = Uuid.brand<'AttachedCampaignId'>();
+export type AttachedCampaignId = z.infer<typeof AttachedCampaignId>;
+
 /** A homebrew pack a character has enabled. Official packs are always on, so they have no row. */
 export interface CharacterPack {
   readonly id: CharacterPackId;

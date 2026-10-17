@@ -1,0 +1,5 @@
+@if (note().link; as to) {
+  <fr-link variant="caption" [to]="to">{{ note().message.key | transloco: note().message.params }}</fr-link>
+} @else {
+  <fr-text variant="caption" tone="subtle">{{ note().message.key | transloco: note().message.params }}</fr-text>
+}

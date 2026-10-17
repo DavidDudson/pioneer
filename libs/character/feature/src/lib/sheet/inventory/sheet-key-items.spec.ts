@@ -1,5 +1,5 @@
 import { ITEM_FIXTURE_FILES, ItemFixture, itemFixtureId } from '@pioneer/character/domain/testing';
-import { beforeAll, describe, expect, it } from 'vitest';
+import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { button, field, openInventory, patchSent, row, typeInto, VALEROS } from '../../testing/inventory-sheet-testing';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
@@ -36,6 +36,19 @@ describe('a key item on the sheet', () => {
     const caliburn = row(section, 'Caliburn');
     expect(caliburn.textContent).toContain('Key item');
     expect(caliburn.querySelector('pio-inventory-breaks')?.textContent.trim()).toBe('');
+  });
+
+  it("links back to the campaign's Party Inventory when the character is in a campaign", async () => {
+    const campaign = 'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa';
+    const section = await openInventory(WITH_KEY_ITEM, WITH_KEY_ITEM.inventory.items.length, {
+      campaign,
+      approvals: [],
+    });
+    await vi.waitFor(() => {
+      const link = row(section, 'Caliburn').querySelector('a');
+      expect(link?.textContent.trim()).toBe('Key item');
+      expect(link?.getAttribute('href')).toBe(`/campaigns/${campaign}/inventory`);
+    });
   });
 
   it('cannot be removed or sold by its player, nor its quantity changed', async () => {
