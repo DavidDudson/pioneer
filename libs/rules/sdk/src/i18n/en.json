@@ -197,6 +197,10 @@
       "spellcastingAttributeModifier": "The modifier for the spellcasting entry’s attribute.",
       "spellcastingProficiencyBonus": "The proficiency bonus for the spellcasting entry’s tradition."
     },
+    "creature": {
+      "npcOnly": "Only an NPC has NPC details.",
+      "levelRange": "The lowest level of a range can’t be above its highest."
+    },
     "action": {
       "reactionTrigger": "A reaction needs a trigger.",
       "upTo": "A variable cost starts at one, two or three actions and runs to more, at most six.",
@@ -390,6 +394,8 @@
         "pack": "Pack",
         "rank": "Rank",
         "tradition": "Tradition",
+        "role": "Role",
+        "size": "Size",
         "castActions": "Cast",
         "range": "Range",
         "area": "Area",
@@ -418,6 +424,18 @@
         "divine": "Divine",
         "occult": "Occult",
         "primal": "Primal"
+      },
+      "role": {
+        "monster": "Monster",
+        "npc": "NPC"
+      },
+      "size": {
+        "tiny": "Tiny",
+        "small": "Small",
+        "medium": "Medium",
+        "large": "Large",
+        "huge": "Huge",
+        "gargantuan": "Gargantuan"
       },
       "castActions": {
         "one": "1 action",

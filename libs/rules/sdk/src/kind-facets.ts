@@ -1,4 +1,5 @@
 import { ACTION_FACETS, FEAT_FACETS } from './action-facets';
+import { CREATURE_FACETS } from './creature-facets';
 import { EQUIPMENT_FACETS } from './equipment-facets';
 import { COMMON_FACETS } from './facet';
 import type { FacetDefinition, FacetId } from './facet';
@@ -13,6 +14,7 @@ const KIND_FACETS: Readonly<Partial<Record<RegisteredKind, readonly FacetDefinit
   action: ACTION_FACETS,
   armor: EQUIPMENT_FACETS,
   consumable: EQUIPMENT_FACETS,
+  creature: CREATURE_FACETS,
   equipment: EQUIPMENT_FACETS,
   feat: FEAT_FACETS,
   kit: EQUIPMENT_FACETS,

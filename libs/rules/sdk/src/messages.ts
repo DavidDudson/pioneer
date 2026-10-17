@@ -34,6 +34,8 @@ export const RulesMessage = {
   EntrySlugKindMismatch: 'rules.entry.slugKindMismatch',
   EntryDuplicateTrait: 'rules.entry.duplicateTrait',
   EntrySupersedesSelf: 'rules.entry.supersedesSelf',
+  CreatureNpcOnly: 'rules.creature.npcOnly',
+  CreatureLevelRange: 'rules.creature.levelRange',
   ActionReactionTrigger: 'rules.action.reactionTrigger',
   ActionUpTo: 'rules.action.upTo',
   ActionMinimumProficiency: 'rules.action.minimumProficiency',

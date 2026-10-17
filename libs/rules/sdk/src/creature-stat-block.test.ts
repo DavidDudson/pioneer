@@ -11,6 +11,7 @@ const SPELL = contentId(PackId.parse('player-core'), EntrySlug.parse('spell:fire
 const ITEM = contentId(PackId.parse('player-core'), EntrySlug.parse('weapon:longsword'));
 
 const core = {
+  role: 'monster',
   size: 'medium',
   perception: 14,
   attributes: { str: 4, dex: 1, con: 3, int: -2, wis: 2, cha: 0 },
@@ -140,5 +141,24 @@ describe('creature attributes', () => {
   test('run to +12 for an ancient dragon, past a character’s +7', () => {
     expect(issuesOf({ ...core, attributes: { ...core.attributes, str: 12 } })).toStrictEqual([]);
     expect(issuesOf({ ...core, attributes: { ...core.attributes, str: 16 } })).not.toStrictEqual([]);
+  });
+});
+
+describe('creature role', () => {
+  test('takes monster and NPC details only on an NPC', () => {
+    const npc = { ancestry: 'human', occupation: 'Guard', levelRange: { min: 1, max: 3 }, classHints: ['fighter'] };
+
+    expect(issuesOf({ ...core, role: 'npc', npc })).toStrictEqual([]);
+    expect(issuesOf({ ...core, role: 'monster', npc })).not.toStrictEqual([]);
+  });
+
+  test('refuses a level range that runs backwards', () => {
+    expect(issuesOf({ ...core, role: 'npc', npc: { levelRange: { min: 4, max: 2 } } })).not.toStrictEqual([]);
+  });
+
+  test('needs a role', () => {
+    const { role: _role, ...roleless } = core;
+
+    expect(issuesOf(roleless)).not.toStrictEqual([]);
   });
 });

@@ -3,6 +3,7 @@ import type { Arbitrary } from 'fast-check';
 
 import { FrequencyPeriod } from '../action';
 import { ATTRIBUTE_MODIFIER_MAX, ATTRIBUTE_MODIFIER_MIN } from '../attribute';
+import { CreatureRole } from '../creature';
 import { MovementType, StrikeRange } from '../creature-stat-block';
 import { ActionCost } from '../rich-text';
 import { SpellPreparation } from '../rule-element-spellcasting';
@@ -100,7 +101,8 @@ const attributes = record({
 });
 const saves = record({ fortitude: modifier, reflex: modifier, will: modifier });
 
-const creatureCore: Arbitrary<object> = record({
+const creatureCore = record({
+  role: constantFrom(...Object.values(CreatureRole)),
   size,
   perception: modifier,
   attributes,
@@ -113,8 +115,18 @@ const creatureCore: Arbitrary<object> = record({
   speed: smallint,
 });
 
-/** A creature's `data`: the core numbers with any subset of the optional stat block parts. */
-export const creatureData: Arbitrary<object> = withOptional(creatureCore, {
+const levelRange = record({ min: integer({ min: -1, max: 10 }), span: integer({ min: 0, max: 10 }) }).map(
+  ({ min, span }) => ({ min, max: min + span }),
+);
+const npcDetails = withOptional(constant({}), {
+  ancestry: slugText,
+  occupation: contentTextJson,
+  levelRange,
+  classHints: slugs,
+});
+
+/** The optional stat block parts of a creature, any subset. */
+const statBlock = {
   skills: array(skill, { maxLength: LIST_MAX }),
   senses: array(sense, { maxLength: LIST_MAX }),
   languages: slugs,
@@ -125,4 +137,11 @@ export const creatureData: Arbitrary<object> = withOptional(creatureCore, {
   items: array(item, { maxLength: LIST_MAX }),
   conditions: slugs,
   recallKnowledge: richTextJson,
-});
+};
+
+/** A creature's `data`: the core numbers, any subset of the stat block parts, and NPC details only on an NPC. */
+export const creatureData: Arbitrary<object> = withOptional(creatureCore, statBlock).chain((data) =>
+  'role' in data && data.role === CreatureRole.Npc
+    ? npcDetails.chain((npc) => constant({ ...data, npc }))
+    : constant(data),
+);

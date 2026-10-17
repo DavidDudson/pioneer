@@ -48,7 +48,8 @@
         }
       ],
       "resistances": [],
-      "speed": 25
+      "speed": 25,
+      "role": "monster"
     }
   }
 ]

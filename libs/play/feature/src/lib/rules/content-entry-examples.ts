@@ -88,6 +88,7 @@ const giantRat = {
   description: [paragraph('A rat the size of a dog, quick to bite and quicker to spread disease.')],
   rules: [],
   data: {
+    role: 'monster',
     size: 'small',
     perception: RAT_PERCEPTION,
     attributes: {
