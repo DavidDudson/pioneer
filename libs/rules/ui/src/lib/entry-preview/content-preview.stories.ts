@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
 import { applicationConfig } from '@analogjs/storybook-angular';
 import type { LinkTarget } from '@pioneer/frontier';
+import { ContentId } from '@pioneer/rules/sdk';
 
 import { ContentPreview } from './content-preview.component';
 import { provideEntryPreviews } from './entry-preview';
@@ -15,7 +16,7 @@ const TARGET: LinkTarget = ['/content', 'spell', 'fireball'];
 const meta: Meta<ContentPreview> = {
   title: 'Rules/Content preview',
   component: ContentPreview,
-  args: { entry: FIREBALL },
+  args: { entry: ContentId.parse(FIREBALL) },
   parameters: { layout: 'padded' },
   render: (args) => ({ props: args, template: `<pio-content-preview [entry]="entry">Fireball</pio-content-preview>` }),
 };
