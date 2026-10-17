@@ -14,11 +14,15 @@ import { ACTION_CONTENT_KINDS } from '../sheet-actions';
 import { CONSUMABLE_COST_MESSAGES, consumableLines, useCommand } from '../sheet-consumables';
 import type { ConsumableLine } from '../sheet-consumables';
 import { describeSaveError } from '../sheet-field';
+import { statisticInputsOf } from '../sheet-inputs';
+import { SheetState } from '../sheet-state';
 
 /** A consumable as shown: the words that say what it is and costs, beside the line the Use button acts on. */
 interface ShownConsumable {
   readonly line: ConsumableLine;
   readonly summary: string;
+  /** Why it cannot be used, when its formula reads something the character has no value for. */
+  readonly problem: string | undefined;
 }
 
 /** What the last use rolled, for the card. */
@@ -44,6 +48,7 @@ export class SheetConsumables {
   readonly #i18n = inject(TranslocoService);
   readonly #characters = inject(CharacterStore);
   readonly #play = inject(PlayStore);
+  readonly #sheet = inject(SheetState);
   readonly #random = inject(RANDOM_SOURCE);
   #count = 0;
 
@@ -55,18 +60,24 @@ export class SheetConsumables {
 
   protected readonly consumables = computed((): readonly ShownConsumable[] => {
     const registry = this.registry.data();
+    const engine = this.#sheet.engine();
     const character = this.#characters.selected();
     const read = this.#play.play.data();
-    if (registry === undefined || character === undefined || read === undefined) {
+    if (registry === undefined || engine === undefined || character === undefined || read === undefined) {
       return [];
     }
-    return consumableLines(registry, character, read.play.turn).map((line): ShownConsumable => ({
+    const inputs = statisticInputsOf(engine, character);
+    return consumableLines(registry, character, { turn: read.play.turn, inputs }).map((line): ShownConsumable => ({
       line,
       summary: this.#say('character.sheet.consumables.summary', {
         name: line.name,
         quantity: line.quantity,
         cost: this.#say(CONSUMABLE_COST_MESSAGES[line.cost]),
       }),
+      problem:
+        line.unresolved === undefined
+          ? undefined
+          : this.#say('character.sheet.consumables.unresolved', { reference: line.unresolved }),
     }));
   });
 

@@ -9,11 +9,14 @@
             <fr-async-button
               size="sm"
               [action]="use(shown.line)"
-              [disabled]="!shown.line.affordable || busy()"
+              [disabled]="!shown.line.affordable || shown.problem !== undefined || busy()"
               [describeError]="describeError"
             >
               {{ 'character.sheet.consumables.use' | transloco }}
             </fr-async-button>
+            @if (shown.problem; as problem) {
+              <fr-text variant="caption" tone="danger">{{ problem }}</fr-text>
+            }
           </fr-stack>
         }
         @if (rolled(); as last) {

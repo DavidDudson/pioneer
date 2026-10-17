@@ -20,6 +20,7 @@ const POTIONS = '88888888-8888-4888-8888-888888888888';
 /** The sheet derives again after each edit, which takes longer than the default wait. */
 const SETTLE = 8000;
 const HEALING_DIE = 8;
+const LEVEL_BONUS = 11;
 
 /** A character holding a stack of two healing potions. */
 const HOLDING = {
@@ -29,6 +30,20 @@ const HOLDING = {
     coins: { pp: 0, gp: 0, sp: 0, cp: 0 },
   },
 };
+
+const TONIC = '99999999-9999-4999-8999-999999999999';
+const UNREADABLE = 'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa';
+
+/** A character holding a potion of the given fixture. */
+function holding(fixture: ItemFixture, stack: string): typeof HOLDING {
+  return {
+    ...HOLDING,
+    inventory: {
+      ...HOLDING.inventory,
+      items: [{ id: stack, item: itemFixtureId(fixture), quantity: 2, carry: { state: 'stowed' } }],
+    },
+  };
+}
 
 /** The play state on a turn with `actions` left. */
 function playWith(actions: number, revision = 1): object {
@@ -95,5 +110,34 @@ describe('CharacterSheetPage consumables', () => {
       { timeout: SETTLE },
     );
     expect(textOf(consumables)).toContain('1d8');
+  });
+
+  it("rolls a formula that reads the character with the character's values", async () => {
+    const { root } = await openSheet(holding(ItemFixture.LevelTonic, TONIC), { play: playWith(3), packs: PACKS });
+    const consumables = await consumablesOf(root);
+
+    useOf(consumables).click();
+
+    await vi.waitFor(
+      () => {
+        const request = TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: PLAY_URL });
+        const { command } = request.request.body as { command: { heal: number } };
+        expect(command.heal).toBeGreaterThanOrEqual(1 + LEVEL_BONUS);
+        expect(command.heal).toBeLessThanOrEqual(HEALING_DIE + LEVEL_BONUS);
+        request.flush({ ...playWith(2, 2), events: [] });
+      },
+      { timeout: SETTLE },
+    );
+  });
+
+  it('shows an error instead of rolling a formula that cannot resolve', async () => {
+    const { root } = await openSheet(holding(ItemFixture.UnreadableTonic, UNREADABLE), {
+      play: playWith(3),
+      packs: PACKS,
+    });
+    const consumables = await consumablesOf(root);
+
+    expect(textOf(consumables)).toContain('@item.value');
+    expect(useOf(consumables).disabled).toBe(true);
   });
 });

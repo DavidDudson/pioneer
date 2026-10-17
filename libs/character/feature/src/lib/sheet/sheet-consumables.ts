@@ -1,9 +1,10 @@
 import { CarryState, ConsumableCommandField, EffectInstanceId, itemContent, SpendId } from '@pioneer/character/domain';
 import type { Character, ConsumableCommand, InventoryItemId, TurnState } from '@pioneer/character/domain';
-import { DiceExpressionText, parseDiceExpression } from '@pioneer/rules/dice';
 import type { DiceExpression, RollResult } from '@pioneer/rules/dice';
+import { resolveDamageFormula } from '@pioneer/rules/engine';
+import type { StatisticInputs } from '@pioneer/rules/engine';
 import { ActionCost, ConsumableCategory, ContentKind, DamageKind, HitPoints } from '@pioneer/rules/sdk';
-import type { ContentEntry, ContentId, ContentRegistry } from '@pioneer/rules/sdk';
+import type { ContentEntry, ContentId, ContentRegistry, DamageFormula } from '@pioneer/rules/sdk';
 import { newId } from '@pioneer/shared/kernel';
 
 import { affordability, spendCostOf } from './sheet-actions';
@@ -37,6 +38,8 @@ export interface ConsumableLine {
   readonly upTo: number | undefined;
   /** The roll using it makes, and what the roll is; undefined when it rolls nothing. */
   readonly roll: ConsumableRoll | undefined;
+  /** The part of its formula the character gives no value for, when it cannot be rolled; using it waits on that. */
+  readonly unresolved: string | undefined;
   /** The effect using it puts on the character. */
   readonly effect: ContentId | undefined;
   /** The name of that effect, when the content has it. */
@@ -60,17 +63,33 @@ function isListed(entry: ContentEntry | undefined): entry is ConsumableEntry {
   );
 }
 
-/** The roll a formula makes, when it is plain dice; one that reads the character (`@attr.str`) is the table's to roll. */
-function rollOf(formula: string, kind: DamageKind): ConsumableRoll | undefined {
-  const parsed = parseDiceExpression(DiceExpressionText.parse(formula.replaceAll(/\s+/gu, '')));
-  return parsed.ok ? { expression: parsed.expression, kind } : undefined;
+/** What a consumable's damage or healing rolls for this character, or the text of its formula that has no value. */
+interface Rolled {
+  readonly roll: ConsumableRoll | undefined;
+  readonly unresolved: string | undefined;
+}
+
+const NO_ROLL: Rolled = { roll: undefined, unresolved: undefined };
+
+/** The roll a formula makes once its references (`@attr.str`) are read from the character. */
+function rollOf(formula: DamageFormula, kind: DamageKind, inputs: StatisticInputs): Rolled {
+  const resolved = resolveDamageFormula(formula, inputs);
+  return resolved.ok
+    ? { roll: { expression: resolved.expression, kind }, unresolved: undefined }
+    : { roll: undefined, unresolved: resolved.unresolved };
+}
+
+/** What the lines are read against besides the content: the turn that pays for the activation, and the character's values. */
+export interface ConsumableScope {
+  readonly turn: TurnState | undefined;
+  readonly inputs: StatisticInputs;
 }
 
 /** The consumables the character holds, in inventory order, with what the turn leaves of each one's cost. */
 export function consumableLines(
   registry: ContentRegistry,
   character: Character,
-  turn: TurnState | undefined,
+  { turn, inputs }: ConsumableScope,
 ): readonly ConsumableLine[] {
   const items = itemContent(registry);
   const names = new Map(registry.packs.flatMap((pack) => pack.otherEntries).map((entry) => [entry.id, entry.name]));
@@ -89,7 +108,7 @@ export function consumableLines(
         quantity: held.quantity,
         cost,
         upTo: activation?.upTo,
-        roll: damage === undefined ? undefined : rollOf(damage.formula, damage.kind),
+        ...(damage === undefined ? NO_ROLL : rollOf(damage.formula, damage.kind, inputs)),
         effect,
         effectName: effect === undefined ? undefined : names.get(effect),
         affordable: affordability(turn, cost, activation?.upTo).affordable ?? true,
