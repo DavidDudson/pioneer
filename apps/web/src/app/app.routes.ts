@@ -15,12 +15,16 @@ export const appRoutes: Routes = [
     data: PREFETCH_WHEN_IDLE,
     // The sheet's side panel searches the rules content, which the character feature may not import.
     loadChildren: async () => {
-      const [{ characterRoutes, SHEET_SIDE_PANEL }, { provideSheetSidePanelMessages, sheetSidePanel }] =
-        await Promise.all([import('@pioneer/character/feature'), import('./sheet-side-panel')]);
+      const [{ characterRoutes, SHEET_SIDE_PANEL }, { ContentSidePanel, provideSidePanelMessages }] = await Promise.all(
+        [import('@pioneer/character/feature'), import('@pioneer/content/feature')],
+      );
       return [
         {
           path: '',
-          providers: [{ provide: SHEET_SIDE_PANEL, useValue: sheetSidePanel }, ...provideSheetSidePanelMessages()],
+          providers: [
+            { provide: SHEET_SIDE_PANEL, useValue: async () => ContentSidePanel },
+            ...provideSidePanelMessages(),
+          ],
           children: characterRoutes,
         },
       ];
