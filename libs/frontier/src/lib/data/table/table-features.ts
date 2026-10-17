@@ -19,6 +19,8 @@ export interface FrontierColumnMeta {
   readonly hideable?: boolean;
   /** Hidden until the user shows it, when the table has no remembered choice. */
   readonly defaultHidden?: boolean;
+  /** The short code a table view's query string uses in place of the column id. */
+  readonly code?: string;
 }
 
 /** The phantom value that gives `columnMeta` its type. */

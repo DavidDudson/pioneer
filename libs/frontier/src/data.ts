@@ -19,6 +19,16 @@ export {
   tableSchema,
   type TextColumn,
 } from './lib/data/table/table-schema';
+export { decodeTableView, encodeTableView, TYPICAL_VIEW_LENGTH } from './lib/data/table-view/table-view';
+export { tableViewColumns } from './lib/data/table-view/table-view-schema';
+export type {
+  TableView,
+  TableViewColumn,
+  TableViewParams,
+  TableViewQuery,
+  TableViewSchema,
+  TableViewSort,
+} from './lib/data/table-view/table-view.types';
 export { VirtualItem } from './lib/data/virtual-list/virtual-item.directive';
 export { VirtualEstimate, VirtualList } from './lib/data/virtual-list/virtual-list.component';
 export { Combobox, type ComboboxOption } from './lib/controls/combobox/combobox.component';

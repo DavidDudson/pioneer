@@ -24,6 +24,8 @@ export interface ColumnOptions {
   readonly hideable?: boolean;
   /** Hidden until shown, when the table has no remembered choice. */
   readonly defaultHidden?: boolean;
+  /** Short and stable, for the table view's query string (`lvl`); a column without one stays out of shared views. */
+  readonly code?: string;
 }
 
 /** A column whose cells are a component, for content richer than text. */
@@ -71,6 +73,7 @@ function widthMeta(options: ColumnOptions): ColumnExtras {
     ...(options.width === undefined ? {} : { width: options.width }),
     ...(options.hideable === undefined ? {} : { hideable: options.hideable }),
     ...(options.defaultHidden === undefined ? {} : { defaultHidden: options.defaultHidden }),
+    ...(options.code === undefined ? {} : { code: options.code }),
   };
   return Object.keys(meta).length === 0 ? {} : { meta };
 }
@@ -123,6 +126,7 @@ export class TableSchema<TRow extends RowData> {
       ...(options.width === undefined ? {} : { width: options.width }),
       ...(options.hideable === undefined ? {} : { hideable: options.hideable }),
       ...(options.defaultHidden === undefined ? {} : { defaultHidden: options.defaultHidden }),
+      ...(options.code === undefined ? {} : { code: options.code }),
       sortValue: (row) => options.value(row).toString(),
       component: DateDisplay,
       inputs: (row) => ({ value: options.value(row), format }),
@@ -138,6 +142,7 @@ export class TableSchema<TRow extends RowData> {
       ...(options.width === undefined ? {} : { width: options.width }),
       ...(options.hideable === undefined ? {} : { hideable: options.hideable }),
       ...(options.defaultHidden === undefined ? {} : { defaultHidden: options.defaultHidden }),
+      ...(options.code === undefined ? {} : { code: options.code }),
       sortValue: (row) => options.value(row).label,
       component: Tag,
       inputs: (row) => {
