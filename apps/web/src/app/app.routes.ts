@@ -17,10 +17,7 @@ export const appRoutes: Routes = [
     data: PREFETCH_WHEN_IDLE,
     // The sheet's side panel searches the rules content, which the character feature may not import.
     loadChildren: async () => {
-      const [{ characterRoutes, SHEET_SIDE_PANEL }, { loadSidePanel }] = await Promise.all([
-        import('@pioneer/character/feature'),
-        import('@pioneer/content/feature'),
-      ]);
+      const { characterRoutes, SHEET_SIDE_PANEL } = await import('@pioneer/character/feature');
       return [
         {
           path: '',
@@ -29,7 +26,11 @@ export const appRoutes: Routes = [
               provide: SHEET_SIDE_PANEL,
               useFactory: (): SheetSidePanelLoader => {
                 const i18n = inject(TranslocoService);
-                return async () => loadSidePanel(i18n);
+                // The content feature loads when the drawer first needs it, not with the sheet.
+                return async () => {
+                  const { loadSidePanel } = await import('@pioneer/content/feature');
+                  return loadSidePanel(i18n);
+                };
               },
             },
           ],
