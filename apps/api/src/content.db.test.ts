@@ -30,6 +30,7 @@ import { Elysia } from 'elysia';
 import type { AnyElysia } from 'elysia';
 
 import { content, seedOfficialContent } from './content';
+import { OFFICIAL_PACK_IDS } from './official-pack-ids';
 
 /**
  * The content routes as the composition root wires them, against a throwaway Postgres database (see
@@ -143,43 +144,7 @@ describe.skipIf(adminUrl === undefined)('content routes (postgres)', () => {
     );
     const responses = await Promise.all(files.map(async (file) => api.handle(get(`/content/bundles/${file}`))));
 
-    expect(packs.map((pack) => String(pack.id))).toStrictEqual([
-      'bastion-of-blasphemies',
-      'battlecry',
-      'character-guide',
-      'cheliax-infernal-inheritance',
-      'core-rules',
-      'dark-archive-remastered',
-      'divine-mysteries',
-      'draconic-codex',
-      'gatewalkers',
-      'gm-core',
-      'guns-and-gears',
-      'hellbreakers',
-      'hellfire-dispatches',
-      'hells-destiny',
-      'high-seas',
-      'howl-of-the-wild',
-      'impossible-lands',
-      'impossible-magic',
-      'monster-core',
-      'mwangi-expanse',
-      'myth-speakers',
-      'player-core',
-      'player-core-2',
-      'rage-of-elements',
-      'revenge-of-the-runelords',
-      'rival-academies',
-      'season-of-ghosts',
-      'secrets-of-magic',
-      'secrets-of-the-unlit-star',
-      'shining-kingdoms',
-      'the-dead-gods-hand',
-      'tian-xia-character-guide',
-      'treasure-vault',
-      'troubles-in-grayce',
-      'war-of-immortals',
-    ]);
+    expect(packs.map((pack) => String(pack.id))).toStrictEqual(OFFICIAL_PACK_IDS);
     expect(responses.map((response) => response.status)).toStrictEqual(files.map(() => 200));
     expect(responses.map((response) => response.headers.get('cache-control'))).toStrictEqual(
       files.map(() => BUNDLE_CACHE_CONTROL),
