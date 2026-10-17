@@ -1,5 +1,7 @@
 import { inject } from '@angular/core';
 import type { Routes } from '@angular/router';
+import { TranslocoService } from '@jsverse/transloco';
+import type { SheetSidePanelLoader } from '@pioneer/character/feature';
 import { signInRequired } from '@pioneer/identity/data-access';
 import { PREFETCH_WHEN_IDLE } from '@pioneer/shared/web';
 
@@ -15,15 +17,21 @@ export const appRoutes: Routes = [
     data: PREFETCH_WHEN_IDLE,
     // The sheet's side panel searches the rules content, which the character feature may not import.
     loadChildren: async () => {
-      const [{ characterRoutes, SHEET_SIDE_PANEL }, { ContentSidePanel, provideSidePanelMessages }] = await Promise.all(
-        [import('@pioneer/character/feature'), import('@pioneer/content/feature')],
-      );
+      const [{ characterRoutes, SHEET_SIDE_PANEL }, { loadSidePanel }] = await Promise.all([
+        import('@pioneer/character/feature'),
+        import('@pioneer/content/feature'),
+      ]);
       return [
         {
           path: '',
           providers: [
-            { provide: SHEET_SIDE_PANEL, useValue: async () => ContentSidePanel },
-            ...provideSidePanelMessages(),
+            {
+              provide: SHEET_SIDE_PANEL,
+              useFactory: (): SheetSidePanelLoader => {
+                const i18n = inject(TranslocoService);
+                return async () => loadSidePanel(i18n);
+              },
+            },
           ],
           children: characterRoutes,
         },

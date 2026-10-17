@@ -5,7 +5,7 @@
     [loading]="session.loading()"
     [placeholder]="Message.Placeholder | transloco"
     [ariaLabel]="Message.Label | transloco"
-    (typed)="session.type($event)"
+    (typed)="typed($event)"
     (searched)="searched($event)"
     (committed)="read()"
   />

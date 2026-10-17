@@ -76,7 +76,8 @@ export class ContentSidePanel {
     effect(() => {
       const words = this.#fromAddress();
       untracked(() => {
-        if (words !== this.#written) {
+        // Words the box already holds are an echo of the typing, however late: taking them in would rewind it.
+        if (words !== this.#written && words !== this.session.words().trim()) {
           this.#written = words;
           this.query.set(words);
           this.session.restore(words);
@@ -103,7 +104,14 @@ export class ContentSidePanel {
     );
   }
 
+  /** Keeps the words the box restores to in step with what was typed. */
+  protected typed(words: string): void {
+    this.query.set(words);
+    this.session.type(words);
+  }
+
   protected async searched(words: string): Promise<void> {
+    this.query.set(words);
     this.session.search(words);
     this.#written = words;
     await this.#navigate({ [PanelParam.Query]: words === '' ? undefined : words }, true);
