@@ -73,7 +73,7 @@ describe('consumableProblem', () => {
 
 describe('consumableInventoryAfter', () => {
   test('takes one from a stack', () => {
-    expect(consumableInventoryAfter(stack(3), ITEM).items[0]?.quantity).toBe(2);
+    expect<number | undefined>(consumableInventoryAfter(stack(3), ITEM).items[0]?.quantity).toBe(2);
   });
 
   test('removes the item once the last one is used', () => {
@@ -103,7 +103,7 @@ describe('afterConsumable', () => {
 
   test('restores the Hit Points it heals, up to the maximum', () => {
     const healed = afterConsumable(hurt, using({ heal: HitPoints.parse(8) }), limits);
-    expect(currentHitPoints(healed.hp, MAX)).toBe(18);
+    expect<number>(currentHitPoints(healed.hp, MAX)).toBe(18);
     const overhealed = afterConsumable(hurt, using({ heal: HitPoints.parse(99) }), limits);
     expect(currentHitPoints(overhealed.hp, MAX)).toBe(MAX);
   });

@@ -59,8 +59,8 @@ describe('CharacterSheetPage initiative', () => {
       const picker = present(root.querySelector<HTMLElement>('pio-sheet-initiative'));
       expect(textOf(picker)).toContain('Roll initiative');
       expect(textOf(picker)).toMatch(/Perception [+-]\d+/u);
+      expect(textOf(barOf(root))).toContain('Off-turn');
     });
-    expect(textOf(barOf(root))).toContain('Off-turn');
   });
 
   it('rolls initiative to the last roll and rolls it again, sending nothing about it to the server', async () => {
@@ -87,7 +87,7 @@ describe('CharacterSheetPage initiative', () => {
 
     await vi.waitFor(() => {
       expect(root.querySelector('pio-sheet-initiative')).toBeNull();
+      expect(textOf(barOf(root))).toContain('Off-turn');
     });
-    expect(textOf(barOf(root))).toContain('Off-turn');
   });
 });

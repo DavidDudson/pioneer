@@ -484,7 +484,9 @@ rank the deity grants it or higher, whatever its tradition. `SignatureSpells` gi
 signature spells ([ADR-0047](../adr/0047-signature-spells-are-rule-elements.md)); a prepared or innate one never has
 them. `FocusSpells` gives the focus `entry` it names its focus `spells` ([ADR-0050](../adr/0050-focus-spells-are-rule-elements.md)),
 adding up per entry and gated by its predicate, so a domain's spell follows the domain picked; the focus pool is worked
-out from them, never stated. `InnateSpells` gives the innate `entry` it names spells it casts, each at a rank ([ADR-0067](../adr/0067-innate-spells-are-a-rule-element.md)): a feat's once-a-day spell. They take no slot. `RepertoireSpells` gives the spontaneous `entry` it names spells it must know, each at a
+out from them, never stated. `InnateSpells` gives the innate `entry` it names spells it casts, each at a rank
+([ADR-0067](../adr/0067-innate-spells-are-a-rule-element.md)): a feat's once-a-day spell. They take no slot.
+`RepertoireSpells` gives the spontaneous `entry` it names spells it must know, each at a
 rank ([ADR-0062](../adr/0062-repertoire-spells-are-a-rule-element.md)): a sorcerer's bloodline gifts, an oracle's
 granted spells; each fills the first free repertoire slot of its rank. `spellcastingInPlay` gives each entry its slots
 and pools, each pool with its spells, whether a `DeitySpells` names it, whether it has signature spells, its focus

@@ -8,9 +8,9 @@
         <fr-stack gap="sm">
           <fr-skeleton width="md" />
           <fr-grid [columns]="3">
-            @for (slot of loadingSlots; track slot) {
-              <fr-stack gap="3xs"><fr-skeleton width="sm" /><fr-skeleton width="md" /></fr-stack>
-            }
+            <fr-stack gap="3xs"><fr-skeleton width="sm" /><fr-skeleton width="md" /></fr-stack>
+            <fr-stack gap="3xs"><fr-skeleton width="sm" /><fr-skeleton width="md" /></fr-stack>
+            <fr-stack gap="3xs"><fr-skeleton width="sm" /><fr-skeleton width="md" /></fr-stack>
           </fr-grid>
         </fr-stack>
         <pio-spell-access-list [lines]="undefined" />

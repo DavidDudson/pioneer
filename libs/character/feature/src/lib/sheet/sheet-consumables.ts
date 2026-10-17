@@ -1,7 +1,7 @@
 import { CarryState, ConsumableCommandField, EffectInstanceId, itemContent, SpendId } from '@pioneer/character/domain';
 import type { Character, ConsumableCommand, InventoryItemId, TurnState } from '@pioneer/character/domain';
-import { DiceExpressionText, parseDiceExpression, rollDice } from '@pioneer/rules/dice';
-import type { DiceExpression, RandomSource, RollResult } from '@pioneer/rules/dice';
+import { DiceExpressionText, parseDiceExpression } from '@pioneer/rules/dice';
+import type { DiceExpression, RollResult } from '@pioneer/rules/dice';
 import { ActionCost, ConsumableCategory, ContentKind, DamageKind, HitPoints } from '@pioneer/rules/sdk';
 import type { ContentEntry, ContentId, ContentRegistry } from '@pioneer/rules/sdk';
 import { newId } from '@pioneer/shared/kernel';
@@ -46,7 +46,7 @@ export interface ConsumableLine {
 }
 
 /** The dice a consumable rolls when used. */
-export interface ConsumableRoll {
+interface ConsumableRoll {
   readonly expression: DiceExpression;
   readonly kind: DamageKind;
 }
@@ -96,11 +96,6 @@ export function consumableLines(
       },
     ];
   });
-}
-
-/** The roll as it fell, for the card; the total is what a healing roll restores. */
-export function rollConsumable(roll: ConsumableRoll, random: RandomSource): RollResult {
-  return rollDice(roll.expression, random);
 }
 
 /**
