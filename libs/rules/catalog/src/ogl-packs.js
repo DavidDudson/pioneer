@@ -1,10 +1,8 @@
-import type { PackContents } from '@pioneer/rules/sdk';
-
-import { pack } from './json-packs';
+import { pack } from './pack-loader';
 
 /* Pre-remaster Open Game License packs under `content/packs/<pack>/`, read like `json-packs.ts`. */
 
-export async function characterGuidePack(): Promise<PackContents> {
+export async function characterGuidePack() {
   return pack(import('@pioneer/content/packs/character-guide/pack.json'), [
     import('@pioneer/content/packs/character-guide/action.json'),
     import('@pioneer/content/packs/character-guide/archetype.json'),
@@ -20,7 +18,7 @@ export async function characterGuidePack(): Promise<PackContents> {
   ]);
 }
 
-export async function impossibleLandsPack(): Promise<PackContents> {
+export async function impossibleLandsPack() {
   return pack(import('@pioneer/content/packs/impossible-lands/pack.json'), [
     import('@pioneer/content/packs/impossible-lands/action.json'),
     import('@pioneer/content/packs/impossible-lands/ancestry-feature.json'),

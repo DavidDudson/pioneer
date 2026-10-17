@@ -45,7 +45,7 @@ describe('catalog registration', () => {
   });
 
   test('the catalog pack files import every committed pack file, and nothing else', async () => {
-    const catalogs = await Array.fromAsync(new Glob('libs/rules/catalog/src/*-packs.ts').scan({ cwd: ROOT }));
+    const catalogs = await Array.fromAsync(new Glob('libs/rules/catalog/src/*-packs.js').scan({ cwd: ROOT }));
     const sources = await Promise.all(catalogs.map(async (file) => Bun.file(path.join(ROOT, file)).text()));
     const source = sources.join('\n');
     const scanned = await Array.fromAsync(new Glob('content/packs/*/**/*.json').scan({ cwd: ROOT }));

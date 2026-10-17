@@ -494,6 +494,10 @@ when idle. Content browser search is server-side through per-locale `tsvector` (
   pack. The sheet asks for the packs its character uses (the campaign's, else its own, ADR-0060), so it waits for that
   list before the registry builds.
 
+### Registering a pack without touching the compiler's limit
+
+The catalog's pack loaders (`libs/rules/catalog/src/*-packs.js`) are plain JavaScript, with their types in the `.d.ts` beside each (`export function xPack(): Promise<PackContents>`). The compiler never reads a loader's `import('….json')`, so a pack costs it nothing: the same project checked in 1s and 0.4 GB, not 60s and 4.4 GB, and no number of packs reaches TS2859 ("Excessive complexity comparing types"). Bun and the Angular bundler read the `.js` and resolve `@pioneer/content/packs/*` as before. To register a pack, add its `xPack()` loader to a `*-packs.js` file, its declaration to the matching `.d.ts`, and its call in `index.ts`. Do not import pack JSON from a `.ts` file: the compiler infers the type of every file it reaches.
+
 ## Search
 
 Words typed into the content browser are matched on the server, since the bundles hold no descriptions. The filters
@@ -1005,8 +1009,8 @@ tradition of spell cast in the ritual` its `pick`. Its secondary checks are sepa
   target's name, as text, and any other reference (a field of `data`) leaves the entry out too. Entries are written
   sorted by kind then slug, one `<kind>.json` per kind, with a `ContentEntry`'s key order, and formatted with
   oxfmt, so a re-run is a clean diff; the target pack's entry files are replaced whole, its `pack.json` kept. The
-  catalog imports pack files statically (`json-packs.ts`), so the CLI names the files to register there and a test
-  fails while any committed pack file is not.
+  catalog imports pack files statically (`json-packs.js`, `ogl-packs.js`, `orc-packs.js`), so the CLI names the files to
+  register there and a test fails while any committed pack file is not.
 - **Backlog.** `content/import/<pack>.json`'s `backlog` (`BacklogItem`), sorted by entry: per entry, its gaps (an
   untranslated rule element with Foundry's JSON, an unmapped field or value, an unresolved lang key, an enricher or
   markup kept as text, an unknown trait, a rule element dropped or a link unlinked for a left-out entry), and for a

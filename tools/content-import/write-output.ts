@@ -1,7 +1,7 @@
 /**
  * Writes pack output (`pack-writes.ts` says where): replaces the target pack's entry files and what its earlier runs
  * added to `core-rules`, writes the backlog beside the pin, and formats every file with oxfmt so a re-run is a clean
- * diff. The catalog loads pack files through static imports in `json-packs.ts`, which the import cannot add, so it
+ * diff. The catalog loads pack files through static imports in `json-packs.js`, which the import cannot add, so it
  * names the files to register there and the imports left pointing at files it removed.
  */
 import { mkdir, rm, stat } from 'node:fs/promises';
@@ -19,9 +19,9 @@ import { backlogPath, importedDirectory, missing, PACKS_DIRECTORY, packWrites, u
 import type { PackTargets, PackWrite } from './pack-writes.ts';
 
 const ROOT = path.resolve(import.meta.dir, '../..');
-/** The directory of the files that import pack files for the catalog: `json-packs.ts`, `ogl-packs.ts`, `orc-packs.ts`. */
+/** The directory of the files that import pack files for the catalog: `json-packs.js`, `ogl-packs.js`, `orc-packs.js`. */
 const CATALOG_DIRECTORY = 'libs/rules/catalog/src';
-const CATALOG_PATTERN = '*-packs.ts';
+const CATALOG_PATTERN = '*-packs.js';
 const MANIFEST = 'pack.json';
 const JSON_INDENT = 2;
 
