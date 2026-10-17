@@ -249,6 +249,25 @@ Raising a shield and blocking with it are play edits, kept in the play state lik
 The encounter tab shows each held shield with its Hit Points, its condition (whole, broken or destroyed) and a block
 control (`sheet-shields`).
 
+### Consumables
+
+Using a potion, elixir, bomb or other consumable is one play edit, `useConsumable` (`consumable-commands.ts`), so the
+spend, the stack and what the item does cannot drift apart:
+
+- The edit carries the item, the spend of its activation, the Hit Points a healing roll restored (`heal`) and the effect
+  the item gives. The sheet rolls the dice, as it rolls every die; the server checks the rest.
+- The activation is the consumable's `activation` (`cost`, `upTo`), one action when the content gives none. The spend is
+  checked like any other (`checkSpend` reads it through `spendOf`), so a turn that cannot pay refuses the use.
+- The server refuses a use of an item the character does not hold, or is no consumable, a spend that names another
+  action, and an effect other than the consumable's own `effect` (`consumableProblem`); the effect also goes through
+  `checkEffect`, so an unknown effect or a full effect list is refused as it would be for `applyEffect`.
+- The stack goes down by one and the item is removed at zero (`consumableInventoryAfter`), written with the play state in
+  one update like a broken wand or shield (`changesInventory`). Quantity never goes below zero.
+- Ammunition, wands and items that hold a spell are used from their own lists and are not listed here.
+
+The encounter tab lists the held consumables with quantity and activation cost, and a Use button that is off while the
+turn cannot pay (`sheet-consumables`). A damage or healing roll shows on a roll card.
+
 ### Statistics and breakdowns
 
 The statistics section lists Armor Class, the three saves and Perception, each by the name its content definition

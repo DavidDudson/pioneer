@@ -265,6 +265,15 @@
       "size": "Size {size}, reach {reach} feet.",
       "noMax": "Hit Points show once the character has an ancestry and a class."
     },
+    "consumables": {
+      "use": "Use",
+      "summary": "{name} ×{quantity} ({cost})",
+      "costOne": "1 action",
+      "costTwo": "2 actions",
+      "costThree": "3 actions",
+      "costFree": "Free action",
+      "costReaction": "Reaction"
+    },
     "shields": {
       "amount": "Damage coming in",
       "block": "Shield Block",
@@ -479,6 +488,9 @@
     "effectMissing": "That effect is no longer on the character. Reload the sheet and try again.",
     "effectFull": "This character has as many effects as it can hold. Remove one first.",
     "effectBadge": "The badge does not fit that effect: a rolled effect needs its roll, and a counter stays within its range.",
+    "consumableNotHeld": "That item is not a consumable you hold.",
+    "consumableWrongAction": "That spend is not this consumable's activation.",
+    "consumableWrongEffect": "That effect is not the one this consumable gives.",
     "wandNotHeld": "That wand is not held. Hold it first.",
     "wandBroken": "A broken wand can't be cast. Mark it repaired first.",
     "wandNotCastable": "None of this character's spell lists has that spell at the wand's rank.",

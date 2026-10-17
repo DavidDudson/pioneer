@@ -1,13 +1,21 @@
 import {
   actionCosts,
   costAllowed,
+  isConsumableCommand,
   isSpendCommand,
   SpendCommandField,
   SpendProblem,
   SpendTime,
   spendRefusal,
 } from '@pioneer/character/domain';
-import type { CountedMaxima, PlayCommand, PlayState, ResourceMaxima, SpendLimits } from '@pioneer/character/domain';
+import type {
+  CountedMaxima,
+  PlayCommand,
+  PlayState,
+  ResourceMaxima,
+  SpendCommand,
+  SpendLimits,
+} from '@pioneer/character/domain';
 import type { ContentRegistry } from '@pioneer/rules/sdk';
 import { message, ValidationError } from '@pioneer/shared/kernel';
 import type { Temporal } from '@pioneer/shared/kernel';
@@ -38,13 +46,22 @@ function refuse(problem: SpendProblem): never {
   throw new ValidationError([{ path: ['command'], message: message(SPEND_MESSAGES[problem]) }]);
 }
 
+/** The spend a play edit makes: the edit itself, or the activation of a consumable it uses. */
+function spendOf(command: PlayCommand): SpendCommand | undefined {
+  if (isConsumableCommand(command)) {
+    return { field: SpendCommandField.SpendAction, ...command.spend };
+  }
+  return isSpendCommand(command) ? command : undefined;
+}
+
 /**
  * Refuses a spend, or taking one back, that the turn, the frequency or the action's own content rules out, so the edit
  * is never partly applied. The content gives the cost, not the client; an action the content has no cost for, such as
  * a Strike or a spell, is checked against the turn alone.
  */
-function checkSpend(play: PlayState, command: PlayCommand, { counted, points, registry }: SpendContext): void {
-  if (!isSpendCommand(command)) {
+function checkSpend(play: PlayState, edit: PlayCommand, { counted, points, registry }: SpendContext): void {
+  const command = spendOf(edit);
+  if (command === undefined) {
     return;
   }
   if (command.field === SpendCommandField.SpendAction) {

@@ -1,18 +1,22 @@
 import {
   conditionProblem,
   ConditionProblem,
+  EffectCommandField,
   EffectProblem,
   effectProblem,
   isConditionCommand,
+  isConsumableCommand,
   isEffectCommand,
   isExplorationActivity,
   isExplorationCommand,
   PlayCommandField,
+  SELF,
   StaffProblem,
   staffProblem,
 } from '@pioneer/character/domain';
 import type {
   ConditionValued,
+  EffectCommand,
   EffectContent,
   PlayCommand,
   PlayEdit,
@@ -69,9 +73,17 @@ export function checkStaff(command: PlayCommand, staff: StaffLimits): void {
   }
 }
 
+/** The effect a consumable puts on the character, as the edit that applies it; undefined for any other command. */
+function consumableEffect(command: PlayCommand): EffectCommand | undefined {
+  return isConsumableCommand(command) && command.effect !== undefined
+    ? { field: EffectCommandField.ApplyEffect, ...command.effect, source: SELF }
+    : undefined;
+}
+
 /** Refuses an effect edit the content or the character's effects rule out. */
 export function checkEffect(play: PlayState, command: PlayCommand, content: EffectContent): void {
-  const problem = isEffectCommand(command) ? effectProblem(play.effects, command, content) : undefined;
+  const edit = consumableEffect(command) ?? command;
+  const problem = isEffectCommand(edit) ? effectProblem(play.effects, edit, content) : undefined;
   if (problem !== undefined) {
     throw new ValidationError([{ path: ['command'], message: message(EFFECT_MESSAGES[problem]) }]);
   }

@@ -11,15 +11,18 @@ const READ = new WeakMap<ContentRegistry, ReadonlyMap<ContentId, ActionCostRange
 /** What an action says of its cost. */
 type ActionCosting = Pick<ActionData, 'cost' | 'upTo'>;
 
-/** The action an entry is, a feat or class feature being one when it has an `action`. */
+/** The action an entry is, a feat or class feature being one when it has an `action`, a consumable when it has an `activation`. */
 function actionOf(entry: ContentEntry): ActionCosting | undefined {
   if (entry.kind === ContentKind.Action) {
     return entry.data;
   }
+  if (entry.kind === ContentKind.Consumable) {
+    return entry.data.activation;
+  }
   return entry.kind === ContentKind.Feat || entry.kind === ContentKind.ClassFeature ? entry.data.action : undefined;
 }
 
-/** What the feat, class feature or action an entry is costs to use, if it says. */
+/** What the feat, class feature, action or consumable an entry is costs to use, if it says. */
 function costOf(entry: ContentEntry): ActionCostRange | undefined {
   const action = actionOf(entry);
   if (action?.cost === undefined) {
