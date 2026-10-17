@@ -2,7 +2,7 @@ import { ActionOriginKind, availableActions } from '@pioneer/rules/engine';
 import type { ActionCandidate, AvailableAction } from '@pioneer/rules/engine';
 import type { GrantEntry } from '@pioneer/rules/grants';
 import { ContentKind } from '@pioneer/rules/sdk';
-import type { ActionData, ContentEntry, ContentId, ContentRegistry, Origin } from '@pioneer/rules/sdk';
+import type { ActionData, ContentEntry, ContentId, ContentRegistry, Origin, Trait } from '@pioneer/rules/sdk';
 
 import { abilityFrequencies } from './ability-frequency';
 import type { CharacterDocument } from './character-document';
@@ -54,14 +54,47 @@ export function abilityActions(registry: ContentRegistry): ReadonlyMap<ContentId
   return read;
 }
 
+/** The Cast a Spell action, whose use is casting. */
+const CAST_A_SPELL = 'action:cast-a-spell';
+
+/** What an ability is, for what a battle form forbids (`ActionCandidate.traits`, `ActionCandidate.casts`). */
+interface AbilityNature {
+  readonly traits: readonly Trait[];
+  readonly casts: boolean;
+}
+
+const NATURES = new WeakMap<ContentRegistry, ReadonlyMap<ContentId, AbilityNature>>();
+
+/** The traits of every ability in the registry and whether it casts a spell; read once per registry. */
+function abilityNatures(registry: ContentRegistry): ReadonlyMap<ContentId, AbilityNature> {
+  const existing = NATURES.get(registry);
+  if (existing !== undefined) {
+    return existing;
+  }
+  const read = new Map(
+    registry.packs
+      .flatMap((pack) => pack.otherEntries)
+      .map((entry): [ContentId, AbilityNature] => [
+        entry.id,
+        { traits: entry.traits, casts: entry.kind === ContentKind.Spell || entry.slug === CAST_A_SPELL },
+      ]),
+  );
+  NATURES.set(registry, read);
+  return read;
+}
+
 /** Every character has the basic and skill actions; one that rolls a skill is a skill action. */
-function universalCandidates(actions: ReadonlyMap<ContentId, ActionData>): readonly ActionCandidate[] {
+function universalCandidates(
+  actions: ReadonlyMap<ContentId, ActionData>,
+  natures: ReadonlyMap<ContentId, AbilityNature>,
+): readonly ActionCandidate[] {
   return [...actions].flatMap(([id, action]): ActionCandidate[] => {
     if (action.universal !== true) {
       return [];
     }
     const rolls = action.skills !== undefined && action.skills.length > 0;
-    return [{ id, action, origin: { kind: rolls ? ActionOriginKind.Skill : ActionOriginKind.Basic } }];
+    const origin = { kind: rolls ? ActionOriginKind.Skill : ActionOriginKind.Basic };
+    return [{ id, action, origin, ...natures.get(id) }];
   });
 }
 
@@ -75,12 +108,20 @@ interface GrantedEntry {
 function grantedCandidates(
   items: readonly GrantedEntry[],
   actions: ReadonlyMap<ContentId, ActionData>,
+  natures: ReadonlyMap<ContentId, AbilityNature>,
 ): readonly ActionCandidate[] {
   return items.flatMap(({ entry, origin }): ActionCandidate[] => {
     const action = actions.get(entry.id);
     return action === undefined
       ? []
-      : [{ id: entry.id, action, origin: { kind: ActionOriginKind.Granted, source: origin } }];
+      : [
+          {
+            id: entry.id,
+            action,
+            origin: { kind: ActionOriginKind.Granted, source: origin },
+            ...natures.get(entry.id),
+          },
+        ];
   });
 }
 
@@ -122,10 +163,11 @@ export function characterActions(
   const grants = characterGrants(document, slots);
   const equipped = equippedGrants(document, itemContent(registry), slots);
   const actions = abilityActions(registry);
+  const natures = abilityNatures(registry);
   const candidates = [
-    ...universalCandidates(actions),
-    ...grantedCandidates(grants.items, actions),
-    ...grantedCandidates(equipped.items, actions),
+    ...universalCandidates(actions, natures),
+    ...grantedCandidates(grants.items, actions, natures),
+    ...grantedCandidates(equipped.items, actions, natures),
   ];
   return availableActions({
     candidates,
@@ -133,5 +175,6 @@ export function characterActions(
     ranks: characterRanks(grants),
     spent: spentActions(candidates, registry, spent),
     statistics: characterStatistics(document, sources),
+    form: equipped.form,
   });
 }

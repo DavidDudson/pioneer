@@ -19,4 +19,7 @@ export const EngineMessage = {
   ActionRequirementsText: 'engine.action.requirementsText',
   ActionUntrained: 'engine.action.untrained',
   ActionFrequencySpent: 'engine.action.frequencySpent',
+  ActionFormCantCast: 'engine.action.formCantCast',
+  ActionFormCantSpeak: 'engine.action.formCantSpeak',
+  ActionFormNoHands: 'engine.action.formNoHands',
 } as const;

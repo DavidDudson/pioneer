@@ -80,3 +80,4 @@ export {
   type AvailableActionsInput,
 } from './available-actions';
 export { type FormReplacement, FormSource } from './statistic-result';
+export { battleFormInPlay, factsUnderForm, type FormInPlay } from './battle-form';
