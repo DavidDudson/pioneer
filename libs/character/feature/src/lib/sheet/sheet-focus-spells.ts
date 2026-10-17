@@ -1,23 +1,13 @@
-import {
-  characterFocus,
-  characterGrants,
-  characterInnate,
-  characterSpellcasting,
-} from "@pioneer/character/domain";
-import type { Character } from "@pioneer/character/domain";
-import type { ContentRegistry } from "@pioneer/rules/sdk";
-import { SpellListMessage } from "@pioneer/rules/ui";
-import type {
-  FocusLine,
-  InnateLine,
-  SpellDetailLine,
-  Translate,
-} from "@pioneer/rules/ui";
+import { characterFocus, characterGrants, characterInnate, characterSpellcasting } from '@pioneer/character/domain';
+import type { Character, SlotContent, SpellOption } from '@pioneer/character/domain';
+import type { ContentRegistry, SpellRank } from '@pioneer/rules/sdk';
+import { SpellListMessage } from '@pioneer/rules/ui';
+import type { FocusLine, FocusSpellLine, InnateLine, SpellDetailLine, Translate } from '@pioneer/rules/ui';
 
-import { sheetSlotContent } from "./sheet-slot-content";
-import { sheetSpellDetail } from "./sheet-spell-details";
-import { spellUse } from "./sheet-spell-use";
-import type { SpellSpend } from "./sheet-spell-use";
+import { sheetSlotContent } from './sheet-slot-content';
+import { sheetSpellDetail } from './sheet-spell-details';
+import { spellUse } from './sheet-spell-use';
+import type { SpellSpend } from './sheet-spell-use';
 
 /** What a focus line is worded and made castable with: the words of its details, and what casting is checked against. */
 export interface FocusWords {
@@ -37,14 +27,8 @@ export function sheetFocus(
   { translate, spend }: FocusWords = {},
 ): FocusLine | undefined {
   const content = sheetSlotContent(registry);
-  const entries = characterSpellcasting(
-    characterGrants(character.document, content),
-  );
-  const focus = characterFocus(
-    entries,
-    content.spells,
-    character.document.level,
-  );
+  const entries = characterSpellcasting(characterGrants(character.document, content));
+  const focus = characterFocus(entries, content.spells, character.document.level);
   if (focus.entries.length === 0) {
     return undefined;
   }
@@ -54,33 +38,44 @@ export function sheetFocus(
     entries: focus.entries.map(({ entry, spells }) => ({
       key: entry.slug,
       tradition: entry.tradition,
-      spells: spells.map(({ id, name, cantrip }) => {
-        const option = content.spells.anySpell(id);
-        const use =
-          spend === undefined || option === undefined
-            ? undefined
-            : spellUse(option, { focus: cantrip ? undefined : true }, spend);
-        const detail: SpellDetailLine | undefined =
-          translate === undefined
-            ? undefined
-            : sheetSpellDetail(
-                registry,
-                {
-                  id,
-                  name,
-                  rank: focus.rank,
-                  tags: [
-                    cantrip
-                      ? SpellListMessage.TagCantrip
-                      : SpellListMessage.TagFocus,
-                  ],
-                },
-                translate,
-              );
-        return { key: id, id, name, cantrip, detail, use };
-      }),
+      spells: spells.map((spell) =>
+        focusSpellLine({ registry, content, rank: focus.rank }, spell, { translate, spend }),
+      ),
     })),
   };
+}
+
+/** What a focus spell line is read from: the registry it is worded by, its slot content, and the rank it is cast at. */
+interface FocusSpellContext {
+  readonly registry: ContentRegistry;
+  readonly content: SlotContent;
+  readonly rank: SpellRank;
+}
+
+function focusSpellLine(
+  { registry, content, rank }: FocusSpellContext,
+  { id, name, cantrip }: SpellOption,
+  { translate, spend }: FocusWords,
+): FocusSpellLine {
+  const option = content.spells.anySpell(id);
+  const use =
+    spend === undefined || option === undefined
+      ? undefined
+      : spellUse(option, { focus: cantrip ? undefined : true }, spend);
+  const detail: SpellDetailLine | undefined =
+    translate === undefined
+      ? undefined
+      : sheetSpellDetail(
+          registry,
+          {
+            id,
+            name,
+            rank,
+            tags: [cantrip ? SpellListMessage.TagCantrip : SpellListMessage.TagFocus],
+          },
+          translate,
+        );
+  return { key: id, id, name, cantrip, detail, use };
 }
 
 /**
@@ -94,14 +89,8 @@ export function sheetInnate(
   translate?: Translate,
 ): InnateLine | undefined {
   const content = sheetSlotContent(registry);
-  const entries = characterSpellcasting(
-    characterGrants(character.document, content),
-  );
-  const innate = characterInnate(
-    entries,
-    content.spells,
-    character.document.level,
-  );
+  const entries = characterSpellcasting(characterGrants(character.document, content));
+  const innate = characterInnate(entries, content.spells, character.document.level);
   if (innate.length === 0) {
     return undefined;
   }
@@ -119,11 +108,7 @@ export function sheetInnate(
                   id,
                   name,
                   rank,
-                  tags: [
-                    cantrip
-                      ? SpellListMessage.TagCantrip
-                      : SpellListMessage.TagInnate,
-                  ],
+                  tags: [cantrip ? SpellListMessage.TagCantrip : SpellListMessage.TagInnate],
                 },
                 translate,
               );
