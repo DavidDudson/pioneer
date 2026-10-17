@@ -54,17 +54,17 @@ export function packWrites(files: readonly PackFile[], targets: PackTargets): re
   }));
 }
 
-/** `content/packs/…` as `json-packs.ts` imports it: `@pioneer/content/packs/…`. */
+/** `content/packs/…` as `json-packs.js` imports it: `@pioneer/content/packs/…`. */
 function specifier(file: string): string {
   return `@pioneer/content/${path.posix.relative('content', file)}`;
 }
 
-/** The pack files `json-packs.ts` (its source, `catalog`) does not import, so the catalog would never load them. */
+/** The pack files `json-packs.js` (its source, `catalog`) does not import, so the catalog would never load them. */
 export function unregistered(catalog: string, files: readonly string[]): readonly string[] {
   return files.filter((file) => !catalog.includes(`'${specifier(file)}'`));
 }
 
-/** What `json-packs.ts` imports from `content/packs` that is not among `files`, so its build would fail. */
+/** What `json-packs.js` imports from `content/packs` that is not among `files`, so its build would fail. */
 export function missing(catalog: string, files: readonly string[]): readonly string[] {
   const present = new Set(files.map((file) => specifier(file)));
   const imported = [...catalog.matchAll(/'(?<specifier>@pioneer\/content\/packs\/[^']+\.json)'/gu)].map(

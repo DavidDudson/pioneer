@@ -15,7 +15,8 @@
     "apps/web/src/styles.css",
     "apps/web/src/app/environment.development.ts",
     "apps/api/src/main.dev.ts",
-    "libs/*/*/src/test-setup.ts"
+    "libs/*/*/src/test-setup.ts",
+    "libs/rules/catalog/src/*-packs.{js,d.ts}"
   ],
   "project": [
     "apps/**/*.ts",
@@ -25,6 +26,7 @@
     "apps/web/src/*.css",
     "apps/storybook/src/*.mdx"
   ],
+  "ignoreIssues": { "libs/rules/catalog/src/*-packs.js": ["unlisted"] },
   "ignoreBinaries": ["typos", "rumdl", "taplo", "hadolint", "tofu"],
   "ignoreDependencies": ["@angular/language-service", "@socketsecurity/bun-security-scanner"],
   "nx": true,

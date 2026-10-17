@@ -1,0 +1,21 @@
+import type { PackLoader } from './pack-loader';
+
+export const impossibleMagicPack: PackLoader;
+export const gunsAndGearsPack: PackLoader;
+export const battlecryPack: PackLoader;
+export const chelaxInfernalInheritancePack: PackLoader;
+export const rivalAcademiesPack: PackLoader;
+export const shiningKingdomsPack: PackLoader;
+export const draconicCodexPack: PackLoader;
+export const hellfireDispatchesPack: PackLoader;
+export const highSeasPack: PackLoader;
+export const seasonOfGhostsPack: PackLoader;
+export const hellbreakersPack: PackLoader;
+export const gatewalkersPack: PackLoader;
+export const mythSpeakersPack: PackLoader;
+export const revengeOfTheRunelordsPack: PackLoader;
+export const secretsOfTheUnlitStarPack: PackLoader;
+export const troublesInGraycePack: PackLoader;
+export const hellsDestinyPack: PackLoader;
+export const bastionOfBlasphemiesPack: PackLoader;
+export const theDeadGodsHandPack: PackLoader;

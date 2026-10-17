@@ -374,6 +374,17 @@
       "rules": { "pioneer/no-magic-numbers": "off" }
     },
     {
+      // The pack loaders are plain JavaScript on purpose: the compiler never sees their JSON imports (TS2859, and
+      // 2M types of inference), so what they return is typed by the `.d.ts` beside them.
+      "files": ["libs/rules/catalog/src/*-packs.js"],
+      "rules": { "typescript/no-unsafe-argument": "off", "typescript/no-unsafe-return": "off" }
+    },
+    {
+      // Declarations of those loaders: an ambient `const` has no initialiser.
+      "files": ["libs/rules/catalog/src/*-packs.d.ts"],
+      "rules": { "eslint/init-declarations": "off" }
+    },
+    {
       // A library's public API is one export per module it exposes; its length is the size of the API, not
       // complexity, and capping it pushed exports behind KIND_DATA and packed export lines.
       "files": ["**/index.ts"],
