@@ -1,5 +1,6 @@
 import {
   CharacterContent,
+  CharacterRuleLimits,
   CharacterAllyService,
   CharacterPackService,
   CharacterUnenabledService,
@@ -90,7 +91,10 @@ export function characters(db: Database, clock: Clock, authenticator: RequestAut
   const content = new StoredContentSource(new ContentRepository(db));
   const repository = new DrizzleCharacterRepository(db);
   const { packs, variants, allies, unenabled } = packServices(db, clock, { content, repository });
-  const characterContent = new CharacterContent(content, packs, variants);
+  const characterContent = new CharacterContent(content, packs, {
+    variants,
+    limits: new CharacterRuleLimits(new CampaignPackDirectory(db)),
+  });
   const service = new CharacterService(repository, characterContent, clock);
   const importer = new PathbuilderImportService(
     { characters: repository, content, variants: new DrizzleCharacterVariantRepository(db) },

@@ -1,4 +1,5 @@
 import {
+  CORE_RULE_LIMITS,
   CarryState,
   hasRunes,
   INVENTORY_KINDS,
@@ -13,6 +14,7 @@ import type {
   InventoryItemId,
   ItemContent,
   ItemEntry,
+  RuleLimits,
   RunedContent,
   RuneContent,
 } from '@pioneer/character/domain';
@@ -84,9 +86,13 @@ export function lineRunes(
  * The inventory as the sheet lists it: loose items grouped worn, held, stowed and dropped as they are carried, each
  * container with what it holds beneath it, and each item named with its runes. Empty groups are left out.
  */
-export function sheetInventory(inventory: Inventory, { items, runes }: RunedContent): readonly InventoryGroup[] {
+export function sheetInventory(
+  inventory: Inventory,
+  { items, runes }: RunedContent,
+  limits: RuleLimits = CORE_RULE_LIMITS,
+): readonly InventoryGroup[] {
   const contents = contentsByContainer(inventory.items);
-  const breaks = reasonsByItem(inventoryViolations(inventory, { items, runes }), runes);
+  const breaks = reasonsByItem(inventoryViolations(inventory, { items, runes }, limits), runes);
   const lineOf = (item: InventoryItem): InventoryLine => {
     const entry = items.get(item.item);
     return {

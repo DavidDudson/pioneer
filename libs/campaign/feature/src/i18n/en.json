@@ -100,6 +100,22 @@
     "noneToAttach": "None of your characters is free to bring. A character is in one campaign at a time.",
     "toCharacters": "Go to your characters"
   },
+  "ruleLimits": {
+    "heading": "Table limits",
+    "loadError": "Could not load the table limits.",
+    "gmOnly": "Only the GM changes the table limits. Characters in this campaign are held to them.",
+    "investedMax": "Items invested",
+    "handsMax": "Hands to hold things in",
+    "propertyRunesPerGrade": "Property runes per potency rune grade",
+    "itemsMax": "Lines in an inventory",
+    "core": "Core rules: {{value}}",
+    "changed": "Changed",
+    "reset": "Reset",
+    "resetting": "Resetting",
+    "resetDone": "Reset",
+    "changeFailed": "Could not reset the limit. Try again.",
+    "ceilingRefusal": "At most {{maximum}}."
+  },
   "variantRules": {
     "heading": "Variant rules",
     "loadError": "Could not load the variant rules.",

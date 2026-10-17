@@ -20,7 +20,7 @@ import { Elysia } from 'elysia';
 import type { AnyElysia } from 'elysia';
 
 import { campaignRoutes } from './campaign-routes';
-import { packService, variantService } from './testing/campaign-pack-fixtures';
+import { packService, ruleLimitService, variantService } from './testing/campaign-pack-fixtures';
 
 const amiri = UserId.parse(newId());
 const ezren = UserId.parse(newId());
@@ -63,6 +63,7 @@ function app(): Api {
     party,
     packs: packService(campaigns, clock),
     variants: variantService(campaigns, clock, catalog),
+    ruleLimits: ruleLimitService(campaigns, clock),
   };
   const handler = new Elysia().use(problemHandler).use(campaignRoutes(services, new FakeAuthenticator()));
   return { handler, catalog };

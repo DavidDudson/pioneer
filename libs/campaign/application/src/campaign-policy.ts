@@ -53,3 +53,8 @@ export function mayManageVariantRules(actor: UserId, campaign: Campaign): boolea
 export function mayArchiveCampaign(actor: UserId, campaign: Campaign): boolean {
   return campaign.roleOf(actor) === CampaignRole.Gm;
 }
+
+/** Who may set and reset a campaign's table limits: its GM. Every member may read them. */
+export function mayManageRuleLimits(actor: UserId, campaign: Campaign): boolean {
+  return campaign.roleOf(actor) === CampaignRole.Gm;
+}

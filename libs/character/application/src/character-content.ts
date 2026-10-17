@@ -1,7 +1,9 @@
-import type { Character } from '@pioneer/character/domain';
+import { CORE_RULE_LIMITS } from '@pioneer/character/domain';
+import type { Character, RuleLimits } from '@pioneer/character/domain';
 import type { ContentRegistry, ContentSource, VariantRuleEntry } from '@pioneer/rules/sdk';
 
 import type { EffectivePacks } from './effective-packs';
+import type { EffectiveRuleLimits } from './effective-rule-limits';
 import type { EffectiveVariants } from './effective-variants';
 
 /**
@@ -16,6 +18,8 @@ export interface CharacterContentSource extends ContentSource {
    * loaded for it, read instead of loading again.
    */
   readonly variantRules?: (character: Character, registry?: ContentRegistry) => Promise<readonly VariantRuleEntry[]>;
+  /** The limits `character`'s inventory is held to (ADR-0064); the core rules' for a source that does not know them. */
+  readonly ruleLimits?: (character: Character) => Promise<RuleLimits>;
 }
 
 /** The content `character` is worked out over. */
@@ -32,19 +36,37 @@ export async function variantRulesOfCharacter(
   return (await content.variantRules?.(character, registry)) ?? [];
 }
 
+/** The limits `character`'s inventory is held to; the core rules' from a source that does not know them. */
+export async function ruleLimitsOfCharacter(
+  content: CharacterContentSource,
+  character: Character,
+): Promise<RuleLimits> {
+  return (await content.ruleLimits?.(character)) ?? CORE_RULE_LIMITS;
+}
+
 /**
  * `content` for everyone, and for a character the homebrew packs `packs` says it uses as well, with the variant rules
- * `variants` says are enabled for it.
+ * `variants` says are enabled for it and the inventory limits `limits` says it is held to.
  */
 export class CharacterContent implements CharacterContentSource {
   readonly #content: ContentSource;
   readonly #packs: EffectivePacks;
   readonly #variants: EffectiveVariants;
+  readonly #limits: EffectiveRuleLimits | undefined;
 
-  public constructor(content: ContentSource, packs: EffectivePacks, variants: EffectiveVariants) {
+  public constructor(
+    content: ContentSource,
+    packs: EffectivePacks,
+    rules: { readonly variants: EffectiveVariants; readonly limits?: EffectiveRuleLimits },
+  ) {
     this.#content = content;
     this.#packs = packs;
-    this.#variants = variants;
+    this.#variants = rules.variants;
+    this.#limits = rules.limits;
+  }
+
+  public async ruleLimits(character: Character): Promise<RuleLimits> {
+    return (await this.#limits?.of(character)) ?? CORE_RULE_LIMITS;
   }
 
   public async registry(): Promise<ContentRegistry> {

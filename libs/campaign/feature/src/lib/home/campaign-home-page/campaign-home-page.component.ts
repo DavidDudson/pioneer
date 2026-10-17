@@ -22,6 +22,7 @@ import { CampaignInvitePanel } from '../campaign-invite-panel/campaign-invite-pa
 import { CampaignMemberList } from '../campaign-member-list/campaign-member-list.component';
 import { CampaignPacksPanel } from '../campaign-packs/campaign-packs.component';
 import { CampaignPartyPanel } from '../campaign-party/campaign-party.component';
+import { CampaignRuleLimitsPanel } from '../campaign-rule-limits/campaign-rule-limits.component';
 import { CampaignVariantRulesPanel } from '../campaign-variant-rules/campaign-variant-rules.component';
 
 /** One campaign's home: when it started, who is in it, their characters, and for its GM, the invite links. */
@@ -35,6 +36,7 @@ import { CampaignVariantRulesPanel } from '../campaign-variant-rules/campaign-va
     CampaignMemberList,
     CampaignPacksPanel,
     CampaignPartyPanel,
+    CampaignRuleLimitsPanel,
     CampaignVariantRulesPanel,
     DateDisplay,
     DescriptionItem,

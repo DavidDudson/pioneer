@@ -53,7 +53,7 @@ async function sheetAsked(packs: EffectivePacks): Promise<(readonly ContentPackI
   const asked: (readonly ContentPackId[] | undefined)[] = [];
   const service = new CharacterService(
     new InMemoryCharacterRepository(),
-    new CharacterContent(recordingContent(asked), packs, new NoVariants()),
+    new CharacterContent(recordingContent(asked), packs, { variants: new NoVariants() }),
     clock,
   );
   const kyra = await service.create(amiri, {

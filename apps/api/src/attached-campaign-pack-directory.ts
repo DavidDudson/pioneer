@@ -1,7 +1,13 @@
-import { campaignCharacters, campaignPacks, campaigns, campaignVariantRules } from '@pioneer/campaign/infrastructure';
+import {
+  campaignCharacters,
+  campaignPacks,
+  campaignRuleLimits,
+  campaigns,
+  campaignVariantRules,
+} from '@pioneer/campaign/infrastructure';
 import { AttachedCampaignPacks } from '@pioneer/character/application';
 import type { AttachedCampaign } from '@pioneer/character/application';
-import { AttachedCampaignName, CampaignAlly } from '@pioneer/character/domain';
+import { AttachedCampaignName, CampaignAlly, RuleLimitOverridesSchema } from '@pioneer/character/domain';
 import type { CharacterId } from '@pioneer/character/domain';
 import { characters } from '@pioneer/character/infrastructure';
 import { VariantRuleId } from '@pioneer/rules/sdk';
@@ -38,10 +44,15 @@ export class CampaignPackDirectory extends AttachedCampaignPacks {
       .select({ variantId: campaignVariantRules.variantId })
       .from(campaignVariantRules)
       .where(eq(campaignVariantRules.campaignId, attached.id));
+    const limits = await this.#db
+      .select({ limit: campaignRuleLimits.limit, value: campaignRuleLimits.value })
+      .from(campaignRuleLimits)
+      .where(eq(campaignRuleLimits.campaignId, attached.id));
     return {
       name: AttachedCampaignName.parse(attached.name),
       packs: rows.map((row) => row.packId),
       variants: variants.map((row) => VariantRuleId.parse(row.variantId)),
+      limits: RuleLimitOverridesSchema.parse(Object.fromEntries(limits.map((row) => [row.limit, row.value]))),
     };
   }
 

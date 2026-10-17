@@ -23,5 +23,7 @@ export function characterRoutes(service: CharacterService, auth: RequestAuthenti
     )
     .handleSignedIn(CharacterContract.archive, auth, async ({ actor, params }) => service.archive(actor, params.id))
     .handleSignedIn(CharacterContract.restore, auth, async ({ actor, params }) => service.restore(actor, params.id))
-    .app;
+    .handleSignedIn(CharacterContract.ruleLimits, auth, async ({ actor, params }) =>
+      service.ruleLimits(actor, params.id),
+    ).app;
 }

@@ -3,11 +3,16 @@ import type { Routes } from '@angular/router';
 import { Locale } from '@pioneer/shared/kernel';
 import { loadWithMessages, PREFETCH_WHEN_IDLE, provideMessageScope } from '@pioneer/shared/web';
 
+import { CampaignRuleLimitStore } from './data/campaign-rule-limit-store';
 import { CampaignStore } from './data/campaign-store';
 
 /** What every campaign page needs: its server state and its messages. */
 function campaignProviders(): (Provider | EnvironmentProviders)[] {
-  return [CampaignStore, provideMessageScope('campaign', { [Locale.English]: async () => import('../i18n/en.json') })];
+  return [
+    CampaignStore,
+    CampaignRuleLimitStore,
+    provideMessageScope('campaign', { [Locale.English]: async () => import('../i18n/en.json') }),
+  ];
 }
 
 /** Lazy routes for the campaign bounded context. */

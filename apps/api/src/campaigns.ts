@@ -2,6 +2,7 @@ import {
   CampaignInviteService,
   CampaignPackService,
   CampaignPartyService,
+  CampaignRuleLimitService,
   CampaignService,
   CampaignVariantService,
 } from '@pioneer/campaign/application';
@@ -11,6 +12,7 @@ import {
   DrizzleCampaignPackRepository,
   DrizzleCampaignPartyRepository,
   DrizzleCampaignRepository,
+  DrizzleCampaignRuleLimitRepository,
   DrizzleCampaignVariantRepository,
 } from '@pioneer/campaign/infrastructure';
 import { PackAccessPolicy } from '@pioneer/homebrew/application';
@@ -25,6 +27,19 @@ import type { Database } from './database';
 import { HomebrewPackCatalog } from './homebrew-pack-catalog';
 import { OwnedCharacterDirectory } from './owned-character-directory';
 import { UserMemberDirectory } from './user-member-directory';
+
+/** The variant-rule service: enabled rules are checked against the stored content. */
+function variantService(db: Database, repository: DrizzleCampaignRepository, clock: Clock): CampaignVariantService {
+  const content = new StoredContentSource(new ContentRepository(db));
+  return new CampaignVariantService(
+    {
+      campaigns: repository,
+      variants: new DrizzleCampaignVariantRepository(db),
+      catalog: new CampaignVariantRuleCatalog(db, content),
+    },
+    clock,
+  );
+}
 
 /** The campaign context's part of the composition root: services and routes. */
 export function campaigns(db: Database, clock: Clock, authenticator: RequestAuthenticator): ContractRouter['app'] {
@@ -52,14 +67,10 @@ export function campaigns(db: Database, clock: Clock, authenticator: RequestAuth
     { campaigns: repository, packs: new DrizzleCampaignPackRepository(db), catalog },
     clock,
   );
-  const content = new StoredContentSource(new ContentRepository(db));
-  const variants = new CampaignVariantService(
-    {
-      campaigns: repository,
-      variants: new DrizzleCampaignVariantRepository(db),
-      catalog: new CampaignVariantRuleCatalog(db, content),
-    },
+  const variants = variantService(db, repository, clock);
+  const ruleLimits = new CampaignRuleLimitService(
+    { campaigns: repository, limits: new DrizzleCampaignRuleLimitRepository(db) },
     clock,
   );
-  return campaignRoutes({ campaigns: service, invites, party, packs, variants }, authenticator);
+  return campaignRoutes({ campaigns: service, invites, party, packs, variants, ruleLimits }, authenticator);
 }

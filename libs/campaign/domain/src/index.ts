@@ -17,6 +17,7 @@ export {
   CampaignMemberId,
   CampaignName,
   CampaignPackId,
+  CampaignRuleLimitId,
   CampaignVariantRuleId,
   CampaignRole,
   CharacterId,
@@ -41,3 +42,15 @@ export {
   EnableVariantRuleBody,
   VariantRuleOption,
 } from './campaign-variant-rules';
+export {
+  type CampaignRuleLimit,
+  CampaignRuleLimits,
+  CORE_LIMIT_DEFAULTS,
+  LIMIT_CEILINGS,
+  RuleLimitKey,
+  RuleLimitKeySchema,
+  RuleLimitSetting,
+  type RuleLimitChange,
+  RuleLimitValue,
+  SetRuleLimitBody,
+} from './campaign-rule-limits';

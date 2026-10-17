@@ -33,3 +33,5 @@ export {
   type CharacterUnenabledPorts,
   type OwnChoices,
 } from './character-unenabled-service';
+export { CharacterRuleLimits } from './character-rule-limits';
+export { EffectiveRuleLimits } from './effective-rule-limits';

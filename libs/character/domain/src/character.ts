@@ -18,6 +18,8 @@ import { inventoryRefusal, moveItem, removeItem, renameItem, setItemQuantity } f
 import type { Inventory, InventoryEdit } from './inventory';
 import { withAddedItem, withAddedKit } from './item-purchase';
 import type { EditInputs } from './item-purchase';
+import { storableLimits } from './rule-limits';
+import type { RuleLimits } from './rule-limits';
 import { signatureKeyOf } from './signature-spells';
 
 /**
@@ -161,7 +163,7 @@ export class Character {
       case CharacterPatchField.EtchRune:
       case CharacterPatchField.EraseRune:
       case CharacterPatchField.TransferRune: {
-        return this.#stock(patch, (inventory) => equipmentChange(inventory, patch));
+        return this.#stock(patch, (inventory) => equipmentChange(inventory, patch), inputs.limits);
       }
       case CharacterPatchField.GrantSpellAccess:
       case CharacterPatchField.RevokeSpellAccess: {
@@ -183,23 +185,23 @@ export class Character {
     switch (patch.field) {
       case CharacterPatchField.GiftItem:
       case CharacterPatchField.BuyItem: {
-        return this.#stock(patch, (inventory) => withAddedItem(inventory, patch, inputs));
+        return this.#stock(patch, (inventory) => withAddedItem(inventory, patch, inputs), inputs.limits);
       }
       case CharacterPatchField.GiftKit:
       case CharacterPatchField.BuyKit: {
-        return this.#stock(patch, (inventory) => withAddedKit(inventory, patch, inputs));
+        return this.#stock(patch, (inventory) => withAddedKit(inventory, patch, inputs), inputs.limits);
       }
       case CharacterPatchField.RemoveItem: {
-        return this.#stock(patch, (inventory) => removeItem(inventory, patch.id));
+        return this.#stock(patch, (inventory) => removeItem(inventory, patch.id), inputs.limits);
       }
       case CharacterPatchField.SetItemQuantity: {
-        return this.#stock(patch, (inventory) => setItemQuantity(inventory, patch.id, patch.quantity));
+        return this.#stock(patch, (inventory) => setItemQuantity(inventory, patch.id, patch.quantity), inputs.limits);
       }
       case CharacterPatchField.MoveItem: {
-        return this.#stock(patch, (inventory) => moveItem(inventory, patch.id, patch.container));
+        return this.#stock(patch, (inventory) => moveItem(inventory, patch.id, patch.container), inputs.limits);
       }
       case CharacterPatchField.RenameItem: {
-        return this.#stock(patch, (inventory) => renameItem(inventory, patch.id, patch.name));
+        return this.#stock(patch, (inventory) => renameItem(inventory, patch.id, patch.name), inputs.limits);
       }
       case CharacterPatchField.SetCoins: {
         return {
@@ -216,9 +218,13 @@ export class Character {
     }
   }
 
-  /** The document with its inventory changed by `change`, once the inventory allows `edit`. */
-  #stock(edit: InventoryEdit, change: (inventory: Inventory) => Inventory): Partial<CharacterProps> {
-    const refusal = inventoryRefusal(this.document.inventory, edit);
+  /** The document with its inventory changed by `change`, once the inventory allows `edit` within the table's `limits`. */
+  #stock(
+    edit: InventoryEdit,
+    change: (inventory: Inventory) => Inventory,
+    limits: RuleLimits | undefined,
+  ): Partial<CharacterProps> {
+    const refusal = inventoryRefusal(this.document.inventory, edit, storableLimits(limits));
     if (refusal !== undefined) {
       throw new TypeError(`Refused inventory edit: ${refusal.message.key}`);
     }

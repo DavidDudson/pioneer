@@ -27,6 +27,7 @@ import type {
   CreateCharacterBody,
   PatchCharacterBody,
   PatchedCharacterSheet,
+  RuleLimits,
   SlotContent,
   SlotPick,
 } from '@pioneer/character/domain';
@@ -34,7 +35,7 @@ import type { AncestryId, ContentId, ContentRegistry, ContentSource } from '@pio
 import { message, newId, NotFoundError, ValidationError, VersionConflictError } from '@pioneer/shared/kernel';
 import type { Clock, UserId, Version } from '@pioneer/shared/kernel';
 
-import { contentOfCharacter, variantRulesOfCharacter } from './character-content';
+import { contentOfCharacter, ruleLimitsOfCharacter, variantRulesOfCharacter } from './character-content';
 import type { CharacterContentSource } from './character-content';
 import { mayAccessCharacter } from './character-policy';
 import type { CharacterRepository } from './character-repository';
@@ -72,6 +73,16 @@ export class CharacterService {
   /** The content `character` is worked out over: the official packs and the homebrew packs it uses. */
   #contentOf(character: Character): ContentSource {
     return contentOfCharacter(this.#content, character);
+  }
+
+  /** The limits `character`'s inventory is held to: its campaign's, else the core rules' (ADR-0064). */
+  async #limitsOf(character: Character): Promise<RuleLimits> {
+    return ruleLimitsOfCharacter(this.#content, character);
+  }
+
+  /** The table limits one of the actor's characters is held to. Someone else's is a 404, the same as a missing one. */
+  public async ruleLimits(actor: UserId, id: CharacterId): Promise<RuleLimits> {
+    return this.#limitsOf(await this.get(actor, id));
   }
 
   /** The actor's own characters; nobody else's are listed. */
@@ -175,6 +186,7 @@ export class CharacterService {
     const inputs = {
       ...(await editInputs(this.#contentOf(current), current, patch)),
       countsAsSwap: (await this.#swapOf(current, patch)) === RepertoireSwap.Counts,
+      limits: await this.#limitsOf(current),
     };
     const now = this.#clock.now();
     const edited = current.apply(patch, now, inputs);
@@ -207,7 +219,10 @@ export class CharacterService {
     if (patch.field === CharacterPatchField.GrantSpellAccess) {
       await this.#assertSpellNeedsAccess(current, patch.spell);
     }
-    await assertInventoryAllows(current, patch, this.#contentOf(current));
+    await assertInventoryAllows(current, patch, {
+      content: this.#contentOf(current),
+      tableLimits: await this.#limitsOf(current),
+    });
   }
 
   /** Refuses access to a spell no loaded pack has for a slot (a focus spell among them), a common one, or past the most. */

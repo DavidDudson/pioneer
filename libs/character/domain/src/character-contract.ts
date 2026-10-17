@@ -15,6 +15,7 @@ import { CharacterVariantRules, EnableVariantRuleBody } from './character-varian
 import { ClearedPick } from './dependent-picks';
 import { FeatDisplayChoice, SetFeatDisplayBody } from './feat-display';
 import { CharacterPlay, PatchedPlay, PatchPlayBody } from './play-state';
+import { RuleLimitsSchema } from './rule-limits';
 import { SetSheetModeBody, SheetModeChoice } from './sheet-mode';
 import { UnenabledContent } from './unenabled-content';
 
@@ -209,6 +210,18 @@ export const CharacterContract = {
     query: NoQuery,
     body: NoBody,
     response: CharacterPacks,
+  }),
+  /**
+   * The table limits this character's inventory is held to: its campaign's when it is attached to one, else the core
+   * rules' (ADR-0064).
+   */
+  ruleLimits: new Endpoint({
+    method: HttpMethod.Get,
+    path: '/characters/:id/rule-limits',
+    params: ById,
+    query: NoQuery,
+    body: NoBody,
+    response: RuleLimitsSchema,
   }),
   /** The variant rules in force for this character, and who decides them: its owner, or the campaign it is attached to. */
   variantRules: new Endpoint({

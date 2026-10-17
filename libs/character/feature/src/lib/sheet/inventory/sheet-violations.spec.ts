@@ -1,7 +1,9 @@
 import {
   addItem,
+  CORE_RULE_LIMITS,
   EMPTY_INVENTORY,
   INVESTED_MAX,
+  InvestedCount,
   InventoryItemId,
   inventoryViolations,
   ItemOrigin,
@@ -57,5 +59,28 @@ describe('the rules an imported inventory breaks', () => {
   it('puts the reasons on the sheet lines, and none on the lines within the limit', () => {
     const lines = sheetInventory(inventory, runed).flatMap((group) => group.lines);
     expect(lines.filter((line) => line.breaks.length > 0).map((line) => line.id)).toStrictEqual([idAt(INVESTED_MAX)]);
+  });
+});
+
+describe('the same inventory against a campaign’s own limits', () => {
+  const inventory = overInvested();
+
+  function flagged(investedMax: InvestedCount): readonly string[] {
+    const limits = { ...CORE_RULE_LIMITS, investedMax };
+    const lines = sheetInventory(inventory, runed, limits).flatMap((group) => group.lines);
+    return lines.filter((line) => line.breaks.length > 0).map((line) => line.id);
+  }
+
+  it('stops flagging the item once the limit is raised past what is invested', () => {
+    expect(flagged(InvestedCount.parse(INVESTED_MAX + 1))).toStrictEqual([]);
+  });
+
+  it('flags every item past a lowered limit, with the lowered limit in the reason', () => {
+    const lowered = InvestedCount.parse(INVESTED_MAX - 2);
+    expect(flagged(lowered)).toStrictEqual([idAt(INVESTED_MAX - 2), idAt(INVESTED_MAX - 1), idAt(INVESTED_MAX)]);
+    const violations = inventoryViolations(inventory, runed, { ...CORE_RULE_LIMITS, investedMax: lowered });
+    expect(reasonsByItem(violations, runed.runes).get(idAt(INVESTED_MAX))).toStrictEqual([
+      { key: ViolationMessage.Invested, params: { limit: lowered, actual: INVESTED_MAX + 1 } },
+    ]);
   });
 });
