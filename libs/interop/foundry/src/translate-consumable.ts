@@ -8,6 +8,7 @@ import { ENVELOPE_FIELDS, KindDataGapReason, report } from './kind-data-gaps';
 import type { GapLog, KindInput } from './kind-data-gaps';
 import { setFields, systemOf } from './kind-fields';
 import { FoundryPhysicalSystem, PHYSICAL_FIELDS, physicalData, stackSize, usageField } from './physical-fields';
+import { useOf } from './translate-consumable-use';
 
 /**
  * A consumable's `data` from Foundry's `consumable` item, and ammunition's from its `ammo` item (ADR-0023): category,
@@ -133,6 +134,7 @@ export function consumableData(input: KindInput): object | undefined {
     category: system.category,
     ...usesOf(system.uses),
     ...usageField(system, log),
+    ...useOf(input.document.system.description?.value ?? '', input),
     ...setFields({
       damage: system.damage ? damageOf(system.damage, log) : undefined,
       spell: system.spell ? spellOf(system.spell, input) : undefined,

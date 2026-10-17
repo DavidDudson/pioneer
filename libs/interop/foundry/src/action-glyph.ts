@@ -17,9 +17,14 @@ const GLYPHS: ReadonlyMap<string, ActionCost> = new Map([
   ['r', ActionCost.Reaction],
 ]);
 
+/** The cost the text of an action glyph shows; undefined for anything else (`1 – 3`). */
+export function glyphCost(text: string): ActionCost | undefined {
+  return GLYPHS.get(text.trim().toLowerCase());
+}
+
 /** The cost an action glyph span shows; undefined when the element is not one, or shows anything else (`1 – 3`). */
 export function actionGlyph(element: Element): ActionCost | undefined {
   const isGlyph = element.name === GLYPH_ELEMENT && element.attribs['class'] === GLYPH_CLASS;
   const text = element.children.map((child) => (isText(child) ? child.data : '')).join('');
-  return isGlyph ? GLYPHS.get(text.trim().toLowerCase()) : undefined;
+  return isGlyph ? glyphCost(text) : undefined;
 }
