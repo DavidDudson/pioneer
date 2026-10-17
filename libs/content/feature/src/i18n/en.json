@@ -3,6 +3,9 @@
     "title": "Content",
     "description": "Browse the rules content Pioneer holds. The search and the filters are kept in the link, so a list can be shared."
   },
+  "crumb": {
+    "browser": "Content Browser"
+  },
   "kind": {
     "label": "Kinds",
     "action": "Actions",

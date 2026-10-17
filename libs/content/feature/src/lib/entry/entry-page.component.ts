@@ -24,7 +24,8 @@ import type { EntryPreview, RichTextLinks } from '@pioneer/rules/ui';
 import { injectQuery } from '@tanstack/angular-query-experimental';
 import type { CreateQueryResult } from '@tanstack/angular-query-experimental';
 
-import { entryCard, entryIndex, entryKinds, entryLinks, findEntry, kindOfParam } from './entry-lookup';
+import { entryCard, entryIndex, entryLinks, findEntry, kindOfParam } from './entry-lookup';
+import { injectEntryRegistry } from './entry-registry';
 
 const EntryMessage = {
   Title: 'content.page.title',
@@ -73,15 +74,8 @@ export class EntryPage {
 
   readonly #kind: Signal<ContentKind | undefined> = computed(() => kindOfParam(this.#params().get('kind')));
 
-  /** The entry's kind with the ones its text refers to, so a reference can be named and linked; none for a link with no kind. */
-  protected readonly registry: CreateQueryResult<ContentRegistry> = injectQuery(() => {
-    const kind = this.#kind();
-    return {
-      queryKey: ['content', 'entry', kind],
-      queryFn: async (): Promise<ContentRegistry> => this.#loader.registry(kind === undefined ? [] : entryKinds(kind)),
-      staleTime: Number.POSITIVE_INFINITY,
-    };
-  });
+  /** The entry's kind with the ones its text refers to, so a reference can be named and linked. */
+  protected readonly registry: CreateQueryResult<ContentRegistry> = injectEntryRegistry(() => this.#kind());
 
   readonly #index = computed(() => {
     const registry = this.registry.data();

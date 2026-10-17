@@ -80,8 +80,6 @@ describe('PackHomePage', () => {
       entryCount: 0,
       updatedAt: '2026-10-10T10:00:00.000Z',
     });
-    await harness.fixture.whenStable();
-
     await vi.waitFor(() => {
       const text = present(harness.routeNativeElement).textContent;
       expect(text).toContain('amiri-feats');
@@ -96,8 +94,6 @@ describe('PackHomePage', () => {
     TestBed.inject(HttpTestingController)
       .expectOne(`/api/homebrew/packs/${id}`)
       .flush({ type: 'not-found' }, { status: 404, statusText: 'Not Found' });
-    await harness.fixture.whenStable();
-
     await vi.waitFor(() => {
       expect(present(harness.routeNativeElement).textContent).toContain('Could not load this pack.');
     });
@@ -111,8 +107,6 @@ describe('PackHomePage', () => {
     expect(request.request.method).toBe('PATCH');
     expect(request.request.body).toStrictEqual({ visibility: 'public' });
     request.flush({ ...loadedPack, visibility: 'public' });
-    await harness.fixture.whenStable();
-
     await vi.waitFor(() => {
       expect(present(harness.routeNativeElement).textContent).toContain('Public: everyone signed in');
     });
@@ -140,8 +134,6 @@ describe('PackHomePage', () => {
       },
       { status: 409, statusText: 'Conflict' },
     );
-    await harness.fixture.whenStable();
-
     await vi.waitFor(() => {
       const text = present(harness.routeNativeElement).textContent;
       expect(text).toContain('Kingmaker, Rise of the Runelords');
@@ -155,8 +147,6 @@ describe('PackHomePage', () => {
     TestBed.inject(HttpTestingController)
       .expectOne(`/api/homebrew/packs/${id}/visibility`)
       .flush({ type: 'internal', title: 'Error', status: 500 }, { status: 500, statusText: 'Server Error' });
-    await harness.fixture.whenStable();
-
     await vi.waitFor(() => {
       expect(present(harness.routeNativeElement).textContent).toContain(
         'Could not change who can see this pack. Try again.',
@@ -175,8 +165,6 @@ describe('PackHomePage', () => {
         { type: 'forbidden', title: 'Forbidden', status: 403, message: { key: 'problem.forbidden' } },
         { status: 403, statusText: 'Forbidden' },
       );
-    await harness.fixture.whenStable();
-
     await vi.waitFor(() => {
       expect(present(harness.routeNativeElement).textContent).toContain(
         'Only the pack’s owner can change who can see it.',

@@ -89,7 +89,6 @@
   },
   "bugReport": {
     "title": "Bug report",
-    "back": "All bug reports",
     "loadError": "Could not load this bug report.",
     "descriptionHeading": "What went wrong",
     "stepsHeading": "Steps to see it",

@@ -1,13 +1,16 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
+import { Breadcrumbs } from '../../actions/breadcrumbs/breadcrumbs.component';
 import { Skeleton } from '../../feedback/skeleton/skeleton.component';
 import { Heading } from '../../text/heading/heading.component';
 import { Text } from '../../text/text/text.component';
 import { Stack } from '../stack/stack.component';
+import { injectRouteCrumbs } from './route-crumbs';
 
 /**
  * The title area of an `fr-page`: the page's only `h1`, an optional description, and three slots.
- * Project `[frPageBreadcrumbs]` above the title, `[frPageActions]` beside it and `[frPageTabs]` below it.
+ * Above the title it shows the breadcrumbs of the active route (`injectRouteCrumbs`); pages do not pass items.
+ * Project `[frPageActions]` beside the title and `[frPageTabs]` below it.
  * While `title` is `undefined` the heading shows a skeleton.
  *
  * ```html
@@ -18,7 +21,7 @@ import { Stack } from '../stack/stack.component';
  */
 @Component({
   selector: 'fr-page-header',
-  imports: [Heading, Skeleton, Stack, Text],
+  imports: [Breadcrumbs, Heading, Skeleton, Stack, Text],
   templateUrl: './page-header.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'block' },
@@ -27,4 +30,6 @@ export class PageHeader {
   /** `undefined` while the page's subject is still loading: shows a skeleton. */
   public readonly title = input.required<string | undefined>();
   public readonly description = input<string | undefined>(undefined);
+
+  protected readonly crumbs = injectRouteCrumbs();
 }

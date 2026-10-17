@@ -1,6 +1,8 @@
 <header>
   <fr-stack gap="md">
-    <ng-content select="[frPageBreadcrumbs]" />
+    @if (crumbs().length > 0) {
+      <fr-breadcrumbs [items]="crumbs()" />
+    }
     <fr-stack horizontalFrom="md" gap="md" justify="between">
       <fr-stack gap="2xs">
         @if (title(); as title) {

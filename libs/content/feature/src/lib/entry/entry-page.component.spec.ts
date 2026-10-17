@@ -1,7 +1,7 @@
 import { provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-import { provideRouter } from '@angular/router';
+import { provideRouter, Router } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
 import { frontierMessages } from '@pioneer/frontier';
 import { prebuildContentTesting, provideContentTesting, TestContentDelivery } from '@pioneer/rules/data-access/testing';
@@ -85,6 +85,23 @@ describe('EntryPage', () => {
       expect(harness.routeNativeElement?.querySelector('pio-entry-preview h2')?.textContent.trim()).toBe(
         'Power-attack',
       );
+    });
+  });
+
+  it('shows the trail from the content browser through the kind to the entry, from the routes', async () => {
+    const { root } = await open('/content/feat/shield-block');
+    await vi.waitFor(() => {
+      const trail = [...root.querySelectorAll('nav li')].map((item) => item.textContent.trim());
+      expect(trail).toStrictEqual(['Content Browser', 'Feats', 'Shield-block']);
+    });
+    const hrefs = [...root.querySelectorAll('nav a')].map((link) => link.getAttribute('href'));
+    expect(hrefs).toStrictEqual(['/content', '/content/feat']);
+  });
+
+  it('opens the browser on the kind when the kind crumb is followed', async () => {
+    await open('/content/feat');
+    await vi.waitFor(() => {
+      expect(TestBed.inject(Router).url).toBe('/content?kind=feat');
     });
   });
 

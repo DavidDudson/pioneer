@@ -7,7 +7,9 @@
         @if (!$first) {
           <fr-icon tone="muted" [icon]="separator" />
         }
-        @if ($last) {
+        @if (item.label === undefined) {
+          <span aria-busy="true" [class]="textClasses"><fr-skeleton width="sm" /></span>
+        } @else if ($last) {
           <span aria-current="page" [class]="currentClasses">{{ item.label }}</span>
         } @else if (item.to !== undefined) {
           <fr-link [to]="item.to"
