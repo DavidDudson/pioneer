@@ -249,6 +249,22 @@ export { StatisticData, StatisticDefinition, StatisticId, StatisticKind, Statist
 export { SOURCE_SLUG_MAX, StatisticPer } from './statistic';
 export { CreatureData, CreatureDefinition, CreatureId, DamageTarget, NO_DEFENCES } from './creature';
 export {
+  CreatureAbility,
+  CreatureDamage,
+  CreatureItem,
+  CreatureSense,
+  CreatureSkill,
+  CreatureSkillName,
+  CreatureSpeed,
+  CreatureSpell,
+  CreatureSpellcasting,
+  CreatureStrike,
+  DamageBonus,
+  ItemQuantity,
+  MovementType,
+  StrikeRange,
+} from './creature-stat-block';
+export {
   AonSourceUrl,
   Book,
   BOOK_TITLES,

@@ -1,13 +1,35 @@
-import { Uuid } from '@pioneer/shared/kernel';
+import { Pg, Uuid } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
-import { AttributeModifiersWire } from './attribute';
+import { ATTRIBUTE_MODIFIER_MIN } from './attribute';
 import { EntrySlug } from './content-id';
 import { ContentText } from './content-text';
+import { creatureStatBlockFields } from './creature-stat-block';
 import { DamageAdjustment } from './damage';
 import { SizeSchema } from './size';
 import { Immunity, Trait } from './trait';
 import { ArmorClass, Feet, HitPoints, Level, Modifier } from './units';
+
+/** The highest attribute modifier a stat block prints: an ancient dragon's Strength is +12, past a character's +7. */
+const CREATURE_ATTRIBUTE_MAX = 15;
+
+/** A creature's attribute modifier, which runs higher than a character's but no lower. */
+const CreatureAttributeModifier = Pg.smallint()
+  .min(ATTRIBUTE_MODIFIER_MIN)
+  .max(CREATURE_ATTRIBUTE_MAX)
+  .brand<'CreatureAttributeModifier'>();
+type CreatureAttributeModifier = z.infer<typeof CreatureAttributeModifier>;
+
+/** The six attribute modifiers on a stat block. */
+const CreatureAttributes = z.object({
+  str: CreatureAttributeModifier,
+  dex: CreatureAttributeModifier,
+  con: CreatureAttributeModifier,
+  int: CreatureAttributeModifier,
+  wis: CreatureAttributeModifier,
+  cha: CreatureAttributeModifier,
+});
+type CreatureAttributes = z.infer<typeof CreatureAttributes>;
 
 /** Id of a creature content entry (UUIDv5 of `<pack>/<slug>`). */
 export const CreatureId = Uuid.brand<'CreatureId'>();
@@ -22,7 +44,7 @@ export const CreatureDefinition = z.object({
   size: SizeSchema,
   traits: z.array(Trait).readonly(),
   perception: Modifier,
-  attributes: AttributeModifiersWire,
+  attributes: CreatureAttributes,
   armorClass: ArmorClass,
   saves: z.object({ fortitude: Modifier, reflex: Modifier, will: Modifier }),
   hitPoints: HitPoints,
@@ -30,6 +52,7 @@ export const CreatureDefinition = z.object({
   weaknesses: z.array(DamageAdjustment).readonly(),
   resistances: z.array(DamageAdjustment).readonly(),
   speed: Feet,
+  ...creatureStatBlockFields,
 });
 export type CreatureDefinition = z.infer<typeof CreatureDefinition>;
 
