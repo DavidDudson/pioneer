@@ -444,7 +444,7 @@ because that is the dataset we import and the system we export to (see
 | Checks      | `RollTwice`, `SubstituteRoll`, `AdjustDegreeOfSuccess`, `RollNote`                                                                                                                                                                                                                                                                                                                                                                                                     |
 | Strikes     | `Strike`, `AdjustStrike`, `DamageDice`, `DamageAlteration`, `CriticalSpecialization`                                                                                                                                                                                                                                                                                                                                                                                   |
 | Defences    | `Immunity`, `Weakness`, `Resistance`, `TempHitPoints`, `FastHealing`                                                                                                                                                                                                                                                                                                                                                                                                   |
-| Creature    | `BaseSpeed`, `Sense`, `CreatureSize`, `Language`, `ActorTraits`, `SpecialResource`, `SpecialStatistic`, `Aura`                                                                                                                                                                                                                                                                                                                                                         |
+| Creature    | `BaseSpeed`, `Sense`, `CreatureSize`, `BattleForm`, `Language`, `ActorTraits`, `SpecialResource`, `SpecialStatistic`, `Aura`                                                                                                                                                                                                                                                                                                                                           |
 | Actions     | `GrantAction` (an action becomes available, with its own predicate)                                                                                                                                                                                                                                                                                                                                                                                                    |
 
 Each element is a discriminated union member with its own zod schema in `libs/rules/sdk`. Every element has an
@@ -710,6 +710,18 @@ gives it as an origin. `CreatureSize` applies in the order found: a named size s
 (never below tiny, never past its `maximumSize` when growing). The reach is the size's, unless the last element that
 names one overrides it or adds to it. The result is read-only on the sheet: the play state still holds the temporary
 Hit Points a player enters, and no recovery is applied for them.
+
+### Battle forms
+
+A `BattleForm` element holds what a polymorph spell or feature sets while it lasts: `form` has the base statistics
+(Armor Class, skills, speeds, senses, size, Strikes, temporary Hit Points, immunities, weaknesses and resistances, form
+traits) and the flags `canCast`, `canSpeak`, `hasHands` and `keepsOwnUnarmed`. Each of `brackets` changes the form from
+its `start` spell rank, so a heightened form is data. A value is a number or a formula over the character
+(`18 + @level`). Records in Foundry (skills, senses, Strikes) are lists here, and a Strike's `slug` names it. A weakness
+or resistance may name a damage trait (`water`, `holy`) as well as a damage type; the engine decides what it matches.
+The importer reads the element in full; one that depends on a pick (Dragon Form's damage type and speeds), a formula
+over `@item`, or a Strike without a damage type stays in the backlog. This layer defines the schema only: the engine
+does not apply a form yet.
 
 ### Strike dice and notes
 

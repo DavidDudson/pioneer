@@ -44,6 +44,7 @@ import {
 import {
   adjustDegreeOfSuccess,
   aura,
+  battleForm,
   creatureSize,
   fastHealing,
   rollTwice,
@@ -285,6 +286,7 @@ export const ruleElementJson: Arbitrary<object> = oneof(
   fastHealing,
   tempHp,
   creatureSize,
+  battleForm,
   adjustDegreeOfSuccess,
   rollTwice,
   substituteRoll,

@@ -17,7 +17,7 @@ const DEFENCE_KEYS: ReadonlySet<string> = new Set([
 /** Foundry's name for every kind of damage, which Pioneer calls the `all` group. */
 const ALL_DAMAGE = 'all-damage';
 
-function typeOf(type: unknown): unknown {
+export function typeOf(type: unknown): unknown {
   return type === ALL_DAMAGE ? DamageGroup.All : type;
 }
 

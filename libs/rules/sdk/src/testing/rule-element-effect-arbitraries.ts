@@ -39,6 +39,23 @@ export const creatureSize = element(
   },
 );
 
+const SPELL_RANK_MAX = 10;
+
+/** A few of the statistics a form sets, each left out or present. */
+const formStatistics = record(
+  { size: anyOf(Size), tempHP: modifierValue, speeds: record({ fly: feet, swim: feet }, { requiredKeys: [] }) },
+  { requiredKeys: [] },
+);
+const formBracket = record(
+  { start: integer({ min: 1, max: SPELL_RANK_MAX }), size: anyOf(Size) },
+  { requiredKeys: ['start'] },
+);
+export const battleForm = element(
+  'BattleForm',
+  { form: formStatistics },
+  { brackets: array(formBracket, { maxLength: LIST_MAX }) },
+);
+
 const DEGREE_FIELDS = ['all', 'criticalFailure', 'failure', 'success', 'criticalSuccess'];
 const ROLL_MAX = 99;
 

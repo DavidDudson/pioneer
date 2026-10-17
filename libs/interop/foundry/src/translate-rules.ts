@@ -9,6 +9,8 @@ import { isLangKey, isUnresolved, localize } from './foundry-lang';
 import type { LangValues, UnresolvedKey, UnresolvedText } from './foundry-lang';
 import type { FoundryLang } from './foundry-release';
 import { withActiveEffect } from './translate-active-effects';
+import { withCreatureRule } from './translate-battle-form';
+import type { FoundrySenses } from './translate-battle-form';
 import { isUnread, withChoiceSet, withTagQuery } from './translate-choice-sets';
 import { withDefenceTypes } from './translate-defences';
 import { withFavoredWeaponRank } from './translate-favored-weapon';
@@ -25,8 +27,6 @@ import {
 } from './translate-modifiers';
 import { withNoteText } from './translate-notes';
 import { withRollOption } from './translate-roll-options';
-import { withSense } from './translate-senses';
-import type { FoundrySenses } from './translate-senses';
 import { withoutStrikeExtras, withStrikeDamage, withStrikeScope } from './translate-strike';
 import { withoutDropped } from './translate-token-rules';
 import type { DroppedRule } from './translate-token-rules';
@@ -151,7 +151,11 @@ function shapeRule(raw: unknown, context: RuleContext, unresolved: UnresolvedKey
   const queried = withLanguageSlots(withTagQuery(withGrantValue(modifier)));
   const font = withActiveEffect(withFavoredWeaponRank(withFontChoice(queried)));
   const senses = { references, senses: context.senses };
-  return { raw, plain: withSense(font, senses), chosen: withSense(withChoiceSet(font, context.values.item), senses) };
+  return {
+    raw,
+    plain: withCreatureRule(font, senses),
+    chosen: withCreatureRule(withChoiceSet(font, context.values.item), senses),
+  };
 }
 
 /** The flags of the `ChoiceSet`s among `shaped` that translate. */
