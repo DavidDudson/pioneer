@@ -1,8 +1,8 @@
+import type { BrowseRow } from '@pioneer/content/ui';
 import type { TableColumn } from '@pioneer/frontier/data';
 import { RulesTableSchema } from '@pioneer/rules/ui';
 
-import { BrowseColumn, BrowseColumnCode } from './browse-row';
-import type { BrowseRow } from './browse-row';
+import { BrowseColumn, BrowseColumnCode } from './browse-column';
 
 /** The message key of each column's header, spelled out in full so the key check sees them. */
 const ColumnMessage = {

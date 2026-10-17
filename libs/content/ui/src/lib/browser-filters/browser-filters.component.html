@@ -1,0 +1,6 @@
+<fr-stack gap="md">
+  <fr-filter-bar [fields]="fields()" [value]="state().filters" (valueChange)="filtered($event)" />
+  @if (facets()) {
+    <pio-facet-filter [counts]="counts()" [state]="facetState()" (stateChange)="facetChange.emit($event)" />
+  }
+</fr-stack>

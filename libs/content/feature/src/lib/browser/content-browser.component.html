@@ -1,0 +1,17 @@
+<pio-content-browser-view
+  [tier]="tier()"
+  [state]="shownState()"
+  [kindOptions]="kindOptions()"
+  [fields]="fields()"
+  [facetState]="facetState()"
+  [list]="browse"
+  [entry]="entry"
+  [columns]="columns()"
+  [sorting]="sorting()"
+  [hidden]="hidden()"
+  (stateChange)="write($event)"
+  (facetChange)="facet($event)"
+  (sortingChange)="sorting.set($event)"
+  (hiddenChange)="hidden.set($event)"
+  (more)="more()"
+/>

@@ -1,0 +1,9 @@
+@if (card(); as shown) {
+  <pio-entry-preview [full]="full()" [preview]="shown" [headingLevel]="headingLevel()" />
+} @else {
+  <fr-empty-state
+    [icon]="missingIcon"
+    [title]="Message.MissingTitle | transloco"
+    [description]="Message.MissingDescription | transloco"
+  />
+}

@@ -1,0 +1,26 @@
+{
+  "contentBrowser": {
+    "search": {
+      "label": "Search names and descriptions"
+    },
+    "kinds": {
+      "label": "Kinds"
+    },
+    "list": {
+      "caption": "Entries",
+      "loadError": "The content could not be loaded.",
+      "searchError": "The search could not be completed. Check your connection and try again.",
+      "count": "{count, plural, one {# entry} other {# entries}}",
+      "more": "Show more",
+      "emptyTitle": "Nothing matches",
+      "emptyDescription": "No entry has all of the filters picked. Clear one to widen the list.",
+      "searchEmptyDescription": "No entry matches those words and filters. Try fewer words, or clear a filter."
+    },
+    "entry": {
+      "back": "Back to the list",
+      "loadError": "The entry could not be loaded.",
+      "missingTitle": "No such entry",
+      "missingDescription": "No entry has this link. It may have been renamed, or its pack is not available."
+    }
+  }
+}

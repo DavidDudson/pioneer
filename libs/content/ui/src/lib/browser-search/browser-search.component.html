@@ -1,0 +1,14 @@
+<fr-stack gap="md">
+  <fr-search-input
+    [ariaLabel]="Message.SearchLabel | transloco"
+    [placeholder]="Message.SearchLabel | transloco"
+    [value]="state().query"
+    (searched)="searched($event)"
+  />
+  <fr-filter-chips
+    [ariaLabel]="Message.Kinds | transloco"
+    [options]="kindOptions()"
+    [value]="kindSet()"
+    (valueChange)="pickKinds($event)"
+  />
+</fr-stack>

@@ -608,6 +608,13 @@ Behaviour:
   and its search words as `q`. It shows each kind's facets: a facet that reads only some of the kinds listed (weapon
   group) is left out unless the list holds one of them. Its table and filter panel (`pio-facet-filter`) are built from
   the facet definitions, so a new definition shows up without a template change.
+- The browser is one embeddable component, `pio-content-browser` (`libs/content/feature`), at three tiers: `page` (the
+  search, kinds, filter bar, facet panel and the table with its column chooser), `panel` (the search, kinds, filter bar
+  and a compact list whose names open the entry in place) and `preview` (the picked entry alone). What it shows is one
+  plain value, `ContentBrowserState` (`libs/content/ui`: the kinds, the words, the filters and the picked entry), which
+  every tier reads and writes and which survives `JSON.stringify`. The page tier's host keeps it in the URL as above.
+  Every tier loads the same cached names, mechanics and description bundles through the content loader, and the tier
+  only changes which regions `pio-content-browser-view` draws.
 - An entry opens at `/content/:kind/:slug`, the kind and the name part of its slug (`/content/feat/power-attack`), public
   like the list. The page shows the entry with `pio-entry-preview` in full: the summary until its description shard
   loads, then the description. It loads the kinds the browser lists and conditions beside the entry's own, so a

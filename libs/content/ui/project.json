@@ -1,0 +1,39 @@
+{
+  "name": "content-ui",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/content/ui/src",
+  "prefix": "pio",
+  "tags": ["scope:browser", "type:ui", "platform:web"],
+  "targets": {
+    "test": {
+      "executor": "@angular/build:unit-test",
+      "options": {
+        "buildTarget": "web:build:development",
+        "tsConfig": "libs/content/ui/tsconfig.spec.json",
+        "runner": "vitest"
+      }
+    },
+    "storybook": {
+      "options": {
+        "port": 6010
+      }
+    },
+    "test-storybook": {
+      "cache": true,
+      "parallelism": false,
+      "inputs": [
+        "default",
+        "^production",
+        {
+          "env": "PLAYWRIGHT_BROWSERS_PATH"
+        },
+        {
+          "env": "PLAYWRIGHT_DRIVER_VERSION"
+        },
+        "{workspaceRoot}/libs/frontier/.storybook/storybook-project.ts"
+      ],
+      "command": "vitest run --config libs/content/ui/.storybook/vitest.config.ts"
+    }
+  }
+}
