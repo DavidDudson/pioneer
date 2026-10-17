@@ -1,0 +1,21 @@
+import type { PackContents } from '@pioneer/rules/sdk';
+
+export function impossibleMagicPack(): Promise<PackContents>;
+export function gunsAndGearsPack(): Promise<PackContents>;
+export function battlecryPack(): Promise<PackContents>;
+export function chelaxInfernalInheritancePack(): Promise<PackContents>;
+export function rivalAcademiesPack(): Promise<PackContents>;
+export function shiningKingdomsPack(): Promise<PackContents>;
+export function draconicCodexPack(): Promise<PackContents>;
+export function hellfireDispatchesPack(): Promise<PackContents>;
+export function highSeasPack(): Promise<PackContents>;
+export function seasonOfGhostsPack(): Promise<PackContents>;
+export function hellbreakersPack(): Promise<PackContents>;
+export function gatewalkersPack(): Promise<PackContents>;
+export function mythSpeakersPack(): Promise<PackContents>;
+export function revengeOfTheRunelordsPack(): Promise<PackContents>;
+export function secretsOfTheUnlitStarPack(): Promise<PackContents>;
+export function troublesInGraycePack(): Promise<PackContents>;
+export function hellsDestinyPack(): Promise<PackContents>;
+export function bastionOfBlasphemiesPack(): Promise<PackContents>;
+export function theDeadGodsHandPack(): Promise<PackContents>;

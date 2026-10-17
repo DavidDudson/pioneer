@@ -15,7 +15,6 @@ import { sheetBuildPicks } from './sheet-build-picks';
 import type { BuildPicks } from './sheet-build-picks';
 import { sheetConditionPreviews } from './sheet-condition-previews';
 import { readsEquipment, EQUIPMENT_CONTENT_KINDS, sheetInvestments } from './sheet-equipment';
-import { sheetFocus } from './sheet-focus-spells';
 import { sheetIdentity } from './sheet-identity';
 import type { IdentityParams } from './sheet-identity';
 import { samePlayed } from './sheet-played';
@@ -23,6 +22,7 @@ import type { PlayedInputs } from './sheet-played';
 import { SPELL_CONTENT_KINDS } from './sheet-prepared-spells';
 import { claimSituation, NO_CLAIMS } from './sheet-situations';
 import type { SituationClaims } from './sheet-situations';
+import { sheetFocus } from './sheet-spell-lines';
 import { namedStatistics, sheetDerivation, sheetVitalsInPlay } from './sheet-statistics';
 import { sheetVitals } from './sheet-vitals';
 

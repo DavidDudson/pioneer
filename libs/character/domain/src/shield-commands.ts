@@ -113,7 +113,7 @@ export function conditionAfterBlock(stats: ShieldStats, damage: HitPoints, taken
 }
 
 /** What hits a shield: its stats, and the damage it takes. */
-export interface Blow {
+interface Blow {
   readonly stats: ShieldStats;
   readonly amount: DamageTotal;
 }

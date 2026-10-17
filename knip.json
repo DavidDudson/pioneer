@@ -20,11 +20,14 @@
   "project": [
     "apps/**/*.ts",
     "libs/**/*.ts",
+    "libs/rules/catalog/src/*-packs.js",
     "tools/**/*.ts",
     "libs/frontier/src/styles/*.css",
     "apps/web/src/*.css",
     "apps/storybook/src/*.mdx"
   ],
+  "ignore": ["libs/rules/catalog/src/*-packs.d.ts"],
+  "ignoreIssues": { "libs/rules/catalog/src/*-packs.js": ["unlisted"] },
   "ignoreBinaries": ["typos", "rumdl", "taplo", "hadolint", "tofu"],
   "ignoreDependencies": ["@angular/language-service", "@socketsecurity/bun-security-scanner"],
   "nx": true,

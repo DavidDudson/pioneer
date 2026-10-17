@@ -13,11 +13,10 @@ import { injectContentRegistry } from '../../data/content-registry-query';
 import { PlayStore } from '../../data/play-store';
 import { sheetCounted } from '../sheet-counted';
 import { sheetEntryPreviews } from '../sheet-entry-previews';
-import { sheetFocus } from '../sheet-focus-spells';
-import { sheetInnate } from '../sheet-innate-spells';
 import { sheetSpellAccess, SPELL_CONTENT_KINDS } from '../sheet-prepared-spells';
 import type { SheetSpellAccess } from '../sheet-prepared-spells';
 import { SheetPreparedSpells } from '../sheet-prepared-spells/sheet-prepared-spells.component';
+import { sheetFocus, sheetInnate } from '../sheet-spell-lines';
 import { preparedFieldsOf } from '../sheet-spell-picks';
 import {
   filterFocus,
@@ -29,8 +28,6 @@ import {
 import type { SpellSpend } from '../sheet-spell-use';
 import { SheetSpender } from '../sheet-spender';
 import { SpellAccess } from '../spell-access/spell-access.component';
-
-const LOADING_SLOTS = 3;
 
 /**
  * The open character's spell picks under its spellcasting entries (#478): a pick per prepared slot, its focus spells
@@ -44,9 +41,9 @@ const LOADING_SLOTS = 3;
     AsyncPending,
     AsyncRegion,
     FocusSpellsView,
-    Grid,
     InnateSpellsView,
     SheetPreparedSpells,
+    Grid,
     Segmented,
     Skeleton,
     SpellAccess,
@@ -63,9 +60,6 @@ export class SheetSpells {
   public readonly casts = input(false);
   /** Whether one of its entries is a focus entry, so its focus spells show a placeholder while they load. */
   public readonly focuses = input(false);
-
-  /** Placeholder pickers while the spells load: a 1st-level caster's first row. */
-  protected readonly loadingSlots = Array.from({ length: LOADING_SLOTS }, (_unused, index) => index);
 
   readonly #store = inject(CharacterStore);
   readonly #play = inject(PlayStore);

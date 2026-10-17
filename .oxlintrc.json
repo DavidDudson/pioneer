@@ -26,7 +26,16 @@
     "reportUnusedDisableDirectives": "error"
   },
   "env": { "es2024": true },
-  "ignorePatterns": ["dist", "coverage", "node_modules", ".nx", ".angular", "apps/api/migrations"],
+  // The pack loaders are plain JS so the compiler never types the pack JSON they import (see json-packs.d.ts).
+  "ignorePatterns": [
+    "dist",
+    "coverage",
+    "node_modules",
+    ".nx",
+    ".angular",
+    "apps/api/migrations",
+    "libs/rules/catalog/src/*-packs.js"
+  ],
   "settings": {
     "jsdoc": { "ignoreInternal": true }
   },
