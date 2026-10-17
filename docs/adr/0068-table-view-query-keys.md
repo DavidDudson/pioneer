@@ -24,7 +24,7 @@ Alternatives:
 - Columns appear as the `code` the table schema declares (`addText({ id: 'level', code: 'lvl', … })`), short and
   stable, never the id. A column without a code stays out of shared views.
 - `s` is the codes in order, `-` for descending: `s=-lvl,name`. `c` lists only the columns that differ from the table's
-  defaults, in schema order: `-src` hides a column shown by default and `+bk` shows one hidden by default, so a table's
+  defaults, in schema order: `-src` hides a column shown by default and `~bk` shows one hidden by default, so a table's
   default view is no `c`.
 - Defaults are omitted: a view at its defaults has no params at all, and one view always gives one URL.
 - `f` is opaque to the codec. frontier knows no schemas (ADR-0028), so the page runs its own facet codec and hands the
@@ -38,5 +38,7 @@ Alternatives:
 
 - A typical view (a few sorts, a few columns toggled, a short search) encodes in under 200 characters.
 - Renaming a column id is safe; changing a column's `code` breaks the links that name it.
-- The page that owns the facets owns the format of `f`. The content browser's `f.<facet id>` params become one `f` when
-  it adopts the table view; links in the old form stop narrowing, which is the same as an unknown param.
+- The page that owns the facets owns the format of `f`. The content browser writes one `f` segment,
+  `traits:fire~level:..5`, in place of its `f.<facet id>` params;
+  links in the old form stop narrowing, as an unknown param does.
+- `+` is not a mark: a query string reads it back as a space. The mark for a shown column is `~`, which is never escaped.

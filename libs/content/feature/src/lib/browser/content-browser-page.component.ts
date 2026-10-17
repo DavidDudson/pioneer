@@ -1,7 +1,8 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import type { Signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import type { Params } from '@angular/router';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { LucidePackageSearch } from '@lucide/angular';
 import {
@@ -10,6 +11,7 @@ import {
   AsyncRegion,
   Button,
   EmptyState,
+  FilterBar,
   FilterChips,
   LocaleFormat,
   Page,
@@ -20,16 +22,17 @@ import {
   Stack,
   Text,
 } from '@pioneer/frontier';
-import type { AsyncQuery, SelectOption } from '@pioneer/frontier';
-import { Table } from '@pioneer/frontier/data';
-import type { TableColumn } from '@pioneer/frontier/data';
-import { filterFromQuery, filterParamName, filterToQuery } from '@pioneer/rules/sdk';
+import type { AsyncQuery, FilterCondition, SelectOption } from '@pioneer/frontier';
+import { injectTableView, Table, tableViewColumns } from '@pioneer/frontier/data';
+import type { TableColumn, TableView, TableViewSchema } from '@pioneer/frontier/data';
+import { filterParamName } from '@pioneer/rules/sdk';
 import type { ContentEntry, FilterState, QueryParams } from '@pioneer/rules/sdk';
-import { FacetFilterView, RARITY_TONES, RulesTableSchema } from '@pioneer/rules/ui';
+import { FacetFilterView, RARITY_TONES } from '@pioneer/rules/ui';
 import type { Chip } from '@pioneer/rules/ui';
 import { filter, merge } from 'rxjs';
 
 import { entryTarget } from '../entry/entry-lookup';
+import { browseColumns } from './browse-columns';
 import {
   ALL_FACETS,
   BROWSE_KINDS,
@@ -44,10 +47,11 @@ import type { BrowseKind } from './browse-kinds';
 import { browseList, entriesOf } from './browse-list';
 import type { BrowseList } from './browse-list';
 import { injectBrowseRegistry } from './browse-registry';
-import { BrowseColumn } from './browse-row';
 import type { BrowseRow } from './browse-row';
-import { injectBrowseSearch, SEARCH_PARAM, searchFromQuery } from './browse-search';
+import { injectBrowseSearch, searchFromQuery } from './browse-search';
 import type { BrowseSearch } from './browse-search';
+import { facetTextCodec } from './facet-text';
+import { filterConditions, filterFields, filterState } from './filter-bar-state';
 
 const NO_PARAMS: QueryParams = {};
 
@@ -72,11 +76,6 @@ const BrowseMessage = {
   EmptyTitle: 'content.list.emptyTitle',
   EmptyDescription: 'content.list.emptyDescription',
   SearchEmptyDescription: 'content.list.searchEmptyDescription',
-  Name: 'content.column.name',
-  Kind: 'content.column.kind',
-  Level: 'content.column.level',
-  Traits: 'content.column.traits',
-  Source: 'content.column.source',
 } as const;
 
 /** Placeholder rows while the entries load. */
@@ -87,7 +86,7 @@ const rowIdOf = (row: BrowseRow): string => row.id;
 /**
  * The public content browser (content-model.md, "Filters"): pick the kinds to list, narrow them with each kind's
  * facets, and read the entries left in a table, or search them by words. The kinds, the words and the filters are in the
- * URL (`kind`, `q`, `f.<facet>`), so a filtered list is a link and back and forward restore it. The entries come from
+ * URL (`kind`, and the table view's `q`, `f`, `s`, `c`; ADR-0068), so a filtered list is a link and back and forward restore it. The entries come from
  * the cached mechanics bundles, so filtering is instant and works offline; the words are matched by the server, which
  * ranks the entries, and the filters then apply to what it found.
  */
@@ -100,6 +99,7 @@ const rowIdOf = (row: BrowseRow): string => row.id;
     Button,
     EmptyState,
     FacetFilterView,
+    FilterBar,
     FilterChips,
     Page,
     PageBody,
@@ -116,7 +116,6 @@ const rowIdOf = (row: BrowseRow): string => row.id;
 })
 export class ContentBrowserPage {
   readonly #route = inject(ActivatedRoute);
-  readonly #router = inject(Router);
   readonly #i18n = inject(TranslocoService);
   readonly #format = inject(LocaleFormat);
   readonly #params = toSignal(this.#route.queryParams, { initialValue: NO_PARAMS });
@@ -136,7 +135,16 @@ export class ContentBrowserPage {
   protected readonly kindSet: Signal<ReadonlySet<BrowseKind>> = computed(() => new Set(this.kinds()));
 
   readonly #facets = computed(() => facetsOf(this.kinds()));
-  protected readonly state: Signal<FilterState> = computed(() => filterFromQuery(this.#params(), this.#facets()));
+  /**
+   * The table's view in the URL: sort (`s`), filters (`f`), hidden columns (`c`) and words (`q`). The kinds stay the
+   * page's own param. The filters are the bar's chips, and `state` is what they mean for this list's facets.
+   */
+  readonly #codec = facetTextCodec(() => this.#facets());
+  protected readonly view = injectTableView({
+    schema: (): TableViewSchema => this.viewSchema(),
+    facets: this.#codec,
+  });
+  protected readonly state: Signal<FilterState> = computed(() => filterState(this.view.filters(), this.#facets()));
 
   protected readonly registry = injectBrowseRegistry(() => this.kinds());
   readonly #entries: Signal<readonly ContentEntry[] | undefined> = computed(() => {
@@ -145,7 +153,7 @@ export class ContentBrowserPage {
   });
 
   /** The words in the link, if any: with them the list is what the server's search found. */
-  protected readonly words = computed(() => searchFromQuery(this.#params()[SEARCH_PARAM]));
+  protected readonly words = computed(() => searchFromQuery(this.view.search()));
   protected readonly searching = computed(() => this.words() !== undefined);
   readonly #criteria: Signal<BrowseSearch | undefined> = computed(() => {
     const words = this.words();
@@ -185,33 +193,37 @@ export class ContentBrowserPage {
 
   protected readonly columns: Signal<readonly TableColumn<BrowseRow>[]> = computed(() => {
     this.#messages();
-    const say = (key: string): string => this.#i18n.translate(key);
-    return new RulesTableSchema<BrowseRow>()
-      .addEntryName({
-        id: BrowseColumn.Name,
-        header: say(BrowseMessage.Name),
-        value: (row) => row.name,
-        to: (row) => row.to,
-      })
-      .addText({ id: BrowseColumn.Kind, header: say(BrowseMessage.Kind), value: (row) => row.kind })
-      .addText({ id: BrowseColumn.Level, header: say(BrowseMessage.Level), value: (row) => row.level, sortable: false })
-      .addTraits({ id: BrowseColumn.Traits, header: say(BrowseMessage.Traits), value: (row) => row.traits })
-      .addSource({ id: BrowseColumn.Source, header: say(BrowseMessage.Source), value: (row) => row.sources })
-      .build();
+    return browseColumns((key) => this.#i18n.translate(key), this.kinds().length === 1);
   });
+  /** The columns a shared view can name, and which start hidden for the kinds listed. */
+  protected readonly viewSchema: Signal<TableViewSchema> = computed(() => ({
+    columns: tableViewColumns(this.columns()),
+  }));
   protected readonly rowId = rowIdOf;
 
+  /** What the filter bar offers: a field per facet of the list, labelled in the UI language. */
+  protected readonly fields = computed(() => {
+    this.#messages();
+    return filterFields(this.list()?.counts ?? [], (key) => this.#i18n.translate(key));
+  });
+
+  /** Another set of kinds: the filters the new list still has stay, the others leave the link. */
   protected async pickKinds(picked: ReadonlySet<BrowseKind>): Promise<void> {
     const kinds = BROWSE_KINDS.filter((kind) => picked.has(kind));
-    await this.#write(kinds, this.state());
+    const kept = facetTextCodec(() => facetsOf(kinds)).encode(this.view.filters());
+    await this.#write({ facets: kept }, { [KIND_PARAM]: kinds.length === 0 ? undefined : kindsToQuery(kinds) });
   }
 
   protected async filter(state: FilterState): Promise<void> {
-    await this.#write(this.kinds(), state);
+    await this.filtered(filterConditions(state));
+  }
+
+  protected async filtered(conditions: readonly FilterCondition[]): Promise<void> {
+    await this.#write({ facets: this.#codec.encode(conditions) });
   }
 
   protected async searched(words: string): Promise<void> {
-    await this.#write(this.kinds(), this.state(), words);
+    await this.#write({ search: searchFromQuery(words) ?? '' });
   }
 
   protected more(): void {
@@ -238,20 +250,11 @@ export class ContentBrowserPage {
   }
 
   /**
-   * A new list, new filters or new words are a new history entry, so back and forward restore the last one. The words
-   * stay as they are unless `words` says otherwise; blank words leave the link.
+   * A new list, new filters or new words are a new history entry, so back and forward restore the last one. Params
+   * from before the table view (`f.<facet>`) leave the link with the next change.
    */
-  async #write(kinds: readonly BrowseKind[], state: FilterState, words: string = this.words() ?? ''): Promise<void> {
+  async #write(patch: Partial<TableView>, params: Params = {}): Promise<void> {
     this.#limit.set(PAGE_SIZE);
-    await this.#router.navigate([], {
-      relativeTo: this.#route,
-      queryParams: {
-        ...CLEARED,
-        [KIND_PARAM]: kinds.length === 0 ? undefined : kindsToQuery(kinds),
-        [SEARCH_PARAM]: searchFromQuery(words),
-        ...filterToQuery(state, facetsOf(kinds)),
-      },
-      queryParamsHandling: 'merge',
-    });
+    await this.view.apply(patch, { params: { ...CLEARED, ...params } });
   }
 }

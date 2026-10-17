@@ -21,6 +21,7 @@ export {
 } from './lib/data/table/table-schema';
 export { decodeTableView, encodeTableView, TYPICAL_VIEW_LENGTH } from './lib/data/table-view/table-view';
 export {
+  type ApplyOptions,
   injectTableView,
   type FacetTextCodec,
   type TableViewOptions,
