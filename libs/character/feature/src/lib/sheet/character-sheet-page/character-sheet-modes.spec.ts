@@ -26,12 +26,12 @@ describe('CharacterSheetPage modes', () => {
     });
     expect(textOf(root.querySelector('pio-sheet-save-status'))).toBe('All changes saved');
     await vi.waitFor(() => {
-      expect(root.querySelectorAll('pio-vitals fr-surface pio-statistics')).toHaveLength(5);
+      expect(root.querySelectorAll('pio-vitals fr-surface pio-statistics')).toHaveLength(6);
     });
 
     await openTab(root, 'Downtime', 'Rest and preparations');
     expect(textOf(root.querySelector('h1'))).toBe('Merisiel');
-    expect(root.querySelectorAll('pio-vitals fr-surface pio-statistics')).toHaveLength(5);
+    expect(root.querySelectorAll('pio-vitals fr-surface pio-statistics')).toHaveLength(6);
   });
 
   it('shows AC, saves and Perception in the vitals with their ranks, and what sets AC', async () => {
@@ -48,7 +48,7 @@ describe('CharacterSheetPage modes', () => {
       ]);
     });
     expect([...vitalsOf().querySelectorAll('pio-proficiency-rank')].map((rank) => textOf(rank))).toStrictEqual(
-      Array.from({ length: 5 }, () => 'UUntrained'),
+      Array.from({ length: 6 }, () => 'UUntrained'),
     );
     expect(vitalsOf().textContent).toContain('Unarmored');
     const ac = present(vitalsOf().querySelector('pio-breakdown'));

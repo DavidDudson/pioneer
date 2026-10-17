@@ -10,7 +10,7 @@ const AC = Selector.parse('ac');
 
 /** What the engine derived for the sheet, which the vitals row shows. */
 export interface VitalReads {
-  /** AC, the saves and Perception, in display order. */
+  /** AC, the saves, Perception and the class DC, in display order. */
   readonly statistics: readonly NamedStatistic[];
   /** Display names of entries, the worn armour's among them. */
   readonly entryNames: ReadonlyMap<ContentId, string>;
@@ -24,7 +24,7 @@ function armorBasis(registry: ContentRegistry, character: Character, reads: Vita
 }
 
 /**
- * The vitals row: the sheet's statistics (AC, saves, Perception) each with the rank its proficiency bonus reads, and
+ * The vitals row: the sheet's statistics (AC, saves, Perception, class DC) each with the rank its proficiency bonus reads, and
  * for Armor Class the armour that sets it. A statistic the character has no rank in is untrained; a plain value, as a
  * Speed is, has no rank.
  */
