@@ -1,0 +1,18 @@
+<fr-stack gap="md">
+  <fr-combobox
+    [query]="query()"
+    [options]="session.options()"
+    [loading]="session.loading()"
+    [placeholder]="Message.Placeholder | transloco"
+    [ariaLabel]="Message.Label | transloco"
+    (typed)="session.type($event)"
+    (searched)="searched($event)"
+    (committed)="read()"
+  />
+  @if (state(); as shown) {
+    <fr-stack direction="horizontal">
+      <fr-button (pressed)="back()">{{ Message.Back | transloco }}</fr-button>
+    </fr-stack>
+    <pio-content-browser [tier]="tier" [state]="shown" />
+  }
+</fr-stack>
