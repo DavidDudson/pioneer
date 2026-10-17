@@ -36,6 +36,10 @@ const SPEND_MESSAGES = {
   [SpendProblem.AttackNotAllowed]: 'character.validation.spendAttackNotAllowed',
   [SpendProblem.PaymentNotAllowed]: 'character.validation.spendPaymentNotAllowed',
   [SpendProblem.NotSpent]: 'character.validation.spendNotSpent',
+  [SpendProblem.NoSuchSpell]: 'character.validation.spendNoSuchSpell',
+  [SpendProblem.AlreadySustained]: 'character.validation.spendAlreadySustained',
+  [SpendProblem.SustainLimit]: 'character.validation.spendSustainLimit',
+  [SpendProblem.TooManySpells]: 'character.validation.spendTooManySpells',
 } as const satisfies Record<SpendProblem, string>;
 
 /** What a spend is checked against: the uses the build gives and the content's costs. */

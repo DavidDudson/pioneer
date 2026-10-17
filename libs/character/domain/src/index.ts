@@ -675,3 +675,18 @@ export { INITIATIVE, initiativeRoll } from './initiative-roll';
 export type { RollAs } from './initiative-roll';
 export { CharacterItemApprovals, covers, ItemApproval, partitionApproved, violationCount } from './item-approvals';
 export type { ApprovedViolations } from './item-approvals';
+export {
+  ACTIVE_SPELLS_MAX,
+  activeSpellOf,
+  ActiveSpellCommandField,
+  ActiveSpellId,
+  ActiveSpellSchema,
+  ActiveSpellsSchema,
+  canSustain,
+  lapsingSpells,
+  SpellSpendKind,
+  SpellSpendSchema,
+  SUSTAIN_LIMIT,
+  sustainedRounds,
+} from './active-spells';
+export type { ActiveSpell, ActiveSpellCommand, SpellSpend } from './active-spells';

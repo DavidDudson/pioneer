@@ -3,13 +3,21 @@ import type { RandomSource, RollResult, TermResult } from '@pioneer/rules/dice';
 import { BadgeReevaluation, ConditionEffect, ConditionValue, Dc, EffectExpiry } from '@pioneer/rules/sdk';
 import type { DamageTarget } from '@pioneer/rules/sdk';
 
+import { lapsingSpells, spellsAfterTurnEnd } from './active-spells';
 import { ConditionDurationKind } from './conditions';
 import type { ActiveCondition, PersistentDamage } from './conditions';
 import type { ActiveEffect } from './effects';
 import { applyPlayCommand, PlayCommandField } from './play-state';
 import type { PlayLimits, PlayState } from './play-state';
 import type { RecoveryConditions } from './rest-types';
-import { conditionEnded, conditionLowered, effectExpired, flatCheck, persistentDamage } from './turn-events';
+import {
+  conditionEnded,
+  conditionLowered,
+  effectExpired,
+  flatCheck,
+  persistentDamage,
+  spellEnded,
+} from './turn-events';
 import type { TurnEvent } from './turn-events';
 import { reevaluateBadges } from './turn-start';
 import type { Reevaluation, TurnOutcome } from './turn-start';
@@ -154,17 +162,24 @@ function expiring(outcome: TurnOutcome): TurnOutcome {
   return then(outcome, { ...play, effects, conditions }, events);
 }
 
+/** Sustained spells not sustained this turn end, and the rest must be sustained again next turn. */
+function spellsLapsing(outcome: TurnOutcome): TurnOutcome {
+  const { play } = outcome;
+  const ended = lapsingSpells(play.activeSpells).map(({ spell, id }) => spellEnded(spell, id));
+  return then(outcome, { ...play, activeSpells: [...spellsAfterTurnEnd(play.activeSpells)] }, ended);
+}
+
 /**
  * End-of-turn bookkeeping, one pure function for the browser and the server. In order: each persistent damage
  * condition rolls its damage through the character's defences and is checked for; frightened (and whatever else the
  * content eases) goes down a point; effects that end at a turn end and are out of rounds, and conditions that end at
- * the end of the turn, are removed; formula badges that roll again at turn end do. Dice come from `random`.
+ * the end of the turn, are removed; sustained spells not sustained this turn end; formula badges that roll again at turn end do. Dice come from `random`.
  */
 export function endTurn(play: PlayState, inputs: EndTurnInputs, random: RandomSource): TurnOutcome {
   const begun: TurnOutcome = { play, events: [] };
   const hurt = persistentDamages(begun, { ...inputs, random });
   const lowered = conditionsEased(hurt, inputs.recovery);
-  const settled = expiring(lowered);
+  const settled = spellsLapsing(expiring(lowered));
   const reevaluation: Reevaluation = {
     content: inputs.limits.effects,
     when: BadgeReevaluation.TurnEnd,

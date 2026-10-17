@@ -1,3 +1,4 @@
+import { isActiveSpellCommand } from './active-spells';
 import { isEffectCommand } from './effect-commands';
 import { isExplorationCommand } from './exploration-commands';
 import { PlayCommandField } from './play-state';
@@ -15,6 +16,7 @@ export function needsMaxHitPoints(command: PlayCommand): boolean {
   if (
     isToggleCommand(command) ||
     isEffectCommand(command) ||
+    isActiveSpellCommand(command) ||
     isSpendCommand(command) ||
     isExplorationCommand(command)
   ) {
@@ -67,6 +69,7 @@ export function needsResourceMaxima(command: PlayCommand): boolean {
   if (
     isToggleCommand(command) ||
     isEffectCommand(command) ||
+    isActiveSpellCommand(command) ||
     isSpendCommand(command) ||
     isExplorationCommand(command)
   ) {
@@ -114,6 +117,7 @@ export function needsConditionContent(command: PlayCommand): boolean {
     isRestCommand(command) ||
     isToggleCommand(command) ||
     isEffectCommand(command) ||
+    isActiveSpellCommand(command) ||
     isSpendCommand(command) ||
     isExplorationCommand(command)
   ) {

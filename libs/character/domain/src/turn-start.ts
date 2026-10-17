@@ -2,13 +2,14 @@ import type { RandomSource } from '@pioneer/rules/dice';
 import type { RecoveryInPlay } from '@pioneer/rules/engine';
 import { BadgeReevaluation, EffectBadgeType, EffectExpiry, HitPoints } from '@pioneer/rules/sdk';
 
+import { spellsCountedDown } from './active-spells';
 import { ConditionDurationKind } from './conditions';
 import type { ActiveCondition } from './conditions';
 import { EffectRounds, rollBadge } from './effects';
 import type { ActiveEffect, EffectContent } from './effects';
 import { applyPlayCommand, currentHitPoints, PlayCommandField } from './play-state';
 import type { PlayLimits, PlayState } from './play-state';
-import { conditionEnded, effectExpired, healedEvent, turnStarted } from './turn-events';
+import { conditionEnded, effectExpired, healedEvent, spellEnded, turnStarted } from './turn-events';
 import type { TurnEvent } from './turn-events';
 
 const ONE_ROUND = EffectRounds.parse(1);
@@ -77,6 +78,17 @@ function countdown(outcome: TurnOutcome): TurnOutcome {
   return then(outcome, { ...play, effects: kept }, expired);
 }
 
+/** Every active spell counts down a round; those whose rounds ran out are removed. */
+function spellsCounting(outcome: TurnOutcome): TurnOutcome {
+  const { play } = outcome;
+  const { kept, ended } = spellsCountedDown(play.activeSpells);
+  return then(
+    outcome,
+    { ...play, activeSpells: [...kept] },
+    ended.map(({ spell, id }) => spellEnded(spell, id)),
+  );
+}
+
 /** Whether a condition ends at the start of the turn. */
 function endsAtTurnStart({ duration }: ActiveCondition): boolean {
   return duration.kind === ConditionDurationKind.UntilStartOfTurn;
@@ -117,14 +129,15 @@ export function reevaluateBadges(outcome: TurnOutcome, reevaluation: Reevaluatio
 
 /**
  * Start-of-turn bookkeeping, one pure function for the browser and the server. In order: fast healing and
- * regeneration heal; every timed effect counts down a round and those that ran out at a turn start are removed;
+ * regeneration heal; every timed effect counts down a round and those that ran out at a turn start are removed, as do
+ * the active spells that ran out of rounds;
  * conditions ending at the start of the turn are removed; formula badges that roll again at turn start do. Dice come
  * from `random`. An effect that ends at a turn end stays on its last round for the end of turn to remove.
  */
 export function startTurn(play: PlayState, inputs: TurnInputs, random: RandomSource): TurnOutcome {
   const begun: TurnOutcome = { play, events: [turnStarted()] };
   const healed = healing(begun, inputs);
-  const counted = countdown(healed);
+  const counted = spellsCounting(countdown(healed));
   const settled = conditionsEnding(counted);
   const reevaluation: Reevaluation = {
     content: inputs.limits.effects,

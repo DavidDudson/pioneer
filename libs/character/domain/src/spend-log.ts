@@ -3,6 +3,7 @@ import { Pg, Uuid } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
+import { ActiveSpellSchema, SpellSpendSchema } from './active-spells';
 import { SlotCountKey, UseCountKey } from './counted-resources';
 import { StaffCastSchema } from './staff-commands';
 import { QuickenedAction } from './turn-state';
@@ -53,6 +54,8 @@ export const SpendRequestSchema = z.strictObject({
   focus: z.literal(true).optional(),
   /** Whether it is an attack, which moves the multiple attack penalty on and undoing the spend moves it back. */
   attack: z.literal(true).optional(),
+  /** The active-spell change it makes: a sustained spell cast, a spell sustained, or a spell dismissed with the Dismiss action. */
+  spell: SpellSpendSchema.optional(),
 });
 export type SpendRequest = z.infer<typeof SpendRequestSchema>;
 
@@ -64,6 +67,8 @@ export const SpendEntrySchema = z.strictObject({
   ...SpendRequestSchema.shape,
   at: SpendTime,
   quickened: QuickenedAction,
+  /** The active spell a dismissal removed, so undoing the spend puts it back. */
+  dismissed: ActiveSpellSchema.optional(),
 });
 export type SpendEntry = z.infer<typeof SpendEntrySchema>;
 
@@ -110,6 +115,14 @@ export const SpendProblem = {
   PaymentNotAllowed: 'payment-not-allowed',
   /** No spend in the log has that id. */
   NotSpent: 'not-spent',
+  /** The spell to sustain or dismiss is not active. */
+  NoSuchSpell: 'no-such-spell',
+  /** The spell was already sustained, or cast, since the last End turn. */
+  AlreadySustained: 'already-sustained',
+  /** The spell has run to the longest it can be kept up. */
+  SustainLimit: 'sustain-limit',
+  /** The character already has as many active spells as it can keep. */
+  TooManySpells: 'too-many-spells',
 } as const;
 export type SpendProblem = ValueOf<typeof SpendProblem>;
 

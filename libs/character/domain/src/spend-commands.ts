@@ -1,3 +1,4 @@
+import type { ActiveSpell } from './active-spells';
 import { heldCount } from './counted-resources';
 import type { SlotCountKey, UseCountKey } from './counted-resources';
 import { applyResourceCommand, ResourceCommandField } from './resource-commands';
@@ -6,6 +7,7 @@ import { ResourceCount } from './resource-count';
 import { heldIn, Resource } from './resources';
 import { SpendCommandField, SpendKind, SpendProblem, spendLogged, spendUndone } from './spend-log';
 import type { SpendCommand, SpendCost, SpendCount, SpendEntry, SpendLog, SpendRequest, SpendTime } from './spend-log';
+import { spellRefusal, spellSpent, spellUndone } from './spend-spells';
 import { StaffCommandField } from './staff-commands';
 import type { StaffCast, StaffCommand } from './staff-commands';
 import { ActionCount, attacksMoved, QuickenedAction, TURN_ACTIONS, TurnPhase } from './turn-state';
@@ -22,7 +24,11 @@ export interface SpendLimits {
 }
 
 /** The part of a play state a spend reads and writes: the turn it takes from, the log, and the uses a frequency touches. */
-export type SpendPlay = ResourcePlay & { readonly turn: TurnState; readonly spendLog: SpendLog };
+export type SpendPlay = ResourcePlay & {
+  readonly turn: TurnState;
+  readonly spendLog: SpendLog;
+  readonly activeSpells: readonly ActiveSpell[];
+};
 
 /** Whether `command` spends from the turn or takes a spend back. */
 export function isSpendCommand<Command extends { readonly field: unknown }>(
@@ -76,14 +82,15 @@ export function turnAllows(turn: TurnState, cost: SpendCost): boolean {
 }
 
 /** Why `request` can't be spent from `play`'s turn, or undefined when it can. */
-function requestProblem({ turn, spendLog }: SpendPlay, request: SpendRequest): SpendProblem | undefined {
+function requestProblem(play: SpendPlay, request: SpendRequest): SpendProblem | undefined {
+  const { turn, spendLog } = play;
   if (spendLog.some(({ id }) => id === request.id)) {
     return SpendProblem.AlreadySpent;
   }
   if (paysTwice(request)) {
     return SpendProblem.PaymentConflict;
   }
-  return costProblem(turn, request.cost);
+  return spellRefusal(play, request) ?? costProblem(turn, request.cost);
 }
 
 /** Why the spend `entry` can't be taken back: its actions came out of a turn that is over. */
@@ -227,6 +234,7 @@ function undone(play: SpendPlay, entry: SpendEntry, limits: ResourceLimits): Spe
     ...refunded,
     turn: withAttack(refundedTo(play.turn, entry), entry, -1),
     spendLog: spendUndone(play.spendLog, entry.id),
+    activeSpells: spellUndone(play, entry),
   };
 }
 
@@ -237,8 +245,19 @@ function spent(play: SpendPlay, request: SpendRequest, limits: ResourceLimits & 
   const slotted = withSlot(paid, { slot: request.slot, field: ResourceCommandField.SpendSlot }, limits);
   const focused = withFocus(slotted, { focus: request.focus, field: ResourceCommandField.SpendResource }, limits);
   const used = withUse(focused, { use: request.use, field: ResourceCommandField.SpendUse }, limits);
-  const entry: SpendEntry = { ...request, at: limits.now, quickened: taken.quickened };
-  return { ...used, turn: withAttack(taken.turn, request, 1), spendLog: spendLogged(play.spendLog, entry) };
+  const { activeSpells, dismissed } = spellSpent(play, request);
+  const entry: SpendEntry = {
+    ...request,
+    at: limits.now,
+    quickened: taken.quickened,
+    ...(dismissed === undefined ? {} : { dismissed }),
+  };
+  return {
+    ...used,
+    turn: withAttack(taken.turn, request, 1),
+    spendLog: spendLogged(play.spendLog, entry),
+    activeSpells,
+  };
 }
 
 /**

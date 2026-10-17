@@ -1,3 +1,5 @@
+import { applyActiveSpellCommand, isActiveSpellCommand } from './active-spells';
+import type { ActiveSpell, ActiveSpellCommand } from './active-spells';
 import { applyConditionCommand, isConditionCommand } from './conditions';
 import type { ConditionCommand } from './conditions';
 import { applyEffectCommand, isEffectCommand } from './effect-commands';
@@ -26,6 +28,7 @@ export type CountingCommand =
   | ResourceCommand
   | ConditionCommand
   | EffectCommand
+  | ActiveSpellCommand
   | RestCommand
   | ToggleCommand
   | SpendCommand
@@ -35,6 +38,7 @@ export type CountingCommand =
 export type CountingPlay = RestPlay & {
   readonly toggles: Toggles;
   readonly effects: readonly ActiveEffect[];
+  readonly activeSpells: readonly ActiveSpell[];
   readonly spendLog: SpendLog;
   readonly turn: TurnState;
   readonly exploration?: ExplorationActivity;
@@ -61,6 +65,7 @@ export function isCountingCommand<Command extends { readonly field: unknown }>(
     isRestCommand(command) ||
     isToggleCommand(command) ||
     isSpendCommand(command) ||
+    isActiveSpellCommand(command) ||
     isExplorationCommand(command)
   );
 }
@@ -75,6 +80,17 @@ function applyChoiceCommand<Play extends CountingPlay>(play: Play, command: Togg
   return isExplorationCommand(command)
     ? { ...play, exploration: applyExplorationCommand(command) }
     : { ...play, toggles: applyToggleCommand(play.toggles, command) };
+}
+
+/** `play` after an edit of its active effects or active spells. */
+function applyListCommand<Play extends CountingPlay>(
+  play: Play,
+  command: EffectCommand | ActiveSpellCommand,
+  limits: CountingLimits,
+): Play {
+  return isActiveSpellCommand(command)
+    ? { ...play, activeSpells: [...applyActiveSpellCommand(play.activeSpells, command)] }
+    : { ...play, effects: [...applyEffectCommand(play.effects, command, limits.effects)] };
 }
 
 /** `play` after a pool, condition, toggle or restoring edit, within the limits. */
@@ -92,8 +108,8 @@ export function applyCountingCommand<Play extends CountingPlay>(
   if (isToggleCommand(command) || isExplorationCommand(command)) {
     return applyChoiceCommand(play, command);
   }
-  if (isEffectCommand(command)) {
-    return { ...play, effects: [...applyEffectCommand(play.effects, command, limits.effects)] };
+  if (isEffectCommand(command) || isActiveSpellCommand(command)) {
+    return applyListCommand(play, command, limits);
   }
   if (isConditionCommand(command)) {
     return { ...play, conditions: [...applyConditionCommand(play.conditions, command)] };
