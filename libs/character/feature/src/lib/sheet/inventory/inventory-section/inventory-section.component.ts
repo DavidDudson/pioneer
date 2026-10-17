@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import type { Signal } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { attributeModifiers, INVESTED_MAX, itemContent, runeContent } from '@pioneer/character/domain';
-import type { ItemContent, RunedContent } from '@pioneer/character/domain';
+import { attributeModifiers, itemContent, runeContent } from '@pioneer/character/domain';
+import type { InvestedCount, ItemContent, RunedContent } from '@pioneer/character/domain';
 import { AsyncData, AsyncPending, AsyncRegion, Heading, Stack } from '@pioneer/frontier';
 import type { AsyncQuery } from '@pioneer/frontier';
 import { Attribute } from '@pioneer/rules/sdk';
@@ -10,6 +10,7 @@ import type { AttributeModifier, ContentRegistry } from '@pioneer/rules/sdk';
 import { BulkView, ENTRY_PREVIEWS, InventoryView, InvestmentsView } from '@pioneer/rules/ui';
 import type { CarriedBulk, EntryPreviews, InventoryGroup, Investment } from '@pioneer/rules/ui';
 
+import { CharacterRuleLimitStore } from '../../../data/character-rule-limit-store';
 import { CharacterStore } from '../../../data/character-store';
 import { CHARACTER_CONTENT_KINDS, injectContentRegistry } from '../../../data/content-registry-query';
 import { sheetEntryPreviews } from '../../sheet-entry-previews';
@@ -55,7 +56,8 @@ export class InventorySection {
   public readonly engine = input.required<AsyncQuery<ContentRegistry>>();
 
   readonly #store = inject(CharacterStore);
-  protected readonly investedMax = INVESTED_MAX;
+  readonly #limits = inject(CharacterRuleLimitStore);
+  protected readonly investedMax: Signal<InvestedCount> = computed(() => this.#limits.limits().investedMax);
 
   protected readonly items = injectContentRegistry(INVENTORY_CONTENT_KINDS);
   /** What an item row previews on hover, read from the loaded items. */
@@ -94,6 +96,6 @@ export class InventorySection {
     const character = this.#store.selected();
     return runed === undefined || character === undefined
       ? undefined
-      : sheetInventory(character.document.inventory, runed);
+      : sheetInventory(character.document.inventory, runed, this.#limits.limits());
   });
 }

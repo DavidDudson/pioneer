@@ -4,7 +4,7 @@ import { ApplicationRef } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
-import { CharacterId, SheetMode } from '@pioneer/character/domain';
+import { CharacterId, CORE_RULE_LIMITS, SheetMode } from '@pioneer/character/domain';
 import { frontierMessages } from '@pioneer/frontier';
 import { contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import type { PackContentsLoader } from '@pioneer/rules/sdk';
@@ -160,34 +160,31 @@ export async function answerPlayRead(play: object = playOf(0, 0)): Promise<void>
   );
 }
 
-/**
- * Answers the sheet's read of the character's packs, which the content registry waits for on every tab; left
- * unanswered the registry never loads.
- */
-export async function answerPacksRead(packs: object = NO_CHARACTER_PACKS): Promise<void> {
+/** Answers the sheet's read of one of the character's `/api/characters/:id/<path>` resources with `body`. */
+async function answerRead(path: string, body: object): Promise<void> {
   await vi.waitFor(
     () => {
       TestBed.inject(HttpTestingController)
-        .expectOne({ method: 'GET', url: `/api/characters/${id}/packs` })
-        .flush(packs);
+        .expectOne({ method: 'GET', url: `/api/characters/${id}/${path}` })
+        .flush(body);
     },
     { interval: POLL_INTERVAL },
   );
 }
 
-/**
- * Answers the sheet's read of the character's variant rules, which the content registry also waits for on every tab;
- * left unanswered the registry never loads.
- */
+/** Answers the read of the character's packs; the content registry waits for it on every tab. */
+export async function answerPacksRead(packs: object = NO_CHARACTER_PACKS): Promise<void> {
+  await answerRead('packs', packs);
+}
+
+/** Answers the read of the character's variant rules; the content registry also waits for it. */
 export async function answerVariantRulesRead(rules: object = NO_VARIANT_RULES): Promise<void> {
-  await vi.waitFor(
-    () => {
-      TestBed.inject(HttpTestingController)
-        .expectOne({ method: 'GET', url: `/api/characters/${id}/variant-rules` })
-        .flush(rules);
-    },
-    { interval: POLL_INTERVAL },
-  );
+  await answerRead('variant-rules', rules);
+}
+
+/** Answers the read of the table limits; an unanswered request fails the spec at teardown. */
+export async function answerRuleLimitsRead(limits: object = CORE_RULE_LIMITS): Promise<void> {
+  await answerRead('rule-limits', limits);
 }
 
 /** The server's answer to an edit of Merisiel: her sheet, and the picks the edit cleared. */
@@ -226,6 +223,7 @@ async function answerReads(character: object, options: SheetOptions): Promise<vo
   // Every tab reads the character's packs: the content registry waits for them to build over the right ones.
   await answerPacksRead(options.characterPacks);
   await answerVariantRulesRead(options.characterVariantRules);
+  await answerRuleLimitsRead();
 }
 
 /**

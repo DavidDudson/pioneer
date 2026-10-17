@@ -7,6 +7,7 @@ import {
   kitRefusal,
   runeContent,
   runeRefusal,
+  storableLimits,
 } from '@pioneer/character/domain';
 import type {
   Character,
@@ -14,6 +15,7 @@ import type {
   Inventory,
   InventoryRefusal,
   InventoryTarget,
+  RuleLimits,
 } from '@pioneer/character/domain';
 import type { ContentRegistry, ContentSource } from '@pioneer/rules/sdk';
 import { ValidationError } from '@pioneer/shared/kernel';
@@ -27,17 +29,19 @@ function refuse(refusal: InventoryRefusal | undefined): void {
 
 /** The first refusal content gives `target`: its kit (`kitRefusal`), its item (`itemRefusal`), then its rune. */
 function contentRefusal(
-  registry: ContentRegistry,
+  { registry, limits }: { readonly registry: ContentRegistry; readonly limits: RuleLimits },
   inventory: Inventory,
   target: InventoryTarget,
 ): InventoryRefusal | undefined {
   const items = itemContent(registry);
   const kit =
-    target.kit === undefined ? undefined : kitRefusal({ kits: kitContent(registry), items }, inventory, target.kit);
+    target.kit === undefined
+      ? undefined
+      : kitRefusal({ kits: kitContent(registry), items, limits }, inventory, target.kit);
   const rune =
     target.rune === undefined
       ? undefined
-      : runeRefusal({ items, runes: runeContent(registry) }, inventory, target.rune);
+      : runeRefusal({ items, runes: runeContent(registry), limits }, inventory, target.rune);
   return kit ?? itemRefusal(items, inventory, target) ?? rune;
 }
 
@@ -47,19 +51,21 @@ function contentRefusal(
  * that would put a container inside itself, content no loaded pack has as an item, stowing in an item that holds
  * nothing, carrying an item in a way its content isn't carried, investing an item that isn't invested, and a rune the
  * rules don't allow etched, erased or moved there (`runeRefusal`). Other edits pass untouched; content is loaded only
- * for an edit that names an item, a kit or a container, carries or invests one, or changes its runes.
+ * for an edit that names an item, a kit or a container, carries or invests one, or changes its runes. The limits are the
+ * table's, held to what the schema stores (`storableLimits`); absent means the core rules'.
  */
 export async function assertInventoryAllows(
   character: Character,
   patch: CharacterPatch,
-  content: ContentSource,
+  { content, tableLimits }: { readonly content: ContentSource; readonly tableLimits?: RuleLimits },
 ): Promise<void> {
   const target = inventoryTarget(patch);
   if (target === undefined) {
     return;
   }
   const { inventory } = character.document;
-  refuse(inventoryRefusal(inventory, target));
+  const limits = storableLimits(tableLimits);
+  refuse(inventoryRefusal(inventory, target, limits));
   const readsContent = [target.item, target.kit, target.container, target.carry, target.invested, target.rune].some(
     (each) => each !== undefined,
   );
@@ -67,5 +73,5 @@ export async function assertInventoryAllows(
     return;
   }
   const registry = await content.registry();
-  refuse(contentRefusal(registry, inventory, target));
+  refuse(contentRefusal({ registry, limits }, inventory, target));
 }

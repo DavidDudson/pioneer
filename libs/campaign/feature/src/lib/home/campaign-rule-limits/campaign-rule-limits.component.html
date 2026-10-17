@@ -1,0 +1,26 @@
+<fr-surface>
+  <fr-stack gap="md">
+    <fr-heading variant="subheading" [level]="2">{{ 'campaign.ruleLimits.heading' | transloco }}</fr-heading>
+    <fr-async-region [errorMessage]="'campaign.ruleLimits.loadError' | transloco">
+      <ng-template frAsyncPending>
+        <fr-stack gap="sm">
+          @for (placeholder of placeholders; track placeholder) {
+            <fr-skeleton width="md" />
+          }
+        </fr-stack>
+      </ng-template>
+      <ng-template let-rules [frAsyncData]="store.limits">
+        <fr-stack gap="md">
+          <fr-list gap="sm">
+            @for (setting of rules.limits; track setting.limit) {
+              <pio-campaign-rule-limit-row [setting]="setting" [manageable]="rules.manageable" />
+            }
+          </fr-list>
+          @if (!rules.manageable) {
+            <fr-text variant="caption" tone="subtle">{{ 'campaign.ruleLimits.gmOnly' | transloco }}</fr-text>
+          }
+        </fr-stack>
+      </ng-template>
+    </fr-async-region>
+  </fr-stack>
+</fr-surface>

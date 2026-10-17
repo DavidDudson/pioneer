@@ -7,6 +7,9 @@ import type {
   CampaignPackId,
   CampaignVariantRuleId,
   CampaignRole,
+  CampaignRuleLimitId,
+  RuleLimitKey,
+  RuleLimitValue,
   CharacterId,
   EnabledPackId,
   EnabledVariantRuleId,
@@ -14,7 +17,7 @@ import type {
 } from '@pioneer/campaign/domain';
 import type { UserId, Version } from '@pioneer/shared/kernel';
 import { sql } from 'drizzle-orm';
-import { index, integer, pgTable, text, timestamp, uniqueIndex, uuid } from 'drizzle-orm/pg-core';
+import { index, integer, pgTable, smallint, text, timestamp, uniqueIndex, uuid } from 'drizzle-orm/pg-core';
 
 /**
  * Drizzle schema for the campaign aggregate. Migrations live in apps/api/migrations. Every lookup a
@@ -181,5 +184,33 @@ export const campaignVariantRules = pgTable(
     uniqueIndex('campaign_variant_rules_campaign_variant_idx').on(table.campaignId, table.variantId),
     // Serves clearing `enabled_by` when the user is deleted.
     index('campaign_variant_rules_enabled_by_idx').on(table.enabledBy),
+  ],
+);
+
+/**
+ * The table limits a campaign has set, one row per campaign and limit (ADR-0064); a limit with no row is the core
+ * rules' number. The characters in the campaign are held to these. The audit log keys rows by `id`, so a setting has its
+ * own id. The foreign key on `set_by` (to users, on delete set null) is in the migration, as identity's tables are
+ * outside this context's boundary.
+ */
+export const campaignRuleLimits = pgTable(
+  'campaign_rule_limits',
+  {
+    id: uuid().$type<CampaignRuleLimitId>().primaryKey(),
+    campaignId: uuid()
+      .$type<CampaignId>()
+      .notNull()
+      .references(() => campaigns.id, { onDelete: 'cascade' }),
+    limit: text().$type<RuleLimitKey>().notNull(),
+    value: smallint().$type<RuleLimitValue>().notNull(),
+    // Null once the user who set it is deleted: the campaign keeps the limit.
+    setBy: uuid().$type<UserId>(),
+    setAt: timestamp({ withTimezone: true, mode: 'string' }).notNull(),
+  },
+  (table) => [
+    // A limit is set once per campaign; also serves a campaign's list and the cascade when it is deleted.
+    uniqueIndex('campaign_rule_limits_campaign_limit_idx').on(table.campaignId, table.limit),
+    // Serves clearing `set_by` when the user is deleted.
+    index('campaign_rule_limits_set_by_idx').on(table.setBy),
   ],
 );

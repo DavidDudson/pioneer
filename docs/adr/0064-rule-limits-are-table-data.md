@@ -27,10 +27,13 @@ lets a GM change them for a campaign, and lets a character outside a campaign se
 - In-app edits still refuse a change that breaks a limit. Only imports and key items may hold a broken inventory; they
   come in the next stories, which also relax the schema's own checks.
 
-## Where limits live and how they combine (decided here, built in later stories)
+## Where limits live and how they combine
 
-- A campaign stores its limits (the GM sets them); a character outside a campaign stores its own. A character in a
-  campaign reads the campaign's.
+- A campaign stores its limits in `campaign_rule_limits`, one row per limit (the GM sets them). A character in a
+  campaign reads the campaign's; a character outside a campaign has the core rules' until it can set its own.
+- A campaign can lower a limit and its characters are held to it. A raise past the core number only stops the flags on
+  imported lines: in-app edits are clamped back to the core numbers by `storableLimits`, because the schema stores the
+  player's lines up to those only.
 - Precedence: a GM's explicit number beats a variant rule's number, which beats the core rules'. A variant rule
   declares limits as content (a later story); a table's explicit limit is a setting, not content.
 
@@ -38,7 +41,8 @@ lets a GM change them for a campaign, and lets a character outside a campaign se
 
 - The schema enforces the core numbers on the player's lines, so a table that raises a limit cannot yet store a
   player's inventory past the core numbers; only imported lines may.
-- The sheet shows violations against the core limits. It reads the table's own limits once they are stored.
+- The sheet reads the table's limits from `GET /characters/:id/rule-limits` and shows violations against them; the core
+  rules' apply until they arrive.
 
 ## Rule-breaking lines (decided in "flag rule-breaking items instead of refusing them")
 

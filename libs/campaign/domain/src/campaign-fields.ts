@@ -95,3 +95,7 @@ export type EnabledVariantRuleId = z.infer<typeof EnabledVariantRuleId>;
 /** A variant rule's name as the content tables show it; the campaign context only displays it. */
 export const VariantRuleName = z.string().min(1).brand<'ContentText'>();
 export type VariantRuleName = z.infer<typeof VariantRuleName>;
+
+/** Row id of one table limit a campaign has set; the audit log keys every row by an `id`. */
+export const CampaignRuleLimitId = Uuid.brand<'CampaignRuleLimitId'>();
+export type CampaignRuleLimitId = z.infer<typeof CampaignRuleLimitId>;

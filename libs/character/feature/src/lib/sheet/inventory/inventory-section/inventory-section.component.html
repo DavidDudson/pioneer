@@ -37,9 +37,9 @@
       'character.sheet.inventory.investmentsHeading' | transloco
     }}</fr-heading>
     <fr-async-region [errorMessage]="'character.sheet.inventory.loadError' | transloco">
-      <ng-template frAsyncPending><pio-investments [investments]="undefined" [maximum]="investedMax" /></ng-template>
+      <ng-template frAsyncPending><pio-investments [investments]="undefined" [maximum]="investedMax()" /></ng-template>
       <ng-template [frAsyncData]="engine()"
-        ><pio-investments [investments]="investments()" [maximum]="investedMax"
+        ><pio-investments [investments]="investments()" [maximum]="investedMax()"
       /></ng-template>
     </fr-async-region>
   </fr-stack>

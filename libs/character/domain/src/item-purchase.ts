@@ -5,6 +5,7 @@ import type { CharacterPatch, KitPatch } from './character-patch';
 import { addItem } from './inventory';
 import type { Inventory, InventoryItemId, NewItem } from './inventory';
 import { payCost } from './purse';
+import type { RuleLimits } from './rule-limits';
 
 /**
  * What the caller works out for an edit: the id an added item takes, the lines an added kit expands into (`kitItems`),
@@ -16,6 +17,8 @@ export interface EditInputs {
   readonly cost?: CopperValue | undefined;
   /** The slot edit is the level's repertoire swap, which it records (#594). */
   readonly countsAsSwap?: boolean | undefined;
+  /** The limits the table holds the inventory to; absent means the core rules' (ADR-0064). */
+  readonly limits?: RuleLimits | undefined;
 }
 
 /** The edits that add an item from content: a gift, or a purchase. */

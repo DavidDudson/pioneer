@@ -13,7 +13,7 @@ import { expect, onTestFinished, vi } from 'vitest';
 
 import { characterRoutes } from '../character.routes';
 import { prebuildServerStateTesting, provideServerStateTesting } from './provide-server-state-testing';
-import { answerPacksRead, answerPlayRead, answerVariantRulesRead } from './sheet-page-harness';
+import { answerPacksRead, answerPlayRead, answerRuleLimitsRead, answerVariantRulesRead } from './sheet-page-harness';
 
 export const id = CharacterId.parse('0d9f7c1e-3b7a-4c55-9d1f-2a8f2b9c6e10');
 const BACKPACK = '11111111-1111-4111-8111-111111111111';
@@ -63,6 +63,7 @@ async function answerServerState(): Promise<void> {
   await answerPlayRead();
   await answerPacksRead();
   await answerVariantRulesRead();
+  await answerRuleLimitsRead();
 }
 
 /** Opens Valeros's sheet at `url` with the item fixtures and kits loaded, once his character has loaded. */

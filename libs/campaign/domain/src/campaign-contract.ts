@@ -16,6 +16,7 @@ import { InviteSummary } from './campaign-invite';
 import { CampaignPacks } from './campaign-packs';
 import { CampaignParty } from './campaign-party';
 import { CampaignRoster } from './campaign-roster';
+import { CampaignRuleLimitContract } from './campaign-rule-limit-contract';
 import { CampaignVariantRules, EnableVariantRuleBody } from './campaign-variant-rules';
 
 const ById = z.object({ id: CampaignId });
@@ -236,6 +237,7 @@ export const CampaignContract = {
     body: NoBody,
     response: CampaignVariantRules,
   }),
+  ...CampaignRuleLimitContract,
   /** GM only: invites that still work, newest first. */
   invites: new Endpoint({
     method: HttpMethod.Get,

@@ -188,7 +188,7 @@ describe('CharacterVariantService', () => {
     test('the character content resolves only the variant rules its registry holds', async () => {
       await service.enable(amiri, kyra.id, { variantId: gritty });
       await service.enable(amiri, kyra.id, { variantId: withoutLevel });
-      const content = new CharacterContent(variantContent(), packs, service);
+      const content = new CharacterContent(variantContent(), packs, { variants: service });
       expect(await resolvedIds(content)).toStrictEqual([gritty, withoutLevel].toSorted());
     });
   });

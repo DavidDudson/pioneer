@@ -4,6 +4,7 @@ import { TranslocoPipe } from '@jsverse/transloco';
 import { inventoryViolations, itemContent, runeContent } from '@pioneer/character/domain';
 import { BadgeTone, Tag } from '@pioneer/frontier';
 
+import { CharacterRuleLimitStore } from '../../data/character-rule-limit-store';
 import { CharacterStore } from '../../data/character-store';
 import { injectContentRegistry } from '../../data/content-registry-query';
 import { INVENTORY_CONTENT_KINDS } from '../inventory/sheet-inventory';
@@ -22,6 +23,7 @@ import { ruleBreakingCount } from '../inventory/sheet-violations';
 export class SheetRuleBreaks {
   readonly #store = inject(CharacterStore);
   readonly #items = injectContentRegistry(INVENTORY_CONTENT_KINDS);
+  readonly #limits = inject(CharacterRuleLimitStore);
   protected readonly Tone = BadgeTone;
   /** The items past a limit; none while the item kinds load. */
   protected readonly count: Signal<number> = computed(() => {
@@ -30,10 +32,11 @@ export class SheetRuleBreaks {
     return registry === undefined || character === undefined
       ? 0
       : ruleBreakingCount(
-          inventoryViolations(character.document.inventory, {
-            items: itemContent(registry),
-            runes: runeContent(registry),
-          }),
+          inventoryViolations(
+            character.document.inventory,
+            { items: itemContent(registry), runes: runeContent(registry) },
+            this.#limits.limits(),
+          ),
         );
   });
 }

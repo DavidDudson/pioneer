@@ -418,8 +418,14 @@ export {
 } from './item-runes';
 export { eraseRune, etchRune, RuneAction, type RuneEdit, type RuneTransfer, transferRune } from './rune-edits';
 export { runeRefusal } from './rune-refusal';
-export { CORE_RULE_LIMITS, RuleLimitsSchema } from './rule-limits';
-export type { RuleLimits } from './rule-limits';
+export {
+  CORE_RULE_LIMITS,
+  RuleLimitOverridesSchema,
+  RuleLimitsSchema,
+  storableLimits,
+  withOverrides,
+} from './rule-limits';
+export type { RuleLimitOverrides, RuleLimits } from './rule-limits';
 export { inventoryViolations, RuleBreak } from './rule-violations';
 export type { CountViolation, RuleViolation, RuneViolation } from './rule-violations';
 export {

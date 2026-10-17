@@ -1,4 +1,4 @@
-import type { AttachedCampaignName, CampaignAlly, CharacterId } from '@pioneer/character/domain';
+import type { AttachedCampaignName, CampaignAlly, CharacterId, RuleLimitOverrides } from '@pioneer/character/domain';
 import type { ContentPackId, VariantRuleId } from '@pioneer/rules/sdk';
 
 /** The campaign a character is attached to, the homebrew packs it enables and the variant rules its GM turned on. */
@@ -6,6 +6,8 @@ export interface AttachedCampaign {
   readonly name: AttachedCampaignName;
   readonly packs: readonly ContentPackId[];
   readonly variants: readonly VariantRuleId[];
+  /** The limits its GM changed; a limit left out is the core rules'. */
+  readonly limits?: RuleLimitOverrides | undefined;
 }
 
 /**
