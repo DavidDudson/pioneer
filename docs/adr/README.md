@@ -72,6 +72,7 @@ Accepted. To change a decision, add a new ADR that supersedes the old one; do no
 | [0065](0065-docked-drawer-and-transient-descriptions.md)                 | A docked drawer for secondary content; popovers allowed for transient description             |
 | [0066](0066-bug-reports-carry-a-snapshot-and-maintainers-triage-them.md) | Bug reports carry a snapshot, and maintainers triage them                                     |
 | [0067](0067-innate-spells-are-a-rule-element.md)                         | Innate spells are a rule element                                                              |
+| [0068](0068-creatures-are-gm-only-and-granted-to-players.md)             | Creatures are GM-only, and players are granted sight of them                                  |
 
 Template:
 

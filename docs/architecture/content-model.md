@@ -38,14 +38,14 @@ turns them into the definitions it holds today and wraps each in `PackEntry`.
 
 ### Kinds
 
-| Group      | Kinds                                                                                                            |
-| ---------- | ---------------------------------------------------------------------------------------------------------------- |
-| Rules core | `statistic`, `trait`, `condition`, `action`, `damage-type`, `sense`, `language`, `variant-rule`                  |
-| Build      | `ancestry`, `ancestry-feature`, `heritage`, `background`, `class`, `class-feature`, `feat`, `archetype`, `deity` |
-| Magic      | `spell` (incl. focus spells and cantrips), `ritual`, `spellcasting-tradition`                                    |
-| Equipment  | `weapon`, `armor`, `shield`, `equipment`, `consumable`, `rune`, `treasure`, `kit`                                |
-| Play       | `effect` (spell and feat effects, GM effects)                                                                    |
-| Bestiary   | `creature`, `hazard` (later milestone)                                                                           |
+| Group      | Kinds                                                                                                                           |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| Rules core | `statistic`, `trait`, `condition`, `action`, `damage-type`, `sense`, `language`, `variant-rule`                                 |
+| Build      | `ancestry`, `ancestry-feature`, `heritage`, `background`, `class`, `class-feature`, `feat`, `archetype`, `deity`                |
+| Magic      | `spell` (incl. focus spells and cantrips), `ritual`, `spellcasting-tradition`                                                   |
+| Equipment  | `weapon`, `armor`, `shield`, `equipment`, `consumable`, `rune`, `treasure`, `kit`                                               |
+| Play       | `effect` (spell and feat effects, GM effects)                                                                                   |
+| Bestiary   | `creature`, `hazard` (later milestone); GM-only kinds ([ADR-0068](../adr/0068-creatures-are-gm-only-and-granted-to-players.md)) |
 
 Class progression (features by level, feat slots, skill increases, boosts) is data on the `class` entry, expressed
 as `GrantItem` and slot-granting rule elements keyed by level, and its skill increase levels. The builder's feat and
@@ -487,6 +487,11 @@ when idle. Content browser search is server-side through per-locale `tsvector` (
   session read the manifest makes it a 404) sends the loader back for a new manifest, once. An entry read from
   the registry has no description: `ContentLoader.description(entry)` fetches the entry's shard of the kind's
   description bundles and keeps it in IndexedDB like any bundle.
+- **GM-only kinds** ([ADR-0068](../adr/0068-creatures-are-gm-only-and-granted-to-players.md)). A kind with the `gm`
+  audience (`creature`) is in no public bundle or manifest. Its bundles are served per viewer, `private`, to a member
+  with `role = gm` in any campaign and, for the creatures a character's grants name, to that character's owner. They
+  are kept in memory for the session, never in IndexedDB. Anyone else gets a 404, and the kind is absent from lists,
+  facets and search.
 - **Homebrew packs, for signed-in members.** `POST /api/content/homebrew/manifest` takes the pack ids a page uses
   and answers with the manifest of those packs and the packs they extend; `GET /api/content/homebrew/bundles/<pack>/<file>`
   serves one bundle (`HomebrewContentContract`, `libs/rules/sdk`). `HomebrewBundleService` (`libs/homebrew/application`)

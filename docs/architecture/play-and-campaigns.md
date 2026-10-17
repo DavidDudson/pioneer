@@ -500,6 +500,10 @@ campaign_links        id, campaign_id, token_hash (unique), created_at, last_use
                       (one live link per campaign; a new one revokes the last)
 ```
 
+- **GM role gates creatures** ([ADR-0068](../adr/0068-creatures-are-gm-only-and-granted-to-players.md)). A member
+  with `role = gm` in any campaign may read creature entries everywhere, the global browser and search included. A
+  player sees a creature only while one of their characters' grants names it (familiar, animal companion, eidolon,
+  or a spell that becomes or summons one).
 - **Ownership of data.** Pioneer always owns the build (choices, inventory, spells). Play state (HP, temporary
   HP, dying, wounded, conditions, effects, resources) follows the campaign's `play_sync` mode, set by the GM:
   `foundry` (Foundry is the source of truth; Pioneer mirrors it read-only), `pioneer` (players manage it in
