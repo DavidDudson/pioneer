@@ -4,7 +4,9 @@ import type {
   CreatureSizeElement,
   DamageType,
   FastHealingElement,
+  ModifierValue,
   Origin,
+  RuleValue,
   SizeSteps,
   TempHPElement,
 } from '@pioneer/rules/sdk';
@@ -14,8 +16,8 @@ import { battleFormInPlay } from './battle-form';
 import type { FormInPlay } from './battle-form';
 import type { StatisticContent } from './derive-statistics';
 import { proficiencyBonuses } from './proficiency-bonuses';
-import { itemScopeOf } from './rule-in-play';
-import type { ModifierInputs, RuleInPlay } from './rule-in-play';
+import { itemScopeOf, NO_ITEM } from './rule-in-play';
+import type { ItemScope, ModifierInputs, RuleInPlay } from './rule-in-play';
 import { truthOf, valueOf } from './rule-value';
 import { resolverFor } from './statistic-inputs';
 import type { StatisticInputs } from './statistic-inputs';
@@ -140,20 +142,37 @@ function highest(given: readonly Given[]): Highest | undefined {
 
 /** The amount, origin and deactivators a rule gives, none when its formula has no value or the value is below 1. */
 function givenBy(rule: Kind<FastHealingElement | TempHPElement>, scope: VitalsScope, rules: ModifierInputs): Given[] {
+  const deactivatedBy = rule.element.key === RuleElementKey.FastHealing ? (rule.element.deactivatedBy ?? []) : [];
+  const source = { value: rule.element.value, origin: rule.origin, item: itemScopeOf(rule), deactivatedBy };
+  return givenFrom(source, { scope, rules });
+}
+
+/** What an amount is read against: the character and the rules in play. */
+interface VitalsReading {
+  readonly scope: VitalsScope;
+  readonly rules: ModifierInputs;
+}
+
+/** Where an amount comes from: its formula, what it is read against and the origin it is credited to. */
+interface AmountSource {
+  readonly value: ModifierValue | RuleValue;
+  readonly origin: Origin;
+  readonly item: ItemScope;
+  readonly deactivatedBy: readonly DamageType[];
+}
+
+function givenFrom({ value, origin, item, deactivatedBy }: AmountSource, { scope, rules }: VitalsReading): Given[] {
   const proficiency = proficiencyBonuses(scope.statistics.proficiencyBonus, {
     rules: rules.rules,
     facts: rules.facts,
     level: scope.character.level,
   });
-  const resolve = resolverFor({ inputs: scope.character, proficiency }, (): undefined => undefined, {
-    item: itemScopeOf(rule),
-  });
-  const outcome = valueOf(rule.element.value, resolve);
+  const resolve = resolverFor({ inputs: scope.character, proficiency }, (): undefined => undefined, { item });
+  const outcome = valueOf(value, resolve);
   if (!outcome.ok || outcome.value < 1) {
     return [];
   }
-  const deactivatedBy = rule.element.key === RuleElementKey.FastHealing ? (rule.element.deactivatedBy ?? []) : [];
-  return [{ amount: HitPoints.parse(outcome.value), origin: rule.origin, deactivatedBy }];
+  return [{ amount: HitPoints.parse(outcome.value), origin, deactivatedBy }];
 }
 
 /** The size after `resizes`, in order, with the reach the last element that names one gives. */
@@ -173,13 +192,22 @@ function resized(resizes: readonly Kind<CreatureSizeElement>[], base: Size, form
   };
 }
 
+/** The temporary Hit Points a battle form gives, credited to the form; none when it gives none or its formula has no value. */
+function formTempHp(form: FormInPlay | undefined, reading: VitalsReading): Given[] {
+  const value = form?.form.tempHP;
+  return form === undefined || value === undefined
+    ? []
+    : givenFrom({ value, origin: form.origin, item: NO_ITEM, deactivatedBy: [] }, reading);
+}
+
 /**
  * What the character's `FastHealing`, `TempHP` and `CreatureSize` elements give. An element whose predicate fails or
  * depends on the situation gives nothing on the sheet, and one whose formula has no value, or a value below 1, is
  * ignored. Recovery and temporary Hit Points do not add up (Player Core): of each kind the highest counts, with every
  * element that gives it as an origin. Sizes apply in the order found, a named size setting it and a number of steps
  * moving it, never past the `maximumSize` it names; the reach is the last element's that names one, else the size's.
- * A battle form that names a size sets it first, and the elements then apply to that.
+ * A battle form that names a size sets it first, and the elements then apply to that. A battle form’s temporary Hit Points
+ * join the others, with the form as their origin.
  */
 export function vitalsInPlay(inputs: ModifierInputs, scope: VitalsScope): VitalsInPlay {
   const healing = active(inputs, isFastHealing);
@@ -193,9 +221,12 @@ export function vitalsInPlay(inputs: ModifierInputs, scope: VitalsScope): Vitals
       ? []
       : [{ type, amount: found.top.amount, deactivatedBy: found.top.deactivatedBy, origins: found.origins }];
   });
-  const temp = highest(active(inputs, isTempHp).flatMap((rule) => givenBy(rule, scope, inputs)));
-  const resizes = active(inputs, isCreatureSize);
   const form = battleFormInPlay(inputs);
+  const temp = highest([
+    ...active(inputs, isTempHp).flatMap((rule) => givenBy(rule, scope, inputs)),
+    ...formTempHp(form, { scope, rules: inputs }),
+  ]);
+  const resizes = active(inputs, isCreatureSize);
   return {
     recovery,
     ...(temp === undefined ? {} : { temporaryHitPoints: { amount: temp.top.amount, origins: temp.origins } }),
