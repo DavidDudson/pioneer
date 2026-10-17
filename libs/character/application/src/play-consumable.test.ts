@@ -49,7 +49,7 @@ function using(change: Partial<ConsumableCommand> = {}): ConsumableCommand {
 
 describe('consumableInventory', () => {
   test('takes one from the stack', () => {
-    expect(consumableInventory(stack(3), using())?.items[0]?.quantity).toBe(2);
+    expect<number | undefined>(consumableInventory(stack(3), using())?.items[0]?.quantity).toBe(2);
   });
 
   test('removes the item once the last one is used', () => {

@@ -6,11 +6,11 @@ const value = (number: number): VariantLimitValue => VariantLimitValue.parse(num
 
 describe('mergeVariantLimits', () => {
   test('no variants change nothing', () => {
-    expect(mergeVariantLimits([])).toStrictEqual({});
+    expect<object>(mergeVariantLimits([])).toStrictEqual({});
   });
 
   test('a limit only one variant changes is that variant’s', () => {
-    expect(mergeVariantLimits([{ investedMax: value(12) }, { handsMax: value(3) }])).toStrictEqual({
+    expect<object>(mergeVariantLimits([{ investedMax: value(12) }, { handsMax: value(3) }])).toStrictEqual({
       investedMax: 12,
       handsMax: 3,
     });
@@ -20,12 +20,12 @@ describe('mergeVariantLimits', () => {
     const low = { investedMax: value(8), itemsMax: value(900) };
     const high = { investedMax: value(12), itemsMax: value(600) };
     const expected = { investedMax: 12, itemsMax: 900 };
-    expect(mergeVariantLimits([low, high])).toStrictEqual(expected);
-    expect(mergeVariantLimits([high, low])).toStrictEqual(expected);
+    expect<object>(mergeVariantLimits([low, high])).toStrictEqual(expected);
+    expect<object>(mergeVariantLimits([high, low])).toStrictEqual(expected);
   });
 
   test('a variant may lower a limit; with nothing else changing it, it applies', () => {
-    expect(mergeVariantLimits([{ handsMax: value(1) }])).toStrictEqual({ handsMax: 1 });
+    expect<object>(mergeVariantLimits([{ handsMax: value(1) }])).toStrictEqual({ handsMax: 1 });
   });
 });
 

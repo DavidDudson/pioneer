@@ -65,7 +65,7 @@ describe('the table limits a character sets for itself', () => {
     const settings = await service.ruleLimitSettings(amiri, character.id);
     expect(settings.decidedBy).toBe(PackAuthority.Character);
     expect(settings.manageable).toBe(true);
-    expect(settings.limits.map(({ limit, value: each, custom }) => [limit, each, custom])).toStrictEqual([
+    expect<object>(settings.limits.map(({ limit, value: each, custom }) => [limit, each, custom])).toStrictEqual([
       ['investedMax', CORE_RULE_LIMITS.investedMax, false],
       ['handsMax', CORE_RULE_LIMITS.handsMax, false],
       ['propertyRunesPerGrade', CORE_RULE_LIMITS.propertyRunesPerGrade, false],
@@ -77,7 +77,7 @@ describe('the table limits a character sets for itself', () => {
   test('a number the owner sets is in force, and the rest stay core', async () => {
     const settings = await service.set(amiri, character.id, { limit: 'investedMax', value: value(12) });
     expect(settings.limits[0]).toMatchObject({ limit: 'investedMax', value: 12, core: 10, custom: true });
-    expect(await service.of(character)).toStrictEqual({ ...CORE_RULE_LIMITS, investedMax: 12 });
+    expect<object>(await service.of(character)).toStrictEqual({ ...CORE_RULE_LIMITS, investedMax: 12 });
   });
 
   test('a reset returns the number to the core rules’, and twice is harmless', async () => {
@@ -110,7 +110,7 @@ describe('the table limits a character sets for itself', () => {
       const settings = await service.ruleLimitSettings(amiri, character.id);
       expect(settings).toMatchObject({ decidedBy: PackAuthority.Campaign, campaign: 'Abomination Vaults' });
       expect(settings.manageable).toBe(false);
-      expect(await service.of(character)).toStrictEqual({ ...CORE_RULE_LIMITS, handsMax: 1 });
+      expect<object>(await service.of(character)).toStrictEqual({ ...CORE_RULE_LIMITS, handsMax: 1 });
       const set = await rejection(service.set(amiri, character.id, { limit: 'itemsMax', value: value(9) }));
       const reset = await rejection(service.reset(amiri, character.id, 'investedMax'));
       expect(set).toBeInstanceOf(ConflictError);
@@ -123,7 +123,7 @@ describe('the table limits a character sets for itself', () => {
       expect(await service.of(character)).toStrictEqual(CORE_RULE_LIMITS);
 
       campaigns.detach(character.id);
-      expect(await service.of(character)).toStrictEqual({ ...CORE_RULE_LIMITS, investedMax: 12 });
+      expect<object>(await service.of(character)).toStrictEqual({ ...CORE_RULE_LIMITS, investedMax: 12 });
     });
   });
 });
