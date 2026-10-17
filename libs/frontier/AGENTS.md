@@ -455,6 +455,23 @@ shows the form's submission (found through DI).
 Store and Form are not used: signals cover client state and signal forms
 cover forms.
 
+## Table view in the URL
+
+A table's view (sorting, hidden columns, filters, search, page size) can live in the page's query string, so a link
+reopens it identical. Keys and rules are fixed in ADR-0068; the `@pioneer/frontier/data` pieces:
+
+- Give each column that may appear in a shared view a short stable `code` in the schema: `addText({ id: 'level',
+code: 'lvl', … })`. `tableViewColumns(columns)` turns the built columns into the codec's `TableViewSchema`.
+- `encodeTableView` / `decodeTableView` are the pure codec. Keys: `s` sort, `f` facets, `c` columns, `n` page size, `q`
+  search. Defaults are omitted and malformed parts are dropped.
+- `injectTableView({ schema, facets })` holds the view in the route and gives signals and setters. Bind one way with the
+  matching output: `[sorting]="view.sorting()" (sortingChange)="view.setSorting($event)"` on `fr-table`, and
+  `[value]="view.filters()" (valueChange)="view.setFilters($event)"` on `fr-filter-bar`. `setSearch` replaces the
+  history entry, so wire a search box to it; the rest push.
+- `f` is opaque here. The page passes a `FacetTextCodec` that maps the bar's conditions to its own facet codec; frontier
+  never imports `rules/*`, and there is no second encoding of the filters.
+- Keep codec functions small; template lint caps cyclomatic complexity at 5 per file, so split files early.
+
 ## Inline editing
 
 Each editable value gets its own `InlineEdit<T>`: its own loading skeleton,
