@@ -24,7 +24,7 @@ jobs:
   mirror:
     name: Mirror
     runs-on: ubuntu-24.04
-    timeout-minutes: 10
+    timeout-minutes: 20
     permissions:
       contents: read
       packages: write # push to ghcr.io
@@ -35,9 +35,16 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      # Copies the manifest list and every platform's layers without rebuilding, so the digest is unchanged.
+      # Copies the manifest list and every platform's layers without rebuilding, so the digest is unchanged. Public ECR
+      # rate-limits anonymous pulls from shared runner IPs (429), so retry with a growing wait.
       - name: Copy
-        run: docker buildx imagetools create --tag "$TARGET" "$SOURCE"
+        run: |
+          for attempt in 1 2 3 4 5 6; do
+            docker buildx imagetools create --tag "$TARGET" "$SOURCE" && exit 0
+            echo "attempt $attempt failed; waiting $((attempt * 30)) seconds" >&2
+            sleep $((attempt * 30))
+          done
+          exit 1
       - name: Verify digest
         run: |
           want="${SOURCE##*@}"
