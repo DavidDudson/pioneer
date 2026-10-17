@@ -13,7 +13,7 @@ export interface Fixture {
   readonly traits: readonly string[];
 }
 
-export function classFeature({ id, name, level, traits }: Fixture, rules: readonly object[] = []): DocumentFixture {
+function classFeature({ id, name, level, traits }: Fixture, rules: readonly object[] = []): DocumentFixture {
   return {
     id,
     name,

@@ -16,14 +16,14 @@ import {
 import type { Inventory, InventoryItem } from './inventory';
 import { CarryState, Hands, HANDS_MAX, INVESTED_MAX, STOWED } from './item-carry';
 import { ItemOrigin } from './item-origin';
-import { inventoryViolations, RuleBreak } from './rule-violations';
+import { inventoryViolations, RuleBreak, RuleCount } from './rule-violations';
 import {
   ItemFixture,
   itemFixtureContent,
   itemFixtureId,
   RuneFixture,
   runeFixtureContent,
-  propertyRune,
+  runeFixtureId,
 } from './testing';
 
 const content = { items: itemFixtureContent(), runes: runeFixtureContent() };
@@ -81,7 +81,7 @@ describe('InventorySchema: origin', () => {
   });
 
   test('refuses a player line past the property rune cap, and keeps an imported one', () => {
-    const runes = Object.values(RuneFixture).map((each) => propertyRune(each).rune);
+    const runes = Object.values(RuneFixture).map((each) => runeFixtureId(each));
     expect(runes.length).toBeGreaterThan(PROPERTY_RUNES_MAX);
     const withRunes = (item: InventoryItem): InventoryItem => ({
       ...item,
@@ -104,8 +104,8 @@ describe('an imported inventory past the limits', () => {
       {
         item: idAt(INVESTED_MAX),
         rule: RuleBreak.Invested,
-        limit: INVESTED_MAX,
-        actual: INVESTED_MAX + 1,
+        limit: RuleCount.parse(INVESTED_MAX),
+        actual: RuleCount.parse(INVESTED_MAX + 1),
       },
     ]);
   });

@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import type { SpellcastingInPlay } from '@pioneer/rules/engine';
-import { Origin, SpellPreparation } from '@pioneer/rules/sdk';
+import { Origin, SpellPreparation, SpellRank } from '@pioneer/rules/sdk';
 
 import { CharacterLevel } from './character-fields';
 import { CountDelta, slotCountKey, slotMaxima, spentAfter } from './counted-resources';
@@ -111,7 +111,9 @@ function command(
   field: StaffCommand['field'] = StaffCommandField.CastStaff,
 ): StaffCommand {
   const base = { field, item: STAFF_ID, spell };
-  return slotRank === undefined ? base : { ...base, slot: slotCountKey(SORCERER.slug, undefined, slotRank) };
+  return slotRank === undefined
+    ? base
+    : { ...base, slot: slotCountKey(SORCERER.slug, undefined, SpellRank.parse(slotRank)) };
 }
 
 function cast(spell: typeof CANTRIP, slotRank?: number): StaffCommand {
@@ -148,14 +150,15 @@ function optionsFor(at: Table, spell: typeof CANTRIP): readonly StaffCommand[] {
 }
 
 function slotOf(rank: number): SlotCountKey {
-  return slotCountKey(SORCERER.slug, undefined, rank);
+  return slotCountKey(SORCERER.slug, undefined, SpellRank.parse(rank));
 }
 
 describe('a staff cast', () => {
   test('costs charges equal to the spell rank', () => {
     const at = table([WIZARD], 4);
     expect(problemOf(at, cast(THIRD))).toBeUndefined();
-    expect(costOf(at, cast(THIRD))).toBe(3);
+    const cost = costOf(at, cast(THIRD));
+    expect(Number(cost)).toBe(3);
     const spent = apply(at, cast(THIRD));
     expect(chargesLeft(spent)).toBe(1);
   });
@@ -163,7 +166,8 @@ describe('a staff cast', () => {
   test('costs a cantrip nothing, even from a staff that is not prepared', () => {
     const at = table([WIZARD], undefined);
     expect(problemOf(at, cast(CANTRIP))).toBeUndefined();
-    expect(costOf(at, cast(CANTRIP))).toBe(0);
+    const cost = costOf(at, cast(CANTRIP));
+    expect(Number(cost)).toBe(0);
     expect(apply(at, cast(CANTRIP)).resources).toEqual(at.resources);
   });
 
@@ -208,7 +212,7 @@ describe('a staff cast paid with a slot', () => {
     expect(problemOf(at, cast(THIRD, 4))).toBeUndefined();
     const after = apply(at, cast(THIRD, 4));
     expect(chargesLeft(after)).toBe(3);
-    expect(after.resources.slots[slotOf(4)]).toBe(1);
+    expect(Number(after.resources.slots[slotOf(4)])).toBe(1);
   });
 
   test('is refused with a slot below the spell rank', () => {
@@ -216,7 +220,7 @@ describe('a staff cast paid with a slot', () => {
   });
 
   test('is refused for a prepared caster, who expends a slot at daily preparations instead', () => {
-    const slot = slotCountKey(WIZARD.slug, undefined, 3);
+    const slot = slotCountKey(WIZARD.slug, undefined, SpellRank.parse(3));
     expect(problemOf(table([WIZARD], 4), { ...cast(THIRD), slot })).toBe(StaffCastProblem.SlotNotAllowed);
   });
 
@@ -247,7 +251,8 @@ describe('taking a staff cast back', () => {
     const paid = apply(at, cast(THIRD, 3));
     const back = apply(paid, uncast(THIRD, 3)).resources;
     expect(back.staff).toEqual(at.resources.staff);
-    expect(back.slots).toEqual({ [slotOf(3)]: 0 });
+    expect(Object.keys(back.slots)).toEqual([slotOf(3)]);
+    expect(Object.values(back.slots).map(Number)).toEqual([0]);
   });
 
   test('is refused when nothing was spent to refund', () => {
@@ -290,6 +295,6 @@ describe('staffCastOptions', () => {
 describe('staffCantripRank', () => {
   test('is half the level rounded up, at least 1st', () => {
     const levels = [1, 2, 5, 10, 20].map((level) => CharacterLevel.parse(level));
-    expect(levels.map((level) => staffCantripRank(level))).toEqual([1, 1, 3, 5, 10]);
+    expect(levels.map((level) => Number(staffCantripRank(level)))).toEqual([1, 1, 3, 5, 10]);
   });
 });

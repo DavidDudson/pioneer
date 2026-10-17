@@ -13,7 +13,7 @@ const { ChoiceSet, FocusSpells, SpellcastingEntry } = RuleElementKey;
 
 const CROSSBLOODED = { not: 'parent:granter:slug:crossblooded-evolution' };
 const spell = (slug: string): string => idOf(`spell:${slug}`);
-const entry = (tradition: string, predicate: readonly unknown[]): object => ({
+const entry = (tradition: string, predicate: readonly unknown[]): Record<string, unknown> => ({
   key: SpellcastingEntry,
   slug: 'sorcerer-focus',
   tradition,

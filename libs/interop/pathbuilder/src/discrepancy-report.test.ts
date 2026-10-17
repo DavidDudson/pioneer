@@ -133,11 +133,14 @@ describe('discrepancyReport', () => {
   });
 
   test('names a spell DC that differs, for the engine entry with the focus tradition and attribute', () => {
-    const values = agreeing();
-    values.spellDcs = [
-      ...values.spellDcs.filter(({ selector }) => selector !== ORACLE_DC),
-      { selector: ORACLE_DC, tradition: 'divine', attribute: 'cha', total: MORDRED_SPELL_DC + 1 },
-    ];
+    const agree = agreeing();
+    const values: Values = {
+      ...agree,
+      spellDcs: [
+        ...agree.spellDcs.filter(({ selector }) => selector !== ORACLE_DC),
+        { selector: ORACLE_DC, tradition: 'divine', attribute: 'cha', total: MORDRED_SPELL_DC + 1 },
+      ],
+    };
     const { differences } = discrepancyReport(mordred, values);
     expect(differences).toStrictEqual([
       {
@@ -234,6 +237,7 @@ describe('discrepancyReport', () => {
       ranks: new Map(),
       spellDcs: [],
       spellSlots: [],
+      focusPoints: undefined,
     });
     expect(report).toStrictEqual({ compared: 0, differences: [] });
   });

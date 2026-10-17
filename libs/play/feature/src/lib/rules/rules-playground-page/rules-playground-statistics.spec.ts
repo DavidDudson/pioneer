@@ -14,8 +14,10 @@ import {
 } from './playground-harness';
 
 const WARM_TIMEOUT = 60_000;
+// A test that loads the core rules pack renders every statistic of it, which outgrows vitest's 5s default on a runner.
+const TEST_TIMEOUT = 30_000;
 
-describe('RulesPlaygroundPage statistics', () => {
+describe('RulesPlaygroundPage statistics', { timeout: TEST_TIMEOUT }, () => {
   // Reading the core rules pack takes seconds on a busy CI runner, longer than a test's own timeout. The pack keeps what it loads.
   beforeAll(async () => {
     await TestBed.inject(STATISTIC_DEFINITIONS)(StatisticSource.CoreRules);

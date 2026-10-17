@@ -34,7 +34,8 @@ describe('isExplorationActivity', () => {
 
 describe('suggestedInitiative', () => {
   test('is the skill the activity uses: Avoid Notice suggests Stealth', () => {
-    expect(suggestedInitiative(registry, id('avoid-notice'))).toBe('skill:stealth');
+    const initiative = suggestedInitiative(registry, id('avoid-notice'));
+    expect(String(initiative)).toBe('skill:stealth');
   });
 
   test('is Perception for an activity that uses no skill, for none picked and for one the content lacks', () => {

@@ -18,7 +18,7 @@ on:
 permissions: {}
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.ref || github.sha }}
   # A push to main records history, so none is dropped; a superseded pull request run is not worth finishing.
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
@@ -69,9 +69,11 @@ jobs:
           github-token: ${{ github.token }}
           # Only main writes history; a pull request reads it as the baseline.
           auto-push: ${{ github.event_name == 'push' }}
-          alert-threshold: '150%'
-          comment-on-alert: true
-          fail-on-alert: true
+          # Shared runners differ by up to 2x in speed across the board, so a regression is a ratio well past that, and only
+          # main fails on one: a pull request can't comment on the commit, and its baseline ran on another runner.
+          alert-threshold: '250%'
+          comment-on-alert: ${{ github.event_name == 'push' }}
+          fail-on-alert: ${{ github.event_name == 'push' }}
           summary-always: true
       - name: Fail on a budget
         if: steps.bench.outcome == 'failure'

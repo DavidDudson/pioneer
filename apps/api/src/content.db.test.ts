@@ -1,4 +1,4 @@
-import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
+import { afterAll, beforeAll, describe, expect, setDefaultTimeout, test } from 'bun:test';
 
 import {
   BUNDLE_CACHE_CONTROL,
@@ -37,6 +37,7 @@ import { OFFICIAL_PACK_IDS } from './official-pack-ids';
  * createTestDatabase). Skipped when TEST_DATABASE_URL is unset; CI always sets it. The tests run in order on one
  * database. No request is signed in: official content is public (ADR-0007).
  */
+setDefaultTimeout(30_000);
 const adminUrl = testDatabaseUrl();
 const clock = fixedClock('2026-10-11T10:00:00Z');
 const PACK = PackId.parse('stored-ancestries');

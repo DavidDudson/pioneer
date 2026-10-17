@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import type { SpellcastingInPlay } from '@pioneer/rules/engine';
-import { Origin, SpellPreparation } from '@pioneer/rules/sdk';
+import { Origin, SpellPreparation, SpellRank } from '@pioneer/rules/sdk';
 import { array, assert, constantFrom, property } from 'fast-check';
 
 import { slotCountKey, slotMaxima } from './counted-resources';
@@ -56,7 +56,9 @@ const SLOT_RANKS = [undefined, 1, 2, 3, 4] as const;
 /** A staff cast or refund of `spell`, paid with a slot of `rank` when one is given. */
 function commandOf({ field, spell }: Pick<StaffCommand, 'field' | 'spell'>, rank: number | undefined): StaffCommand {
   const base = { field, item: STAFF_ID, spell };
-  return rank === undefined ? base : Object.assign(base, { slot: slotCountKey(SORCERER.slug, undefined, rank) });
+  return rank === undefined
+    ? base
+    : Object.assign(base, { slot: slotCountKey(SORCERER.slug, undefined, SpellRank.parse(rank)) });
 }
 
 const COMMANDS = array(

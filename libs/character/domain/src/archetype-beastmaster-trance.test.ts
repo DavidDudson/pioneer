@@ -72,11 +72,11 @@ describe("a character with Beastmaster's Trance", () => {
   test('has the focus spell Beastmaster Trance and a Focus Point with it', () => {
     expect(spellsOf('plain')).toEqual([]);
     expect(spellsOf('trance')).toEqual([spellId('beastmaster-trance')]);
-    expect(focusOf('trance').pool).toBe(1);
+    expect(Number(focusOf('trance').pool)).toBe(1);
   });
 
   test("shares one focus pool with the class's own, up to 3", () => {
     expect(spellsOf('druid')).toHaveLength(4);
-    expect(focusOf('druid').pool).toBe(3);
+    expect(Number(focusOf('druid').pool)).toBe(3);
   });
 });

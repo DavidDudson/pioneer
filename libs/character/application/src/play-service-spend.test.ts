@@ -9,7 +9,7 @@ import {
   SpendTime,
   TurnCommandField,
 } from '@pioneer/character/domain';
-import type { Character, PlayCommand, SpendCost } from '@pioneer/character/domain';
+import type { Character, PlayCommand, SpendCost, TurnCommand } from '@pioneer/character/domain';
 import { HUMAN_HIT_POINTS, humanAncestryId } from '@pioneer/character/domain/testing';
 import { ContentId, StatisticKind } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, fixedContent, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
@@ -62,7 +62,7 @@ describe('PlayService spends', () => {
     await patch({ field: TurnCommandField.StartTurn });
   });
 
-  async function patch(command: PlayCommand): Promise<void> {
+  async function patch(command: PlayCommand | TurnCommand): Promise<void> {
     const saved = await play.patch(amiri, kyra.id, { expectedRevision: revision, command });
     ({ revision } = saved);
   }

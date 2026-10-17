@@ -71,7 +71,8 @@ describe('CharacterSheetPage initiative', () => {
     present([...picker.querySelectorAll('button')].find((button) => textOf(button) === 'Roll initiative')).click();
 
     await vi.waitFor(() => {
-      expect(textOf(present(root.querySelector<HTMLElement>('pio-sheet-last-roll')))).toContain('Perception');
+      const lastRoll = present(root.querySelector<HTMLElement>('pio-sheet-last-roll'));
+      expect(textOf(lastRoll)).toContain('Perception');
       expect(textOf(picker)).toContain('Roll again');
     });
     TestBed.inject(HttpTestingController).expectNone({ method: 'PATCH', url: PLAY_URL });

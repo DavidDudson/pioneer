@@ -21,6 +21,7 @@ import type { PlayLimits, PlayState } from './play-state';
 import { Resource, resourceMaxima, ResourceCount } from './resources';
 import { preparedDaily, refocused, rested, sessionStarted } from './rest-actions';
 import { RestChangeKind } from './rest-types';
+import { NO_SHIELDS } from './shield-commands';
 import { NO_STAFF, StaffProblem, staffProblem } from './staff-limits';
 import type { StaffLimits } from './staff-limits';
 import { TEST_SPEND } from './testing';
@@ -62,6 +63,7 @@ const LIMITS: PlayLimits = {
   staff: NO_STAFF,
   valued: new Map(),
   effects: new Map(),
+  shields: NO_SHIELDS,
   spend: TEST_SPEND,
 };
 

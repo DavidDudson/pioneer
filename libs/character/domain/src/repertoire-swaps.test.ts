@@ -1,6 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import { ContentRegistry, Level, SlotKey } from '@pioneer/rules/sdk';
+import type { ContentId } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 import { fixedClock } from '@pioneer/shared/kernel';
 
@@ -23,7 +24,7 @@ const SECOND = 'repertoire:bard:1:1';
 const NEW_THIRD = 'repertoire:bard:3:0';
 
 const slot = (key: string): SlotKey => SlotKey.parse(key);
-const spell = (name: SpellFixture): string => spellFixtureId(name);
+const spell = (name: SpellFixture): ContentId => spellFixtureId(name);
 
 /** A 5th-level bard with `picks`, and `swaps` its level or others recorded. */
 function bard(
@@ -121,7 +122,7 @@ describe('Character.apply with a swap', () => {
 
     expect(swapped.document.build.choices[slot(FIRST)]).toBe(spell('heal'));
     expect(swapped.document.build.choices[slot('signature:bard:1')]).toBe(spell('heal'));
-    expect(swapped.document.build.repertoireSwaps).toEqual([{ level: 5, slot: slot(FIRST) }]);
+    expect(swapped.document.build.repertoireSwaps).toEqual([{ level: Level.parse(5), slot: slot(FIRST) }]);
   });
 
   test("leaves a signature spell another slot of the rank still knows, and a free edit's record", () => {
@@ -155,6 +156,6 @@ describe('Character.apply with a swap', () => {
     });
 
     expect(cleared.document.build.choices[slot(FIRST)]).toBeUndefined();
-    expect(cleared.document.build.repertoireSwaps).toEqual([{ level: 5, slot: slot(FIRST) }]);
+    expect(cleared.document.build.repertoireSwaps).toEqual([{ level: Level.parse(5), slot: slot(FIRST) }]);
   });
 });

@@ -3,7 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { ContentText } from '@pioneer/rules/sdk';
 import { Uuid } from '@pioneer/shared/kernel';
 
-import { characterImportReport, UncarriedField, UnmatchedReason } from './character-import';
+import { characterImportReport, RuleBreakingCount, UncarriedField, UnmatchedReason } from './character-import';
 import type { CharacterImportReport, ImportOutcome } from './character-import';
 import { entryLookup } from './content-lookup';
 import briarRose from './fixtures/briar-rose.json';
@@ -17,6 +17,8 @@ const NOTHING_REFUSED: ImportOutcome = {
   skillGaps: [],
   spellGaps: [],
   modifierDifferences: [],
+  discrepancies: { compared: 0, differences: [] },
+  ruleBreaking: RuleBreakingCount.parse(0),
 };
 const golomaId = Uuid.parse('6f1f7a52-6a43-4d1e-8f6e-6d1cbb1e7a11');
 const vigilantGolomaId = Uuid.parse('0d5c1e0b-3f7a-4b2e-9c1d-2a8e4f6b7c10');

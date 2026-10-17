@@ -96,7 +96,7 @@ const deitySlots = (found: readonly PreparedSlot[]): PreparedSlot[] => found.fil
 /** What the first deity slot of `found` offers, by name. */
 function firstOffer(found: readonly PreparedSlot[]): string[] {
   const [first] = deitySlots(found);
-  return first.options.map((each) => String(each.name));
+  return first?.options.map((each) => String(each.name)) ?? [];
 }
 
 describe('Divine Access', () => {
@@ -130,7 +130,7 @@ describe('Divine Access', () => {
   test('reads a filled slot at the spell’s own rank', () => {
     const slot = deitySlots(withDeity(5, 'sun', { [FIRST_SLOT]: 'sun-third' })).at(0);
 
-    expect(slot?.rank).toBe(3);
+    expect(Number(slot?.rank)).toBe(3);
     expect(slot?.pick).toBeDefined();
   });
 });

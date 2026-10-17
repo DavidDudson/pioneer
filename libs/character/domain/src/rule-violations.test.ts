@@ -6,7 +6,7 @@ import type { Inventory, InventoryItemId } from './inventory';
 import { CarryState, Hands, InvestedCount } from './item-carry';
 import { CORE_RULE_LIMITS, RuleLimitsSchema } from './rule-limits';
 import type { RuleLimits } from './rule-limits';
-import { inventoryViolations, RuleBreak } from './rule-violations';
+import { inventoryViolations, RuleBreak, RuleCount } from './rule-violations';
 import { etchRune } from './rune-edits';
 import {
   Armoury,
@@ -16,6 +16,7 @@ import {
   propertyRune,
   RuneFixture,
   runeFixtureContent,
+  runeFixtureId,
 } from './testing';
 
 const content = { items: itemFixtureContent(), runes: runeFixtureContent() };
@@ -44,12 +45,14 @@ function changed(
 
 describe('CORE_RULE_LIMITS', () => {
   test('are the core rules: ten invested, two hands, a property rune per grade, 500 lines', () => {
-    expect(CORE_RULE_LIMITS).toStrictEqual({
-      investedMax: 10,
-      handsMax: 2,
-      propertyRunesPerGrade: 1,
-      itemsMax: 500,
-    });
+    expect(CORE_RULE_LIMITS).toStrictEqual(
+      RuleLimitsSchema.parse({
+        investedMax: 10,
+        handsMax: 2,
+        propertyRunesPerGrade: 1,
+        itemsMax: 500,
+      }),
+    );
   });
 });
 
@@ -64,8 +67,8 @@ describe('inventoryViolations', () => {
     const stock = changed(armoury(), [Armoury.Armor, Armoury.Shield, Armoury.Bow], { invested: true });
     const tight = withLimits({ investedMax: InvestedCount.parse(1) });
     expect(inventoryViolations(stock, content, tight)).toStrictEqual([
-      { item: Armoury.Shield, rule: RuleBreak.Invested, limit: 1, actual: 2 },
-      { item: Armoury.Bow, rule: RuleBreak.Invested, limit: 1, actual: 3 },
+      { item: Armoury.Shield, rule: RuleBreak.Invested, limit: RuleCount.parse(1), actual: RuleCount.parse(2) },
+      { item: Armoury.Bow, rule: RuleBreak.Invested, limit: RuleCount.parse(1), actual: RuleCount.parse(3) },
     ]);
     expect(inventoryViolations(stock, content)).toStrictEqual([]);
   });
@@ -74,7 +77,7 @@ describe('inventoryViolations', () => {
     const held = { state: CarryState.Held, hands: Hands.parse(1) } as const;
     const stock = changed(armoury(), [Armoury.Sword, Armoury.SpareSword, Armoury.Bow], { carry: held });
     expect(inventoryViolations(stock, content)).toStrictEqual([
-      { item: Armoury.SpareSword, rule: RuleBreak.Hands, limit: 2, actual: 3 },
+      { item: Armoury.SpareSword, rule: RuleBreak.Hands, limit: RuleCount.parse(2), actual: RuleCount.parse(3) },
     ]);
     const roomy = withLimits({ handsMax: Hands.parse(3) });
     expect(inventoryViolations(stock, content, roomy)).toStrictEqual([]);
@@ -85,7 +88,7 @@ describe('inventoryViolations', () => {
     stock = etchRune(stock, Armoury.Sword, FLAMING);
     stock = etchRune(stock, Armoury.Sword, FROST);
     expect(inventoryViolations(stock, content)).toStrictEqual([
-      { item: Armoury.Sword, rule: RuleBreak.PropertyRunes, limit: 1, actual: 2 },
+      { item: Armoury.Sword, rule: RuleBreak.PropertyRunes, limit: RuleCount.parse(1), actual: RuleCount.parse(2) },
     ]);
   });
 
@@ -102,8 +105,8 @@ describe('inventoryViolations', () => {
     stock = etchRune(stock, Armoury.Sword, HOLY);
     stock = etchRune(stock, Armoury.Sword, UNHOLY);
     expect(inventoryViolations(stock, content)).toStrictEqual([
-      { item: Armoury.Sword, rule: RuleBreak.RuneNotAllowed, rune: HOLY.rune },
-      { item: Armoury.Sword, rule: RuleBreak.RuneNotAllowed, rune: UNHOLY.rune },
+      { item: Armoury.Sword, rule: RuleBreak.RuneNotAllowed, rune: runeFixtureId(RuneFixture.Holy) },
+      { item: Armoury.Sword, rule: RuleBreak.RuneNotAllowed, rune: runeFixtureId(RuneFixture.Unholy) },
     ]);
   });
 

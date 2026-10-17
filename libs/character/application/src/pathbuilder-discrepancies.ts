@@ -1,4 +1,10 @@
-import { buildRanks, characterStatisticInputs, characterStatistics } from '@pioneer/character/domain';
+import {
+  buildRanks,
+  characterGrants,
+  characterSpellcasting,
+  characterStatisticInputs,
+  characterStatistics,
+} from '@pioneer/character/domain';
 import type { Character, SlotContent } from '@pioneer/character/domain';
 import {
   ARMOR_CLASS,
@@ -81,9 +87,9 @@ function pioneerValues(character: Character, { registry, slots, variants }: Deri
   const ranks = buildRanks(document, slots);
   const focus = documentFocus(document, slots);
   return {
-    spellSlots: spellSlots(inputs.spellcasting),
+    spellSlots: spellSlots(characterSpellcasting(characterGrants(document, slots))),
     focusPoints: focus.entries.length === 0 ? undefined : focus.pool,
-    spellDcs: inputs.spellcasting.flatMap(({ slug, tradition, attribute }): PioneerSpellDc[] => {
+    spellDcs: (inputs.spellcasting ?? []).flatMap(({ slug, tradition, attribute }): PioneerSpellDc[] => {
       const selector = SelectorSchema.parse(`spell-dc:${slug}`);
       const total = derived(statistics, selector);
       return total === undefined ? [] : [{ selector, tradition, attribute, total }];

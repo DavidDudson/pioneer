@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { CarryState, ItemOrigin, itemContent } from '@pioneer/character/domain';
+import { CarryState, CoinAmount, InventoryItemName, ItemOrigin, itemContent } from '@pioneer/character/domain';
 import type { Inventory } from '@pioneer/character/domain';
 import {
   entryLookup,
@@ -107,7 +107,7 @@ describe('importedInventory (Mordred)', () => {
   test('etches weapon potency and striking, and names the weapon the player named', async () => {
     const { items } = await mordredInventory();
     const named = items.filter((item) => item.name !== undefined).map((item) => item.name);
-    expect(named).toStrictEqual(['Caliburn', 'Clarent']);
+    expect(named).toStrictEqual([InventoryItemName.parse('Caliburn'), InventoryItemName.parse('Clarent')]);
     expect(items.find((item) => item.name === 'Clarent')?.runes).toMatchObject({ potency: 2, striking: 2 });
   });
 
@@ -124,7 +124,12 @@ describe('importedInventory (Mordred)', () => {
   test('invests only what content says is invested, and carries the coins', async () => {
     const { items, coins } = await mordredInventory();
     expect(items.filter((item) => item.invested === true)).toHaveLength(2);
-    expect(coins).toStrictEqual({ pp: 0, gp: 45, sp: 6, cp: 1 });
+    expect(coins).toStrictEqual({
+      pp: CoinAmount.parse(0),
+      gp: CoinAmount.parse(45),
+      sp: CoinAmount.parse(6),
+      cp: CoinAmount.parse(1),
+    });
   });
 });
 

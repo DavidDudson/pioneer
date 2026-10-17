@@ -91,6 +91,6 @@ describe('a character with champion archetype devotion spells', () => {
 
     expect(spellsOf(focusOf('blessed-one'))).toEqual([spellId('lay-on-hands')]);
     expect(spellsOf(both)).toEqual([spellId('lay-on-hands'), spellId('protectors-sacrifice')]);
-    expect(both.pool).toBe(2);
+    expect(Number(both.pool)).toBe(2);
   });
 });

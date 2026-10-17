@@ -1,6 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import { ContentKind, ContentRegistry } from '@pioneer/rules/sdk';
+import type { MagicTradition } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 
 import { characterGrants } from './class-build';
@@ -120,10 +121,10 @@ describe('a character with Sorcerer Dedication', () => {
 
     expect(focusOf(character('dedicated')).entries).toEqual([]);
     expect(spellsOf(character('basic-bloodline-spell'))).toEqual([spellId(INITIAL)]);
-    expect(basic.pool).toBe(1);
+    expect(Number(basic.pool)).toBe(1);
   });
 
-  test.each([
+  test.each<[string, MagicTradition]>([
     ['demonic', 'divine'],
     ['draconic-arcane', 'arcane'],
     ['draconic-primal', 'primal'],

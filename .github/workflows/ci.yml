@@ -14,7 +14,9 @@ env:
   NX_MAX_CACHE_SIZE: 512MB
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  # Each push to main gets its own group: a group holds one pending run, so a shared one dropped every queued
+  # main run when the next merge landed, and main never finished a run.
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.ref || github.sha }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
@@ -23,7 +25,7 @@ jobs:
   check:
     name: Check (${{ matrix.name }})
     runs-on: ubuntu-24.04
-    timeout-minutes: 10
+    timeout-minutes: 15
     permissions:
       contents: read
     strategy:
@@ -68,6 +70,8 @@ jobs:
         env:
           SCRIPT: ${{ matrix.script }}
           ARGS: ${{ matrix.args }}
+          # The Angular compiler (ngc) runs out of its default heap typechecking the web projects.
+          NODE_OPTIONS: --max-old-space-size=6144
 
   # `ci:test` split by project group so each job stays near the others: the character feature (its specs open pages
   # over Player Core's import), the other web projects (Angular unit tests), and the Bun projects, which hold the
@@ -75,7 +79,7 @@ jobs:
   test:
     name: Check (test ${{ matrix.name }})
     runs-on: ubuntu-24.04
-    timeout-minutes: 10
+    timeout-minutes: 15
     permissions:
       contents: read
     strategy:
@@ -83,7 +87,7 @@ jobs:
       matrix:
         include:
           - { name: character, id: character, args: --projects=character-feature }
-          - { name: web, id: web, args: '--projects=tag:platform:web --exclude=character-feature' }
+          - { name: web, id: web, args: '--projects=tag:platform:web --exclude=character-feature --parallel=2' }
           - { name: server and domain, id: server, args: '--exclude=tag:platform:web' }
     services:
       postgres:
@@ -137,6 +141,8 @@ jobs:
           bun run ci:test $ARGS
         env:
           ARGS: ${{ matrix.args }}
+          # The Angular compiler worker ran out of its default heap compiling several projects at once.
+          NODE_OPTIONS: --max-old-space-size=6144
 
   workflows:
     name: Workflow lint

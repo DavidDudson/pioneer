@@ -108,6 +108,6 @@ describe('a character with Oracle Dedication', () => {
     expect(spellsOf('dedicated')).toEqual([]);
     expect(spellsOf('first-revelation', 'battle')).toEqual([spellId('weapon-trance')]);
     expect(spellsOf('first-revelation', 'flames')).toEqual([spellId('incendiary-aura')]);
-    expect(focusOf('first-revelation').pool).toBe(1);
+    expect(Number(focusOf('first-revelation').pool)).toBe(1);
   });
 });
