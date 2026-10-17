@@ -1,5 +1,6 @@
 import { ContentId, ContentKind, ContentRegistry, FacetId, FacetValue, SelectionKind } from '@pioneer/rules/sdk';
 import type { ContentEntry, FilterState } from '@pioneer/rules/sdk';
+import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 import { describe, expect, it } from 'vitest';
 
 import { BROWSE_PACK } from '../testing/browse-fixtures';
@@ -86,5 +87,48 @@ describe(browseList, () => {
       expect(browseList({ entries, facets, state: new Map(), matches: [stray] }, compare).entries).toStrictEqual([]);
       expect(browseList({ entries, facets, state: new Map(), matches: [] }, compare).entries).toStrictEqual([]);
     });
+  });
+});
+
+describe('creatures', () => {
+  const creatureRegistry = new ContentRegistry();
+  creatureRegistry.register(
+    new ContentPackBuilder()
+      .withId('bestiary-test')
+      .withCreature({
+        slug: 'creature:goblin',
+        name: 'Goblin',
+        level: -1,
+        role: 'monster',
+        size: 'small',
+        traits: ['goblin', 'humanoid'],
+        perception: 2,
+        attributes: { str: 0, dex: 3, con: 1, int: 0, wis: 1, cha: 1 },
+        armorClass: 16,
+        saves: { fortitude: 5, reflex: 7, will: 3 },
+        hitPoints: 6,
+        immunities: [],
+        weaknesses: [],
+        resistances: [],
+        speed: 25,
+      })
+      .build(),
+  );
+
+  it('are listed with their kind, filtered by role and size', () => {
+    const entries = entriesOf(creatureRegistry, [ContentKind.Creature]);
+    expect(entries.map((entry) => entry.name)).toStrictEqual(['Goblin']);
+    const facets = facetsOf([ContentKind.Creature]);
+    expect(facets.map((facet) => facet.id)).toStrictEqual(expect.arrayContaining(['role', 'size']));
+  });
+
+  it('are kept or dropped by the role filter', () => {
+    const entries = entriesOf(creatureRegistry, [ContentKind.Creature]);
+    const facets = facetsOf([ContentKind.Creature]);
+    const role = FacetId.parse('role');
+    const picked = (value: string): FilterState =>
+      new Map([[role, { kind: SelectionKind.Values, include: [FacetValue.parse(value)], exclude: [] }]]);
+    expect(browseList({ entries, facets, state: picked('monster') }, compare).entries).toHaveLength(1);
+    expect(browseList({ entries, facets, state: picked('npc') }, compare).entries).toHaveLength(0);
   });
 });

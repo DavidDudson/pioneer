@@ -12,6 +12,7 @@ import { ContentSearchRepository } from './content-search-repository';
 import type { ContentSearchCriteria } from './content-search-repository';
 import { seedContentPacks } from './content-seed';
 import { contentEntries, contentEntrySearch, contentPacks } from './content.table';
+import { creaturePack } from './testing/creature-packs';
 import { languagePack, loader } from './testing/language-packs';
 import type { Language } from './testing/language-packs';
 
@@ -138,6 +139,19 @@ describe.skipIf(adminUrl === undefined)('content search (postgres)', () => {
     const result = await ask('zzyzx');
 
     expect(result).toStrictEqual({ ids: [], total: 0 });
+  });
+
+  test('a creature is found by its name and by its description, for anyone', async () => {
+    const pack = creaturePack('search-bestiary', 'Granarywyrm');
+    await seed(pack);
+
+    const byName = await ask('granarywyrm', { kinds: ['creature'] });
+    const byText = await ask('granarywyrm gnaws');
+    const otherKind = await ask('granarywyrm', { kinds: ['spell'] });
+
+    expect(byName).toStrictEqual({ ids: idsAt(pack, 0), total: 1 });
+    expect(byText).toStrictEqual({ ids: idsAt(pack, 0), total: 1 });
+    expect(otherKind.total).toBe(0);
   });
 
   test('kinds narrow the search to those kinds', async () => {

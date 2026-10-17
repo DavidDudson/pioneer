@@ -12,11 +12,19 @@ import { EntryNameCell } from './entry-name-cell/entry-name-cell.component';
 import { LevelCell } from './level-cell/level-cell.component';
 import { ActionKind } from './picker-cell-messages';
 import { SummaryCell } from './summary-cell/summary-cell.component';
+import { TextCell } from './text-cell/text-cell.component';
 
 /** A column of one cell kind: its id, header and how to read the value from a row. */
 export interface CellColumn<TRow, TValue> extends ColumnOptions {
   readonly id: string;
   readonly value: (row: TRow) => TValue;
+}
+
+/** A column of text, sorted by a number of its own: a level in the UI locale, by its value. */
+export interface SortedTextColumn<TRow> extends ColumnOptions {
+  readonly id: string;
+  readonly value: (row: TRow) => string;
+  readonly sortValue: (row: TRow) => number;
 }
 
 /** A column of a count out of a total. */
@@ -86,6 +94,15 @@ export class RulesTableSchema<TRow extends RowData> extends TableSchema<TRow> {
       sortValue: options.value,
       component: LevelCell,
       inputs: (row) => ({ level: options.value(row) }),
+    });
+  }
+
+  /** Text as the locale writes it, sorted by a number: a row with nothing to compare sorts first. */
+  public addSortedText(options: SortedTextColumn<TRow>): this {
+    return this.addComponent({
+      ...options,
+      component: TextCell,
+      inputs: (row) => ({ text: options.value(row) }),
     });
   }
 
