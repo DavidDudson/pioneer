@@ -48,7 +48,7 @@ function partyCharacter(characterId: string, name: string): object {
 const party = { characters: [partyCharacter(kyra, 'Kyra'), partyCharacter(mordred, 'Mordred')], attachable: [] };
 
 /** Caliburn with six property runes, one more than the table allows, held by `holder` or the stash. */
-function keyItems(holder: 'kyra' | 'stash', manageable = true): object {
+function keyItems(holder: 'kyra' | 'stash', manageable = true, owned = false): object {
   return {
     manageable,
     keyItems: [
@@ -64,6 +64,7 @@ function keyItems(holder: 'kyra' | 'stash', manageable = true): object {
           })),
         },
         notes: 'Drawn from the stone.',
+        holderOwned: holder === 'kyra' && owned,
         ...(holder === 'kyra' ? { holder: kyra, holderName: 'Kyra' } : {}),
       },
     ],
@@ -91,7 +92,7 @@ async function open(items: object, gm: boolean): Promise<HTMLElement> {
       provideI18n({ en: async () => frontierMessages }),
     ],
   });
-  const harness = await RouterTestingHarness.create(`/campaigns/${id}`);
+  const harness = await RouterTestingHarness.create(`/campaigns/${id}/inventory`);
   const host: unknown = harness.fixture.nativeElement;
   if (!(host instanceof HTMLElement)) {
     throw new TypeError('The page did not render');
@@ -119,7 +120,71 @@ async function open(items: object, gm: boolean): Promise<HTMLElement> {
   return root;
 }
 
+/** Caliburn held by Kyra, and Excalibur in the party stash. */
+function twoKeyItems(): object {
+  const [held] = (keyItems('kyra', false) as { keyItems: object[] }).keyItems;
+  const stashed = {
+    ...held,
+    id: '7e1f3a5b-9c2d-4e6f-8a0b-1c3d5e7f9a2b',
+    name: 'Excalibur',
+    holder: undefined,
+    holderName: undefined,
+  };
+  return { manageable: false, keyItems: [held, stashed] };
+}
+
+/** Picks `label` in the holder filter. */
+async function filterBy(root: HTMLElement, label: string): Promise<void> {
+  present(root.querySelector<HTMLElement>('pio-campaign-key-item-filter fr-select button')).click();
+  const option = await vi.waitFor(() =>
+    present(
+      [...document.querySelectorAll<HTMLElement>('[role="option"]')].find((each) => each.textContent.trim() === label),
+    ),
+  );
+  option.click();
+}
+
 describe('CampaignKeyItemsPanel', () => {
+  it('filters the key items by holder, and by the party stash', async () => {
+    const root = await open(twoKeyItems(), false);
+    expect(root.textContent).toContain('Excalibur');
+
+    await filterBy(root, 'Kyra');
+    await vi.waitFor(() => {
+      expect(root.textContent).not.toContain('Excalibur');
+    });
+    expect(root.textContent).toContain('Caliburn');
+
+    await filterBy(root, 'Party stash');
+    await vi.waitFor(() => {
+      expect(root.textContent).not.toContain('Caliburn');
+    });
+    expect(root.textContent).toContain('Excalibur');
+  });
+
+  it('says no key item is held when the filter keeps none', async () => {
+    const root = await open(keyItems('kyra', false), false);
+
+    await filterBy(root, 'Party stash');
+
+    await vi.waitFor(() => {
+      expect(root.textContent).toContain('No key items for this holder.');
+    });
+  });
+
+  it('links the holder to their sheet for the viewer who owns that character', async () => {
+    const root = await open(keyItems('kyra', false, true), false);
+    const link = present(root.querySelector('pio-campaign-key-item-row a'));
+    expect(link.textContent.trim()).toBe('Kyra');
+    expect(link.getAttribute('href')).toBe(`/characters/${kyra}`);
+  });
+
+  it('names a holder the viewer does not own without a link, as they could not open the sheet', async () => {
+    const root = await open(keyItems('kyra', false, false), false);
+    expect(root.querySelector('pio-campaign-key-item-row a')).toBeNull();
+    expect(root.textContent).toContain('Held by Kyra');
+  });
+
   it('lists the key item with its base, runes as stated, notes and holder', async () => {
     const root = await open(keyItems('kyra'), true);
     expect(root.textContent).toContain('(Longsword)');
@@ -204,7 +269,11 @@ describe('CampaignKeyItemsPanel', () => {
       call.flush({
         manageable: true,
         keyItems: [
-          { ...(keyItems('kyra') as { keyItems: object[] }).keyItems[0], holder: mordred, holderName: 'Mordred' },
+          {
+            ...(keyItems('kyra') as { keyItems: object[] }).keyItems[0],
+            holder: mordred,
+            holderName: 'Mordred',
+          },
         ],
       });
     });

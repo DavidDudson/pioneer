@@ -1,0 +1,9 @@
+<fr-page>
+  <fr-page-header [title]="'campaign.inventory.title' | transloco" [description]="store.selected.data()?.name" />
+  <fr-page-body>
+    <fr-stack gap="xl">
+      <fr-link exact [to]="['/campaigns', id()]">{{ 'campaign.inventory.back' | transloco }}</fr-link>
+      <pio-campaign-key-items />
+    </fr-stack>
+  </fr-page-body>
+</fr-page>

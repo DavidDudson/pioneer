@@ -11,11 +11,20 @@
       </ng-template>
       <ng-template let-key [frAsyncData]="store.keyItems">
         <fr-stack gap="md">
-          @if (key.keyItems.length === 0) {
-            <fr-empty-state [icon]="emptyIcon" [title]="'campaign.keyItems.none' | transloco" />
+          @if (key.keyItems.length > 0) {
+            <pio-campaign-key-item-filter [keyItems]="key.keyItems" [(value)]="filter" />
+          }
+          @let shown = visible(key.keyItems);
+          @if (shown.length === 0) {
+            <fr-empty-state
+              [icon]="emptyIcon"
+              [title]="
+                (key.keyItems.length === 0 ? 'campaign.keyItems.none' : 'campaign.keyItems.noneHeld') | transloco
+              "
+            />
           }
           <fr-list gap="sm">
-            @for (keyItem of key.keyItems; track keyItem.id) {
+            @for (keyItem of shown; track keyItem.id) {
               <pio-campaign-key-item-row [keyItem]="keyItem" [manageable]="key.manageable" />
             }
           </fr-list>
