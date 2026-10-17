@@ -1,7 +1,8 @@
 name: Mirror adapter
 
 # Copies the AWS Lambda Web Adapter (ADR-0015) from public ECR to GHCR, digest for digest, so image builds do not
-# depend on public.ecr.aws. The Dockerfile pulls the GHCR copy. Run it when the pinned version changes.
+# depend on public.ecr.aws. Anonymous pulls from runners hit 429, so it logs in with the pioneer-mirror role
+# (infra/github.tf). The Dockerfile pulls the GHCR copy. Run it when the pinned version changes.
 # See docs/deployment.md.
 
 on:
@@ -27,16 +28,25 @@ jobs:
     timeout-minutes: 20
     permissions:
       contents: read
+      id-token: write # OIDC to AWS
       packages: write # push to ghcr.io
     steps:
       - uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
+      - uses: aws-actions/configure-aws-credentials@e1253824e5c10ff9df46874f81ed3ec929e19cfd # v6.3.0
+        with:
+          role-to-assume: ${{ vars.AWS_MIRROR_ROLE_ARN }}
+          aws-region: us-east-1 # public ECR tokens are only issued here
       - uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f # v4.6.0
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Log in to public ECR
+        run: |
+          aws ecr-public get-login-password --region us-east-1 \
+            | docker login --username AWS --password-stdin public.ecr.aws
       # Copies the manifest list and every platform's layers without rebuilding, so the digest is unchanged. Public ECR
-      # rate-limits anonymous pulls from shared runner IPs (429), so retry with a growing wait.
+      # still throttles now and then (429), so retry with a growing wait.
       - name: Copy
         run: |
           for attempt in 1 2 3 4 5 6; do
