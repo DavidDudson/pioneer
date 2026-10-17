@@ -1,0 +1,13 @@
+@if (spells().length > 0) {
+  <fr-stack gap="xs">
+    <fr-text>{{ 'character.sheet.active.lapsing' | transloco: { names: names() } }}</fr-text>
+    <fr-stack direction="horizontal" align="center" gap="xs" wrap>
+      <fr-async-button size="sm" [action]="confirm()" [describeError]="describeError">
+        {{ 'character.sheet.active.endAnyway' | transloco }}
+      </fr-async-button>
+      <fr-button size="sm" variant="ghost" (pressed)="cancelled.emit()">
+        {{ 'character.sheet.active.keepGoing' | transloco }}
+      </fr-button>
+    </fr-stack>
+  </fr-stack>
+}

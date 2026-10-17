@@ -1,0 +1,61 @@
+<fr-async-region>
+  <ng-template frAsyncPending><fr-skeleton width="lg" /></ng-template>
+  <ng-template [frAsyncData]="registry">
+    <fr-async-region>
+      <ng-template frAsyncPending><fr-skeleton width="lg" /></ng-template>
+      <ng-template [frAsyncData]="playQuery">
+        <fr-stack gap="xs">
+          <fr-text weight="semibold">{{ 'character.sheet.active.label' | transloco }}</fr-text>
+          @for (row of rows(); track row.id) {
+            <fr-stack direction="horizontal" align="center" gap="sm" wrap>
+              <fr-text weight="semibold">{{ row.name }}</fr-text>
+              <fr-text tone="muted">{{ sourceKey(row) | transloco: { name: row.ally } }}</fr-text>
+              @if (row.sustained) {
+                <fr-badge>{{ 'character.sheet.active.sustained' | transloco }}</fr-badge>
+              }
+              @if (row.remaining !== undefined) {
+                <fr-text tone="muted">{{
+                  (row.sustained ? 'character.sheet.active.atMost' : 'character.sheet.effects.remaining')
+                    | transloco: { count: row.remaining }
+                }}</fr-text>
+              }
+              @if (row.editable) {
+                <fr-async-button
+                  size="sm"
+                  [action]="shorter(row)"
+                  [disabled]="busy() || !canShorten(row)"
+                  [describeError]="describeError"
+                >
+                  {{ 'character.sheet.active.shorter' | transloco }}
+                </fr-async-button>
+                <fr-async-button size="sm" [action]="longer(row)" [disabled]="busy()" [describeError]="describeError">
+                  {{ 'character.sheet.active.longer' | transloco }}
+                </fr-async-button>
+              }
+              @if (row.kind === spell) {
+                <fr-async-button
+                  size="sm"
+                  [action]="sustain(row)"
+                  [disabled]="cannotSustain(row)"
+                  [describeError]="describeError"
+                >
+                  {{ 'character.sheet.active.sustain' | transloco }}
+                </fr-async-button>
+              }
+              <fr-async-button
+                size="sm"
+                [action]="dismiss(row)"
+                [disabled]="cannotDismiss(row)"
+                [describeError]="describeError"
+              >
+                {{ 'character.sheet.active.dismiss' | transloco }}
+              </fr-async-button>
+            </fr-stack>
+          } @empty {
+            <fr-text tone="muted">{{ 'character.sheet.active.none' | transloco }}</fr-text>
+          }
+        </fr-stack>
+      </ng-template>
+    </fr-async-region>
+  </ng-template>
+</fr-async-region>

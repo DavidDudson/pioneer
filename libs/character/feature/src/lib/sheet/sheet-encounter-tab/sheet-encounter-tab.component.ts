@@ -18,7 +18,7 @@ import { SheetState } from '../sheet-state';
 import { SheetStaves } from '../sheet-staves/sheet-staves.component';
 import { usableStrikes } from '../sheet-strikes';
 import { rememberTab } from '../sheet-tab';
-import { SheetTurnBar } from '../sheet-turn-bar/sheet-turn-bar.component';
+import { SheetTurnPanel } from '../sheet-turn-panel/sheet-turn-panel.component';
 import { SheetWands } from '../sheet-wands/sheet-wands.component';
 
 /**
@@ -41,7 +41,7 @@ import { SheetWands } from '../sheet-wands/sheet-wands.component';
     SheetSpells,
     SheetStaves,
     SheetSpendLog,
-    SheetTurnBar,
+    SheetTurnPanel,
     SheetConsumables,
     SheetShields,
     SheetWands,
