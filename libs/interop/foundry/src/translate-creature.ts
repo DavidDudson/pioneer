@@ -5,6 +5,7 @@ import { ENVELOPE_FIELDS, KindDataGapReason, report } from './kind-data-gaps';
 import type { GapLog, KindInput } from './kind-data-gaps';
 import { FOUNDRY_SIZES, systemOf } from './kind-fields';
 import { creatureRole } from './select-entries';
+import { creatureItems } from './translate-creature-items';
 
 /**
  * A creature's core statistics from a Foundry `npc` actor: level and traits are the envelope's; the data holds its
@@ -173,6 +174,54 @@ function details(system: z.infer<typeof FoundryCreatureSystem>, log: GapLog): vo
   }
 }
 
+type System = z.infer<typeof FoundryCreatureSystem>;
+
+interface FoundrySenseValue {
+  readonly type: string;
+  readonly acuity?: string | undefined;
+  readonly range?: number | undefined;
+}
+
+/** A sense with the acuity and range Foundry gives it, if any. */
+function senseOf({ type, acuity, range }: FoundrySenseValue): object {
+  return {
+    sense: type,
+    ...(acuity === undefined ? {} : { acuity }),
+    ...(range === undefined ? {} : { range }),
+  };
+}
+
+/** A list's entry in the data when it has any: an empty list says nothing. */
+function listed(key: string, list: readonly unknown[]): object {
+  return list.length > 0 ? { [key]: list } : {};
+}
+
+/** The optional parts the actor's `system` makes: skills, senses, languages and the other speeds. */
+function optionalParts(system: System, lores: readonly unknown[]): object {
+  const { attributes, perception } = system;
+  const skills = Object.entries(system.skills).map(([skill, { base }]) => ({ skill, modifier: base }));
+  const senses = perception.senses.map((sense) => senseOf(sense));
+  const speeds = attributes.speed.otherSpeeds.map(({ type, value }) => ({ movement: type, speed: value }));
+  return {
+    ...listed('skills', [...skills, ...lores]),
+    ...listed('senses', senses),
+    ...listed('languages', system.details.languages.value),
+    ...listed('speeds', speeds),
+  };
+}
+
+/** The six attribute modifiers, from the abilities' `mod`. */
+function attributeModifiers({ abilities }: System): object {
+  return {
+    str: abilities.str.mod,
+    dex: abilities.dex.mod,
+    con: abilities.con.mod,
+    int: abilities.int.mod,
+    wis: abilities.wis.mod,
+    cha: abilities.cha.mod,
+  };
+}
+
 /** The creature's data, unparsed; undefined when its `system` is not shaped as a creature's. */
 export function creatureData(input: KindInput): object | undefined {
   const system = systemOf(FoundryCreatureSystem, input);
@@ -180,29 +229,15 @@ export function creatureData(input: KindInput): object | undefined {
     return undefined;
   }
   const { log, pack } = input;
-  const { abilities, attributes, perception, saves } = system;
+  const { attributes, perception, saves } = system;
   details(system, log);
   const size = sizeOf(system.traits.size.value, log);
-  const senses = perception.senses.map(({ type, acuity, range }) => ({
-    sense: type,
-    ...(acuity === undefined ? {} : { acuity }),
-    ...(range === undefined ? {} : { range }),
-  }));
-  const speeds = attributes.speed.otherSpeeds.map(({ type, value }) => ({ movement: type, speed: value }));
-  const skills = Object.entries(system.skills).map(([skill, { base }]) => ({ skill, modifier: base }));
-  const languages = system.details.languages.value;
+  const { lores = [], ...parts } = creatureItems(input);
   return {
     role: creatureRole(pack.directory),
     ...(size === undefined ? {} : { size }),
     perception: perception.mod,
-    attributes: {
-      str: abilities.str.mod,
-      dex: abilities.dex.mod,
-      con: abilities.con.mod,
-      int: abilities.int.mod,
-      wis: abilities.wis.mod,
-      cha: abilities.cha.mod,
-    },
+    attributes: attributeModifiers(system),
     armorClass: attributes.ac.value,
     saves: { fortitude: saves.fortitude.value, reflex: saves.reflex.value, will: saves.will.value },
     hitPoints: attributes.hp.max,
@@ -210,9 +245,7 @@ export function creatureData(input: KindInput): object | undefined {
     weaknesses: adjustments(attributes.weaknesses, 'attributes.weaknesses', log),
     resistances: adjustments(attributes.resistances, 'attributes.resistances', log),
     speed: attributes.speed.value ?? NO_LAND_SPEED,
-    ...(skills.length > 0 ? { skills } : {}),
-    ...(senses.length > 0 ? { senses } : {}),
-    ...(languages.length > 0 ? { languages } : {}),
-    ...(speeds.length > 0 ? { speeds } : {}),
+    ...optionalParts(system, lores),
+    ...parts,
   };
 }
