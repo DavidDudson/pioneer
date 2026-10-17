@@ -727,7 +727,7 @@ its `start` spell rank, so a heightened form is data. A value is a number or a f
 or resistance may name a damage trait (`water`, `holy`) as well as a damage type; the engine decides what it matches.
 The importer reads the element in full; one that depends on a pick (Dragon Form's damage type and speeds), a formula
 over `@item`, or a Strike without a damage type stays in the backlog.
-The engine applies the replaced statistics, Strikes and temporary Hit Points; defences and traits follow.
+The engine applies the replaced statistics, Strikes, temporary Hit Points, defences, traits and restrictions.
 
 #### Replaced statistics
 
@@ -770,6 +770,22 @@ while a form is in force; it needs the rule elements in play (`StrikeRulesInput`
 - A form Strike is a `WeaponInputs` of category `unarmed` unless it names one, with the form as its origin.
 - **Temporary Hit Points** (`vitalsInPlay`): `tempHP` joins the `TempHP` elements, so the highest of them counts and
   the form is an origin of the amount when it gives it. It is derived, so it goes when the form does.
+
+#### Defences, traits and restrictions
+
+- **Defences** (`deriveDefences`): the form's `immunities`, `weaknesses` and `resistances` join those of the `Immunity`,
+  `Weakness` and `Resistance` elements, with the form as origin (`battle-form-defences.ts`). They are applied, since
+  the form's predicate holds, and a value may be a formula over the character. The highest per type or group counts, so
+  a form's resistance 5 supersedes the character's own 3 to the same type. A weakness or resistance that names a trait
+  (`holy`) rather than a damage type or group is left out: the damage pipeline matches only types and groups.
+- **Traits** (`factsUnderForm`): the form's `traits` become the character's roll options (`self:trait:plant`) while it
+  lasts. The character's equipped facts carry them, so every predicate reads them. A form's own predicate should
+  not depend on the traits it grants: it is tested again on the facts that carry them.
+- **Restrictions** (`availableActions`, `battle-form-actions.ts`): an action is unavailable, with a reason that names
+  the form (`engine.action.formCantCast`, `formCantSpeak`, `formNoHands`), when the form sets `canCast: false` and the
+  action casts a spell (Cast a Spell, or a spell), `canSpeak: false` and it has the `auditory` or `linguistic` trait,
+  or `hasHands: false` and it has the `manipulate` trait. A flag the form leaves out forbids nothing. An action needing
+  several things the form lacks gives a reason for each.
 
 ### Strike dice and notes
 

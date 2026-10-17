@@ -1,5 +1,5 @@
-import { NO_MODIFIERS } from '@pioneer/rules/engine';
-import type { ArmorInputs, ModifierInputs, RuleInPlay, WeaponInputs } from '@pioneer/rules/engine';
+import { battleFormInPlay, factsUnderForm, NO_MODIFIERS } from '@pioneer/rules/engine';
+import type { ArmorInputs, FormInPlay, ModifierInputs, RuleInPlay, WeaponInputs } from '@pioneer/rules/engine';
 import { resolveGrants } from '@pioneer/rules/grants';
 import type { GrantResolution, GrantRoot, ToggleSlot } from '@pioneer/rules/grants';
 import type { PredicateFacts } from '@pioneer/rules/predicate';
@@ -240,13 +240,22 @@ function equippedResolution(document: CharacterDocument, content: ItemContent, s
 /** An entry that is in play through the inventory or a condition, and why. */
 export interface EquippedGrants {
   readonly items: readonly Resolved[];
+  /** With the traits of the battle form in force, as the character's own. */
   readonly facts: PredicateFacts;
+  /** The battle form in force; none when there is none. */
+  readonly form: FormInPlay | undefined;
 }
 
 /** What the character's active items and conditions put in play, and the facts that holds (see `equippedRules`). */
 export function equippedGrants(document: CharacterDocument, content: ItemContent, slots: SlotContent): EquippedGrants {
-  const { items, facts } = equippedResolution(document, content, slots);
-  return { items: items.filter(({ origin }) => fromInventory(origin)), facts };
+  const resolution = equippedResolution(document, content, slots);
+  const rules = rulesOf(resolution, { inventory: document.inventory, content }, fromInventory);
+  const inputs = { rules, facts: resolution.facts };
+  return {
+    items: resolution.items.filter(({ origin }) => fromInventory(origin)),
+    facts: factsUnderForm(inputs),
+    form: battleFormInPlay(inputs),
+  };
 }
 
 /**
@@ -259,11 +268,8 @@ export function equippedGrants(document: CharacterDocument, content: ItemContent
 export function equippedRules(document: CharacterDocument, content: ItemContent, slots: SlotContent): EquippedRules {
   const resolution = equippedResolution(document, content, slots);
   const toggles = resolution.toggles.filter(({ origin }) => fromInventory(origin));
-  return {
-    rules: rulesOf(resolution, { inventory: document.inventory, content }, fromInventory),
-    facts: resolution.facts,
-    toggles,
-  };
+  const rules = rulesOf(resolution, { inventory: document.inventory, content }, fromInventory);
+  return { rules, facts: factsUnderForm({ rules, facts: resolution.facts }), toggles };
 }
 
 /**

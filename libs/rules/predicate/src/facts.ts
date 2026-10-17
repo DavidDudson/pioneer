@@ -1,5 +1,5 @@
-import { NamespaceKind } from '@pioneer/rules/sdk';
-import type { RollOption, RollOptionNamespace, RollOptionTail } from '@pioneer/rules/sdk';
+import { NamespaceKind, RollOption } from '@pioneer/rules/sdk';
+import type { RollOptionNamespace, RollOptionTail } from '@pioneer/rules/sdk';
 import * as z from 'zod';
 
 import { kindOf } from './namespaces';
@@ -83,6 +83,18 @@ export class PredicateFacts {
   ): PredicateFacts {
     const layered = new PredicateFacts([], this.#namespaces);
     layered.#layer = { base: this, prefix: `${namespace}${SEPARATOR}`, options };
+    return layered;
+  }
+
+  /** These facts with `options` present as well, as a battle form's traits are while it lasts. */
+  public plus(options: readonly RollOption[]): PredicateFacts {
+    const layer = this.#layer;
+    if (layer === undefined) {
+      const own = [...this.#options].map((option) => RollOption.parse(option));
+      return new PredicateFacts([...own, ...options], this.#namespaces);
+    }
+    const layered = new PredicateFacts([], this.#namespaces);
+    layered.#layer = { ...layer, base: layer.base.plus(options) };
     return layered;
   }
 
