@@ -4,7 +4,7 @@ import type { Character, CharacterVariantRule } from '@pioneer/character/domain'
 import { ImportKind, UnmatchedReason } from '@pioneer/interop/pathbuilder';
 import type { CharacterImportReport } from '@pioneer/interop/pathbuilder';
 import { mordredExport } from '@pioneer/interop/pathbuilder/testing';
-import { Attribute, ContentKind, SlotKey, VariantRuleId, VariantStructure } from '@pioneer/rules/sdk';
+import { Attribute, ChoiceValue, ContentKind, SlotKey, VariantRuleId, VariantStructure } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, fixedContent } from '@pioneer/rules/sdk/testing';
 import { fixedClock, newId, UserId } from '@pioneer/shared/kernel';
 
@@ -78,7 +78,7 @@ describe('PathbuilderImportService.importPathbuilder: Free Archetype', () => {
   test('puts a "Free Archetype 2" feat in the variant slot and enables the variant', async () => {
     const pack = mordredPack(true);
     const { character, report, enabled } = await importMordred(pack);
-    const dedication = pack.idOf(ContentKind.Feat, 'sorcerer-dedication');
+    const dedication = ChoiceValue.parse(pack.idOf(ContentKind.Feat, 'sorcerer-dedication'));
     const variant = VariantRuleId.parse(pack.idOf(ContentKind.VariantRule, 'free-archetype'));
     expect(enabled.map((rule) => rule.variantId)).toStrictEqual([variant]);
     expect(character.document.build.choices[SlotKey.parse(`${variant}:0`)]).toBe(dedication);

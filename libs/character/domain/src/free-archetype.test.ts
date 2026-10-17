@@ -6,6 +6,7 @@ import {
   ContentLicense,
   ContentPack,
   ContentRegistry,
+  Level,
   VariantStructure,
 } from '@pioneer/rules/sdk';
 import type { SlotKey, VariantRuleEntry } from '@pioneer/rules/sdk';
@@ -27,7 +28,7 @@ import {
 
 const FREE_ARCHETYPE = 'variant-rule:free-archetype';
 const FIRST_SLOT_LEVEL = 2;
-const SLOT_LEVELS = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20];
+const SLOT_LEVELS = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20].map((level) => Level.parse(level));
 
 /** Free Archetype as the core rules pack writes it: an archetype feat slot at 2nd level and every even level. */
 function freeArchetypeRules(): object[] {
@@ -116,7 +117,7 @@ describe('the Free Archetype variant', () => {
 
   test('opens no slots without the variant, or with one that has no extra slots', () => {
     const [plainEntry] = plain;
-    const own = featSlots(fighter(20).build().document, withoutFree).filter((slot) => slot.entry === plainEntry?.id);
+    const own = featSlots(fighter(20).build().document, withoutFree).filter((slot) => slot.entry === ContentId.parse(plainEntry?.id));
     expect(plainEntry).toBeDefined();
     expect(own).toHaveLength(0);
     expect(variantSlots(withoutFree, 20)).toHaveLength(0);
