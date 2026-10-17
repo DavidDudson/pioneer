@@ -1,9 +1,12 @@
 import {
   CampaignPackService,
+  CampaignItemApprovalService,
   CampaignRuleLimitService,
   CampaignVariantService,
   InMemoryCampaignPackRepository,
+  InMemoryCampaignItemApprovalRepository,
   InMemoryCampaignRuleLimitRepository,
+  InMemoryFlaggedItems,
   InMemoryCampaignVariantLimits,
   InMemoryCampaignVariantRepository,
   InMemoryPackCatalog,
@@ -38,6 +41,18 @@ export function ruleLimitService(campaigns: CampaignRepository, clock: Clock): C
       limits: new InMemoryCampaignRuleLimitRepository(),
       variantLimits: new InMemoryCampaignVariantLimits(),
     },
+    clock,
+  );
+}
+
+/** The rule-breaking items service over in-memory ports; nothing is flagged until a test flags it. */
+export function itemApprovalService(
+  campaigns: CampaignRepository,
+  clock: Clock,
+  flagged: InMemoryFlaggedItems = new InMemoryFlaggedItems(),
+): CampaignItemApprovalService {
+  return new CampaignItemApprovalService(
+    { campaigns, approvals: new InMemoryCampaignItemApprovalRepository(), flagged },
     clock,
   );
 }

@@ -1,0 +1,27 @@
+<fr-surface>
+  <fr-stack gap="md">
+    <fr-heading variant="subheading" [level]="2">{{ 'campaign.itemReview.heading' | transloco }}</fr-heading>
+    <fr-async-region [errorMessage]="'campaign.itemReview.loadError' | transloco">
+      <ng-template frAsyncPending>
+        <fr-stack gap="sm">
+          @for (placeholder of placeholders; track placeholder) {
+            <fr-skeleton width="md" />
+          }
+        </fr-stack>
+      </ng-template>
+      <ng-template let-review [frAsyncData]="store.review">
+        <fr-stack gap="md">
+          @if (review.manageable) {
+            <pio-campaign-needs-review [items]="review.needsReview" />
+          }
+          @if (review.approved.length > 0) {
+            <pio-campaign-approved-items [items]="review.approved" [manageable]="review.manageable" />
+          }
+          @if (!review.manageable) {
+            <fr-text variant="caption" tone="subtle">{{ 'campaign.itemReview.gmOnly' | transloco }}</fr-text>
+          }
+        </fr-stack>
+      </ng-template>
+    </fr-async-region>
+  </fr-stack>
+</fr-surface>

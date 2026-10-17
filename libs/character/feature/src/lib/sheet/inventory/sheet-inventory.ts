@@ -1,5 +1,4 @@
 import {
-  CORE_RULE_LIMITS,
   CarryState,
   hasRunes,
   INVENTORY_KINDS,
@@ -7,6 +6,7 @@ import {
   isContainer,
   isSpecific,
   itemRunes,
+  partitionApproved,
 } from '@pioneer/character/domain';
 import type {
   Inventory,
@@ -14,7 +14,6 @@ import type {
   InventoryItemId,
   ItemContent,
   ItemEntry,
-  RuleLimits,
   RunedContent,
   RuneContent,
 } from '@pioneer/character/domain';
@@ -23,6 +22,8 @@ import { ContentKind, FundamentalRune } from '@pioneer/rules/sdk';
 import { InventoryPlacement } from '@pioneer/rules/ui';
 import type { GradedRune, GradedRuneLine, InventoryGroup, InventoryLine, LineRunes } from '@pioneer/rules/ui';
 
+import { CORE_TABLE } from '../../data/character-rule-limit-store';
+import type { TableRules } from '../../data/character-rule-limit-store';
 import { reasonsByItem } from './sheet-violations';
 
 /** The kinds the inventory section reads: those a character carries, and the runes etched onto them. */
@@ -89,10 +90,12 @@ export function lineRunes(
 export function sheetInventory(
   inventory: Inventory,
   { items, runes }: RunedContent,
-  limits: RuleLimits = CORE_RULE_LIMITS,
+  { limits, approvals }: TableRules = CORE_TABLE,
 ): readonly InventoryGroup[] {
   const contents = contentsByContainer(inventory.items);
-  const breaks = reasonsByItem(inventoryViolations(inventory, { items, runes }, limits), runes);
+  const { open, approved } = partitionApproved(inventoryViolations(inventory, { items, runes }, limits), approvals);
+  const breaks = reasonsByItem(open, runes);
+  const approvedBreaks = reasonsByItem(approved, runes);
   const lineOf = (item: InventoryItem): InventoryLine => {
     const entry = items.get(item.item);
     return {
@@ -107,6 +110,7 @@ export function sheetInventory(
       invested: item.invested === true,
       runes: lineRunes(item, entry, runes),
       breaks: breaks.get(item.id) ?? [],
+      approved: approvedBreaks.get(item.id) ?? [],
       contents: (contents.get(item.id) ?? []).map((inside) => lineOf(inside)),
     };
   };

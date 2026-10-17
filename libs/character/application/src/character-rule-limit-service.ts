@@ -13,6 +13,7 @@ import {
 import type {
   Character,
   CharacterId,
+  CharacterItemApprovals,
   CharacterRuleLimitSettings,
   RuleLimitField,
   RuleLimitOverrides,
@@ -69,6 +70,16 @@ export class CharacterRuleLimitService extends EffectiveRuleLimits {
     const campaign = await this.#campaigns.of(character.id);
     const [variant, set] = await Promise.all([this.#variantLimits.of(character), this.#setBy(character.id, campaign)]);
     return withOverrides({ ...variant, ...set });
+  }
+
+  /**
+   * The rule-breaking lines the character's campaign approved; none outside a campaign, whose warnings stay (ADR-0064).
+   * Not the owner: 404.
+   */
+  public async itemApprovals(actor: UserId, id: CharacterId): Promise<CharacterItemApprovals> {
+    await this.#owned(actor, id);
+    const campaign = await this.#campaigns.of(id);
+    return { approvals: campaign?.approvals ?? [] };
   }
 
   /** The character's limits, and who decides them. Not the owner: 404. */

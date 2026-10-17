@@ -1,0 +1,12 @@
+<fr-stack gap="sm">
+  <fr-heading variant="label" [level]="3">{{ 'campaign.itemReview.needsReview' | transloco }}</fr-heading>
+  @if (items().length === 0) {
+    <fr-text tone="subtle">{{ 'campaign.itemReview.nothingToReview' | transloco }}</fr-text>
+  } @else {
+    <fr-list gap="sm">
+      @for (flagged of items(); track $index) {
+        <pio-campaign-flagged-item-row [item]="flagged" [manageable]="true" />
+      }
+    </fr-list>
+  }
+</fr-stack>

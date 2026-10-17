@@ -100,6 +100,29 @@
     "noneToAttach": "None of your characters is free to bring. A character is in one campaign at a time.",
     "toCharacters": "Go to your characters"
   },
+  "itemReview": {
+    "heading": "Rule-breaking items",
+    "loadError": "Could not load the rule-breaking items.",
+    "needsReview": "Needs review",
+    "nothingToReview": "No item in the party needs review.",
+    "approvedHeading": "Approved",
+    "gmOnly": "Only the GM approves rule-breaking items.",
+    "item": "{item}, {character}",
+    "approvedByGm": "Approved by the GM",
+    "approve": "Approve",
+    "approving": "Approving",
+    "approved": "Approved",
+    "revoke": "Revoke",
+    "revoking": "Revoking",
+    "revoked": "Revoked",
+    "changeFailed": "Could not change the approval. Try again.",
+    "rule": {
+      "invested": "Invested items: {count}",
+      "hands": "Hands in use: {count}",
+      "propertyRunes": "Property runes: {count}",
+      "runeNotAllowed": "Rune not allowed: {rune}"
+    }
+  },
   "ruleLimits": {
     "heading": "Table limits",
     "loadError": "Could not load the table limits.",

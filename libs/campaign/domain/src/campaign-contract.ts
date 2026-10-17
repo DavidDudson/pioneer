@@ -13,6 +13,7 @@ import {
   InviteToken,
 } from './campaign-fields';
 import { InviteSummary } from './campaign-invite';
+import { CampaignItemApprovalContract } from './campaign-item-approval-contract';
 import { CampaignPacks } from './campaign-packs';
 import { CampaignParty } from './campaign-party';
 import { CampaignRoster } from './campaign-roster';
@@ -237,6 +238,7 @@ export const CampaignContract = {
     body: NoBody,
     response: CampaignVariantRules,
   }),
+  ...CampaignItemApprovalContract,
   ...CampaignRuleLimitContract,
   /** GM only: invites that still work, newest first. */
   invites: new Endpoint({

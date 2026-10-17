@@ -1,0 +1,8 @@
+<fr-stack gap="sm">
+  <fr-heading variant="label" [level]="3">{{ 'campaign.itemReview.approvedHeading' | transloco }}</fr-heading>
+  <fr-list gap="sm">
+    @for (flagged of items(); track flagged.approval) {
+      <pio-campaign-flagged-item-row [item]="flagged" [approval]="flagged.approval" [manageable]="manageable()" />
+    }
+  </fr-list>
+</fr-stack>

@@ -4,7 +4,7 @@ import { ApplicationRef } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
-import { CharacterId, CORE_RULE_LIMITS, SheetMode } from '@pioneer/character/domain';
+import { CharacterId, SheetMode } from '@pioneer/character/domain';
 import { frontierMessages } from '@pioneer/frontier';
 import { contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import type { PackContentsLoader } from '@pioneer/rules/sdk';
@@ -18,6 +18,7 @@ import {
   prebuildServerStateTesting,
   provideServerStateTesting,
 } from './provide-server-state-testing';
+import { answerRuleLimitsRead } from './rule-limit-reads-testing';
 import { ruleLimitSettingsOf } from './rule-limit-settings-testing';
 
 /**
@@ -184,10 +185,7 @@ export async function answerVariantRulesRead(rules: object = NO_VARIANT_RULES): 
   await answerRead('variant-rules', rules);
 }
 
-/** Answers the read of the table limits; an unanswered request fails the spec at teardown. */
-export async function answerRuleLimitsRead(limits: object = CORE_RULE_LIMITS): Promise<void> {
-  await answerRead('rule-limits', limits);
-}
+export { answerRuleLimitsRead } from './rule-limit-reads-testing';
 
 /** The server's answer to an edit of Merisiel: her sheet, and the picks the edit cleared. */
 export function patchedOf(character: object, slots: readonly object[], cleared: readonly object[] = []): object {

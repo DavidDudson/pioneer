@@ -81,6 +81,34 @@ lets a GM change them for a campaign, and lets a character outside a campaign se
 - In-app edits still refuse a change that adds a violation: investing or holding past the limit, and etching past the
   room. Taking investment off, or putting a hand down, is always allowed.
 - A flagged line keeps working: its Bulk, active state and rune effects count as for any other line, so an over-cap
-  item works until a GM says otherwise (approvals come in a later story).
+  item works until a GM says otherwise (see "A GM approves a rule-breaking item").
 - The sheet marks each flagged line with a warning tag and one reason per rule broken (the limit and the count it
   reached, or the rune it cannot hold), and the header counts the items that break a rule.
+
+## A GM approves a rule-breaking item
+
+- A campaign's GM approves a flagged item so its warning goes quiet. An approval is a row in `campaign_item_approvals`:
+  campaign, character, inventory item, rule, the count approved, who and when. For a rune not allowed it also names the
+  rune, and the count is 1; every other rule stores the nil UUID as its rune so the live-row unique index needs no
+  nullable column. Revoking sets `archived_at` and never deletes (ADR-0062; `archive.protect` makes the database say so),
+  and a revoked approval no longer holds its place, so the item can be approved again.
+- **The count is the one the item is flagged at when the GM approves.** The GM never types a number: the server finds the
+  current violation for the item and rule and records its count (items invested, hands in use, property runes etched).
+  An item that is not flagged for that rule is a 404. The approval covers the item for that rule at no more than that
+  count, so an item that shrinks stays approved and one that breaks the rule by more warns again and shows in the GM's
+  review list; approving it again replaces the count. A rune not allowed is approved for that rune only, so etching a
+  different bad rune warns.
+- Nothing derived is stored: whether a line is flagged is still worked out on every read, and an approval only filters
+  the result. An approval whose item no longer breaks the rule stays inert and applies again if the item breaks it
+  within the count; the GM sees and revokes the ones that cover a flagged item now.
+- **GM only.** The GM approves and revokes (a player is refused with a 403, a non-member gets a 404). Every member reads
+  the approved items and sees them marked "approved by the GM"; only the GM reads the "Needs review" list of every
+  flagged, unapproved item across the party. The review is worked out in the composition root over the party's
+  characters, as the campaign context may not import the character context.
+- The sheet reads its own approvals from `GET /characters/:id/item-approvals` (the owner only) and filters the same
+  violations with `partitionApproved`. An approved reason moves from the warning to an "approved by the GM" tag, and the
+  header counts only the items that still warn. The campaign's `approves` and the character's `covers` are the same
+  rule written in each context; a test in `apps/api` holds the rule names together.
+- **A character outside a campaign has no approvals, so its warnings stay.** Whether the owner may acknowledge them is
+  an open question on the epic (#919), not decided here. Leaving a campaign takes the approvals away with it, as they
+  belong to the campaign; they come back if the character returns to that campaign.

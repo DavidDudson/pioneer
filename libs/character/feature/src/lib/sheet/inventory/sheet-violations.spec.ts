@@ -6,11 +6,15 @@ import {
   InvestedCount,
   InventoryItemId,
   inventoryViolations,
+  ItemApproval,
   ItemOrigin,
   ItemQuantity,
+  partitionApproved,
+  RuleBreak,
 } from '@pioneer/character/domain';
 import type { Inventory, InventoryItem } from '@pioneer/character/domain';
 import { ItemFixture, itemFixtureContent, itemFixtureId, runeFixtureContent } from '@pioneer/character/domain/testing';
+import type { InventoryLine } from '@pioneer/rules/ui';
 import { describe, expect, it } from 'vitest';
 
 import { sheetInventory } from './sheet-inventory';
@@ -67,7 +71,7 @@ describe('the same inventory against a campaign’s own limits', () => {
 
   function flagged(investedMax: InvestedCount): readonly string[] {
     const limits = { ...CORE_RULE_LIMITS, investedMax };
-    const lines = sheetInventory(inventory, runed, limits).flatMap((group) => group.lines);
+    const lines = sheetInventory(inventory, runed, { limits, approvals: [] }).flatMap((group) => group.lines);
     return lines.filter((line) => line.breaks.length > 0).map((line) => line.id);
   }
 
@@ -82,5 +86,35 @@ describe('the same inventory against a campaign’s own limits', () => {
     expect(reasonsByItem(violations, runed.runes).get(idAt(INVESTED_MAX))).toStrictEqual([
       { key: ViolationMessage.Invested, params: { limit: lowered, actual: INVESTED_MAX + 1 } },
     ]);
+  });
+});
+
+describe('the same inventory with the GM’s approval', () => {
+  const inventory = overInvested();
+  const approval = ItemApproval.parse({ item: idAt(INVESTED_MAX), rule: RuleBreak.Invested, value: INVESTED_MAX + 1 });
+
+  function linesOf(approvals: readonly ItemApproval[]): InventoryLine[] {
+    return sheetInventory(inventory, runed, { limits: CORE_RULE_LIMITS, approvals }).flatMap((group) => group.lines);
+  }
+
+  it('moves the reason from the warning to the approved reasons, and the line keeps its place', () => {
+    const line = linesOf([approval]).find((each) => each.id === idAt(INVESTED_MAX));
+    expect(line?.breaks).toStrictEqual([]);
+    expect(line?.approved).toStrictEqual([
+      { key: ViolationMessage.Invested, params: { limit: INVESTED_MAX, actual: INVESTED_MAX + 1 } },
+    ]);
+  });
+
+  it('leaves the warning when the approval is for a lower count, as the item grew', () => {
+    const grown = ItemApproval.parse({ ...approval, value: INVESTED_MAX });
+    const line = linesOf([grown]).find((each) => each.id === idAt(INVESTED_MAX));
+    expect(line?.breaks).toHaveLength(1);
+    expect(line?.approved).toStrictEqual([]);
+  });
+
+  it('does not count an approved item in the header', () => {
+    const violations = inventoryViolations(inventory, runed);
+    expect(ruleBreakingCount(partitionApproved(violations, [approval]).open)).toBe(0);
+    expect(ruleBreakingCount(partitionApproved(violations, []).open)).toBe(1);
   });
 });

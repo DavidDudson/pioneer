@@ -7,7 +7,12 @@ import type {
   CampaignPackId,
   CampaignVariantRuleId,
   CampaignRole,
+  CampaignItemApprovalId,
   CampaignRuleLimitId,
+  ItemRule,
+  ReviewedCount,
+  ReviewedItemId,
+  ReviewedRuneId,
   RuleLimitKey,
   RuleLimitValue,
   CharacterId,
@@ -212,5 +217,43 @@ export const campaignRuleLimits = pgTable(
     uniqueIndex('campaign_rule_limits_campaign_limit_idx').on(table.campaignId, table.limit),
     // Serves clearing `set_by` when the user is deleted.
     index('campaign_rule_limits_set_by_idx').on(table.setBy),
+  ],
+);
+
+/**
+ * The rule-breaking items a GM has approved, one live row per character, item, rule and rune (ADR-0064). A revoked
+ * approval is archived, never deleted (ADR-0062). `rune` is the nil UUID for every rule but a rune not allowed, so the
+ * live-row index needs no nullable column. The foreign keys on `character_id` (to characters, on delete cascade) and
+ * `approved_by` (to users, on delete set null) are in the migration, as the character and identity contexts' tables are
+ * outside this one's boundary.
+ */
+export const campaignItemApprovals = pgTable(
+  'campaign_item_approvals',
+  {
+    id: uuid().$type<CampaignItemApprovalId>().primaryKey(),
+    campaignId: uuid()
+      .$type<CampaignId>()
+      .notNull()
+      .references(() => campaigns.id, { onDelete: 'cascade' }),
+    characterId: uuid().$type<CharacterId>().notNull(),
+    // An inventory line lives inside the character's document, so it has no table to point at.
+    itemId: uuid().$type<ReviewedItemId>().notNull(),
+    rule: text().$type<ItemRule>().notNull(),
+    rune: uuid().$type<ReviewedRuneId>().notNull(),
+    value: smallint().$type<ReviewedCount>().notNull(),
+    // Null once the GM's account is deleted: the campaign keeps the approval.
+    approvedBy: uuid().$type<UserId>(),
+    approvedAt: timestamp({ withTimezone: true, mode: 'string' }).notNull(),
+    archivedAt: timestamp({ withTimezone: true, mode: 'string' }),
+  },
+  (table) => [
+    // A line is approved once for a rule at a time; a revoked approval no longer holds its place.
+    uniqueIndex('campaign_item_approvals_live_idx')
+      .on(table.campaignId, table.characterId, table.itemId, table.rule, table.rune)
+      .where(sql`${table.archivedAt} is null`),
+    // Serves a character's approvals, which its sheet reads.
+    index('campaign_item_approvals_character_idx').on(table.characterId),
+    // Serves clearing `approved_by` when the user is deleted.
+    index('campaign_item_approvals_approved_by_idx').on(table.approvedBy),
   ],
 );

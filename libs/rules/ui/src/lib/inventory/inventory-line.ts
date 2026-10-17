@@ -32,6 +32,8 @@ export interface InventoryLine {
   readonly runes: LineRunes | undefined;
   /** Why the item breaks the table's rules, one reason per rule it breaks; empty for an item that breaks none. */
   readonly breaks: readonly MessageDescriptor[];
+  /** Why the item breaks the rules the campaign's GM approved; empty when none is approved. */
+  readonly approved: readonly MessageDescriptor[];
   /** What it holds, when it is a container: listed beneath it. */
   readonly contents: readonly InventoryLine[];
 }

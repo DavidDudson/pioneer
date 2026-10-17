@@ -1,5 +1,6 @@
 import {
   CampaignInviteService,
+  CampaignItemApprovalService,
   CampaignPackService,
   CampaignPartyService,
   CampaignRuleLimitService,
@@ -9,12 +10,14 @@ import {
 import {
   campaignRoutes,
   DrizzleCampaignInviteRepository,
+  DrizzleCampaignItemApprovalRepository,
   DrizzleCampaignPackRepository,
   DrizzleCampaignPartyRepository,
   DrizzleCampaignRepository,
   DrizzleCampaignRuleLimitRepository,
   DrizzleCampaignVariantRepository,
 } from '@pioneer/campaign/infrastructure';
+import type { CharacterFlaggedItems } from '@pioneer/character/application';
 import { PackAccessPolicy } from '@pioneer/homebrew/application';
 import { DrizzlePackDependencyRepository, DrizzlePackDirectory } from '@pioneer/homebrew/infrastructure';
 import { ContentRepository, StoredContentSource } from '@pioneer/rules/infrastructure';
@@ -27,6 +30,7 @@ import { CampaignVariantRuleCatalog } from './campaign-variant-rule-catalog';
 import type { Database } from './database';
 import { HomebrewPackCatalog } from './homebrew-pack-catalog';
 import { OwnedCharacterDirectory } from './owned-character-directory';
+import { PartyFlaggedItems } from './party-flagged-items';
 import { UserMemberDirectory } from './user-member-directory';
 
 /** The variant-rule service: enabled rules are checked against the stored content. */
@@ -55,8 +59,47 @@ function ruleLimitService(db: Database, repository: DrizzleCampaignRepository, c
   );
 }
 
+/** What the campaign context is given by the character context and the identity context. */
+export interface CampaignParts {
+  readonly authenticator: RequestAuthenticator;
+  readonly flaggedItems: CharacterFlaggedItems;
+}
+
+/** The pack service: a homebrew pack is enabled only where its access policy allows. */
+function packService(db: Database, repository: DrizzleCampaignRepository, clock: Clock): CampaignPackService {
+  const catalog = new HomebrewPackCatalog(
+    new DrizzlePackDirectory(db),
+    new DrizzlePackDependencyRepository(db),
+    new PackAccessPolicy(new CampaignPackEnablementDirectory(db)),
+  );
+  return new CampaignPackService(
+    { campaigns: repository, packs: new DrizzleCampaignPackRepository(db), catalog },
+    clock,
+  );
+}
+
+/** The rule-breaking items service: the party's items are read off the characters. */
+function itemApprovalService(
+  db: Database,
+  repository: DrizzleCampaignRepository,
+  { clock, flaggedItems }: { readonly clock: Clock; readonly flaggedItems: CharacterFlaggedItems },
+): CampaignItemApprovalService {
+  return new CampaignItemApprovalService(
+    {
+      campaigns: repository,
+      approvals: new DrizzleCampaignItemApprovalRepository(db),
+      flagged: new PartyFlaggedItems(db, flaggedItems),
+    },
+    clock,
+  );
+}
+
 /** The campaign context's part of the composition root: services and routes. */
-export function campaigns(db: Database, clock: Clock, authenticator: RequestAuthenticator): ContractRouter['app'] {
+export function campaigns(
+  db: Database,
+  clock: Clock,
+  { authenticator, flaggedItems }: CampaignParts,
+): ContractRouter['app'] {
   const repository = new DrizzleCampaignRepository(db);
   const inviteRepository = new DrizzleCampaignInviteRepository(db);
   const directory = new UserMemberDirectory(db);
@@ -71,17 +114,12 @@ export function campaigns(db: Database, clock: Clock, authenticator: RequestAuth
     },
     clock,
   );
-  const access = new PackAccessPolicy(new CampaignPackEnablementDirectory(db));
-  const catalog = new HomebrewPackCatalog(
-    new DrizzlePackDirectory(db),
-    new DrizzlePackDependencyRepository(db),
-    access,
-  );
-  const packs = new CampaignPackService(
-    { campaigns: repository, packs: new DrizzleCampaignPackRepository(db), catalog },
-    clock,
-  );
+  const packs = packService(db, repository, clock);
   const variants = variantService(db, repository, clock);
   const ruleLimits = ruleLimitService(db, repository, clock);
-  return campaignRoutes({ campaigns: service, invites, party, packs, variants, ruleLimits }, authenticator);
+  const itemApprovals = itemApprovalService(db, repository, { clock, flaggedItems });
+  return campaignRoutes(
+    { campaigns: service, invites, party, packs, variants, ruleLimits, itemApprovals },
+    authenticator,
+  );
 }

@@ -2,6 +2,7 @@ export { campaignRoutes } from './campaign-routes';
 export {
   campaignCharacters,
   campaignInvites,
+  campaignItemApprovals,
   campaignMembers,
   campaignPacks,
   campaignRuleLimits,
@@ -14,3 +15,4 @@ export { DrizzleCampaignPartyRepository } from './drizzle-campaign-party-reposit
 export { DrizzleCampaignRepository } from './drizzle-campaign-repository';
 export { DrizzleCampaignVariantRepository } from './drizzle-campaign-variant-repository';
 export { DrizzleCampaignRuleLimitRepository } from './drizzle-campaign-rule-limit-repository';
+export { DrizzleCampaignItemApprovalRepository } from './drizzle-campaign-item-approval-repository';

@@ -7,6 +7,7 @@ import {
   RuleLimitFieldSchema,
   SetRuleLimitSettingBody,
 } from './character-rule-limit-settings';
+import { CharacterItemApprovals } from './item-approvals';
 
 const ById = z.object({ id: CharacterId });
 const ByRuleLimit = z.object({ id: CharacterId, limit: RuleLimitFieldSchema });
@@ -16,6 +17,15 @@ const ByRuleLimit = z.object({ id: CharacterId, limit: RuleLimitFieldSchema });
  * limits in force, worked out for the sheet, are `CharacterContract.ruleLimits`.
  */
 export const CharacterRuleLimitContract = {
+  /** The rule-breaking lines the character's campaign approved, which silence their warnings. Owner only: 404 otherwise. */
+  itemApprovals: new Endpoint({
+    method: HttpMethod.Get,
+    path: '/characters/:id/item-approvals',
+    params: ById,
+    query: NoQuery,
+    body: NoBody,
+    response: CharacterItemApprovals,
+  }),
   /** Every limit of the character with the number in force, and who decides them. Owner only; anyone else gets a 404. */
   ruleLimitSettings: new Endpoint({
     method: HttpMethod.Get,

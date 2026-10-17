@@ -912,6 +912,7 @@
       "hands": "{count, plural, one {in # hand} other {in # hands}}",
       "invested": "Invested",
       "ruleBreaking": "Breaks a rule",
+      "approvedByGm": "Approved by the GM",
       "runedName": "{runes} {name}"
     },
     "runes": {

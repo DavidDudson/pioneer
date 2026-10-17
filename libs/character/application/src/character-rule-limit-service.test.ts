@@ -5,6 +5,7 @@ import {
   CharacterName,
   CORE_RULE_LIMITS,
   Hands,
+  ItemApproval,
   LIMIT_CEILINGS,
   PackAuthority,
   RuleLimitSettingValue,
@@ -115,6 +116,21 @@ describe('the table limits a character sets for itself', () => {
       const reset = await rejection(service.reset(amiri, character.id, 'investedMax'));
       expect(set).toBeInstanceOf(ConflictError);
       expect(reset).toBeInstanceOf(ConflictError);
+    });
+
+    test('the campaign’s approvals are the owner’s to read, and a character outside a campaign has none', async () => {
+      expect(await service.itemApprovals(amiri, character.id)).toStrictEqual({ approvals: [] });
+      const approval = ItemApproval.parse({ item: newId(), rule: 'propertyRunes', value: 7 });
+      campaigns.attach(character.id, {
+        name: AttachedCampaignName.parse('Abomination Vaults'),
+        packs: [],
+        variants: [],
+        approvals: [approval],
+      });
+      expect(await service.itemApprovals(amiri, character.id)).toStrictEqual({ approvals: [approval] });
+      expect(await rejection(service.itemApprovals(ezren, character.id))).toBeInstanceOf(NotFoundError);
+      campaigns.detach(character.id);
+      expect(await service.itemApprovals(amiri, character.id)).toStrictEqual({ approvals: [] });
     });
 
     test('detaching brings the character’s own back untouched', async () => {

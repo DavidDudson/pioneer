@@ -24,6 +24,18 @@ describe(InventoryBreaks, () => {
     expect(host.textContent.trim()).toBe('');
   });
 
+  it('shows an approved tag and the approved reasons beside the ones that still warn', async () => {
+    TestBed.configureTestingModule({ providers: [provideRulesUiI18nTesting()] });
+    const fixture = TestBed.createComponent(InventoryBreaks);
+    fixture.componentRef.setInput('reasons', []);
+    fixture.componentRef.setInput('approved', [REASON]);
+    await fixture.whenStable();
+    const host = fixture.nativeElement as HTMLElement;
+    expect(host.querySelector('fr-tag')?.textContent.trim()).toBe('Approved by the GM');
+    expect(host.textContent).not.toContain('Breaks a rule');
+    expect(host.textContent).toContain('Invested');
+  });
+
   it('shows a warning tag, then a line for each reason', async () => {
     const host = await render([REASON, REASON]);
     expect(host.querySelector('fr-tag')?.textContent.trim()).toBe('Breaks a rule');

@@ -31,3 +31,8 @@ export { CampaignVariantLimits } from './campaign-variant-limits';
 export { InMemoryCampaignVariantLimits } from './in-memory-campaign-variant-limits';
 export { InMemoryCampaignRuleLimitRepository } from './in-memory-campaign-rule-limit-repository';
 export { RuleLimitMessage } from './rule-limit-message';
+export { CampaignItemApprovalRepository, type ItemRevocation } from './campaign-item-approval-repository';
+export { CampaignItemApprovalService, type CampaignItemApprovalPorts } from './campaign-item-approval-service';
+export { FlaggedItems } from './flagged-items';
+export { InMemoryCampaignItemApprovalRepository } from './in-memory-campaign-item-approval-repository';
+export { InMemoryFlaggedItems } from './in-memory-flagged-items';
