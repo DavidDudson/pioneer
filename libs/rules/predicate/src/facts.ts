@@ -108,6 +108,16 @@ export class PredicateFacts {
       : layer.base.values(prefix);
   }
 
+  /** The words after `prefix:` in the present options, each once: `fighter` for `class:fighter` given `class`. */
+  public tails(prefix: string): readonly string[] {
+    const layer = this.#layer;
+    if (layer !== undefined) {
+      return layer.base.tails(prefix);
+    }
+    const start = `${prefix}${SEPARATOR}`;
+    return [...this.#options].filter((option) => option.startsWith(start)).map((option) => option.slice(start.length));
+  }
+
   /** Whether a missing `option` is false (known namespace) rather than unknown (situational). */
   public isKnown(option: RollOption): boolean {
     if (this.#layer !== undefined) {

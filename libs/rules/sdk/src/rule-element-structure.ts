@@ -52,10 +52,21 @@ export const ChoiceOption = z.strictObject({
 });
 export type ChoiceOption = z.infer<typeof ChoiceOption>;
 
+/**
+ * What a query's candidate must share with the character: the trait named like the character's class (Natural
+ * Ambition's "a class feat for your class") or ancestry (Ancestral Paragon's "an ancestry feat"). Foundry reads the
+ * actor's class and ancestry trait in the filter itself (`item:trait:{actor|system.details.class.trait}`), which a
+ * roll option cannot spell.
+ */
+export const OwnTrait = { Class: 'class', Ancestry: 'ancestry' } as const;
+export type OwnTrait = (typeof OwnTrait)[keyof typeof OwnTrait];
+
 /** Every entry of a kind whose roll options satisfy `filter`: "a 1st-level fighter feat". */
 export const ChoiceQuery = z.strictObject({
   kind: ContentKindSchema,
   filter: Predicate,
+  /** The candidate must also carry a trait named like one of the character's classes or ancestry. */
+  ownTrait: z.enum([OwnTrait.Class, OwnTrait.Ancestry]).optional(),
 });
 export type ChoiceQuery = z.infer<typeof ChoiceQuery>;
 

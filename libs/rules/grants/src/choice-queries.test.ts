@@ -70,6 +70,44 @@ describe('resolveGrants choice queries', () => {
     expect(offeredNames).toContain('Sudden Charge');
   });
 
+  test('ownTrait offers only entries with a trait named like the character class', () => {
+    const query = entry('fighter', [
+      { key: 'ChoiceSet', flag: 'class-feat', choices: { kind: 'feat', filter: ['item:level:1'], ownTrait: 'class' } },
+    ]);
+    const content = [query, ...feats.filter((each) => each.rollOptions.includes(RollOption.parse('level:1')))];
+    expect(offered(resolve(content, { situation: ['class:fighter'] }))).toEqual(['Double Slice', 'Sudden Charge']);
+    expect(offered(resolve(content, { situation: ['class:rogue'] }))).toEqual(['Trick Attack']);
+  });
+
+  test('ownTrait offers the feats of either class of a dual-class character, and none before a class is picked', () => {
+    const query = entry('fighter', [
+      { key: 'ChoiceSet', flag: 'class-feat', choices: { kind: 'feat', filter: ['item:level:1'], ownTrait: 'class' } },
+    ]);
+    const content = [query, ...feats];
+    expect(offered(resolve(content, { situation: ['class:fighter', 'class:rogue'] }))).toEqual([
+      'Double Slice',
+      'Sudden Charge',
+      'Trick Attack',
+    ]);
+    expect(offered(resolve(content))).toEqual([]);
+  });
+
+  test('ownTrait reads the ancestry the same way', () => {
+    const query = entry('fighter', [
+      {
+        key: 'ChoiceSet',
+        flag: 'ancestry-feat',
+        choices: { kind: 'feat', filter: ['item:level:1'], ownTrait: 'ancestry' },
+      },
+    ]);
+    const content = [
+      query,
+      feat('adapted-cantrip', ['trait:human', 'level:1'], 'Adapted Cantrip'),
+      feat('burrow', ['trait:gnome', 'level:1'], 'Burrow'),
+    ];
+    expect(offered(resolve(content, { situation: ['ancestry:human'] }))).toEqual(['Adapted Cantrip']);
+  });
+
   test('keeps an entry option apart from the character fact of the same name', () => {
     const content = [fighter(['feat:sudden-charge']), feat('sudden-charge', ['feat:sudden-charge'], 'Sudden Charge')];
     expect(offered(resolve(content))).toEqual([]);

@@ -372,6 +372,7 @@ export {
 export {
   ChoiceOption,
   ChoiceQuery,
+  OwnTrait,
   ChoiceRef,
   ChoiceSetElement,
   ChoiceValue,

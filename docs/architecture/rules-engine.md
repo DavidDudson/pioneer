@@ -557,7 +557,11 @@ any kind of entry can grant any other.
   under `item:` (`item:trait:fighter`, `item:level:1`, as Foundry writes them). They replace whatever the character
   has under `item:`, and never mix with its `feat:` or `self:` facts. Unknown candidates are offered with their
   summary. Offers sort by name, then id, so a builder list is stable. A query that matches nothing is an open slot
-  with an empty offer, not an error.
+  with an empty offer, not an error. A query may also set `ownTrait` (`class` or `ancestry`): the candidate must carry
+  a trait named like one of the character's `class:` or `ancestry:` facts, so Natural Ambition offers "a 1st-level
+  class feat for your class" and Ancestral Paragon "a 1st-level ancestry feat". Foundry reads the actor's trait inside
+  the filter (`item:trait:{actor|system.details.class.trait}`), which a roll option cannot spell. With two classes
+  (Dual Class) either counts; with none picked the offer is empty.
 - A slot's offer is worked out the first time it is read, against the facts its walk read, and kept. The slots
   returned come from the settled round, so those are the resolution's `facts`. No round needs the offer: an open slot
   grants nothing, and an answered slot tests only its pick (looked up by id, of the query's kind, filter not false;

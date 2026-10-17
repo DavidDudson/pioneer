@@ -2445,7 +2445,30 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestral-paragon",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:category:ancestry",
+            "item:level:1",
+            {
+              "not": "item:trait:lineage"
+            }
+          ],
+          "ownTrait": "ancestry"
+        },
+        "prompt": "Select a 1st-level ancestry feat."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestral-paragon"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.m7KjpkAAh9PptJsY"
     },
@@ -34610,7 +34633,24 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "natural-ambition",
+        "choices": {
+          "kind": "feat",
+          "filter": ["item:category:class", "item:level:1"],
+          "ownTrait": "class"
+        },
+        "prompt": "Select a 1st-level class feat."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "natural-ambition"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.PodajLVxqYSAqVox"
     },
