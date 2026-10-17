@@ -28,7 +28,11 @@ function costOf(entry: ContentEntry): ActionCostRange | undefined {
   if (action?.cost === undefined) {
     return undefined;
   }
-  return { cost: action.cost, upTo: action.upTo === undefined ? undefined : SpendCount.parse(action.upTo) };
+  return {
+    cost: action.cost,
+    upTo: action.upTo === undefined ? undefined : SpendCount.parse(action.upTo),
+    triggered: 'trigger' in action && action.trigger !== undefined,
+  };
 }
 
 /** The cost of each feat, class feature and action in the registry that has one; read once per registry. */

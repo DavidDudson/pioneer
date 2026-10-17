@@ -117,6 +117,8 @@ export type SpendProblem = ValueOf<typeof SpendProblem>;
 export interface ActionCostRange {
   readonly cost: ActionCost;
   readonly upTo?: SpendCount | undefined;
+  /** Whether the action has a trigger, which a free action needs to be used off turn. */
+  readonly triggered?: boolean | undefined;
 }
 
 /** Whether `spend` is one the action's own cost allows: its fixed count or any count up to `upTo`, the reaction or a free action. */
