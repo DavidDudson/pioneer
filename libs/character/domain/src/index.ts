@@ -382,6 +382,7 @@ export {
   type RollSetupsRequest,
   type StatisticSources,
 } from './character-statistics';
+export { characterEffects, type EffectsRequest } from './character-effects';
 export {
   applyExplorationCommand,
   type ExplorationActivity,

@@ -106,7 +106,7 @@ export interface StatisticSources {
 }
 
 /** The rules the character's items, conditions and build put in play, with those of its enabled variant rules first. */
-function rulesInPlay(
+export function rulesInPlay(
   document: CharacterDocument,
   { registry, slots: read, variants, as }: Pick<StatisticSources, 'registry' | 'slots' | 'variants' | 'as'>,
 ): EquippedRules {
