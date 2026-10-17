@@ -17,6 +17,7 @@ export {
   CampaignMemberId,
   CampaignName,
   CampaignPackId,
+  CampaignItemApprovalId,
   CampaignRuleLimitId,
   CampaignVariantRuleId,
   CampaignRole,
@@ -57,3 +58,19 @@ export {
   RuleLimitValue,
   SetRuleLimitBody,
 } from './campaign-rule-limits';
+export {
+  approves,
+  ApprovedItem,
+  ApproveItemBody,
+  type CampaignItemApproval,
+  CampaignItemReview,
+  FlaggedItem,
+  ItemBreak,
+  ItemRule,
+  ItemRuleSchema,
+  sameLine,
+  ReviewedCount,
+  ReviewedItemId,
+  ReviewedName,
+  ReviewedRuneId,
+} from './campaign-item-approvals';

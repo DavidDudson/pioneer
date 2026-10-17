@@ -12,6 +12,9 @@ export function characterRuleLimitRoutes(
   auth: RequestAuthenticator,
 ): ContractRouter['app'] {
   return new ContractRouter('character-rule-limit-routes')
+    .handleSignedIn(CharacterContract.itemApprovals, auth, async ({ actor, params }) =>
+      service.itemApprovals(actor, params.id),
+    )
     .handleSignedIn(CharacterContract.ruleLimitSettings, auth, async ({ actor, params }) =>
       service.ruleLimitSettings(actor, params.id),
     )

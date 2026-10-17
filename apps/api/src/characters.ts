@@ -2,6 +2,7 @@ import {
   CharacterContent,
   CharacterRuleLimitService,
   CharacterAllyService,
+  CharacterFlaggedItems,
   CharacterPackService,
   CharacterUnenabledService,
   CharacterVariantLimits,
@@ -94,6 +95,8 @@ function packServices(db: Database, clock: Clock, { content, repository }: Chara
 export interface Characters {
   readonly routes: ContractRouter['app'];
   readonly pioneerFiles: PioneerFileService;
+  /** The rules each character's inventory breaks, for the campaign's review of its party. */
+  readonly flaggedItems: CharacterFlaggedItems;
 }
 
 /**
@@ -124,6 +127,7 @@ export function characters(db: Database, clock: Clock, authenticator: RequestAut
   const play = new PlayService(repository, characterContent, clock);
   return {
     pioneerFiles,
+    flaggedItems: new CharacterFlaggedItems(characterContent),
     routes: characterRoutes(service, authenticator)
       .use(pathbuilderImportRoutes(importer, authenticator))
       .use(pioneerFileRoutes(pioneerFiles, authenticator))

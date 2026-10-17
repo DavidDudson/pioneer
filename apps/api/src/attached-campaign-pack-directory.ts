@@ -1,5 +1,6 @@
 import {
   campaignCharacters,
+  campaignItemApprovals,
   campaignPacks,
   campaignRuleLimits,
   campaigns,
@@ -7,12 +8,15 @@ import {
 } from '@pioneer/campaign/infrastructure';
 import { AttachedCampaignPacks } from '@pioneer/character/application';
 import type { AttachedCampaign } from '@pioneer/character/application';
-import { AttachedCampaignName, CampaignAlly, RuleLimitOverridesSchema } from '@pioneer/character/domain';
+import { AttachedCampaignName, CampaignAlly, ItemApproval, RuleLimitOverridesSchema } from '@pioneer/character/domain';
 import type { CharacterId } from '@pioneer/character/domain';
 import { characters } from '@pioneer/character/infrastructure';
 import { VariantRuleId } from '@pioneer/rules/sdk';
 import { and, eq, isNull, ne } from 'drizzle-orm';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
+
+/** What `campaign_item_approvals.rune` holds for every rule but a rune not allowed. */
+const NO_RUNE = '00000000-0000-0000-0000-000000000000';
 
 /**
  * The character context's `AttachedCampaignPacks` over the campaign context's tables. It lives in the composition root
@@ -48,11 +52,29 @@ export class CampaignPackDirectory extends AttachedCampaignPacks {
       .select({ limit: campaignRuleLimits.limit, value: campaignRuleLimits.value })
       .from(campaignRuleLimits)
       .where(eq(campaignRuleLimits.campaignId, attached.id));
+    const approvals = await this.#db
+      .select({
+        item: campaignItemApprovals.itemId,
+        rule: campaignItemApprovals.rule,
+        rune: campaignItemApprovals.rune,
+        value: campaignItemApprovals.value,
+      })
+      .from(campaignItemApprovals)
+      .where(
+        and(
+          eq(campaignItemApprovals.campaignId, attached.id),
+          eq(campaignItemApprovals.characterId, characterId),
+          isNull(campaignItemApprovals.archivedAt),
+        ),
+      );
     return {
       name: AttachedCampaignName.parse(attached.name),
       packs: rows.map((row) => row.packId),
       variants: variants.map((row) => VariantRuleId.parse(row.variantId)),
       limits: RuleLimitOverridesSchema.parse(Object.fromEntries(limits.map((row) => [row.limit, row.value]))),
+      approvals: approvals.map((row) =>
+        ItemApproval.parse({ ...row, rune: row.rune === NO_RUNE ? undefined : row.rune }),
+      ),
     };
   }
 

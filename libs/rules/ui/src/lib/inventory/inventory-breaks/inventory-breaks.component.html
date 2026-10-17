@@ -6,3 +6,11 @@
     }
   </fr-stack>
 }
+@if (approved().length > 0) {
+  <fr-stack gap="2xs">
+    <fr-tag [label]="Message.ApprovedByGm | transloco" [tone]="Tone.Info" />
+    @for (reason of approved(); track reason.key) {
+      <fr-text variant="caption" tone="subtle">{{ reason.key | transloco: reason.params }}</fr-text>
+    }
+  </fr-stack>
+}

@@ -96,6 +96,6 @@ export class InventorySection {
     const character = this.#store.selected();
     return runed === undefined || character === undefined
       ? undefined
-      : sheetInventory(character.document.inventory, runed, this.#limits.limits());
+      : sheetInventory(character.document.inventory, runed, this.#limits.rules());
   });
 }

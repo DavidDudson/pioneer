@@ -18,7 +18,7 @@
       }}</fr-text>
     }
   </fr-stack>
-  <pio-inventory-breaks [reasons]="line().breaks" />
+  <pio-inventory-breaks [reasons]="line().breaks" [approved]="line().approved" />
   <ng-container [ngTemplateOutlet]="actions() ?? null" [ngTemplateOutletContext]="{ $implicit: line() }" />
   @if (line().contents.length > 0) {
     <fr-list gap="xs" markers>

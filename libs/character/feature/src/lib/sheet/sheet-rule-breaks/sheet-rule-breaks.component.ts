@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import type { Signal } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { inventoryViolations, itemContent, runeContent } from '@pioneer/character/domain';
+import { inventoryViolations, itemContent, partitionApproved, runeContent } from '@pioneer/character/domain';
 import { BadgeTone, Tag } from '@pioneer/frontier';
 
 import { CharacterRuleLimitStore } from '../../data/character-rule-limit-store';
@@ -25,18 +25,16 @@ export class SheetRuleBreaks {
   readonly #items = injectContentRegistry(INVENTORY_CONTENT_KINDS);
   readonly #limits = inject(CharacterRuleLimitStore);
   protected readonly Tone = BadgeTone;
-  /** The items past a limit; none while the item kinds load. */
+  /** The items past a limit that no approval covers; none while the item kinds load. */
   protected readonly count: Signal<number> = computed(() => {
     const registry = this.#items.data();
     const character = this.#store.selected();
-    return registry === undefined || character === undefined
-      ? 0
-      : ruleBreakingCount(
-          inventoryViolations(
-            character.document.inventory,
-            { items: itemContent(registry), runes: runeContent(registry) },
-            this.#limits.limits(),
-          ),
-        );
+    if (registry === undefined || character === undefined) {
+      return 0;
+    }
+    const { limits, approvals } = this.#limits.rules();
+    const content = { items: itemContent(registry), runes: runeContent(registry) };
+    const { open } = partitionApproved(inventoryViolations(character.document.inventory, content, limits), approvals);
+    return ruleBreakingCount(open);
   });
 }

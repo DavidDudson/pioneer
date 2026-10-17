@@ -99,3 +99,7 @@ export type VariantRuleName = z.infer<typeof VariantRuleName>;
 /** Row id of one table limit a campaign has set; the audit log keys every row by an `id`. */
 export const CampaignRuleLimitId = Uuid.brand<'CampaignRuleLimitId'>();
 export type CampaignRuleLimitId = z.infer<typeof CampaignRuleLimitId>;
+
+/** Row id of one approval of a rule-breaking item; the audit log keys every row by an `id`. */
+export const CampaignItemApprovalId = Uuid.brand<'CampaignItemApprovalId'>();
+export type CampaignItemApprovalId = z.infer<typeof CampaignItemApprovalId>;

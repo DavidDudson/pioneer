@@ -34,7 +34,7 @@ export function createApp(db: Database, env: Env, extensions: readonly AppExtens
     .get('/health', () => ({ status: 'ok' }))
     .use(identityParts.routes)
     .use(character.routes)
-    .use(campaigns(db, clock, identityParts.authenticator))
+    .use(campaigns(db, clock, { authenticator: identityParts.authenticator, flaggedItems: character.flaggedItems }))
     .use(homebrew(db, clock, identityParts.authenticator))
     .use(content(db, identityParts.authenticator));
   for (const extend of extensions) {

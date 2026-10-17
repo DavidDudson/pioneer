@@ -1,0 +1,32 @@
+<fr-list-item>
+  <fr-stack direction="horizontal" gap="sm" align="center" wrap>
+    <fr-stack gap="3xs" grow>
+      <fr-text weight="medium">{{
+        'campaign.itemReview.item' | transloco: { item: item().itemName, character: item().characterName }
+      }}</fr-text>
+      <fr-text variant="caption" tone="subtle">{{ reason() | transloco: reasonParams() }}</fr-text>
+    </fr-stack>
+    @if (approval() !== undefined) {
+      <fr-badge>{{ 'campaign.itemReview.approvedByGm' | transloco }}</fr-badge>
+      @if (manageable()) {
+        <fr-async-button
+          size="sm"
+          [action]="revoke"
+          [describeError]="describeError"
+          [pendingLabel]="'campaign.itemReview.revoking' | transloco"
+          [successLabel]="'campaign.itemReview.revoked' | transloco"
+          >{{ 'campaign.itemReview.revoke' | transloco }}</fr-async-button
+        >
+      }
+    } @else if (manageable()) {
+      <fr-async-button
+        size="sm"
+        [action]="approve"
+        [describeError]="describeError"
+        [pendingLabel]="'campaign.itemReview.approving' | transloco"
+        [successLabel]="'campaign.itemReview.approved' | transloco"
+        >{{ 'campaign.itemReview.approve' | transloco }}</fr-async-button
+      >
+    }
+  </fr-stack>
+</fr-list-item>

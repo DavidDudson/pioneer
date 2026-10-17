@@ -58,3 +58,8 @@ export function mayArchiveCampaign(actor: UserId, campaign: Campaign): boolean {
 export function mayManageRuleLimits(actor: UserId, campaign: Campaign): boolean {
   return campaign.roleOf(actor) === CampaignRole.Gm;
 }
+
+/** Who may approve and revoke a campaign's rule-breaking items: its GM. Every member may read the approved ones. */
+export function mayManageItemApprovals(actor: UserId, campaign: Campaign): boolean {
+  return campaign.roleOf(actor) === CampaignRole.Gm;
+}

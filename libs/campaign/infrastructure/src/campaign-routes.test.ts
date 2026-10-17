@@ -18,7 +18,7 @@ import { Elysia } from 'elysia';
 import type { AnyElysia } from 'elysia';
 
 import { campaignRoutes } from './campaign-routes';
-import { packService, ruleLimitService, variantService } from './testing/campaign-pack-fixtures';
+import { packService, itemApprovalService, ruleLimitService, variantService } from './testing/campaign-pack-fixtures';
 
 const amiri = UserId.parse(newId());
 const ezren = UserId.parse(newId());
@@ -48,6 +48,7 @@ function app(): AnyElysia {
         packs: packService(campaigns, clock),
         variants: variantService(campaigns, clock),
         ruleLimits: ruleLimitService(campaigns, clock),
+        itemApprovals: itemApprovalService(campaigns, clock),
       },
       new FakeAuthenticator(),
     ),
