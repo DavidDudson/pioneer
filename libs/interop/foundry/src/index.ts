@@ -9,8 +9,12 @@ export {
   type SkipCount,
   type TranslationReport,
   translationReport,
+  creatureReport,
+  type CreatureReport,
 } from './dry-run-report';
 export {
+  FoundryActor,
+  FoundryActorType,
   FoundryDocument,
   FoundryItemType,
   FoundryPublication,
@@ -18,6 +22,7 @@ export {
   isFoundryItemType,
 } from './foundry-document';
 export {
+  type ActorDocument,
   type FoundryPack,
   type FoundryRelease,
   FoundryLang,
@@ -29,8 +34,11 @@ export {
 export { archiveUrl, FoundryReleaseTag, ImportFile, ImportPin, Sha256, sha256 } from './import-pin';
 export {
   FOUNDRY_BOOK_TITLES,
+  type CreatureSelection,
+  type SelectedCreature,
   type SelectedEntry,
   type Selection,
+  selectCreatures,
   selectEntries,
   SkipReason,
   type SkippedEntry,

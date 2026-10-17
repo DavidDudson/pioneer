@@ -680,9 +680,14 @@ flowchart LR
 - **Selection.** Only `publication.remaster === true`, ORC-licensed entries from the target books. Legacy content
   is out of scope. Foundry updated remastered entries in place and marks no replacements (none at `pf2e-8.6.0`), so
   imported entries carry no `supersedes`; it stays for homebrew overrides and enrichment. Target books are a CLI
-  argument; Foundry's publication title maps to a registered book in `libs/interop/foundry`. Only item packs and
-  journals are read, and only item types with a Pioneer kind (`campaignFeature`, for one, has none); journals only
-  for the archetypes Foundry keeps as pages.
+  argument; Foundry's publication title maps to a registered book in `libs/interop/foundry`. Item packs,
+  journals and actor packs are read, and only item types with a Pioneer kind (`campaignFeature`, for one, has none);
+  journals only for the archetypes Foundry keeps as pages. `selectCreatures` takes the `npc` actors of the target
+  books (Monster Core and the adventure bestiaries use `npc` for every creature) under the item rules: remaster, ORC,
+  a registered book. Hazard actors are skipped as `hazard`, other actor types as `unsupported-type`. A creature's
+  role is `npc` when its pack is NPC Core or the NPC gallery, else `monster`. `--dry-run` prints the creatures a
+  book would bring by level and role, what it would skip, and the actor fields and item types the stat block has
+  no home for; nothing is written for creatures until the translation stories.
   `just content-import --pack player-core --book player-core --dry-run` prints what would be imported by Foundry
   type and book, what is skipped and why, what did not translate, what pack output leaves out, and the coverage
   table; without `--dry-run` it also writes the pack (Pack output, below).

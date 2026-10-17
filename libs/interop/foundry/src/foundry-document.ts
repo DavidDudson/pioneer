@@ -90,3 +90,42 @@ const ITEM_TYPES: ReadonlySet<string> = new Set(Object.values(FoundryItemType));
 export function isFoundryItemType(type: string): type is FoundryItemType {
   return ITEM_TYPES.has(type);
 }
+
+const ITEMS_MAX = 500;
+
+/** Foundry's `system.details` on an actor: where it was published, and its level. */
+const FoundryActorDetails = z.looseObject({
+  publication: FoundryPublication.optional(),
+  level: FoundryLevel.optional(),
+});
+
+/** An item embedded in an actor: a strike, an ability, a spellcasting entry, a spell or carried gear. */
+const FoundryEmbeddedItem = z.looseObject({
+  _id: z.string().min(1).max(ID_MAX),
+  name: z.string().max(NAME_MAX),
+  type: z.string().min(1).max(TYPE_MAX),
+});
+
+/**
+ * A document of an actor pack (`packs/pf2e/<bestiary>/**.json`), read as loosely as an item: what selection needs is
+ * required, and the rest is carried through for the creature translation stories. The publication sits in
+ * `system.details`, not `system` as for an item.
+ */
+export const FoundryActor = z.looseObject({
+  _id: z.string().min(1).max(ID_MAX),
+  name: z.string().max(NAME_MAX),
+  type: z.string().min(1).max(TYPE_MAX),
+  system: z.looseObject({
+    details: FoundryActorDetails.default({}),
+    traits: FoundryTraits.optional(),
+  }),
+  items: z.array(FoundryEmbeddedItem).max(ITEMS_MAX).default([]),
+});
+export type FoundryActor = z.infer<typeof FoundryActor>;
+
+/**
+ * Foundry actor types the importer reads. Monster Core and the adventure bestiaries use `npc` for every creature;
+ * `hazard` is a later kind.
+ */
+export const FoundryActorType = { Npc: 'npc', Hazard: 'hazard' } as const;
+export type FoundryActorType = ValueOf<typeof FoundryActorType>;

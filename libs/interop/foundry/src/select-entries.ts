@@ -1,9 +1,9 @@
-import { BookId, ContentLicense } from '@pioneer/rules/sdk';
+import { BookId, ContentLicense, CreatureRole } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 
-import { isFoundryItemType } from './foundry-document';
+import { FoundryActorType, isFoundryItemType } from './foundry-document';
 import type { FoundryItemType, FoundryPublication } from './foundry-document';
-import type { FoundryPack, FoundryRelease, PackDocument } from './foundry-release';
+import type { ActorDocument, FoundryPack, FoundryRelease, PackDocument } from './foundry-release';
 
 /**
  * Foundry's `publication.title` for each book in the registry. A title not here is a book Pioneer does not
@@ -79,8 +79,10 @@ const OGL_BOOKS: ReadonlySet<BookId> = new Set([
 export const SkipReason = {
   /** Not valid JSON, or a field selection reads is missing or malformed. */
   Unreadable: 'unreadable',
-  /** A Foundry item type with no Pioneer kind. */
+  /** A Foundry item or actor type with no Pioneer kind. */
   UnsupportedType: 'unsupported-type',
+  /** A hazard actor: a later kind, left out of the creatures. */
+  Hazard: 'hazard',
   /** `publication.remaster` is not `true`. */
   Legacy: 'legacy',
   /** A remaster entry under a licence other than ORC, the only one that allows rules text in packs (NOTICE.md). */
@@ -155,6 +157,54 @@ export function selectEntries(release: FoundryRelease, targets: ReadonlySet<Book
   }));
   for (const entry of release.documents) {
     const selection = select(entry, targets);
+    if ('reason' in selection) {
+      skipped.push(selection);
+    } else {
+      selected.push(selection);
+    }
+  }
+  return { selected, skipped };
+}
+
+/** The actor packs that hold NPCs rather than monsters; every other bestiary pack holds monsters. */
+const NPC_PACKS: ReadonlySet<string> = new Set(['pathfinder-npc-core', 'npc-gallery']);
+
+/** A creature to import: an `npc` actor of a target book, with the role its pack gives it. */
+export interface SelectedCreature extends ActorDocument {
+  readonly book: BookId;
+  readonly role: CreatureRole;
+}
+
+export interface CreatureSelection {
+  readonly selected: readonly SelectedCreature[];
+  readonly skipped: readonly SkippedEntry[];
+}
+
+function selectCreature(entry: ActorDocument, targets: ReadonlySet<BookId>): SelectedCreature | SkippedEntry {
+  const { pack, path, actor } = entry;
+  if (actor.type === FoundryActorType.Hazard) {
+    return { pack, path, reason: SkipReason.Hazard, detail: actor.type };
+  }
+  if (actor.type !== FoundryActorType.Npc) {
+    return { pack, path, reason: SkipReason.UnsupportedType, detail: actor.type };
+  }
+  const book = targetBook(actor.system.details.publication, targets);
+  if (typeof book !== 'string') {
+    return { pack, path, ...book };
+  }
+  return { ...entry, book, role: NPC_PACKS.has(pack.directory) ? CreatureRole.Npc : CreatureRole.Monster };
+}
+
+/**
+ * Keeps the `npc` actors of the target books under the same publication, remaster and licence rules as items, and
+ * reports every other actor and why. Hazards are skipped under their own reason; an unreadable actor file, as for
+ * items, is reported by `selectEntries`.
+ */
+export function selectCreatures(release: FoundryRelease, targets: ReadonlySet<BookId>): CreatureSelection {
+  const selected: SelectedCreature[] = [];
+  const skipped: SkippedEntry[] = [];
+  for (const entry of release.actors) {
+    const selection = selectCreature(entry, targets);
     if ('reason' in selection) {
       skipped.push(selection);
     } else {

@@ -40,7 +40,7 @@ function release(files: Record<string, unknown>, without: readonly string[] = []
 }
 
 describe('readFoundryRelease', () => {
-  test('reads journals of journal packs beside the item documents, and no other pack types', () => {
+  test('reads journals of journal packs and actors of actor packs beside the item documents', () => {
     const read = release({
       'packs/pf2e/feats/sudden-charge.json': {
         _id: 'fEaT000000000002',
@@ -49,7 +49,7 @@ describe('readFoundryRelease', () => {
         system: {},
       },
       'packs/pf2e/journals/archetypes.json': { _id: 'vx5FGEG34AxI2dow', name: 'Archetypes', pages: [PAGE] },
-      'packs/pf2e/iconics/amiri.json': { _id: 'aCtOr00000000001', name: 'Amiri', type: 'character' },
+      'packs/pf2e/iconics/amiri.json': { _id: 'aCtOr00000000001', name: 'Amiri', type: 'character', system: {} },
     });
 
     expect(read.documents.map(({ document }) => document.name)).toEqual(['Sudden Charge']);
@@ -60,6 +60,7 @@ describe('readFoundryRelease', () => {
         journal: { _id: 'vx5FGEG34AxI2dow', name: 'Archetypes', pages: [PAGE] },
       },
     ]);
+    expect(read.actors.map(({ actor }) => actor.name)).toEqual(['Amiri']);
     expect(read.unreadable).toEqual([]);
   });
 
