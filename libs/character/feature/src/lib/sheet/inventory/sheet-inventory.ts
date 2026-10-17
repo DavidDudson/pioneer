@@ -90,7 +90,7 @@ export function lineRunes(
 export function sheetInventory(
   inventory: Inventory,
   { items, runes }: RunedContent,
-  { limits, approvals }: TableRules = CORE_TABLE,
+  { limits, approvals, campaign }: TableRules = CORE_TABLE,
 ): readonly InventoryGroup[] {
   const contents = contentsByContainer(inventory.items);
   const { open, approved } = partitionApproved(inventoryViolations(inventory, { items, runes }, limits), approvals);
@@ -112,6 +112,8 @@ export function sheetInventory(
       breaks: breaks.get(item.id) ?? [],
       approved: approvedBreaks.get(item.id) ?? [],
       keyItem: item.keyItem !== undefined,
+      keyItemLink:
+        item.keyItem === undefined || campaign === undefined ? undefined : ['/campaigns', campaign, 'inventory'],
       contents: (contents.get(item.id) ?? []).map((inside) => lineOf(inside)),
     };
   };

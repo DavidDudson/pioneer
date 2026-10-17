@@ -1,6 +1,7 @@
 import { beforeEach, describe, expect, test } from 'bun:test';
 
 import {
+  AttachedCampaignId,
   AttachedCampaignName,
   CharacterName,
   CORE_RULE_LIMITS,
@@ -119,18 +120,23 @@ describe('the table limits a character sets for itself', () => {
     });
 
     test('the campaign’s approvals are the owner’s to read, and a character outside a campaign has none', async () => {
-      expect(await service.itemApprovals(amiri, character.id)).toStrictEqual({ approvals: [] });
+      expect(await service.itemApprovals(amiri, character.id)).toStrictEqual({ campaign: undefined, approvals: [] });
       const approval = ItemApproval.parse({ item: newId(), rule: 'propertyRunes', value: 7 });
+      const campaignId = AttachedCampaignId.parse(newId());
       campaigns.attach(character.id, {
+        id: campaignId,
         name: AttachedCampaignName.parse('Abomination Vaults'),
         packs: [],
         variants: [],
         approvals: [approval],
       });
-      expect(await service.itemApprovals(amiri, character.id)).toStrictEqual({ approvals: [approval] });
+      expect(await service.itemApprovals(amiri, character.id)).toStrictEqual({
+        campaign: campaignId,
+        approvals: [approval],
+      });
       expect(await rejection(service.itemApprovals(ezren, character.id))).toBeInstanceOf(NotFoundError);
       campaigns.detach(character.id);
-      expect(await service.itemApprovals(amiri, character.id)).toStrictEqual({ approvals: [] });
+      expect(await service.itemApprovals(amiri, character.id)).toStrictEqual({ campaign: undefined, approvals: [] });
     });
 
     test('detaching brings the character’s own back untouched', async () => {

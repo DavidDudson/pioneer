@@ -36,6 +36,8 @@ export interface InventoryLine {
   readonly approved: readonly MessageDescriptor[];
   /** Whether the GM gave it as a campaign key item: it breaks no rule, and the player cannot remove or sell it. */
   readonly keyItem: boolean;
+  /** Router commands to the campaign's Party Inventory, which a key item names itself with; undefined when none. */
+  readonly keyItemLink?: readonly string[] | undefined;
   /** What it holds, when it is a container: listed beneath it. */
   readonly contents: readonly InventoryLine[];
 }

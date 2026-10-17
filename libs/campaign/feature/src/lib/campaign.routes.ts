@@ -41,6 +41,14 @@ export const campaignRoutes: Routes = [
           return CampaignHomePage;
         }),
       },
+      {
+        path: ':id/inventory',
+        loadComponent: loadWithMessages(async () => {
+          const { CampaignInventoryPage } =
+            await import('./home/campaign-inventory-page/campaign-inventory-page.component');
+          return CampaignInventoryPage;
+        }),
+      },
     ],
   },
 ];

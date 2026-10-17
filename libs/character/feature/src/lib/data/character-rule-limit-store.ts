@@ -1,7 +1,7 @@
 import { computed, inject, Injectable } from '@angular/core';
 import type { Signal } from '@angular/core';
 import { CharacterContract, CORE_RULE_LIMITS } from '@pioneer/character/domain';
-import type { ItemApproval, RuleLimits } from '@pioneer/character/domain';
+import type { AttachedCampaignId, CharacterItemApprovals, ItemApproval, RuleLimits } from '@pioneer/character/domain';
 import { ApiClient } from '@pioneer/shared/web';
 import { injectQuery } from '@tanstack/angular-query-experimental';
 
@@ -11,6 +11,8 @@ import { CharacterStore } from './character-store';
 export interface TableRules {
   readonly limits: RuleLimits;
   readonly approvals: readonly ItemApproval[];
+  /** The campaign it comes from, which a key item on the sheet links back to; none outside a campaign. */
+  readonly campaign?: AttachedCampaignId | undefined;
 }
 
 /** The core rules' limits and no approval: the table until the server's answers arrive. */
@@ -47,15 +49,11 @@ export class CharacterRuleLimitStore {
     const id = this.#id();
     return {
       queryKey: ['characters', 'item-approvals', id],
-      queryFn: async (): Promise<readonly ItemApproval[]> => {
+      queryFn: async (): Promise<CharacterItemApprovals> => {
         if (id === undefined) {
           throw new Error('No character selected');
         }
-        const { approvals } = await this.#api.call(CharacterContract.itemApprovals, {
-          params: { id },
-          body: undefined,
-        });
-        return approvals;
+        return this.#api.call(CharacterContract.itemApprovals, { params: { id }, body: undefined });
       },
       enabled: id !== undefined,
     };
@@ -67,6 +65,7 @@ export class CharacterRuleLimitStore {
   /** The limits and approvals in force; the core rules' and none until the server's arrive, so the sheet never waits. */
   public readonly rules: Signal<TableRules> = computed(() => ({
     limits: this.limits(),
-    approvals: this.approvalsQuery.data() ?? CORE_TABLE.approvals,
+    approvals: this.approvalsQuery.data()?.approvals ?? CORE_TABLE.approvals,
+    campaign: this.approvalsQuery.data()?.campaign,
   }));
 }

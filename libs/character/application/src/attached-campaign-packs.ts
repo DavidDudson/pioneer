@@ -1,4 +1,5 @@
 import type {
+  AttachedCampaignId,
   AttachedCampaignName,
   CampaignAlly,
   CharacterId,
@@ -9,6 +10,8 @@ import type { ContentPackId, VariantRuleId } from '@pioneer/rules/sdk';
 
 /** The campaign a character is attached to, the homebrew packs it enables and the variant rules its GM turned on. */
 export interface AttachedCampaign {
+  /** Its id, which the sheet links its key items to; left out where nothing links. */
+  readonly id?: AttachedCampaignId | undefined;
   readonly name: AttachedCampaignName;
   readonly packs: readonly ContentPackId[];
   readonly variants: readonly VariantRuleId[];

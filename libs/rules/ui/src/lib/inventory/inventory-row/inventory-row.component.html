@@ -9,8 +9,8 @@
       <fr-text tone="subtle">{{ Message.ContentName | transloco: { name: contentName } }}</fr-text>
     }
     <fr-text>{{ Message.Quantity | transloco: { quantity: shown().quantity } }}</fr-text>
-    @for (note of shown().notes; track note.key) {
-      <fr-text variant="caption" tone="subtle">{{ note.key | transloco: note.params }}</fr-text>
+    @for (note of shown().notes; track note.message.key) {
+      <pio-inventory-note [note]="note" />
     }
     @if (shown().bulk; as bulk) {
       <fr-text variant="caption" tone="subtle">{{

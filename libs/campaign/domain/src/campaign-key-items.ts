@@ -89,6 +89,8 @@ export const KeyItemView = z.object({
   holder: CharacterId.optional(),
   /** The holder's name as the character context shows it. */
   holderName: ReviewedName.optional(),
+  /** Whether the viewer owns the holder's character, the only one who may open its sheet (ADR-0007). */
+  holderOwned: z.boolean(),
 });
 export type KeyItemView = z.output<typeof KeyItemView>;
 

@@ -11,6 +11,8 @@ import { EntryHover } from '../../entry-preview/entry-hover.component';
 import { InventoryBreaks } from '../inventory-breaks/inventory-breaks.component';
 import type { InventoryLine } from '../inventory-line';
 import { BULK_WEIGHT_MESSAGES, InventoryMessage } from '../inventory-messages';
+import { InventoryNote } from '../inventory-note/inventory-note.component';
+import type { LineNote } from '../inventory-note/inventory-note.component';
 import { injectRunedName } from '../rune-name';
 
 /** What the caller shows beside each line: the line's edits. */
@@ -34,7 +36,7 @@ interface ShownLine {
   readonly quantity: string;
   readonly bulk: ShownBulk | undefined;
   /** How it is carried, when that says more than its group: the hands it is held in, and whether it is invested. */
-  readonly notes: readonly MessageDescriptor[];
+  readonly notes: readonly LineNote[];
 }
 
 /**
@@ -43,7 +45,7 @@ interface ShownLine {
  */
 @Component({
   selector: 'pio-inventory-row',
-  imports: [EntryHover, InventoryBreaks, List, ListItem, NgTemplateOutlet, Stack, Text, TranslocoPipe],
+  imports: [EntryHover, InventoryBreaks, InventoryNote, List, ListItem, NgTemplateOutlet, Stack, Text, TranslocoPipe],
   templateUrl: './inventory-row.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -56,7 +58,7 @@ export class InventoryRow {
   readonly #runedName = injectRunedName();
   protected readonly Message = InventoryMessage;
   protected readonly shown = computed((): ShownLine => {
-    const { name, contentName, runes, quantity, bulk, bulkPer, hands, invested, keyItem } = this.line();
+    const { name, contentName, runes, quantity, bulk, bulkPer, hands, invested, keyItem, keyItemLink } = this.line();
     const named = this.#runedName();
     return {
       name: name === undefined || contentName !== undefined ? name : named(name, runes),
@@ -65,9 +67,9 @@ export class InventoryRow {
       quantity: this.#format.number(quantity),
       bulk: bulk === undefined ? undefined : this.#bulk(bulk, bulkPer),
       notes: [
-        ...(hands === undefined ? [] : [message(InventoryMessage.Hands, { count: hands })]),
-        ...(invested ? [message(InventoryMessage.Invested)] : []),
-        ...(keyItem ? [message(InventoryMessage.KeyItem)] : []),
+        ...(hands === undefined ? [] : [{ message: message(InventoryMessage.Hands, { count: hands }) }]),
+        ...(invested ? [{ message: message(InventoryMessage.Invested) }] : []),
+        ...(keyItem ? [{ message: message(InventoryMessage.KeyItem), link: keyItemLink }] : []),
       ],
     };
   });

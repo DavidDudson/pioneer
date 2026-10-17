@@ -123,6 +123,17 @@ describe('CampaignKeyItemService', () => {
     expect(seen.keyItems).toMatchObject([{ name: 'Caliburn', holder: kyra, holderName: 'Kyra' }]);
   });
 
+  test("only the holder's owner is told they own it, as only they may open the sheet", async () => {
+    const key = only(await service.create(amiri, vaults.id, caliburn));
+    await service.give(amiri, refTo(key, vaults.id), { characterId: kyra });
+
+    const owner = await service.list(ezren, vaults.id);
+    const gm = await service.list(amiri, vaults.id);
+
+    expect(owner.keyItems).toMatchObject([{ holderOwned: true }]);
+    expect(gm.keyItems).toMatchObject([{ holderOwned: false }]);
+  });
+
   test('giving writes the holder a line; giving it to the holder again changes nothing', async () => {
     const keyItem = only(await service.create(amiri, vaults.id, caliburn));
 

@@ -1,11 +1,17 @@
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import type { KeyItemRunes, KeyItemView } from '@pioneer/campaign/domain';
-import { Badge, ListItem, Stack, Text } from '@pioneer/frontier';
+import { Badge, Link, ListItem, Stack, Text } from '@pioneer/frontier';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { CampaignKeyItemHolder } from '../campaign-key-item-holder/campaign-key-item-holder.component';
+
+/** A link to the sheet of the character holding a key item. */
+interface SheetLink {
+  readonly to: readonly string[];
+  readonly name: string;
+}
 
 /** The grades a key item states, in the order the rules write them, with the message that says each. */
 const GRADED = [
@@ -33,7 +39,7 @@ export function runeLines({ property, ...grades }: KeyItemRunes): readonly Messa
  */
 @Component({
   selector: 'pio-campaign-key-item-row',
-  imports: [Badge, CampaignKeyItemHolder, ListItem, Stack, Text, TranslocoPipe],
+  imports: [Badge, CampaignKeyItemHolder, Link, ListItem, Stack, Text, TranslocoPipe],
   templateUrl: './campaign-key-item-row.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -43,6 +49,13 @@ export class CampaignKeyItemRow {
   public readonly manageable = input.required<boolean>();
 
   protected readonly runes = computed(() => runeLines(this.keyItem().runes));
+  /** The holder's sheet, when the viewer owns the holder: nobody else may open it (ADR-0007). */
+  protected readonly sheet = computed((): SheetLink | undefined => {
+    const { holder, holderName, holderOwned } = this.keyItem();
+    return holder !== undefined && holderName !== undefined && holderOwned
+      ? { to: ['/characters', holder], name: holderName }
+      : undefined;
+  });
   /** Who holds it, or that the party stash does. */
   protected readonly holder = computed((): MessageDescriptor => {
     const { holderName } = this.keyItem();

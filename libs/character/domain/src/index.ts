@@ -505,6 +505,7 @@ export {
 } from './rest-types';
 export { CampaignAlly, CharacterAllies } from './character-allies';
 export {
+  AttachedCampaignId,
   AttachedCampaignName,
   type CharacterPack,
   CharacterPackId,

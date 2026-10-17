@@ -79,7 +79,7 @@ export class CharacterRuleLimitService extends EffectiveRuleLimits {
   public async itemApprovals(actor: UserId, id: CharacterId): Promise<CharacterItemApprovals> {
     await this.#owned(actor, id);
     const campaign = await this.#campaigns.of(id);
-    return { approvals: campaign?.approvals ?? [] };
+    return { campaign: campaign?.id, approvals: campaign?.approvals ?? [] };
   }
 
   /** The character's limits, and who decides them. Not the owner: 404. */

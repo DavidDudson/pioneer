@@ -1,6 +1,7 @@
 import { ContentId } from '@pioneer/rules/sdk';
 import * as z from 'zod';
 
+import { AttachedCampaignId } from './character-packs';
 import { InventoryItemId } from './inventory';
 import { RuleBreak, RuleCount } from './rule-violations';
 import type { RuleViolation } from './rule-violations';
@@ -18,8 +19,12 @@ export const ItemApproval = z.object({
 });
 export type ItemApproval = z.output<typeof ItemApproval>;
 
-/** JSON shape of the approvals a character's campaign gave it; none outside a campaign. */
-export const CharacterItemApprovals = z.object({ approvals: z.array(ItemApproval).readonly() });
+/** JSON shape of the approvals a character's campaign gave it, and which campaign that is; none outside a campaign. */
+export const CharacterItemApprovals = z.object({
+  /** The campaign the character is in, which the sheet links its key items back to. */
+  campaign: AttachedCampaignId.optional(),
+  approvals: z.array(ItemApproval).readonly(),
+});
 export type CharacterItemApprovals = z.output<typeof CharacterItemApprovals>;
 
 /** How far a violation breaks its rule: the count the item took the total to, or 1 for a rune not allowed. */

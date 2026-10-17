@@ -8,7 +8,13 @@ import {
 } from '@pioneer/campaign/infrastructure';
 import { AttachedCampaignPacks } from '@pioneer/character/application';
 import type { AttachedCampaign } from '@pioneer/character/application';
-import { AttachedCampaignName, CampaignAlly, ItemApproval, RuleLimitOverridesSchema } from '@pioneer/character/domain';
+import {
+  AttachedCampaignId,
+  AttachedCampaignName,
+  CampaignAlly,
+  ItemApproval,
+  RuleLimitOverridesSchema,
+} from '@pioneer/character/domain';
 import type { CharacterId } from '@pioneer/character/domain';
 import { characters } from '@pioneer/character/infrastructure';
 import { VariantRuleId } from '@pioneer/rules/sdk';
@@ -68,6 +74,7 @@ export class CampaignPackDirectory extends AttachedCampaignPacks {
         ),
       );
     return {
+      id: AttachedCampaignId.parse(attached.id),
       name: AttachedCampaignName.parse(attached.name),
       packs: rows.map((row) => row.packId),
       variants: variants.map((row) => VariantRuleId.parse(row.variantId)),
