@@ -10,6 +10,8 @@ export const EngineMessage = {
   TotalOutOfRange: 'engine.statistic.outOfRange',
   AdjustmentOutOfRange: 'engine.modifier.outOfRange',
   WeaponPotency: 'engine.modifier.weaponPotency',
+  FormReplaces: 'engine.form.replaces',
+  FormOwnHigher: 'engine.form.ownHigher',
   ChangeOutOfRange: 'engine.change.outOfRange',
   DefenceOutOfRange: 'engine.defence.outOfRange',
   ActionRequirementsNotMet: 'engine.action.requirementsNotMet',

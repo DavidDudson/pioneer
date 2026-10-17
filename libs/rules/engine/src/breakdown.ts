@@ -16,7 +16,7 @@ import type { MessageDescriptor, ValueOf } from '@pioneer/shared/kernel';
 import type { RuleId } from './rule-in-play';
 
 /** The message parameters the UI fills with a name. */
-export const LabelParam = { Weapon: 'weapon' } as const;
+export const LabelParam = { Weapon: 'weapon', Form: 'form' } as const;
 export type LabelParam = ValueOf<typeof LabelParam>;
 
 /**
@@ -58,8 +58,8 @@ export const LineStatusKind = {
 } as const;
 export type LineStatusKind = ValueOf<typeof LineStatusKind>;
 
-/** Why a line that would apply does not: a better one of its type, or an `AdjustModifier` that suppresses it. */
-export const SuppressionReason = { Stacking: 'stacking', Adjustment: 'adjustment' } as const;
+/** Why a line that would apply does not: a better one of its type, an `AdjustModifier` that suppresses it, or a battle form that replaces what it adds to. */
+export const SuppressionReason = { Stacking: 'stacking', Adjustment: 'adjustment', Form: 'form' } as const;
 export type SuppressionReason = ValueOf<typeof SuppressionReason>;
 
 /** Why a line is inactive: its predicate is known not to hold. */

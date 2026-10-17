@@ -78,3 +78,4 @@ export {
   availableActions,
   type AvailableActionsInput,
 } from './available-actions';
+export { type FormReplacement, FormSource } from './statistic-result';

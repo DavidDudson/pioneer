@@ -14,6 +14,10 @@
       "outOfRange": "An adjustment takes this modifier out of range. Values must stay between −{maximum} and {maximum}.",
       "weaponPotency": "Item bonus of {weapon}"
     },
+    "form": {
+      "replaces": "{value} from {form}; yours {own}",
+      "ownHigher": "Yours {own} is higher than the {value} from {form}"
+    },
     "change": {
       "outOfRange": "This change takes the value out of range. Values must stay between −{maximum} and {maximum}."
     },

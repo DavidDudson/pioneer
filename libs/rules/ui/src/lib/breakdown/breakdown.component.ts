@@ -98,6 +98,7 @@ export class BreakdownView {
     const rules: readonly Labelled[] = [
       ...statistic.lines.map(({ modifier }): Labelled => modifier),
       ...statistic.overrides,
+      ...(statistic.form === undefined ? [] : [{ id: statistic.form.rule, label: statistic.form.label }]),
     ];
     const placed = statistic.lines.map((line, index): Placed => ({ line, index }));
     const ordered = placed.toSorted(
@@ -105,6 +106,7 @@ export class BreakdownView {
     );
     return {
       pinned: this.#pinned(statistic, rules, style),
+      form: this.#form(statistic),
       base: this.#i18n.translate(BreakdownMessage.Base, { value: this.#format.number(statistic.baseValue, style) }),
       terms: statistic.base.map((term, index) => this.#term(term, index)),
       lines: ordered.map(({ line }) => this.#line(line, rules)),
@@ -121,6 +123,14 @@ export class BreakdownView {
       total: this.#format.number(statistic.total, style),
       computed: this.#format.number(statistic.computed, style),
     });
+  }
+
+  /** "22 from Plant Form (arboreal); yours 19", or that the character's own is higher; undefined outside a form. */
+  #form({ form }: StatisticValue): string | undefined {
+    if (form === undefined) {
+      return undefined;
+    }
+    return labelName(form.summary, this.#labelNames(), (descriptor) => this.#translate(descriptor));
   }
 
   #term(term: BaseTerm, index: number): ShownTerm {

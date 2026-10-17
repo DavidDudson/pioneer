@@ -10,6 +10,8 @@ import type {
 } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 
+import { battleFormInPlay } from './battle-form';
+import type { FormInPlay } from './battle-form';
 import type { StatisticContent } from './derive-statistics';
 import { proficiencyBonuses } from './proficiency-bonuses';
 import { itemScopeOf } from './rule-in-play';
@@ -155,8 +157,8 @@ function givenBy(rule: Kind<FastHealingElement | TempHPElement>, scope: VitalsSc
 }
 
 /** The size after `resizes`, in order, with the reach the last element that names one gives. */
-function resized(resizes: readonly Kind<CreatureSizeElement>[], base: Size): SizeInPlay {
-  let size = base;
+function resized(resizes: readonly Kind<CreatureSizeElement>[], base: Size, form: FormInPlay | undefined): SizeInPlay {
+  let size = form?.form.size ?? base;
   let reach = undefined as CreatureSizeElement['reach'];
   for (const { element } of resizes) {
     size = typeof element.value === 'number' ? stepped(size, element.value, element.maximumSize) : element.value;
@@ -167,7 +169,7 @@ function resized(resizes: readonly Kind<CreatureSizeElement>[], base: Size): Siz
     base,
     reach: reachOf(size, reach),
     resizeEquipment: resizes.some(({ element }) => element.resizeEquipment === true),
-    origins: resizes.map(({ origin }) => origin),
+    origins: [...(form?.form.size === undefined ? [] : [form.origin]), ...resizes.map(({ origin }) => origin)],
   };
 }
 
@@ -177,6 +179,7 @@ function resized(resizes: readonly Kind<CreatureSizeElement>[], base: Size): Siz
  * ignored. Recovery and temporary Hit Points do not add up (Player Core): of each kind the highest counts, with every
  * element that gives it as an origin. Sizes apply in the order found, a named size setting it and a number of steps
  * moving it, never past the `maximumSize` it names; the reach is the last element's that names one, else the size's.
+ * A battle form that names a size sets it first, and the elements then apply to that.
  */
 export function vitalsInPlay(inputs: ModifierInputs, scope: VitalsScope): VitalsInPlay {
   const healing = active(inputs, isFastHealing);
@@ -192,9 +195,10 @@ export function vitalsInPlay(inputs: ModifierInputs, scope: VitalsScope): Vitals
   });
   const temp = highest(active(inputs, isTempHp).flatMap((rule) => givenBy(rule, scope, inputs)));
   const resizes = active(inputs, isCreatureSize);
+  const form = battleFormInPlay(inputs);
   return {
     recovery,
     ...(temp === undefined ? {} : { temporaryHitPoints: { amount: temp.top.amount, origins: temp.origins } }),
-    ...(resizes.length === 0 ? {} : { size: resized(resizes, scope.size) }),
+    ...(resizes.length === 0 && form?.form.size === undefined ? {} : { size: resized(resizes, scope.size, form) }),
   };
 }

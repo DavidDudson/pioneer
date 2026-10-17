@@ -2,11 +2,12 @@ import type { ResolveReference } from '@pioneer/rules/formula';
 import type { ProficiencyBonusTable, Selector, StatisticDefinition } from '@pioneer/rules/sdk';
 
 import { armorBonus } from './armor-bonus';
+import { applyForm, battleFormInPlay } from './battle-form';
 import { changeRules } from './change';
 import { collectLines } from './collect';
 import { modifierRules } from './modifier';
 import { proficiencyBonuses } from './proficiency-bonuses';
-import { NO_MODIFIERS, NO_SITUATION } from './rule-in-play';
+import { NO_ITEM, NO_MODIFIERS, NO_SITUATION } from './rule-in-play';
 import type { ItemScope, ModifierInputs } from './rule-in-play';
 import { StatisticBases } from './statistic-bases';
 import { resolverFor } from './statistic-inputs';
@@ -25,7 +26,8 @@ export interface StatisticContent {
  * Every statistic's breakdown (rules-engine.md, steps 4 to 6). The base phase evaluates each base formula in
  * dependency order and runs its `Change`s (`StatisticBases`); the modifier phase then collects the modifiers that
  * reach each statistic, gates them by predicate and stacks them (`collectLines`); last, set overrides may pin the
- * total. Each weapon's potency joins the modifiers as an `item` line on its Strike (`weaponPotencies`), and worn
+ * total. A battle form in play then replaces what it sets (`applyForm`). Each weapon's potency joins the modifiers
+ * as an `item` line on its Strike (`weaponPotencies`), and worn
  * armour's bonus as an `item` line on AC (`armorBonus`). A modifier or adjustment in `situation` whose predicate
  * depends on facts nobody supplied counts as holding, as the toggles chosen on a roll say. Modifier
  * formulas read the inputs, statistics' bases through `@stat.<selector>`, and the level of the item they are on.
@@ -50,11 +52,13 @@ export function deriveStatistics(
     resolve: (item: ItemScope): ResolveReference =>
       resolverFor(values, (selector) => bases.baseValue(selector), { item }),
   };
+  const form = battleFormInPlay({ rules, facts });
   return new Map(
     bases.bases.map(({ definition, result }) => {
       const lines = collectLines(definition, modifiers, { ...context, situation });
       const sets = changes.set.get(definition.selector) ?? [];
-      return [definition.selector, finished(result, { lines, sets, context })];
+      const finishedResult = finished(result, { lines, sets, context });
+      return [definition.selector, applyForm(finishedResult, form, context.resolve(NO_ITEM))];
     }),
   );
 }
