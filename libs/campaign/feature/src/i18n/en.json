@@ -108,13 +108,13 @@
     "handsMax": "Hands to hold things in",
     "propertyRunesPerGrade": "Property runes per potency rune grade",
     "itemsMax": "Lines in an inventory",
-    "core": "Core rules: {{value}}",
+    "core": "Core rules: {value}",
     "changed": "Changed",
     "reset": "Reset",
     "resetting": "Resetting",
     "resetDone": "Reset",
     "changeFailed": "Could not reset the limit. Try again.",
-    "ceilingRefusal": "At most {{maximum}}."
+    "ceilingRefusal": "At most {maximum}."
   },
   "variantRules": {
     "heading": "Variant rules",
