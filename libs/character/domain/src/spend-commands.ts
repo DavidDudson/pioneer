@@ -8,7 +8,7 @@ import { SpendCommandField, SpendKind, SpendProblem, spendLogged, spendUndone } 
 import type { SpendCommand, SpendCost, SpendCount, SpendEntry, SpendLog, SpendRequest, SpendTime } from './spend-log';
 import { StaffCommandField } from './staff-commands';
 import type { StaffCast, StaffCommand } from './staff-commands';
-import { ActionCount, QuickenedAction, TURN_ACTIONS, TurnPhase } from './turn-state';
+import { ActionCount, attacksMoved, QuickenedAction, TURN_ACTIONS, TurnPhase } from './turn-state';
 import type { TurnState } from './turn-state';
 
 const NONE = ResourceCount.parse(0);
@@ -212,13 +212,22 @@ function refundedTo(turn: TurnState, { cost, quickened }: SpendEntry): TurnState
   return { ...turn, actions, quickened: QuickenedAction.parse(Math.min(turn.quickened + quickened, ONE_QUICKENED)) };
 }
 
+/** `turn` with the attack of a spend counted, or taken back, when the spend was one and the turn is running. */
+function withAttack(turn: TurnState, { attack }: Pick<SpendRequest, 'attack'>, by: 1 | -1): TurnState {
+  return attack === true && turn.phase === TurnPhase.Turn ? attacksMoved(turn, by) : turn;
+}
+
 /** `play` after the spend `entry` is taken back: the turn gets what it took, and the frequency its use. */
 function undone(play: SpendPlay, entry: SpendEntry, limits: ResourceLimits): SpendPlay {
   const given = withStaff(play, { staff: entry.staff, field: StaffCommandField.UncastStaff }, limits);
   const slotted = withSlot(given, { slot: entry.slot, field: ResourceCommandField.RefundSlot }, limits);
   const focused = withFocus(slotted, { focus: entry.focus, field: ResourceCommandField.RegainResource }, limits);
   const refunded = withUse(focused, { use: entry.use, field: ResourceCommandField.RefundUse }, limits);
-  return { ...refunded, turn: refundedTo(play.turn, entry), spendLog: spendUndone(play.spendLog, entry.id) };
+  return {
+    ...refunded,
+    turn: withAttack(refundedTo(play.turn, entry), entry, -1),
+    spendLog: spendUndone(play.spendLog, entry.id),
+  };
 }
 
 /** `play` after `request` is taken from the turn and logged, with its frequency use spent. */
@@ -229,7 +238,7 @@ function spent(play: SpendPlay, request: SpendRequest, limits: ResourceLimits & 
   const focused = withFocus(slotted, { focus: request.focus, field: ResourceCommandField.SpendResource }, limits);
   const used = withUse(focused, { use: request.use, field: ResourceCommandField.SpendUse }, limits);
   const entry: SpendEntry = { ...request, at: limits.now, quickened: taken.quickened };
-  return { ...used, turn: taken.turn, spendLog: spendLogged(play.spendLog, entry) };
+  return { ...used, turn: withAttack(taken.turn, request, 1), spendLog: spendLogged(play.spendLog, entry) };
 }
 
 /**

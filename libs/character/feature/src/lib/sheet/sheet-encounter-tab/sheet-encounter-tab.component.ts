@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { SheetMode } from '@pioneer/character/domain';
+import { SheetMode, TurnPhase } from '@pioneer/character/domain';
 import { AsyncData, AsyncPending, AsyncRegion, Section, SectionIndex, SectionLink, Stack } from '@pioneer/frontier';
 import { ActionMode, SpellPreparation } from '@pioneer/rules/sdk';
 import { DefencesView, SpellcastingView, StatisticsView, StrikesView } from '@pioneer/rules/ui';
@@ -63,6 +63,11 @@ export class SheetEncounterTab {
   protected readonly strikes = computed((): readonly NamedStrike[] | undefined => {
     const strikes = this.picks.strikes();
     return strikes === undefined ? undefined : usableStrikes(strikes, this.#spender.turn());
+  });
+  /** The attacks made this turn, which mark the next step of the multiple attack penalty; undefined when no turn is running. */
+  protected readonly attacksMade = computed((): number | undefined => {
+    const turn = this.#spender.turn();
+    return turn?.phase === TurnPhase.Turn ? turn.attacks : undefined;
   });
   /** Whether the character has a spellcasting entry, so its spell picks load. */
   protected readonly casts = computed(() => (this.picks.spellcasting()?.length ?? 0) > 0);

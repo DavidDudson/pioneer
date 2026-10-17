@@ -82,6 +82,8 @@ export class StrikesView {
   public readonly originNames = input<OriginNames>(NO_ORIGIN_NAMES);
   /** The shields held, each listed with its Hardness, Hit Points and Broken Threshold. */
   public readonly shields = input<readonly StrikesShield[]>([]);
+  /** The attacks made this turn, which mark the step of the multiple attack penalty the next one takes; undefined when no turn counts them. */
+  public readonly attacksMade = input<number | undefined>(undefined);
 
   protected readonly Statistics = StatisticsMessage;
   protected readonly loadingRows = [...Array.from({ length: LOADING_ROWS }).keys()];
@@ -112,6 +114,7 @@ export class StrikesView {
         traits: traits.map((label): Chip => ({ label })),
         attack: this.#attack(strike.attack),
         attacks: this.#attacks(strike),
+        next: this.#next(strike),
         damage: this.#damage(strike),
         extras: this.#extras(strike),
         attackNotes: this.#notes(strike, NoteRoll.Attack),
@@ -146,6 +149,18 @@ export class StrikesView {
       first: this.#format.number(attack.total, style),
       second: this.#format.number(attack.total + map.second, style),
       third: this.#format.number(attack.total + map.third, style),
+    });
+  }
+
+  /** "Next attack: +4": the modifier at the step after the attacks made, the third step for any later one. */
+  #next({ attack, map }: Strike): string | undefined {
+    const made = this.attacksMade();
+    if (attack?.ok !== true || made === undefined) {
+      return undefined;
+    }
+    const penalty = [0, map.second, map.third][Math.min(made, 2)] ?? 0;
+    return this.#i18n.translate(StrikesMessage.NextAttack, {
+      modifier: this.#format.number(attack.total + penalty, numberStyle(StatisticKind.Check)),
     });
   }
 

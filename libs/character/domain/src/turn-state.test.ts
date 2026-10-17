@@ -5,7 +5,7 @@ import { ConditionValue, ContentId } from '@pioneer/rules/sdk';
 import { ActionRestriction, ConditionInstanceId, UNLIMITED } from './conditions';
 import type { ActiveCondition } from './conditions';
 import { TurnEventKind } from './turn-events';
-import { ActionCount, QuickenedAction, refilled, turnEnded, TurnPhase } from './turn-state';
+import { ActionCount, AttackCount, QuickenedAction, refilled, turnEnded, TurnPhase } from './turn-state';
 import type { EconomyConditions, TurnState } from './turn-state';
 
 const QUICKENED = ContentId.parse('00000000-0000-4000-8000-0000000000c1');
@@ -108,9 +108,11 @@ describe('turnEnded', () => {
       actions: ActionCount.parse(2),
       quickened: QuickenedAction.parse(1),
       reactionUsed: true,
+      attacks: AttackCount.parse(2),
     };
     const ended = turnEnded(turn);
     expect(economyOf(ended)).toStrictEqual([TurnPhase.OffTurn, 0, 0]);
     expect(ended.reactionUsed).toBe(true);
+    expect(ended.attacks).toBe(AttackCount.parse(0));
   });
 });

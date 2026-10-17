@@ -679,6 +679,7 @@
       "damageHeading": "Damage bonus",
       "noDamage": "No damage",
       "attacks": "Attack {first} / {second} / {third}",
+      "nextAttack": "Next attack: {modifier}",
       "shield": "{name}: Hardness {hardness}, HP {hitPoints}, Broken Threshold {brokenThreshold}",
       "persistent": "{formula} persistent {type}",
       "splash": "{amount} {type} splash",

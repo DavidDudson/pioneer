@@ -13,7 +13,7 @@ import { SpendKind, SpendProblem } from './spend-log';
 import type { SpendCommand, SpendCost } from './spend-log';
 import { actions, OWN_TURN, playIn, Serial, spendId, spendOf, turnOf } from './spend-log-testing';
 import { TEST_SPEND, within } from './testing';
-import { ActionCount, QuickenedAction, TurnPhase } from './turn-state';
+import { ActionCount, AttackCount, QuickenedAction, TurnPhase } from './turn-state';
 
 const FREQUENCY = abilityUseKey(ContentId.parse('00000000-0000-4000-8000-0000000000aa'));
 const COUNTED: CountedMaxima = {
@@ -181,6 +181,34 @@ test('isSpendCommand tells the spend edits from the rest', () => {
   expect(isSpendCommand(spendOf(FIRST, FREE))).toBe(true);
   expect(isSpendCommand({ field: PlayCommandField.Heal })).toBe(false);
   expect(applySpendCommand).toBeDefined();
+});
+
+describe('attacks', () => {
+  const attack: SpendCommand = { ...spendOf(FIRST, ONE_ACTION), attack: true };
+
+  test('an attack spend counts one more attack on a running turn', () => {
+    const played = apply(playIn(OWN_TURN), attack);
+    expect(played.turn.attacks).toBe(AttackCount.parse(1));
+  });
+
+  test('a spend that is not an attack counts none', () => {
+    expect(apply(playIn(OWN_TURN), spendOf(FIRST, ONE_ACTION)).turn.attacks).toBe(AttackCount.parse(0));
+  });
+
+  test('out of an encounter no attack is counted', () => {
+    const idle = playIn(turnOf(TurnPhase.OutOfEncounter, 0));
+    expect(apply(idle, attack).turn.attacks).toBe(AttackCount.parse(0));
+  });
+
+  test('undoing the spend takes the attack back', () => {
+    const undone = apply(apply(playIn(OWN_TURN), attack), undo(FIRST));
+    expect(undone.turn).toEqual(OWN_TURN);
+  });
+
+  test('a refused attack counts nothing', () => {
+    const empty = playIn(turnOf(TurnPhase.Turn, 0));
+    expect(apply(empty, attack).turn.attacks).toBe(AttackCount.parse(0));
+  });
 });
 
 describe('what the turn allows', () => {

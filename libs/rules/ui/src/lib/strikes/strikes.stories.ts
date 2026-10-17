@@ -171,3 +171,12 @@ export const Usable: StrikesStory = {
     await expect(canvas.getAllByRole('button', { name: 'Use' })).toHaveLength(1);
   },
 };
+
+/** Two attacks made this turn: every Strike marks the third step of the multiple attack penalty as the next. */
+export const NextAttack: StrikesStory = {
+  args: { strikes: FIGHTER_STRIKES, attacksMade: 2 },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getAllByText(/^Next attack:/u)).toHaveLength(FIGHTER_STRIKES.length);
+  },
+};

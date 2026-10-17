@@ -15,11 +15,19 @@ const ACTIONS_MAX = 4;
 export const ActionCount = z.int().min(0).max(ACTIONS_MAX).brand<'ActionCount'>();
 export type ActionCount = z.infer<typeof ActionCount>;
 
+/** The most attacks one turn counts: the multiple attack penalty stops growing at the third, but each one made is kept so taking one back is exact. */
+const ATTACKS_MAX = 12;
+
+/** How many attacks have been made this turn. */
+export const AttackCount = z.int().min(0).max(ATTACKS_MAX).brand<'AttackCount'>();
+export type AttackCount = z.infer<typeof AttackCount>;
+
 /** The quickened action a turn holds: there is one or there is none. */
 export const QuickenedAction = z.int().min(0).max(1).brand<'QuickenedAction'>();
 export type QuickenedAction = z.infer<typeof QuickenedAction>;
 
 const NONE = ActionCount.parse(0);
+const NO_ATTACKS = AttackCount.parse(0);
 const NO_QUICKENED = QuickenedAction.parse(0);
 const ONE_QUICKENED = QuickenedAction.parse(1);
 
@@ -36,7 +44,8 @@ export type TurnPhase = ValueOf<typeof TurnPhase>;
 
 /**
  * The turn as play state: the phase, the actions left, the quickened action left (a separate pip, as the source may
- * limit what it buys) with its restriction, and whether the reaction is spent.
+ * limit what it buys) with its restriction, whether the reaction is spent, and the attacks made, which set the multiple
+ * attack penalty of the next one.
  */
 export const TurnStateSchema = z.strictObject({
   phase: z.enum(TurnPhase).default(TurnPhase.OutOfEncounter),
@@ -44,6 +53,7 @@ export const TurnStateSchema = z.strictObject({
   quickened: QuickenedAction.default(NO_QUICKENED),
   quickenedFor: ActionRestriction.optional(),
   reactionUsed: z.boolean().default(false),
+  attacks: AttackCount.default(NO_ATTACKS),
 });
 export type TurnState = z.infer<typeof TurnStateSchema>;
 
@@ -132,13 +142,25 @@ export function refilled(conditions: readonly ActiveCondition[], economy: Econom
     quickened,
     quickenedFor: quickened === ONE_QUICKENED ? quicker?.restriction : undefined,
     reactionUsed: false,
+    attacks: NO_ATTACKS,
   };
   return { turn, ...stunnedAfter(conditions, economy.stunned, lost) };
 }
 
-/** The turn End turn leaves: no actions, and only the reaction (if unspent) until the next Start turn. */
+/** The turn End turn leaves: no actions and no attacks counted, and only the reaction (if unspent) until the next Start turn. */
 export function turnEnded(turn: TurnState): TurnState {
-  return { phase: TurnPhase.OffTurn, actions: NONE, quickened: NO_QUICKENED, reactionUsed: turn.reactionUsed };
+  return {
+    phase: TurnPhase.OffTurn,
+    actions: NONE,
+    quickened: NO_QUICKENED,
+    reactionUsed: turn.reactionUsed,
+    attacks: NO_ATTACKS,
+  };
+}
+
+/** `turn` with `by` more attacks made (fewer when negative), kept between none and the most a turn counts. */
+export function attacksMoved(turn: TurnState, by: 1 | -1): TurnState {
+  return { ...turn, attacks: AttackCount.parse(Math.min(Math.max(turn.attacks + by, 0), ATTACKS_MAX)) };
 }
 
 /** The play edits that run the turn cycle. */
@@ -151,6 +173,8 @@ export const TurnCommandField = {
   EndTurn: 'endTurn',
   /** The encounter is over: no turn running. */
   LeaveEncounter: 'leaveEncounter',
+  /** Set the attacks made this turn by hand, for an attack the sheet could not see. */
+  SetAttacks: 'setAttacks',
 } as const;
 export type TurnCommandField = ValueOf<typeof TurnCommandField>;
 
@@ -159,6 +183,7 @@ export const TurnCommandSchema = z.discriminatedUnion('field', [
   z.object({ field: z.literal(TurnCommandField.StartTurn) }),
   z.object({ field: z.literal(TurnCommandField.EndTurn) }),
   z.object({ field: z.literal(TurnCommandField.LeaveEncounter) }),
+  z.object({ field: z.literal(TurnCommandField.SetAttacks), count: AttackCount }),
 ]);
 export type TurnCommand = z.infer<typeof TurnCommandSchema>;
 

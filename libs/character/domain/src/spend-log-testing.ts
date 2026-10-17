@@ -6,7 +6,7 @@ import { FRESH_PLAY, PlayCommandField } from './play-state';
 import type { PlayState } from './play-state';
 import { SpendCount, SpendId, SpendKind } from './spend-log';
 import type { SpendCommand, SpendCost } from './spend-log';
-import { ActionCount, QuickenedAction, TurnPhase } from './turn-state';
+import { ActionCount, AttackCount, QuickenedAction, TurnPhase } from './turn-state';
 import type { TurnState } from './turn-state';
 
 /** The action every test spend is of. */
@@ -48,6 +48,7 @@ export function turnOf(phase: TurnPhase, left: ActionsTaken, extras: Partial<Tur
     actions: ActionCount.parse(left),
     quickened: QuickenedAction.parse(0),
     reactionUsed: false,
+    attacks: AttackCount.parse(0),
     ...extras,
   };
 }

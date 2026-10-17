@@ -40,6 +40,12 @@ export type ShownAttack =
 /** An attack the engine derived. */
 export type DerivedAttack = Extract<ShownAttack, { readonly ok: true }>;
 
+/** A line under the Strike's name about its attacks: the modifiers, or the step the next attack takes, which stands out. */
+interface AttackLine {
+  readonly text: string;
+  readonly weight: 'semibold' | undefined;
+}
+
 /** One Strike as shown. */
 export interface ShownStrike {
   readonly key: string;
@@ -51,6 +57,8 @@ export interface ShownStrike {
   readonly traits: readonly Chip[];
   /** "Attack +9 / +4 / -1": the attack at each step of the multiple attack penalty; undefined when it has none. */
   readonly attacks: string | undefined;
+  /** "Next attack: +4": the step of the multiple attack penalty the next attack takes; undefined when no turn is counting. */
+  readonly next: string | undefined;
   /** "+2 circumstance when your shield is raised (Steel Shield)": the attack's lines that apply only in some situations. */
   readonly attackConditions: readonly string[];
   /** The attack's lines whose situation can be claimed for its next roll, as toggles. */
@@ -125,6 +133,15 @@ export class StrikeRow {
       this.#roller?.claim?.(attack.statistic.selector, RuleId.parse(id), on);
     }
   }
+
+  /** The lines about its attacks: the modifier at each step, then the step the next attack takes, when a turn counts them. */
+  protected readonly attackLines = computed((): readonly AttackLine[] => {
+    const { attacks, next } = this.row();
+    return [
+      ...(attacks === undefined ? [] : [{ text: attacks, weight: undefined }]),
+      ...(next === undefined ? [] : [{ text: next, weight: 'semibold' as const }]),
+    ];
+  });
 
   /** Why it has no attack, when it has none. */
   protected readonly failure = computed((): string | undefined => {
