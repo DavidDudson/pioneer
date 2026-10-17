@@ -23,6 +23,7 @@ import { HUNTERS_CLOAK } from './hunters-cloak';
 import { MOVEMENT_CHARM } from './movement-charm';
 import { RUNES, RuneFixture } from './rune-fixtures';
 import { ALCHEMISTS_FIRE, HOLY_WATER } from './thrown-items';
+import { LEVEL_TONIC, UNREADABLE_TONIC } from './tonic-items';
 
 /** Player Core numbers (Foundry pf2e) for the items the inventory tests carry. */
 const BACKPACK_CAPACITY = 4;
@@ -46,6 +47,10 @@ export const ItemFixture = {
   LeatherArmor: 'leather-armor',
   SteelShield: 'steel-shield',
   HealingPotion: 'healing-potion',
+  /** A potion that heals 1d8, 10 and the drinker's level. */
+  LevelTonic: 'level-tonic',
+  /** A potion whose healing reads the value of an item, which no character has. */
+  UnreadableTonic: 'unreadable-tonic',
   Diamond: 'diamond',
   Greatsword: 'greatsword',
   HideArmor: 'hide-armor',
@@ -152,6 +157,8 @@ const ITEMS: Readonly<Record<ItemFixture, ItemFixtureFields>> = {
       damage: { formula: '1d8', kind: 'healing' },
     },
   },
+  [ItemFixture.LevelTonic]: LEVEL_TONIC,
+  [ItemFixture.UnreadableTonic]: UNREADABLE_TONIC,
   [ItemFixture.Diamond]: { kind: ContentKind.Treasure, data: { bulk: 'negligible', category: 'gem' } },
   [ItemFixture.Greatsword]: {
     kind: ContentKind.Weapon,

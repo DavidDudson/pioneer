@@ -268,6 +268,7 @@
     "consumables": {
       "use": "Use",
       "summary": "{name} ×{quantity} ({cost})",
+      "unresolved": "Cannot roll: {reference} has no value for this character.",
       "costOne": "1 action",
       "costTwo": "2 actions",
       "costThree": "3 actions",
