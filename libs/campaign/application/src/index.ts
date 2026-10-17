@@ -36,3 +36,8 @@ export { CampaignItemApprovalService, type CampaignItemApprovalPorts } from './c
 export { FlaggedItems } from './flagged-items';
 export { InMemoryCampaignItemApprovalRepository } from './in-memory-campaign-item-approval-repository';
 export { InMemoryFlaggedItems } from './in-memory-flagged-items';
+export { CampaignKeyItemRepository, type KeyItemArchival, type KeyItemHolder } from './campaign-key-item-repository';
+export { CampaignKeyItemService, type CampaignKeyItemPorts, type KeyItemRef } from './campaign-key-item-service';
+export { KeyItemHolders } from './key-item-holders';
+export { InMemoryCampaignKeyItemRepository } from './in-memory-campaign-key-item-repository';
+export { InMemoryKeyItemHolders } from './in-memory-key-item-holders';

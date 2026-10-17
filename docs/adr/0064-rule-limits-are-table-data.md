@@ -112,3 +112,31 @@ lets a GM change them for a campaign, and lets a character outside a campaign se
 - **A character outside a campaign has no approvals, so its warnings stay.** Whether the owner may acknowledge them is
   an open question on the epic (#919), not decided here. Leaving a campaign takes the approvals away with it, as they
   belong to the campaign; they come back if the character returns to that campaign.
+
+## A GM gives a character a key item
+
+- A key item is a named, story-significant item a campaign's GM creates (Caliburn: a base item, its runes and notes). It
+  is **campaign data**: a row in `campaign_key_items` holding the name, the base content item (id and the name the
+  campaign shows), the runes exactly as the GM states them (even past the table's caps; stored as JSON, the grades
+  within what a line stores), the notes, the holder (a character, or none while the party stash holds it) and
+  `archived_at`. It is audited, and archived, never deleted (ADR-0062; `archive.protect` says so). Archiving keeps the
+  holder it had, so the history shows who held it. The holder's foreign key to `characters` is `restrict`, as characters
+  are archived, never deleted.
+- **The character's inventory line only links to it.** A line carries an optional `keyItem` id (schema version 10; the
+  upgrade step is the identity, as for `origin`). The line holds the base item, the runes and the key item's name for
+  the holder's play, copied when the GM gives it; the key item stays the campaign's. Giving, moving and taking back are
+  GM commands that add, move or remove that line, written through the `KeyItemHolders` port, which the composition root
+  implements over the character context (neither context may import the other). The GM is not the character's owner, so
+  these writes check the actor runs the campaign and that the character is in its party, not who owns the character.
+- **A key item breaks no rule and needs no approval.** The schema's core-number checks apply to the player's lines only,
+  and `playerLimits` skips a key item's line as it skips an imported one. `inventoryViolations` drops a key line's own
+  violations, so it never warns, never joins "Needs review", and the sheet marks it "Key item". Its hands and
+  investment still count towards the totals other lines are held to, as they are real.
+- **The player cannot remove or sell a key line, or change its quantity** (a 422 on `RemoveItem` and `SetItemQuantity`);
+  the sheet offers neither. They can stow, hold, wear and invest it, and rename it.
+- **Everyone in the campaign reads the key items and who holds them**; only the GM creates, gives, moves, takes back and
+  archives (a player is refused with a 403, a non-member gets a 404). Moving a key item takes the old holder's line
+  first and adds the new one's after, so a move that fails halfway can be tried again. There is no transaction across
+  the two contexts. A character that leaves the party while holding a key item keeps the line until the GM takes it back.
+- The base item and runes are picked in the campaign page from the rules content by name. The campaign context knows
+  content by id and name only, so the page asks a `KEY_ITEM_CONTENT_SEARCH` the app provides over the content search.

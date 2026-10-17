@@ -441,6 +441,7 @@
     "boostTaken": "A boost given with this one already raises that attribute. Choose another.",
     "flawTaken": "Another voluntary flaw already lowers that attribute. Choose another.",
     "itemNotFound": "This character no longer has that item. Reload to see their inventory as it is.",
+    "keyItemLocked": "This is a key item the GM gave this character. Only the GM can take it back.",
     "containerNotFound": "This character no longer has that container. Reload to see their inventory as it is.",
     "containerInsideItself": "A container can't go inside itself or inside something it holds. Choose another place.",
     "unknownItem": "That item is not available. Choose another.",

@@ -913,6 +913,7 @@
       "invested": "Invested",
       "ruleBreaking": "Breaks a rule",
       "approvedByGm": "Approved by the GM",
+      "keyItem": "Key item",
       "runedName": "{runes} {name}"
     },
     "runes": {

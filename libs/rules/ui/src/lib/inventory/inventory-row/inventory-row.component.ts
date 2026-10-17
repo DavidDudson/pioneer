@@ -56,7 +56,7 @@ export class InventoryRow {
   readonly #runedName = injectRunedName();
   protected readonly Message = InventoryMessage;
   protected readonly shown = computed((): ShownLine => {
-    const { name, contentName, runes, quantity, bulk, bulkPer, hands, invested } = this.line();
+    const { name, contentName, runes, quantity, bulk, bulkPer, hands, invested, keyItem } = this.line();
     const named = this.#runedName();
     return {
       name: name === undefined || contentName !== undefined ? name : named(name, runes),
@@ -67,6 +67,7 @@ export class InventoryRow {
       notes: [
         ...(hands === undefined ? [] : [message(InventoryMessage.Hands, { count: hands })]),
         ...(invested ? [message(InventoryMessage.Invested)] : []),
+        ...(keyItem ? [message(InventoryMessage.KeyItem)] : []),
       ],
     };
   });

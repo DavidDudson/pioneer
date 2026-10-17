@@ -78,6 +78,9 @@ export const CharacterCommand = {
   UseConsumable: 'useConsumable',
   SetAppearance: 'setAppearance',
   SetPersonality: 'setPersonality',
+  /** The campaign's GM gives a character a key item, or takes it back (#924); the line is the GM's to write. */
+  GiveKeyItem: 'giveKeyItem',
+  TakeBackKeyItem: 'takeBackKeyItem',
 } as const;
 export type CharacterCommand = ValueOf<typeof CharacterCommand>;
 

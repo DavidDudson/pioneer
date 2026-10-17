@@ -522,6 +522,8 @@ character_rule_limits   id, character_id, limit, value, set_by, set_at
                       (the table limits a character outside campaigns set for itself; in a campaign it is held to the campaign's, ADR-0064)
 campaign_item_approvals   id, campaign_id, character_id, item_id, rule, rune, value, approved_by, approved_at, archived_at
                       (the rule-breaking items a GM approved, up to the count in value; revoking archives the row, ADR-0064)
+campaign_key_items        id, campaign_id, name, base_item_id, base_item_name, runes, notes, holder_id, created_at, archived_at
+                      (the key items a GM gave characters; the holder's inventory line links back by keyItem; archived, never deleted, ADR-0064)
 campaign_links        id, campaign_id, token_hash (unique), created_at, last_used_at, revoked_at
                       (one live link per campaign; a new one revokes the last)
 ```

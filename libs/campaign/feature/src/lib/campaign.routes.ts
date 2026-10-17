@@ -4,6 +4,7 @@ import { Locale } from '@pioneer/shared/kernel';
 import { loadWithMessages, PREFETCH_WHEN_IDLE, provideMessageScope } from '@pioneer/shared/web';
 
 import { CampaignItemReviewStore } from './data/campaign-item-review-store';
+import { CampaignKeyItemStore } from './data/campaign-key-item-store';
 import { CampaignRuleLimitStore } from './data/campaign-rule-limit-store';
 import { CampaignStore } from './data/campaign-store';
 
@@ -12,6 +13,7 @@ function campaignProviders(): (Provider | EnvironmentProviders)[] {
   return [
     CampaignStore,
     CampaignItemReviewStore,
+    CampaignKeyItemStore,
     CampaignRuleLimitStore,
     provideMessageScope('campaign', { [Locale.English]: async () => import('../i18n/en.json') }),
   ];

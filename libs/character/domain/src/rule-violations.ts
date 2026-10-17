@@ -105,7 +105,8 @@ export function inventoryViolations(
   content: RunedContent,
   limits: RuleLimits = CORE_RULE_LIMITS,
 ): readonly RuleViolation[] {
-  return [
+  const keyed = new Set(inventory.items.filter((each) => each.keyItem !== undefined).map((each) => each.id));
+  const found = [
     ...overLimit(inventory, {
       step: (each) => RuleCount.parse(each.invested === true ? 1 : 0),
       limit: RuleCount.parse(limits.investedMax),
@@ -118,4 +119,6 @@ export function inventoryViolations(
     }),
     ...propertyViolations(content, inventory, limits),
   ];
+  // A key item's line is the GM's to give, so it breaks nothing (ADR-0064).
+  return found.filter((violation) => !keyed.has(violation.item));
 }

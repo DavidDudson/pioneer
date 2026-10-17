@@ -3,6 +3,7 @@ import type {
   CampaignPackService,
   CampaignPartyService,
   CampaignItemApprovalService,
+  CampaignKeyItemService,
   CampaignRuleLimitService,
   CampaignService,
   CampaignVariantService,
@@ -12,6 +13,7 @@ import { ContractRouter } from '@pioneer/shared/server';
 import type { RequestAuthenticator } from '@pioneer/shared/server';
 
 import { campaignItemApprovalRoutes } from './campaign-item-approval-routes';
+import { campaignKeyItemRoutes } from './campaign-key-item-routes';
 import { campaignRuleLimitRoutes } from './campaign-rule-limit-routes';
 import { campaignVariantRoutes } from './campaign-variant-routes';
 
@@ -24,6 +26,7 @@ export interface CampaignServices {
   readonly variants: CampaignVariantService;
   readonly ruleLimits: CampaignRuleLimitService;
   readonly itemApprovals: CampaignItemApprovalService;
+  readonly keyItems: CampaignKeyItemService;
 }
 
 /**
@@ -31,7 +34,7 @@ export interface CampaignServices {
  * signed-in user (401 otherwise); which campaigns that user may see is the services' policy.
  */
 export function campaignRoutes(
-  { campaigns: service, invites, party, packs, variants, ruleLimits, itemApprovals }: CampaignServices,
+  { campaigns: service, invites, party, packs, variants, ruleLimits, itemApprovals, keyItems }: CampaignServices,
   auth: RequestAuthenticator,
 ): ContractRouter['app'] {
   return new ContractRouter('campaign-routes')
@@ -76,5 +79,6 @@ export function campaignRoutes(
     )
     .app.use(campaignVariantRoutes(variants, auth))
     .use(campaignRuleLimitRoutes(ruleLimits, auth))
-    .use(campaignItemApprovalRoutes(itemApprovals, auth));
+    .use(campaignItemApprovalRoutes(itemApprovals, auth))
+    .use(campaignKeyItemRoutes(keyItems, auth));
 }

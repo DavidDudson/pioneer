@@ -1,10 +1,15 @@
 import {
   CampaignPackService,
   CampaignItemApprovalService,
+  CampaignKeyItemService,
   CampaignRuleLimitService,
   CampaignVariantService,
   InMemoryCampaignPackRepository,
   InMemoryCampaignItemApprovalRepository,
+  InMemoryCampaignKeyItemRepository,
+  InMemoryCampaignPartyRepository,
+  InMemoryCharacterDirectory,
+  InMemoryKeyItemHolders,
   InMemoryCampaignRuleLimitRepository,
   InMemoryFlaggedItems,
   InMemoryCampaignVariantLimits,
@@ -12,7 +17,7 @@ import {
   InMemoryPackCatalog,
   InMemoryVariantRuleCatalog,
 } from '@pioneer/campaign/application';
-import type { CampaignRepository } from '@pioneer/campaign/application';
+import type { CampaignPartyRepository, CampaignRepository, CharacterDirectory } from '@pioneer/campaign/application';
 import type { Clock } from '@pioneer/shared/kernel';
 
 /** A pack service over in-memory ports, for route tests; `catalog` says which packs exist. */
@@ -53,6 +58,33 @@ export function itemApprovalService(
 ): CampaignItemApprovalService {
   return new CampaignItemApprovalService(
     { campaigns, approvals: new InMemoryCampaignItemApprovalRepository(), flagged },
+    clock,
+  );
+}
+
+/** The party and characters a key items service reads, which a test shares with the party service. */
+export interface KeyItemWorld {
+  readonly party?: CampaignPartyRepository;
+  readonly characters?: CharacterDirectory;
+}
+
+/** The key items service over in-memory ports; no character is in the party until a test attaches one. */
+export function keyItemService(
+  campaigns: CampaignRepository,
+  clock: Clock,
+  {
+    party = new InMemoryCampaignPartyRepository(campaigns),
+    characters = new InMemoryCharacterDirectory(),
+  }: KeyItemWorld = {},
+): CampaignKeyItemService {
+  return new CampaignKeyItemService(
+    {
+      campaigns,
+      keyItems: new InMemoryCampaignKeyItemRepository(),
+      party,
+      characters,
+      holders: new InMemoryKeyItemHolders(),
+    },
     clock,
   );
 }

@@ -23,6 +23,7 @@ function line(id: string, name: string | undefined, overrides: Partial<Inventory
     runes: undefined,
     breaks: [],
     approved: [],
+    keyItem: false,
     contents: [],
     ...overrides,
   };

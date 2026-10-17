@@ -34,6 +34,8 @@ const UPGRADES: readonly UpgradeStep[] = [
   (document) => document,
   /** 8 → 9: where an inventory line came from (#921). A version 8 line has no `origin`, which reads as the player's. */
   (document) => document,
+  /** 9 → 10: the key item an inventory line is the holder's copy of (#924). A version 9 line has no `keyItem`, which reads as none. */
+  (document) => document,
 ];
 
 /** The version a chain of steps upgrades to: one past the last step. */

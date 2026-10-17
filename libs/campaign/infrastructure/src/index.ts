@@ -3,6 +3,7 @@ export {
   campaignCharacters,
   campaignInvites,
   campaignItemApprovals,
+  campaignKeyItems,
   campaignMembers,
   campaignPacks,
   campaignRuleLimits,
@@ -16,3 +17,4 @@ export { DrizzleCampaignRepository } from './drizzle-campaign-repository';
 export { DrizzleCampaignVariantRepository } from './drizzle-campaign-variant-repository';
 export { DrizzleCampaignRuleLimitRepository } from './drizzle-campaign-rule-limit-repository';
 export { DrizzleCampaignItemApprovalRepository } from './drizzle-campaign-item-approval-repository';
+export { DrizzleCampaignKeyItemRepository } from './drizzle-campaign-key-item-repository';

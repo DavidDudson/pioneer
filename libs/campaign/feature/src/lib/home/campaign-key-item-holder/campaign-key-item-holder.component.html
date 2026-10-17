@@ -1,0 +1,36 @@
+<fr-stack direction="horizontal" gap="sm" align="center" wrap>
+  <fr-select
+    [ariaLabel]="'campaign.keyItems.giveTo' | transloco: { name: keyItem().name }"
+    [placeholder]="'campaign.keyItems.pickCharacter' | transloco"
+    [options]="options()"
+    [(value)]="chosen"
+  />
+  <fr-async-button
+    size="sm"
+    variant="primary"
+    [action]="give"
+    [disabled]="idle()"
+    [describeError]="describeError"
+    [pendingLabel]="'campaign.keyItems.giving' | transloco"
+    [successLabel]="'campaign.keyItems.given' | transloco"
+    >{{ 'campaign.keyItems.give' | transloco: { name: keyItem().name } }}</fr-async-button
+  >
+  @if (keyItem().holder !== undefined) {
+    <fr-async-button
+      size="sm"
+      [action]="takeBack"
+      [describeError]="describeError"
+      [pendingLabel]="'campaign.keyItems.takingBack' | transloco"
+      [successLabel]="'campaign.keyItems.takenBack' | transloco"
+      >{{ 'campaign.keyItems.takeBack' | transloco: { name: keyItem().name } }}</fr-async-button
+    >
+  }
+  <fr-async-button
+    size="sm"
+    [action]="archive"
+    [describeError]="describeError"
+    [pendingLabel]="'campaign.keyItems.archiving' | transloco"
+    [successLabel]="'campaign.keyItems.archived' | transloco"
+    >{{ 'campaign.keyItems.archive' | transloco: { name: keyItem().name } }}</fr-async-button
+  >
+</fr-stack>

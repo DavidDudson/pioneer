@@ -1,0 +1,12 @@
+@if (!locked()) {
+  <fr-stack direction="horizontal" justify="end">
+    <fr-async-button
+      size="sm"
+      [action]="remove"
+      [confirmLabel]="lossy() ? ('character.sheet.inventory.removeConfirm' | transloco: { name: name() }) : undefined"
+      [pendingLabel]="'character.sheet.inventory.removing' | transloco"
+    >
+      {{ 'character.sheet.inventory.remove' | transloco: { name: name() } }}
+    </fr-async-button>
+  </fr-stack>
+}

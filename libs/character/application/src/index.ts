@@ -42,3 +42,4 @@ export { VariantLimits } from './variant-limits';
 export { CharacterVariantLimits, type CharacterVariantLimitPorts } from './character-variant-limits';
 export { InMemoryVariantLimits } from './in-memory-variant-limits';
 export { CharacterFlaggedItems, type FlaggedLine } from './character-flagged-items';
+export { CharacterKeyItems } from './character-key-items';
