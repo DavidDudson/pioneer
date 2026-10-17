@@ -86,6 +86,23 @@ describe(HoverCard, () => {
       expect(card()).toBeNull();
     });
   });
+
+  it('opens on a first touch tap without following the link, and lets the second tap through', async () => {
+    const fixture = render();
+    const element = trigger(fixture);
+    const tap = (): MouseEvent => {
+      element.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true, pointerType: 'touch' }));
+      const click = new MouseEvent('click', { bubbles: true, cancelable: true });
+      element.dispatchEvent(click);
+      return click;
+    };
+    expect(tap().defaultPrevented).toBe(true);
+    await vi.waitFor(() => {
+      fixture.detectChanges();
+      expect(card()).not.toBeNull();
+    });
+    expect(tap().defaultPrevented).toBe(false);
+  });
 });
 
 /** The span that listens for the pointer: mouseenter does not bubble from the projected trigger. */

@@ -1,16 +1,16 @@
 <fr-list gap="3xs" markers>
   @for (line of lines(); track $index) {
     <fr-list-item>
-      <pio-entry-hover [entry]="line.item">
+      <pio-content-preview [entry]="line.item">
         <fr-text tabindex="0">{{ text(line) }}</fr-text>
-      </pio-entry-hover>
+      </pio-content-preview>
       @if (line.contents.length > 0) {
         <fr-list gap="3xs" markers>
           @for (inside of line.contents; track $index) {
             <fr-list-item>
-              <pio-entry-hover [entry]="inside.item">
+              <pio-content-preview [entry]="inside.item">
                 <fr-text tabindex="0">{{ text(inside) }}</fr-text>
-              </pio-entry-hover>
+              </pio-content-preview>
             </fr-list-item>
           }
         </fr-list>

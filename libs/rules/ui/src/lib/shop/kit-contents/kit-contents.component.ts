@@ -4,7 +4,7 @@ import { TranslocoService } from '@jsverse/transloco';
 import { List, ListItem, LocaleFormat, Text } from '@pioneer/frontier';
 import { filter, merge } from 'rxjs';
 
-import { EntryHover } from '../../entry-preview/entry-hover.component';
+import { ContentPreview } from '../../entry-preview/content-preview.component';
 import { ShopMessage } from '../shop-offer';
 import type { KitLine } from '../shop-offer';
 
@@ -14,7 +14,7 @@ import type { KitLine } from '../shop-offer';
  */
 @Component({
   selector: 'pio-kit-contents',
-  imports: [EntryHover, List, ListItem, Text],
+  imports: [ContentPreview, List, ListItem, Text],
   templateUrl: './kit-contents.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

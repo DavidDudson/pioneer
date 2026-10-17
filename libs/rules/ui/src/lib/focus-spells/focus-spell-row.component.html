@@ -4,9 +4,9 @@
       <pio-spell-details [spell]="detail" />
     } @else {
       <fr-stack direction="horizontal" gap="xs" align="center">
-        <pio-entry-hover [entry]="spell().id">
+        <pio-content-preview [entry]="spell().id">
           <fr-text tabindex="0">{{ spell().name }}</fr-text>
-        </pio-entry-hover>
+        </pio-content-preview>
         @for (tag of tags(); track tag) {
           <fr-badge>{{ tag | transloco }}</fr-badge>
         }

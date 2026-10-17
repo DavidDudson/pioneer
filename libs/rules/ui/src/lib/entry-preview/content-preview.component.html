@@ -1,0 +1,27 @@
+<ng-template #body><ng-content /></ng-template>
+
+@if (previewable()) {
+  <fr-hover-card (opened)="load()">
+    <ng-container *ngTemplateOutlet="body" />
+    <ng-template frHoverCardContent>
+      <fr-stack gap="xs">
+        @if (shown(); as preview) {
+          <ng-container *ngComponentOutlet="card() ?? null; inputs: inputs()" />
+          @if (target(); as to) {
+            <fr-link [to]="to">{{ Message.Open | transloco: { name: preview.name } }}</fr-link>
+          }
+        } @else if (state() === 'failed') {
+          <fr-text tone="danger">{{ Message.LoadFailed | transloco }}</fr-text>
+        } @else if (state() === 'missing') {
+          <fr-text tone="muted">{{ Message.NotFound | transloco }}</fr-text>
+        } @else {
+          @for (line of lines; track line) {
+            <fr-skeleton width="lg" />
+          }
+        }
+      </fr-stack>
+    </ng-template>
+  </fr-hover-card>
+} @else {
+  <ng-container *ngTemplateOutlet="body" />
+}

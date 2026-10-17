@@ -102,7 +102,10 @@
       "effects": "Changes for this character",
       "noEffects": "Changes no statistic.",
       "effect": "{statistic} {value}",
-      "effectMarked": "{statistic} {value} ({status})"
+      "effectMarked": "{statistic} {value} ({status})",
+      "loadFailed": "This preview could not be loaded.",
+      "notFound": "This entry is not in the content you have loaded.",
+      "open": "Open {name}"
     },
     "richText": {
       "tooDeep": "Rich text can nest at most {maximum} levels deep.",

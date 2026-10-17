@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { Badge, Stack, Text } from '@pioneer/frontier';
 
-import { EntryHover } from '../entry-preview/entry-hover.component';
+import { ContentPreview } from '../entry-preview/content-preview.component';
 import type { SpellDetailLine } from './spell-detail-line';
 import { SpellFields } from './spell-fields.component';
 import { SpellListMessage } from './spell-list-messages';
@@ -20,7 +20,7 @@ import { SpellListMessage } from './spell-list-messages';
  */
 @Component({
   selector: 'pio-spell-details',
-  imports: [Badge, EntryHover, SpellFields, Stack, Text, TranslocoPipe],
+  imports: [Badge, ContentPreview, SpellFields, Stack, Text, TranslocoPipe],
   templateUrl: './spell-details.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
