@@ -25,7 +25,7 @@ import type { ActiveSpell, SpellSpend } from './active-spells';
 import { EffectRounds } from './effects';
 import { applyPlayCommand, PlayCommandField } from './play-state';
 import type { PlayCommand, PlayLimits, PlayState } from './play-state';
-import { applySpendCommand, spendRefusal } from './spend-commands';
+import { spendRefusal } from './spend-commands';
 import { SpendProblem } from './spend-log';
 import type { SpendCommand } from './spend-log';
 import { actions, OWN_TURN, playIn, Serial, spendId, spendOf } from './spend-log-testing';
@@ -33,6 +33,7 @@ import { TEST_SPEND, within } from './testing';
 import { endTurn } from './turn-end';
 import { TurnEventKind } from './turn-events';
 import { startTurn } from './turn-start';
+import { ActionCount } from './turn-state';
 
 const LIMITS: PlayLimits = within(HitPoints.parse(10));
 const COUNTED = LIMITS.counted;
@@ -40,6 +41,7 @@ const FORCE_BARRAGE = ContentId.parse('1c97409b-bd67-5df2-a7d3-a49aff4d3896');
 const RANK = SpellRank.parse(3);
 const TEN_MINUTES = EffectRounds.parse(100);
 const ONE_ROUND = EffectRounds.parse(1);
+const TWO_LEFT = ActionCount.parse(2);
 const FIRST = Serial.parse(1);
 const SECOND = Serial.parse(2);
 
@@ -145,7 +147,7 @@ describe('sustaining', () => {
   test('marks the spell sustained and takes one action', () => {
     const play = apply(withSpells(activeOf(TEN_MINUTES, false)), sustainSpend(FIRST));
     expect(play.activeSpells[0]?.sustainedThisTurn).toBe(true);
-    expect(play.turn.actions).toBe(OWN_TURN.actions - 1);
+    expect(play.turn.actions).toBe(TWO_LEFT);
   });
 
   test('taking the spend back refunds the action and unmarks it', () => {
@@ -191,10 +193,11 @@ describe('dismissing', () => {
     const spell = activeOf(TEN_MINUTES, false);
     const spent = apply(withSpells(spell), dismissSpend(FIRST));
     expect(spent.activeSpells).toStrictEqual([]);
-    expect(spent.turn.actions).toBe(OWN_TURN.actions - 1);
+    expect(spent.turn.actions).toBe(TWO_LEFT);
     const play = apply(spent, undo(FIRST));
     expect(play.activeSpells).toStrictEqual([spell]);
-    expect(applySpendCommand(play, dismissSpend(SECOND, OTHER), { ...LIMITS, ...TEST_SPEND })).toStrictEqual(play);
+    const missing = dismissSpend(SECOND, OTHER);
+    expect(refusal(play, missing)).toBe(SpendProblem.NoSuchSpell);
   });
 });
 
