@@ -57,7 +57,6 @@ export class HoverCard {
 
   readonly #host = inject<ElementRef<HTMLElement>>(ElementRef);
   #pointer = false;
-  #touch = false;
   #focus = false;
   #timer: Subscription | undefined;
 
@@ -69,14 +68,9 @@ export class HoverCard {
     });
     const host = this.#host.nativeElement;
     // Capture phase, so the first tap is stopped before the projected link follows it.
-    const down = (event: PointerEvent): void => {
-      this.#touch = event.pointerType === 'touch';
-    };
-    host.addEventListener('pointerdown', down, { capture: true });
     host.addEventListener('click', this.#tap, { capture: true });
     inject(DestroyRef).onDestroy(() => {
       this.#clear();
-      host.removeEventListener('pointerdown', down, { capture: true });
       host.removeEventListener('click', this.#tap, { capture: true });
     });
   }
@@ -91,11 +85,13 @@ export class HoverCard {
     this.#settle(0);
   }
 
-  /** A touch tap while the card is closed opens it instead of activating the trigger. */
+  /**
+   * A touch tap while the card is closed opens it instead of activating the trigger. Touch is read from the click
+   * itself, so a keyboard Enter (a click with no pointer type) or a mouse click is never mistaken for a tap.
+   */
   readonly #tap = (event: MouseEvent): void => {
-    const first = this.#touch && !this.open() && this.content() !== undefined;
-    this.#touch = false;
-    if (first) {
+    const touch = event instanceof PointerEvent && event.pointerType === 'touch';
+    if (touch && !this.open() && this.content() !== undefined) {
       event.preventDefault();
       event.stopPropagation();
       this.#clear();
