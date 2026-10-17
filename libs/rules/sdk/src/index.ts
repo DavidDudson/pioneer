@@ -133,6 +133,7 @@ export { DamageException, Immunity, Trait, TraitData } from './trait';
 export { LanguageData, LanguageScript } from './language';
 export { SenseAcuity, SenseData } from './sense';
 export { VariantRuleData, VariantRuleDefinition, VariantRuleId, VariantStructure } from './variant-rule';
+export { mergeVariantLimits, VariantLimitValue, VariantRuleLimits, variantLimitsInForce } from './variant-rule-limits';
 export { ContentEntry } from './content-entry';
 export {
   BundleBody,

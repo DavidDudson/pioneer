@@ -38,3 +38,6 @@ export { CharacterRuleLimitRepository } from './character-rule-limit-repository'
 export { CharacterRuleLimitService, type CharacterRuleLimitPorts } from './character-rule-limit-service';
 export { InMemoryCharacterRuleLimitRepository } from './in-memory-character-rule-limit-repository';
 export { EffectiveRuleLimits } from './effective-rule-limits';
+export { VariantLimits } from './variant-limits';
+export { CharacterVariantLimits, type CharacterVariantLimitPorts } from './character-variant-limits';
+export { InMemoryVariantLimits } from './in-memory-variant-limits';

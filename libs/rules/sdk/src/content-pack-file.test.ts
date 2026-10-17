@@ -164,3 +164,30 @@ describe('variant rules that need a structural change', () => {
     expect(() => contentPackFromFiles(packFile, [[unknown]])).toThrow();
   });
 });
+
+describe('variant rules that change table limits', () => {
+  const lavish = entry({
+    kind: 'variant-rule',
+    slug: 'variant-rule:lavish',
+    data: { limits: { investedMax: 12, itemsMax: 800 } },
+  });
+
+  test('the definition keeps the limits the entry declares', () => {
+    const pack = contentPackFromFiles(packFile, [[lavish]]);
+    expect(pack.variantRules).toMatchObject([
+      { slug: 'variant-rule:lavish', limits: { investedMax: 12, itemsMax: 800 } },
+    ]);
+  });
+
+  test('a variant that changes none declares none', () => {
+    const pack = contentPackFromFiles(packFile, [[variantRule]]);
+    expect(pack.variantRules[0]?.limits).toBeUndefined();
+  });
+
+  test('a limit the schema does not hold, or a number past its ceiling, is refused', () => {
+    const unknown = entry({ kind: 'variant-rule', slug: 'variant-rule:odd', data: { limits: { bulkMax: 4 } } });
+    const past = entry({ kind: 'variant-rule', slug: 'variant-rule:past', data: { limits: { handsMax: 11 } } });
+    expect(() => contentPackFromFiles(packFile, [[unknown]])).toThrow();
+    expect(() => contentPackFromFiles(packFile, [[past]])).toThrow();
+  });
+});

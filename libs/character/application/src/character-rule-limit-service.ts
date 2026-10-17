@@ -6,6 +6,8 @@ import {
   RULE_LIMIT_FIELDS,
   RuleLimitSettingValue,
   RuleLimitOverridesSchema,
+  RuleLimitSource,
+  sourceOf,
   withOverrides,
 } from '@pioneer/character/domain';
 import type {
@@ -26,12 +28,14 @@ import type { CharacterRepository } from './character-repository';
 import { CharacterRuleLimitMessage } from './character-rule-limit-message';
 import type { CharacterRuleLimitRepository } from './character-rule-limit-repository';
 import { EffectiveRuleLimits } from './effective-rule-limits';
+import type { VariantLimits } from './variant-limits';
 
 /** The ports `CharacterRuleLimitService` works through. */
 export interface CharacterRuleLimitPorts {
   readonly characters: CharacterRepository;
   readonly limits: CharacterRuleLimitRepository;
   readonly campaigns: AttachedCampaignPacks;
+  readonly variantLimits: VariantLimits;
 }
 
 /**
@@ -44,22 +48,27 @@ export class CharacterRuleLimitService extends EffectiveRuleLimits {
   readonly #characters: CharacterRepository;
   readonly #limits: CharacterRuleLimitRepository;
   readonly #campaigns: AttachedCampaignPacks;
+  readonly #variantLimits: VariantLimits;
   readonly #clock: Clock;
 
-  public constructor({ characters, limits, campaigns }: CharacterRuleLimitPorts, clock: Clock) {
+  public constructor({ characters, limits, campaigns, variantLimits }: CharacterRuleLimitPorts, clock: Clock) {
     super();
     this.#characters = characters;
     this.#limits = limits;
     this.#campaigns = campaigns;
+    this.#variantLimits = variantLimits;
     this.#clock = clock;
   }
 
   /**
-   * The limits in force for the character: the attached campaign's number for each limit its GM set, else the owner's,
-   * and the core rules' for the rest. No access check; the caller has one.
+   * The limits in force for the character, lowest first: the core rules', the variant rules in force (the more
+   * permissive where two change one limit), then the attached campaign's number for each limit its GM set, else the
+   * owner's. No access check; the caller has one.
    */
   public override async of(character: Character): Promise<RuleLimits> {
-    return withOverrides(await this.#setBy(character.id, await this.#campaigns.of(character.id)));
+    const campaign = await this.#campaigns.of(character.id);
+    const [variant, set] = await Promise.all([this.#variantLimits.of(character), this.#setBy(character.id, campaign)]);
+    return withOverrides({ ...variant, ...set });
   }
 
   /** The character's limits, and who decides them. Not the owner: 404. */
@@ -133,8 +142,9 @@ export class CharacterRuleLimitService extends EffectiveRuleLimits {
   async #view(character: Character): Promise<CharacterRuleLimitSettings> {
     const campaign = await this.#campaigns.of(character.id);
     const manageable = campaign === undefined;
-    const set = await this.#setBy(character.id, campaign);
-    const inForce = withOverrides(set);
+    const [variant, set] = await Promise.all([this.#variantLimits.of(character), this.#setBy(character.id, campaign)]);
+    const inForce = withOverrides({ ...variant, ...set });
+    const setter = manageable ? RuleLimitSource.Character : RuleLimitSource.Campaign;
     return {
       decidedBy: manageable ? PackAuthority.Character : PackAuthority.Campaign,
       ...(campaign === undefined ? {} : { campaign: campaign.name }),
@@ -145,6 +155,7 @@ export class CharacterRuleLimitService extends EffectiveRuleLimits {
         core: RuleLimitSettingValue.parse(CORE_RULE_LIMITS[limit]),
         ceiling: LIMIT_CEILINGS[limit],
         custom: set[limit] !== undefined,
+        source: sourceOf(limit, { set, variant, setter }),
       })),
     };
   }

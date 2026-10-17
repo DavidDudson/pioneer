@@ -1,9 +1,10 @@
 import { Pg, Uuid } from '@pioneer/shared/kernel';
-import type { Temporal, UserId } from '@pioneer/shared/kernel';
+import type { Temporal, UserId, ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { AttachedCampaignName, PackAuthoritySchema } from './character-packs';
 import { RuleLimitsSchema } from './rule-limits';
+import type { RuleLimitOverrides } from './rule-limits';
 
 /** Row id of one table limit a character has set; the audit log keys every row by an `id`. */
 export const CharacterRuleLimitId = Uuid.brand<'CharacterRuleLimitId'>();
@@ -36,6 +37,37 @@ export const LIMIT_CEILINGS: Readonly<Record<RuleLimitField, RuleLimitSettingVal
 /** The order the limits are listed in. */
 export const RULE_LIMIT_FIELDS: readonly RuleLimitField[] = RuleLimitFieldSchema.options;
 
+/**
+ * Where the number in force for a limit comes from, lowest first: the core rules, a variant rule in force, then an
+ * explicit setting by the campaign's GM or by the character's owner (ADR-0064).
+ */
+export const RuleLimitSource = {
+  Core: 'core',
+  Variant: 'variant',
+  Campaign: 'campaign',
+  Character: 'character',
+} as const;
+export type RuleLimitSource = ValueOf<typeof RuleLimitSource>;
+export const RuleLimitSourceSchema = z.enum(RuleLimitSource);
+
+/** The layers a limit's number is worked out from. */
+export interface RuleLimitLayers {
+  /** What the variant rules in force change. */
+  readonly variant: RuleLimitOverrides;
+  /** What was set explicitly. */
+  readonly set: RuleLimitOverrides;
+  /** Who set it: the campaign's GM or the character's owner. */
+  readonly setter: typeof RuleLimitSource.Campaign | typeof RuleLimitSource.Character;
+}
+
+/** Where `limit`'s number comes from: an explicit setting beats a variant rule, which beats the core rules (ADR-0064). */
+export function sourceOf(limit: RuleLimitField, { variant, set, setter }: RuleLimitLayers): RuleLimitSource {
+  if (set[limit] !== undefined) {
+    return setter;
+  }
+  return variant[limit] === undefined ? RuleLimitSource.Core : RuleLimitSource.Variant;
+}
+
 /** A limit a character has set. Absent means the core number. */
 export interface CharacterRuleLimit {
   readonly id: CharacterRuleLimitId;
@@ -49,14 +81,16 @@ export interface CharacterRuleLimit {
 /** One limit as the character's owner sees it. */
 export const CharacterRuleLimitSetting = z.object({
   limit: RuleLimitFieldSchema,
-  /** The number in force: the campaign's, else the owner's, else the core rules'. */
+  /** The number in force: an explicit setting, else the variant rules in force, else the core rules'. */
   value: RuleLimitSettingValue,
   /** The core rules' number, which a reset returns to. */
   core: RuleLimitSettingValue,
   /** The most the owner can set it to. */
   ceiling: RuleLimitSettingValue,
-  /** Whether the number in force differs from the core rules': set by the owner, or by the campaign's GM. */
+  /** Whether it is set explicitly, by the owner or the campaign's GM; a reset removes that. */
   custom: z.boolean(),
+  /** Where the number in force comes from. */
+  source: RuleLimitSourceSchema,
 });
 export type CharacterRuleLimitSetting = z.output<typeof CharacterRuleLimitSetting>;
 

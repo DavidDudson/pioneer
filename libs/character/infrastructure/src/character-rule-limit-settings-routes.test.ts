@@ -6,6 +6,7 @@ import {
   InMemoryAttachedCampaignPacks,
   InMemoryCharacterRepository,
   InMemoryCharacterRuleLimitRepository,
+  InMemoryVariantLimits,
 } from '@pioneer/character/application';
 import { AttachedCampaignName, CORE_RULE_LIMITS } from '@pioneer/character/domain';
 import type { CharacterId } from '@pioneer/character/domain';
@@ -34,7 +35,12 @@ function fixture(): Fixture {
   const repository = new InMemoryCharacterRepository();
   const campaigns = new InMemoryAttachedCampaignPacks();
   const limits = new CharacterRuleLimitService(
-    { characters: repository, limits: new InMemoryCharacterRuleLimitRepository(), campaigns },
+    {
+      characters: repository,
+      limits: new InMemoryCharacterRuleLimitRepository(),
+      campaigns,
+      variantLimits: new InMemoryVariantLimits(),
+    },
     clock,
   );
   const auth = new FakeAuthenticator();

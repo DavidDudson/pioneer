@@ -269,9 +269,13 @@ export class ContentPackBuilder {
     return this;
   }
 
-  /** A variant rule named `name` that needs `structure`. */
-  public withVariantRule(name: string, structure?: z.input<typeof VariantRuleDefinition>['structure']): this {
-    this.#variantRules.push({ slug: `variant-rule:${name}`, name, rules: [], structure });
+  /** A variant rule named `name` that needs `structure` and changes `limits`. */
+  public withVariantRule(
+    name: string,
+    structure?: z.input<typeof VariantRuleDefinition>['structure'],
+    limits?: z.input<typeof VariantRuleDefinition>['limits'],
+  ): this {
+    this.#variantRules.push({ slug: `variant-rule:${name}`, name, rules: [], structure, limits });
     return this;
   }
 

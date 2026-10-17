@@ -47,6 +47,21 @@ export const LIMIT_CEILINGS: Readonly<Record<RuleLimitKey, RuleLimitValue>> = {
   [RuleLimitKey.ItemsMax]: CEILING_ITEMS,
 };
 
+/**
+ * Where the number in force for a limit comes from, lowest first: the core rules, a variant rule the campaign has on,
+ * then the GM's own number (ADR-0064). The character context's `RuleLimitSource` names the same values.
+ */
+export const RuleLimitSource = {
+  Core: 'core',
+  Variant: 'variant',
+  Campaign: 'campaign',
+} as const;
+export type RuleLimitSource = ValueOf<typeof RuleLimitSource>;
+export const RuleLimitSourceSchema = z.enum(RuleLimitSource);
+
+/** The limits some layer changes; a limit it leaves out is not changed. */
+export type RuleLimitOverrides = Readonly<Partial<Record<RuleLimitKey, RuleLimitValue>>>;
+
 /** A limit a campaign has set. Absent means the core number. */
 export interface CampaignRuleLimit {
   readonly id: CampaignRuleLimitId;
@@ -60,14 +75,16 @@ export interface CampaignRuleLimit {
 /** One limit as a campaign's member sees it. */
 export const RuleLimitSetting = z.object({
   limit: RuleLimitKeySchema,
-  /** The number in force: the GM's, else the core rules'. */
+  /** The number in force: the GM's, else the variant rules in force, else the core rules'. */
   value: RuleLimitValue,
   /** The core rules' number, which a reset returns to. */
   core: RuleLimitValue,
   /** The most the GM can set it to. */
   ceiling: RuleLimitValue,
-  /** Whether the GM changed it. */
+  /** Whether the GM set it; a reset removes that. */
   custom: z.boolean(),
+  /** Where the number in force comes from. */
+  source: RuleLimitSourceSchema,
 });
 export type RuleLimitSetting = z.output<typeof RuleLimitSetting>;
 

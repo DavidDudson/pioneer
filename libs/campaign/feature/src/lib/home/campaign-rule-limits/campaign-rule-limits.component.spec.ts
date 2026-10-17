@@ -28,14 +28,15 @@ const campaign = {
 };
 
 /** The four limits at the core rules' numbers, with `invested` set to `value` when it is not the core number. */
-function limits(manageable: boolean, invested: number): object {
+function limits(manageable: boolean, invested: number, source = invested === 10 ? 'core' : 'campaign'): object {
+  const base = { custom: false, source: 'core' };
   return {
     manageable,
     limits: [
-      { limit: 'investedMax', value: invested, core: 10, ceiling: 100, custom: invested !== 10 },
-      { limit: 'handsMax', value: 2, core: 2, ceiling: 10, custom: false },
-      { limit: 'propertyRunesPerGrade', value: 1, core: 1, ceiling: 10, custom: false },
-      { limit: 'itemsMax', value: 500, core: 500, ceiling: 5000, custom: false },
+      { limit: 'investedMax', value: invested, core: 10, ceiling: 100, custom: source === 'campaign', source },
+      { limit: 'handsMax', value: 2, core: 2, ceiling: 10, ...base },
+      { limit: 'propertyRunesPerGrade', value: 1, core: 1, ceiling: 10, ...base },
+      { limit: 'itemsMax', value: 500, core: 500, ceiling: 5000, ...base },
     ],
   };
 }
@@ -86,6 +87,7 @@ describe('CampaignRuleLimitsPanel', () => {
       expect(root.textContent).toContain(name);
     }
     expect(root.textContent).toContain('Core rules: 500');
+    expect(root.textContent).toContain('From the core rules');
     expect(buttons(root, 'Reset')).toHaveLength(0);
   });
 
@@ -108,5 +110,18 @@ describe('CampaignRuleLimitsPanel', () => {
     await vi.waitFor(() => {
       expect(buttons(root, 'Reset')).toHaveLength(0);
     });
+  });
+
+  it('says where each number comes from', async () => {
+    const root = await open(limits(true, 12, 'variant'), true);
+    expect(root.textContent).toContain('From a variant rule');
+    expect(root.textContent).toContain('From the core rules');
+    expect(root.textContent).not.toContain('Changed');
+    expect(buttons(root, 'Reset')).toHaveLength(0);
+  });
+
+  it('says a number is the GM’s once the GM sets it', async () => {
+    const root = await open(limits(true, 12), true);
+    expect(root.textContent).toContain('Set by the GM');
   });
 });

@@ -425,9 +425,17 @@ export {
   RULE_LIMIT_FIELDS,
   RuleLimitFieldSchema,
   RuleLimitSettingValue,
+  RuleLimitSource,
+  RuleLimitSourceSchema,
   SetRuleLimitSettingBody,
+  sourceOf,
 } from './character-rule-limit-settings';
-export type { CharacterRuleLimit, RuleLimitField, RuleLimitSettingChange } from './character-rule-limit-settings';
+export type {
+  CharacterRuleLimit,
+  RuleLimitField,
+  RuleLimitLayers,
+  RuleLimitSettingChange,
+} from './character-rule-limit-settings';
 export { eraseRune, etchRune, RuneAction, type RuneEdit, type RuneTransfer, transferRune } from './rune-edits';
 export { runeRefusal } from './rune-refusal';
 export {

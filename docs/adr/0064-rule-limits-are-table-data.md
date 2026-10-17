@@ -36,8 +36,29 @@ lets a GM change them for a campaign, and lets a character outside a campaign se
 - A campaign can lower a limit and its characters are held to it. A raise past the core number only stops the flags on
   imported lines: in-app edits are clamped back to the core numbers by `storableLimits`, because the schema stores the
   player's lines up to those only.
-- Precedence: a GM's explicit number beats a variant rule's number, which beats the core rules'. A variant rule
-  declares limits as content (a later story); a table's explicit limit is a setting, not content.
+- Precedence, lowest first: the core rules' number, the number of the variant rules in force, then the explicit number of
+  the campaign's GM or, outside a campaign, of the character's owner. A variant rule declares limits as content; a
+  table's explicit limit is a setting, not content.
+
+## Variant rules declare limits
+
+- A variant rule's `data` (and its definition) gains `limits`, a closed set with the same four names as `RuleLimits`,
+  each optional: a limit it leaves out is not changed. A number is a whole number from 1 up to the same ceiling a GM or
+  owner is held to, so a pack cannot store nonsense. An unknown name, or a number past its ceiling, fails the import and
+  the pack schema. A test in `apps/api` holds the names and ceilings to `RuleLimits` and `LIMIT_CEILINGS`.
+- A variant rule may lower a limit as well as raise it. It applies while the variant is in force: the campaign's
+  variants for a character in a campaign, else the owner's own (ADR-0061), and only while a pack in force defines it.
+- **Two variants that change the same limit conflict, and the more permissive wins.** Every limit is a most, so the
+  higher number wins, whichever variant was turned on first. A variant that lowers a limit only lowers it when no other
+  variant in force changes it to a higher number. `mergeVariantLimits` in `libs/rules/sdk` is the one place this is
+  decided; the character and campaign contexts both read it through their own adapter.
+- A variant's number sits under the explicit setting, so a GM or owner can set a limit lower than the variant lifted it
+  to. A reset removes the explicit number and the variant's returns, not the core rules'. Nothing derived is stored: the
+  effective limits are worked out on every read, so turning a variant off, or a pack off, takes its numbers away at once.
+- Each limit on the table-limits screen and the sheet carries a `source` (`core`, `variant`, `campaign` or `character`)
+  saying which layer its number comes from. `custom` still means an explicit setting, which is what a reset removes.
+- A variant's raise past the core number behaves as a campaign's does: it stops the flags on imported lines, and
+  in-app edits stay clamped to the core numbers by `storableLimits`.
 
 ## Consequences
 
