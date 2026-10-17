@@ -12,15 +12,7 @@
           </fr-stack>
         </ng-template>
         <ng-template [frAsyncData]="registry">
-          @if (card(); as shown) {
-            <pio-entry-preview full [preview]="shown" [headingLevel]="headingLevel" />
-          } @else {
-            <fr-empty-state
-              [icon]="missingIcon"
-              [title]="Message.MissingTitle | transloco"
-              [description]="Message.MissingDescription | transloco"
-            />
-          }
+          <pio-content-entry-view full [card]="card()" [headingLevel]="headingLevel" />
         </ng-template>
       </fr-async-region>
     </fr-stack>

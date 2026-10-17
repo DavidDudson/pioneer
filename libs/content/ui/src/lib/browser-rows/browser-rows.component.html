@@ -1,0 +1,37 @@
+<fr-stack gap="md">
+  <fr-text element="p" variant="caption" tone="muted">{{ Message.Count | transloco: { count: list().total } }}</fr-text>
+  @if (list().total === 0) {
+    <fr-empty-state
+      [icon]="emptyIcon"
+      [title]="Message.EmptyTitle | transloco"
+      [description]="(list().searching ? Message.SearchEmptyDescription : Message.EmptyDescription) | transloco"
+    />
+  } @else {
+    @if (table()) {
+      <fr-table
+        hideCaption
+        [data]="list().rows"
+        [columns]="columns()"
+        [rowId]="rowId"
+        [sorting]="sorting()"
+        [columnVisibility]="hidden()"
+        [caption]="Message.Caption | transloco"
+        (sortingChange)="sorting.set($event)"
+        (columnVisibilityChange)="hidden.set($event)"
+      />
+    } @else {
+      <fr-list>
+        @for (row of list().rows; track row.id) {
+          <fr-list-item>
+            <fr-button [variant]="Variant.Inline" (pressed)="picked.emit(row.ref)">{{ row.name }}</fr-button>
+          </fr-list-item>
+        }
+      </fr-list>
+    }
+    @if (hasMore()) {
+      <fr-stack direction="horizontal">
+        <fr-button (pressed)="more.emit()">{{ Message.More | transloco }}</fr-button>
+      </fr-stack>
+    }
+  }
+</fr-stack>

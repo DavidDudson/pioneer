@@ -3,12 +3,11 @@ import type { Signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute } from '@angular/router';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { LucidePackageSearch } from '@lucide/angular';
+import { ContentEntryView } from '@pioneer/content/ui';
 import {
   AsyncData,
   AsyncPending,
   AsyncRegion,
-  EmptyState,
   HeadingLevel,
   Link,
   Page,
@@ -18,20 +17,19 @@ import {
   Stack,
 } from '@pioneer/frontier';
 import { ContentLoader } from '@pioneer/rules/data-access';
-import type { ContentEntry, ContentKind, ContentRegistry, RichText } from '@pioneer/rules/sdk';
-import { EntryPreviewView, RICH_TEXT_LINKS } from '@pioneer/rules/ui';
+import type { ContentEntry, ContentKind, ContentRegistry } from '@pioneer/rules/sdk';
+import { RICH_TEXT_LINKS } from '@pioneer/rules/ui';
 import type { EntryPreview, RichTextLinks } from '@pioneer/rules/ui';
 import { injectQuery } from '@tanstack/angular-query-experimental';
 import type { CreateQueryResult } from '@tanstack/angular-query-experimental';
 
+import { injectEntryDescription } from './entry-description';
 import { entryCard, entryIndex, entryKinds, entryLinks, findEntry, kindOfParam } from './entry-lookup';
 
 const EntryMessage = {
   Title: 'content.page.title',
   Back: 'content.entry.back',
   LoadError: 'content.entry.loadError',
-  MissingTitle: 'content.entry.missingTitle',
-  MissingDescription: 'content.entry.missingDescription',
 } as const;
 
 /** Placeholder rows while the entries load. */
@@ -49,8 +47,7 @@ const LOADING_ROWS = ['first', 'second', 'third'];
     AsyncData,
     AsyncPending,
     AsyncRegion,
-    EmptyState,
-    EntryPreviewView,
+    ContentEntryView,
     Link,
     Page,
     PageBody,
@@ -68,7 +65,6 @@ export class EntryPage {
   readonly #params = toSignal(inject(ActivatedRoute).paramMap, { requireSync: true });
 
   protected readonly Message = EntryMessage;
-  protected readonly missingIcon = LucidePackageSearch;
   protected readonly loadingRows = LOADING_ROWS;
 
   readonly #kind: Signal<ContentKind | undefined> = computed(() => kindOfParam(this.#params().get('kind')));
@@ -98,17 +94,7 @@ export class EntryPage {
       : findEntry(registry, kind, this.#params().get('slug'));
   });
 
-  /** The entry's own description, fetched from its shard; the summary stands in until it arrives or if it fails. */
-  readonly #description: CreateQueryResult<RichText | undefined> = injectQuery(() => {
-    const entry = this.entry();
-    return {
-      queryKey: ['content', 'description', entry?.id],
-      queryFn: async (): Promise<RichText | undefined> =>
-        entry === undefined ? undefined : this.#loader.description(entry),
-      enabled: entry !== undefined,
-      staleTime: Number.POSITIVE_INFINITY,
-    };
-  });
+  readonly #description = injectEntryDescription(() => this.entry());
 
   protected readonly card: Signal<EntryPreview | undefined> = computed(() => {
     const entry = this.entry();

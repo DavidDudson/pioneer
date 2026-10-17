@@ -1,4 +1,5 @@
 import type { Routes } from '@angular/router';
+import { contentBrowserMessages } from '@pioneer/content/ui';
 import { rulesMessages } from '@pioneer/rules/sdk';
 import { Locale } from '@pioneer/shared/kernel';
 import { loadWithMessages, provideMessageScope } from '@pioneer/shared/web';
@@ -9,6 +10,8 @@ export const contentRoutes: Routes = [
     path: '',
     providers: [
       provideMessageScope('content', { [Locale.English]: async () => import('../i18n/en.json') }),
+      // The browser's own text: its search, list and entry.
+      provideMessageScope('contentBrowser', { [Locale.English]: async () => contentBrowserMessages.contentBrowser }),
       // Facet labels and their values.
       provideMessageScope('rules', { [Locale.English]: async () => rulesMessages.rules }),
     ],
