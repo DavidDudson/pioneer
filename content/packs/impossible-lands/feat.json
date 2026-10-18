@@ -426,7 +426,7 @@
     "name": "Cannibalize Magic",
     "level": 13,
     "rarity": "rare",
-    "traits": [],
+    "traits": ["universal-ancestry"],
     "sources": [
       {
         "kind": "book",
@@ -1786,7 +1786,7 @@
     "name": "Drain Emotion",
     "level": 9,
     "rarity": "rare",
-    "traits": ["mental"],
+    "traits": ["mental", "universal-ancestry"],
     "sources": [
       {
         "kind": "book",
@@ -1855,7 +1855,7 @@
     "name": "Eldritch Calm",
     "level": 13,
     "rarity": "rare",
-    "traits": [],
+    "traits": ["universal-ancestry"],
     "sources": [
       {
         "kind": "book",
@@ -2544,7 +2544,7 @@
     "name": "Fey Ascension",
     "level": 9,
     "rarity": "rare",
-    "traits": [],
+    "traits": ["universal-ancestry"],
     "sources": [
       {
         "kind": "book",
@@ -2900,7 +2900,7 @@
     "name": "Fey Influence",
     "level": 5,
     "rarity": "rare",
-    "traits": [],
+    "traits": ["universal-ancestry"],
     "sources": [
       {
         "kind": "book",
@@ -3387,7 +3387,7 @@
     "name": "Fey Transcendence",
     "level": 17,
     "rarity": "rare",
-    "traits": [],
+    "traits": ["universal-ancestry"],
     "sources": [
       {
         "kind": "book",
@@ -4015,7 +4015,7 @@
     "name": "Glamour",
     "level": 13,
     "rarity": "rare",
-    "traits": [],
+    "traits": ["universal-ancestry"],
     "sources": [
       {
         "kind": "book",
