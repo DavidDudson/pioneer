@@ -96,6 +96,29 @@
         "rank": "trained"
       },
       {
+        "key": "ChoiceSet",
+        "flag": "animist-skill",
+        "choices": [
+          {
+            "value": "nature",
+            "label": "Nature"
+          },
+          {
+            "value": "occultism",
+            "label": "Occultism"
+          }
+        ],
+        "prompt": "Select a skill."
+      },
+      {
+        "key": "Proficiency",
+        "selector": {
+          "choice": "animist-skill",
+          "prefix": "skill"
+        },
+        "rank": "trained"
+      },
+      {
         "key": "GrantItem",
         "item": "802bbf4e-6967-59bb-b21c-9b86d2b9a4bb"
       },
@@ -524,7 +547,9 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            "item:trait:general",
+            {
+              "or": ["item:trait:general", "item:trait:skill"]
+            },
             {
               "lte": ["item:level", "self:level"]
             }
@@ -554,7 +579,9 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            "item:trait:general",
+            {
+              "or": ["item:trait:general", "item:trait:skill"]
+            },
             {
               "lte": ["item:level", "self:level"]
             }
@@ -584,7 +611,9 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            "item:trait:general",
+            {
+              "or": ["item:trait:general", "item:trait:skill"]
+            },
             {
               "lte": ["item:level", "self:level"]
             }
@@ -614,7 +643,9 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            "item:trait:general",
+            {
+              "or": ["item:trait:general", "item:trait:skill"]
+            },
             {
               "lte": ["item:level", "self:level"]
             }
@@ -644,7 +675,9 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            "item:trait:general",
+            {
+              "or": ["item:trait:general", "item:trait:skill"]
+            },
             {
               "lte": ["item:level", "self:level"]
             }
@@ -1589,7 +1622,9 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            "item:trait:general",
+            {
+              "or": ["item:trait:general", "item:trait:skill"]
+            },
             {
               "lte": ["item:level", "self:level"]
             }
@@ -1619,7 +1654,9 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            "item:trait:general",
+            {
+              "or": ["item:trait:general", "item:trait:skill"]
+            },
             {
               "lte": ["item:level", "self:level"]
             }
@@ -1649,7 +1686,9 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            "item:trait:general",
+            {
+              "or": ["item:trait:general", "item:trait:skill"]
+            },
             {
               "lte": ["item:level", "self:level"]
             }
@@ -1679,7 +1718,9 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            "item:trait:general",
+            {
+              "or": ["item:trait:general", "item:trait:skill"]
+            },
             {
               "lte": ["item:level", "self:level"]
             }
@@ -1709,7 +1750,9 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            "item:trait:general",
+            {
+              "or": ["item:trait:general", "item:trait:skill"]
+            },
             {
               "lte": ["item:level", "self:level"]
             }
