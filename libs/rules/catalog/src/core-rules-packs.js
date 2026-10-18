@@ -54,6 +54,8 @@ function laterVocabulary() {
     import('@pioneer/content/packs/core-rules/imported/howl-of-the-wild/language.json'),
     import('@pioneer/content/packs/core-rules/imported/howl-of-the-wild/trait.json'),
     import('@pioneer/content/packs/core-rules/imported/gm-core/trait.json'),
+    import('@pioneer/content/packs/core-rules/imported/monster-core/language.json'),
+    import('@pioneer/content/packs/core-rules/imported/monster-core/trait.json'),
     import('@pioneer/content/packs/core-rules/imported/season-of-ghosts/statistic.json'),
     import('@pioneer/content/packs/core-rules/imported/season-of-ghosts/trait.json'),
     import('@pioneer/content/packs/core-rules/imported/myth-speakers/statistic.json'),

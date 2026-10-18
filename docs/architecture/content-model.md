@@ -475,8 +475,8 @@ and homebrew cannot use that path. A pack directory holds:
   rules pack keeps its proficiency bonus table (ADR-0026) and roll option namespace table here.
 - `<kind>.json`: an array of `ContentEntry` envelopes of that kind, in a stable order.
 
-The hand-authored packs (`core-rules`, and the `monster-core` entries transcribed before the importer exists) live
-there too, beside the Foundry imports `player-core`, `player-core-2`, `gm-core`, `divine-mysteries`,
+The hand-authored pack (`core-rules`) lives
+there too, beside the Foundry imports `player-core`, `player-core-2`, `gm-core`, `monster-core`, `divine-mysteries`,
 `treasure-vault`, `howl-of-the-wild`, `war-of-immortals`, `mwangi-expanse`, `secrets-of-magic`, `rage-of-elements`,
 `tian-xia-character-guide`, `dark-archive-remastered`, `character-guide`, `impossible-lands`, `impossible-magic`,
 `guns-and-gears`, `battlecry`, `cheliax-infernal-inheritance`, `rival-academies`, `shining-kingdoms`, `draconic-codex`,

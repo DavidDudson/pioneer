@@ -169,7 +169,12 @@ export async function darkArchiveRemasteredPack() {
 
 export async function monsterCorePack() {
   return pack(import('@pioneer/content/packs/monster-core/pack.json'), [
+    import('@pioneer/content/packs/monster-core/action.json'),
+    import('@pioneer/content/packs/monster-core/consumable.json'),
     import('@pioneer/content/packs/monster-core/creature.json'),
+    import('@pioneer/content/packs/monster-core/effect.json'),
+    import('@pioneer/content/packs/monster-core/equipment.json'),
+    import('@pioneer/content/packs/monster-core/weapon.json'),
   ]);
 }
 

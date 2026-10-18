@@ -1,0 +1,128 @@
+[
+  {
+    "id": "5597d203-7614-5c33-bcf5-d6b520ae4982",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:caligni",
+    "name": "Caligni",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "a5654cad-440e-509b-85b9-e109c0d5d887",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:daemonic",
+    "name": "Daemonic",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "f6a1c7b4-1f8f-516e-ac51-c5582b80d463",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:muan",
+    "name": "Muan",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "850b5fb2-c462-50e5-b44a-b7c5065c448a",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:protean",
+    "name": "Protean",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "545ef94f-a876-52d8-93d5-593af9a381ed",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:requian",
+    "name": "Requian",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "25198879-1abe-5114-9e82-cb43c4c939df",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:sphinx",
+    "name": "Sphinx",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "7a581682-8c58-585d-949a-04663120dbeb",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:talican",
+    "name": "Talican",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  }
+]

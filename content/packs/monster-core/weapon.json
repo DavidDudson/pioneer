@@ -1,0 +1,329 @@
+[
+  {
+    "id": "2688cd7d-c3bf-5aff-ae8f-8022a76c393a",
+    "pack": "monster-core",
+    "kind": "weapon",
+    "slug": "weapon:blackaxe",
+    "name": "Blackaxe",
+    "level": 25,
+    "rarity": "unique",
+    "traits": ["artifact", "cursed", "primal", "sweep", "unholy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This potent weapon used by Treerazer is a "
+          },
+          {
+            "type": "text",
+            "text": "+4 greater corrosive major striking obsidian greataxe",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " that grants a +4 item bonus to attack rolls, deals an extra 2d6 damage to plants, and has the properties of adamantine. It deals an additional die of damage when wielded by Treerazer."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Owner's Authority",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, scrying)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You aren't wielding Blackaxe and you are its true owner"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You sense the world around Blackaxe as though you were in its location and can use any of your innate spells through the link as if it were the source of the spell. If another creature is wielding Blackaxe, it must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 50
+          },
+          {
+            "type": "text",
+            "text": " save or be "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 2"
+          },
+          {
+            "type": "text",
+            "text": " until it relinquishes the weapon."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Owner's Reclamation",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, teleportation)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You aren't wielding Blackaxe and you are its true owner"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Blackaxe appears in your hands, teleporting instantly from its prior location."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Rejuvenating Deforestation",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, death, healing, positive)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per minute"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Make a Strike against a living tree with Blackaxe. If it hits, the tree withers to ash and you heal 250 Hit Points and gain the benefit of a 6th-rank Restoration (6th) and "
+          },
+          {
+            "type": "ref",
+            "id": "674398f3-e121-59fe-a086-423c20002dd1"
+          },
+          {
+            "type": "text",
+            "text": " spell."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Destruction",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Chop a powerful magical tree with Blackaxe, and while the sap is still fresh, sever one of Cyth-V'sug's limbs. This makes Blackaxe explode violently."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.o9IErbpmItz9NZT3"
+    },
+    "data": {
+      "bulk": 2,
+      "size": "huge",
+      "material": {
+        "type": "adamantine",
+        "grade": "high"
+      },
+      "activations": [
+        {
+          "slug": "rejuvenating-deforestation",
+          "name": "Rejuvenating Deforestation",
+          "frequency": {
+            "max": 1,
+            "per": "minute"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "axe",
+      "baseItem": "greataxe",
+      "damage": {
+        "dice": 1,
+        "die": "d12",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 4,
+        "striking": 3,
+        "property": ["5050ed53-adbb-5208-b463-94fd353f8413"]
+      }
+    }
+  },
+  {
+    "id": "2a22df8c-b82c-5103-a089-1bfc1eee14b6",
+    "pack": "monster-core",
+    "kind": "weapon",
+    "slug": "weapon:shears",
+    "name": "Shears",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["deadly-d8", "finesse", "versatile-p"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.IF6qUrR3i030v0dH"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 5
+        }
+      },
+      "bulk": "light",
+      "category": "simple",
+      "group": "knife",
+      "baseItem": "shears",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]
