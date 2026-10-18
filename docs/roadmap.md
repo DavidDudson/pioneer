@@ -298,7 +298,7 @@ languages other than English wait.
 
 | Item                                                                         | Plan                                                                                               |
 | ---------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| How to obtain AoN page numbers and URLs within AoN's terms                   | Spike in M2; ask AoN if needed                                                                     |
+| How to obtain AoN page numbers and URLs within AoN's terms                   | Decided in ADR-0069: mapping files, pages from the books, nothing calls AoN; ask AoN for a listing |
 | Foundry data model changes between releases                                  | Pin release; upgrade as a deliberate PR with coverage diff                                         |
 | Rule elements with no clean typed equivalent (path-based `ActiveEffectLike`) | Per-path translators; report the rest                                                              |
 | Browser bundle size once spells and equipment load                           | Per-kind lazy bundles; measure in M2                                                               |

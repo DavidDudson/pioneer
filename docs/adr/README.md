@@ -73,6 +73,7 @@ Accepted. To change a decision, add a new ADR that supersedes the old one; do no
 | [0066](0066-bug-reports-carry-a-snapshot-and-maintainers-triage-them.md) | Bug reports carry a snapshot, and maintainers triage them                                     |
 | [0067](0067-innate-spells-are-a-rule-element.md)                         | Innate spells are a rule element                                                              |
 | [0068](0068-table-view-query-keys.md)                                    | A table view's query keys are single letters                                                  |
+| [0069](0069-aon-pages-and-urls-come-from-mapping-files.md)               | AoN pages and URLs come from mapping files, not from AoN's servers                            |
 | [0069](0069-the-app-provides-the-sheets-side-panel.md)                   | The app provides the sheet's side panel and loads its messages                                |
 
 Template:
