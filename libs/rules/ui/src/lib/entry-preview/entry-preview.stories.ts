@@ -1,7 +1,14 @@
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
+import { EffectStatusKind } from '@pioneer/rules/engine';
 
 import { EntryPreviewView } from './entry-preview.component';
-import { CLUMSY_PREVIEW, FIREBALL_PREVIEW } from './entry-preview.fixtures';
+import {
+  CLUMSY_PREVIEW,
+  FIREBALL,
+  FIREBALL_PREVIEW,
+  modifierPreviewEffect,
+  notSummarisedPreviewEffect,
+} from './entry-preview.fixtures';
 
 type EntryPreviewStory = StoryObj<EntryPreviewView>;
 
@@ -23,4 +30,23 @@ export const Bare: EntryPreviewStory = {
 /** A condition the character has: its value beside the name, and what it changes with that value applied. */
 export const ConditionWithValue: EntryPreviewStory = {
   args: { preview: CLUMSY_PREVIEW },
+};
+
+/** What an entry would do to the character: a bonus, a line that counts only sometimes, and an element not summarised. */
+export const WouldDo: EntryPreviewStory = {
+  args: {
+    preview: {
+      ...FIREBALL_PREVIEW,
+      effects: [
+        modifierPreviewEffect(FIREBALL, { statistic: 'Perception', selector: 'perception', value: 1 }),
+        modifierPreviewEffect(FIREBALL, {
+          statistic: 'Armor Class',
+          selector: 'ac',
+          value: 2,
+          status: { kind: EffectStatusKind.Conditional, summary: undefined },
+        }),
+        notSummarisedPreviewEffect(FIREBALL),
+      ],
+    },
+  },
 };

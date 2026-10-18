@@ -1,10 +1,14 @@
 import { inject } from '@angular/core';
+import type { Character } from '@pioneer/character/domain';
 import type { LinkTarget } from '@pioneer/frontier';
 import { ContentLoader } from '@pioneer/rules/data-access';
+import { EffectMode } from '@pioneer/rules/engine';
 import { ContentKind } from '@pioneer/rules/sdk';
 import type { ContentEntry, ContentId, ContentRegistry } from '@pioneer/rules/sdk';
 import { entryTarget } from '@pioneer/rules/ui';
-import type { EntryPreview, EntryPreviews } from '@pioneer/rules/ui';
+import type { EntryPreview, EntryPreviews, PreviewEffect } from '@pioneer/rules/ui';
+
+import { sheetEntryEffects } from './sheet-entry-effects';
 
 /** Entries by registry: a loaded registry never changes, so each is indexed once. */
 const ENTRIES = new WeakMap<ContentRegistry, ReadonlyMap<ContentId, ContentEntry>>();
@@ -29,15 +33,42 @@ export function sheetEntry(registry: ContentRegistry, id: ContentId): ContentEnt
  */
 export function sheetEntryPreview(registry: ContentRegistry | undefined, id: ContentId): EntryPreview | undefined {
   const entry = registry === undefined ? undefined : sheetEntry(registry, id);
-  return entry === undefined
-    ? undefined
-    : {
-        name: entry.name,
-        level: 'level' in entry ? entry.level : undefined,
-        traits: entry.traits,
-        summary: entry.description,
-        sources: entry.sources,
-      };
+  return entry === undefined ? undefined : previewOf(entry);
+}
+
+function previewOf(entry: ContentEntry): EntryPreview {
+  return {
+    name: entry.name,
+    level: 'level' in entry ? entry.level : undefined,
+    traits: entry.traits,
+    summary: entry.description,
+    sources: entry.sources,
+  };
+}
+
+/**
+ * `entry`'s preview with what it would do to `character`, derived against `registry` (the one the sheet derives from,
+ * which the entry may not be in). Without a character or that registry, the preview has no effects section.
+ */
+function previewOnCharacter(
+  entry: ContentEntry,
+  registry: ContentRegistry | undefined,
+  character: Character | undefined,
+): EntryPreview {
+  const preview = previewOf(entry);
+  if (registry === undefined || character === undefined) {
+    return preview;
+  }
+  // Derived on first read, when the card opens. Every row asks whether it can preview.
+  // Deriving the statistics for each would cost the sheet a render.
+  const kept: { effects: readonly PreviewEffect[] | undefined } = { effects: undefined };
+  return {
+    ...preview,
+    get effects(): readonly PreviewEffect[] {
+      kept.effects ??= sheetEntryEffects(registry, character, { entry, mode: EffectMode.WouldApply });
+      return kept.effects;
+    },
+  };
 }
 
 /**
@@ -66,6 +97,7 @@ const FETCHED_PREVIEW_KINDS: readonly ContentKind[] = [
  */
 export function sheetFetchingPreviews(
   registry: () => ContentRegistry | undefined,
+  character: () => Character | undefined,
   kinds: readonly ContentKind[] = FETCHED_PREVIEW_KINDS,
 ): EntryPreviews {
   const loader = inject(ContentLoader);
@@ -92,9 +124,14 @@ export function sheetFetchingPreviews(
     const entry = (held === undefined ? undefined : sheetEntry(held, id)) ?? sheetEntryIn(kept.fetched, id);
     return entry === undefined ? undefined : entryTarget(entry);
   };
+  const onCharacter = (entry: ContentEntry | undefined): EntryPreview | undefined =>
+    entry === undefined ? undefined : previewOnCharacter(entry, registry(), character());
   return {
-    ...sheetEntryPreviews(registry),
-    load: async (id) => sheetEntryPreview(await fetchKinds(), id),
+    preview: (id) => {
+      const held = registry();
+      return onCharacter(held === undefined ? undefined : sheetEntry(held, id));
+    },
+    load: async (id) => onCharacter(sheetEntryIn(await fetchKinds(), id)),
     target,
   };
 }
