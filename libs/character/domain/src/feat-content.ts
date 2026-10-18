@@ -14,6 +14,8 @@ export interface FeatRead {
 export interface ArchetypeRead {
   readonly dedication: ContentId;
   readonly lock: DedicationLock;
+  /** The feats of other sources it lists as its own, which count toward the lock like its own. */
+  readonly additional: ReadonlySet<ContentId>;
 }
 
 /** What feat slots read of feats: each loaded feat, by id, and each loaded archetype. */
@@ -57,7 +59,11 @@ function readFeats(registry: ContentRegistry): FeatContent {
         ? [
             [
               entry.id,
-              { dedication: entry.data.dedication, lock: entry.data.dedicationLock ?? DEDICATION_LOCK_DEFAULT },
+              {
+                dedication: entry.data.dedication,
+                lock: entry.data.dedicationLock ?? DEDICATION_LOCK_DEFAULT,
+                additional: new Set((entry.data.additionalFeats ?? []).map(({ feat }) => feat)),
+              },
             ],
           ]
         : [],

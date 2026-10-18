@@ -101,6 +101,13 @@ describe('Pathbuilder exports over the official packs', () => {
 /** Plant Empathy, which Voice of Nature offers, and Break Curse, a skill feat taken in a general slot. */
 const BRIAR_PLACED = ['8f39d3b1-bedb-5ed6-8fc1-f43753c4f8ad', '36f19b8e-8242-5707-9cbb-5785601e83e5'];
 
+/** Fey Influence and Fey Ascension, Universal Ancestry feats taken in a human's ancestry slots, and Shield Warden, which Knight Vigilant lists as an additional feat. */
+const MORDRED_PLACED = [
+  '2a081489-546b-5c7d-8df0-9d1c77ec1fb0',
+  '7cf63233-3636-5cdc-bd75-e068057a2ee2',
+  'be7de1bc-ac66-55d9-b822-68ccc2b6529f',
+];
+
 describe('Pathbuilder feats over the official packs', () => {
   test(
     'Briar Rose places the Voice of Nature feat and the skill feat in her general slot',
@@ -108,6 +115,16 @@ describe('Pathbuilder feats over the official packs', () => {
       const { character } = await service.importPathbuilder(actor, briarRoseExport);
       const picked = new Set<unknown>(Object.values(character.document.build.choices));
       expect(BRIAR_PLACED.filter((id) => !picked.has(id))).toStrictEqual([]);
+    },
+    LOAD_TIMEOUT_MS,
+  );
+
+  test(
+    'Mordred places the Universal Ancestry feats and the feat his archetype lists as its own',
+    async () => {
+      const { character } = await service.importPathbuilder(actor, mordredExport);
+      const picked = new Set<unknown>(Object.values(character.document.build.choices));
+      expect(MORDRED_PLACED.filter((id) => !picked.has(id))).toStrictEqual([]);
     },
     LOAD_TIMEOUT_MS,
   );
@@ -146,7 +163,7 @@ describe('Pathbuilder spells over the official packs', () => {
   );
 
   test(
-    "Mordred's Oracle fills its repertoire; the archetype and innate casters have no entry",
+    "Mordred's Oracle fills its repertoire; the archetype caster has no entry",
     async () => {
       const { character, report } = await service.importPathbuilder(actor, mordredExport);
       expect(spellPickCount(character.document.build.choices)).toBe(18);
@@ -154,8 +171,6 @@ describe('Pathbuilder spells over the official packs', () => {
         'Oracle no-slot: 4',
         'Oracle not-offered: 6',
         'Archetype Sorcerer no-entry: 4',
-        'Fey Influence no-entry: 1',
-        'Fey Ascension no-entry: 1',
         'divine cha focus not-granted: 1',
       ]);
     },

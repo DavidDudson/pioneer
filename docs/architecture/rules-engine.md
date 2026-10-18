@@ -561,7 +561,12 @@ any kind of entry can grant any other.
   a trait named like one of the character's `class:` or `ancestry:` facts, so Natural Ambition offers "a 1st-level
   class feat for your class" and Ancestral Paragon "a 1st-level ancestry feat". Foundry reads the actor's trait inside
   the filter (`item:trait:{actor|system.details.class.trait}`), which a roll option cannot spell. With two classes
-  (Dual Class) either counts; with none picked the offer is empty.
+  (Dual Class) either counts; with none picked the offer is empty. A feat candidate reads a little more than its
+  envelope says, as the rules do (`candidate-options.ts`): a skill feat also has `general` ("any general feat
+  (including skill feats)", Player Core), a Universal Ancestry feat has the trait of the character's ancestry (Fey
+  Influence), and a feat an archetype lists under Additional Feats has `archetype` and the archetype's level for a
+  character holding its dedication (Shield Warden for Knight Vigilant). A `ChoiceSet` that lists only feats is a
+  feat slot too (Voice of Nature).
 - A slot's offer is worked out the first time it is read, against the facts its walk read, and kept. The slots
   returned come from the settled round, so those are the resolution's `facts`. No round needs the offer: an open slot
   grants nothing, and an answered slot tests only its pick (looked up by id, of the query's kind, filter not false;

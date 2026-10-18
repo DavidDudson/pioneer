@@ -20,6 +20,7 @@ import type { ContentLookup, EntryFacts, GrantEntry } from './grant-entry';
 const ENVELOPE_KINDS: ReadonlySet<ContentKind> = new Set([
   ContentKind.Action,
   ContentKind.AncestryFeature,
+  ContentKind.Archetype,
   ContentKind.Armor,
   ContentKind.Background,
   ContentKind.Class,
@@ -41,6 +42,13 @@ const ENVELOPE_KINDS: ReadonlySet<ContentKind> = new Set([
 function belongsTo(entry: ContentEntry): Pick<GrantEntry, 'belongsTo'> {
   const ancestry = entry.kind === ContentKind.Heritage ? entry.data.ancestry : undefined;
   return ancestry === undefined ? {} : { belongsTo: ancestry };
+}
+
+/** An archetype's dedication and the additional feats it lists; nothing for any other kind. */
+function archetypeFields(entry: ContentEntry): Pick<GrantEntry, 'archetype'> {
+  return entry.kind === ContentKind.Archetype
+    ? { archetype: { dedication: entry.data.dedication, additionalFeats: entry.data.additionalFeats ?? [] } }
+    : {};
 }
 
 /** Whether a condition carries a value; nothing for any other kind. */
@@ -180,6 +188,7 @@ function envelopeEntry(entry: ContentEntry): GrantEntry | undefined {
     ],
     facts: factsOf(entry),
     ...belongsTo(entry),
+    ...archetypeFields(entry),
     ...valued(entry),
     ...overrides(entry),
     ...deityFields(entry),

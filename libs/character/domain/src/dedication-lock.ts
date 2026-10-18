@@ -32,7 +32,9 @@ export function dedicationWaits(feats: FeatContent, taken: readonly ContentId[])
   });
   return archetypes.flatMap((archetype): DedicationWait[] => {
     const read = feats.archetype(archetype);
-    const others = taken.filter((id) => feats.feat(id)?.archetype === archetype && id !== read?.dedication).length;
+    const others = taken.filter(
+      (id) => (feats.feat(id)?.archetype === archetype || read?.additional.has(id) === true) && id !== read?.dedication,
+    ).length;
     const needed = read === undefined ? 0 : read.lock - others;
     return needed > 0 ? [{ archetype, needed: DedicationLock.parse(needed) }] : [];
   });

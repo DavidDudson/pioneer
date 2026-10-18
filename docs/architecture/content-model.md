@@ -153,7 +153,9 @@ Lists of attributes, slugs and ids name each item once.
 - **Archetypes.** Foundry keeps them as journal pages; the importer builds the entry from the page and its
   dedication feat (Foundry import, Archetypes).
   `dedicationLock?` is how many other archetype feats a character needs before another dedication (2 when
-  absent; character-model.md, Archetype dedications).
+  absent; character-model.md, Archetype dedications). `additionalFeats?` is the feats of other sources it lists
+  under "Additional Feats", each with the level the archetype gives it: a character holding the dedication can take
+  one as an archetype feat of that level, and it counts toward the dedication lock.
 - **Deities.** `category` is `deity`, `pantheon`, `covenant` or `philosophy`. `sanctification` is `can` or `must`
   with `holy` and/or `unholy`. `domains` has `primary` and `alternate` domains, each one of Foundry's config keys
   (`DeityDomain`, apocryphal variants included; the import files Disorientation under `delirium`, Nothingness under
