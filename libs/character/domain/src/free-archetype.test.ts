@@ -117,7 +117,9 @@ describe('the Free Archetype variant', () => {
 
   test('opens no slots without the variant, or with one that has no extra slots', () => {
     const [plainEntry] = plain;
-    const own = featSlots(fighter(20).build().document, withoutFree).filter((slot) => slot.entry === ContentId.parse(plainEntry?.id));
+    const own = featSlots(fighter(20).build().document, withoutFree).filter(
+      (slot) => slot.entry === ContentId.parse(plainEntry?.id),
+    );
     expect(plainEntry).toBeDefined();
     expect(own).toHaveLength(0);
     expect(variantSlots(withoutFree, 20)).toHaveLength(0);

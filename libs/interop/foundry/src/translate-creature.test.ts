@@ -16,8 +16,10 @@ describe('translateCreature: core statistics', () => {
     const translation = translate([ZOMBIE_SHAMBLER]);
     const entry = entryOf(translation, 'zombie-shambler');
 
-    expect(entry?.envelope.level).toBe(-1);
-    expect(entry?.envelope.externalIds.foundry).toBe('Compendium.pf2e.pathfinder-monster-core.Actor.Xo4IGzw28hivgMmM');
+    expect<number | undefined>(entry?.envelope.level).toBe(-1);
+    expect<string | undefined>(entry?.envelope.externalIds.foundry).toBe(
+      'Compendium.pf2e.pathfinder-monster-core.Actor.Xo4IGzw28hivgMmM',
+    );
     expect(entry?.kindData).toStrictEqual({
       kind: ContentKind.Creature,
       data: {
@@ -44,8 +46,8 @@ describe('translateCreature: core statistics', () => {
   test('a mid-level humanoid: languages, resistances and several skills', () => {
     const entry = entryOf(translate([AAPOPH_GRANITESCALE]), 'aapoph-granitescale');
 
-    expect(entry?.envelope.level).toBe(6);
-    expect(entry?.envelope.traits).toStrictEqual(['humanoid', 'mutant', 'serpentfolk']);
+    expect<number | undefined>(entry?.envelope.level).toBe(6);
+    expect<readonly string[] | undefined>(entry?.envelope.traits).toStrictEqual(['humanoid', 'mutant', 'serpentfolk']);
     expect(entry?.kindData?.data).toMatchObject({
       role: CreatureRole.Monster,
       resistances: [{ type: 'poison', value: 5 }],
@@ -61,7 +63,7 @@ describe('translateCreature: core statistics', () => {
   test('a level 21 dragon: a Strength above a character’s +7, and another kind of speed', () => {
     const entry = entryOf(translate([TOR_LINNORM]), 'tor-linnorm');
 
-    expect(entry?.envelope.level).toBe(21);
+    expect<number | undefined>(entry?.envelope.level).toBe(21);
     expect(entry?.kindData?.data).toMatchObject({
       size: 'gargantuan',
       attributes: { str: 11 },
