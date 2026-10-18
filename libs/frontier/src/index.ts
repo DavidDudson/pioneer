@@ -93,6 +93,7 @@ export { PageAside } from './lib/layout/page-aside/page-aside.component';
 export { PageBody } from './lib/layout/page-body/page-body.component';
 export { Drawer } from './lib/layout/drawer/drawer.component';
 export { DrawerWidth } from './lib/layout/drawer/drawer-width';
+export { DRAWER_OPEN, DRAWER_PARAM } from './lib/layout/drawer/drawer-query';
 export { PageHeader } from './lib/layout/page-header/page-header.component';
 export { CRUMB, type Crumb } from './lib/layout/page-header/route-crumbs';
 export { Section } from './lib/layout/section/section.component';

@@ -16,7 +16,7 @@ import type { Params } from '@angular/router';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { ContentBrowserTier } from '@pioneer/content/ui';
 import type { ContentBrowserState } from '@pioneer/content/ui';
-import { Button, Stack } from '@pioneer/frontier';
+import { Button, DRAWER_OPEN, DRAWER_PARAM, Stack } from '@pioneer/frontier';
 import { Combobox } from '@pioneer/frontier/data';
 import type { ContentId } from '@pioneer/rules/sdk';
 
@@ -24,7 +24,7 @@ import { refOf } from '../browser/browse-state';
 import { ContentBrowser } from '../browser/content-browser.component';
 import { GlobalSearchSession } from '../search/global-search-session';
 import { isSearchShortcut } from '../search/global-search-shortcut';
-import { DRAWER_OPEN, DRAWER_PARAM, entryFromParam, entryToParam, PanelParam } from './side-panel-state';
+import { entryFromParam, entryToParam, PanelParam } from './side-panel-state';
 
 const PanelMessage = {
   Label: 'shell.search.label',

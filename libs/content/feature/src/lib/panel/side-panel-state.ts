@@ -27,7 +27,3 @@ export function entryFromParam(text: string | undefined): ContentEntryRef | unde
 export function entryToParam(entry: ContentEntryRef): string {
   return `${entry.kind}${SEPARATOR}${entry.name}`;
 }
-
-/** The drawer's own query parameter and the value it holds while open (`fr-drawer`). */
-export const DRAWER_PARAM = 'drawer';
-export const DRAWER_OPEN = 'open';
