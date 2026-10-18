@@ -49,6 +49,7 @@ describe.skipIf(adminUrl === undefined)('campaign key items over postgres', () =
   let characters: DrizzleCharacterRepository;
   let kyra: Character;
   let campaignId: CampaignId;
+  let campaigns = 0;
 
   beforeAll(async () => {
     database = await createTestDatabase(adminUrl ?? '', recorder);
@@ -67,8 +68,9 @@ describe.skipIf(adminUrl === undefined)('campaign key items over postgres', () =
 
   /** A fresh campaign for each test, as key items are never deleted. */
   beforeEach(async () => {
+    campaigns += 1;
     const campaign = await new DrizzleCampaignRepository(database.db).insert(
-      new CampaignBuilder().named('Abomination Vaults').ranBy(ezren).withPlayer(amiri).build(),
+      new CampaignBuilder().named(`Abomination Vaults ${campaigns}`).ranBy(ezren).withPlayer(amiri).build(),
     );
     campaignId = campaign.id;
   });
@@ -118,7 +120,7 @@ describe.skipIf(adminUrl === undefined)('campaign key items over postgres', () =
       sql`select holder_id, archived_at from campaign_key_items where id = ${made.id}`,
     );
     expect(kept).toHaveLength(1);
-    expect(kept[0]?.holder_id).toBe(kyra.id);
+    expect(kept[0]?.['holder_id']).toBe(kyra.id);
   });
 
   test('the database refuses to delete a key item (ADR-0062)', async () => {
@@ -145,7 +147,7 @@ describe.skipIf(adminUrl === undefined)('campaign key items over postgres', () =
     const stored = await characters.findById(kyra.id);
     const items = stored?.document.inventory.items;
 
-    expect(items?.map((each) => [each.keyItem, each.name, each.runes?.property.length])).toStrictEqual([
+    expect(items?.map((each) => [each.keyItem, `${each.name}`, each.runes?.property.length])).toStrictEqual([
       [made.id, 'Caliburn', 6],
     ]);
   });

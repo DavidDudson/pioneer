@@ -12,6 +12,18 @@
         "tsConfig": "libs/character/feature/tsconfig.spec.json",
         "runner": "vitest",
         "setupFiles": ["libs/character/feature/src/test-setup.ts"]
+      },
+      "configurations": {
+        "page-a": {
+          "include": ["libs/character/feature/src/lib/sheet/character-sheet-page/character-sheet-[a-e]*.spec.ts"]
+        },
+        "page-b": {
+          "include": ["libs/character/feature/src/lib/sheet/character-sheet-page/character-sheet-[f-r]*.spec.ts"]
+        },
+        "page-c": {
+          "include": ["libs/character/feature/src/lib/sheet/character-sheet-page/character-sheet-[s-z]*.spec.ts"]
+        },
+        "rest": { "exclude": ["libs/character/feature/src/lib/sheet/character-sheet-page/**"] }
       }
     }
   }
