@@ -28,6 +28,7 @@ export const FOUNDRY_IMPORTS: readonly FoundryImport[] = [
   imported('treasure-vault'),
   imported('gm-core'),
   imported('monster-core'),
+  imported('monster-core-2'),
   imported('howl-of-the-wild'),
   imported('war-of-immortals'),
   imported('mwangi-expanse'),

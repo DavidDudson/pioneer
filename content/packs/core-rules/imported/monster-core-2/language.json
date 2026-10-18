@@ -1,0 +1,146 @@
+[
+  {
+    "id": "fb5ca4a1-8ff8-54c1-bc29-cec25ea5aa49",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:adlet",
+    "name": "Adlet",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "b3bba0fb-ef08-57c0-bbb5-4fec75a5186b",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:girtablilu",
+    "name": "Girtablilu",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "d66b3363-41d6-55f3-a004-d64f0d6b9310",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:grioth",
+    "name": "Grioth",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "959cd470-447f-58d3-b705-e73486428e3a",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:hallit",
+    "name": "Hallit",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "de281671-5b04-56a3-b599-f1bd386ed660",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:jyoti",
+    "name": "Jyoti",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "07bfacbf-0fe6-591c-9635-3c26cf9ed55e",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:munavri",
+    "name": "Munavri",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "87572b5c-9fce-548d-a418-a117a074d22c",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:shae",
+    "name": "Shae",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "d35a4825-83e9-5cdc-bbcc-180d4ae2e2af",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:thassilonian",
+    "name": "Thassilonian",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  }
+]

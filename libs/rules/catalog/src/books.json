@@ -24,6 +24,14 @@
     "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=221"
   },
   {
+    "id": "monster-core-2",
+    "publisher": "paizo",
+    "license": "ORC",
+    "remaster": true,
+    "released": "2025-11-05",
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=276"
+  },
+  {
     "id": "player-core-2",
     "publisher": "paizo",
     "license": "ORC",

@@ -167,6 +167,16 @@ export async function darkArchiveRemasteredPack() {
   ]);
 }
 
+export async function monsterCore2Pack() {
+  return pack(import('@pioneer/content/packs/monster-core-2/pack.json'), [
+    import('@pioneer/content/packs/monster-core-2/action.json'),
+    import('@pioneer/content/packs/monster-core-2/creature.json'),
+    import('@pioneer/content/packs/monster-core-2/effect.json'),
+    import('@pioneer/content/packs/monster-core-2/equipment.json'),
+    import('@pioneer/content/packs/monster-core-2/ritual.json'),
+  ]);
+}
+
 export async function monsterCorePack() {
   return pack(import('@pioneer/content/packs/monster-core/pack.json'), [
     import('@pioneer/content/packs/monster-core/action.json'),

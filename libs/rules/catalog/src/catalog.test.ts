@@ -20,6 +20,7 @@ const coreRules = PackId.parse('core-rules');
 const playerCore = PackId.parse('player-core');
 const playerCore2 = PackId.parse('player-core-2');
 const monsterCore = PackId.parse('monster-core');
+const monsterCore2 = PackId.parse('monster-core-2');
 const divineMysteries = PackId.parse('divine-mysteries');
 const treasureVault = PackId.parse('treasure-vault');
 const howlOfTheWild = PackId.parse('howl-of-the-wild');
@@ -78,6 +79,7 @@ describe('content catalog', () => {
       impossibleLands,
       impossibleMagic,
       monsterCore,
+      monsterCore2,
       mwangiExpanse,
       mythSpeakers,
       playerCore,
