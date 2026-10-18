@@ -29,7 +29,8 @@ export type FormMovement = ValueOf<typeof FormMovement>;
 
 /**
  * The form's Armor Class: `modifier` is the form's own AC (a number or a formula like `18 + @actor.level`), used when
- * higher than the character's. Without the flags, armour's check and Speed penalties carry over.
+ * higher than the character's. Armour's check penalty and Speed reduction are ignored unless a flag says `false`: every Player Core battle form
+ * text says to ignore them, and Foundry's data names the flags only on some.
  */
 const FormArmorClass = z.strictObject({
   modifier: RuleValue,
