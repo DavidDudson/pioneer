@@ -4,5 +4,6 @@ export { UNAUTHORIZED_HANDLER, type UnauthorizedHandler } from './unauthorized-h
 export { type LocaleMessages, provideI18n } from './i18n';
 export { IdlePreloading, PREFETCH_WHEN_IDLE } from './idle-preloading';
 export { IDLE_SCHEDULER, type IdleScheduler } from './idle-scheduler';
-export { loadWithMessages, provideMessageScope } from './message-scope';
+export { loadMessageScopes, loadWithMessages, type MessageScope, provideMessageScope } from './message-scope';
 export { type DisplayChoices, LocalePreferences, PREFERENCE_STORAGE } from './locale-preferences';
+export { ShellSearch } from './shell-search';

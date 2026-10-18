@@ -6,7 +6,7 @@ import { firstValueFrom } from 'rxjs';
 
 import type { LocaleMessages } from './i18n';
 
-interface MessageScope {
+export interface MessageScope {
   readonly scope: string;
   readonly messages: LocaleMessages;
 }
@@ -33,13 +33,22 @@ export function loadWithMessages<TLoaded>(load: () => Promise<TLoaded>): () => P
     // Runs in the route's injection context; inject before the first await.
     const i18n = inject(TranslocoService);
     const scopes = inject(MESSAGE_SCOPES, { optional: true }) ?? [];
-    const locale = LocaleSchema.parse(i18n.getActiveLang());
-    const scopesLoaded = scopes.map(async ({ scope, messages }) => {
+    const [loaded] = await Promise.all([load(), loadMessageScopes(i18n, scopes)]);
+    return loaded;
+  };
+}
+
+/**
+ * Loads message scopes into the active language. For code that renders outside a route's injector, where the scopes
+ * `provideMessageScope` registered may be shadowed by another route's.
+ */
+export async function loadMessageScopes(i18n: TranslocoService, scopes: readonly MessageScope[]): Promise<void> {
+  const locale = LocaleSchema.parse(i18n.getActiveLang());
+  await Promise.all(
+    scopes.map(async ({ scope, messages }) => {
       const path = `${scope}/${locale}`;
       // Transloco keys inline loaders by `<scope>/<lang>`.
       return firstValueFrom(i18n.load(path, { inlineLoader: { [path]: messages[locale] } }));
-    });
-    const [loaded] = await Promise.all([load(), ...scopesLoaded]);
-    return loaded;
-  };
+    }),
+  );
 }

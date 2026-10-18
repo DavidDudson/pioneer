@@ -1,5 +1,7 @@
 import { inject } from '@angular/core';
 import type { Routes } from '@angular/router';
+import { TranslocoService } from '@jsverse/transloco';
+import type { SheetSidePanelLoader } from '@pioneer/character/feature';
 import { signInRequired } from '@pioneer/identity/data-access';
 import { PREFETCH_WHEN_IDLE } from '@pioneer/shared/web';
 
@@ -13,9 +15,28 @@ export const appRoutes: Routes = [
     // Signing out re-runs guards on the current page (SessionStore), so it is left at once.
     runGuardsAndResolvers: 'always',
     data: PREFETCH_WHEN_IDLE,
+    // The sheet's side panel searches the rules content, which the character feature may not import.
     loadChildren: async () => {
-      const { characterRoutes } = await import('@pioneer/character/feature');
-      return characterRoutes;
+      const { characterRoutes, SHEET_SIDE_PANEL } = await import('@pioneer/character/feature');
+      return [
+        {
+          path: '',
+          providers: [
+            {
+              provide: SHEET_SIDE_PANEL,
+              useFactory: (): SheetSidePanelLoader => {
+                const i18n = inject(TranslocoService);
+                // The content feature loads when the drawer first needs it, not with the sheet.
+                return async () => {
+                  const { loadSidePanel } = await import('@pioneer/content/feature');
+                  return loadSidePanel(i18n);
+                };
+              },
+            },
+          ],
+          children: characterRoutes,
+        },
+      ];
     },
   },
   {

@@ -7,6 +7,7 @@ import {
   AsyncPending,
   AsyncRegion,
   DateDisplay,
+  Drawer,
   Page,
   PageBody,
   PageHeader,
@@ -29,6 +30,7 @@ import { SheetLastRoll } from '../sheet-last-roll/sheet-last-roll.component';
 import { SheetResources } from '../sheet-resources/sheet-resources.component';
 import { SHEET_ROLLS_PROVIDERS } from '../sheet-rolls';
 import { SHEET_TABS } from '../sheet-sections';
+import { SheetSidePanelHost } from '../sheet-side-panel/sheet-side-panel.component';
 import { SHEET_PLAY_PROVIDERS } from '../sheet-spender';
 import { SheetState } from '../sheet-state';
 
@@ -45,6 +47,7 @@ import { SheetState } from '../sheet-state';
     AsyncPending,
     AsyncRegion,
     DateDisplay,
+    Drawer,
     Page,
     PageBody,
     PageHeader,
@@ -56,6 +59,7 @@ import { SheetState } from '../sheet-state';
     SheetResources,
     SheetHitPoints,
     SheetLastRoll,
+    SheetSidePanelHost,
     Skeleton,
     Stack,
     Tab,

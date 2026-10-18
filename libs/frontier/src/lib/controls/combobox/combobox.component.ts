@@ -23,6 +23,8 @@ import { injectOptionVirtualizer, optionOffset } from '../option-virtualizer';
 import { SEARCH_DEBOUNCE } from '../search-input/search-input.component';
 import type { SelectOption } from '../select/select.component';
 import { ComboboxStatus } from './combobox-status.component';
+import { samePicked, sameTextSource, textOf } from './combobox-text';
+import type { Picked, TextSource } from './combobox-text';
 import {
   comboboxInputClasses,
   comboboxListboxClasses,
@@ -37,11 +39,6 @@ import {
  */
 export interface ComboboxOption<TValue extends string> extends SelectOption<TValue> {
   readonly disabled?: boolean;
-}
-
-interface Picked<TValue extends string> {
-  readonly value: TValue | undefined;
-  readonly label: string | undefined;
 }
 
 /**
@@ -69,6 +66,8 @@ export class Combobox<TValue extends string> extends Control {
   public readonly value = model<TValue | undefined>(undefined);
   /** The matches for the last `searched` query. */
   public readonly options = input.required<readonly ComboboxOption<TValue>[]>();
+  /** The text the input shows while nothing is picked. Setting it again replaces whatever was typed. */
+  public readonly query = input('');
   /** Options are loading: the listbox shows skeleton rows. */
   public readonly loading = input(false, { transform: booleanAttribute });
   public readonly placeholder = input('');
@@ -84,7 +83,7 @@ export class Combobox<TValue extends string> extends Control {
       const value = this.value();
       return { value, label: value === undefined ? undefined : this.#labelOf(value) };
     },
-    { equal: (left, right) => left.value === right.value && left.label === right.label },
+    { equal: samePicked },
   );
   /** The picked option's last known label, kept while a search leaves the option out. */
   readonly #pickedLabel = linkedSignal<Picked<TValue>, string | undefined>({
@@ -98,24 +97,15 @@ export class Combobox<TValue extends string> extends Control {
   });
   /** The picked value with its last known label; `text` reads it, so the label is remembered from the start. */
   readonly #shown = computed<Picked<TValue>>(() => ({ value: this.value(), label: this.#pickedLabel() }), {
-    equal: (left, right) => left.value === right.value && left.label === right.label,
+    equal: samePicked,
   });
   /**
    * The input's text: the typed query, or the picked option's label. The label also fills in when
    * its option arrives after the value (an async source), but never over typing in an open list.
    */
-  protected readonly text = linkedSignal<Picked<TValue>, string>({
-    source: this.#shown,
-    computation: (picked, previous) => {
-      // Signal forms hold "nothing picked" as '', so a form reset to '' clears the text as undefined does.
-      if (picked.value === undefined || picked.value === '') {
-        return '';
-      }
-      if (previous !== undefined && untracked(this.expanded)) {
-        return previous.value;
-      }
-      return picked.label ?? previous?.value ?? '';
-    },
+  protected readonly text = linkedSignal<TextSource<TValue>, string>({
+    source: computed(() => ({ picked: this.#shown(), query: this.query() }), { equal: sameTextSource }),
+    computation: (source, previous) => textOf(source, previous?.value, untracked(this.expanded)),
   });
   /** The picked value while it is among the options; the listbox drops values it has no option for. */
   protected readonly selected = computed<TValue[]>(() => {
@@ -224,6 +214,11 @@ export class Combobox<TValue extends string> extends Control {
     return this.options()[index];
   }
 
+  /** Opens the list of matches, for a link that returns to them. */
+  public open(): void {
+    this.expanded.set(true);
+  }
+
   /** Puts the cursor in the input, for a shortcut that opens the box. */
   public focus(): void {
     this.field()?.nativeElement.focus();
@@ -274,7 +269,7 @@ export class Combobox<TValue extends string> extends Control {
 
   #restore(): void {
     const value = this.value();
-    this.text.set(value === undefined ? '' : (this.#pickedLabel() ?? this.text()));
+    this.text.set(value === undefined ? this.query() : (this.#pickedLabel() ?? this.text()));
   }
 
   #labelOf(value: TValue): string | undefined {

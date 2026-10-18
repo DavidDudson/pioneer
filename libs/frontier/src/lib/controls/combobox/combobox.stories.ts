@@ -151,6 +151,8 @@ export const DescribedKeyboard: ComboboxStory = {
 
 export const Picked: ComboboxStory = { args: { value: 'feat-12' } };
 
+export const WithQuery: ComboboxStory = { args: { query: 'feat' } };
+
 export const Loading: ComboboxStory = { args: { options: [], loading: true } };
 
 export const NoMatches: ComboboxStory = { args: { options: [] } };

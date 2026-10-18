@@ -5,7 +5,7 @@ import { RouterOutlet } from '@angular/router';
 import { TranslocoPipe, translateSignal } from '@jsverse/transloco';
 import { ColorMode, Link, Segmented, Shell, Stack, Text, Theme, ThemeStore, ToggleButton } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
-import { IDLE_SCHEDULER } from '@pioneer/shared/web';
+import { IDLE_SCHEDULER, ShellSearch } from '@pioneer/shared/web';
 
 import { AccountMenu } from './account-menu/account-menu.component';
 
@@ -28,6 +28,7 @@ import { AccountMenu } from './account-menu/account-menu.component';
 })
 export class App {
   protected readonly appearance = inject(ThemeStore);
+  protected readonly shellSearch = inject(ShellSearch);
   readonly #frontierLabel = translateSignal('shell.appearance.themes.frontier');
   readonly #tavernLabel = translateSignal('shell.appearance.themes.tavern');
   protected readonly themes = computed<readonly SelectOption<Theme>[]>(() => [

@@ -624,6 +624,12 @@ Behaviour:
   every tier reads and writes and which survives `JSON.stringify`. The page tier's host keeps it in the URL as above.
   Every tier loads the same cached names, mechanics and description bundles through the content loader, and the tier
   only changes which regions `pio-content-browser-view` draws.
+- The character sheet docks the content search in its drawer (`fr-drawer`, ADR-0065). `pio-content-side-panel` is the
+  shell's global search (same name matches, merged server results and combobox) with the picked entry read under it
+  (the `preview` tier) and a link back to the results. The drawer being open, the words and the entry are in the
+  address (`drawer`, `sq`, `se` as `kind:name`), so a reload restores them. The character context may not import the
+  content one, so the app provides the panel through `SHEET_SIDE_PANEL`; while it is mounted the shell search is
+  hidden (`ShellSearch`) and the panel takes the shortcut.
 - An entry opens at `/content/:kind/:slug`, the kind and the name part of its slug (`/content/feat/power-attack`), public
   like the list. The page shows the entry with `pio-entry-preview` in full: the summary until its description shard
   loads, then the description. It loads the kinds the browser lists and conditions beside the entry's own, so a
