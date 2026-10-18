@@ -29,7 +29,10 @@
       "requirementsUnknown": "Whether its requirements are met depends on the situation.",
       "requirementsText": "Check its requirements before using it.",
       "untrained": "Needs {rank} proficiency in {skills}.",
-      "frequencySpent": "Already used {per, select, turn {this turn} round {this round} minute {this minute} ten-minutes {in the last 10 minutes} hour {this hour} twenty-four-hours {in the last 24 hours} day {today} week {this week} month {this month} year {this year} other {as often as it allows}}."
+      "frequencySpent": "Already used {per, select, turn {this turn} round {this round} minute {this minute} ten-minutes {in the last 10 minutes} hour {this hour} twenty-four-hours {in the last 24 hours} day {today} week {this week} month {this month} year {this year} other {as often as it allows}}.",
+      "formCantCast": "Can't cast spells in {form}.",
+      "formCantSpeak": "Can't speak in {form}.",
+      "formNoHands": "Has no hands to use in {form}."
     }
   }
 }

@@ -1,6 +1,7 @@
 import type { FormulaValue, ResolveReference } from '@pioneer/rules/formula';
 import { Truth } from '@pioneer/rules/predicate';
-import { FormMovement, ModifierType, RuleElementKey, RuleNumber } from '@pioneer/rules/sdk';
+import type { PredicateFacts } from '@pioneer/rules/predicate';
+import { FormMovement, ModifierType, RollOption, RuleElementKey, RuleNumber } from '@pioneer/rules/sdk';
 import type { BattleFormElement, Origin, RuleValue, Selector } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 
@@ -26,6 +27,9 @@ export interface FormInPlay {
 const SKILL_PREFIX = 'skill:';
 const SPEED_PREFIX = 'speed:';
 const AC = 'ac';
+
+/** Where the character's traits are written: `self:trait:humanoid`. */
+const TRAIT_PREFIX = 'self:trait:';
 
 /** A speed the form does not list is one the character no longer has. */
 const NO_SPEED = RuleNumber.parse(0);
@@ -182,4 +186,16 @@ function formResult(result: StatisticValue, { form, replacement, lines, base, va
   return ownStands
     ? { ...result, form: reported }
     : { ...result, lines, computed: value, total: value, form: reported };
+}
+
+/**
+ * The facts with the battle form's traits added as the character's own (`self:trait:plant`), so a predicate reads
+ * the form's traits beside the ones the character has. The form is picked on the facts as they were here, but
+ * a form whose predicate reads a trait it grants is tested again on these, so a form should not depend on its own traits.
+ */
+export function factsUnderForm(inputs: ModifierInputs): PredicateFacts {
+  const traits = battleFormInPlay(inputs)?.form.traits ?? [];
+  return traits.length === 0
+    ? inputs.facts
+    : inputs.facts.plus(traits.map((trait) => RollOption.parse(`${TRAIT_PREFIX}${trait}`)));
 }

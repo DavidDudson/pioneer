@@ -1,11 +1,13 @@
 import { evaluatePredicate, Truth } from '@pioneer/rules/predicate';
 import type { PredicateFacts } from '@pioneer/rules/predicate';
 import { ActionMode, Proficiency } from '@pioneer/rules/sdk';
-import type { ActionCost, ActionData, ContentId, Origin, Selector } from '@pioneer/rules/sdk';
+import type { ActionCost, ActionData, ContentId, Origin, Selector, Trait } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor, ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
+import type { FormInPlay } from './battle-form';
+import { formBlockers } from './battle-form-actions';
 import { EngineMessage } from './messages';
 import type { StatisticResult, StatisticValue } from './statistic-result';
 
@@ -39,6 +41,10 @@ export interface ActionCandidate {
   readonly id: ContentId;
   readonly action: ActionData;
   readonly origin: ActionOrigin;
+  /** The traits of the entry the action is: `manipulate`, `auditory`. None when absent. */
+  readonly traits?: readonly Trait[];
+  /** Whether using it casts a spell: the Cast a Spell action, or a spell. */
+  readonly casts?: boolean;
 }
 
 /** What the engine reads to decide which actions are usable. */
@@ -52,6 +58,8 @@ export interface AvailableActionsInput {
   readonly spent: ReadonlySet<ContentId>;
   /** Statistics to roll an action with, by selector. */
   readonly statistics: ReadonlyMap<Selector, StatisticResult>;
+  /** The battle form in force, which can forbid casting, speaking and using hands; none when there is none. */
+  readonly form?: FormInPlay | undefined;
 }
 
 /** One action on a character's list and whether it can be used now. */
@@ -118,6 +126,7 @@ function blockers(candidate: ActionCandidate, input: AvailableActionsInput): rea
   if (action.frequency !== undefined && input.spent.has(id)) {
     reasons.push(message(EngineMessage.ActionFrequencySpent, { per: action.frequency.per }));
   }
+  reasons.push(...formBlockers({ traits: candidate.traits ?? [], casts: candidate.casts === true }, input.form));
   return reasons;
 }
 
@@ -167,9 +176,10 @@ function availableAction(candidate: ActionCandidate, input: AvailableActionsInpu
 /**
  * The actions a character has right now, each with whether it can be used and why not (play-and-campaigns.md,
  * "Actions and the action economy"). An action is unavailable when its `requirements` predicate is false, no skill it
- * uses is at its `minimumProficiency`, or its frequency has no uses left; conditional when its requirements cannot be
- * tested, because the predicate's answer is unknown or they are only wording; available otherwise. An action offered
- * twice appears once, the first offer winning. Order follows the candidates.
+ * uses is at its `minimumProficiency`, its frequency has no uses left, or the battle form in force forbids what it
+ * needs (casting, speaking, using hands); conditional when its requirements cannot be tested, because the
+ * predicate's answer is unknown or they are only wording; available otherwise. An action offered twice appears once,
+ * the first offer winning. Order follows the candidates.
  */
 export function availableActions(input: AvailableActionsInput): readonly AvailableAction[] {
   const seen = new Set<ContentId>();

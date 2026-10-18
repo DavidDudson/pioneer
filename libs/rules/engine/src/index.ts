@@ -94,3 +94,4 @@ export {
   type SetEffect,
 } from './effect-line';
 export { type EffectScope, summariseEffects, type SummarisedEntry } from './effect-summary';
+export { battleFormInPlay, factsUnderForm, type FormInPlay } from './battle-form';
