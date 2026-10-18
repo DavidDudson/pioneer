@@ -31,6 +31,8 @@ extend-ignore-re = [
   # Names and terms: Ded Moroz-style fey patrons (Dark Archive), a ba-sadhak (Impossible Lands).
   "Ded (Bolota|Bereza)",
   "ba-sadhak",
+  # A French term in a creature name (NPC Core): Idée Fixe.
+  "Idée Fixe",
   # The ordinal suffixes in the staff matcher's rank label pattern.
   "\\(\\?:st\\|nd\\|rd\\|th\\)",
 ]

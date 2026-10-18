@@ -1,0 +1,326 @@
+[
+  {
+    "id": "6b30c66d-a072-5df1-9192-c343d28bc301",
+    "pack": "npc-core",
+    "kind": "equipment",
+    "slug": "equipment:doll-exquisite-surprise",
+    "name": "Doll (Exquisite surprise)",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This doll contains a hidden compartment or pouch capable of holding a single object of up to light Bulk—typically a bell, rattle, or dried flowers."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Hiding an object inside this beautifully crafted surprise doll grants you a +1 item bonus to Stealth checks made to Conceal an Item, as the compartment is particularly well-hidden and weighted to ensure the doll doesn't feel off-balance with an item inside."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["action:conceal-an-object"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.T99WI1hocCXE7RI0"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "d28978dc-2f2d-53c8-863d-c733f4f32734",
+    "pack": "npc-core",
+    "kind": "equipment",
+    "slug": "equipment:doll-surprise",
+    "name": "Doll (Surprise)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This doll contains a hidden compartment or pouch capable of holding a single object of up to light Bulk—typically a bell, rattle, or dried flowers."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.H5N2CacR3pNtanKB"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "c6a034b2-0f63-580b-9db1-20b312c78d5b",
+    "pack": "npc-core",
+    "kind": "equipment",
+    "slug": "equipment:malefic-mirror",
+    "name": "Malefic Mirror",
+    "level": 11,
+    "rarity": "rare",
+    "traits": ["invested", "occult", "scrying", "unholy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This magic mirror is the conduit between the mirror seer and the source of their power. Any creature who looks in this silver mirror can speak with the entity the mirror is linked to, but only a creature who has made a pact with the entity can activate the "
+          },
+          {
+            "type": "text",
+            "text": "malefic mirror",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". If the mirror is shattered, any spells created by the mirror end (it has AC 5, object immunities, Hardness 5, HP 20, and BT 10)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Peer Beyond",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 10 minutes (concentrate, occult)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The mirror casts a DC 28 "
+          },
+          {
+            "type": "ref",
+            "id": "d86cf275-4547-59c7-87b4-41d84f69e524"
+          },
+          {
+            "type": "text",
+            "text": " spell for the benefit of the creature activating it. The target must be within the owner's domain (typically within 20 miles of the mirror). The viewer's familiarity with the target doesn't affect the spell's DC."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Mirror Mimicry",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 10 minutes (concentrate, manipulate, occult)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The mirror transforms its owner's appearance into an exact copy of any humanoid the owner desires, with a pale mimicry of that creature's abilities. This has the effects of a 3rd-rank "
+          },
+          {
+            "type": "ref",
+            "id": "adcc4c8f-05ae-5440-83d0-9e88ad22209b"
+          },
+          {
+            "type": "text",
+            "text": " spell with a duration of 4 hours. The activation can also be Dismissed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In addition, the disguised creature can automatically create illusions to mimic the abilities of the subject, with the appearance of spells, abilities, or even impressive physical deeds. These deeds are entirely illusory and can be disbelieved with a successful "
+          },
+          {
+            "type": "check",
+            "statistic": "perception",
+            "dc": 28
+          },
+          {
+            "type": "text",
+            "text": " check. If an illusion makes it appear as though the creature moved farther or differently than they actually can (such as making them fly or teleport), the actual creature turns "
+          },
+          {
+            "type": "ref",
+            "id": "53cf375b-c3fa-5d92-afde-135a3c001674"
+          },
+          {
+            "type": "text",
+            "text": ", and their illusory image persists until the end of the creature's next turn. If the creature and their illusory self aren't in the same space at that point, the activation ends, revealing the deception."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.5oXpYSNiqxVWSafq"
+    },
+    "data": {
+      "bulk": 2,
+      "usage": {
+        "type": "other"
+      }
+    }
+  },
+  {
+    "id": "d9ecb4ad-9575-5191-adc9-dea27b26acd6",
+    "pack": "npc-core",
+    "kind": "equipment",
+    "slug": "equipment:sun-goggles",
+    "name": "Sun Goggles",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These goggles are usually fitted with a polished piece of yellowtoned crystal, allowing the wearer some protection against the brightness of the sun. Near the Crown of the World, a version of these goggles exists where the crystal is replaced by thin slits, mitigating the effects of the sun's reflection on snow."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When wearing these goggles, you gain a +1 item bonus to saving throws against effects that could inflict the "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " condition."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["inflicts:dazzled"],
+        "display": {
+          "label": "Sun Goggles (Against Effects That Inflict Dazzled)"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.kK0ClM2NkZYKVs2Z"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 20
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn",
+        "slot": "eyepiece"
+      }
+    }
+  }
+]

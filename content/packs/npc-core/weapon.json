@@ -1,0 +1,304 @@
+[
+  {
+    "id": "5281f333-e4d0-5a14-bf73-8ab90b0c5275",
+    "pack": "npc-core",
+    "kind": "weapon",
+    "slug": "weapon:musket-staff-of-force",
+    "name": "Musket Staff of Force",
+    "level": 4,
+    "rarity": "rare",
+    "traits": ["concussive", "fatal-d10", "force", "magical", "staff"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A stock carved of enchanted wood forms the base for a "
+          },
+          {
+            "type": "text",
+            "text": "musket staff",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", a magic weapon used by a gunwitch as both a powerful firearm and magical staff. Many other variants exist with different spells. This "
+          },
+          {
+            "type": "text",
+            "text": "+1 flintlock musket",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " has a "
+          },
+          {
+            "type": "ref",
+            "id": "59604242-7cd0-52ac-aae9-ec9a8ac5c0b4"
+          },
+          {
+            "type": "text",
+            "text": " permanently attached to it, and the musket's "
+          },
+          {
+            "type": "text",
+            "text": "weapon potency",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rune (and any other runes) applies to Strikes with the stock as well. The "
+          },
+          {
+            "type": "text",
+            "text": "musket staff",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " also contains spells and can be prepared following the same rules as a staff."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Cantrip",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "6dee4f5d-f584-5402-af2a-d3738ec685b3"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "1st",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "1c97409b-bd67-5df2-a7d3-a49aff4d3896"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.mfYwthsSMkDS8djw"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 100
+        }
+      },
+      "bulk": 1,
+      "category": "simple",
+      "group": "firearm",
+      "baseItem": "flintlock-musket",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing"
+      },
+      "range": 70,
+      "reload": 1,
+      "ammunition": {
+        "type": "rounds-flintlock-musket",
+        "capacity": 1
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "563339bc-792d-5815-8fe5-358f2fe32eba",
+    "pack": "npc-core",
+    "kind": "weapon",
+    "slug": "weapon:musket-staff-of-void",
+    "name": "Musket Staff of Void",
+    "level": 4,
+    "rarity": "rare",
+    "traits": ["concussive", "fatal-d10", "magical", "staff", "void"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A stock carved of enchanted wood forms the base for a "
+          },
+          {
+            "type": "text",
+            "text": "musket staff",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", a magic weapon used by a gunwitch as both a powerful firearm and magical staff. Many other variants exist with different spells. This "
+          },
+          {
+            "type": "text",
+            "text": "+1 flintlock musket",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " has a "
+          },
+          {
+            "type": "ref",
+            "id": "59604242-7cd0-52ac-aae9-ec9a8ac5c0b4"
+          },
+          {
+            "type": "text",
+            "text": " permanently attached to it, and the musket's "
+          },
+          {
+            "type": "text",
+            "text": "weapon potency",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rune (and any other runes) applies to Strikes with the stock as well. The "
+          },
+          {
+            "type": "text",
+            "text": "musket staff",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " also contains spells and can be prepared following the same rules as a staff."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Cantrip",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "bb65f478-400b-518d-a697-75f634f6dbc1"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "1st",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "c9d16d82-fcfd-5431-9d05-06caca157602"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.lsTTJ9GlHOu5o3bt"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 100
+        }
+      },
+      "bulk": 1,
+      "category": "simple",
+      "group": "firearm",
+      "baseItem": "flintlock-musket",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing"
+      },
+      "range": 70,
+      "reload": 1,
+      "ammunition": {
+        "type": "rounds-flintlock-musket",
+        "capacity": 1
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 1,
+        "property": []
+      }
+    }
+  }
+]

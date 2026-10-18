@@ -1,0 +1,537 @@
+[
+  {
+    "id": "a61648bc-b97b-5bb1-94db-fe9b45d9fcec",
+    "pack": "npc-core",
+    "kind": "consumable",
+    "slug": "consumable:diglys-oil-of-sympathy-greater",
+    "name": "Digly's Oil of Sympathy (Greater)",
+    "level": 12,
+    "rarity": "rare",
+    "traits": ["consumable", "healing", "magical", "oil"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This thick, red liquid has a pungent—but not unpleasant—smell. You pour the oil onto a weapon when activating it. If the weapon has damaged a creature within the last 10 minutes, the most recent creature damaged by the weapon regains "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d10+20"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points. The creature is then temporarily immune to "
+          },
+          {
+            "type": "text",
+            "text": "Digly's oil of sympathy",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " for 10 minutes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The magic relies on the malice behind the attack, so the weapon must have been used against an enemy of the attacker. In other words, someone can't voluntarily take damage from a friend's weapon, then heal from it—a fact that made it very difficult for Sir Kenelm Digly to test the oil during its development."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.HWInHkg9upnnSJi2"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 400
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "damage": {
+        "formula": "6d10+20",
+        "kind": "healing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "d45b200f-8188-5acb-ab9b-9dc955bd2847",
+    "pack": "npc-core",
+    "kind": "consumable",
+    "slug": "consumable:diglys-oil-of-sympathy-lesser",
+    "name": "Digly's Oil of Sympathy (Lesser)",
+    "level": 3,
+    "rarity": "rare",
+    "traits": ["consumable", "healing", "magical", "oil"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This thick, red liquid has a pungent—but not unpleasant—smell. You pour the oil onto a weapon when activating it. If the weapon has damaged a creature within the last 10 minutes, the most recent creature damaged by the weapon regains "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d10+5"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points. The creature is then temporarily immune to "
+          },
+          {
+            "type": "text",
+            "text": "Digly's oil of sympathy",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " for 10 minutes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The magic relies on the malice behind the attack, so the weapon must have been used against an enemy of the attacker. In other words, someone can't voluntarily take damage from a friend's weapon, then heal from it—a fact that made it very difficult for Sir Kenelm Digly to test the oil during its development."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Mgrrrb7iWmDTCd2u"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 12
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "damage": {
+        "formula": "2d10+5",
+        "kind": "healing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "09fc8922-6c96-5429-b6cf-efb4aef02d6c",
+    "pack": "npc-core",
+    "kind": "consumable",
+    "slug": "consumable:diglys-oil-of-sympathy-major",
+    "name": "Digly's Oil of Sympathy (Major)",
+    "level": 18,
+    "rarity": "rare",
+    "traits": ["consumable", "healing", "magical", "oil"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This thick, red liquid has a pungent—but not unpleasant—smell. You pour the oil onto a weapon when activating it. If the weapon has damaged a creature within the last 10 minutes, the most recent creature damaged by the weapon regains "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "8d10+30"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points. The creature is then temporarily immune to "
+          },
+          {
+            "type": "text",
+            "text": "Digly's oil of sympathy",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " for 10 minutes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The magic relies on the malice behind the attack, so the weapon must have been used against an enemy of the attacker. In other words, someone can't voluntarily take damage from a friend's weapon, then heal from it—a fact that made it very difficult for Sir Kenelm Digly to test the oil during its development."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.cEHi51OKIQ4wEPFc"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5000
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "damage": {
+        "formula": "8d10+30",
+        "kind": "healing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "fa735b92-4319-5fc8-af51-200478659e30",
+    "pack": "npc-core",
+    "kind": "consumable",
+    "slug": "consumable:diglys-oil-of-sympathy-minor",
+    "name": "Digly's Oil of Sympathy (Minor)",
+    "level": 1,
+    "rarity": "rare",
+    "traits": ["consumable", "healing", "magical", "oil"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This thick, red liquid has a pungent—but not unpleasant—smell. You pour the oil onto a weapon when activating it. If the weapon has damaged a creature within the last 10 minutes, the most recent creature damaged by the weapon regains "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d10"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points. The creature is then temporarily immune to "
+          },
+          {
+            "type": "text",
+            "text": "Digly's oil of sympathy",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " for 10 minutes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The magic relies on the malice behind the attack, so the weapon must have been used against an enemy of the attacker. In other words, someone can't voluntarily take damage from a friend's weapon, then heal from it—a fact that made it very difficult for Sir Kenelm Digly to test the oil during its development."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.upgNYvc48y8jUUEO"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "damage": {
+        "formula": "1d10",
+        "kind": "healing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "b8235288-e75a-5e68-8cff-ca07a11446f6",
+    "pack": "npc-core",
+    "kind": "consumable",
+    "slug": "consumable:diglys-oil-of-sympathy-moderate",
+    "name": "Digly's Oil of Sympathy (Moderate)",
+    "level": 6,
+    "rarity": "rare",
+    "traits": ["consumable", "healing", "magical", "oil"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This thick, red liquid has a pungent—but not unpleasant—smell. You pour the oil onto a weapon when activating it. If the weapon has damaged a creature within the last 10 minutes, the most recent creature damaged by the weapon regains "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d10+10"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points. The creature is then temporarily immune to "
+          },
+          {
+            "type": "text",
+            "text": "Digly's oil of sympathy",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " for 10 minutes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The magic relies on the malice behind the attack, so the weapon must have been used against an enemy of the attacker. In other words, someone can't voluntarily take damage from a friend's weapon, then heal from it—a fact that made it very difficult for Sir Kenelm Digly to test the oil during its development."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.T2DGpe7qXEuQEKWH"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "damage": {
+        "formula": "3d10+10",
+        "kind": "healing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]
