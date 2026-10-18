@@ -42,12 +42,27 @@ function byLabel(left: OfferedOption, right: OfferedOption): number {
 }
 
 /**
+ * Whether the candidate carries a trait named like the character's class or ancestry, when the query asks for one
+ * (`ownTrait`); with two classes (Dual Class) either will do. A query that asks for none is met by every candidate.
+ */
+function sharesOwnTrait({ ownTrait }: ChoiceQuery, candidateFacts: PredicateFacts): boolean {
+  if (ownTrait === undefined) {
+    return true;
+  }
+  return candidateFacts.tails(ownTrait).some((slug) => candidateFacts.has(`item:trait:${slug}`));
+}
+
+/**
  * Every entry of the query's kind whose filter is not false, read against the character's facts with the entry's
  * own options under `item:`. One whose filter is unknown carries when it would hold. Sorted by name, then id.
  */
-function queriedOptions({ kind, filter }: ChoiceQuery, { facts, lookup }: ChoiceContext): OfferedOption[] {
+function queriedOptions(query: ChoiceQuery, { facts, lookup }: ChoiceContext): OfferedOption[] {
+  const { kind, filter } = query;
   const offered = lookup.ofKind(kind).flatMap((candidate): OfferedOption[] => {
     const candidateFacts = facts.withNamespace(CANDIDATE_NAMESPACE, candidate.rollOptions);
+    if (!sharesOwnTrait(query, candidateFacts)) {
+      return [];
+    }
     const truth = evaluatePredicate(filter, candidateFacts);
     if (truth === Truth.False) {
       return [];
@@ -72,14 +87,15 @@ function isListed(choices: readonly ChoiceOption[], value: ChoiceValue, facts: P
 }
 
 /** Whether `value` is an entry of the query's kind whose filter is not false: the query tested on that one entry. */
-function isQueried({ kind, filter }: ChoiceQuery, value: ChoiceValue, { facts, lookup }: ChoiceContext): boolean {
+function isQueried(query: ChoiceQuery, value: ChoiceValue, { facts, lookup }: ChoiceContext): boolean {
+  const { kind, filter } = query;
   const id = ContentId.safeParse(value);
   const candidate = id.success ? lookup.entry(id.data) : undefined;
   if (candidate?.kind !== kind) {
     return false;
   }
   const candidateFacts = facts.withNamespace(CANDIDATE_NAMESPACE, candidate.rollOptions);
-  return evaluatePredicate(filter, candidateFacts) !== Truth.False;
+  return sharesOwnTrait(query, candidateFacts) && evaluatePredicate(filter, candidateFacts) !== Truth.False;
 }
 
 /** Whether the slot offers `value`, without working out the rest of what it offers. */

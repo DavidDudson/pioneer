@@ -11,8 +11,8 @@ import {
   skillFixtures,
 } from '@pioneer/character/domain/testing';
 import type { FeatSlotFixture } from '@pioneer/character/domain/testing';
-import { ContentRegistry, ContentText, Level, Slug } from '@pioneer/rules/sdk';
-import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
+import { ContentId, ContentKind, ContentRegistry, ContentText, Level, Slug } from '@pioneer/rules/sdk';
+import { ContentPackBuilder, CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 
 import { entryLookup } from './content-lookup';
 import { placeFeats } from './feat-placement';
@@ -82,5 +82,61 @@ describe('placeFeats', () => {
       feat('Skill Training', 1, { choice: PathbuilderName.parse('Athletics') }),
     ]);
     expect(Object.values(choices)).toContain(Slug.parse('athletics'));
+  });
+});
+
+describe('placeFeats where two slots of a level offer the same feat', () => {
+  const pack = new ContentPackBuilder()
+    .withId('labelled-slots')
+    .withClass('rogue', ['dex'], {
+      rules: [
+        {
+          key: 'ChoiceSet',
+          flag: 'class-feat',
+          prompt: 'Rogue feat',
+          choices: { kind: 'feat', filter: [{ or: ['item:trait:rogue', 'item:trait:archetype'] }] },
+        },
+        { key: 'GrantItem', item: { choice: 'class-feat' } },
+        {
+          key: 'ChoiceSet',
+          flag: 'free-archetype',
+          prompt: 'Free archetype feat',
+          choices: { kind: 'feat', filter: ['item:trait:archetype'] },
+        },
+        { key: 'GrantItem', item: { choice: 'free-archetype' } },
+      ],
+    })
+    .withFeat('sneak-dedication', { traits: ['archetype', 'dedication'] })
+    .build();
+  const labelledRegistry = new ContentRegistry();
+  labelledRegistry.register(pack);
+  const labelledSlots = { ...slotContent(labelledRegistry), namespaces: CORE_NAMESPACES };
+  const dedication = ContentId.parse(
+    new ContentPackBuilder().withId('labelled-slots').idOf(ContentKind.Feat, 'sneak-dedication'),
+  );
+  const labelledLookup = entryLookup({
+    [ImportKind.Feat]: [{ id: dedication, name: ContentText.parse('Sneak Dedication') }],
+  });
+  const rogue = new CharacterBuilder()
+    .picking(
+      'class',
+      ContentId.parse(new ContentPackBuilder().withId('labelled-slots').idOf(ContentKind.Class, 'rogue')),
+    )
+    .atLevel(1)
+    .build().document;
+
+  const placedIn = (label: string): string | undefined => {
+    const { choices } = placeFeats(rogue, { slots: labelledSlots, lookup: labelledLookup }, [
+      feat('Sneak Dedication', 1, { slot: PathbuilderName.parse(label) }),
+    ]);
+    return Object.keys(choices)[0];
+  };
+
+  test('puts an archetype feat in the slot Pathbuilder labels, the class feat slot or the free archetype one', () => {
+    const classSlot = placedIn('Rogue Feat 1');
+    const freeSlot = placedIn('Free Archetype 1');
+    expect(classSlot).toBeDefined();
+    expect(freeSlot).toBeDefined();
+    expect(classSlot).not.toBe(freeSlot);
   });
 });
