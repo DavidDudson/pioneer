@@ -7,7 +7,7 @@ import {
   turnAllows,
 } from '@pioneer/character/domain';
 import type { ActionCostRange, Character, ResourcesSpent, SpendCost, TurnState } from '@pioneer/character/domain';
-import { ActionOriginKind } from '@pioneer/rules/engine';
+import { ActionOriginKind, ActionStatus } from '@pioneer/rules/engine';
 import type { AvailableAction } from '@pioneer/rules/engine';
 import { ACTION_COUNT, ActionCost, ContentKind, Trait } from '@pioneer/rules/sdk';
 import type { ContentEntry, ContentId, ContentRegistry } from '@pioneer/rules/sdk';
@@ -83,7 +83,7 @@ export function sheetActions(
       origin: action.origin,
       source:
         action.origin.kind === ActionOriginKind.Granted ? entries.get(action.origin.source.entry)?.name : undefined,
-      status: action.status,
+      status: fit.affordable === false ? ActionStatus.Unavailable : action.status,
       reasons: [...action.reasons, ...fit.reasons],
       roll: action.roll,
       priority: priorities.get(action.action),
