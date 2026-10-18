@@ -10,6 +10,7 @@ export const mwangiExpansePack: PackLoader;
 export const tianXiaCharacterGuidePack: PackLoader;
 export const darkArchiveRemasteredPack: PackLoader;
 export const monsterCorePack: PackLoader;
+export const monsterCore2Pack: PackLoader;
 export const treasureVaultPack: PackLoader;
 export const secretsOfMagicPack: PackLoader;
 export const rageOfElementsPack: PackLoader;

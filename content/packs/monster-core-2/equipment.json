@@ -1,0 +1,113 @@
+[
+  {
+    "id": "63e0b211-7ca2-5892-badb-359839a70bec",
+    "pack": "monster-core-2",
+    "kind": "equipment",
+    "slug": "equipment:flawless-celestial-shawl",
+    "name": "Flawless Celestial Shawl",
+    "level": 9,
+    "rarity": "rare",
+    "traits": ["artifact", "divine", "invested"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each "
+          },
+          {
+            "type": "text",
+            "text": "flawless celestial shawl",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " functions only for a specifc tennin and is the culmination of their immortal cultivation. The sash is made of celestial silken threads stronger than adamantine yet lighter than gossamer. The tennin can draw thread from the "
+          },
+          {
+            "type": "text",
+            "text": "flawless celestial shawl",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to serve as a "
+          },
+          {
+            "type": "ref",
+            "id": "6e3f8ed1-ab28-5ce8-8241-de1b678a01ee",
+            "label": "sterling artisan's toolkit"
+          },
+          {
+            "type": "text",
+            "text": " and workshop to "
+          },
+          {
+            "type": "ref",
+            "id": "cffa6a55-a0d3-5be2-8169-ba9cf4745e57"
+          },
+          {
+            "type": "text",
+            "text": ". The sash can be used to work with precious materials of any grade. On any Crafting check the tennin attempts using the shawl, they use the outcome one degree of success better than the result of their roll."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activation—Reweave",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The tennin uses the sash to "
+          },
+          {
+            "type": "ref",
+            "id": "0c62b450-d8c6-5051-b961-b7ce1aeb349a"
+          },
+          {
+            "type": "text",
+            "text": " an item. This Repair activity loses the exploration trait."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.iyXC3tIX3VmjCx6G"
+    },
+    "data": {
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn",
+        "slot": "garment"
+      }
+    }
+  }
+]

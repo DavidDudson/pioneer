@@ -1,0 +1,20 @@
+[
+  {
+    "id": "f14d179a-1584-59f0-a180-c4c668d3780c",
+    "pack": "core-rules",
+    "kind": "sense",
+    "slug": "sense:bloodsense",
+    "name": "Bloodsense",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  }
+]

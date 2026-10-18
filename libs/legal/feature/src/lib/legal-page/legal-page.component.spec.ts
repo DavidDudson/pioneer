@@ -107,6 +107,7 @@ describe('LegalPage', () => {
       'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
       'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
       'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
+      'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
       'https://github.com/foundryvtt/pf2e',
     ]);
   });
@@ -118,6 +119,7 @@ describe('LegalPage', () => {
       'Player Core',
       'GM Core',
       'Monster Core',
+      'Monster Core 2',
       'Player Core 2',
       'Lost Omens Divine Mysteries',
       'Treasure Vault (Remastered)',
@@ -152,7 +154,7 @@ describe('LegalPage', () => {
     ]);
     const licenses = books.map((book) => /Paizo · (?<license>.+)$/u.exec(book.textContent.trim())?.groups?.['license']);
     expect(licenses).toStrictEqual([
-      ...Array.from({ length: 8 }, () => 'ORC License'),
+      ...Array.from({ length: 9 }, () => 'ORC License'),
       ...Array.from({ length: 3 }, () => 'Open Game License 1.0a'),
       'ORC License',
       'ORC License',
@@ -191,6 +193,7 @@ describe('LegalPage', () => {
       expect.stringMatching(/^Treasure Vault \(Remastered\)\s*Foundry release pf2e-8\.6\.0$/u),
       expect.stringMatching(/^GM Core\s*Foundry release pf2e-8\.6\.0$/u),
       expect.stringMatching(/^Monster Core\s*Foundry release pf2e-8\.6\.0$/u),
+      expect.stringMatching(/^Monster Core 2\s*Foundry release pf2e-8\.6\.0$/u),
       expect.stringMatching(/^Howl of the Wild\s*Foundry release pf2e-8\.6\.0$/u),
       expect.stringMatching(/^War of Immortals\s*Foundry release pf2e-8\.6\.0$/u),
       expect.stringMatching(/^Lost Omens The Mwangi Expanse\s*Foundry release pf2e-8\.6\.0$/u),

@@ -1,0 +1,1958 @@
+[
+  {
+    "id": "d91aad78-57f4-5244-bb79-736a47e360cb",
+    "pack": "monster-core-2",
+    "kind": "effect",
+    "slug": "effect:effect-activate-defenses",
+    "name": "Effect: Activate Defenses",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to AC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.ya8r3IdzQ7QGNH8N"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "d39d85f7-7493-5512-b6f2-8717cc618a03",
+    "pack": "monster-core-2",
+    "kind": "effect",
+    "slug": "effect:effect-air-of-sickness",
+    "name": "Effect: Air of Sickness",
+    "level": 15,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature takes a –2 status penalty to saves made to resist diseases."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": -2,
+        "predicate": [
+          {
+            "or": ["item:trait:disease", "option:remove-sickened"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.XSXMGb5h4Um6YXiT"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "5778e355-b546-5e98-a8d0-730f408b66d9",
+    "pack": "monster-core-2",
+    "kind": "effect",
+    "slug": "effect:effect-alter-dweomer",
+    "name": "Effect: Alter Dweomer",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Divine",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You gain a +1 status bonus to all skill checks."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Occult",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You become invisible."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Primal",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You gain 10 temporary Hit Points."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-alter-dweomer",
+        "choices": [
+          {
+            "value": "divine",
+            "label": "Divine"
+          },
+          {
+            "value": "occult",
+            "label": "Occult"
+          },
+          {
+            "value": "primal",
+            "label": "Primal"
+          }
+        ],
+        "prompt": "Select a tradition.",
+        "rollOption": "alter-dweomer"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "status",
+        "value": 1,
+        "predicate": ["alter-dweomer:divine"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "53cf375b-c3fa-5d92-afde-135a3c001674",
+        "predicate": ["alter-dweomer:occult"]
+      },
+      {
+        "key": "TempHP",
+        "value": 10,
+        "predicate": ["alter-dweomer:primal"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.7xzdcYREm0zdkBwc"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "b5e67fe6-fcd0-5dc2-bee1-f3f39175dd93",
+    "pack": "monster-core-2",
+    "kind": "effect",
+    "slug": "effect:effect-archons-protection",
+    "name": "Effect: Archon's Protection",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance to all damage against the triggering damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.JZVSXgzu52tJGO6D"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "242a503d-a320-5695-b054-2a6315700861",
+    "pack": "monster-core-2",
+    "kind": "effect",
+    "slug": "effect:effect-aura-of-reflection",
+    "name": "Effect: Aura of Reflection",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are dazzled and take a –2 penalty to Will saves against the ninkonda's abilities."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "943dfd55-ad09-5abf-9138-95a6149d3302"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.BmptyIaMhq7siOqR"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "e4149ed9-35f6-5a41-9edf-f7b24f0394d5",
+    "pack": "monster-core-2",
+    "kind": "effect",
+    "slug": "effect:effect-cloak-in-embers",
+    "name": "Effect: Cloak in Embers",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain fire resistance 10 against the incoming attack."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": 10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.ZAEn7KA7Vdb1ruIr"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "e9ad8b7b-7c01-50bc-a378-06ca3f13dd95",
+    "pack": "monster-core-2",
+    "kind": "effect",
+    "slug": "effect:effect-compel-courage",
+    "name": "Effect: Compel Courage",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to attack rolls, damage rolls, and saves against fear effects. If you're not a velstrac, you take 1 persistent bleed damage and can't attempt a flat check to end this damage as long as you're compelled."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack", "damage"],
+        "type": "status",
+        "value": 1
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 1,
+        "predicate": ["item:trait:fear"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.VfEM4AXrlPC3tgHX"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "45b9c024-b6a1-574c-a609-91a161f2057a",
+    "pack": "monster-core-2",
+    "kind": "effect",
+    "slug": "effect:effect-consecration-vulnerability",
+    "name": "Effect: Consecration Vulnerability",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain weakness 30 to holy."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.92D7H9SiMSK3rNlM"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "2213f853-3f63-55f6-a819-432ef7b13ca9",
+    "pack": "monster-core-2",
+    "kind": "effect",
+    "slug": "effect:effect-crush-chitin",
+    "name": "Effect: Crush Chitin",
+    "level": 9,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a -2 circumstance penalty to AC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": -2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.7OJrBAEah6YFLzcK"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "699a7c74-6176-5797-8ca4-c62e0751738f",
+    "pack": "monster-core-2",
+    "kind": "effect",
+    "slug": "effect:effect-curl-up",
+    "name": "Effect: Curl Up",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains a +2 circumstance bonus to AC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.QjgLHIgRXIk3KAOY"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "8bfdbb61-8a75-58e3-a87a-b6406421f0d7",
+    "pack": "monster-core-2",
+    "kind": "effect",
+    "slug": "effect:effect-despoiler",
+    "name": "Effect: Despoiler",
+    "level": 17,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –2 circumstance penalty to all saving throws against poisons, diseases, and drugs."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": -2,
+        "predicate": [
+          {
+            "or": ["item:trait:poison", "item:trait:disease", "item:trait:drug"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.itdoXvcDo8wwmTME"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "d2a49148-2537-5ef0-ac27-bb89125e4e89",
+    "pack": "monster-core-2",
+    "kind": "effect",
+    "slug": "effect:effect-distracting-whisper",
+    "name": "Effect: Distracting Whisper",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –2 circumstance penalty to your attack."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.qsvSWxRqVQofjDdH"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "a1ef5edb-50aa-50b6-b286-0b067db81b86",
+    "pack": "monster-core-2",
+    "kind": "effect",
+    "slug": "effect:effect-divine-aegis",
+    "name": "Effect: Divine Aegis",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to saving throws against non-divine magical effects and a -1 circumstance penalty to saves against divine effects."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 1,
+        "slug": "divine-aegis-bonus",
+        "predicate": [
+          {
+            "or": ["option:magical", "item:trait:arcane", "item:trait:primal", "item:trait:occult", "item:trait:divine"]
+          }
+        ]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["saving-throw"],
+        "slug": "divine-aegis-bonus",
+        "mode": "override",
+        "value": -1,
+        "predicate": ["item:trait:divine"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.e4HoYakV7SvwvcrH"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "1f8bd212-f762-5543-a72e-a791104802a4",
+    "pack": "monster-core-2",
+    "kind": "effect",
+    "slug": "effect:effect-draining-bite",
+    "name": "Effect: Draining Bite",
+    "level": 13,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain 10 temporary Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": 10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.iAZ7k5JkbEzuPYZW"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "82f5451e-7876-5e83-b113-6b2da45ea80e",
+    "pack": "monster-core-2",
+    "kind": "effect",
+    "slug": "effect:effect-dual-mind",
+    "name": "Effect: Dual Mind",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are clumsy 2 and take a –10-foot circumstance penalty to your Speed."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+        "value": 2
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "circumstance",
+        "value": -10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.F1HQADu6wNdT5ctT"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "1d6a4292-91d8-5ad0-b75a-4bbcff95249c",
+    "pack": "monster-core-2",
+    "kind": "effect",
+    "slug": "effect:effect-enliven-foliage",
+    "name": "Effect: Enliven Foliage",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –10-foot circumstance penalty to your Speeds."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "circumstance",
+        "value": -10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.4fmRhCljZ9l0Tr3J"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "a2d64c03-71f7-58da-bccf-7628d6c31027",
+    "pack": "monster-core-2",
+    "kind": "effect",
+    "slug": "effect:effect-feast-on-fear",
+    "name": "Effect: Feast on Fear",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you are the origin, you gain a status bonus to your Speeds. Otherwise, you take a status penalty to your Speed."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.pHm2UtSN3U82rJPt"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "f6ec732e-dd0f-57f1-88b0-416d1593f5be",
+    "pack": "monster-core-2",
+    "kind": "effect",
+    "slug": "effect:effect-fiery-form",
+    "name": "Effect: Fiery Form",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The blood hag gains the fire trait and a fly Speed of 60 feet, becomes immune to fire, and emits light as a torch."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Immunity",
+        "type": ["fire"]
+      },
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": 60
+      },
+      {
+        "key": "ActorTraits",
+        "add": ["fire"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.H99PJXU5cvJ4Oycm"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "10349fe7-c8a5-52ad-9fc6-8430191dba81",
+    "pack": "monster-core-2",
+    "kind": "effect",
+    "slug": "effect:effect-five-color-dance",
+    "name": "Effect: Five Color Dance",
+    "level": 9,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your worn or held clothing and equipment has its Hardness increased by 3, Hit Points increased by 20, and Broken Threshold increased by 10."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:armor", "item:equipped"],
+        "property": "hardness",
+        "mode": "add",
+        "value": 3
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:armor", "item:equipped"],
+        "property": "hp-max",
+        "mode": "add",
+        "value": 20
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:shield", "item:equipped"],
+        "property": "hardness",
+        "mode": "add",
+        "value": 3
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:shield", "item:equipped"],
+        "property": "hp-max",
+        "mode": "add",
+        "value": 20
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon", "item:equipped"],
+        "property": "hardness",
+        "mode": "add",
+        "value": 3
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon", "item:equipped"],
+        "property": "hp-max",
+        "mode": "add",
+        "value": 20
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.jhYlpTfRASb4P3r3"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "a19381cd-dc5a-5dfb-b31d-55caf5b33bbc",
+    "pack": "monster-core-2",
+    "kind": "effect",
+    "slug": "effect:effect-hurtful-critique",
+    "name": "Effect: Hurtful Critique",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature takes a –1 circumstance penalty to attack rolls (–2 on a critical failure)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.HKyMZobjOsd6WFuo"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "0858ba4e-2c41-5e39-9fc7-10a69ac16103",
+    "pack": "monster-core-2",
+    "kind": "effect",
+    "slug": "effect:effect-incessant-yammering",
+    "name": "Effect: Incessant Yammering",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –1 status penalty to Perception checks and Will saves."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception", "save:will"],
+        "type": "status",
+        "value": -1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.abxVJdBjmotub57z"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "ef51580f-eec3-5c18-b22a-981a0dc14980",
+    "pack": "monster-core-2",
+    "kind": "effect",
+    "slug": "effect:effect-loathsome-bite",
+    "name": "Effect: Loathsome Bite",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a status penalty to Charisma-based checks."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["cha-based"],
+        "type": "status",
+        "value": "-@item.value"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.LgZx5xotO08JzhVc"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      },
+      "badge": {
+        "type": "counter",
+        "value": 1,
+        "max": 3
+      }
+    }
+  },
+  {
+    "id": "afb218e1-af93-5f9c-b124-0d6946b22eb9",
+    "pack": "monster-core-2",
+    "kind": "effect",
+    "slug": "effect:effect-recount-epic",
+    "name": "Effect: Recount Epic",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to Acrobatics, Athletics, and Performance checks."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics", "skill:acrobatics", "skill:performance"],
+        "type": "untyped",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.82PN02Yy4GXcswy1"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "32830a5a-7c50-5176-a84d-a76b15c033a9",
+    "pack": "monster-core-2",
+    "kind": "effect",
+    "slug": "effect:effect-reef-armor",
+    "name": "Effect: Reef Armor",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain 50 temporary Hit Points and resistance 10 to piercing and slashing damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": 50
+      },
+      {
+        "key": "Resistance",
+        "type": ["piercing", "slashing"],
+        "value": 10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.pQUNwvvBfApjL3Ma"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "947a7d5a-44f9-530f-9096-da3b931ce6e7",
+    "pack": "monster-core-2",
+    "kind": "effect",
+    "slug": "effect:effect-resonance",
+    "name": "Effect: Resonance",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to attack and damage rolls for effects with the selected trait; a creature with the elemental and selected traits gains this bonus to all attack and damage rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "element",
+        "choices": [
+          {
+            "value": "air",
+            "label": "Air",
+            "predicate": ["parent:trait:air"]
+          },
+          {
+            "value": "earth",
+            "label": "Earth",
+            "predicate": ["parent:trait:earth"]
+          },
+          {
+            "value": "fire",
+            "label": "Fire",
+            "predicate": ["parent:trait:fire"]
+          },
+          {
+            "value": "metal",
+            "label": "Metal",
+            "predicate": ["parent:trait:metal"]
+          },
+          {
+            "value": "water",
+            "label": "Water",
+            "predicate": ["parent:trait:water"]
+          },
+          {
+            "value": "wood",
+            "label": "Wood",
+            "predicate": ["parent:trait:wood"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.1dwMVgBHfT4qO4OS"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "aa8060cd-0527-5430-b1ed-06e69060382d",
+    "pack": "monster-core-2",
+    "kind": "effect",
+    "slug": "effect:effect-revealing-hypothesis",
+    "name": "Effect: Revealing Hypothesis",
+    "level": 15,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your strikes against a target creature deal an additional 2d6 precision damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 2,
+        "dieSize": "d6",
+        "category": "precision",
+        "predicate": ["target:mark:revealing-hypothesis"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.AwMp9BwvNMrLylDJ"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "cab55bef-64f6-52f2-8cf6-1bea86291c0f",
+    "pack": "monster-core-2",
+    "kind": "effect",
+    "slug": "effect:effect-ride-the-moonbeams",
+    "name": "Effect: Ride the Moonbeams",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a 25-foot fly Speed."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": 25
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.eoIEdBBzgyChUmB9"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "f9192c45-f966-581d-92db-778b4cedb52b",
+    "pack": "monster-core-2",
+    "kind": "effect",
+    "slug": "effect:effect-sentinels-aura",
+    "name": "Effect: Sentinel's Aura",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to AC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "status",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.zrW4ETHiYN2r7Hks"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "671357d3-a6c3-5c1c-ad1b-fe45e9c664b9",
+    "pack": "monster-core-2",
+    "kind": "effect",
+    "slug": "effect:effect-soul-anchor",
+    "name": "Effect: Soul Anchor",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain fast healing equal to the origin's level."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.k8bmDh3nWi2FUyz5"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "3bf56d04-b33c-51ec-b94e-f7d9895991e0",
+    "pack": "monster-core-2",
+    "kind": "effect",
+    "slug": "effect:effect-spell-break",
+    "name": "Effect: Spell Break",
+    "level": 11,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +4 status bonus to damage rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.Zzes9C7ftjUHIJos"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "56272a9f-545d-500b-8b45-282c515a46d5",
+    "pack": "monster-core-2",
+    "kind": "effect",
+    "slug": "effect:effect-stick-a-fork-in-it",
+    "name": "Effect: Stick a Fork in It",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "On a success or failure, you take a –10-foot circumstance penalty to your Speeds. On a critical failure, you are immobilized."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-stick-a-fork-in-it",
+        "choices": [
+          {
+            "value": "success",
+            "label": "Success"
+          },
+          {
+            "value": "failure",
+            "label": "Failure"
+          },
+          {
+            "value": "critical-failure",
+            "label": "Critical Failure"
+          }
+        ],
+        "prompt": "Select the degree of success.",
+        "rollOption": "stick-a-fork-in-it"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "circumstance",
+        "value": -10,
+        "predicate": [
+          {
+            "or": ["stick-a-fork-in-it:success", "stick-a-fork-in-it:failure"]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "64278392-4910-5a32-b819-56f6e54952dd",
+        "predicate": ["stick-a-fork-in-it:critical-failure"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.K3r1lfbtCTf3dFhV"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "3e1e5cb6-3069-5145-bfd4-b788f18eba74",
+    "pack": "monster-core-2",
+    "kind": "effect",
+    "slug": "effect:effect-thaw-the-heart",
+    "name": "Effect: Thaw the Heart",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You lose your emotion immunity and become slowed 1"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "13584c6a-a624-511c-a5de-0c36a9136b9e"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.GdkIUl4w8yAJxqdO"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "593d8b4b-0b7a-5c33-9598-2c554edc999a",
+    "pack": "monster-core-2",
+    "kind": "effect",
+    "slug": "effect:effect-thesis-shield",
+    "name": "Effect: Thesis Shield",
+    "level": 15,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to AC and gain the concealed condition."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 2
+      },
+      {
+        "key": "GrantItem",
+        "item": "f410da96-b56a-5c7c-857b-7096defec0a1"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.eeZkQOCKjJN5JXZU"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "2a8d91d2-27d6-5998-a0bc-c35b54b48cce",
+    "pack": "monster-core-2",
+    "kind": "effect",
+    "slug": "effect:effect-vainglorious-whispers",
+    "name": "Effect: Vainglorious Whispers",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 status bonus to saving throws against fear effects and a –2 penalty to attack rolls and skill checks."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["item:trait:fear"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack", "skill-check"],
+        "type": "untyped",
+        "value": -2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.nBlTMBTX6owUiyCF"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "2cdb3a9d-f3a6-5908-8c31-32aa4921d8f5",
+    "pack": "monster-core-2",
+    "kind": "effect",
+    "slug": "effect:effect-venators-mark",
+    "name": "Effect: Venator's Mark",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –1 status penalty to all attacks against aeons, as well as to saving throws against efects from aeons."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack", "saving-throw"],
+        "type": "status",
+        "value": -1,
+        "predicate": [
+          {
+            "or": ["target:trait:aeon", "origin:trait:aeon"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.2TlbtDHEGcFG8NPF"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "day",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "70d5987b-bacc-50bc-9286-63fc8ab7436e",
+    "pack": "monster-core-2",
+    "kind": "effect",
+    "slug": "effect:effect-waterlogged",
+    "name": "Effect: Waterlogged",
+    "level": 15,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your size grows to Gargantuan and you take a –15 penalty to your Speed."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "CreatureSize",
+        "value": "gargantuan"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "untyped",
+        "value": -15
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.UxNq9uo1GpDYTi5Z"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "d030eded-3e15-58ae-9bdc-136e183d01d2",
+    "pack": "monster-core-2",
+    "kind": "effect",
+    "slug": "effect:effect-weeping-aura",
+    "name": "Effect: Weeping Aura",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a status penalty to Survival checks to Sense Direction."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:survival"],
+        "type": "status",
+        "value": "@item.value * -2",
+        "predicate": ["action:sense-direction"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.NRH7Eo6F5YYtUf4g"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "day",
+        "expiry": "turn-start"
+      },
+      "badge": {
+        "type": "counter",
+        "value": 1,
+        "labels": ["-2", "-4", "-6", "-8", "-10"],
+        "loop": false
+      }
+    }
+  },
+  {
+    "id": "49853794-2d84-5c6b-a85c-aa34c4951cba",
+    "pack": "monster-core-2",
+    "kind": "effect",
+    "slug": "effect:effect-whisper-earworm-critical-failure",
+    "name": "Effect: Whisper Earworm (Critical Failure)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You become stupefied 2 and take a –4 status penalty to Will saves against effects from unholy creatures."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:will"],
+        "type": "status",
+        "value": -4,
+        "predicate": ["origin:trait:unholy"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.bzwFaDNBYsGpC4ed"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  }
+]

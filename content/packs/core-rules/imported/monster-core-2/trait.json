@@ -1,0 +1,426 @@
+[
+  {
+    "id": "29fcab8d-49ee-5cbc-b3a9-6973ab0a526a",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:aesir",
+    "name": "Aesir",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["ancestry", "creature", "heritage"]
+    }
+  },
+  {
+    "id": "3e6ceb8f-a478-5ddd-ac90-bf30b829fc49",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:agathion",
+    "name": "Agathion",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["ancestry", "creature", "heritage"]
+    }
+  },
+  {
+    "id": "6250a5e6-7d1a-501a-8eee-80b7276e4ba8",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:asura",
+    "name": "Asura",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["ancestry", "creature", "heritage"]
+    }
+  },
+  {
+    "id": "49ec9fa9-ce1d-561c-a389-a1728323efa3",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:darvakka",
+    "name": "Darvakka",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["ancestry", "creature", "heritage"]
+    }
+  },
+  {
+    "id": "55ba5d38-82a3-5895-b9ae-41460ee98140",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:div",
+    "name": "Div",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["ancestry", "creature", "heritage"]
+    }
+  },
+  {
+    "id": "8a3dae43-6111-5902-a52f-95f3a1b86e26",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:girtablilu",
+    "name": "Girtablilu",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["ancestry", "creature", "heritage"]
+    }
+  },
+  {
+    "id": "4068be9a-57f6-536f-86db-c16c46a81125",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:grioth",
+    "name": "Grioth",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["ancestry", "creature", "heritage"]
+    }
+  },
+  {
+    "id": "c89fc40f-8c84-5c48-8c0d-6f884ea8bb10",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:kami",
+    "name": "Kami",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["ancestry", "creature", "heritage"]
+    }
+  },
+  {
+    "id": "15e8b08e-055a-5a2b-9e86-f24153579646",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:maftet",
+    "name": "Maftet",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["ancestry", "creature", "heritage"]
+    }
+  },
+  {
+    "id": "0d5121e3-dd51-592f-b549-0aba17a1cc90",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:munavri",
+    "name": "Munavri",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["ancestry", "creature", "heritage"]
+    }
+  },
+  {
+    "id": "d059f308-112f-5266-bf68-b5e29ae917ad",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:sahkil",
+    "name": "Sahkil",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["ancestry", "creature", "heritage"]
+    }
+  },
+  {
+    "id": "f1944924-d58f-5aa8-b374-174f98385604",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:shade",
+    "name": "Shade",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["ancestry", "creature", "heritage"]
+    }
+  },
+  {
+    "id": "cead9ae4-ded1-58e3-8d01-e3a249306a10",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:summoned",
+    "name": "Summoned",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "condition",
+        "consumable",
+        "creature",
+        "effect",
+        "feat",
+        "heritage",
+        "ritual",
+        "spell"
+      ]
+    }
+  },
+  {
+    "id": "b5e10ba5-af44-5cc6-ae4c-050b97f94908",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:tanggal",
+    "name": "Tanggal",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["ancestry", "creature", "heritage"]
+    }
+  },
+  {
+    "id": "ba9888f3-358a-535c-bf80-8342b599b3d3",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:time",
+    "name": "Time",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "condition",
+        "creature",
+        "effect",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "bef5dbc0-56ce-5eaf-bf91-fab1648973bf",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:titan",
+    "name": "Titan",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["ancestry", "creature", "heritage"]
+    }
+  },
+  {
+    "id": "8cde4ff0-6f95-5a82-8c0d-6116dfe77997",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:troop",
+    "name": "Troop",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["ancestry", "creature", "heritage"]
+    }
+  },
+  {
+    "id": "0759bc9c-9b0f-51fb-ba0e-83eadf6616bc",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:urdefhan",
+    "name": "Urdefhan",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["ancestry", "creature", "heritage"]
+    }
+  },
+  {
+    "id": "75b924c0-b829-56f9-b6c8-9c45b6a90887",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:velstrac",
+    "name": "Velstrac",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["ancestry", "creature", "heritage"]
+    }
+  },
+  {
+    "id": "efe45a6f-0e39-5fdd-b157-d37c1364c2b8",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:wyrwood",
+    "name": "Wyrwood",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["ancestry", "creature", "heritage"]
+    }
+  }
+]

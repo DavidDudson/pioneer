@@ -55,6 +55,7 @@ describe('book registry', () => {
         'impossible-lands',
         'impossible-magic',
         'monster-core',
+        'monster-core-2',
         'mwangi-expanse',
         'myth-speakers',
         'player-core',

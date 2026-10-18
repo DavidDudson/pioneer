@@ -1,0 +1,2265 @@
+[
+  {
+    "id": "9c5c40ae-a024-5651-81ac-e80260940c29",
+    "pack": "monster-core-2",
+    "kind": "action",
+    "slug": "action:clockwork-creature-wind-up",
+    "name": "(Clockwork Creature) Wind-Up",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "24 hours, disable-device, standby"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For a clockwork to act, it must be wound with a unique key by another creature. This takes 1 minute. Once wound, it remains operational for the listed amount of time, usually 24 hours, after which time it becomes unaware of its surroundings and can't act until it's wound again. Some clockworks' abilities require them to spend some of their remaining operational time. They can't spend more than they have and shut down immediately once they have 0 time remaining. If it's unclear when a clockwork was last wound, most clockwork keepers wind all their clockworks at a set time, typically 8 a.m."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A creature can attempt to "
+          },
+          {
+            "type": "ref",
+            "id": "b2ba8e49-aecf-574a-882d-bef04a43b74f"
+          },
+          {
+            "type": "text",
+            "text": " to wind a clockwork down (with a DC listed in the wind-up entry). For each success, the clockwork loses 1 hour of operational time (or 2 hours on a critical success). This can be done even if the clockwork is in standby mode."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A clockwork that lists standby in its wind-up entry has the following action."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Enter Standby",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 3 The clockwork enters standby mode. Its operational time doesn't decrease in standby, but it can sense its surroundings (with a –2 circumstance penalty to Perception). It can't act, with one exception: when it perceives a creature, it can exit standby as a reaction (rolling initiative if appropriate)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "perception",
+        "option": "option:wind-up",
+        "toggleable": true,
+        "display": {
+          "label": "Standby Mode"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "circumstance",
+        "value": -2,
+        "predicate": ["option:wind-up"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.xS8ybzuqPSi3Jb8k"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "455b516d-bbd5-58cc-8ce8-9c49ee2fbf14",
+    "pack": "monster-core-2",
+    "kind": "action",
+    "slug": "action:divine-warden-divine-destruction",
+    "name": "(Divine Warden) Divine Destruction",
+    "rarity": "common",
+    "traits": ["divine", "spirit"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When the divine warden is reduced to 0 HP, it erupts with divine energy in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": ", dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "spirit"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage per level. Each creature in the area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 0,
+            "options": ["inflicts:enfeebled", "inflicts:stupefied"]
+          },
+          {
+            "type": "text",
+            "text": " save with the following outcomes."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes half damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes full damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes full damage and becomes temporarily cursed by the patron deity. The creature becomes "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 1"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 day; this is a curse effect that uses the Will save DC as the counteract DC."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, except the creature becomes "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 2"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 2"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.jD0M3yV6gjkXafsJ"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "0806f511-50ac-5fb9-a49d-16a5dcba0a6c",
+    "pack": "monster-core-2",
+    "kind": "action",
+    "slug": "action:divine-warden-divine-domain-spells",
+    "name": "(Divine Warden) Divine Domain Spells",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The divine warden selects two of its patron deity's domains. The divine warden can cast the basic domain spell for its chosen domains. The divine warden has a focus pool of 1 Focus Point. It can't "
+          },
+          {
+            "type": "ref",
+            "id": "f092ffed-f689-53f1-9c09-e48555974619"
+          },
+          {
+            "type": "text",
+            "text": ", but its focus pool automatically refills 24 hours after it last used a Focus Point. If the divine warden is at least 10th level, it also gains the advanced domain spells for its chosen domains, and its focus pool increases to 2 Focus Points."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.0B9eEetIbeSPhulD"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "20b1c141-ca89-5bb8-bec7-e72997fc8369",
+    "pack": "monster-core-2",
+    "kind": "action",
+    "slug": "action:divine-warden-divine-innate-spells",
+    "name": "(Divine Warden) Divine Innate Spells",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A divine warden gains "
+          },
+          {
+            "type": "ref",
+            "id": "a593a292-4fca-5280-9857-56a2178b1618"
+          },
+          {
+            "type": "text",
+            "text": " as an innate cantrip."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.DlHTe9jLssEELY6a"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "90a17d45-8a04-5f60-bb5a-612807c47373",
+    "pack": "monster-core-2",
+    "kind": "action",
+    "slug": "action:divine-warden-faith-bound",
+    "name": "(Divine Warden) Faith Bound",
+    "rarity": "common",
+    "traits": ["divine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A divine warden can't attack a creature that openly wears or displays the religious symbol of the divine warden's patron deity unless that creature uses a hostile action against the divine warden first. If the divine warden is intelligent, it can also attack a creature it believes isn't faithful to its deity or who wears the religious symbol as a ruse (typically after succeeding at a Perception check to Sense Motive)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.OPGu0WsUHpHSmu80"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "8ac90127-96ac-5dd9-ac1d-12c60963aeac",
+    "pack": "monster-core-2",
+    "kind": "action",
+    "slug": "action:divine-warden-faithful-weapon",
+    "name": "(Divine Warden) Faithful Weapon",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A divine warden always wields its patron deity's favored weapon. If the weapon is a ranged weapon, the divine warden automatically generates new ammunition with each attack. For a divine warden of 4th level or higher, the deity's favored weapon gains the effects of a "
+          },
+          {
+            "type": "text",
+            "text": "striking rune",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " while the divine warden wields it; at 12th level, these effects are of a "
+          },
+          {
+            "type": "text",
+            "text": "greater striking rune",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", and at 19th level, they're instead of a "
+          },
+          {
+            "type": "text",
+            "text": "major striking rune",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.UlKGxPaKtRGWuq3V"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "d9b85f2e-f10c-58fa-be34-b0b34a0ad69d",
+    "pack": "monster-core-2",
+    "kind": "action",
+    "slug": "action:divine-warden-instrument-of-faith",
+    "name": "(Divine Warden) Instrument of Faith",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The divine warden is a beacon for its deity's faith. A cleric of the divine warden's patron deity can channel a "
+          },
+          {
+            "type": "ref",
+            "id": "949e0a89-f44b-598d-8adb-3d9d31db900e"
+          },
+          {
+            "type": "text",
+            "text": " spell through a divine warden they can see within 60 feet. The cleric determines any targets or area for the spell as if they were standing in the divine warden's space."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.L80gn6WOWi9roJW3"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "d477ee41-3ff5-5240-be17-bf8c1ae29ccc",
+    "pack": "monster-core-2",
+    "kind": "action",
+    "slug": "action:divine-warden-sanctification",
+    "name": "(Divine Warden) Sanctification",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Divine wardens are often sanctified, gaining the holy or unholy traits as preferred by their deity. If the deity doesn't have a preference, the warden isn't sanctified."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.0VT6gz9Tm8d5tCYx"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "eb7aaea4-640f-5621-a54c-f079b9764f41",
+    "pack": "monster-core-2",
+    "kind": "action",
+    "slug": "action:graveknight-graveknights-shield",
+    "name": "(Graveknight) Graveknight's Shield",
+    "rarity": "common",
+    "traits": ["arcane"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The graveknight's curse extends to their shield, or the graveknight's armor uses a portion of itself to produce a shield."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The graveknight has a shield that uses the statistics of a "
+          },
+          {
+            "type": "ref",
+            "id": "6f0a245f-ec33-5437-b381-7ee03c8aebc6",
+            "label": "Sturdy Shield"
+          },
+          {
+            "type": "text",
+            "text": " of a level no higher than the graveknight's level - 1."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The shield is quasi-independent of the graveknight and automatically protects the graveknight from harm. When the shield is raised, it automatically uses Shield Block to reduce the damage of the first attack against the graveknight each round without the graveknight needing to spend their reaction to do so."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The shield automatically rejuvenates with the rest of the graveknight and must be destroyed in the same manner as the graveknight's armor."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.mZpX54PgTxPta5y4"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "4baefc45-cb0d-5165-ac61-11a6b5412506",
+    "pack": "monster-core-2",
+    "kind": "action",
+    "slug": "action:spawn-of-rovagug-absolute-regeneration",
+    "name": "(Spawn of Rovagug) Absolute Regeneration",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This functions as regeneration, though it requires very specific actions to be deactivated. A Spawn of Rovagug's regeneration is powerful enough to revive it even if slain by a death effect. If the Spawn fails a save against an effect that would kill it instantly, it rises from death 3 rounds later with 1 Hit Point. A Spawn can still be banished, imprisoned, or transported away as a means to save a region or kept in a state of dying by an effect that deals constant damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FastHealing",
+        "value": 25,
+        "type": "regeneration"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.zSblw5RF9sc0pnGB"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "1e3cf20f-2077-521c-9387-44ef8fe4d536",
+    "pack": "monster-core-2",
+    "kind": "action",
+    "slug": "action:spawn-of-rovagug-slumbering-armageddon",
+    "name": "(Spawn of Rovagug) Slumbering Armageddon",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Spawn of Rovagug can sleep for centuries in a regenerative hibernation. While slumbering, a Spawn doesn't need to eat, drink, or even breathe, and its resistances double in value. It can't be located by detection, revelation, or scrying effects, and for any saving throw, it uses the outcome one degree of success better than the result. With no outlet while the Spawn slumbers, its massive destructive energies turn outward and infect its surroundings, causing natural disasters of a type matching the Spawn to occur more frequently and with greater severity in a 1-mile emanation from the Spawn's resting place, increasing in radius by roughly a mile every decade the Spawn slumbers."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.Q360DlhKmOp8ieHp"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "7bd8e94e-d450-528b-87e5-2f28eb0100b5",
+    "pack": "monster-core-2",
+    "kind": "action",
+    "slug": "action:spawning-soulrider-celestial-flare",
+    "name": "(Spawning Soulrider) Celestial Flare",
+    "rarity": "common",
+    "traits": ["holy", "light", "visual"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each enemy within 30 feet of the soulrider takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "spirit"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 17,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save). Creatures that fail the save are "
+          },
+          {
+            "type": "ref",
+            "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round. The spawning soulrider can't use Celestial Flare again for 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.o5jz2Gv9WGYsecYY"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "e4cb5701-e76b-5f29-bc85-e13d169bb9f8",
+    "pack": "monster-core-2",
+    "kind": "action",
+    "slug": "action:spawning-soulrider-fiendish-lunge",
+    "name": "(Spawning Soulrider) Fiendish Lunge",
+    "rarity": "common",
+    "traits": ["unholy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The spawning soulrider Strides or Swims twice, making a tail Strike at any point during its movement. The Strike deals an additional 1d4 spirit damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "damage",
+        "option": "option:fiendish-lunge",
+        "toggleable": true
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["tail-damage"],
+        "diceNumber": 1,
+        "dieSize": "d4",
+        "damageType": "spirit",
+        "predicate": ["option:fiendish-lunge"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.J6L3PChyDWicAi8B"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "75580973-18e5-5f37-af1b-dea768de6c6a",
+    "pack": "monster-core-2",
+    "kind": "action",
+    "slug": "action:spawning-soulrider-monitor-escape",
+    "name": "(Spawning Soulrider) Monitor Escape",
+    "rarity": "common",
+    "traits": ["concentrate", "teleportation"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The soulrider's form blurs as it exploits loopholes in the multiverse. It teleports to an empty space within 60 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.IvTJfaZqfGupUMvd"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "1157c7e3-07d6-518d-8d6c-dbe2b631ba20",
+    "pack": "monster-core-2",
+    "kind": "action",
+    "slug": "action:swarm-strider-clinging-remnants",
+    "name": "(Swarm Strider) Clinging Remnants",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A swarm strider's melee Strikes and ranged Strikes made against targets within their weapon's first range increment deposit biting vermin on the target, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d4",
+                "damageType": "piercing",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, increasing to 2d4 at 5th level, 3d4 at 10th level, 4d4 at 15th level, and 5d4 at 20th level."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.zsYcDy8Svo8t9BHj"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "7fc1b4d5-c8a0-574f-8606-476f764cf5f1",
+    "pack": "monster-core-2",
+    "kind": "action",
+    "slug": "action:swarm-strider-discorporate",
+    "name": "(Swarm Strider) Discorporate",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When the swarm strider is reduced to 0 HP, their constituent creatures collapse, scattering on the ground under their space and each adjacent square. If even one of the creatures gets away, the swarm strider can eventually re-form over 1d10 days (potentially longer in areas where there are few invertebrates)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The scattered invertebrates must be destroyed within 1 round to destroy the swarm strider permanently. The invertebrates have a collective pool of HP, typically equal to 1/4 of the swarm strider's maximum HP, and the same AC, saves, immunities, resistances, and weaknesses as the swarm strider. The invertebrates can't take actions but they escape automatically once the round elapses. At the GM's discretion, clever means of trapping or eliminating the creatures might be sufficient to destroy the swarm strider."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.PUMypO3XfoRmuNsf"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "5318e1d2-8bf1-5587-bf3d-8c0f32c160ec",
+    "pack": "monster-core-2",
+    "kind": "action",
+    "slug": "action:swarm-strider-draw-bugs",
+    "name": "(Swarm Strider) Draw Bugs",
+    "rarity": "common",
+    "traits": ["healing"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The swarm strider draws more arthropods from the environment around them to reconstitute some of their damaged body. They regain the listed number of HP, which is typically 5 HP, increasing to 10 at 5th level, 15 at 10th level, and 20 at 15th level. At the GM's discretion, the swarm strider doesn't recover HP in areas where there aren't enough arthropods to call to themselves."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.JSNZab0XFa4KMXki"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "84333fb5-efb9-56a2-9f3f-e8231a08689f",
+    "pack": "monster-core-2",
+    "kind": "action",
+    "slug": "action:swarm-strider-squirming-embrace",
+    "name": "(Swarm Strider) Squirming Embrace",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The swarm strider Strides. If they end their movement sharing a space with a creature, they deal "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to the creature, with a basic Reflex save. The save DC is the high spell DC for the swarm strider's level. The damage increases by 1d6 at 4th level and every 3 levels thereafter. The swarm strider can Burrow, Climb, Fly, or Swim instead of Striding if they have the corresponding movement type."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.YCfdIkp4AQ81ry5M"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "1790874f-7515-5cae-87e9-e48922352ff4",
+    "pack": "monster-core-2",
+    "kind": "action",
+    "slug": "action:swarm-strider-swarm-shape",
+    "name": "(Swarm Strider) Swarm Shape",
+    "rarity": "common",
+    "traits": ["concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The swarm strider collapses into a shapeless swarm of their constituent creatures. They drops all items in their possession. In this form, the swarm strider can't use attack actions and can't cast spells, but they can move through areas small enough for their constituent creatures to fit without having to Squeeze. They can use the same action to coalesce from their swarm shape back into their normal form."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.sSOqei4h1Ms0jlTn"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "3c7a7874-773e-57ea-beb5-13d56911badb",
+    "pack": "monster-core-2",
+    "kind": "action",
+    "slug": "action:vampire-nosferatu-change-shape",
+    "name": "(Vampire, Nosferatu) Change Shape",
+    "rarity": "common",
+    "traits": ["concentrate", "divine", "polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The nosferatu transforms into a swarm of pale-gray rats. They gain a land Speed of 30 feet and a climb Speed of 10 feet, and they become Large. In this swarm form, the nosferatu can take an action to deal each enemy in the swarm's space "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d10",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save, with a high DC for the nosferatu's level. A creature that fails its save is also exposed to plague of ancients."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The monster changes its shape indefinitely. It can use this action again to return to its natural shape or adopt a new shape. Unless otherwise noted, a monster cannot use Change Shape to appear as a specific individual. Using Change Shape counts as creating a disguise for the "
+          },
+          {
+            "type": "ref",
+            "id": "9d26c6da-04e9-5491-86c1-7a4b23fe9da3"
+          },
+          {
+            "type": "text",
+            "text": " use of Deception. The monster's transformation automatically defeats Perception DCs to determine whether the creature is a member of the ancestry or creature type into which it transformed, and it gains a +4 status bonus to its Deception DC to prevent others from seeing through its disguise. Change Shape abilities specify what shapes the monster can adopt. The monster doesn't gain any special abilities of the new shape, only its physical form. For example, in each shape, it replaces its normal Speeds and Strikes, and might potentially change its senses or size. Any changes are listed in its stat block."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.DWku0nZzkqmYjrQ5"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "0adda748-df7e-5438-abef-0925fd1be113",
+    "pack": "monster-core-2",
+    "kind": "action",
+    "slug": "action:vampire-nosferatu-command-thrall",
+    "name": "(Vampire, Nosferatu) Command Thrall",
+    "rarity": "common",
+    "traits": ["auditory", "divine", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " One of the nosferatu's thralls is present and can hear the nosferatu"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The nosferatu gives a single command to one of their thralls, which the thrall follows to the best of its ability during its next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.8UQWXpYfn9oE1ZHu"
+    },
+    "data": {
+      "cost": "free",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "One of the nosferatu's thralls is present and can hear the nosferatu"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "2f97b18e-8484-58f6-8368-399721537b28",
+    "pack": "monster-core-2",
+    "kind": "action",
+    "slug": "action:vampire-nosferatu-dominate",
+    "name": "(Vampire, Nosferatu) Dominate",
+    "rarity": "common",
+    "traits": ["divine", "incapacitation", "mental", "visual"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The nosferatu can cast "
+          },
+          {
+            "type": "ref",
+            "id": "54bcf730-ab6d-5ba7-9747-86a6debbd00c"
+          },
+          {
+            "type": "text",
+            "text": " at will as a divine innate spell. Casting it requires staring into the target's eyes, giving the spell the visual trait. The save DC uses a high DC for the nosferatu's level, and a creature that succeeds is temporarily immune to that nosferatu's Dominate for 24 hours. Fully destroying the nosferatu ends the domination, but merely reducing the nosferatu to 0 HP is insufficient to break the spell."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:dominate"],
+        "property": "traits",
+        "mode": "add",
+        "value": "visual",
+        "predicate": ["spellcasting:tradition:divine", "spellcasting:category:innate"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.4B8O9QBJuDhJkVcz"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "545d4eaa-f622-5d5d-aa07-4dca2d70ddaf",
+    "pack": "monster-core-2",
+    "kind": "action",
+    "slug": "action:vampire-nosferatu-drink-blood",
+    "name": "(Vampire, Nosferatu) Drink Blood",
+    "rarity": "common",
+    "traits": ["divine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The nosferatu's last action was a successful fangs Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The nosferatu sinks their fangs into the targeted creature to drink its blood. This requires an "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:athletics"
+          },
+          {
+            "type": "text",
+            "text": " check against the creature's Fortitude DC. On a success, the creature becomes "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 1"
+          },
+          {
+            "type": "text",
+            "text": ", and the nosferatu regains HP equal to 10% of their maximum HP, gaining any excess HP as temporary Hit Points. Drinking Blood from a creature that's already drained doesn't restore any HP to the nosferatu but increases the creature's drained condition value by 1, killing the victim when it reaches "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 5"
+          },
+          {
+            "type": "text",
+            "text": ". A nosferatu can also consume blood that's been emptied into a vessel for sustenance, but they gain no HP from doing so."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The target creature's drained condition value decreases by 1 per week. A blood transfusion, which requires a successful "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:medicine",
+            "dc": 20
+          },
+          {
+            "type": "text",
+            "text": " check and sufficient blood or a blood donor, reduces the drained value by 1 after 10 minutes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.GpKQH8hnSYWiyuQU"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The nosferatu's last action was a successful fangs Strike"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "97a3d259-9f5f-5f9d-8f10-007c9237e934",
+    "pack": "monster-core-2",
+    "kind": "action",
+    "slug": "action:vampire-nosferatu-nosferatu-vulnerabilities",
+    "name": "(Vampire, Nosferatu) Nosferatu Vulnerabilities",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Revulsion",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " A nosferatu can't voluntarily come within 10 feet of brandished garlic or a brandished religious symbol of a deity with a holy sanctification option. To brandish garlic or a religious symbol, a creature must Interact to do so for 1 round (similar to Raising a Shield). If the nosferatu involuntarily comes within 10 feet of an object of their revulsion, they gain the "
+                },
+                {
+                  "type": "ref",
+                  "id": "f7fea8f9-c457-5b9f-9283-f567fa557184"
+                },
+                {
+                  "type": "text",
+                  "text": " condition, running from the object of their revulsion until they end an action beyond 10 feet. After 1 round of being exposed to the subject of their revulsion, a nosferatu can attempt a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:will",
+                  "dc": 25
+                },
+                {
+                  "type": "text",
+                  "text": " save as a single action, which has the concentrate trait. On a success, they overcome their revulsions for 1d6 rounds (or 1 hour on a critical success)."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Stake",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " A magical wooden stake (such as one affected by a weapon "
+                },
+                {
+                  "type": "text",
+                  "text": "potency rune",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "1e70918d-066f-5a32-938b-48362d1d669e"
+                },
+                {
+                  "type": "text",
+                  "text": ", or similar magic) driven through the nosferatu's heart drops the nosferatu to 0 HP and prevents them from healing above 0 HP, even in their coffin. Staking a nosferatu requires 3 actions and works only if the nosferatu is "
+                },
+                {
+                  "type": "ref",
+                  "id": "e1a78dad-4887-518e-9120-e58b7009ebfd"
+                },
+                {
+                  "type": "text",
+                  "text": ". If the stake is removed, the nosferatu can heal above 0 HP again, and if they're in their coffin, the 1-hour rest period begins once the stake is removed. If the nosferatu's head is severed and anointed with "
+                },
+                {
+                  "type": "ref",
+                  "id": "69117d38-92e5-5416-a51f-8dddf680e9d7"
+                },
+                {
+                  "type": "text",
+                  "text": " while the stake is in place, the nosferatu is destroyed."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Sunlight",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " If exposed to direct sunlight, a nosferatu immediately becomes "
+                },
+                {
+                  "type": "ref",
+                  "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+                  "label": "Slowed 1"
+                },
+                {
+                  "type": "text",
+                  "text": ". The slowed value increases by 1 each time the nosferatu ends their turn in sunlight, and the condition ends when they're no longer in sunlight. If the nosferatu loses all their actions in this way, they're destroyed."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.Sj1IGDjUmlwFpC35"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "a8c6c7de-3342-59da-acc8-7aaf7ae3d476",
+    "pack": "monster-core-2",
+    "kind": "action",
+    "slug": "action:vampire-nosferatu-overlord-air-of-sickness",
+    "name": "(Vampire, Nosferatu Overlord) Air of Sickness",
+    "rarity": "common",
+    "traits": ["aura"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "30 feet. A creature entering or starting its turn in the aura must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "options": ["inflicts:sickened"]
+          },
+          {
+            "type": "text",
+            "text": " save with a moderate DC for the nosferatu's level. On a failure, the creature is "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": " and takes a –2 status penalty to saves made to resist diseases and remove the sickened condition for 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "d39d85f7-7493-5512-b6f2-8717cc618a03"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Aura",
+        "slug": "air-of-sickness",
+        "radius": 30,
+        "traits": []
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.yDE3ZEoxRUqQmAsX"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "a96f4a68-0330-5963-883d-844b284ca687",
+    "pack": "monster-core-2",
+    "kind": "action",
+    "slug": "action:vampire-nosferatu-overlord-paralytic-fear",
+    "name": "(Vampire, Nosferatu Overlord) Paralytic Fear",
+    "rarity": "common",
+    "traits": ["divine", "emotion", "fear", "incapacitation", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The nosferatu overlord's last action was a successful claw Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The nosferatu drags the target of the Strike close and freezes its mind in terror. The target must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "options": ["inflicts:frightened", "inflicts:immobilized", "inflicts:restrained"]
+          },
+          {
+            "type": "text",
+            "text": " save with a moderate DC for the nosferatu's level."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": " by fear until the end of the nosferatu's next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "b374c4c9-d230-5167-8878-38e08932a071"
+          },
+          {
+            "type": "text",
+            "text": " and takes a –2 circumstance penalty to its Fortitude DC against the nosferatu's Drink Blood ability until the end of the nosferatu's next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, and the target is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 2"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.EsbdyB9DwvPvhCCC"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The nosferatu overlord's last action was a successful claw Strike"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "f541238c-9159-51d7-a39e-e6df6b6a40c5",
+    "pack": "monster-core-2",
+    "kind": "action",
+    "slug": "action:vampire-nosferatu-plague-of-ancients",
+    "name": "(Vampire, Nosferatu) Plague of Ancients",
+    "rarity": "common",
+    "traits": ["disease", "virulent"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Saving Throw",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude"
+          },
+          {
+            "type": "text",
+            "text": " (use a high DC for the nosferatu's level)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Onset",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 1"
+          },
+          {
+            "type": "text",
+            "text": " (1 day)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 2"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 2"
+          },
+          {
+            "type": "text",
+            "text": " (1 day)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 3",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "cd164d22-2d8e-5fd2-b8b2-03e1360df1e7",
+            "label": "Doomed 1"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 3"
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 3"
+          },
+          {
+            "type": "text",
+            "text": " (1 day)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 4",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "cd164d22-2d8e-5fd2-b8b2-03e1360df1e7",
+            "label": "Doomed 2"
+          },
+          {
+            "type": "text",
+            "text": ", drained 3, and enfeebled 3 (1 day)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 5",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "e1a78dad-4887-518e-9120-e58b7009ebfd"
+          },
+          {
+            "type": "text",
+            "text": " (1 day)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 6",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " death"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.NgiwaeUqMPfkYvQq"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "6e19ed68-b4da-508c-aed9-44a305bc2ffa",
+    "pack": "monster-core-2",
+    "kind": "action",
+    "slug": "action:vampire-nosferatu-plagued-coffin-restoration",
+    "name": "(Vampire, Nosferatu) Plagued Coffin Restoration",
+    "rarity": "common",
+    "traits": ["divine", "void"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Unlike other undead, a nosferatu isn't destroyed at 0 HP. Instead, they disperse into an immense number of rats heading in every direction in an attempt to return to their coffin. If even a single rat reaches the coffin, the nosferatu can recover. A nosferatu regains their strength through resting in earth taken from the grave of a creature that died of plague. If their body rests in their earth-filled coffin for 1 hour, the nosferatu gains 1 HP, after which their fast healing begins to function normally. If the coffin doesn't contain this plagued grave dirt, they instead need to rest in their coffin for 1 day before they gain 1 HP and regain their fast healing."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.hOOXkWcTw9EFKJev"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "428266e6-e203-5ea6-aa05-56c3f61092aa",
+    "pack": "monster-core-2",
+    "kind": "action",
+    "slug": "action:vampire-nosferatu-thrall-mindbound",
+    "name": "(Vampire, Nosferatu Thrall) Mindbound",
+    "rarity": "common",
+    "traits": ["divine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A nosferatu master exerts a fierce hold over their thrall's mind. If any creature other than the thrall's master targets them with an effect that would give them the "
+          },
+          {
+            "type": "ref",
+            "id": "3f5dc8b4-dcc0-5a99-8501-aff382e8d341"
+          },
+          {
+            "type": "text",
+            "text": " condition, the thrall's master rolls a counteract check against it using their Dominate DC – 10 as the counteract check modifier."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.LKxsPOf0hAS32Sp8"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "c12aa159-5095-5387-9f4a-89212f766722",
+    "pack": "monster-core-2",
+    "kind": "action",
+    "slug": "action:vampire-nosferatu-thrall-mortal-shield",
+    "name": "(Vampire, Nosferatu Thrall) Mortal Shield",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The thrall's master would take damage from a Strike or spell attack and is in an adjacent square"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The thrall throws themself in front of their master, taking half the damage of the attack (before applying any weaknesses or resistances). The thrall's master takes the remaining damage, applying any weaknesses or resistances as normal."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.OQt7nHInDBAmHaG6"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "offensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The thrall's master would take damage from a Strike or spell attack and is in an adjacent square"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "e9ff4a47-f001-56b7-9744-cf0de5c906b7",
+    "pack": "monster-core-2",
+    "kind": "action",
+    "slug": "action:vampire-nosferatu-thrall-rally",
+    "name": "(Vampire, Nosferatu Thrall) Rally",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The thrall ends their turn more than 30 feet away from their master"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The thrall Strides up to their Speed toward their master."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.IL8wtCi23ch62zXG"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The thrall ends their turn more than 30 feet away from their master"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "a59a49aa-bf6f-5b8d-9c4d-17169e65282b",
+    "pack": "monster-core-2",
+    "kind": "action",
+    "slug": "action:zombie-ankle-biter",
+    "name": "(Zombie) Ankle Biter",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This zombie fights just as well on the ground as it does standing. While "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": ", the zombie isn't "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": ", it ignores the status penalty to its attack rolls, and it gains a +2 circumstance bonus to Athletics checks to "
+          },
+          {
+            "type": "ref",
+            "id": "6257c7f0-f483-53d3-a791-d73a616cbce4"
+          },
+          {
+            "type": "text",
+            "text": ". The zombie can also move up to half its Speed when it Crawls."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["action:trip", "self:condition:prone"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.CdjqkgAexKk8khbB"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "eb576e97-08da-5c98-9b49-22e460b37a11",
+    "pack": "monster-core-2",
+    "kind": "action",
+    "slug": "action:zombie-persistent-limbs",
+    "name": "(Zombie) Persistent Limbs",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The first time the zombie is critically hit with a melee or ranged Strike, a limb falls off its body and continues to attack. The limb acts on the zombie's initiative; each round it can Stride up to half the zombie's Speed and make a Strike. The limb uses and contributes to the zombie's multiple attack penalty."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.qZnZriRRtjK7FtP8"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "0fc79f44-54d1-5d72-889e-b9136a1d5932",
+    "pack": "monster-core-2",
+    "kind": "action",
+    "slug": "action:zombie-putrid-stench",
+    "name": "(Zombie) Putrid Stench",
+    "rarity": "common",
+    "traits": ["aura", "olfactory"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "15 feet. The zombie's rotting flesh is particularly malodorous. A creature that enters the area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude"
+          },
+          {
+            "type": "text",
+            "text": " save. On a failure, the creature is "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": ", and on a critical failure, the creature also takes a –5-foot status penalty to its Speeds for 1 round. While within the aura, the creature takes a -2 circumstance penalty to saves to recover from the sickened condition. A creature that succeeds at its save is temporarily immune to all zombies' putrid stenches for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect: Putrid Stench"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Aura",
+        "slug": "zombie-putrid-stench",
+        "radius": 15,
+        "traits": ["olfactory"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.Ez8sVqv1EBcJuorK"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  }
+]
