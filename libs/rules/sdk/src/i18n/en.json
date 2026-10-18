@@ -105,7 +105,7 @@
       "effect": "{statistic} {value}",
       "effectMarked": "{words} ({status})",
       "effectSet": "{statistic} set to {value}",
-      "effectSense": "Gains a sense",
+      "effectSense": "Gains {sense} ({acuity}{hasRange, select, yes {, {range}} other {}})",
       "effectNotSummarised": "Has an effect this list does not show yet ({element}).",
       "loadFailed": "This preview could not be loaded.",
       "notFound": "This entry is not in the content you have loaded.",

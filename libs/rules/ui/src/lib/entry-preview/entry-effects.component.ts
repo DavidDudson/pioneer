@@ -9,6 +9,7 @@ import type { DamageAdjustmentTarget } from '@pioneer/rules/sdk';
 import { filter, merge } from 'rxjs';
 
 import { modifierValue } from '../breakdown/line-words';
+import { ACUITY_MESSAGES } from '../creature-stat-block/creature-stat-block-messages';
 import { DAMAGE_GROUP_MESSAGES, DefencesMessage } from '../defences/defences-messages';
 import { DAMAGE_TYPE_MESSAGES } from '../rich-text/rich-text-messages';
 import type { PreviewEffect } from './entry-preview';
@@ -45,7 +46,7 @@ export class EntryEffectsView {
   });
 
   /** "Perception -2 status", with the reason it doesn't count when it doesn't. */
-  #effect({ statistic, line }: PreviewEffect): string {
+  #effect({ statistic, line, sense, exceptions }: PreviewEffect): string {
     switch (line.change) {
       case EffectChange.Bonus:
       case EffectChange.Penalty: {
@@ -59,10 +60,15 @@ export class EntryEffectsView {
       case EffectChange.Weakness:
       case EffectChange.Resistance:
       case EffectChange.Immunity: {
-        return this.#defence(line);
+        return this.#defence(line, exceptions);
       }
       case EffectChange.Sense: {
-        return this.#marked(line.status, EntryPreviewMessage.EffectSense, {});
+        return this.#marked(line.status, EntryPreviewMessage.EffectSense, {
+          sense: sense ?? line.sense,
+          acuity: this.#i18n.translate(ACUITY_MESSAGES[line.acuity]),
+          hasRange: line.range === undefined ? 'no' : 'yes',
+          range: line.range === undefined ? '' : this.#format.distance(line.range),
+        });
       }
       case EffectChange.NotSummarised: {
         return this.#i18n.translate(EntryPreviewMessage.EffectNotSummarised, { element: line.element });
@@ -74,7 +80,7 @@ export class EntryEffectsView {
   }
 
   /** "Weakness 5 fire", "Resistance 5 physical", "Immunity fire". */
-  #defence(line: DamageAdjustmentEffect | ImmunityEffect): string {
+  #defence(line: DamageAdjustmentEffect | ImmunityEffect, exceptionNames: readonly string[] | undefined): string {
     if (line.change === EffectChange.Immunity) {
       const damageType = DamageTypeSchema.safeParse(line.immunity);
       const target = damageType.success
@@ -88,7 +94,7 @@ export class EntryEffectsView {
       value: line.value === undefined ? '' : this.#format.number(line.value),
       target: this.#target(line.damage),
       hasExceptions: line.exceptions.length === 0 ? 'no' : 'yes',
-      exceptions: this.#format.list(line.exceptions, 'disjunction'),
+      exceptions: this.#format.list(exceptionNames ?? line.exceptions, 'disjunction'),
     });
   }
 
