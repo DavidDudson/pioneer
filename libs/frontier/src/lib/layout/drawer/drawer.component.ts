@@ -23,6 +23,7 @@ import { Button, ButtonVariant } from '../../actions/button/button.component';
 import { Icon } from '../../icon/icon.component';
 import { Heading } from '../../text/heading/heading.component';
 import { showDialog, watchNarrow } from './drawer-overlay';
+import { DRAWER_OPEN, DRAWER_PARAM } from './drawer-query';
 import type { DrawerWidth } from './drawer-width';
 import {
   endResize,
@@ -35,7 +36,6 @@ import {
   writeWidth,
 } from './drawer-width';
 
-const OPEN_VALUE = 'open';
 const REM_FALLBACK_PX = 16;
 
 const hostVariants = cva('min-w-none', {
@@ -105,7 +105,7 @@ export class Drawer {
   public readonly title = input.required<string>();
   public readonly open = model(false);
   /** The query parameter that carries `open`; rename it when a page holds more than one drawer. */
-  public readonly param = input('drawer');
+  public readonly param = input(DRAWER_PARAM);
 
   protected readonly closeIcon = LucideX;
   protected readonly ButtonVariant = ButtonVariant;
@@ -137,7 +137,7 @@ export class Drawer {
   protected readonly panelClasses = computed(() => panelVariants({ overlay: this.overlay() }));
 
   private readonly queryParams = toSignal(this.route.queryParamMap);
-  private readonly queryOpen = computed(() => this.queryParams()?.get(this.param()) === OPEN_VALUE);
+  private readonly queryOpen = computed(() => this.queryParams()?.get(this.param()) === DRAWER_OPEN);
   private opener: HTMLElement | undefined;
   private urlSeen = false;
   private titleFocused = true;
@@ -236,7 +236,7 @@ export class Drawer {
     try {
       await this.router.navigate([], {
         relativeTo: this.route,
-        queryParams: { [this.param()]: open ? OPEN_VALUE : undefined },
+        queryParams: { [this.param()]: open ? DRAWER_OPEN : undefined },
         queryParamsHandling: 'merge',
         replaceUrl: true,
       });
