@@ -22,13 +22,14 @@ transient description, which the rule forbids.
 3. **Toasts stay banned.** Feedback is inline, next to what caused it.
 4. **Modals stay banned** wherever a page or a drawer fits, with one named exception: `fr-drawer` below the `lg`
    container size (measured on the row the drawer sits in, not the viewport) is a native `<dialog>` shown with
-   `showModal()`: full screen, with a backdrop, focus trapped, Escape closing it and the page behind inert. Above `lg` it
-   is the docked, non-modal panel; crossing `lg` while open switches mode without closing. Any other modal needs its own ADR.
+   `showModal()`: full screen, with a backdrop, focus trapped, Escape closing it and the page behind inert. Above
+   `lg` it is the docked, non-modal panel; crossing `lg` while open switches mode without closing. Any other modal
+   needs its own ADR.
 
 `pioneer/no-interruptions` follows: `popover` is no longer reported; `<dialog>`, `role="dialog|alertdialog"` and
 internal `href` still are, and the drawer template disables the rule on its one `<dialog>` with that reason beside it.
-`pioneer/no-native-elements` makes `fr-drawer` the sole owner of `<dialog>`. Toasts have no lint of their own (they are a library or a floating `role="status"`), so
-rule 1 of the interaction rules stays a review point.
+`pioneer/no-native-elements` makes `fr-drawer` the sole owner of `<dialog>`. Toasts have no lint of their own (they
+are a library or a floating `role="status"`), so rule 1 of the interaction rules stays a review point.
 
 ## Consequences
 
