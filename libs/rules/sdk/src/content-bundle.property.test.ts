@@ -4,7 +4,8 @@ import { assert, property, shuffledSubarray, uniqueArray } from 'fast-check';
 import type { Arbitrary } from 'fast-check';
 
 import type { CanonicalJson } from './content-bundle';
-import { BundleHash, contentBundles } from './content-bundle';
+import { BundleHash } from './content-bundle';
+import { contentBundles } from './content-bundle-write';
 import { contentId, EntrySlug, PackId } from './content-id';
 import { packContentsFromFiles } from './content-pack-file';
 import { REGISTERED_KINDS } from './kind-data';
