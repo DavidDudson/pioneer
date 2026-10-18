@@ -68,7 +68,7 @@ function slugOf(name: string): string {
 }
 
 function strike(name: string, fields: Fields): unknown {
-  const { range, damage, ...rest } = withFormulas(fields, ['modifier']);
+  const { range, damage, img: _img, ...rest } = withFormulas(fields, ['modifier']);
   const changes: Record<string, unknown> = { slug: slugOf(name), ...rest };
   if (range !== undefined) {
     changes['range'] = rangeOf(range);
