@@ -10,7 +10,30 @@ import type { Translation } from '@jsverse/transloco';
 import { describe, expect, it, vi } from 'vitest';
 
 import { provideI18n } from './i18n';
-import { loadWithMessages, provideMessageScope } from './message-scope';
+import { loadMessageScopes, loadWithMessages, provideMessageScope } from './message-scope';
+
+describe(loadMessageScopes, () => {
+  it('loads each scope under its own key, with no route injector', async () => {
+    TestBed.configureTestingModule({ providers: [provideI18n({ en: async () => ({}) })] });
+    await TestBed.inject(ApplicationInitStatus).donePromise;
+    const i18n = TestBed.inject(TranslocoService);
+
+    await loadMessageScopes(i18n, [
+      { scope: 'first', messages: { en: async (): Promise<Translation> => ({ greeting: 'Hello {name}' }) } },
+      { scope: 'second', messages: { en: async (): Promise<Translation> => ({ farewell: 'Bye' }) } },
+    ]);
+
+    expect(i18n.translate('first.greeting', { name: 'Kyra' })).toBe('Hello Kyra');
+    expect(i18n.translate('second.farewell')).toBe('Bye');
+  });
+
+  it('resolves at once when there are no scopes', async () => {
+    TestBed.configureTestingModule({ providers: [provideI18n({ en: async () => ({}) })] });
+    await TestBed.inject(ApplicationInitStatus).donePromise;
+
+    await expect(loadMessageScopes(TestBed.inject(TranslocoService), [])).resolves.toBeUndefined();
+  });
+});
 
 describe(loadWithMessages, () => {
   it('loads the route scope together with the route code', async () => {

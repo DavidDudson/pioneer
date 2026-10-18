@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { IDLE_SCHEDULER, ShellSearch } from '@pioneer/shared/web';
 import { beforeAll, describe, expect, it, onTestFinished, vi } from 'vitest';
 
+import characterMessages from '../../../i18n/en.json';
 import { SHEET_SIDE_PANEL } from '../../data/sheet-side-panel';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { openSheet, present } from '../../testing/sheet-page-harness';
@@ -59,7 +60,7 @@ function fakeBrowser(): void {
 
 const openButton = (root: HTMLElement): HTMLButtonElement | undefined =>
   [...root.querySelectorAll('pio-sheet-header-actions button')].find(
-    (button): button is HTMLButtonElement => textOf(button) === 'Search content',
+    (button): button is HTMLButtonElement => textOf(button) === characterMessages.sheet.sidePanel.open,
   );
 
 describe('CharacterSheetPage side panel', () => {
@@ -98,7 +99,7 @@ describe('CharacterSheetPage side panel', () => {
       expect(router.url).toContain('drawer=open');
     });
     const dialog = await vi.waitFor(() => present(root.querySelector('dialog')));
-    expect(dialog.getAttribute('aria-label')).toBe('Content');
+    expect(dialog.getAttribute('aria-label')).toBe(characterMessages.sheet.sidePanel.title);
     expect(dialog.querySelector('pio-stub-side-panel')).not.toBeNull();
 
     dialog.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true, cancelable: true }));
@@ -106,6 +107,69 @@ describe('CharacterSheetPage side panel', () => {
       expect(router.url).not.toContain('drawer');
     });
     expect(root.querySelector('dialog')).toBeNull();
+  });
+
+  it('keeps the shell search and shows no panel when the panel fails to load', async () => {
+    const loader = vi.fn<() => Promise<Type<unknown>>>().mockRejectedValue(new Error('offline'));
+    const { root } = await openSheet(undefined, {
+      providers: [IDLE_NOW, { provide: SHEET_SIDE_PANEL, useValue: loader }],
+    });
+
+    await vi.waitFor(() => {
+      expect(loader).toHaveBeenCalledTimes(1);
+    });
+    // Past the microtasks in which the host handles the rejection.
+    await new Promise((resolve) => {
+      setTimeout(resolve, 0);
+    });
+    expect(TestBed.inject(ShellSearch).hidden()).toBe(false);
+    expect(root.querySelector('pio-stub-side-panel')).toBeNull();
+  });
+
+  it('does not hide the shell search for a panel that arrives after the sheet is left', async () => {
+    const { promise: late, resolve: arrive } = Promise.withResolvers<Type<unknown>>();
+    const loader = vi.fn<() => Promise<Type<unknown>>>(async () => late);
+    const { harness } = await openSheet(undefined, {
+      providers: [IDLE_NOW, { provide: SHEET_SIDE_PANEL, useValue: loader }],
+    });
+    await vi.waitFor(() => {
+      expect(loader).toHaveBeenCalledTimes(1);
+    });
+
+    harness.fixture.destroy();
+    arrive(StubSidePanel);
+    // Past the microtasks in which the host picks the panel up.
+    await new Promise((resolve) => {
+      setTimeout(resolve, 0);
+    });
+
+    expect(TestBed.inject(ShellSearch).hidden()).toBe(false);
+  });
+
+  it('waits for the browser to be idle before loading the panel', async () => {
+    const idleTasks: (() => void)[] = [];
+    const loader = vi.fn<() => Promise<Type<unknown>>>(async () => StubSidePanel);
+    await openSheet(undefined, {
+      providers: [
+        {
+          provide: IDLE_SCHEDULER,
+          useValue: (task: () => void): void => {
+            idleTasks.push(task);
+          },
+        },
+        { provide: SHEET_SIDE_PANEL, useValue: loader },
+      ],
+    });
+    expect(loader).not.toHaveBeenCalled();
+
+    for (const task of idleTasks) {
+      task();
+    }
+
+    await vi.waitFor(() => {
+      expect(TestBed.inject(ShellSearch).hidden()).toBe(true);
+    });
+    expect(loader).toHaveBeenCalledTimes(1);
   });
 
   it('shows the shell search again once the sheet is left', async () => {
