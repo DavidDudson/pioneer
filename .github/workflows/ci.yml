@@ -86,7 +86,10 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - { name: character, id: character, args: --projects=character-feature --output-style=stream }
+          # The character suite in one job was cancelled mid-run (a worker's memory grows with every file it runs),
+          # so it runs as two halves, each with its own Angular build.
+          - { name: character sheet page, id: character-page, args: --projects=character-feature --configuration=page }
+          - { name: character rest, id: character-rest, args: --projects=character-feature --configuration=rest }
           - { name: web, id: web, args: '--projects=tag:platform:web --exclude=character-feature --parallel=2' }
           - { name: server and domain, id: server, args: '--exclude=tag:platform:web' }
     services:
