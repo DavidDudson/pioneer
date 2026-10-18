@@ -1,5 +1,5 @@
-import { spellContent, SpendProblem } from '@pioneer/character/domain';
-import type { SpendRequest } from '@pioneer/character/domain';
+import { activeSpellOf, SpellSpendKind, spellContent, SpendProblem, sustainedRounds } from '@pioneer/character/domain';
+import type { ActiveSpell, SpendRequest } from '@pioneer/character/domain';
 import { ContentKind, Trait } from '@pioneer/rules/sdk';
 import type { ContentEntry, ContentId, ContentRegistry } from '@pioneer/rules/sdk';
 
@@ -45,13 +45,55 @@ function wrongPayment({ action, slot, focus }: SpendRequest, registry: ContentRe
   return (focus === true && !spell.focus) || (slot !== undefined && (spell.focus || spell.cantrip));
 }
 
+/** A content entry that is a spell. */
+type SpellEntry = Extract<ContentEntry, { kind: typeof ContentKind.Spell }>;
+
+/** The spell entry named `id`, if it is one. */
+function spellEntryOf(registry: ContentRegistry, id: ContentId): SpellEntry | undefined {
+  const entry = entryOf(registry, id);
+  return entry?.kind === ContentKind.Spell ? entry : undefined;
+}
+
+/** Whether the spend casts a spell as sustained that the content does not sustain for as long as the cast says. */
+function wrongSustain({ action, spell }: SpendRequest, registry: ContentRegistry): boolean {
+  if (spell?.kind !== SpellSpendKind.Cast) {
+    return false;
+  }
+  const entry = spellEntryOf(registry, action);
+  return entry === undefined || sustainedRounds(entry.data.duration) !== spell.rounds;
+}
+
+/** Whether the spend dismisses with the Dismiss action a spell whose content has no such action. */
+function wrongDismiss({ spell }: SpendRequest, registry: ContentRegistry, active: readonly ActiveSpell[]): boolean {
+  if (spell?.kind !== SpellSpendKind.Dismiss) {
+    return false;
+  }
+  const dismissed = activeSpellOf(active, spell.id);
+  return dismissed !== undefined && spellEntryOf(registry, dismissed.spell)?.data.dismiss !== true;
+}
+
+/** What a spend's content check reads of the play state: the active spells a sustain or dismissal names. */
+export interface SpendSpells {
+  readonly activeSpells: readonly ActiveSpell[];
+}
+
 /**
  * Why the action's own content rules out `request`, or undefined when it allows it. The flags the client sends are
  * checked against the entry the action names; an action with no entry, such as a Strike, has nothing to check.
  */
-export function contentRefusal(request: SpendRequest, registry: ContentRegistry): SpendProblem | undefined {
+export function contentRefusal(
+  request: SpendRequest,
+  registry: ContentRegistry,
+  { activeSpells }: SpendSpells,
+): SpendProblem | undefined {
   if (falseAttack(request, registry)) {
     return SpendProblem.AttackNotAllowed;
   }
-  return wrongPayment(request, registry) ? SpendProblem.PaymentNotAllowed : undefined;
+  if (wrongPayment(request, registry)) {
+    return SpendProblem.PaymentNotAllowed;
+  }
+  if (wrongSustain(request, registry)) {
+    return SpendProblem.NotSustained;
+  }
+  return wrongDismiss(request, registry, activeSpells) ? SpendProblem.DismissNotAllowed : undefined;
 }

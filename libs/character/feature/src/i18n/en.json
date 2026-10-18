@@ -527,6 +527,8 @@
     "spendAlreadySpent": "That use is already in the log.",
     "spendNotSpent": "That use is not in the log, so there is nothing to take back.",
     "spendNoSuchSpell": "That spell is not active.",
+    "spendNotSustained": "That spell is not sustained, or not for that long.",
+    "spendDismissNotAllowed": "That spell can be dismissed at will, without the Dismiss action.",
     "spendAlreadySustained": "That spell was already sustained this turn.",
     "spendSustainLimit": "That spell has run to the longest it can be sustained.",
     "spendTooManySpells": "There are too many active spells to add another."

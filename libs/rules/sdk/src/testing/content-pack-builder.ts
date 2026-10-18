@@ -256,8 +256,15 @@ export class ContentPackBuilder {
   }
 
   /** A spell slugged `spell:<name>`, cast with two actions, its level its rank. */
-  public withSpell(name: string, { rank, traditions, traits = [], rarity }: SpellFields): this {
-    const data = { rank, traditions, time: { type: 'actions', cost: 'two' }, damage: [] };
+  public withSpell(name: string, { rank, traditions, traits = [], rarity, duration, dismiss }: SpellFields): this {
+    const data = {
+      rank,
+      traditions,
+      time: { type: 'actions', cost: 'two' },
+      damage: [],
+      ...(duration === undefined ? {} : { duration }),
+      ...(dismiss === undefined ? {} : { dismiss }),
+    };
     this.#entries.push({
       kind: ContentKind.Spell,
       name,

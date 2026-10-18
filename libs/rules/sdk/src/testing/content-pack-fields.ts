@@ -32,6 +32,10 @@ export interface SpellFields {
   readonly traditions: readonly string[];
   readonly traits?: readonly string[];
   readonly rarity?: string;
+  /** How long it lasts, as the content writes it. */
+  readonly duration?: object;
+  /** Whether ending it takes the Dismiss action. */
+  readonly dismiss?: true;
 }
 
 /** What a test class has beyond its key attribute. */
