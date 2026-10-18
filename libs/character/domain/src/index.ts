@@ -450,7 +450,7 @@ export {
   withOverrides,
 } from './rule-limits';
 export type { RuleLimitOverrides, RuleLimits } from './rule-limits';
-export { inventoryViolations, RuleBreak } from './rule-violations';
+export { inventoryViolations, RuleBreak, RuleCount } from './rule-violations';
 export type { CountViolation, RuleViolation, RuneViolation } from './rule-violations';
 export {
   FUNDAMENTAL_GRADE_MAX,

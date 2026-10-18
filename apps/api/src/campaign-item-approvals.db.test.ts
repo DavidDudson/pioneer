@@ -37,6 +37,7 @@ describe.skipIf(adminUrl === undefined)('approved rule-breaking items over postg
   let kyra: Character;
   let kyraId: CharacterId;
   let campaignId: CampaignId;
+  let campaigns = 0;
   let memberId: CampaignMemberId;
 
   function approval(overrides: Partial<CampaignItemApproval> = {}): CampaignItemApproval {
@@ -77,8 +78,9 @@ describe.skipIf(adminUrl === undefined)('approved rule-breaking items over postg
 
   /** A fresh campaign for each test, as approvals are never deleted. */
   beforeEach(async () => {
+    campaigns += 1;
     const campaign = await new DrizzleCampaignRepository(database.db).insert(
-      new CampaignBuilder().named('Abomination Vaults').ranBy(ezren).withPlayer(amiri).build(),
+      new CampaignBuilder().named(`Abomination Vaults ${campaigns}`).ranBy(ezren).withPlayer(amiri).build(),
     );
     campaignId = campaign.id;
     const member = campaign.members.find((candidate) => candidate.userId === amiri);
@@ -98,7 +100,7 @@ describe.skipIf(adminUrl === undefined)('approved rule-breaking items over postg
     await repository.approve(ezren, campaignId, approval({ value: ReviewedCount.parse(8) }));
     const rows = await repository.listForCampaign(campaignId);
     expect(rows.map((row) => [row.item, row.rule, row.value, row.approvedBy])).toStrictEqual([
-      [caliburn, ItemRule.PropertyRunes, 8, ezren],
+      [caliburn, ItemRule.PropertyRunes, ReviewedCount.parse(8), ezren],
     ]);
   });
 
@@ -129,7 +131,7 @@ describe.skipIf(adminUrl === undefined)('approved rule-breaking items over postg
   test('the database refuses to delete an approval (ADR-0062)', async () => {
     await repository.approve(ezren, campaignId, approval());
     const error = await rejection(
-      database.db.execute(sql`delete from campaign_item_approvals where campaign_id = ${campaignId}`),
+      database.db.$client.unsafe(`delete from campaign_item_approvals where campaign_id = '${campaignId}'`),
     );
     expect(error).toBeInstanceOf(Error);
   });
@@ -151,7 +153,7 @@ describe.skipIf(adminUrl === undefined)('approved rule-breaking items over postg
     await repository.approve(gone, campaignId, approval({ approvedBy: gone }));
     await database.db.execute(sql`delete from users where id = ${gone}`);
     const [row] = await repository.listForCampaign(campaignId);
-    expect([row?.value, row?.approvedBy]).toStrictEqual([7, undefined]);
+    expect([row?.value, row?.approvedBy]).toStrictEqual([ReviewedCount.parse(7), undefined]);
   });
 
   test('every lookup is served by an index', async () => {

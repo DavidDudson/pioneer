@@ -267,6 +267,13 @@
       "when": 1792238140485,
       "tag": "0037_campaign_key_items",
       "breakpoints": true
+    },
+    {
+      "idx": 38,
+      "version": "7",
+      "when": 1792324118889,
+      "tag": "0038_campaign_item_approvals_order",
+      "breakpoints": true
     }
   ]
 }

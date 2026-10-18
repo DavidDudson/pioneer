@@ -256,6 +256,10 @@ export const campaignItemApprovals = pgTable(
     uniqueIndex('campaign_item_approvals_live_idx')
       .on(table.campaignId, table.characterId, table.itemId, table.rule, table.rune)
       .where(sql`${table.archivedAt} is null`),
+    // Serves a campaign's live approvals, read oldest first.
+    index('campaign_item_approvals_campaign_idx')
+      .on(table.campaignId, table.approvedAt, table.id)
+      .where(sql`${table.archivedAt} is null`),
     // Serves a character's approvals, which its sheet reads.
     index('campaign_item_approvals_character_idx').on(table.characterId),
     // Serves clearing `approved_by` when the user is deleted.

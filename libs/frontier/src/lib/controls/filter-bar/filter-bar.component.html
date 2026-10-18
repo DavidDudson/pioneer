@@ -8,9 +8,7 @@
           [ariaLabel]="'frontier.filterBar.edit' | transloco: { filter: chip.phrase }"
           (pressed)="edit(chip.index)"
         >
-          <fr-text>{{ chip.field }}</fr-text>
-          <fr-text>{{ chip.operator }}</fr-text>
-          <fr-text>{{ chip.values }}</fr-text>
+          <fr-text>{{ chip.phrase }}</fr-text>
         </fr-button>
         <fr-button
           iconOnly

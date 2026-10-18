@@ -18,10 +18,7 @@ const chipClasses = cva('inline-flex items-center border border-line-default bg-
 /** A filter as its chip shows it. */
 interface Chip {
   readonly index: number;
-  readonly field: string;
-  readonly operator: string;
-  readonly values: string;
-  /** The whole filter as one phrase, for the buttons' names. */
+  /** The whole filter as one phrase: the chip text, and the base of the buttons' names. */
   readonly phrase: string;
 }
 
@@ -75,7 +72,7 @@ export class FilterBar {
       }
       const operator = translate(OPERATOR_LABELS[condition.operator]);
       const values = valueText(field, condition, translate);
-      return [{ index, field: field.label, operator, values, phrase: `${field.label} ${operator} ${values}` }];
+      return [{ index, phrase: `${field.label} ${operator} ${values}` }];
     });
   });
 

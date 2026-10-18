@@ -1,4 +1,4 @@
-import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
+import { afterAll, beforeAll, describe, expect, setDefaultTimeout, test } from 'bun:test';
 
 import { Character, CharacterPatchField } from '@pioneer/character/domain';
 import { fixtureOwnerId, humanAncestryId } from '@pioneer/character/domain/testing';
@@ -25,6 +25,9 @@ import { PioneerCharacterSnapshots } from './pioneer-character-snapshots';
 const adminUrl = testDatabaseUrl();
 const clock = fixedClock('2026-10-16T10:00:00Z');
 const STRANGER = UserId.parse('00000000-0000-4000-8000-000000000002');
+
+/** Seeding the official content takes longer than the 5s default. */
+setDefaultTimeout(30_000);
 
 function ignore(): void {
   // Seed log lines are not under test.
