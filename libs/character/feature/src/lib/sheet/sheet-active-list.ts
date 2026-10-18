@@ -5,8 +5,8 @@ import {
   SpellSpendKind,
   sustainedRounds,
 } from '@pioneer/character/domain';
-import type { ActiveEffect, ActiveSpell, EffectInstanceId, SpellSpend } from '@pioneer/character/domain';
-import { ContentKind } from '@pioneer/rules/sdk';
+import type { ActiveEffect, ActiveSpell, EffectInstanceId, SlotCountKey, SpellSpend } from '@pioneer/character/domain';
+import { ContentKind, SpellRank } from '@pioneer/rules/sdk';
 import type { ContentEntry, ContentId, ContentRegistry } from '@pioneer/rules/sdk';
 import { newId } from '@pioneer/shared/kernel';
 
@@ -106,15 +106,30 @@ export function activeCount({ activeSpells, effects }: ActiveLists): number {
   return activeSpells.length + effects.length;
 }
 
+/** The rank a slot key ends in (`<entry>:<rank>`, `<entry>:<pool>:<rank>`), when it names one. */
+function slotRank(slot: SlotCountKey | undefined): SpellRank | undefined {
+  const parsed = SpellRank.safeParse(Number(slot?.split(':').at(-1)));
+  return parsed.success ? parsed.data : undefined;
+}
+
 /**
- * The active-spell change casting `spell` records, when its content is sustained: a new active spell at the rank the
- * content gives, for as long as it can be kept up. Casting any other spell, or something that is no spell, records none.
+ * The active-spell change casting `spell` records, when its content is sustained: a new active spell at the rank of
+ * the slot it was cast from, else the rank the content gives, for as long as it can be kept up. Casting any other spell, or something that is no spell, records none.
  */
-export function sustainedCast(registry: ContentRegistry, spell: ContentId): SpellSpend | undefined {
+export function sustainedCast(
+  registry: ContentRegistry,
+  spell: ContentId,
+  slot?: SlotCountKey,
+): SpellSpend | undefined {
   const entry = spellEntries(registry).get(spell);
   const rounds = sustainedRounds(entry?.data.duration);
   if (entry === undefined || rounds === undefined) {
     return undefined;
   }
-  return { kind: SpellSpendKind.Cast, id: ActiveSpellId.parse(newId()), rank: entry.data.rank, rounds };
+  return {
+    kind: SpellSpendKind.Cast,
+    id: ActiveSpellId.parse(newId()),
+    rank: slotRank(slot) ?? entry.data.rank,
+    rounds,
+  };
 }

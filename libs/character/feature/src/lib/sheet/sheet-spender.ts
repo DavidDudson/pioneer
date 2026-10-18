@@ -61,15 +61,15 @@ export class SheetSpender extends ActionUser {
   public override async use(request: ActionUse): Promise<void> {
     const { line, actions } = request;
     const registry = this.#registry.data();
+    const spells = this.#spells.data();
     const pays = line.payment !== undefined;
     const cost = spendCostOf(line.cost ?? (pays ? ActionCost.Free : undefined), actions);
-    if (registry === undefined || cost === undefined) {
+    if (registry === undefined || spells === undefined || cost === undefined) {
       return;
     }
     const recorded = pays ? paymentOf(line.payment) : frequencyOf(registry, request);
     const attacks = line.attack === true || makesAttack(registry, line.id);
-    const spells = this.#spells.data();
-    const cast = spells === undefined ? undefined : sustainedCast(spells, line.id);
+    const cast = sustainedCast(spells, line.id, recorded.slot);
     await this.#play.send({
       field: PlayCommandField.SpendAction,
       id: SpendId.parse(newId()),

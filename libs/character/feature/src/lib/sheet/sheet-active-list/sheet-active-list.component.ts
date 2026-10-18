@@ -81,9 +81,13 @@ export class SheetActiveList {
   /** Whether an edit is in flight: they share one revision, so a second would meet a conflict nothing caused. */
   protected readonly busy = signal(false);
 
-  /** Whether the row's spell can be sustained now: once a turn, with rounds left and an action to spend. */
+  /** Whether the row's spell can be sustained now: on the character's turn, once a turn, with rounds left and an action to spend. */
   protected readonly cannotSustain = (row: ActiveRow): boolean =>
-    this.busy() || row.sustainedThisTurn || !row.canSustain || !this.actionLeft();
+    this.busy() ||
+    row.sustainedThisTurn ||
+    !row.canSustain ||
+    this.#spender.turn()?.phase !== TurnPhase.Turn ||
+    !this.actionLeft();
 
   /** Whether dismissing the row takes the Dismiss action and there is none to spend. */
   protected readonly cannotDismiss = (row: ActiveRow): boolean =>
