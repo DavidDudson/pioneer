@@ -1,0 +1,56 @@
+[
+  {
+    "id": "1cb96f6e-1558-5d2c-bd5e-d524be340747",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:erutaki",
+    "name": "Erutaki",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "104a7bc1-2a25-59c2-9da3-df6d1c2029ad",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:skald",
+    "name": "Skald",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "8c74ebd7-e981-5408-a004-fa86c0ed2273",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:varki",
+    "name": "Varki",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  }
+]

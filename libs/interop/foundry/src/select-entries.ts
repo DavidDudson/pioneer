@@ -15,6 +15,7 @@ export const FOUNDRY_BOOK_TITLES: ReadonlyMap<string, BookId> = new Map([
   ['Pathfinder GM Core', BookId.parse('gm-core')],
   ['Pathfinder Monster Core', BookId.parse('monster-core')],
   ['Pathfinder Monster Core 2', BookId.parse('monster-core-2')],
+  ['Pathfinder NPC Core', BookId.parse('npc-core')],
   ['Pathfinder Lost Omens Divine Mysteries', BookId.parse('divine-mysteries')],
   // The book's free online supplement, filed under the book.
   ['Pathfinder Lost Omens Divine Mysteries Web Supplement', BookId.parse('divine-mysteries')],
