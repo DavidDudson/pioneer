@@ -6,6 +6,7 @@ import type { BattleFormElement, Origin, RuleValue, Selector } from '@pioneer/ru
 import { message } from '@pioneer/shared/kernel';
 
 import { CHECK_PENALTY } from './armor-bonus';
+import { heightened } from './battle-form-heighten';
 import { LabelParam, LineStatusKind, SuppressionReason } from './breakdown';
 import type { BreakdownLine, ModifierLabel } from './breakdown';
 import { EngineMessage } from './messages';
@@ -37,14 +38,19 @@ const NO_SPEED = RuleNumber.parse(0);
 /**
  * The battle form in force: a `BattleForm` element whose predicate holds, and, since a character can be in one form
  * at a time, the one with the smallest rule id when several do. One that depends on the situation gives nothing.
- * Only the form's base is read here; its brackets (heightened forms) join when the form's spell rank is known.
+ * Its brackets (heightened forms) join up to the spell rank of the item it sits on (`heightened`).
  */
 export function battleFormInPlay({ rules, facts }: ModifierInputs): FormInPlay | undefined {
   const forms: FormInPlay[] = [];
   for (const rule of rules) {
     const { element } = rule;
     if (element.key === RuleElementKey.BattleForm && truthOf(element.predicate, facts) === Truth.True) {
-      forms.push({ id: ruleIdOf(rule), label: labelOf(rule), origin: rule.origin, form: element.form });
+      forms.push({
+        id: ruleIdOf(rule),
+        label: labelOf(rule),
+        origin: rule.origin,
+        form: heightened(element, rule.itemLevel),
+      });
     }
   }
   return forms.toSorted((left, right) => Number(left.id > right.id) - Number(left.id < right.id))[0];
