@@ -45,7 +45,17 @@ interface ShownLine {
  */
 @Component({
   selector: 'pio-inventory-row',
-  imports: [ContentPreview, InventoryBreaks, InventoryNote, List, ListItem, NgTemplateOutlet, Stack, Text, TranslocoPipe],
+  imports: [
+    ContentPreview,
+    InventoryBreaks,
+    InventoryNote,
+    List,
+    ListItem,
+    NgTemplateOutlet,
+    Stack,
+    Text,
+    TranslocoPipe,
+  ],
   templateUrl: './inventory-row.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

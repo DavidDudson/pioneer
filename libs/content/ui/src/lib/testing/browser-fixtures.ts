@@ -26,6 +26,7 @@ export const BROWSER_ROWS: readonly BrowseRow[] = PACK.otherEntries.map((entry) 
   const name = slugName(entry.slug);
   return {
     id: entry.id,
+    entry: entry.id,
     name: entry.name,
     to: ['/content', ContentKind.Feat, name],
     ref: { kind: ContentKind.Feat, name },
