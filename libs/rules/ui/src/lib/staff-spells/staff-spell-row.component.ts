@@ -3,7 +3,7 @@ import { TranslocoPipe } from '@jsverse/transloco';
 import { Badge, Stack, Text } from '@pioneer/frontier';
 import { STAFF_CANTRIP } from '@pioneer/rules/sdk';
 
-import { EntryHover } from '../entry-preview/entry-hover.component';
+import { ContentPreview } from '../entry-preview/content-preview.component';
 import { StaffCastButtons } from './staff-cast-buttons.component';
 import type { StaffSpellLine } from './staff-spells-line';
 import { STAFF_SPELL_BLOCK_MESSAGES, StaffSpellsMessage } from './staff-spells-messages';
@@ -14,7 +14,7 @@ import { STAFF_SPELL_BLOCK_MESSAGES, StaffSpellsMessage } from './staff-spells-m
  */
 @Component({
   selector: 'pio-staff-spell-row',
-  imports: [Badge, EntryHover, Stack, StaffCastButtons, Text, TranslocoPipe],
+  imports: [Badge, ContentPreview, Stack, StaffCastButtons, Text, TranslocoPipe],
   templateUrl: './staff-spell-row.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

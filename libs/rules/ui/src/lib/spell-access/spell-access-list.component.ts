@@ -4,7 +4,7 @@ import { LucideX } from '@lucide/angular';
 import { AsyncButton, EmptyState, Icon, List, ListItem, Skeleton, Stack, Text } from '@pioneer/frontier';
 import type { ContentId } from '@pioneer/rules/sdk';
 
-import { EntryHover } from '../entry-preview/entry-hover.component';
+import { ContentPreview } from '../entry-preview/content-preview.component';
 import type { SpellAccessLine } from './spell-access-line';
 import { SpellAccessMessage } from './spell-access-messages';
 
@@ -32,7 +32,7 @@ interface AccessRow {
  */
 @Component({
   selector: 'pio-spell-access-list',
-  imports: [EntryHover, AsyncButton, EmptyState, Icon, List, ListItem, Skeleton, Stack, Text, TranslocoPipe],
+  imports: [ContentPreview, AsyncButton, EmptyState, Icon, List, ListItem, Skeleton, Stack, Text, TranslocoPipe],
   templateUrl: './spell-access-list.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

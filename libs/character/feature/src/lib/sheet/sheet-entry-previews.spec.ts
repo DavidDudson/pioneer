@@ -2,7 +2,9 @@ import { TestBed } from '@angular/core/testing';
 import { ContentLoader } from '@pioneer/rules/data-access';
 import { ContentId, ContentKind, contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import type { ContentRegistry } from '@pioneer/rules/sdk';
-import { beforeAll, describe, expect, it } from 'vitest';
+import type { EntryPreviews } from '@pioneer/rules/ui';
+import { beforeAll, describe, expect, it, vi } from 'vitest';
+import type { Mock } from 'vitest';
 
 import {
   PREBUILD_TIMEOUT,
@@ -11,7 +13,7 @@ import {
 } from '../testing/provide-server-state-testing';
 import { cutTo } from '../testing/test-packs';
 import { INVENTORY_CONTENT_KINDS } from './inventory/sheet-inventory';
-import { sheetEntryPreview, sheetEntryPreviews } from './sheet-entry-previews';
+import { sheetEntryPreview, sheetEntryPreviews, sheetFetchingPreviews } from './sheet-entry-previews';
 
 const FEAT_PACKS = cutTo([ContentKind.Feat]);
 
@@ -81,5 +83,69 @@ describe(sheetEntryPreviews, () => {
     expect(previews.preview(id)).toBeUndefined();
     held.registry = registry;
     expect(previews.preview(id)?.name).toBe(feat?.name);
+  });
+});
+
+function fetching(
+  registry: Mock<LoadRegistry>,
+  held: () => ContentRegistry | undefined = () => undefined,
+): EntryPreviews {
+  // The registry came from a module of its own; the loader here is a fake.
+  TestBed.resetTestingModule();
+  TestBed.configureTestingModule({ providers: [{ provide: ContentLoader, useValue: { registry } }] });
+  return TestBed.runInInjectionContext(() => sheetFetchingPreviews(held));
+}
+function firstFeat(registry: ContentRegistry): ContentId {
+  const feat = registry.packs.flatMap((pack) => pack.otherEntries).find((entry) => entry.kind === ContentKind.Feat);
+  return ContentId.parse(feat?.id);
+}
+
+type LoadRegistry = (kinds: readonly ContentKind[]) => Promise<ContentRegistry>;
+
+describe(sheetFetchingPreviews, () => {
+  it('loads only the named kinds, once for concurrent calls', async () => {
+    const registry = await featRegistry();
+    const id = firstFeat(registry);
+    const load = vi.fn<LoadRegistry>(async () => registry);
+    const previews = fetching(load);
+
+    const [first, second] = await Promise.all([previews.load?.(id), previews.load?.(id)]);
+
+    expect(load).toHaveBeenCalledTimes(1);
+    expect(load.mock.calls[0]?.[0]).not.toContain(ContentKind.Feat);
+    expect(first?.name).toBe(second?.name);
+    expect(first).toBeDefined();
+  });
+
+  it('retries after a rejection', async () => {
+    const registry = await featRegistry();
+    const id = firstFeat(registry);
+    const load = vi.fn<LoadRegistry>().mockRejectedValueOnce(new Error('offline')).mockResolvedValueOnce(registry);
+    const previews = fetching(load);
+
+    await expect(previews.load?.(id)).rejects.toThrow('offline');
+    const preview = await previews.load?.(id);
+    expect(preview?.name).toBeDefined();
+    expect(load).toHaveBeenCalledTimes(2);
+  });
+
+  it('has no preview for an id the bundles do not hold', async () => {
+    const registry = await featRegistry();
+    const missing = ContentId.parse(contentId(PackId.parse('player-core'), EntrySlug.parse('feat:no-such-feat')));
+    const previews = fetching(vi.fn<LoadRegistry>(async () => registry));
+
+    await expect(previews.load?.(missing)).resolves.toBeUndefined();
+  });
+
+  it('links to an entry it fetched, as to one the sheet holds, and to none it does not know', async () => {
+    const registry = await featRegistry();
+    const id = firstFeat(registry);
+    const missing = ContentId.parse(contentId(PackId.parse('player-core'), EntrySlug.parse('feat:no-such-feat')));
+    const previews = fetching(vi.fn<LoadRegistry>(async () => registry));
+
+    expect(previews.target?.(id)).toBeUndefined();
+    await previews.load?.(id);
+    expect(previews.target?.(id)).toBeDefined();
+    expect(previews.target?.(missing)).toBeUndefined();
   });
 });

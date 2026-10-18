@@ -25,11 +25,11 @@ import type { AsyncQuery, SelectOption } from '@pioneer/frontier';
 import type { TableViewSort } from '@pioneer/frontier/data';
 import { ContentKind } from '@pioneer/rules/sdk';
 import type { ContentEntry, CreatureData, FilterState } from '@pioneer/rules/sdk';
-import { RARITY_TONES, RICH_TEXT_LINKS, SIZE_MESSAGES } from '@pioneer/rules/ui';
-import type { Chip, EntryPreview, RichTextLinks } from '@pioneer/rules/ui';
+import { ENTRY_PREVIEWS, entryTarget, RARITY_TONES, RICH_TEXT_LINKS, SIZE_MESSAGES } from '@pioneer/rules/ui';
+import type { Chip, EntryPreview, EntryPreviews, RichTextLinks } from '@pioneer/rules/ui';
 
 import { injectEntryDescription } from '../entry/entry-description';
-import { entryCard, entryIndex, entryLinks, entryTarget, findEntry } from '../entry/entry-lookup';
+import { entryCard, entryIndex, entryLinks, entryPreviews, findEntry } from '../entry/entry-lookup';
 import { ROLE_MESSAGES, SIZE_ORDER } from './browse-creature';
 import { BROWSE_KINDS, facetsOf, isBrowseKind, KIND_MESSAGES } from './browse-kinds';
 import type { BrowseKind } from './browse-kinds';
@@ -55,7 +55,10 @@ const PAGE_SIZE = 100;
   selector: 'pio-content-browser',
   imports: [ContentBrowserView],
   templateUrl: './content-browser.component.html',
-  providers: [{ provide: RICH_TEXT_LINKS, useFactory: (): RichTextLinks => inject(ContentBrowser).links }],
+  providers: [
+    { provide: RICH_TEXT_LINKS, useFactory: (): RichTextLinks => inject(ContentBrowser).links },
+    { provide: ENTRY_PREVIEWS, useFactory: (): EntryPreviews => inject(ContentBrowser).previews },
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContentBrowser {
@@ -157,6 +160,8 @@ export class ContentBrowser {
   });
   /** A reference in a description is named and linked from the entries loaded. */
   public readonly links: RichTextLinks = entryLinks(() => this.#index());
+  /** What a name in the table previews on hover and focus: the entries the list was built from. */
+  public readonly previews: EntryPreviews = entryPreviews(() => this.#index());
 
   /** The entry the state picks, or `undefined` once the registry is loaded without it. */
   readonly #picked: Signal<ContentEntry | undefined> = computed(() => {
@@ -199,6 +204,7 @@ export class ContentBrowser {
     const traits = entry.traits.map((trait): Chip => ({ label: trait, tone }));
     return {
       id: entry.id,
+      entry: entry.id,
       name: entry.name,
       to: entryTarget(entry),
       ref: refOf(entry),

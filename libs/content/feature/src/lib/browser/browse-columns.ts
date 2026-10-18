@@ -75,6 +75,7 @@ export function browseColumns(
       header: say(ColumnMessage.Name),
       value: (row) => row.name,
       to: (row) => row.to,
+      entry: (row) => row.entry,
     })
     .addText({
       id: BrowseColumn.Kind,

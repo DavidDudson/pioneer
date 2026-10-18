@@ -86,7 +86,50 @@ describe(HoverCard, () => {
       expect(card()).toBeNull();
     });
   });
+
+  it('opens on a first touch tap without following the link, and lets the second tap through', async () => {
+    const fixture = render();
+    const element = trigger(fixture);
+    const tap = (): MouseEvent => click(element, 'touch');
+    expect(tap().defaultPrevented).toBe(true);
+    await vi.waitFor(() => {
+      fixture.detectChanges();
+      expect(card()).not.toBeNull();
+    });
+    expect(tap().defaultPrevented).toBe(false);
+  });
+
+  it('does not swallow a keyboard Enter after a touch that scrolled instead of tapping', () => {
+    const fixture = render();
+    const element = trigger(fixture);
+    // A touch scroll fires pointerdown but never a click.
+    element.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true, pointerType: 'touch' }));
+    expect(click(element, '').defaultPrevented).toBe(false);
+  });
+
+  it('does not treat a mouse click after a touch tap as a tap', async () => {
+    const fixture = render();
+    const element = trigger(fixture);
+    click(element, 'touch');
+    await vi.waitFor(() => {
+      fixture.detectChanges();
+      expect(card()).not.toBeNull();
+    });
+    element.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+    fixture.detectChanges();
+    await vi.waitFor(() => {
+      expect(card()).toBeNull();
+    });
+    expect(click(element, 'mouse').defaultPrevented).toBe(false);
+  });
 });
+
+/** A click as the browser fires it: a PointerEvent whose type says what produced it ('' for a keyboard Enter). */
+function click(element: HTMLElement, pointerType: string): MouseEvent {
+  const event = new PointerEvent('click', { bubbles: true, cancelable: true, pointerType });
+  element.dispatchEvent(event);
+  return event;
+}
 
 /** The span that listens for the pointer: mouseenter does not bubble from the projected trigger. */
 function pointerTarget(fixture: ComponentFixture<Host>): HTMLElement {

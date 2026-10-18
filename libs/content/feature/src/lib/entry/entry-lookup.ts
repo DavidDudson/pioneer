@@ -8,12 +8,10 @@ import type {
   ContentText,
   PackCreature,
 } from '@pioneer/rules/sdk';
-import type { EntryPreview, RichTextLinks } from '@pioneer/rules/ui';
+import { entryTarget } from '@pioneer/rules/ui';
+import type { EntryPreview, EntryPreviews, RichTextLinks } from '@pioneer/rules/ui';
 
 import { BROWSE_KINDS } from '../browser/browse-kinds';
-
-/** The root of the content browser's routes in the app. */
-const CONTENT_PATH = '/content';
 
 /**
  * The kinds loaded beside the entry's own, so a reference in its text names and links the entry it points at: the
@@ -30,11 +28,6 @@ export function entryKinds(kind: ContentKind): readonly ContentKind[] {
 export function kindOfParam(param: string | null | undefined): ContentKind | undefined {
   const parsed = ContentKindSchema.safeParse(param);
   return parsed.success ? parsed.data : undefined;
-}
-
-/** Where `entry` opens: `/content/feat/power-attack`. */
-export function entryTarget(entry: ContentEntry): LinkTarget {
-  return [CONTENT_PATH, entry.kind, slugName(entry.slug)];
 }
 
 /**
@@ -100,5 +93,19 @@ export function entryLinks(index: () => ReadonlyMap<ContentId, ContentEntry> | u
       return entry === undefined ? undefined : entryTarget(entry);
     },
     statisticName: (): undefined => undefined,
+  };
+}
+
+/** The previews of a page over `index`: a hover on an entry it holds shows its card, which links to the entry's page. */
+export function entryPreviews(index: () => ReadonlyMap<ContentId, ContentEntry> | undefined): EntryPreviews {
+  return {
+    preview: (id): EntryPreview | undefined => {
+      const entry = index()?.get(id);
+      return entry === undefined ? undefined : entryCard(entry, undefined);
+    },
+    target: (id): LinkTarget | undefined => {
+      const entry = index()?.get(id);
+      return entry === undefined ? undefined : entryTarget(entry);
+    },
   };
 }

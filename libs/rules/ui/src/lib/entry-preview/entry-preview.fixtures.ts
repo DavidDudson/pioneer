@@ -12,7 +12,7 @@ import {
 } from '@pioneer/rules/sdk';
 
 import { line } from '../testing/breakdown-fixtures';
-import type { EntryPreview } from './entry-preview';
+import type { EntryPreview, EntryPreviews } from './entry-preview';
 
 const SPELL_LEVEL = ContentLevel.parse(3);
 
@@ -49,4 +49,9 @@ export const CLUMSY_PREVIEW: EntryPreview = {
     { statistic: 'Armor Class', line: line(ContentId.parse(CLUMSY), { type: ModifierType.Status, value: -2 }) },
     { statistic: 'Reflex', line: line(ContentId.parse(CLUMSY), { type: ModifierType.Status, value: -2 }) },
   ],
+};
+
+/** Previews that hold fireball and nothing else. */
+export const FIREBALL_PREVIEWS: EntryPreviews = {
+  preview: (id): EntryPreview | undefined => (id === FIREBALL ? FIREBALL_PREVIEW : undefined),
 };

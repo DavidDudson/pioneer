@@ -1,7 +1,7 @@
 import type { LinkTarget } from '@pioneer/frontier';
 import { TableSchema } from '@pioneer/frontier/data';
 import type { ColumnOptions, RowData } from '@pioneer/frontier/data';
-import type { RichText, SourceRef } from '@pioneer/rules/sdk';
+import type { ContentId, RichText, SourceRef } from '@pioneer/rules/sdk';
 
 import { SourceLineView } from '../source-line/source-line.component';
 import { ActionCostCell } from './action-cost-cell/action-cost-cell.component';
@@ -36,11 +36,12 @@ export interface CountColumn<TRow> extends ColumnOptions {
   readonly max: (row: TRow) => number;
 }
 
-/** A column of entry names, each linking to `to`. */
+/** A column of entry names, each linking to `to` when given and previewing the entry it names when `entry` is. */
 export interface EntryNameColumn<TRow> extends ColumnOptions {
   readonly id: string;
   readonly value: (row: TRow) => string;
-  readonly to: (row: TRow) => LinkTarget;
+  readonly to?: (row: TRow) => LinkTarget;
+  readonly entry?: (row: TRow) => ContentId | undefined;
 }
 
 /** Cheapest first: a free action, a reaction, then one to three actions, a cost that varies, none at all. */
@@ -77,13 +78,13 @@ export class RulesTableSchema<TRow extends RowData> extends TableSchema<TRow> {
     });
   }
 
-  /** An entry's name as a link to its page, sorted by the name. */
+  /** An entry's name as a link to its page and a preview of the entry, sorted by the name. */
   public addEntryName(options: EntryNameColumn<TRow>): this {
     return this.addComponent({
       ...options,
       sortValue: options.value,
       component: EntryNameCell,
-      inputs: (row) => ({ name: options.value(row), to: options.to(row) }),
+      inputs: (row) => ({ name: options.value(row), to: options.to?.(row), entry: options.entry?.(row) }),
     });
   }
 

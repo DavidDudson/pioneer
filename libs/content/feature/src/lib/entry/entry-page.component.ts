@@ -17,12 +17,12 @@ import {
   Stack,
 } from '@pioneer/frontier';
 import type { ContentEntry, ContentKind, ContentRegistry } from '@pioneer/rules/sdk';
-import { RICH_TEXT_LINKS } from '@pioneer/rules/ui';
-import type { EntryPreview, RichTextLinks } from '@pioneer/rules/ui';
+import { ENTRY_PREVIEWS, RICH_TEXT_LINKS } from '@pioneer/rules/ui';
+import type { EntryPreview, EntryPreviews, RichTextLinks } from '@pioneer/rules/ui';
 import type { CreateQueryResult } from '@tanstack/angular-query-experimental';
 
 import { injectEntryDescription } from './entry-description';
-import { entryCard, entryIndex, entryLinks, findEntry, kindOfParam } from './entry-lookup';
+import { entryCard, entryIndex, entryLinks, entryPreviews, findEntry, kindOfParam } from './entry-lookup';
 import { injectEntryRegistry } from './entry-registry';
 
 const EntryMessage = {
@@ -56,7 +56,10 @@ const LOADING_ROWS = ['first', 'second', 'third'];
     TranslocoPipe,
   ],
   templateUrl: './entry-page.component.html',
-  providers: [{ provide: RICH_TEXT_LINKS, useFactory: (): RichTextLinks => inject(EntryPage).links }],
+  providers: [
+    { provide: RICH_TEXT_LINKS, useFactory: (): RichTextLinks => inject(EntryPage).links },
+    { provide: ENTRY_PREVIEWS, useFactory: (): EntryPreviews => inject(EntryPage).previews },
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EntryPage {
@@ -75,6 +78,8 @@ export class EntryPage {
     return registry === undefined ? undefined : entryIndex(registry);
   });
   public readonly links: RichTextLinks = entryLinks(() => this.#index());
+  /** What a reference in the description previews on hover and focus. */
+  public readonly previews: EntryPreviews = entryPreviews(() => this.#index());
 
   /** The entry the link names, or `undefined` once the registry is loaded without it. */
   protected readonly entry: Signal<ContentEntry | undefined> = computed(() => {

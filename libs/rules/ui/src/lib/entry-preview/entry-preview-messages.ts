@@ -5,4 +5,7 @@ export const EntryPreviewMessage = {
   NoEffects: 'rules.entryPreview.noEffects',
   Effect: 'rules.entryPreview.effect',
   EffectMarked: 'rules.entryPreview.effectMarked',
+  LoadFailed: 'rules.entryPreview.loadFailed',
+  NotFound: 'rules.entryPreview.notFound',
+  Open: 'rules.entryPreview.open',
 } as const;

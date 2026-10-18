@@ -13,6 +13,7 @@ import { NO_ORIGIN_NAMES } from '../origin-chain/origin-names';
 import type { OriginNames } from '../origin-chain/origin-names';
 import type { Chip } from '../picker-cells/chip-list/chip-list.component';
 import { ChipList } from '../picker-cells/chip-list/chip-list.component';
+import { EntryNameCell } from '../picker-cells/entry-name-cell/entry-name-cell.component';
 import { StatisticConditions } from '../statistics/statistic-conditions/statistic-conditions.component';
 import type {
   ConditionChange,
@@ -50,6 +51,8 @@ interface AttackLine {
 export interface ShownStrike {
   readonly key: string;
   readonly name: string;
+  /** The entry of the weapon held, which the name previews; undefined for a Strike no item gives. */
+  readonly entry: ContentId | undefined;
   /** What the Use button spends, when the page can spend. */
   readonly use: UsableLine | undefined;
   readonly attack: ShownAttack;
@@ -93,6 +96,7 @@ export interface ShownStrike {
     BreakdownView,
     ChipList,
     Disclosure,
+    EntryNameCell,
     StrikeNotes,
     Stack,
     StatisticConditions,

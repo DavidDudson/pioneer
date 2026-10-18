@@ -4,7 +4,9 @@
       <fr-stack grow>
         <fr-disclosure>
           <fr-text frDisclosureSummary
-            >{{ row().name }} <pio-statistic-total [total]="attack.total" [computed]="attack.computed"
+            ><pio-entry-name-cell [name]="row().name" [entry]="row().entry" />&ngsp;<pio-statistic-total
+              [total]="attack.total"
+              [computed]="attack.computed"
           /></fr-text>
           <fr-stack gap="xs">
             <fr-text variant="caption" tone="muted">{{ Message.AttackHeading | transloco }}</fr-text>
@@ -31,7 +33,7 @@
     </fr-stack>
   } @else {
     <fr-stack direction="horizontal" gap="xs" align="center" wrap>
-      <fr-text>{{ row().name }}</fr-text>
+      <pio-entry-name-cell [name]="row().name" [entry]="row().entry" />
       <fr-badge tone="danger">{{ Statistics.Failed | transloco }}</fr-badge>
     </fr-stack>
     <fr-text variant="caption" tone="muted">{{ failure() }}</fr-text>

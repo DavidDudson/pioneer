@@ -6,9 +6,9 @@
       @for (spell of spells; track spell.spell) {
         <fr-list-item>
           <fr-stack direction="horizontal" justify="between" align="center" gap="sm">
-            <pio-entry-hover [entry]="spell.spell">
+            <pio-content-preview [entry]="spell.spell">
               <fr-text tabindex="0">{{ spell.name }}</fr-text>
-            </pio-entry-hover>
+            </pio-content-preview>
             <fr-async-button
               variant="ghost"
               iconOnly

@@ -8,7 +8,7 @@
           <fr-text weight="semibold">{{ 'character.sheet.effects.label' | transloco }}</fr-text>
           @for (view of views(); track view.id) {
             <fr-stack direction="horizontal" align="center" gap="sm" wrap>
-              <fr-text weight="semibold">{{ view.name }}</fr-text>
+              <pio-entry-name-cell [name]="view.name" [entry]="view.effect" />
               @if (view.badge !== undefined) {
                 <fr-badge>{{ view.badge }}</fr-badge>
               }
