@@ -26,7 +26,7 @@ export const appRoutes: Routes = [
               provide: SHEET_SIDE_PANEL,
               useFactory: (): SheetSidePanelLoader => {
                 const i18n = inject(TranslocoService);
-                // The content feature loads when the drawer first needs it, not with the sheet.
+                // The content feature loads at idle after the sheet mounts, not with the sheet itself.
                 return async () => {
                   const { loadSidePanel } = await import('@pioneer/content/feature');
                   return loadSidePanel(i18n);
