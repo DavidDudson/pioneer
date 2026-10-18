@@ -100,18 +100,27 @@ describe('battle form: skills', () => {
     expect(totalOf([], ATHLETICS)).toBe(OWN_ATHLETICS);
   });
 
-  test('the form’s modifier replaces the character’s own when higher; the check penalty carries over', () => {
+  test('the form’s modifier replaces the character’s own when higher; the check penalty is ignored', () => {
     const athletics = valued([formRule({ skills: [{ skill: ATHLETICS, modifier: 14 }] })], ATHLETICS);
+
+    expect(Number(athletics.total)).toBe(14);
+    expect(athletics.form).toMatchObject({ source: FormSource.Form, base: 14, value: 14, own: OWN_ATHLETICS });
+  });
+
+  test('a form that says false keeps the check penalty, and it carries over', () => {
+    const rule = formRule({
+      armorClass: { modifier: 20, ignoreCheckPenalty: false },
+      skills: [{ skill: ATHLETICS, modifier: 14 }],
+    });
+
+    const athletics = valued([rule], ATHLETICS);
 
     expect(Number(athletics.total)).toBe(14 - 2);
     expect(athletics.form).toMatchObject({ source: FormSource.Form, base: 14, value: 12, own: OWN_ATHLETICS });
   });
 
-  test('a form that ignores the check penalty removes it, and the line says the form did', () => {
-    const rule = formRule({
-      armorClass: { modifier: 20, ignoreCheckPenalty: true },
-      skills: [{ skill: ATHLETICS, modifier: 14 }],
-    });
+  test('the check penalty’s line says the form removed it', () => {
+    const rule = formRule({ skills: [{ skill: ATHLETICS, modifier: 14 }] });
 
     const athletics = valued([rule], ATHLETICS);
 
@@ -132,7 +141,7 @@ describe('battle form: skills', () => {
   test('with ownIfHigher false, the form’s modifier is set even when lower', () => {
     const rule = formRule({ skills: [{ skill: ATHLETICS, modifier: -5, ownIfHigher: false }] });
 
-    expect(totalOf([rule], ATHLETICS)).toBe(-5 - 2);
+    expect(totalOf([rule], ATHLETICS)).toBe(-5);
   });
 
   test('a skill the form does not list is the character’s own', () => {

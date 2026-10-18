@@ -741,8 +741,9 @@ runs after the modifier phase and any set override, which keeps a pin:
 
 - **Armor Class** is the form's `armorClass.modifier` plus the lines that still apply. The form removes every positive
   item bonus (armour's among them); status, circumstance and untyped lines and item penalties stay. Armour's check
-  penalty on skills stays too, unless `ignoreCheckPenalty`; a removed line is `Suppressed` with the reason `form`, and
-  the form is the rule that removed it. The form's value stands only if it beats the character's own total ("use your
+  penalty on skills goes too unless the form says `ignoreCheckPenalty: false` (every Player Core battle form ignores
+  it and the Speed reduction, so that is the default); a removed line is `Suppressed` with the reason `form`, and the
+  form is the rule that removed it. The form's value stands only if it beats the character's own total ("use your
   own if higher"); otherwise nothing changes.
 - **Skills** the form lists are set the same way, with `ownIfHigher: false` setting them outright.
 - **Speeds**: when the form lists speeds, each `speed:<movement>` is set to the form's value (0 for one it does not

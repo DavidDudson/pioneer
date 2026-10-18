@@ -70,7 +70,7 @@ function movementOf(selector: Selector): FormMovement | undefined {
 
 /** What `form` replaces `selector` with: Armor Class, a skill it lists, or a speed when it lists speeds. */
 function replacementOf({ form }: FormInPlay, selector: Selector): Replacement | undefined {
-  const checkPenalty = form.armorClass?.ignoreCheckPenalty !== true;
+  const checkPenalty = form.armorClass?.ignoreCheckPenalty === false;
   if (selector === AC) {
     return form.armorClass === undefined
       ? undefined
