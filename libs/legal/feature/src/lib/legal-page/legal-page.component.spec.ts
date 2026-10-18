@@ -1,8 +1,11 @@
+import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
 import { frontierMessages } from '@pioneer/frontier';
 import { provideI18n } from '@pioneer/shared/web';
+import { provideTanStackQuery, QueryClient } from '@tanstack/angular-query-experimental';
 import { describe, expect, it } from 'vitest';
 
 import { legalRoutes } from '../legal.routes';
@@ -25,6 +28,9 @@ async function renderLegalPage(): Promise<HTMLElement> {
   TestBed.configureTestingModule({
     providers: [
       provideRouter([{ path: 'legal', children: legalRoutes }]),
+      provideHttpClient(),
+      provideHttpClientTesting(),
+      provideTanStackQuery(new QueryClient({ defaultOptions: { queries: { retry: false } } })),
       provideI18n({ en: async () => frontierMessages }),
     ],
   });
@@ -45,6 +51,7 @@ describe('LegalPage', () => {
       'Open Game License',
       'Books',
       'Foundry VTT pf2e system',
+      'Content caches',
     ]);
     expect(root.textContent).toContain('We are expressly prohibited from charging you to use or access this content.');
     // ORC License section III(a), verbatim.
@@ -67,7 +74,9 @@ describe('LegalPage', () => {
 
   it("links the Community Use Policy, Paizo, the ORC License, each pack's Foundry release and the repository", async () => {
     const root = await renderLegalPage();
-    const links = [...root.querySelectorAll('a')].map((link) => link.getAttribute('href'));
+    const links = [...root.querySelectorAll('a')]
+      .filter((link) => link.closest('pio-content-caches') === null)
+      .map((link) => link.getAttribute('href'));
     expect(links).toStrictEqual([
       'https://paizo.com/licenses/communityuse',
       'https://paizo.com',

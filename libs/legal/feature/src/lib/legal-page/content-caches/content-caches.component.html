@@ -1,0 +1,53 @@
+<fr-stack gap="md">
+  <fr-heading variant="subheading" [level]="2">{{ 'legal.caches.heading' | transloco }}</fr-heading>
+  <fr-text element="p">{{ 'legal.caches.intro' | transloco }}</fr-text>
+  <fr-async-region [errorMessage]="'legal.caches.loadError' | transloco">
+    <ng-template frAsyncPending>
+      <fr-stack gap="sm">
+        @for (placeholder of placeholders; track placeholder) {
+          <fr-skeleton width="lg" />
+        }
+      </fr-stack>
+    </ng-template>
+    <ng-template [frAsyncData]="caches.manifest">
+      <fr-stack gap="xs">
+        @for (pack of packs(); track pack.id) {
+          <fr-disclosure variant="bordered">
+            <fr-text frDisclosureSummary>{{
+              'legal.caches.summary'
+                | transloco
+                  : {
+                      title: pack.titleKey
+                        ? (pack.titleKey | transloco)
+                        : ('legal.caches.untitled' | transloco: { pack: pack.id }),
+                      count: pack.files.length,
+                      size: size(pack.bytes),
+                    }
+            }}</fr-text>
+            <fr-stack gap="sm">
+              @if (pack.release; as release) {
+                <fr-text variant="caption" tone="muted">{{
+                  'legal.foundry.release' | transloco: { release: release }
+                }}</fr-text>
+              }
+              <fr-list>
+                @for (cache of pack.files; track cache.file) {
+                  <fr-list-item>
+                    <fr-stack direction="horizontal" gap="sm" justify="between" wrap>
+                      <fr-link
+                        [external]="url(pack, cache.file)"
+                        [ariaLabel]="'legal.caches.downloadLabel' | transloco: { file: cache.file, pack: pack.id }"
+                        >{{ cache.file }}</fr-link
+                      >
+                      <fr-text variant="caption" tone="muted">{{ size(cache.bytes) }}</fr-text>
+                    </fr-stack>
+                  </fr-list-item>
+                }
+              </fr-list>
+            </fr-stack>
+          </fr-disclosure>
+        }
+      </fr-stack>
+    </ng-template>
+  </fr-async-region>
+</fr-stack>
