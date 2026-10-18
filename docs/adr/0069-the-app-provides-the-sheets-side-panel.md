@@ -20,7 +20,8 @@ and the character feature may not import the content one. Two things follow:
    for the drawer. Without a provider the token is `undefined`, and the sheet has no header button, the drawer stays
    empty and the shell search stays.
 2. The app (`apps/web`) provides the token on the `characters` route with a factory that loads the content feature's
-   `loadSidePanel` on first use, so the content chunk is fetched when the drawer needs it, not with the sheet.
+   `loadSidePanel`. `SheetSidePanelHost` calls the loader at idle after the sheet mounts, so the content chunk is
+   fetched then, whether or not the drawer is open, and not with the sheet itself.
 3. A component mounted outside its own context's routes loads its message scopes itself. `loadSidePanel` calls
    `loadMessageScopes` (`shared/web`, the loader `loadWithMessages` already uses) for every scope the panel reads,
    including those of the components it embeds, before it returns the component. It never relies on scopes provided on a
