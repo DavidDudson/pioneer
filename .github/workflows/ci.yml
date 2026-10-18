@@ -86,7 +86,7 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - { name: character, id: character, args: --projects=character-feature }
+          - { name: character, id: character, args: --projects=character-feature --output-style=stream }
           - { name: web, id: web, args: '--projects=tag:platform:web --exclude=character-feature --parallel=2' }
           - { name: server and domain, id: server, args: '--exclude=tag:platform:web' }
     services:
