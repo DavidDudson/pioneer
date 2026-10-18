@@ -13,6 +13,16 @@ export class ShellSearch {
 
   public readonly hidden = computed(() => this.#hiders() > NONE);
 
+  readonly #focusRequests = signal(NONE);
+
+  /** Counts the times the page's own search was asked for the cursor, so asking again is a change to react to. */
+  public readonly focusRequests = this.#focusRequests.asReadonly();
+
+  /** Asks the page's own search, wherever it is, to take the cursor. */
+  public requestFocus(): void {
+    this.#focusRequests.update((count) => count + ONE);
+  }
+
   /** Hides the shell's search until the returned function is called, which does nothing the second time. */
   public hide(): () => void {
     this.#hiders.update((count) => count + ONE);

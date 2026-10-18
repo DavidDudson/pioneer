@@ -1,6 +1,6 @@
 <fr-stack direction="horizontal" align="center" gap="sm">
   <pio-sheet-active-count />
-  @if (hasSidePanel) {
+  @if (hasSidePanel()) {
     <fr-button (pressed)="openSidePanel()">{{ 'character.sheet.sidePanel.open' | transloco }}</fr-button>
   }
   <pio-sheet-status />

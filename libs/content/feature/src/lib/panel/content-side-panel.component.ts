@@ -19,6 +19,7 @@ import type { ContentBrowserState } from '@pioneer/content/ui';
 import { Button, DRAWER_OPEN, DRAWER_PARAM, Stack } from '@pioneer/frontier';
 import { Combobox } from '@pioneer/frontier/data';
 import type { ContentId } from '@pioneer/rules/sdk';
+import { ShellSearch } from '@pioneer/shared/web';
 
 import { refOf } from '../browser/browse-state';
 import { ContentBrowser } from '../browser/content-browser.component';
@@ -51,6 +52,7 @@ export class ContentSidePanel {
   readonly #router = inject(Router);
   readonly #route = inject(ActivatedRoute);
   readonly #injector = inject(Injector);
+  readonly #shell = inject(ShellSearch);
   protected readonly session = inject(GlobalSearchSession);
   protected readonly combobox = viewChild.required<Combobox<ContentId>>(Combobox);
   readonly #params = toSignal(this.#route.queryParamMap, { requireSync: false });
@@ -85,7 +87,9 @@ export class ContentSidePanel {
       });
     });
     // However the drawer opens (the shortcut, the sheet's button, a link), the cursor goes to the search box.
+    // The sheet's button asking again while the drawer is open does the same.
     effect(() => {
+      this.#shell.focusRequests();
       if (this.#drawerOpen()) {
         untracked(() => {
           this.#focusSearch();
