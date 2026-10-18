@@ -72,7 +72,7 @@ export function druidWith(strength: number): StatisticInputs {
   });
 }
 
-export const druid: StatisticInputs = druidWith(2);
+const druid: StatisticInputs = druidWith(2);
 
 /** The `BattleForm` rules of the Player Core effect `slug`, in play at spell rank `rank`. */
 export function formRulesOf(slug: string, rank: number): readonly RuleInPlay[] {
