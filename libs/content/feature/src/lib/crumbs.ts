@@ -9,7 +9,7 @@ import { findEntry, kindOfParam } from './entry/entry-lookup';
 import { injectEntryRegistry } from './entry/entry-registry';
 
 /** The key for a kind the browser does not list (a condition): the list of kinds. */
-const OTHER_KIND = 'content.kind.label';
+const OTHER_KIND = 'contentBrowser.kinds.label';
 
 /** The plural name of the entry's kind, `Spells` in `Content Browser / Spells / Fireball`. */
 export function kindCrumb(route: ActivatedRouteSnapshot): Signal<string | undefined> {
@@ -32,9 +32,9 @@ export function entryCrumb(route: ActivatedRouteSnapshot): Signal<string | undef
   return computed(() => {
     const loaded = registry.data();
     if (loaded === undefined) {
-      return registry.isError() ? i18n.translate('content.entry.missingTitle') : undefined;
+      return registry.isError() ? i18n.translate('contentBrowser.entry.missingTitle') : undefined;
     }
     const entry = kind === undefined ? undefined : findEntry(loaded, kind, slug);
-    return entry?.name ?? i18n.translate('content.entry.missingTitle');
+    return entry?.name ?? i18n.translate('contentBrowser.entry.missingTitle');
   });
 }
