@@ -15032,7 +15032,28 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "voice-of-nature",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:druid",
+            {
+              "lte": ["item:level", 1]
+            }
+          ]
+        },
+        "prompt": "Select a druid feat."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "voice-of-nature"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.d5BFFHXFJYKs5LXr"
     },

@@ -617,7 +617,9 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            "item:trait:general",
+            {
+              "or": ["item:trait:general", "item:trait:skill"]
+            },
             {
               "lte": ["item:level", "self:level"]
             }
@@ -647,7 +649,9 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            "item:trait:general",
+            {
+              "or": ["item:trait:general", "item:trait:skill"]
+            },
             {
               "lte": ["item:level", "self:level"]
             }
@@ -677,7 +681,9 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            "item:trait:general",
+            {
+              "or": ["item:trait:general", "item:trait:skill"]
+            },
             {
               "lte": ["item:level", "self:level"]
             }
@@ -707,7 +713,9 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            "item:trait:general",
+            {
+              "or": ["item:trait:general", "item:trait:skill"]
+            },
             {
               "lte": ["item:level", "self:level"]
             }
@@ -737,7 +745,9 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            "item:trait:general",
+            {
+              "or": ["item:trait:general", "item:trait:skill"]
+            },
             {
               "lte": ["item:level", "self:level"]
             }

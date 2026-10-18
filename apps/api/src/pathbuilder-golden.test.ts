@@ -52,7 +52,10 @@ describe('Pathbuilder exports over the official packs', () => {
     async () => {
       const { report } = await service.importPathbuilder(actor, briarRoseExport);
       expect(report.discrepancies.compared).toBe(COMPARED_BRIAR);
-      /** AC: Pathbuilder counts the +2 of armor runes on clothing it exports as not worn (acItemBonus 2); Pioneer wears only what the export marks worn, so it has no item bonus. */
+      /**
+       * AC: Pathbuilder counts the +2 of armor runes on clothing it exports as not worn (acItemBonus 2); Pioneer wears only what the export marks worn, so it has no item bonus.
+       * Dream Magic DC: accepted, not a bug. Pioneer has one spellcasting rank for every tradition (ADR-0040, as Foundry's pf2e keeps it), so the DC reads that one rank (30); Pathbuilder computes it differently (28).
+       */
       expect(summary(report.discrepancies.differences)).toStrictEqual([
         'ac: Pathbuilder 30, Pioneer 28',
         'hp:max: Pathbuilder 151, Pioneer 140',
@@ -90,6 +93,21 @@ describe('Pathbuilder exports over the official packs', () => {
         'skill:performance: Pathbuilder trained, Pioneer untrained',
         'skill:survival: Pathbuilder trained, Pioneer untrained',
       ]);
+    },
+    LOAD_TIMEOUT_MS,
+  );
+});
+
+/** Plant Empathy, which Voice of Nature offers, and Break Curse, a skill feat taken in a general slot. */
+const BRIAR_PLACED = ['8f39d3b1-bedb-5ed6-8fc1-f43753c4f8ad', '36f19b8e-8242-5707-9cbb-5785601e83e5'];
+
+describe('Pathbuilder feats over the official packs', () => {
+  test(
+    'Briar Rose places the Voice of Nature feat and the skill feat in her general slot',
+    async () => {
+      const { character } = await service.importPathbuilder(actor, briarRoseExport);
+      const picked = new Set<unknown>(Object.values(character.document.build.choices));
+      expect(BRIAR_PLACED.filter((id) => !picked.has(id))).toStrictEqual([]);
     },
     LOAD_TIMEOUT_MS,
   );
