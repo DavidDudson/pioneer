@@ -8,10 +8,13 @@ import type { EntryPreview } from './entry-preview';
 import { EntryPreviewView } from './entry-preview.component';
 import {
   CLUMSY_PREVIEW,
+  DARKVISION,
   FIREBALL,
   FIREBALL_PREVIEW,
   modifierPreviewEffect,
   notSummarisedPreviewEffect,
+  resistancePreviewEffect,
+  sensePreviewEffect,
 } from './entry-preview.fixtures';
 
 function render(preview: EntryPreview): HTMLElement {
@@ -55,6 +58,22 @@ describe(EntryPreviewView, () => {
   it('says when a rule element is not summarised yet', () => {
     const effects = [notSummarisedPreviewEffect(FIREBALL)];
     expect(render({ ...FIREBALL_PREVIEW, effects }).textContent).toContain('does not show yet');
+  });
+
+  it('names a sense with its acuity and range', () => {
+    const effects = [sensePreviewEffect(FIREBALL, { name: 'Darkvision', range: 60 })];
+    expect(render({ ...FIREBALL_PREVIEW, effects }).textContent).toContain('Gains Darkvision (precise, 60');
+  });
+
+  it('shows a sense by its id when no name was found, and leaves out a range it lacks', () => {
+    const effects = [sensePreviewEffect(FIREBALL, {})];
+    const text = render({ ...FIREBALL_PREVIEW, effects }).textContent;
+    expect(text).toContain(`Gains ${DARKVISION} (precise)`);
+  });
+
+  it('names the exceptions of a resistance, else shows their slugs', () => {
+    const named = resistancePreviewEffect(FIREBALL, { exceptions: ['cold-iron'], names: ['Cold Iron'] });
+    expect(render({ ...FIREBALL_PREVIEW, effects: [named] }).textContent).toContain('except Cold Iron');
   });
 
   it('shows no effects for an entry the character does not have', () => {
