@@ -4,6 +4,7 @@ import { Uuid, Version } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
+import { ActiveSpellCommandField, ActiveSpellCommandSchema, ActiveSpellsSchema } from './active-spells';
 import { ActiveConditionsSchema, ConditionCommandField, ConditionCommandSchema } from './conditions';
 import type { ConditionValued } from './conditions';
 import {
@@ -37,6 +38,7 @@ import type { ShieldContent } from './shield-commands';
 import { SpendCommandField, SpendCommandSchema, SpendLogSchema } from './spend-log';
 import { ToggleCommandField, ToggleCommandSchema, TogglesSchema } from './toggle-commands';
 import { TurnEventSchema } from './turn-events';
+// oxlint-disable-next-line import/max-dependencies -- the one place every play edit and every part of play state is gathered
 import { OUT_OF_ENCOUNTER, TurnCommandSchema, TurnStateSchema } from './turn-state';
 
 export { currentHitPoints, withTempHitPoints } from './hit-point-edits';
@@ -71,6 +73,8 @@ export const PlayStateSchema = z.strictObject({
   resources: ResourcesSpentSchema.default(ResourcesSpentSchema.parse({})),
   conditions: ActiveConditionsSchema,
   effects: ActiveEffectsSchema,
+  /** The sustained spells the character has cast and keeps up. */
+  activeSpells: ActiveSpellsSchema,
   toggles: TogglesSchema,
   /** The damage each shield has taken, by its inventory item; the shield's own Hit Points come from its content. */
   shields: ShieldDamageSchema,
@@ -107,6 +111,8 @@ export const PlayCommandField = {
   ...ConditionCommandField,
   /** Effects applied, changed and removed (`effects.ts`). */
   ...EffectCommandField,
+  /** An active spell dismissed at will (`active-spells.ts`). */
+  ...ActiveSpellCommandField,
   /** Rest, daily preparations, Refocus and start of session (`rest-actions.ts`). */
   ...RestCommandField,
   /** An action, spell or activation spent from the turn, or such a spend taken back (`spend-log.ts`). */
@@ -139,6 +145,7 @@ export const PlayCommandSchema = z.discriminatedUnion('field', [
   ...ResourceCommandSchema.options,
   ...ConditionCommandSchema.options,
   ...EffectCommandSchema.options,
+  ...ActiveSpellCommandSchema.options,
   ...RestCommandSchema.options,
   ...SpendCommandSchema.options,
   ...ShieldCommandSchema.options,

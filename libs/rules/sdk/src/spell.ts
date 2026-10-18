@@ -222,6 +222,8 @@ export const SpellData = z
     damage: SpellDamageParts,
     heightening: Heightening.optional(),
     variants: z.array(SpellVariant).min(1).max(VARIANTS_MAX).readonly().optional(),
+    /** Ending it takes the Dismiss action, 1 action when done during a turn (Mirror Image); otherwise it ends at will. */
+    dismiss: z.literal(true).optional(),
     /** It counteracts (Dispel Magic). */
     counteraction: z.boolean().optional(),
   })

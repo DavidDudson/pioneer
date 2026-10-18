@@ -525,13 +525,18 @@
     "spendAttackNotAllowed": "This action is not an attack.",
     "spendPaymentNotAllowed": "This spell can't be cast with that slot or Focus Point.",
     "spendAlreadySpent": "That use is already in the log.",
-    "spendNotSpent": "That use is not in the log, so there is nothing to take back."
+    "spendNotSpent": "That use is not in the log, so there is nothing to take back.",
+    "spendNoSuchSpell": "That spell is not active.",
+    "spendAlreadySustained": "That spell was already sustained this turn.",
+    "spendSustainLimit": "That spell has run to the longest it can be sustained.",
+    "spendTooManySpells": "There are too many active spells to add another."
   },
   "turn": {
     "started": "Your turn begins.",
     "fastHealing": "Fast healing restores {amount} Hit Points.",
     "regeneration": "Regeneration restores {amount} Hit Points.",
     "effectExpired": "An effect ended.",
+    "spellEnded": "A sustained spell ended.",
     "conditionEnded": "A condition ended.",
     "conditionLowered": "A condition went down to {value}.",
     "persistentDamage": "Persistent damage: you take {amount}.",

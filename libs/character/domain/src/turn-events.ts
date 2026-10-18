@@ -4,6 +4,7 @@ import { message, MessageDescriptorSchema } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
+import { ActiveSpellId } from './active-spells';
 import { ConditionInstanceId } from './conditions';
 import type { ActiveCondition } from './conditions';
 import { EffectInstanceId } from './effects';
@@ -13,6 +14,7 @@ export const TurnEventKind = {
   TurnStart: 'turnStart',
   Healed: 'healed',
   EffectExpired: 'effectExpired',
+  SpellEnded: 'spellEnded',
   ConditionEnded: 'conditionEnded',
   ConditionLowered: 'conditionLowered',
   PersistentDamage: 'persistentDamage',
@@ -26,6 +28,7 @@ export const TurnMessage = {
   FastHealing: 'character.turn.fastHealing',
   Regeneration: 'character.turn.regeneration',
   EffectExpired: 'character.turn.effectExpired',
+  SpellEnded: 'character.turn.spellEnded',
   ConditionEnded: 'character.turn.conditionEnded',
   ConditionLowered: 'character.turn.conditionLowered',
   PersistentDamage: 'character.turn.persistentDamage',
@@ -50,6 +53,12 @@ export const TurnEventSchema = z.discriminatedUnion('kind', [
     kind: z.literal(TurnEventKind.EffectExpired),
     effect: ContentId,
     instance: EffectInstanceId,
+    message: MessageDescriptorSchema,
+  }),
+  z.object({
+    kind: z.literal(TurnEventKind.SpellEnded),
+    spell: ContentId,
+    instance: ActiveSpellId,
     message: MessageDescriptorSchema,
   }),
   z.object({
@@ -101,6 +110,11 @@ export function healedEvent(type: ValueOf<typeof FastHealingType>, gained: HitPo
 /** An effect ran out and was removed. */
 export function effectExpired(effect: ContentId, instance: EffectInstanceId): TurnEvent {
   return { kind: TurnEventKind.EffectExpired, effect, instance, message: message(TurnMessage.EffectExpired) };
+}
+
+/** A sustained spell ran out of rounds, or was not sustained, and was removed. */
+export function spellEnded(spell: ContentId, instance: ActiveSpellId): TurnEvent {
+  return { kind: TurnEventKind.SpellEnded, spell, instance, message: message(TurnMessage.SpellEnded) };
 }
 
 /** A condition ended with the turn boundary and was removed. */
