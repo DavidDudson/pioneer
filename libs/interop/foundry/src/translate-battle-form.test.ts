@@ -120,6 +120,26 @@ describe('translateRules: BattleForm', () => {
     ]);
   });
 
+  test('a Strike’s image, which only dresses the token, is left off', () => {
+    const rules = formRules([
+      {
+        key: 'BattleForm',
+        overrides: {
+          strikes: {
+            claw: { img: 'systems/pf2e/icons/claw.webp', damage: { damageType: 'slashing', dice: 1, die: 'd8' } },
+          },
+        },
+      },
+    ]);
+
+    expect(rules).toEqual([
+      {
+        key: RuleElementKey.BattleForm,
+        form: { strikes: [{ slug: 'claw', damage: { damageType: 'slashing', dice: 1, die: 'd8' } }] },
+      },
+    ]);
+  });
+
   test('a field Pioneer does not read keeps the element for the backlog', () => {
     const rules = formRules([{ ...AERIAL_FORM, overrides: { ...AERIAL_FORM.overrides, mystery: true } }]);
 
