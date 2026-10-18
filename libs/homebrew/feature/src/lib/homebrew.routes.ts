@@ -1,8 +1,10 @@
 import type { EnvironmentProviders, Provider } from '@angular/core';
 import type { Routes } from '@angular/router';
+import { CRUMB } from '@pioneer/frontier';
 import { Locale } from '@pioneer/shared/kernel';
 import { loadWithMessages, PREFETCH_WHEN_IDLE, provideMessageScope } from '@pioneer/shared/web';
 
+import { packCrumb } from './crumbs';
 import { HomebrewStore } from './data/homebrew-store';
 
 /** What every homebrew page needs: its server state and its messages. */
@@ -14,6 +16,7 @@ function homebrewProviders(): (Provider | EnvironmentProviders)[] {
 export const homebrewRoutes: Routes = [
   {
     path: '',
+    data: { [CRUMB]: 'homebrew.list.title' },
     providers: homebrewProviders(),
     children: [
       {
@@ -26,7 +29,7 @@ export const homebrewRoutes: Routes = [
       {
         path: ':id',
         // Opening a pack is the likely next step from the list.
-        data: PREFETCH_WHEN_IDLE,
+        data: { ...PREFETCH_WHEN_IDLE, [CRUMB]: packCrumb },
         loadComponent: loadWithMessages(async () => {
           const { PackHomePage } = await import('./home/pack-home-page/pack-home-page.component');
           return PackHomePage;

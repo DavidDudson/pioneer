@@ -74,7 +74,6 @@ async function open(dependencies: DependenciesJson): Promise<RouterTestingHarnes
   const harness = await RouterTestingHarness.create(`/homebrew/${id}`);
   const http = TestBed.inject(HttpTestingController);
   http.expectOne(`/api/homebrew/packs/${id}`).flush(loadedPack);
-  await harness.fixture.whenStable();
   await vi.waitFor(() => {
     http.expectOne(`/api/homebrew/packs/${id}/dependencies`).flush(dependencies);
   });
@@ -235,7 +234,6 @@ describe('PackDependenciesPanel', () => {
     const harness = await RouterTestingHarness.create(`/homebrew/${id}`);
     const http = TestBed.inject(HttpTestingController);
     http.expectOne(`/api/homebrew/packs/${id}`).flush(loadedPack);
-    await harness.fixture.whenStable();
     await vi.waitFor(() => {
       http
         .expectOne(`/api/homebrew/packs/${id}/dependencies`)

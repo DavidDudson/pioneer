@@ -6,7 +6,6 @@ import { element, part, renderProjected } from '../../testing/render-projected';
 import { PageHeader } from './page-header.component';
 
 const slots = (): HTMLElement[] => [
-  element('nav', 'Characters', 'frPageBreadcrumbs'),
   element('button', 'Add character', 'frPageActions'),
   element('div', 'Plan', 'frPageTabs'),
 ];
@@ -40,9 +39,9 @@ describe(PageHeader, () => {
     expect(part(described, 'p').textContent.trim()).toBe('Everyone in this campaign');
   });
 
-  it('projects breadcrumbs above the title, actions beside it and tabs below it', async () => {
+  it('projects actions beside the title and tabs below it', async () => {
     const root = await renderProjected(PageHeader, { title: 'Characters' }, slots());
-    const order = ['nav', 'h1', 'button', '[frPageTabs]'].map((selector) =>
+    const order = ['h1', 'button', '[frPageTabs]'].map((selector) =>
       [...root.querySelectorAll('*')].indexOf(part(root, selector)),
     );
     expect(order).toStrictEqual(order.toSorted((first, second) => first - second));
