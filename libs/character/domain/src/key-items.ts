@@ -40,6 +40,11 @@ export function withKeyItem(
   return { ...inventory, items: [...inventory.items, line] };
 }
 
+/** `inventory` with the line `id` linked to `keyItem`, as when the GM promotes a line the character already has. */
+export function withKeyLink(inventory: Inventory, id: InventoryItemId, keyItem: KeyItemId): Inventory {
+  return { ...inventory, items: inventory.items.map((each) => (each.id === id ? { ...each, keyItem } : each)) };
+}
+
 /** The line of `keyItem` in the inventory, if its holder has it. */
 export function keyItemLine(inventory: Inventory, keyItem: KeyItemId): InventoryItem | undefined {
   return inventory.items.find((each) => each.keyItem === keyItem);

@@ -84,6 +84,7 @@ export function keyItemService(
       party,
       characters,
       holders: new InMemoryKeyItemHolders(),
+      flagged: new InMemoryFlaggedItems(),
     },
     clock,
   );

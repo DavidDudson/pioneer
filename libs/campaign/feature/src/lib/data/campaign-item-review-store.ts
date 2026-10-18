@@ -7,7 +7,7 @@ import { injectQuery, QueryClient } from '@tanstack/angular-query-experimental';
 import { CampaignStore } from './campaign-store';
 
 /** TanStack Query key for a campaign's rule-breaking items. */
-function itemReviewKey(id: CampaignId | undefined): readonly unknown[] {
+export function itemReviewKey(id: CampaignId | undefined): readonly unknown[] {
   return ['campaigns', 'item-review', id];
 }
 

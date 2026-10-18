@@ -3,6 +3,7 @@ import {
   CharacterRuleLimitService,
   CharacterAllyService,
   CharacterFlaggedItems,
+  CharacterKeyItemPromotion,
   CharacterKeyItems,
   CharacterPackService,
   CharacterUnenabledService,
@@ -100,6 +101,8 @@ export interface Characters {
   readonly flaggedItems: CharacterFlaggedItems;
   /** The lines a campaign's GM writes into inventories for its key items. */
   readonly keyItems: CharacterKeyItems;
+  /** Turns a line a character already has into a key item's holder copy. */
+  readonly keyItemPromotion: CharacterKeyItemPromotion;
 }
 
 /**
@@ -132,6 +135,7 @@ export function characters(db: Database, clock: Clock, authenticator: RequestAut
     pioneerFiles,
     flaggedItems: new CharacterFlaggedItems(characterContent),
     keyItems: new CharacterKeyItems(repository, clock),
+    keyItemPromotion: new CharacterKeyItemPromotion(repository, characterContent, clock),
     routes: characterRoutes(service, authenticator)
       .use(pathbuilderImportRoutes(importer, authenticator))
       .use(pioneerFileRoutes(pioneerFiles, authenticator))

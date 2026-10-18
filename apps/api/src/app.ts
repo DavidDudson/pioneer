@@ -39,6 +39,7 @@ export function createApp(db: Database, env: Env, extensions: readonly AppExtens
         authenticator: identityParts.authenticator,
         flaggedItems: character.flaggedItems,
         keyItems: character.keyItems,
+        keyItemPromotion: character.keyItemPromotion,
       }),
     )
     .use(homebrew(db, clock, identityParts.authenticator))

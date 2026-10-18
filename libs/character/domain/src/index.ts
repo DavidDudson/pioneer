@@ -359,7 +359,7 @@ export {
 } from './item-carry';
 export { ItemOrigin } from './item-origin';
 export { KeyItemId } from './key-item-id';
-export { type KeyItemLine, keyItemLine, keyItemRefusal, withKeyItem, withoutKeyItem } from './key-items';
+export { type KeyItemLine, keyItemLine, keyItemRefusal, withKeyItem, withKeyLink, withoutKeyItem } from './key-items';
 export { type ActiveItem, activeItems } from './active-items';
 export {
   buildRules,

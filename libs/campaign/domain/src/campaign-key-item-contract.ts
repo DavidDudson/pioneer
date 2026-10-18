@@ -2,7 +2,7 @@ import { Endpoint, HttpMethod, NoBody, NoQuery } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { CampaignId } from './campaign-fields';
-import { CampaignKeyItems, CreateKeyItemBody, GiveKeyItemBody, KeyItemId } from './campaign-key-items';
+import { CampaignKeyItems, CreateKeyItemBody, GiveKeyItemBody, KeyItemId, PromoteItemBody } from './campaign-key-items';
 
 const ById = z.object({ id: CampaignId });
 const ByKeyItem = z.object({ id: CampaignId, keyItemId: KeyItemId });
@@ -25,6 +25,19 @@ export const CampaignKeyItemContract = {
     params: ById,
     query: NoQuery,
     body: CreateKeyItemBody,
+    response: CampaignKeyItems,
+  }),
+  /**
+   * GM only: turns a flagged item into a key item held by its character: the key item copies the base item, runes and
+   * name, and the character's line becomes linked to it, no second line added. A line that is not flagged (stale, or
+   * already a key item's) is a 404 or 409. Promoting it again is harmless.
+   */
+  promoteKeyItem: new Endpoint({
+    method: HttpMethod.Post,
+    path: '/campaigns/:id/key-items/promote',
+    params: ById,
+    query: NoQuery,
+    body: PromoteItemBody,
     response: CampaignKeyItems,
   }),
   /**

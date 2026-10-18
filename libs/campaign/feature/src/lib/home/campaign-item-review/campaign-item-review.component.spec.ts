@@ -60,6 +60,11 @@ function buttons(root: HTMLElement, label: string): HTMLButtonElement[] {
   return [...root.querySelectorAll('button')].filter((candidate) => candidate.textContent.trim().startsWith(label));
 }
 
+/** Every button whose text contains `text`; a button asking to confirm holds its label as well as its own text. */
+function buttonsWith(root: HTMLElement, text: string): HTMLButtonElement[] {
+  return [...root.querySelectorAll('button')].filter((candidate) => candidate.textContent.includes(text));
+}
+
 /** Opens the campaign home as its GM or as a player, answering the review load with `items`. */
 async function open(items: object, gm: boolean): Promise<HTMLElement> {
   TestBed.configureTestingModule({
@@ -115,6 +120,52 @@ describe('CampaignItemReviewPanel', () => {
       expect(buttons(root, 'Revoke')).toHaveLength(1);
       expect(buttons(root, 'Approve')).toHaveLength(0);
     });
+  });
+
+  it('makes an item a key item after a confirmation naming it and its holder, and it leaves the list', async () => {
+    const root = await open(review('open'), true);
+    const http = TestBed.inject(HttpTestingController);
+    await vi.waitFor(() => {
+      expect(buttons(root, 'Make key item')).toHaveLength(1);
+    });
+
+    present(buttons(root, 'Make key item')[0]).click();
+    await vi.waitFor(() => {
+      expect(buttonsWith(root, 'Make Caliburn a key item held by Kyra?')).toHaveLength(1);
+    });
+    http.expectNone(`/api/campaigns/${id}/key-items/promote`);
+    present(buttonsWith(root, 'Make Caliburn a key item held by Kyra?')[0]).click();
+    await vi.waitFor(() => {
+      const call = http.expectOne({ method: 'POST', url: `/api/campaigns/${id}/key-items/promote` });
+      expect(call.request.body).toMatchObject({ character: kyra, item: caliburn, rule: 'propertyRunes' });
+      call.flush({ manageable: true, keyItems: [] });
+    });
+    await vi.waitFor(() => {
+      http.expectOne({ method: 'GET', url: `/api/campaigns/${id}/item-approvals` }).flush(review('open', true));
+    });
+  });
+
+  it('says so when the item changed since the list loaded, and keeps it listed', async () => {
+    const root = await open(review('open'), true);
+    const http = TestBed.inject(HttpTestingController);
+    await vi.waitFor(() => {
+      expect(buttons(root, 'Make key item')).toHaveLength(1);
+    });
+
+    present(buttons(root, 'Make key item')[0]).click();
+    await vi.waitFor(() => {
+      expect(buttonsWith(root, 'Make Caliburn a key item held by Kyra?')).toHaveLength(1);
+    });
+    present(buttonsWith(root, 'Make Caliburn a key item held by Kyra?')[0]).click();
+    await vi.waitFor(() => {
+      http
+        .expectOne({ method: 'POST', url: `/api/campaigns/${id}/key-items/promote` })
+        .flush({ title: 'Not found' }, { status: 404, statusText: 'Not Found' });
+    });
+    await vi.waitFor(() => {
+      expect(root.textContent).toContain('Could not make it a key item.');
+    });
+    expect(root.textContent).toContain('Caliburn, Kyra');
   });
 
   it('shows a player the approved items and no controls, and not what needs review', async () => {

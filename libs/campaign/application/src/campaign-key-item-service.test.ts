@@ -19,6 +19,7 @@ import { InMemoryCampaignKeyItemRepository } from './in-memory-campaign-key-item
 import { InMemoryCampaignPartyRepository } from './in-memory-campaign-party-repository';
 import { InMemoryCampaignRepository } from './in-memory-campaign-repository';
 import { InMemoryCharacterDirectory } from './in-memory-character-directory';
+import { InMemoryFlaggedItems } from './in-memory-flagged-items';
 import { InMemoryKeyItemHolders } from './in-memory-key-item-holders';
 
 const amiri = UserId.parse(newId());
@@ -72,6 +73,7 @@ describe('CampaignKeyItemService', () => {
         keyItems,
         party,
         holders,
+        flagged: new InMemoryFlaggedItems(),
         characters: new InMemoryCharacterDirectory()
           .character({ id: kyra, ownerId: ezren, name: 'Kyra' })
           .character({ id: mordred, ownerId: ezren, name: 'Mordred' })

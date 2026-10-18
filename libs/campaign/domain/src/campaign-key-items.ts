@@ -1,9 +1,10 @@
-import { Pg, Uuid } from '@pioneer/shared/kernel';
+import { derivedId, Pg, Uuid, UuidNamespace } from '@pioneer/shared/kernel';
 import type { Temporal } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { CharacterId } from './campaign-fields';
-import { ReviewedName, ReviewedRuneId } from './campaign-item-approvals';
+import type { CampaignId } from './campaign-fields';
+import { ApproveItemBody, ReviewedName, ReviewedRuneId } from './campaign-item-approvals';
 
 /** A campaign's key item. Branded like the character context's, so ids pass between the contexts unchanged. */
 export const KeyItemId = Uuid.brand<'KeyItemId'>();
@@ -101,3 +102,18 @@ export const CampaignKeyItems = z.object({
   keyItems: z.array(KeyItemView).readonly(),
 });
 export type CampaignKeyItems = z.output<typeof CampaignKeyItems>;
+
+/** The flagged line the GM promotes to a key item: the same character, item, rule and, for a rune, rune as an approval. */
+export const PromoteItemBody = ApproveItemBody;
+export type PromoteItemBody = z.output<typeof PromoteItemBody>;
+
+/** Namespace of the key item ids a promotion derives. */
+const PROMOTION_NAMESPACE = UuidNamespace.parse('5b0e7c1a-3d94-4f68-a2b7-6c1d8e9f0a35');
+
+/**
+ * The id the key item made from this line gets. It is derived, not random, so promoting the same line twice, as a
+ * retry after a failure part-way does, can only ever make one key item.
+ */
+export function promotedKeyItemId(campaign: CampaignId, { character, item }: PromoteItemBody): KeyItemId {
+  return KeyItemId.parse(derivedId(PROMOTION_NAMESPACE, `${campaign}/${character}/${item}`));
+}

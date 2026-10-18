@@ -21,6 +21,15 @@
     } @else if (manageable()) {
       <fr-async-button
         size="sm"
+        [action]="promote"
+        [describeError]="describePromoteError"
+        [confirmLabel]="'campaign.itemReview.promoteConfirm' | transloco: confirmPromote()"
+        [pendingLabel]="'campaign.itemReview.promoting' | transloco"
+        [successLabel]="'campaign.itemReview.promoted' | transloco"
+        >{{ 'campaign.itemReview.promote' | transloco }}</fr-async-button
+      >
+      <fr-async-button
+        size="sm"
         [action]="approve"
         [describeError]="describeError"
         [pendingLabel]="'campaign.itemReview.approving' | transloco"
