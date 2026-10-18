@@ -14,6 +14,10 @@ extend-exclude = [
 extend-ignore-re = [
   "Compendium\\.pf2e\\.[a-z0-9-]+\\.Item\\.[A-Za-z0-9]{16}",
   "JournalEntryPage\\.[A-Za-z0-9]{16}",
+  # Foundry actor ids in a creature's `foundry` external id (Monster Core).
+  "Compendium\\.pf2e\\.[a-z0-9-]+\\.Actor\\.[A-Za-z0-9]{16}",
+  # Foundry's 16-character embedded item ids in the backlog.
+  "\"_id\": \"[A-Za-z0-9]{16}\"",
   # Foundry's 16-character rule and note keys.
   "\"key\": \"[a-z0-9]{16}\"",
   # ICU ordinal suffixes in messages: `{rank, selectordinal, one {#st} two {#nd} ...}`.
@@ -68,3 +72,5 @@ modifer = "modifer"
 sucess = "sucess"
 # A slug and its predicate in Foundry data: `bowl-ower-and-stomp` (Battlecry).
 ower = "ower"
+# Paizo's misspelling in a Monster Core creature ability (Familiar Shadow).
+famliar = "famliar"

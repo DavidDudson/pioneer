@@ -106,6 +106,7 @@ describe('LegalPage', () => {
       'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
       'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
       'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
+      'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
       'https://github.com/foundryvtt/pf2e',
     ]);
   });
@@ -189,6 +190,7 @@ describe('LegalPage', () => {
       expect.stringMatching(/^Lost Omens Divine Mysteries\s*Foundry release pf2e-8\.6\.0$/u),
       expect.stringMatching(/^Treasure Vault \(Remastered\)\s*Foundry release pf2e-8\.6\.0$/u),
       expect.stringMatching(/^GM Core\s*Foundry release pf2e-8\.6\.0$/u),
+      expect.stringMatching(/^Monster Core\s*Foundry release pf2e-8\.6\.0$/u),
       expect.stringMatching(/^Howl of the Wild\s*Foundry release pf2e-8\.6\.0$/u),
       expect.stringMatching(/^War of Immortals\s*Foundry release pf2e-8\.6\.0$/u),
       expect.stringMatching(/^Lost Omens The Mwangi Expanse\s*Foundry release pf2e-8\.6\.0$/u),

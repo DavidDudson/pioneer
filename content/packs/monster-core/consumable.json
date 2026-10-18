@@ -1,0 +1,156 @@
+[
+  {
+    "id": "ac19fe27-7b0a-5237-bf74-48b7c3bda78b",
+    "pack": "monster-core",
+    "kind": "consumable",
+    "slug": "consumable:darkening-poison",
+    "name": "Darkening Poison",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["consumable"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Many calignis keep several doses of darkening poison, an uncommon injury poison made from Darklands spider venom, on hand to incapacitate foes."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Saving Throw",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 16
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Maximum Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 6 rounds"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1d6 poison and creatures you can see only with darkvision are "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " from you (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 3",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1d6 poison and creatures you can see only with darkvision are "
+          },
+          {
+            "type": "ref",
+            "id": "d851e3ca-be0d-55a7-a4d1-d7ed8b7ecafa"
+          },
+          {
+            "type": "text",
+            "text": " from you (1 round)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.zXcCVIzDCq3P1pqT"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5
+        }
+      },
+      "bulk": "light",
+      "category": "poison",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  }
+]

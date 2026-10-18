@@ -1,0 +1,172 @@
+[
+  {
+    "id": "693fbce2-4c48-5a30-818a-63ef51405830",
+    "pack": "monster-core",
+    "kind": "equipment",
+    "slug": "equipment:cytillesh-toolkit",
+    "name": "Cytillesh Toolkit",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These "
+          },
+          {
+            "type": "ref",
+            "id": "050458fd-ce2e-53a2-ac9d-e9a790d70513",
+            "label": "healer's toolkits"
+          },
+          {
+            "type": "text",
+            "text": " are collections of crystalline scalpels and gritty salves made of cytillesh. They all glow the same sickly blue. While the toolkit is outside its opaque container, it sheds dim light in a 5-foot radius. Any non-dero using or wearing the toolkit is "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": " until 1 hour after they've stopped, which cannot be reduced during that time."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.u6pDaIxMIimhQx7X"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "other"
+      }
+    }
+  },
+  {
+    "id": "4c826c4f-e9dd-54a9-8359-29805455760a",
+    "pack": "monster-core",
+    "kind": "equipment",
+    "slug": "equipment:hag-eye",
+    "name": "Hag Eye",
+    "level": 3,
+    "rarity": "rare",
+    "traits": ["invested", "occult", "scrying"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This item appears to be an ordinary semiprecious stone and is typically mounted on a brooch or ring, but the stone is, in fact, an eyeball. This illusion can be seen through with "
+          },
+          {
+            "type": "ref",
+            "id": "ec6df711-1ab8-5f9d-8e01-6827c947eeff"
+          },
+          {
+            "type": "text",
+            "text": " or similar magic, and anyone who interacts with the item feels its wet, sticky surface, allowing them to attempt to disbelieve the illusion ("
+          },
+          {
+            "type": "check",
+            "statistic": "perception",
+            "dc": 19
+          },
+          {
+            "type": "text",
+            "text": "). Many hags claim a hag eye is more effective if plucked from a living, awake creature, but this is likely just a convenient excuse for sadism."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The hag eye produces no direct benefit for the wearer, but allows the hag who created it, or any member of their coven, to peer through the eye using the "
+          },
+          {
+            "type": "ref",
+            "id": "d45207be-e539-50ce-9463-f4edc3671076"
+          },
+          {
+            "type": "text",
+            "text": " action. This has no range limit, provided the hag is on the same plane."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Any damage dealt to the eye destroys it. If this happens while a hag is looking through it, the hag is "
+          },
+          {
+            "type": "ref",
+            "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+          },
+          {
+            "type": "text",
+            "text": " for 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are a hag."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ACa9QlFqdmW4s2Th"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  }
+]
