@@ -45,6 +45,7 @@
             {{ 'character.sheet.turn.leave' | transloco }}
           </fr-async-button>
         </fr-stack>
+        <pio-sheet-lapsing [spells]="pendingEnd()" [confirm]="confirmEnd" (cancelled)="pendingEnd.set([])" />
         @if (choosingInitiative()) {
           <pio-sheet-initiative (closed)="choosingInitiative.set(false)" />
         }

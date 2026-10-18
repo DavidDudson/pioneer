@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { TurnCommandField } from '@pioneer/character/domain';
-import type { TurnCommand } from '@pioneer/character/domain';
+import { lapsingSpells, TurnCommandField } from '@pioneer/character/domain';
+import type { ActiveSpell, TurnCommand } from '@pioneer/character/domain';
 import {
   AsyncButton,
   AsyncData,
@@ -19,6 +19,7 @@ import { PlayStore } from '../../data/play-store';
 import { SheetAttacksMade } from '../sheet-attacks-made/sheet-attacks-made.component';
 import { describeSaveError } from '../sheet-field';
 import { SheetInitiative } from '../sheet-initiative/sheet-initiative.component';
+import { SheetLapsing } from '../sheet-lapsing/sheet-lapsing.component';
 import { phaseKey, pipKey, pipTone, turnBarView, turnLog } from './turn-bar-view';
 import type { TurnBarView, TurnLogLine } from './turn-bar-view';
 
@@ -38,6 +39,7 @@ import type { TurnBarView, TurnLogLine } from './turn-bar-view';
     RollCard,
     SheetAttacksMade,
     SheetInitiative,
+    SheetLapsing,
     Skeleton,
     Stack,
     Text,
@@ -73,7 +75,26 @@ export class SheetTurnBar {
     this.choosingInitiative.set(true);
   };
   protected readonly startTurn = async (): Promise<void> => this.#send({ field: TurnCommandField.StartTurn });
-  protected readonly endTurn = async (): Promise<void> => this.#send({ field: TurnCommandField.EndTurn });
+  /** The sustained spells End turn would end, as long as the turn is waiting on the player to say so. */
+  protected readonly lapsing = computed((): readonly ActiveSpell[] =>
+    lapsingSpells(this.#play.play.data()?.play.activeSpells ?? []),
+  );
+
+  /** The spells End turn would end, once it has been pressed and waits for the player to confirm; none otherwise. */
+  protected readonly pendingEnd = signal<readonly ActiveSpell[]>([]);
+
+  /** End turn, after asking first when a sustained spell would lapse. */
+  protected readonly endTurn = async (): Promise<void> => {
+    if (this.lapsing().length > 0) {
+      this.pendingEnd.set(this.lapsing());
+      return;
+    }
+    await this.#send({ field: TurnCommandField.EndTurn });
+  };
+  protected readonly confirmEnd = async (): Promise<void> => {
+    this.pendingEnd.set([]);
+    await this.#send({ field: TurnCommandField.EndTurn });
+  };
   protected readonly leaveEncounter = async (): Promise<void> => {
     await this.#send({ field: TurnCommandField.LeaveEncounter });
     this.choosingInitiative.set(false);

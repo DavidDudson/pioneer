@@ -5,11 +5,13 @@ import {
   abilityUseKey,
   PlayCommandField,
   SlotCountKey,
+  SpendCount,
   SpendId,
+  SpendKind,
   UseCountKey,
 } from '@pioneer/character/domain';
-import type { SpendRequest, TurnState } from '@pioneer/character/domain';
-import { ActionCost } from '@pioneer/rules/sdk';
+import type { SpellSpend, SpendCost, SpendRequest, TurnState } from '@pioneer/character/domain';
+import { ActionCost, ContentKind } from '@pioneer/rules/sdk';
 import type { ContentId, ContentRegistry } from '@pioneer/rules/sdk';
 import { ActionUser } from '@pioneer/rules/ui';
 import type { ActionUse, UsePayment } from '@pioneer/rules/ui';
@@ -18,7 +20,11 @@ import { newId } from '@pioneer/shared/kernel';
 import { injectContentRegistry } from '../data/content-registry-query';
 import { PlayStore } from '../data/play-store';
 import { ACTION_CONTENT_KINDS, makesAttack, spendCostOf } from './sheet-actions';
+import { sustainedCast } from './sheet-active-list';
 import { raisedEdit, shieldIds } from './sheet-shields';
+
+/** The cost of Sustain and of the Dismiss action: one action. */
+const ONE_ACTION: SpendCost = { kind: SpendKind.Actions, count: SpendCount.parse(1) };
 
 /** The payment a spend records beside its cost, as the spend names it. */
 type SpendPayment = Pick<SpendRequest, 'use' | 'slot' | 'focus'>;
@@ -47,6 +53,7 @@ function frequencyOf(registry: ContentRegistry, { line }: ActionUse): SpendPayme
 export class SheetSpender extends ActionUser {
   readonly #play = inject(PlayStore);
   readonly #registry = injectContentRegistry(ACTION_CONTENT_KINDS);
+  readonly #spells = injectContentRegistry([ContentKind.Spell]);
 
   /** The turn as the play state has it; undefined while that loads. */
   public readonly turn = computed((): TurnState | undefined => this.#play.play.data()?.play.turn);
@@ -61,6 +68,8 @@ export class SheetSpender extends ActionUser {
     }
     const recorded = pays ? paymentOf(line.payment) : frequencyOf(registry, request);
     const attacks = line.attack === true || makesAttack(registry, line.id);
+    const spells = this.#spells.data();
+    const cast = spells === undefined ? undefined : sustainedCast(spells, line.id);
     await this.#play.send({
       field: PlayCommandField.SpendAction,
       id: SpendId.parse(newId()),
@@ -68,8 +77,20 @@ export class SheetSpender extends ActionUser {
       cost,
       ...recorded,
       ...(attacks ? { attack: true as const } : {}),
+      ...(cast === undefined ? {} : { spell: cast }),
     });
     await this.#raised(line.id);
+  }
+
+  /** Sustains or dismisses the active spell `change` names with the one action each takes, spent and logged like any other. */
+  public async spendSpell(action: ContentId, change: SpellSpend): Promise<void> {
+    await this.#play.send({
+      field: PlayCommandField.SpendAction,
+      id: SpendId.parse(newId()),
+      action,
+      cost: ONE_ACTION,
+      spell: change,
+    });
   }
 
   /** Raising a shield puts its effect on the character until the start of its next turn, unless it is already on. */

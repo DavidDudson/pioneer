@@ -350,6 +350,23 @@
       "implied": "Also: {name}",
       "overridden": "Replaced by {name}"
     },
+    "active": {
+      "label": "Active",
+      "count": "Active ({count})",
+      "none": "Nothing is active.",
+      "sourceSelf": "Cast by you",
+      "sourceAlly": "From {name}",
+      "sourceGm": "A boon from the GM",
+      "sustained": "Sustained",
+      "atMost": "{count, plural, one {# round} other {# rounds}} at most",
+      "sustain": "Sustain",
+      "dismiss": "Dismiss",
+      "longer": "Add a round",
+      "shorter": "Take a round off",
+      "lapsing": "These spells end if you end your turn without sustaining them: {names}.",
+      "endAnyway": "End turn",
+      "keepGoing": "Keep going"
+    },
     "effects": {
       "label": "Effects",
       "none": "No effects",
