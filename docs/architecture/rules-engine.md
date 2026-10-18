@@ -733,7 +733,10 @@ The engine applies the replaced statistics, Strikes, temporary Hit Points, defen
 
 `battleFormInPlay` picks the form in force: a `BattleForm` element whose predicate holds, the one with the smallest
 rule id if several do. Effects with the `polymorph` trait are exclusive first (`exclusiveEffects`): the newest wins, so
-only its rules reach this pick. Only `form` is read; `brackets` wait for a spell rank to heighten to. The form stage
+only its rules reach this pick. The form is heightened first (`heightened`): the brackets that start at or below the
+spell rank of the item the element sits on (`@item.level`) are laid over it, lowest first. A bracket replaces a size,
+temporary Hit Points or form traits, merges speeds and Armor Class fields, and merges lists by name (skill, sense,
+Strike slug, damage type), a Strike's damage field by field. Without a rank the base form stands. The form stage
 runs after the modifier phase and any set override, which keeps a pin:
 
 - **Armor Class** is the form's `armorClass.modifier` plus the lines that still apply. The form removes every positive
