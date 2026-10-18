@@ -38,6 +38,7 @@ export { InMemoryCampaignItemApprovalRepository } from './in-memory-campaign-ite
 export { InMemoryFlaggedItems } from './in-memory-flagged-items';
 export { CampaignKeyItemRepository, type KeyItemArchival, type KeyItemHolder } from './campaign-key-item-repository';
 export { CampaignKeyItemService, type CampaignKeyItemPorts, type KeyItemRef } from './campaign-key-item-service';
+export { KeyItemMessage } from './key-item-message';
 export { KeyItemHolders, type LineLink, type LineToPromote } from './key-item-holders';
 export { InMemoryCampaignKeyItemRepository } from './in-memory-campaign-key-item-repository';
 export { InMemoryKeyItemHolders } from './in-memory-key-item-holders';

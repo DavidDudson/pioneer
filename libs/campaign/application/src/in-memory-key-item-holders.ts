@@ -1,10 +1,11 @@
-import { KeyItemName, KeyItemRunes, ReviewedName } from '@pioneer/campaign/domain';
+import { KeyItemName, KeyItemRunes, ReviewedName, ReviewedRuneId } from '@pioneer/campaign/domain';
 import type { CampaignKeyItem, CharacterId, KeyItemId, ReviewedItemId } from '@pioneer/campaign/domain';
-import { ConflictError, NotFoundError } from '@pioneer/shared/kernel';
+import { ConflictError, message, NotFoundError } from '@pioneer/shared/kernel';
 import type { UserId } from '@pioneer/shared/kernel';
 
 import { KeyItemHolders } from './key-item-holders';
 import type { LineLink, LineToPromote } from './key-item-holders';
+import { KeyItemMessage } from './key-item-message';
 
 /** Adapter for tests: the key items each character holds a line of, as the character context would keep them. */
 export class InMemoryKeyItemHolders extends KeyItemHolders {
@@ -28,7 +29,7 @@ export class InMemoryKeyItemHolders extends KeyItemHolders {
       character,
       line: {
         name: KeyItemName.parse('Longsword'),
-        base: { item: line.base?.item ?? item, name: ReviewedName.parse('Longsword') },
+        base: { item: line.base?.item ?? ReviewedRuneId.parse(item), name: ReviewedName.parse('Longsword') },
         runes: KeyItemRunes.parse({}),
         keyItem: undefined,
         ...line,
@@ -66,7 +67,7 @@ export class InMemoryKeyItemHolders extends KeyItemHolders {
       return;
     }
     if (found.line.keyItem !== undefined) {
-      throw new ConflictError(`Inventory item ${item} is already a key item`);
+      throw new ConflictError(`Inventory item ${item} is already a key item`, message(KeyItemMessage.AlreadyKeyItem));
     }
     this.#actors.push(actor);
     this.#inventory.set(item, { character, line: { ...found.line, keyItem } });

@@ -5,6 +5,7 @@ import type { CampaignKeyItem, CharacterId as CampaignCharacterId, ReviewedItemI
 import type { CharacterKeyItemPromotion, CharacterKeyItems, PromotableLine } from '@pioneer/character/application';
 import {
   CharacterId,
+  INVENTORY_ITEM_NAME_MAX_LENGTH,
   InventoryItemId,
   InventoryItemName,
   ItemQuantity,
@@ -38,7 +39,8 @@ export function lineOf(keyItem: CampaignKeyItem): KeyItemLine {
 /** What a key item copies from an inventory line, as the campaign context states it. */
 function toLineToPromote({ item, itemName, name, runes, property, keyItem }: PromotableLine): LineToPromote {
   return {
-    name: KeyItemName.parse(name),
+    // A content item's name has no limit; a key item's name has the line's, so a longer one is cut to fit.
+    name: KeyItemName.parse(name.slice(0, INVENTORY_ITEM_NAME_MAX_LENGTH)),
     base: KeyItemBase.parse({ item, name: itemName }),
     runes: KeyItemRunes.parse({ ...runes, property }),
     keyItem: keyItem === undefined ? undefined : CampaignKeyItemId.parse(keyItem),

@@ -135,6 +135,7 @@
     "loadError": "Could not load the key items.",
     "none": "No key items yet.",
     "gmOnly": "Only the GM creates key items and gives them to characters.",
+    "alreadyKeyItem": "That item is already a key item.",
     "base": "({name})",
     "badge": "Key item",
     "inStash": "Held by the party stash",
