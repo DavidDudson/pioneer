@@ -20,7 +20,8 @@ describe('translateCreature: core statistics', () => {
     expect<string | undefined>(entry?.envelope.externalIds.foundry).toBe(
       'Compendium.pf2e.pathfinder-monster-core.Actor.Xo4IGzw28hivgMmM',
     );
-    expect(entry?.kindData).toStrictEqual({
+    const kindData: unknown = entry?.kindData;
+    expect(kindData).toStrictEqual({
       kind: ContentKind.Creature,
       data: {
         role: CreatureRole.Monster,
