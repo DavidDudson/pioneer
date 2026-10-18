@@ -1,28 +1,26 @@
-import { NgComponentOutlet } from '@angular/common';
 import { ChangeDetectionStrategy, Component, DestroyRef, inject, signal } from '@angular/core';
-import type { Type } from '@angular/core';
 import { IDLE_SCHEDULER, ShellSearch } from '@pioneer/shared/web';
 
 import { SHEET_SIDE_PANEL } from '../../data/sheet-side-panel';
+import { SheetSidePanelState } from './sheet-side-panel-state';
 
 /**
- * What fills the sheet's docked drawer: the app's content search, fetched when the browser is idle so the sheet
- * renders at once. Once it is there the shell's own search is hidden, since this one has the shortcut. It stays empty
- * when the app provides none or the fetch fails, and then the shell's search stays.
+ * Loads the sheet's side panel, fetched when the browser is idle so the sheet renders at once, and hands it to
+ * `SheetSidePanelState`, which the header button and the drawer wait on. Once it is there the shell's own search is
+ * hidden, since this one has the shortcut. Nothing is offered when the app provides none or the fetch fails, and then
+ * the shell's search stays.
  */
 @Component({
   selector: 'pio-sheet-side-panel',
-  imports: [NgComponentOutlet],
   templateUrl: './sheet-side-panel.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SheetSidePanelHost {
   readonly #loader = inject(SHEET_SIDE_PANEL);
+  readonly #state = inject(SheetSidePanelState);
   readonly #shell = inject(ShellSearch);
   readonly #release = signal<(() => void) | undefined>(undefined);
   #destroyed = false;
-
-  protected readonly panel = signal<Type<unknown> | undefined>(undefined);
 
   public constructor() {
     inject(DestroyRef).onDestroy(() => {
@@ -41,7 +39,7 @@ export class SheetSidePanelHost {
     try {
       const component = await this.#loader?.();
       if (component !== undefined && !this.#destroyed) {
-        this.panel.set(component);
+        this.#state.panel.set(component);
         this.#release.set(this.#shell.hide());
       }
     } catch {
