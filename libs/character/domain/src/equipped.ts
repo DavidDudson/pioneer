@@ -26,7 +26,9 @@ import { activeItems, inventoryHop, itemsIn, originOf } from './active-items';
 import type { ActiveItem } from './active-items';
 import type { CharacterDocument } from './character-document';
 import { conditionRoots } from './conditions';
+import { exclusiveEffects } from './effect-exclusivity';
 import { effectRoots } from './effects';
+import type { ActiveEffect } from './effects';
 import { encumberedRoots } from './encumbered-roots';
 import { rulesOf } from './entry-rules';
 import type { Resolved } from './entry-rules';
@@ -223,7 +225,7 @@ function equippedResolution(document: CharacterDocument, content: ItemContent, s
     }),
     ...encumberedRoots(document, content, slots),
     ...conditionRoots(document.play.conditions),
-    ...effectRoots(document.play.effects),
+    ...effectRoots(exclusiveEffects(document.play.effects, lookup).active),
   ];
   return resolveGrants({
     roots,
@@ -244,6 +246,8 @@ export interface EquippedGrants {
   readonly facts: PredicateFacts;
   /** The battle form in force; none when there is none. */
   readonly form: FormInPlay | undefined;
+  /** The polymorph effects a newer one replaced, oldest first, so play can end them. */
+  readonly replacedEffects: readonly ActiveEffect[];
 }
 
 /** What the character's active items and conditions put in play, and the facts that holds (see `equippedRules`). */
@@ -255,6 +259,7 @@ export function equippedGrants(document: CharacterDocument, content: ItemContent
     items: resolution.items.filter(({ origin }) => fromInventory(origin)),
     facts: factsUnderForm(inputs),
     form: battleFormInPlay(inputs),
+    replacedEffects: exclusiveEffects(document.play.effects, slots.lookup).replaced,
   };
 }
 

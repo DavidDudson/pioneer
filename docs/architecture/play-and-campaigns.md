@@ -375,6 +375,9 @@ Demoralize by Goblin Warrior, round 3"). A condition the character's stored inpu
 worked out on every read rather than stored, and play sync leaves it out
 ([ADR-0039](../adr/0039-derived-conditions-are-grant-roots.md)).
 
+Effects with the `polymorph` trait are mutually exclusive in the effective set: the newest applied wins, and the older
+ones grant nothing. The derivation lists them as replaced effects so play can end them.
+
 End-of-turn bookkeeping (frightened decreasing, persistent damage flat checks, effect expiry) is a pure function
 over play state and the turn event, so it can run in the browser and on the server identically.
 

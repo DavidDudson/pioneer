@@ -732,8 +732,9 @@ The engine applies the replaced statistics, Strikes, temporary Hit Points, defen
 #### Replaced statistics
 
 `battleFormInPlay` picks the form in force: a `BattleForm` element whose predicate holds, the one with the smallest
-rule id if several do (polymorph exclusivity comes with form transformation). Only `form` is read; `brackets` wait for
-a spell rank to heighten to. The form stage runs after the modifier phase and any set override, which keeps a pin:
+rule id if several do. Effects with the `polymorph` trait are exclusive first (`exclusiveEffects`): the newest wins, so
+only its rules reach this pick. Only `form` is read; `brackets` wait for a spell rank to heighten to. The form stage
+runs after the modifier phase and any set override, which keeps a pin:
 
 - **Armor Class** is the form's `armorClass.modifier` plus the lines that still apply. The form removes every positive
   item bonus (armour's among them); status, circumstance and untyped lines and item penalties stay. Armour's check
