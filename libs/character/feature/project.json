@@ -14,7 +14,15 @@
         "setupFiles": ["libs/character/feature/src/test-setup.ts"]
       },
       "configurations": {
-        "page": { "include": ["libs/character/feature/src/lib/sheet/character-sheet-page/**/*.spec.ts"] },
+        "page-a": {
+          "include": ["libs/character/feature/src/lib/sheet/character-sheet-page/character-sheet-[a-e]*.spec.ts"]
+        },
+        "page-b": {
+          "include": ["libs/character/feature/src/lib/sheet/character-sheet-page/character-sheet-[f-r]*.spec.ts"]
+        },
+        "page-c": {
+          "include": ["libs/character/feature/src/lib/sheet/character-sheet-page/character-sheet-[s-z]*.spec.ts"]
+        },
         "rest": { "exclude": ["libs/character/feature/src/lib/sheet/character-sheet-page/**"] }
       }
     }
