@@ -144,8 +144,8 @@ describe('withKeyLink', () => {
   const rope = { id: idAt(1), item: itemFixtureId(ItemFixture.Rope), quantity: one, container: undefined };
 
   test('links the existing line to the key item and adds none', () => {
-    const first = investItem(addItem(EMPTY_INVENTORY, rope), idAt(1));
-    const stuffed = investItem(addItem(first, { ...rope, id: idAt(2) }), idAt(2));
+    const first = investItem(addItem(EMPTY_INVENTORY, rope), idAt(1), true);
+    const stuffed = investItem(addItem(first, { ...rope, id: idAt(2) }), idAt(2), true);
     const linked = withKeyLink(stuffed, idAt(2), caliburn);
 
     expect(linked.items).toHaveLength(2);

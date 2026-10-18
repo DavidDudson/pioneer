@@ -10,7 +10,7 @@ import type {
   KeyItemView,
   PromoteItemBody,
 } from '@pioneer/campaign/domain';
-import { ConflictError, ForbiddenError, newId, NotFoundError } from '@pioneer/shared/kernel';
+import { ConflictError, ForbiddenError, message, newId, NotFoundError } from '@pioneer/shared/kernel';
 import type { Clock, UserId } from '@pioneer/shared/kernel';
 
 import type { CampaignKeyItemRepository } from './campaign-key-item-repository';
@@ -20,6 +20,7 @@ import type { CampaignRepository } from './campaign-repository';
 import type { CharacterDirectory } from './character-directory';
 import type { FlaggedItems } from './flagged-items';
 import type { KeyItemHolders, LineToPromote } from './key-item-holders';
+import { KeyItemMessage } from './key-item-message';
 
 /** A key item of a campaign, as a route names it. */
 export interface KeyItemRef {
@@ -106,7 +107,10 @@ export class CampaignKeyItemService {
       throw new NotFoundError('InventoryItem', target.item);
     }
     if (line.keyItem !== undefined && line.keyItem !== keyItem) {
-      throw new ConflictError(`Inventory item ${target.item} is already a key item`);
+      throw new ConflictError(
+        `Inventory item ${target.item} is already a key item`,
+        message(KeyItemMessage.AlreadyKeyItem),
+      );
     }
     return line;
   }

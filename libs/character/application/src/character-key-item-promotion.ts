@@ -1,7 +1,7 @@
 import { CharacterCommand, itemContent, keyItemLine, runeContent, withKeyLink } from '@pioneer/character/domain';
 import type { CharacterId, InventoryItemId, ItemRunes, KeyItemId } from '@pioneer/character/domain';
 import type { ContentId } from '@pioneer/rules/sdk';
-import { ConflictError, NotFoundError } from '@pioneer/shared/kernel';
+import { ConflictError, message, NotFoundError } from '@pioneer/shared/kernel';
 import type { Clock, UserId } from '@pioneer/shared/kernel';
 
 import { contentOfCharacter } from './character-content';
@@ -83,7 +83,10 @@ export class CharacterKeyItemPromotion {
     }
     const { inventory } = character.document;
     if (line.keyItem !== undefined || keyItemLine(inventory, keyItem) !== undefined) {
-      throw new ConflictError(`Inventory item ${item} is already a key item`);
+      throw new ConflictError(
+        `Inventory item ${item} is already a key item`,
+        message('character.validation.keyItemLocked'),
+      );
     }
     const changed = character.withInventory(withKeyLink(inventory, item, keyItem), this.#clock.now());
     await this.#characters.update(changed, character.version, { actor, command: CharacterCommand.LinkKeyItem });
