@@ -7,7 +7,7 @@ import { ResourceCount } from './resource-count';
 import { heldIn, Resource } from './resources';
 import { SpendCommandField, SpendKind, SpendProblem, spendLogged, spendUndone } from './spend-log';
 import type { SpendCommand, SpendCost, SpendCount, SpendEntry, SpendLog, SpendRequest, SpendTime } from './spend-log';
-import { spellRefusal, spellSpent, spellUndone } from './spend-spells';
+import { spellRefusal, spellSpent, spellUndoRefusal, spellUndone } from './spend-spells';
 import { StaffCommandField } from './staff-commands';
 import type { StaffCast, StaffCommand } from './staff-commands';
 import { ActionCount, attacksMoved, QuickenedAction, TURN_ACTIONS, TurnPhase } from './turn-state';
@@ -93,9 +93,12 @@ function requestProblem(play: SpendPlay, request: SpendRequest): SpendProblem | 
   return spellRefusal(play, request) ?? costProblem(turn, request.cost);
 }
 
-/** Why the spend `entry` can't be taken back: its actions came out of a turn that is over. */
-function entryProblem({ turn }: SpendPlay, { cost }: SpendEntry): SpendProblem | undefined {
-  return cost.kind === SpendKind.Actions && turn.phase === TurnPhase.OffTurn ? SpendProblem.OffTurn : undefined;
+/** Why the spend `entry` can't be taken back: its actions came out of a turn that is over, or its dismissed spell has no room to return. */
+function entryProblem(play: SpendPlay, entry: SpendEntry): SpendProblem | undefined {
+  if (entry.cost.kind === SpendKind.Actions && play.turn.phase === TurnPhase.OffTurn) {
+    return SpendProblem.OffTurn;
+  }
+  return spellUndoRefusal(play, entry);
 }
 
 /** Whether a spend that records a staff cast also expends a slot or a Focus Point, which the staff already pays for. */
