@@ -1169,7 +1169,7 @@
       {
         "key": "FlatModifier",
         "selectors": ["skill:athletics", "skill:acrobatics", "skill:performance"],
-        "type": "untyped",
+        "type": "circumstance",
         "value": 1
       }
     ],
