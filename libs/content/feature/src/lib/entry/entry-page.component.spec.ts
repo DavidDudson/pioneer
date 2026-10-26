@@ -58,10 +58,13 @@ describe('EntryPage', () => {
   it('shows an entry from its link, without an account', async () => {
     const { root } = await open('/content/feat/shield-block');
     await expect(headed(root)).resolves.toBe('Shield-block');
+    // The heading shows before the body does.
+    await vi.waitFor(() => {
+      expect(present(root.querySelector('pio-entry-preview')).textContent).toContain('Raise a shield');
+    });
     const card = present(root.querySelector('pio-entry-preview')).textContent;
     expect(card).toContain('Level 1');
     expect(card).toContain('fighter');
-    expect(card).toContain('Raise a shield');
   });
 
   it('shows a creature as its stat block', async () => {
