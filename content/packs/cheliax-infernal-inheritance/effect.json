@@ -820,7 +820,7 @@
     "name": "Spell Effect: Diabolical Mantle",
     "level": 7,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -1002,7 +1002,7 @@
     "name": "Spell Effect: Shadow Form",
     "level": 7,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",

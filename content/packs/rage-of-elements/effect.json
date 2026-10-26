@@ -3717,7 +3717,7 @@
     "name": "Spell Effect: Ferrous Form",
     "level": 8,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",

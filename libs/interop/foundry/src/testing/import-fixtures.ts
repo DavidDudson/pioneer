@@ -94,6 +94,7 @@ const LABELS = {
   fire: 'PF2E.TraitFire',
   dwarf: 'PF2E.TraitDwarf',
   humanoid: 'PF2E.TraitHumanoid',
+  polymorph: 'PF2E.TraitPolymorph',
 };
 
 export const config: FoundryConfig = foundryConfig({
@@ -107,7 +108,7 @@ export const config: FoundryConfig = foundryConfig({
     equipmentTraits: {},
     featTraits: { dwarf: LABELS.dwarf, manipulate: LABELS.manipulate },
     shieldTraits: {},
-    spellTraits: { fire: LABELS.fire, manipulate: LABELS.manipulate },
+    spellTraits: { fire: LABELS.fire, manipulate: LABELS.manipulate, polymorph: LABELS.polymorph },
     weaponTraits: {},
   },
   creature: {
@@ -129,6 +130,7 @@ export const lang: FoundryLang = {
     TraitFire: 'Fire',
     TraitDwarf: 'Dwarf',
     TraitHumanoid: 'Humanoid',
+    TraitPolymorph: 'Polymorph',
     TraitBludgeoning: 'Bludgeoning',
     SpecificRule: {
       Cleric: {
