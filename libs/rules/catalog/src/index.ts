@@ -57,6 +57,8 @@ import {
 import { checkPackSources } from './source-check';
 
 export { BookRegistry, bookRegistry } from './book-registry';
+export { checkEnrichment } from './enrichment-check';
+export type { EnrichmentCheck, EnrichmentTarget } from './enrichment-check';
 export { checkPackSources, packEntries, SourceCheckError, sourceIssues } from './source-check';
 export { FOUNDRY_IMPORTS, foundryReleaseUrl } from './foundry-imports';
 export type { FoundryImport } from './foundry-imports';

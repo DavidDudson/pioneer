@@ -9,6 +9,8 @@ export const RulesMessage = {
   AonUrl: 'rules.source.aonUrl',
   SourceUnknownBook: 'rules.source.unknownBook',
   SourceHomebrewPack: 'rules.source.homebrewPack',
+  EnrichmentUnknownSlug: 'rules.enrichment.unknownSlug',
+  EnrichmentUnknownBook: 'rules.enrichment.unknownBook',
   BookUntitled: 'rules.book.untitled',
   BookAonSourceUrl: 'rules.book.aonSourceUrl',
   UnknownElement: 'rules.element.unknown',
