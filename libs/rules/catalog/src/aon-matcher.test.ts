@@ -70,3 +70,16 @@ describe('proposeAonMappings', () => {
     expect(proposeAonMappings([other], [LISTING], new Set()).proposals.size).toBe(0);
   });
 });
+
+describe('proposeAonMappings page kinds', () => {
+  test('matches creatures to Monsters and NPCs pages', () => {
+    const listing: AonListing = {
+      book: BOOK,
+      entries: [listed('Goblin Warrior', 'Monsters', 7), listed('Guard', 'NPCs', 8)],
+    };
+    const goblin = entry(ContentKind.Creature, 'Goblin Warrior');
+    const guard = entry(ContentKind.Creature, 'Guard');
+    const { proposals } = proposeAonMappings([goblin, guard], [listing], new Set());
+    expect([...proposals.keys()]).toEqual([goblin.slug, guard.slug]);
+  });
+});
