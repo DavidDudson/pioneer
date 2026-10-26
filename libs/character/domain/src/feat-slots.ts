@@ -17,7 +17,7 @@ import type { ValueOf } from '@pioneer/shared/kernel';
 import { attributeModifiers } from './attribute-boosts';
 import type { CharacterDocument } from './character-document';
 import { CHARACTER_LEVEL_MAX, CHARACTER_LEVEL_MIN } from './character-fields';
-import { dedicationWait, dedicationWaits, featsPicked } from './dedication-lock';
+import { dedicationWait, dedicationWaits, featsPicked, NO_DEDICATION_LOCK, slotsInOrder } from './dedication-lock';
 import type { DedicationWait } from './dedication-lock';
 import { FeatPickProblem } from './feat-content';
 import type { FeatContent, FeatRead } from './feat-content';
@@ -149,27 +149,24 @@ function featSlotLevelsOf(document: CharacterDocument, content: SlotContent): Re
   return levels;
 }
 
-/** The feat slots in the order they are taken: lowest level first, and in the order they are found within a level. */
-function slotsInOrder(levels: ReadonlyMap<SlotKey, Level>): SlotKey[] {
-  return [...levels].toSorted(([, left], [, right]) => left - right).map(([key]) => key);
-}
-
 /** Reads already made, by content and document: documents and content are never changed in place. */
 const READS = new WeakMap<SlotContent, WeakMap<CharacterDocument, PrerequisiteReads>>();
 
 function readPrerequisites(document: CharacterDocument, content: SlotContent): PrerequisiteReads {
   const featSlotLevels = featSlotLevelsOf(document, content);
+  const factsAt = factsByLevel(document, content);
   const order = slotsInOrder(featSlotLevels);
   const waits = new Map<SlotKey, readonly DedicationWait[]>();
   const waitsAt = (slot: SlotKey): readonly DedicationWait[] => {
-    const at = order.indexOf(slot);
-    const earlier = at === -1 ? [] : order.slice(0, at);
+    const level = featSlotLevels.get(slot);
+    const earlier =
+      level === undefined || factsAt(level).has(NO_DEDICATION_LOCK) ? [] : order.slice(0, order.indexOf(slot));
     const known =
       waits.get(slot) ?? dedicationWaits(content.feats, featsPicked(document.build.choices, content.feats, earlier));
     waits.set(slot, known);
     return known;
   };
-  return { feats: content.feats, factsAt: factsByLevel(document, content), featSlotLevels, waitsAt };
+  return { feats: content.feats, factsAt, featSlotLevels, waitsAt };
 }
 
 /**

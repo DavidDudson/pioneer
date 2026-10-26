@@ -1,6 +1,9 @@
 import {
   BACKGROUND_SLOT,
   CLASS_SLOT,
+  dedicationWait,
+  dedicationWaits,
+  featContent,
   hasSecondClass,
   HERITAGE_SLOT,
   rootSlotOptions,
@@ -31,7 +34,7 @@ import type {
   SpellGap,
   UnplacedBoost,
 } from '@pioneer/interop/pathbuilder';
-import { AncestryId, ChoiceValue, VariantStructure } from '@pioneer/rules/sdk';
+import { AncestryId, ChoiceValue, ContentId, VariantStructure } from '@pioneer/rules/sdk';
 import type { ContentRegistry, SlotKey, VariantRuleEntry } from '@pioneer/rules/sdk';
 import { fieldIssues, message, ValidationError } from '@pioneer/shared/kernel';
 import type { FieldIssue } from '@pioneer/shared/kernel';
@@ -51,6 +54,36 @@ export function dualClassVariant(value: PathbuilderImport, registry: ContentRegi
     : registry
         .variantRules()
         .find((entry) => entry.definition.structure?.includes(VariantStructure.SecondClass) === true);
+}
+
+/** The slug of the variant rule that lifts the dedication lock. */
+const NO_DEDICATION_LOCK_SLUG = 'variant-rule:no-dedication-lock';
+
+/**
+ * The No Dedication Lock variant rule an export that breaks the lock needs, from the loaded packs: a dedication taken
+ * while an earlier one still waits on feats of its archetype, the feats read in level order. Undefined for an export
+ * that keeps the lock, or content that doesn't define the variant. Pathbuilder allows what the rules don't, and
+ * the variant is how the character holds it.
+ */
+export function noDedicationLockVariant(
+  value: PathbuilderImport,
+  registry: ContentRegistry,
+  lookup: ContentLookup,
+): VariantRuleEntry | undefined {
+  const feats = featContent(registry);
+  const taken = value.feats
+    .filter(({ slotted }) => slotted)
+    .toSorted((left, right) => left.level - right.level)
+    .flatMap(({ name }) => {
+      const match = lookup.resolve(ImportKind.Feat, name);
+      return match === undefined ? [] : [ContentId.parse(match.id)];
+    });
+  const broken = taken.some(
+    (id, at) => dedicationWait(feats, dedicationWaits(feats, taken.slice(0, at)), id) !== undefined,
+  );
+  return broken
+    ? registry.variantRules().find(({ definition }) => definition.slug === NO_DEDICATION_LOCK_SLUG)
+    : undefined;
 }
 
 /** The label Pathbuilder gives the feat slots of Free Archetype: "Free Archetype 2", "Free Archetype 4"…. */

@@ -35,6 +35,7 @@ import {
   dualClassVariant,
   freeArchetypeVariant,
   importedCharacter,
+  noDedicationLockVariant,
   matchedAncestry,
   readExport,
 } from './pathbuilder-import';
@@ -76,17 +77,21 @@ export interface PathbuilderImportPorts {
  * Makes characters from Pathbuilder exports. Framework-free, like `CharacterService`, whose policy it shares: the
  * character is the actor's.
  */
-/** The variant rules an export asks for: Dual Class for a second class, Free Archetype for its free feat slots. */
+/**
+ * The variant rules an export asks for: Dual Class for a second class, Free Archetype for its free feat slots, No
+ * Dedication Lock for dedications that break the lock.
+ */
 interface ImportVariants {
   readonly dual: VariantRuleEntry | undefined;
   /** Those the loaded packs define, in force while the export is placed. */
   readonly wanted: readonly VariantRuleEntry[];
 }
 
-function importVariants(value: PathbuilderImport, content: ContentRegistry): ImportVariants {
+function importVariants(value: PathbuilderImport, content: ContentRegistry, lookup: ContentLookup): ImportVariants {
   const dual = dualClassVariant(value, content);
   const free = freeArchetypeVariant(value, content);
-  return { dual, wanted: [dual, free].filter((each) => each !== undefined) };
+  const unlocked = noDedicationLockVariant(value, content, lookup);
+  return { dual, wanted: [dual, free, unlocked].filter((each) => each !== undefined) };
 }
 
 export class PathbuilderImportService {
@@ -119,7 +124,7 @@ export class PathbuilderImportService {
       ancestry: matchedAncestry(value, lookup),
       inventory: importedInventory(value, inventoryContent(content, lookup)),
     });
-    const variants = importVariants(value, content);
+    const variants = importVariants(value, content, lookup);
     const slots = slotContent(content, variants.wanted);
     const { character, unplaced, skillGaps, spellGaps, notOffered, dualClass } = importedCharacter(
       value,
