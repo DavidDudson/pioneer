@@ -28,18 +28,21 @@ function idsOf(options: readonly Identified[] | undefined): readonly ChoiceValue
 
 /**
  * A `ChoiceSet` slot as the character's level opens it, its options as picks; a feat slot offers only the feats whose
- * prerequisites are met and no dedication waits on. A feat whose prerequisites are unknown is left out: they may not
- * hold.
+ * prerequisites are met, no dedication waits on and the character has no other way (a pick in
+ * another slot, a background or a feature granting it: a second one would read invalid). A feat whose prerequisites are
+ * unknown is left out: they may not hold. A repeatable feat is left out too, once taken.
  */
 const choiceCandidates: Candidates = (document, content, key) => {
+  const resolution = resolveSlotsAt(Level.parse(document.level), { ...content, picks: picksOf(document) });
   const feat = featSlots(document, content).find((slot) => slot.key === key);
   if (feat !== undefined) {
+    const held = new Set<ChoiceValue>(resolution.items.map(({ entry }) => ChoiceValue.parse(entry.id)));
     return feat.options
       .filter((option) => option.status === PrerequisiteStatus.Met && option.locked === undefined)
+      .filter((option) => !held.has(ChoiceValue.parse(option.value)))
       .map((option) => ChoiceValue.parse(option.value));
   }
-  const { open } = resolveSlotsAt(Level.parse(document.level), { ...content, picks: picksOf(document) });
-  return (open.find((slot) => slot.key === key)?.options ?? []).map((option) => option.value);
+  return (resolution.open.find((slot) => slot.key === key)?.options ?? []).map((option) => option.value);
 };
 
 const CANDIDATES: Readonly<Record<SlotSubjectKind, Candidates>> = {
