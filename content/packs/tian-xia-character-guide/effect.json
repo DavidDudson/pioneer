@@ -1772,7 +1772,7 @@
     "name": "Effect: Oni Form",
     "level": 1,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",

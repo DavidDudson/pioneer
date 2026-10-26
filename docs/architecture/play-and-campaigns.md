@@ -396,6 +396,10 @@ Humanoid Form is the committed example. It picks a size (`CreatureSize`, with th
 `humanoid` trait and offers two toggles: passing as a humanoid (the Deception bonuses) and a sense. The sense is a
 toggle with suboptions rather than a second choice, because an active form keeps one chosen roll option.
 
+A hybrid or persistent form keeps the character's statistics and adds pieces: a werecreature's `Change Shape` effect
+picks `animal` or `hybrid` and, by the kind the Dedication picked, gives unarmed `Strike` elements and raises Speeds
+(`Change`). The character keeps its AC and its own Strikes, and the added attacks list beside them.
+
 End-of-turn bookkeeping (frightened decreasing, persistent damage flat checks, effect expiry) is a pure function
 over play state and the turn event, so it can run in the browser and on the server identically.
 

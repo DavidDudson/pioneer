@@ -162,3 +162,22 @@ export const HUMANOID_FORM = spell('UvqNp3pXlh2SYN5c', 'Humanoid Form', {
 export function spellEffectOf(id: string, name: string): DocumentFixture {
   return { ...BLESS_EFFECT, id, name };
 }
+
+/** A feat that is a form, with `polymorph` among its traits. */
+export const GIANTS_STATURE = {
+  id: 'Gq3mT9xYb2LwKp7z',
+  name: "Giant's Stature",
+  type: 'feat',
+  system: {
+    level: { value: 1 },
+    traits: { rarity: 'common', value: ['polymorph'] },
+    actionType: { value: 'action' },
+    actions: { value: 1 },
+    category: 'class',
+  },
+} satisfies DocumentFixture;
+
+/** The effect of a feat, named `Effect: <feat>`, as Foundry's `feat-effects` pack names them. */
+export function featEffectOf(id: string, name: string): DocumentFixture {
+  return { ...RAGE_EFFECT, id, name };
+}

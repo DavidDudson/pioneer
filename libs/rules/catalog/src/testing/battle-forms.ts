@@ -22,7 +22,7 @@ import {
   Size,
 } from '@pioneer/rules/sdk';
 
-import { playerCorePack } from '../json-packs';
+import { howlOfTheWildPack, playerCorePack } from '../json-packs';
 import { core } from './core-rules';
 import { coreNamespaces } from './fighter';
 
@@ -39,6 +39,9 @@ export interface FormView {
 }
 
 const PLAYER_CORE_EFFECTS = contentPackFromContents(await playerCorePack()).otherEntries;
+
+/** The effects of Howl of the Wild, which `effectRulesOf` can read instead. */
+export const HOWL_OF_THE_WILD_EFFECTS = contentPackFromContents(await howlOfTheWildPack()).otherEntries;
 
 const UNARMED = {
   slug: 'fist',
@@ -131,10 +134,10 @@ export function viewOf(
 }
 
 /** Every rule of the Player Core effect `slug`, in play at spell rank `rank`: a form that is no battle form has no `BattleForm`. */
-export function effectRulesOf(slug: string, rank: number): readonly RuleInPlay[] {
-  const entry = PLAYER_CORE_EFFECTS.find((each) => each.slug === slug);
+export function effectRulesOf(slug: string, rank: number, pack = PLAYER_CORE_EFFECTS): readonly RuleInPlay[] {
+  const entry = pack.find((each) => each.slug === slug);
   if (entry === undefined) {
-    throw new Error(`${slug} is not in the player-core effects`);
+    throw new Error(`${slug} is not in those effects`);
   }
   return entry.rules.map((element, rule) =>
     RuleInPlay.parse({

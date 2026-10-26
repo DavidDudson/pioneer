@@ -440,7 +440,7 @@
     "name": "Effect: Change Shape (Werecreature)",
     "level": 1,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",

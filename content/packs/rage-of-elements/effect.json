@@ -54,7 +54,7 @@
     "name": "Effect: Alloy Flesh and Steel",
     "level": 1,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -1237,7 +1237,7 @@
     "name": "Effect: Furnace Form",
     "level": 1,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -2113,7 +2113,7 @@
     "name": "Effect: Rebirth in Living Stone",
     "level": 18,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",

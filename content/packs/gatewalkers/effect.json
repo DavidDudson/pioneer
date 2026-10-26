@@ -1238,7 +1238,7 @@
     "name": "Effect: Spirit Guide Form",
     "level": 14,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
