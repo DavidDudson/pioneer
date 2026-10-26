@@ -342,6 +342,29 @@
     }
   },
   {
+    "id": "740e30fe-b997-5430-9a5b-6eab94136a61",
+    "pack": "core-rules",
+    "kind": "variant-rule",
+    "slug": "variant-rule:no-dedication-lock",
+    "name": "No Dedication Lock",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "self:dedication-lock:off"
+      }
+    ],
+    "data": {}
+  },
+  {
     "id": "a8e09e01-8dbe-5055-920b-453ebd93493d",
     "pack": "core-rules",
     "kind": "variant-rule",

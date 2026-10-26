@@ -39,13 +39,19 @@ function accessTo(feat: ContentId, lookup: ContentLookup): readonly Access[] {
   return index.get(feat) ?? [];
 }
 
-/** The trait-based additions: skill feats are general, and a Universal Ancestry feat has the character's ancestry trait. */
+/**
+ * The trait-based additions: skill feats are general, a Universal Ancestry feat has the character's ancestry trait, and
+ * an archetype feat has the character's class trait, since a class feat slot takes archetype feats.
+ */
 function traitAdditions(rollOptions: readonly RollOption[], { facts }: ChoiceContext): RollOption[] {
   const general = rollOptions.includes(SKILL_TRAIT) && !rollOptions.includes(GENERAL_TRAIT) ? [GENERAL_TRAIT] : [];
   const ancestry = rollOptions.includes(UNIVERSAL_ANCESTRY_TRAIT)
     ? facts.tails('ancestry').map((slug) => RollOption.parse(`trait:${slug}`))
     : [];
-  return [...general, ...ancestry];
+  const archetype = rollOptions.includes(ARCHETYPE_TRAIT)
+    ? facts.tails('class').map((slug) => RollOption.parse(`trait:${slug}`))
+    : [];
+  return [...general, ...ancestry, ...archetype];
 }
 
 /**
@@ -55,6 +61,8 @@ function traitAdditions(rollOptions: readonly RollOption[], { facts }: ChoiceCon
  *   (Player Core, General Feats), though Foundry's traits give only some of them `general`.
  * - A Universal Ancestry feat has the trait of the character's ancestry ("This feat gains the trait appropriate for
  *   your ancestry"), so an ancestry feat slot offers it.
+ * - An archetype feat has the trait of the character's class, so a class feat slot offers it (Player Core, Archetypes:
+ *   a class feat slot may take an archetype feat).
  * - A feat an archetype lists under Additional Feats is an archetype feat, of the level the archetype gives it, for a
  *   character who holds that archetype's dedication.
  *

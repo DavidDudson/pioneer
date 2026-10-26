@@ -1,7 +1,15 @@
-import { ContentId, DedicationLock } from '@pioneer/rules/sdk';
-import type { ChoiceValue, SlotKey } from '@pioneer/rules/sdk';
+import { ContentId, DedicationLock, RollOption } from '@pioneer/rules/sdk';
+import type { ChoiceValue, Level, SlotKey } from '@pioneer/rules/sdk';
 
 import type { FeatContent } from './feat-content';
+
+/** What a variant rule that lifts the dedication lock puts in play (No Dedication Lock). */
+export const NO_DEDICATION_LOCK = RollOption.parse('self:dedication-lock:off');
+
+/** The feat slots in the order they are taken: lowest level first, and in the order they are found within a level. */
+export function slotsInOrder(levels: ReadonlyMap<SlotKey, Level>): SlotKey[] {
+  return [...levels].toSorted(([, left], [, right]) => left - right).map(([key]) => key);
+}
 
 /** A dedication taken earlier that keeps another dedication out of reach: its archetype and the feats still needed. */
 export interface DedicationWait {

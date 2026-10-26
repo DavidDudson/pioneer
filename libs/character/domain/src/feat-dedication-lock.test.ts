@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { ChoiceValue, ContentRegistry } from '@pioneer/rules/sdk';
+import { ChoiceValue, ContentLicense, ContentPack, ContentRegistry } from '@pioneer/rules/sdk';
 import type { ContentId, SlotKey } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 import { array, assert, constantFrom, option, property } from 'fast-check';
@@ -174,6 +174,40 @@ describe('a taken dedication whose lock does not hold', () => {
       .picking(dedicationSlot(3), idOf('medic-advanced'))
       .picking(slot, idOf('sentinel-dedication'));
     expect(slotOf(early, slot)).toMatchObject({ status: SlotStatus.Planned });
+  });
+});
+
+const noLockPack = ContentPack.define({
+  manifest: { id: 'no-lock', title: 'No lock', publisher: 'Pioneer', license: ContentLicense.Homebrew },
+  ancestries: [],
+  creatures: [],
+  variantRules: [
+    {
+      slug: 'variant-rule:no-dedication-lock',
+      name: 'No Dedication Lock',
+      sources: [{ kind: 'book', book: 'player-core' }],
+      rules: [{ key: 'RollOption', option: 'self:dedication-lock:off' }],
+    },
+  ],
+});
+const unlockedRegistry = new ContentRegistry();
+unlockedRegistry.register(skillFixtures());
+unlockedRegistry.register(DEDICATION_FIXTURES);
+unlockedRegistry.register(noLockPack);
+const unlocked = { ...slotContent(unlockedRegistry, unlockedRegistry.variantRules()), namespaces: CORE_NAMESPACES };
+
+describe('the No Dedication Lock variant', () => {
+  test('lifts the lock: another dedication is offered unlocked and taken at once', () => {
+    const { document } = taking('medic-dedication', 'sentinel-dedication').build();
+    const read = featSlots(document, unlocked).find((each) => each.key === dedicationSlot(2));
+    expect(read?.options.find((each) => each.value === idOf('sentinel-dedication'))?.locked).toBeUndefined();
+    const slot = characterSlots(document, unlocked).find((each) => each.key === dedicationSlot(2));
+    expect(slot).toMatchObject({ status: SlotStatus.Filled });
+  });
+
+  test('leaves the lock on without it', () => {
+    const slot = slotOf(taking('medic-dedication', 'sentinel-dedication'), dedicationSlot(2));
+    expect(slot).toMatchObject({ status: SlotStatus.Invalid });
   });
 });
 

@@ -248,9 +248,7 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            {
-              "or": ["item:trait:commander", "item:trait:archetype"]
-            },
+            "item:trait:commander",
             {
               "lte": ["item:level", "self:level"]
             }
@@ -270,9 +268,7 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            {
-              "or": ["item:trait:commander", "item:trait:archetype"]
-            },
+            "item:trait:commander",
             {
               "lte": ["item:level", "self:level"]
             }
@@ -302,9 +298,7 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            {
-              "or": ["item:trait:commander", "item:trait:archetype"]
-            },
+            "item:trait:commander",
             {
               "lte": ["item:level", "self:level"]
             }
@@ -334,9 +328,7 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            {
-              "or": ["item:trait:commander", "item:trait:archetype"]
-            },
+            "item:trait:commander",
             {
               "lte": ["item:level", "self:level"]
             }
@@ -366,9 +358,7 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            {
-              "or": ["item:trait:commander", "item:trait:archetype"]
-            },
+            "item:trait:commander",
             {
               "lte": ["item:level", "self:level"]
             }
@@ -398,9 +388,7 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            {
-              "or": ["item:trait:commander", "item:trait:archetype"]
-            },
+            "item:trait:commander",
             {
               "lte": ["item:level", "self:level"]
             }
@@ -430,9 +418,7 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            {
-              "or": ["item:trait:commander", "item:trait:archetype"]
-            },
+            "item:trait:commander",
             {
               "lte": ["item:level", "self:level"]
             }
@@ -462,9 +448,7 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            {
-              "or": ["item:trait:commander", "item:trait:archetype"]
-            },
+            "item:trait:commander",
             {
               "lte": ["item:level", "self:level"]
             }
@@ -494,9 +478,7 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            {
-              "or": ["item:trait:commander", "item:trait:archetype"]
-            },
+            "item:trait:commander",
             {
               "lte": ["item:level", "self:level"]
             }
@@ -526,9 +508,7 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            {
-              "or": ["item:trait:commander", "item:trait:archetype"]
-            },
+            "item:trait:commander",
             {
               "lte": ["item:level", "self:level"]
             }
@@ -558,9 +538,7 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            {
-              "or": ["item:trait:commander", "item:trait:archetype"]
-            },
+            "item:trait:commander",
             {
               "lte": ["item:level", "self:level"]
             }
@@ -1294,9 +1272,7 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            {
-              "or": ["item:trait:guardian", "item:trait:archetype"]
-            },
+            "item:trait:guardian",
             {
               "lte": ["item:level", "self:level"]
             }
@@ -1316,9 +1292,7 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            {
-              "or": ["item:trait:guardian", "item:trait:archetype"]
-            },
+            "item:trait:guardian",
             {
               "lte": ["item:level", "self:level"]
             }
@@ -1348,9 +1322,7 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            {
-              "or": ["item:trait:guardian", "item:trait:archetype"]
-            },
+            "item:trait:guardian",
             {
               "lte": ["item:level", "self:level"]
             }
@@ -1380,9 +1352,7 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            {
-              "or": ["item:trait:guardian", "item:trait:archetype"]
-            },
+            "item:trait:guardian",
             {
               "lte": ["item:level", "self:level"]
             }
@@ -1412,9 +1382,7 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            {
-              "or": ["item:trait:guardian", "item:trait:archetype"]
-            },
+            "item:trait:guardian",
             {
               "lte": ["item:level", "self:level"]
             }
@@ -1444,9 +1412,7 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            {
-              "or": ["item:trait:guardian", "item:trait:archetype"]
-            },
+            "item:trait:guardian",
             {
               "lte": ["item:level", "self:level"]
             }
@@ -1476,9 +1442,7 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            {
-              "or": ["item:trait:guardian", "item:trait:archetype"]
-            },
+            "item:trait:guardian",
             {
               "lte": ["item:level", "self:level"]
             }
@@ -1508,9 +1472,7 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            {
-              "or": ["item:trait:guardian", "item:trait:archetype"]
-            },
+            "item:trait:guardian",
             {
               "lte": ["item:level", "self:level"]
             }
@@ -1540,9 +1502,7 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            {
-              "or": ["item:trait:guardian", "item:trait:archetype"]
-            },
+            "item:trait:guardian",
             {
               "lte": ["item:level", "self:level"]
             }
@@ -1572,9 +1532,7 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            {
-              "or": ["item:trait:guardian", "item:trait:archetype"]
-            },
+            "item:trait:guardian",
             {
               "lte": ["item:level", "self:level"]
             }
@@ -1604,9 +1562,7 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            {
-              "or": ["item:trait:guardian", "item:trait:archetype"]
-            },
+            "item:trait:guardian",
             {
               "lte": ["item:level", "self:level"]
             }

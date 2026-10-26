@@ -477,6 +477,7 @@ export {
 } from './bulk';
 export { costCoins, type CostCoins, payCost, purchaseCost } from './purse';
 export { type ArchetypeRead, type FeatContent, featContent, type FeatRead } from './feat-content';
+export { dedicationWait, dedicationWaits } from './dedication-lock';
 export { type FeatOption, type FeatSlot, featSlots, PrerequisiteStatus } from './feat-slots';
 export { CHARACTER_PROSE_MAX_LENGTH, CharacterProseInput, withProse } from './character-prose';
 export {

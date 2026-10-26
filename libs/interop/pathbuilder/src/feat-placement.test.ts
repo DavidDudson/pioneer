@@ -94,7 +94,7 @@ describe('placeFeats where two slots of a level offer the same feat', () => {
           key: 'ChoiceSet',
           flag: 'class-feat',
           prompt: 'Rogue feat',
-          choices: { kind: 'feat', filter: [{ or: ['item:trait:rogue', 'item:trait:archetype'] }] },
+          choices: { kind: 'feat', filter: ['item:trait:rogue'] },
         },
         { key: 'GrantItem', item: { choice: 'class-feat' } },
         {

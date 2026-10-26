@@ -1,5 +1,13 @@
 import type { GrantRoot, RootSlotDefinition } from '@pioneer/rules/grants';
-import { ContentId, ContentKind, OriginHopKind, RollOption, SlotKey, VariantStructure } from '@pioneer/rules/sdk';
+import {
+  ContentId,
+  ContentKind,
+  OriginHopKind,
+  RollOption,
+  RuleElementKey,
+  SlotKey,
+  VariantStructure,
+} from '@pioneer/rules/sdk';
 import type { VariantRuleEntry } from '@pioneer/rules/sdk';
 
 /** The slot the character's ancestry is picked in (character-model.md, "Choice slots"). */
@@ -38,13 +46,18 @@ export function characterRootSlots(variants: readonly VariantRuleEntry[]): reado
 }
 
 /**
- * The variant rules in force that add feat slots of their own (a `structure` of `extraSlots`: Free Archetype's), as
- * grant roots, so the `ChoiceSet`s in their rules open slots beside the character's. A pick for a slot it does not
- * have is kept and read again when the variant comes back.
+ * The variant rules in force that add feat slots of their own (a `structure` of `extraSlots`: Free Archetype's) or
+ * put a roll option in play (No Dedication Lock's), as grant roots, so the `ChoiceSet`s and `RollOption`s in their
+ * rules count beside the character's. A pick for a slot it does not have is kept and read again when the variant
+ * comes back.
  */
 export function variantGrantRoots(variants: readonly VariantRuleEntry[]): readonly GrantRoot[] {
   return variants
-    .filter((variant) => variant.definition.structure?.includes(VariantStructure.ExtraSlots) === true)
+    .filter(
+      ({ definition }) =>
+        definition.structure?.includes(VariantStructure.ExtraSlots) === true ||
+        definition.rules.some(({ key }) => key === RuleElementKey.RollOption),
+    )
     .map(({ id }): GrantRoot => {
       const entry = ContentId.parse(id);
       return { entry, hop: { kind: OriginHopKind.Variant, rule: entry } };

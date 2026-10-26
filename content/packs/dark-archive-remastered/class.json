@@ -295,9 +295,7 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            {
-              "or": ["item:trait:thaumaturge", "item:trait:archetype"]
-            },
+            "item:trait:thaumaturge",
             {
               "lte": ["item:level", "self:level"]
             }
@@ -317,9 +315,7 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            {
-              "or": ["item:trait:thaumaturge", "item:trait:archetype"]
-            },
+            "item:trait:thaumaturge",
             {
               "lte": ["item:level", "self:level"]
             }
@@ -349,9 +345,7 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            {
-              "or": ["item:trait:thaumaturge", "item:trait:archetype"]
-            },
+            "item:trait:thaumaturge",
             {
               "lte": ["item:level", "self:level"]
             }
@@ -381,9 +375,7 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            {
-              "or": ["item:trait:thaumaturge", "item:trait:archetype"]
-            },
+            "item:trait:thaumaturge",
             {
               "lte": ["item:level", "self:level"]
             }
@@ -413,9 +405,7 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            {
-              "or": ["item:trait:thaumaturge", "item:trait:archetype"]
-            },
+            "item:trait:thaumaturge",
             {
               "lte": ["item:level", "self:level"]
             }
@@ -445,9 +435,7 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            {
-              "or": ["item:trait:thaumaturge", "item:trait:archetype"]
-            },
+            "item:trait:thaumaturge",
             {
               "lte": ["item:level", "self:level"]
             }
@@ -477,9 +465,7 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            {
-              "or": ["item:trait:thaumaturge", "item:trait:archetype"]
-            },
+            "item:trait:thaumaturge",
             {
               "lte": ["item:level", "self:level"]
             }
@@ -509,9 +495,7 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            {
-              "or": ["item:trait:thaumaturge", "item:trait:archetype"]
-            },
+            "item:trait:thaumaturge",
             {
               "lte": ["item:level", "self:level"]
             }
@@ -541,9 +525,7 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            {
-              "or": ["item:trait:thaumaturge", "item:trait:archetype"]
-            },
+            "item:trait:thaumaturge",
             {
               "lte": ["item:level", "self:level"]
             }
@@ -573,9 +555,7 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            {
-              "or": ["item:trait:thaumaturge", "item:trait:archetype"]
-            },
+            "item:trait:thaumaturge",
             {
               "lte": ["item:level", "self:level"]
             }
@@ -605,9 +585,7 @@
         "choices": {
           "kind": "feat",
           "filter": [
-            {
-              "or": ["item:trait:thaumaturge", "item:trait:archetype"]
-            },
+            "item:trait:thaumaturge",
             {
               "lte": ["item:level", "self:level"]
             }
