@@ -82,6 +82,8 @@ export class StrikesView {
   public readonly originNames = input<OriginNames>(NO_ORIGIN_NAMES);
   /** The shields held, each listed with its Hardness, Hit Points and Broken Threshold. */
   public readonly shields = input<readonly StrikesShield[]>([]);
+  /** The names of the weapon Strikes a form replaces, said beneath the list; none out of form. */
+  public readonly suppressed = input<readonly string[]>([]);
   /** The attacks made this turn, which mark the step of the multiple attack penalty the next one takes; undefined when no turn counts them. */
   public readonly attacksMade = input<number | undefined>(undefined);
 
@@ -165,17 +167,25 @@ export class StrikesView {
     });
   }
 
-  /** "Steel Shield: Hardness 5, HP 20, Broken Threshold 10". */
-  protected readonly shownShields = computed((): readonly string[] =>
-    this.shields().map((shield) =>
+  /**
+   * The captions beneath the list: "Replaced by your form: Longsword, Dagger. The base sheet lists them." when a form
+   * replaces weapon Strikes, then "Steel Shield: Hardness 5, HP 20, Broken Threshold 10" for each shield.
+   */
+  protected readonly captions = computed((): readonly string[] => {
+    this.#messages();
+    const names = this.suppressed();
+    const replaced =
+      names.length === 0 ? [] : [this.#i18n.translate(StrikesMessage.Suppressed, { names: names.join(', ') })];
+    const shields = this.shields().map((shield) =>
       this.#i18n.translate(StrikesMessage.Shield, {
         name: shield.name,
         hardness: this.#format.number(shield.hardness),
         hitPoints: this.#format.number(shield.hitPoints),
         brokenThreshold: this.#format.number(shield.brokenThreshold),
       }),
-    ),
-  );
+    );
+    return [...replaced, ...shields];
+  });
 
   #attack(result: StatisticResult | undefined): ShownAttack {
     if (result === undefined) {

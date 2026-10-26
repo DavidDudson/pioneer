@@ -1,4 +1,4 @@
-import { characterStrikeRules, equippedRules, heldShields, itemContent } from '@pioneer/character/domain';
+import { characterStrikeRules, equippedRules, heldShields, itemContent, withPlay } from '@pioneer/character/domain';
 import type { Character, TurnState } from '@pioneer/character/domain';
 import { deriveStrikes } from '@pioneer/rules/engine';
 import type { ModifierInputs, WeaponInputs } from '@pioneer/rules/engine';
@@ -9,6 +9,7 @@ import type { NamedStrike, StrikesShield } from '@pioneer/rules/ui';
 
 import { affordability } from './sheet-actions';
 import { traitNames } from './sheet-build';
+import { withoutForms } from './sheet-effects';
 import { statisticInputsOf } from './sheet-inputs';
 import { checkSituations, NO_CLAIMS } from './sheet-situations';
 import type { SituationClaims } from './sheet-situations';
@@ -68,6 +69,25 @@ export function sheetStrikes(
       },
     ];
   });
+}
+
+/**
+ * The weapon Strikes a form replaces (#530): those the character has out of form that its Strikes in form
+ * (`inForm`) no longer include, for the sheet to say where they went. None in no form, or in a form that keeps them.
+ */
+export function suppressedStrikes(
+  registry: ContentRegistry,
+  character: Character,
+  inForm: readonly NamedStrike[],
+): readonly NamedStrike[] {
+  const { effects } = character.document.play;
+  const base = withoutForms(registry, effects);
+  if (base.length === effects.length) {
+    return [];
+  }
+  const kept = new Set(inForm.map(({ strike }) => strike.weapon.slug));
+  const outOfForm = withPlay(character, { ...character.document.play, effects: [...base] });
+  return sheetStrikes(registry, outOfForm).filter(({ strike }) => !kept.has(strike.weapon.slug));
 }
 
 /** The shields the character holds, by name, with their Hardness, Hit Points and Broken Threshold (`heldShields`). */

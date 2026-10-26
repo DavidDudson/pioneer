@@ -90,6 +90,17 @@ export const WithShield: StrikesStory = {
   },
 };
 
+/** In a form: the form's Strike stands, and the weapons it replaced are named beneath it. */
+export const InForm: StrikesStory = {
+  args: { strikes: FIGHTER_STRIKES.slice(0, 1), suppressed: ['Longsword', 'Dagger'] },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(
+      canvas.getByText('Replaced by your form: Longsword, Dagger. The base sheet lists them.'),
+    ).toBeVisible();
+  },
+};
+
 /** A roller that rolls and claims nothing, so the rows show their roll button and situation toggles. */
 const CLAIMING_ROLLER: StatisticRoller = { roll: () => undefined, claim: () => undefined };
 

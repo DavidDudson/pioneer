@@ -281,3 +281,19 @@ describe('StrikesView situations', () => {
     expect(textOf(hostOf(fixture))).toContain('+1 circumstance when you are in darkness (Gloom Walker)');
   });
 });
+
+describe('StrikesView in a form', () => {
+  it('names the weapon Strikes the form replaces beneath the list', async () => {
+    const fixture = await render(FIGHTER_STRIKES.slice(0, 1));
+    fixture.componentRef.setInput('suppressed', ['Longsword', 'Dagger']);
+    await fixture.whenStable();
+
+    expect(textOf(hostOf(fixture))).toContain('Replaced by your form: Longsword, Dagger. The base sheet lists them.');
+  });
+
+  it('says nothing out of a form', async () => {
+    const fixture = await render(FIGHTER_STRIKES);
+
+    expect(textOf(hostOf(fixture))).not.toContain('Replaced by your form');
+  });
+});

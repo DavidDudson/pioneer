@@ -32,6 +32,8 @@ export const StrikesMessage = {
   Quantity: 'rules.strikes.quantity',
   /** "Plus 1d6 fire precision": dice a damage element adds to a Strike's damage. */
   ExtraDice: 'rules.strikes.extraDice',
+  /** "Replaced by your form: Longsword, Dagger. The base sheet lists them.": the weapon Strikes a form replaces. */
+  Suppressed: 'rules.strikes.suppressed',
   /** "On a critical success": the degrees of success a note shows on. */
   NoteOutcome: 'rules.strikes.noteOutcome',
 } as const;
