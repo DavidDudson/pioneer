@@ -75,6 +75,7 @@ Accepted. To change a decision, add a new ADR that supersedes the old one; do no
 | [0068](0068-table-view-query-keys.md)                                    | A table view's query keys are single letters                                                  |
 | [0069](0069-the-app-provides-the-sheets-side-panel.md)                   | The app provides the sheet's side panel and loads its messages                                |
 | [0070](0070-aon-pages-and-urls-come-from-mapping-files.md)               | AoN pages and URLs come from mapping files, not from AoN's servers                            |
+| [0071](0071-aon-sources-pages-are-fetched-politely.md)                   | AoN Sources pages are fetched politely and cached as name-to-URL tables                       |
 
 Template:
 
