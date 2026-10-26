@@ -8,6 +8,7 @@ import type { ContentEntry, ContentId, ContentRegistry } from '@pioneer/rules/sd
 import { entryTarget } from '@pioneer/rules/ui';
 import type { EntryPreview, EntryPreviews, PreviewEffect } from '@pioneer/rules/ui';
 
+import { injectStatisticLink } from './sheet-breakdown/sheet-breakdown';
 import { sheetEntryEffects } from './sheet-entry-effects';
 
 /** Entries by registry: a loaded registry never changes, so each is indexed once. */
@@ -133,6 +134,7 @@ export function sheetFetchingPreviews(
     },
     load: async (id) => onCharacter(sheetEntryIn(await fetchKinds(), id)),
     target,
+    statistic: injectStatisticLink(),
   };
 }
 

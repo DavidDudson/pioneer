@@ -1,10 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 import type { ComponentFixture } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 import { EffectStatusKind } from '@pioneer/rules/engine';
 import { describe, expect, it } from 'vitest';
 
 import { provideRichTextTesting } from '../testing/provide-rich-text-testing';
-import type { EntryPreview } from './entry-preview';
+import { provideEntryPreviews } from './entry-preview';
+import type { EntryPreview, EntryPreviews } from './entry-preview';
 import { EntryPreviewView } from './entry-preview.component';
 import {
   CLUMSY_PREVIEW,
@@ -17,8 +19,14 @@ import {
   sensePreviewEffect,
 } from './entry-preview.fixtures';
 
-function render(preview: EntryPreview): HTMLElement {
-  TestBed.configureTestingModule({ providers: [provideRichTextTesting()] });
+function render(preview: EntryPreview, previews?: EntryPreviews): HTMLElement {
+  TestBed.configureTestingModule({
+    providers: [
+      provideRichTextTesting(),
+      provideRouter([]),
+      ...(previews === undefined ? [] : [provideEntryPreviews(previews)]),
+    ],
+  });
   const fixture: ComponentFixture<EntryPreviewView> = TestBed.createComponent(EntryPreviewView);
   fixture.componentRef.setInput('preview', preview);
   fixture.detectChanges();
@@ -41,6 +49,24 @@ describe(EntryPreviewView, () => {
   it('words a bonus', () => {
     const effects = [modifierPreviewEffect(FIREBALL, { statistic: 'Perception', selector: 'perception', value: 1 })];
     expect(render({ ...FIREBALL_PREVIEW, effects }).textContent).toContain('Perception +1 status');
+  });
+
+  it('links the statistic name to its breakdown when the page has one', () => {
+    const effects = [modifierPreviewEffect(FIREBALL, { statistic: 'Perception', selector: 'perception', value: 1 })];
+    const previews: EntryPreviews = {
+      preview: () => undefined,
+      statistic: (selector) => ({ to: ['/sheet'], queryParams: { breakdown: selector } }),
+    };
+    const root = render({ ...FIREBALL_PREVIEW, effects }, previews);
+    const link = root.querySelector('a');
+    expect(link?.textContent).toBe('Perception');
+    expect(link?.getAttribute('href')).toBe('/sheet?breakdown=perception');
+    expect(root.textContent).toContain('Perception +1 status');
+  });
+
+  it('leaves the statistic name plain when the page has no breakdown', () => {
+    const effects = [modifierPreviewEffect(FIREBALL, { statistic: 'Perception', selector: 'perception', value: 1 })];
+    expect(render({ ...FIREBALL_PREVIEW, effects }).querySelector('a')).toBeNull();
   });
 
   it('words a conditional line with what keeps it from counting', () => {

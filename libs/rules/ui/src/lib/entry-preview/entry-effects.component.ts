@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { List, ListItem, LocaleFormat, Stack, Text } from '@pioneer/frontier';
+import { Link, List, ListItem, LocaleFormat, Stack, Text } from '@pioneer/frontier';
 import { EffectChange, EffectStatusKind } from '@pioneer/rules/engine';
 import type { DamageAdjustmentEffect, EffectStatus, ImmunityEffect } from '@pioneer/rules/engine';
 import { DamageGroupSchema, DamageTypeSchema } from '@pioneer/rules/sdk';
@@ -12,8 +12,20 @@ import { modifierValue } from '../breakdown/line-words';
 import { ACUITY_MESSAGES } from '../creature-stat-block/creature-stat-block-messages';
 import { DAMAGE_GROUP_MESSAGES, DefencesMessage } from '../defences/defences-messages';
 import { DAMAGE_TYPE_MESSAGES } from '../rich-text/rich-text-messages';
-import type { PreviewEffect } from './entry-preview';
+import { ENTRY_PREVIEWS } from './entry-preview';
+import type { PreviewEffect, StatisticLink } from './entry-preview';
 import { EFFECT_STATUS_MESSAGES, EntryPreviewMessage } from './entry-preview-messages';
+
+/** Stands where the statistic's name goes while a line is worded, so the words can be split around it. */
+const NAME_MARK = '\uE000';
+
+/** A worded line: its words around the statistic's name, which links to the breakdown when the page has one. */
+export interface EffectText {
+  readonly before: string;
+  readonly after: string;
+  /** The statistic's name and where its breakdown opens; absent when the line has no link. */
+  readonly statistic?: { readonly name: string; readonly link: StatisticLink };
+}
 
 /**
  * The lines an entry adds to a character's statistics, worded ("Perception -2 status"), or that it adds none. A line
@@ -25,7 +37,7 @@ import { EFFECT_STATUS_MESSAGES, EntryPreviewMessage } from './entry-preview-mes
  */
 @Component({
   selector: 'pio-entry-effects',
-  imports: [List, ListItem, Stack, Text, TranslocoPipe],
+  imports: [Link, List, ListItem, Stack, Text, TranslocoPipe],
   templateUrl: './entry-effects.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -39,11 +51,24 @@ export class EntryEffectsView {
   readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
   readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
 
-  protected readonly worded = computed((): readonly string[] => {
+  readonly #previews = inject(ENTRY_PREVIEWS);
+
+  protected readonly worded = computed((): readonly EffectText[] => {
     this.#messages();
     this.#format.locale();
-    return this.effects().map((effect) => this.#effect(effect));
+    return this.effects().map((effect) => this.#text(effect));
   });
+
+  /** The line's words, split around its statistic's name when the page links the name. */
+  #text(effect: PreviewEffect): EffectText {
+    const { statistic, line } = effect;
+    const link = statistic !== undefined && 'selector' in line ? this.#previews.statistic?.(line.selector) : undefined;
+    if (statistic === undefined || link === undefined) {
+      return { before: this.#effect(effect), after: '' };
+    }
+    const [before = '', after = ''] = this.#effect({ ...effect, statistic: NAME_MARK }).split(NAME_MARK);
+    return { before, after, statistic: { name: statistic, link } };
+  }
 
   /** "Perception -2 status", with the reason it doesn't count when it doesn't. */
   #effect({ statistic, line, sense, exceptions }: PreviewEffect): string {

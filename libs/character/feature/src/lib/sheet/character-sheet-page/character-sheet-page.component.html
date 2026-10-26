@@ -50,10 +50,6 @@
       }
     </fr-stack>
   </fr-page-body>
-  @if (sidePanel.panel(); as panel) {
-    <fr-drawer [title]="'character.sheet.sidePanel.title' | transloco">
-      <ng-container [ngComponentOutlet]="panel" />
-    </fr-drawer>
-  }
+  <pio-sheet-drawers ngProjectAs="fr-drawer" />
 </fr-page>
 <pio-sheet-side-panel />
