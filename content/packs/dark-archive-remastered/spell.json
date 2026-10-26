@@ -437,7 +437,8 @@
         "unit": "minute"
       },
       "traditions": ["arcane", "occult"],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {
@@ -6713,7 +6714,8 @@
         "until": "daily-preparations"
       },
       "traditions": ["arcane", "occult"],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {

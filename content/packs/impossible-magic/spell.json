@@ -506,7 +506,8 @@
         "unit": "minute"
       },
       "traditions": ["occult"],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {
@@ -1132,7 +1133,8 @@
         "unit": "minute"
       },
       "traditions": ["divine"],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {
@@ -3678,7 +3680,8 @@
           "damageType": "bleed",
           "kinds": ["damage"]
         }
-      ]
+      ],
+      "dismiss": true
     }
   },
   {
@@ -4710,7 +4713,8 @@
         "unit": "minute"
       },
       "traditions": [],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {
@@ -7211,7 +7215,8 @@
         "unit": "minute"
       },
       "traditions": ["divine", "primal"],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {
@@ -7659,7 +7664,8 @@
         "upTo": true
       },
       "traditions": ["divine", "occult", "primal"],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {
@@ -8350,7 +8356,8 @@
         "unit": "minute"
       },
       "traditions": ["arcane", "divine"],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {
@@ -9899,7 +9906,8 @@
         "unit": "minute"
       },
       "traditions": ["arcane", "divine"],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {
@@ -10557,7 +10565,8 @@
         "unit": "minute"
       },
       "traditions": ["arcane", "divine"],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {
@@ -11276,7 +11285,8 @@
         "unit": "hour"
       },
       "traditions": ["arcane", "occult", "primal"],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {
@@ -11980,7 +11990,8 @@
         "unit": "hour"
       },
       "traditions": ["arcane", "primal"],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {
@@ -13016,7 +13027,8 @@
         "unit": "minute"
       },
       "traditions": ["primal"],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {
@@ -15738,7 +15750,8 @@
         "unit": "minute"
       },
       "traditions": ["occult", "primal"],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {
@@ -16454,7 +16467,8 @@
         "unit": "hour"
       },
       "traditions": ["arcane", "divine", "occult", "primal"],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {
@@ -17579,7 +17593,8 @@
             "formula": "2d8"
           }
         ]
-      }
+      },
+      "dismiss": true
     }
   },
   {
@@ -19456,7 +19471,8 @@
         "unit": "minute"
       },
       "traditions": ["arcane", "occult"],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {
@@ -23001,7 +23017,8 @@
         "unit": "minute"
       },
       "traditions": ["arcane", "occult"],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {
@@ -26103,7 +26120,8 @@
             "formula": "1d8"
           }
         ]
-      }
+      },
+      "dismiss": true
     }
   },
   {
@@ -26253,7 +26271,8 @@
         "unit": "minute"
       },
       "traditions": ["arcane", "occult"],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {
@@ -27026,7 +27045,8 @@
         "unit": "minute"
       },
       "traditions": ["primal"],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {
@@ -32559,7 +32579,8 @@
         "unit": "minute"
       },
       "traditions": ["arcane", "occult"],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {
@@ -32966,7 +32987,8 @@
             "formula": "1d4"
           }
         ]
-      }
+      },
+      "dismiss": true
     }
   },
   {
@@ -34251,7 +34273,8 @@
         }
       ],
       "traditions": ["arcane", "occult", "primal"],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {
@@ -34787,7 +34810,8 @@
         "unit": "minute"
       },
       "traditions": ["arcane", "divine", "occult", "primal"],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {
@@ -36379,7 +36403,8 @@
         "unit": "year"
       },
       "traditions": ["arcane", "divine", "occult"],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {
@@ -37998,7 +38023,8 @@
         "against": "save:reflex"
       },
       "traditions": ["arcane", "occult"],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {
@@ -39016,7 +39042,8 @@
         "upTo": true
       },
       "traditions": ["arcane", "divine", "occult", "primal"],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {
@@ -39557,7 +39584,8 @@
             "formula": "1d4"
           }
         ]
-      }
+      },
+      "dismiss": true
     }
   }
 ]
