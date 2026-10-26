@@ -1,12 +1,13 @@
 import { HttpTestingController } from '@angular/common/http/testing';
 import { ApplicationRef } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
+import { SheetMode } from '@pioneer/character/domain';
 import { ContentKind } from '@pioneer/rules/sdk';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { CHARACTER_CONTENT_KINDS } from '../../data/content-registry-query';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
-import { id, openSheet, present } from '../../testing/sheet-page-harness';
+import { id, openerAt, openSheet, present } from '../../testing/sheet-page-harness';
 import { textOf } from '../../testing/sheet-tabs-testing';
 import { cutTo } from '../../testing/test-packs';
 
@@ -32,6 +33,8 @@ function playWith(effects: readonly object[], revision = 1): object {
   return { revision, play: { hp: { damage: 0, temp: 0 }, effects } };
 }
 
+const openExploration = openerAt(SheetMode.Exploration);
+
 function bannerOf(root: HTMLElement): HTMLElement {
   return present(root.querySelector<HTMLElement>('pio-sheet-form'));
 }
@@ -54,6 +57,15 @@ describe('CharacterSheetPage form header', () => {
     expect(textOf(bannerOf(root))).toContain('Flytrap form');
     expect(textOf(bannerOf(root))).toContain('Rank 6');
     expect(buttonOf(root, 'Dismiss')).toBeDefined();
+  });
+
+  it('says on Exploration that the appearance is not part of the form', async () => {
+    const { root } = await openExploration(undefined, { play: playWith([plant]), packs: PACKS });
+
+    await vi.waitFor(() => {
+      const section = present(root.querySelector('section[aria-labelledby="sheet-roleplay"]'));
+      expect(textOf(section)).toContain('In form: Spell Effect: Plant Form. The appearance below is your own.');
+    });
   });
 
   it('shows nothing when the effects on the character are not a form', async () => {

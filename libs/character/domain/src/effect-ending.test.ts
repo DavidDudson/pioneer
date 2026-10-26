@@ -1,10 +1,10 @@
 import { describe, expect, test } from 'bun:test';
 
 import { scriptedRandom } from '@pioneer/rules/dice/testing';
-import { ContentId, EffectExpiry, HitPoints, RollOption } from '@pioneer/rules/sdk';
+import { ContentId, EffectExpiry, HitPoints, RollOption, SpellRank } from '@pioneer/rules/sdk';
 import { assert, integer, property } from 'fast-check';
 
-import { EffectCommandField } from './effect-commands';
+import { EffectCommandField, EffectProblem, effectProblem } from './effect-commands';
 import type { EffectCommand } from './effect-commands';
 import { applyEffectEdit, endEffects } from './effect-ending';
 import type { EffectPlay } from './effect-ending';
@@ -161,5 +161,23 @@ describe('applying then ending a form', () => {
         expect(ended).toStrictEqual(holding(before));
       }),
     );
+  });
+});
+
+const cast = (effect: ContentId): EffectCommand => ({
+  field: EffectCommandField.ApplyEffect,
+  id: FIRST,
+  effect,
+  source: SELF,
+  rank: SpellRank.parse(4),
+});
+
+describe('the rank an effect is cast at', () => {
+  test('a polymorph effect is cast at one', () => {
+    expect(effectProblem([], cast(DRAGON), CONTENT)).toBeUndefined();
+  });
+
+  test('another effect is refused one', () => {
+    expect(effectProblem([], cast(HEROISM), CONTENT)).toBe(EffectProblem.Rank);
   });
 });

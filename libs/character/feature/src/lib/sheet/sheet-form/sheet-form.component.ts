@@ -5,7 +5,6 @@ import { FormBanner } from '@pioneer/rules/ui';
 import type { FormSummary } from '@pioneer/rules/ui';
 
 import { PlayStore } from '../../data/play-store';
-import { activeFormOf } from '../sheet-effects';
 import { describeSaveError } from '../sheet-field';
 import { SheetState } from '../sheet-state';
 
@@ -24,20 +23,14 @@ export class SheetForm {
   readonly #play = inject(PlayStore);
   readonly #i18n = inject(TranslocoService);
 
-  readonly #form = computed(() => {
-    const registry = this.sheet.equipment.data();
-    const read = this.#play.play.data();
-    return registry === undefined || read === undefined ? undefined : activeFormOf(registry, read.play.effects);
-  });
-
   protected readonly summary = computed((): FormSummary | undefined => {
-    const form = this.#form();
+    const form = this.sheet.activeForm();
     return form === undefined ? undefined : { name: form.name, details: form.details };
   });
 
   /** Ends the form, which also gives back the temporary Hit Points it gave. */
   protected readonly dismiss = async (): Promise<void> => {
-    const form = this.#form();
+    const form = this.sheet.activeForm();
     if (form !== undefined) {
       await this.#play.send({ field: EffectCommandField.RemoveEffect, id: form.id });
     }
