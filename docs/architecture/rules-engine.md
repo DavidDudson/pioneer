@@ -564,7 +564,8 @@ any kind of entry can grant any other.
   (Dual Class) either counts; with none picked the offer is empty. A feat candidate reads a little more than its
   envelope says, as the rules do (`candidate-options.ts`): a skill feat also has `general` ("any general feat
   (including skill feats)", Player Core), a Universal Ancestry feat has the trait of the character's ancestry (Fey
-  Influence), and a feat an archetype lists under Additional Feats has `archetype` and the archetype's level for a
+  Influence), an archetype feat has the trait of the character's class (a class feat slot takes it), and a feat an
+  archetype lists under Additional Feats has `archetype` and the archetype's level for a
   character holding its dedication (Shield Warden for Knight Vigilant). A `ChoiceSet` that lists only feats is a
   feat slot too (Voice of Nature).
 - A slot's offer is worked out the first time it is read, against the facts its walk read, and kept. The slots

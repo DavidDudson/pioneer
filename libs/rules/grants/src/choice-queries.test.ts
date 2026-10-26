@@ -132,6 +132,19 @@ describe('resolveGrants choice queries', () => {
     expect(offered(resolve(content, { level: 8 }))).toEqual(['knight-vigilant-dedication']);
   });
 
+  test('a class feat query also offers archetype feats, which count as the character class feats', () => {
+    const query = entry('fighter', [
+      { key: 'ChoiceSet', flag: 'class-feat', choices: { kind: 'feat', filter: ['item:trait:fighter'] } },
+    ]);
+    const content = [
+      query,
+      feat('double-slice', ['trait:fighter'], 'Double Slice'),
+      feat('rogue-dedication', ['trait:archetype'], 'Rogue Dedication'),
+      feat('trick-attack', ['trait:rogue'], 'Trick Attack'),
+    ];
+    expect(offered(resolve(content, { situation: ['class:fighter'] }))).toEqual(['Double Slice', 'Rogue Dedication']);
+  });
+
   test('ownTrait offers only entries with a trait named like the character class', () => {
     const query = entry('fighter', [
       { key: 'ChoiceSet', flag: 'class-feat', choices: { kind: 'feat', filter: ['item:level:1'], ownTrait: 'class' } },
