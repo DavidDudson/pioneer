@@ -2,13 +2,17 @@ import { describe, expect, test } from 'bun:test';
 
 import {
   BundleHash,
+  ByteCount,
+  canonicalJson,
+  PackBundles,
   bundlePath,
-  contentBundles,
   contentPackFromBundles,
   descriptionFromBundle,
   descriptionShard,
 } from './content-bundle';
-import type { BundleBody, CanonicalJson, BundleFile, ContentBundles, KindBundles, PackBundles } from './content-bundle';
+import type { BundleBody, CanonicalJson, BundleFile, KindBundles } from './content-bundle';
+import { contentBundles } from './content-bundle-write';
+import type { ContentBundles } from './content-bundle-write';
 import { ContentId, contentId, EntrySlug, PackId } from './content-id';
 import type { ContentPack } from './content-pack';
 import { contentPackFromFiles, packContentsFromFiles } from './content-pack-file';
@@ -242,5 +246,33 @@ describe('descriptionFromBundle', () => {
   test('refuses a shard that is not descriptions', () => {
     const shard = { [idOf('language:common')]: 'text' };
     expect(() => descriptionFromBundle(shard, contentIdOf('language:common'))).toThrow();
+  });
+});
+
+/** The sizes a pack's manifest entry lists, by file. */
+function sizesOf(pack: PackBundles): Record<string, ByteCount> {
+  if (pack.sizes === undefined) {
+    throw new Error('Expected sizes in the manifest');
+  }
+  return pack.sizes;
+}
+
+describe('manifest sizes', () => {
+  test('sizes every file the manifest names, as the bytes served', () => {
+    const built = bundles();
+    const pack = onlyPack(built);
+    const files = filesOf(pack);
+    const served = files.map((file) => {
+      const json = canonicalJson(bodyOf(built, file));
+      return ByteCount.parse(new TextEncoder().encode(json).length);
+    });
+
+    expect(Object.keys(sizesOf(pack)).toSorted()).toEqual([...files].toSorted());
+    expect(files.map((file) => sizesOf(pack)[file])).toEqual(served);
+  });
+
+  test('still reads a manifest from a build that had no sizes', () => {
+    const { sizes: _sizes, ...older } = onlyPack(bundles());
+    expect(PackBundles.parse(older)).toEqual(older);
   });
 });

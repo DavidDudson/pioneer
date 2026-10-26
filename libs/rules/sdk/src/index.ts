@@ -137,6 +137,7 @@ export { mergeVariantLimits, VariantLimitValue, VariantRuleLimits, variantLimits
 export { ContentEntry } from './content-entry';
 export {
   BundleBody,
+  ByteCount,
   BundleFile,
   BundleHash,
   bundlePath,
@@ -148,14 +149,12 @@ export {
 export {
   CanonicalJson,
   canonicalJson,
-  contentBundles,
   contentPackFromBundles,
   descriptionFromBundle,
   descriptionShard,
 } from './content-bundle';
 export type {
   BundlePath,
-  ContentBundles,
   DescriptionBundle,
   DescriptionShard,
   FetchedKind,
@@ -474,3 +473,5 @@ export {
   type TemplateNode,
   type TextNode,
 } from './rich-text';
+export { contentBundles } from './content-bundle-write';
+export type { ContentBundles } from './content-bundle-write';

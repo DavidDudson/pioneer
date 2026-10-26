@@ -523,7 +523,9 @@ when idle. Content browser search is server-side through per-locale `tsvector` (
   as `StoredContentSource` does its registry.
 - **Served publicly** (ADR-0007): `GET /api/content/manifest` (`public, max-age=10`) lists each pack's bundle files
   by kind, and `GET /api/content/bundles/<pack>/<file>` (`public, max-age=31536000, immutable`) serves one. A file
-  no current manifest names is a 404, which the edge Worker does not cache.
+  no current manifest names is a 404, which the edge Worker does not cache. A pack in the manifest also carries `sizes`,
+  the byte size of each file it names, which is optional so a manifest an older build kept in the browser still
+  reads. The Legal page lists the caches from it, with each pack's Foundry release from `FOUNDRY_IMPORTS`.
 - **Kept in the browser.** `ContentBundleCache` (`libs/rules/data-access`) reads the manifest once a session,
   keeps every bundle in IndexedDB by path, and evicts the paths a new manifest no longer names. Offline, the last
   manifest read stands in, so every kind kept still loads. `ContentLoader` builds a `ContentRegistry` of every
