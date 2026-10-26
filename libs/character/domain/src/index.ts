@@ -692,3 +692,5 @@ export {
 export type { ActiveSpell, ActiveSpellCommand, SpellSpend } from './active-spells';
 export { PickBound, PickIndex, type PickSource, Seed, seededPicks } from './pick-source';
 export { type PickOutcome, PickRefusal, pickOne, PickWeight, pickWeighted, shuffle, type Weighted } from './picks';
+export { type Generated, type GenerateInput, generateCharacter } from './generate-character';
+export { slotCandidates } from './slot-candidates';
