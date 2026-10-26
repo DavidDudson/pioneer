@@ -1,0 +1,335 @@
+{
+  "etag": "\"16ab774f9c194d22a19354285a039625\"",
+  "entries": [
+    {
+      "type": "Companions",
+      "name": "Isgeri Boarhound",
+      "url": "https://2e.aonprd.com/Companions.aspx?ID=123"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Hellbreaker",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=353"
+    },
+    {
+      "type": "Equipment",
+      "name": "Atrophy Bomb",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4166"
+    },
+    {
+      "type": "Equipment",
+      "name": "Atrophy Bomb (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4166"
+    },
+    {
+      "type": "Equipment",
+      "name": "Atrophy Bomb (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4166"
+    },
+    {
+      "type": "Equipment",
+      "name": "Atrophy Bomb (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4166"
+    },
+    {
+      "type": "Equipment",
+      "name": "Atrophy Bomb (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4166"
+    },
+    {
+      "type": "Equipment",
+      "name": "Bortled Favorite",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4167"
+    },
+    {
+      "type": "Equipment",
+      "name": "Bortled Favorite (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4167"
+    },
+    {
+      "type": "Equipment",
+      "name": "Bortled Favorite (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4167"
+    },
+    {
+      "type": "Equipment",
+      "name": "Bounty's Light",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4194"
+    },
+    {
+      "type": "Equipment",
+      "name": "Calamity",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4187"
+    },
+    {
+      "type": "Equipment",
+      "name": "Crimson Thorn",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4188"
+    },
+    {
+      "type": "Equipment",
+      "name": "Devilwing Badge",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4179"
+    },
+    {
+      "type": "Equipment",
+      "name": "Devilwing Badge (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4179"
+    },
+    {
+      "type": "Equipment",
+      "name": "Devilwing Badge (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4179"
+    },
+    {
+      "type": "Equipment",
+      "name": "Dreamcrusher",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4189"
+    },
+    {
+      "type": "Equipment",
+      "name": "Fiendsbane Shield",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4190"
+    },
+    {
+      "type": "Equipment",
+      "name": "Greased Axle",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4172"
+    },
+    {
+      "type": "Equipment",
+      "name": "Harpy's Talon",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4173"
+    },
+    {
+      "type": "Equipment",
+      "name": "Hellhusk Shroud",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4180"
+    },
+    {
+      "type": "Equipment",
+      "name": "Impelling Symbol",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4174"
+    },
+    {
+      "type": "Equipment",
+      "name": "Imposing Shield",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4191"
+    },
+    {
+      "type": "Equipment",
+      "name": "Lazybones Pendant",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4181"
+    },
+    {
+      "type": "Equipment",
+      "name": "Lifebloom",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4195"
+    },
+    {
+      "type": "Equipment",
+      "name": "Magnetic Bola",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4192"
+    },
+    {
+      "type": "Equipment",
+      "name": "Martyr's Shield",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4193"
+    },
+    {
+      "type": "Equipment",
+      "name": "Marvelous Miniature (Swift Sparrow)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3002"
+    },
+    {
+      "type": "Equipment",
+      "name": "Pallid Crystal",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4198"
+    },
+    {
+      "type": "Equipment",
+      "name": "Platter of Putrid Dreams",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4199"
+    },
+    {
+      "type": "Equipment",
+      "name": "Reaper's Sigh",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4196"
+    },
+    {
+      "type": "Equipment",
+      "name": "Restful Salve",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4175"
+    },
+    {
+      "type": "Equipment",
+      "name": "Ring of Fair Assessment",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4182"
+    },
+    {
+      "type": "Equipment",
+      "name": "Robe of the Erinys",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4183"
+    },
+    {
+      "type": "Equipment",
+      "name": "Robe of the Erinys (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4183"
+    },
+    {
+      "type": "Equipment",
+      "name": "Robe of the Erinys (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4183"
+    },
+    {
+      "type": "Equipment",
+      "name": "Serene Smelling Salts",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4168"
+    },
+    {
+      "type": "Equipment",
+      "name": "Shacklebreaker",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4184"
+    },
+    {
+      "type": "Equipment",
+      "name": "Shacklebreaker (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4184"
+    },
+    {
+      "type": "Equipment",
+      "name": "Silverscrap Bomb",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4169"
+    },
+    {
+      "type": "Equipment",
+      "name": "Silverscrap Bomb (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4169"
+    },
+    {
+      "type": "Equipment",
+      "name": "Silverscrap Bomb (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4169"
+    },
+    {
+      "type": "Equipment",
+      "name": "Silverscrap Bomb (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4169"
+    },
+    {
+      "type": "Equipment",
+      "name": "Smuggler's Padlock",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4176"
+    },
+    {
+      "type": "Equipment",
+      "name": "Thorn of Milani",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4177"
+    },
+    {
+      "type": "Equipment",
+      "name": "Thorn of Milani (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4177"
+    },
+    {
+      "type": "Equipment",
+      "name": "Thorn of Milani (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4177"
+    },
+    {
+      "type": "Equipment",
+      "name": "Token of Salt and Earth",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4185"
+    },
+    {
+      "type": "Equipment",
+      "name": "Unassuming Face Paint",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4178"
+    },
+    {
+      "type": "Equipment",
+      "name": "Verdant Poultice",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4170"
+    },
+    {
+      "type": "Equipment",
+      "name": "Warding Paste",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4171"
+    },
+    {
+      "type": "Equipment",
+      "name": "Whispering Wire",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4186"
+    },
+    {
+      "type": "Equipment",
+      "name": "Whispering Wire (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4186"
+    },
+    {
+      "type": "Equipment",
+      "name": "Woe",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4197"
+    },
+    {
+      "type": "Feats",
+      "name": "Battle Scars",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8541"
+    },
+    {
+      "type": "Feats",
+      "name": "Defy Hell",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8542"
+    },
+    {
+      "type": "Feats",
+      "name": "Devil you Know",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8535"
+    },
+    {
+      "type": "Feats",
+      "name": "Hell's Bane",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8539"
+    },
+    {
+      "type": "Feats",
+      "name": "Hellbreaker Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8534"
+    },
+    {
+      "type": "Feats",
+      "name": "Hellbreaker's Resolve",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8536"
+    },
+    {
+      "type": "Feats",
+      "name": "High Alert",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8537"
+    },
+    {
+      "type": "Feats",
+      "name": "Oppurtune Trickster",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8538"
+    },
+    {
+      "type": "Feats",
+      "name": "Rend Armor",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8540"
+    },
+    {
+      "type": "Feats",
+      "name": "Return to the Pit!",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8543"
+    },
+    {
+      "type": "Feats",
+      "name": "Thorn in Hell's Side",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8544"
+    },
+    {
+      "type": "Rituals",
+      "name": "Divine Keystone",
+      "url": "https://2e.aonprd.com/Rituals.aspx?ID=242"
+    }
+  ]
+}

@@ -1,0 +1,2960 @@
+{
+  "etag": "\"b78b3639fa814a0a802a3c485a4ad511\"",
+  "entries": [
+    {
+      "type": "Ancestries",
+      "name": "Athamaru",
+      "url": "https://2e.aonprd.com/Ancestries.aspx?ID=71"
+    },
+    {
+      "type": "Ancestries",
+      "name": "Awakened Animal",
+      "url": "https://2e.aonprd.com/Ancestries.aspx?ID=72"
+    },
+    {
+      "type": "Ancestries",
+      "name": "Centaur",
+      "url": "https://2e.aonprd.com/Ancestries.aspx?ID=73"
+    },
+    {
+      "type": "Ancestries",
+      "name": "Merfolk",
+      "url": "https://2e.aonprd.com/Ancestries.aspx?ID=74"
+    },
+    {
+      "type": "Ancestries",
+      "name": "Minotaur",
+      "url": "https://2e.aonprd.com/Ancestries.aspx?ID=75"
+    },
+    {
+      "type": "Ancestries",
+      "name": "Surki",
+      "url": "https://2e.aonprd.com/Ancestries.aspx?ID=76"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Abyssal Merfolk",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=298"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Breaker Surki",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=309"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Budding Speaker Centaur",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=292"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Carcharodon Merfolk",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=299"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Climbing Animal",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=288"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Coral Athamaru",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=284"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Elytron Surki",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=310"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Fleetwind Centaur",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=293"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Flying Animal",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=289"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Ghost Bull Minotaur",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=303"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Glacier Cavern Minotaur",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=304"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Hardshell Surki",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=311"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Hopeful Athamaru",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=285"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Ironhoof Centaur",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=294"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Kaleidoscopic Athamaru",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=286"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Lantern Surki",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=312"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Littlehorn Minotaur",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=305"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Mottle-Coat Centaur",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=295"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Pelagic Merfolk",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=300"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Ponygait Centaur",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=296"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Quilled Athamaru",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=287"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Reef Merfolk",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=301"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Roaming Minotaur",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=306"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Running Animal",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=290"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Sailfish Merfolk",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=302"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Slabsoul Minotaur",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=307"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Stalker Minotaur",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=308"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Stoutheart Centaur",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=297"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Swimming Animal",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=291"
+    },
+    {
+      "type": "Companions",
+      "name": "Antelope",
+      "url": "https://2e.aonprd.com/Companions.aspx?ID=84"
+    },
+    {
+      "type": "Companions",
+      "name": "Elk",
+      "url": "https://2e.aonprd.com/Companions.aspx?ID=85"
+    },
+    {
+      "type": "Companions",
+      "name": "Flying Squirrel",
+      "url": "https://2e.aonprd.com/Companions.aspx?ID=86"
+    },
+    {
+      "type": "Companions",
+      "name": "Giant Eel",
+      "url": "https://2e.aonprd.com/Companions.aspx?ID=93"
+    },
+    {
+      "type": "Companions",
+      "name": "Giant Frog",
+      "url": "https://2e.aonprd.com/Companions.aspx?ID=94"
+    },
+    {
+      "type": "Companions",
+      "name": "Giant Wasp",
+      "url": "https://2e.aonprd.com/Companions.aspx?ID=95"
+    },
+    {
+      "type": "Companions",
+      "name": "Giraffe",
+      "url": "https://2e.aonprd.com/Companions.aspx?ID=87"
+    },
+    {
+      "type": "Companions",
+      "name": "Griffon",
+      "url": "https://2e.aonprd.com/Companions.aspx?ID=96"
+    },
+    {
+      "type": "Companions",
+      "name": "Hippocampus",
+      "url": "https://2e.aonprd.com/Companions.aspx?ID=97"
+    },
+    {
+      "type": "Companions",
+      "name": "Hippogriff",
+      "url": "https://2e.aonprd.com/Companions.aspx?ID=98"
+    },
+    {
+      "type": "Companions",
+      "name": "Kangaroo",
+      "url": "https://2e.aonprd.com/Companions.aspx?ID=88"
+    },
+    {
+      "type": "Companions",
+      "name": "Mole",
+      "url": "https://2e.aonprd.com/Companions.aspx?ID=89"
+    },
+    {
+      "type": "Companions",
+      "name": "Mongoose",
+      "url": "https://2e.aonprd.com/Companions.aspx?ID=90"
+    },
+    {
+      "type": "Companions",
+      "name": "Orca",
+      "url": "https://2e.aonprd.com/Companions.aspx?ID=99"
+    },
+    {
+      "type": "Companions",
+      "name": "Riding Tarantula",
+      "url": "https://2e.aonprd.com/Companions.aspx?ID=100"
+    },
+    {
+      "type": "Companions",
+      "name": "Roc",
+      "url": "https://2e.aonprd.com/Companions.aspx?ID=101"
+    },
+    {
+      "type": "Companions",
+      "name": "Salamander",
+      "url": "https://2e.aonprd.com/Companions.aspx?ID=91"
+    },
+    {
+      "type": "Companions",
+      "name": "Shotalashu",
+      "url": "https://2e.aonprd.com/Companions.aspx?ID=92"
+    },
+    {
+      "type": "Companions",
+      "name": "Umbrella Mushroom",
+      "url": "https://2e.aonprd.com/Companions.aspx?ID=102"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Clawdancer",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=221"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Ostilli Host",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=222"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Swarmkeeper",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=223"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Thlipit Contestant",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=224"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Werecreature",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=225"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Wild Mimic",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=226"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Winged Warrior",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=227"
+    },
+    {
+      "type": "Equipment",
+      "name": "Alicorn Hair",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3254"
+    },
+    {
+      "type": "Equipment",
+      "name": "Alicorn Trigger",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3214"
+    },
+    {
+      "type": "Equipment",
+      "name": "Alluring Lantern",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3177"
+    },
+    {
+      "type": "Equipment",
+      "name": "Amphisbaena Handwraps",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3223"
+    },
+    {
+      "type": "Equipment",
+      "name": "Amphisbaena Spittle",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3255"
+    },
+    {
+      "type": "Equipment",
+      "name": "Amulet of the Hellcat",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3224"
+    },
+    {
+      "type": "Equipment",
+      "name": "Animal Blind",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3242"
+    },
+    {
+      "type": "Equipment",
+      "name": "Animal Call",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3243"
+    },
+    {
+      "type": "Equipment",
+      "name": "Animal Pheromones",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3228"
+    },
+    {
+      "type": "Equipment",
+      "name": "Animal Pheromones (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3228"
+    },
+    {
+      "type": "Equipment",
+      "name": "Animal Pheromones (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3228"
+    },
+    {
+      "type": "Equipment",
+      "name": "Animal Pheromones (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3228"
+    },
+    {
+      "type": "Equipment",
+      "name": "Ankhrav Duster",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3201"
+    },
+    {
+      "type": "Equipment",
+      "name": "Arachnolute",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3220"
+    },
+    {
+      "type": "Equipment",
+      "name": "Arctic Worm Chitin Shield",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3199"
+    },
+    {
+      "type": "Equipment",
+      "name": "Aroma Concealer",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3229"
+    },
+    {
+      "type": "Equipment",
+      "name": "Atmospheric Breathing Suit",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3244"
+    },
+    {
+      "type": "Equipment",
+      "name": "Bioluminescent Stripes",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3178"
+    },
+    {
+      "type": "Equipment",
+      "name": "Black Scorpion Stingmace",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3202"
+    },
+    {
+      "type": "Equipment",
+      "name": "Bleeding Canines",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3187"
+    },
+    {
+      "type": "Equipment",
+      "name": "Bloodgorger Scythe",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3203"
+    },
+    {
+      "type": "Equipment",
+      "name": "Bristling Spines",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3179"
+    },
+    {
+      "type": "Equipment",
+      "name": "Bristling Spines (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3179"
+    },
+    {
+      "type": "Equipment",
+      "name": "Bristling Spines (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3179"
+    },
+    {
+      "type": "Equipment",
+      "name": "Bristling Spines (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3179"
+    },
+    {
+      "type": "Equipment",
+      "name": "Broken Ram's Thorn",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3256"
+    },
+    {
+      "type": "Equipment",
+      "name": "Camouflaging Chromatophores",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3180"
+    },
+    {
+      "type": "Equipment",
+      "name": "Camouflaging Chromatophores (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3180"
+    },
+    {
+      "type": "Equipment",
+      "name": "Camouflaging Chromatophores (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3180"
+    },
+    {
+      "type": "Equipment",
+      "name": "Catch Pole",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3245"
+    },
+    {
+      "type": "Equipment",
+      "name": "Catoblepas Maul",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3204"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cauthooj Bagpipes",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3221"
+    },
+    {
+      "type": "Equipment",
+      "name": "Chaos Falcon Feather",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3257"
+    },
+    {
+      "type": "Equipment",
+      "name": "Chimera Flail",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3205"
+    },
+    {
+      "type": "Equipment",
+      "name": "Clothing (Desert)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2715"
+    },
+    {
+      "type": "Equipment",
+      "name": "Compound Eyes",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3181"
+    },
+    {
+      "type": "Equipment",
+      "name": "Constricting Meteor",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3206"
+    },
+    {
+      "type": "Equipment",
+      "name": "Constricting Whip Tail",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3195"
+    },
+    {
+      "type": "Equipment",
+      "name": "Deadly Slashing Claws",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3188"
+    },
+    {
+      "type": "Equipment",
+      "name": "Dischoran Rubble",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3258"
+    },
+    {
+      "type": "Equipment",
+      "name": "Distracting Carapace",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3182"
+    },
+    {
+      "type": "Equipment",
+      "name": "Dweomerveil",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3225"
+    },
+    {
+      "type": "Equipment",
+      "name": "Echo Receptors",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3183"
+    },
+    {
+      "type": "Equipment",
+      "name": "Essence of Mandragora",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3239"
+    },
+    {
+      "type": "Equipment",
+      "name": "Field Guide",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3246"
+    },
+    {
+      "type": "Equipment",
+      "name": "Flash Beetle Lantern",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3222"
+    },
+    {
+      "type": "Equipment",
+      "name": "Flower Press",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3247"
+    },
+    {
+      "type": "Equipment",
+      "name": "Frogskin Tincture",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3234"
+    },
+    {
+      "type": "Equipment",
+      "name": "Fulmination Fang",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3215"
+    },
+    {
+      "type": "Equipment",
+      "name": "Giant Catch Pole",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3245"
+    },
+    {
+      "type": "Equipment",
+      "name": "Giant Squid Lash",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3207"
+    },
+    {
+      "type": "Equipment",
+      "name": "Gills",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3184"
+    },
+    {
+      "type": "Equipment",
+      "name": "Gliding Membranes",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3185"
+    },
+    {
+      "type": "Equipment",
+      "name": "Gliding Membranes (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3185"
+    },
+    {
+      "type": "Equipment",
+      "name": "Gliding Membranes (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3185"
+    },
+    {
+      "type": "Equipment",
+      "name": "Goring Horn",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3186"
+    },
+    {
+      "type": "Equipment",
+      "name": "High-Contrast Goggles",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3248"
+    },
+    {
+      "type": "Equipment",
+      "name": "Hippogriff Feather",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3259"
+    },
+    {
+      "type": "Equipment",
+      "name": "Hippopotamus Klar",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3200"
+    },
+    {
+      "type": "Equipment",
+      "name": "Hive Mother Bottle",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3231"
+    },
+    {
+      "type": "Equipment",
+      "name": "Hodag Leather",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3196"
+    },
+    {
+      "type": "Equipment",
+      "name": "Howler Pistol",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3216"
+    },
+    {
+      "type": "Equipment",
+      "name": "Hydra Mutagen",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3235"
+    },
+    {
+      "type": "Equipment",
+      "name": "Hydrocannon",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3217"
+    },
+    {
+      "type": "Equipment",
+      "name": "Kirin Echo Chime",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3260"
+    },
+    {
+      "type": "Equipment",
+      "name": "Kushtaka Relic",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3261"
+    },
+    {
+      "type": "Equipment",
+      "name": "Leydroth Spellbreaker",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3218"
+    },
+    {
+      "type": "Equipment",
+      "name": "Mamlambo Scale",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3197"
+    },
+    {
+      "type": "Equipment",
+      "name": "Mantis Plate",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3198"
+    },
+    {
+      "type": "Equipment",
+      "name": "Mantle of the Tikbalang",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3226"
+    },
+    {
+      "type": "Equipment",
+      "name": "Nightmare's Lament",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3219"
+    },
+    {
+      "type": "Equipment",
+      "name": "Ogre Spider Filament",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3262"
+    },
+    {
+      "type": "Equipment",
+      "name": "Oilskin Pouch",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3249"
+    },
+    {
+      "type": "Equipment",
+      "name": "Ommatophoric Mutagen",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3236"
+    },
+    {
+      "type": "Equipment",
+      "name": "Orm Choker",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3227"
+    },
+    {
+      "type": "Equipment",
+      "name": "Pallesthetic Mutagen",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3237"
+    },
+    {
+      "type": "Equipment",
+      "name": "Pelagic Helmet",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3250"
+    },
+    {
+      "type": "Equipment",
+      "name": "Pheromone Flare",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3230"
+    },
+    {
+      "type": "Equipment",
+      "name": "Pheromone Flare (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3230"
+    },
+    {
+      "type": "Equipment",
+      "name": "Pheromone Flare (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3230"
+    },
+    {
+      "type": "Equipment",
+      "name": "Pheromone Flare (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3230"
+    },
+    {
+      "type": "Equipment",
+      "name": "Piercing Horn",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3186"
+    },
+    {
+      "type": "Equipment",
+      "name": "Portable Animal Blind",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3242"
+    },
+    {
+      "type": "Equipment",
+      "name": "Sargassum Phial",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3232"
+    },
+    {
+      "type": "Equipment",
+      "name": "Sharpened Canines",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3187"
+    },
+    {
+      "type": "Equipment",
+      "name": "Shuln Fang Katar",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3208"
+    },
+    {
+      "type": "Equipment",
+      "name": "Sifting Pan",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3251"
+    },
+    {
+      "type": "Equipment",
+      "name": "Silvered Marp Fur",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3263"
+    },
+    {
+      "type": "Equipment",
+      "name": "Skyfisher Vapors",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3264"
+    },
+    {
+      "type": "Equipment",
+      "name": "Slashing Claws",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3188"
+    },
+    {
+      "type": "Equipment",
+      "name": "Splithead Bow",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3209"
+    },
+    {
+      "type": "Equipment",
+      "name": "Sportlebore Capsule",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3240"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spry Sinews",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3189"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spry Sinews (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3189"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spry Sinews (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3189"
+    },
+    {
+      "type": "Equipment",
+      "name": "Squid Ink Sac",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3190"
+    },
+    {
+      "type": "Equipment",
+      "name": "Storm Herald",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3210"
+    },
+    {
+      "type": "Equipment",
+      "name": "Superior Catch Pole",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3245"
+    },
+    {
+      "type": "Equipment",
+      "name": "Swooping Wings",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3191"
+    },
+    {
+      "type": "Equipment",
+      "name": "Tarantula Ampoule",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3233"
+    },
+    {
+      "type": "Equipment",
+      "name": "Tatzlwyrm's Gasp",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3241"
+    },
+    {
+      "type": "Equipment",
+      "name": "Tidal Crossbow",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3211"
+    },
+    {
+      "type": "Equipment",
+      "name": "Toxic Blood",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3192"
+    },
+    {
+      "type": "Equipment",
+      "name": "Tracking Tag",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3252"
+    },
+    {
+      "type": "Equipment",
+      "name": "Trollhound Pick",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3212"
+    },
+    {
+      "type": "Equipment",
+      "name": "Trundle Wheel",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3253"
+    },
+    {
+      "type": "Equipment",
+      "name": "Tubeworm Gland",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3193"
+    },
+    {
+      "type": "Equipment",
+      "name": "Venom Glands",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3194"
+    },
+    {
+      "type": "Equipment",
+      "name": "Viperous Elixir",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3238"
+    },
+    {
+      "type": "Equipment",
+      "name": "Viperous Elixir (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3238"
+    },
+    {
+      "type": "Equipment",
+      "name": "Viperous Elixir (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3238"
+    },
+    {
+      "type": "Equipment",
+      "name": "Viperous Elixir (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3238"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wemmuth Trinket",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3265"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wheelchair (Land-Delver's Chair)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2777"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wheelchair (Supramarine Chair)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2777"
+    },
+    {
+      "type": "Equipment",
+      "name": "Whip Tail",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3195"
+    },
+    {
+      "type": "Equipment",
+      "name": "Whip-Tongue Sling",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3213"
+    },
+    {
+      "type": "Equipment",
+      "name": "Witchwarg Fur",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3266"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wolliped Fleece",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3267"
+    },
+    {
+      "type": "Feats",
+      "name": "Abscission Shards",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5440"
+    },
+    {
+      "type": "Feats",
+      "name": "Accommodating Mount",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5327"
+    },
+    {
+      "type": "Feats",
+      "name": "Alarming Disappearance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5369"
+    },
+    {
+      "type": "Feats",
+      "name": "Animal Fleetness",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5487"
+    },
+    {
+      "type": "Feats",
+      "name": "Animal Strength",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5410"
+    },
+    {
+      "type": "Feats",
+      "name": "Animal Summoner",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5314"
+    },
+    {
+      "type": "Feats",
+      "name": "Antler Rush",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5490"
+    },
+    {
+      "type": "Feats",
+      "name": "Aphet Flash",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5464"
+    },
+    {
+      "type": "Feats",
+      "name": "Apprentice Sea Witch",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5349"
+    },
+    {
+      "type": "Feats",
+      "name": "Artisanal Crafter",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5361"
+    },
+    {
+      "type": "Feats",
+      "name": "Athamaru Lore",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5273"
+    },
+    {
+      "type": "Feats",
+      "name": "Athamaru Weapon Familiarity",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5274"
+    },
+    {
+      "type": "Feats",
+      "name": "Attuned Electroreceptors",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5290"
+    },
+    {
+      "type": "Feats",
+      "name": "Awaken Others",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5316"
+    },
+    {
+      "type": "Feats",
+      "name": "Awakened Animal Lore",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5297"
+    },
+    {
+      "type": "Feats",
+      "name": "Awakened Magic",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5298"
+    },
+    {
+      "type": "Feats",
+      "name": "Awakened Stride",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5319"
+    },
+    {
+      "type": "Feats",
+      "name": "Battering Wings",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5528"
+    },
+    {
+      "type": "Feats",
+      "name": "Bear Hug (Werecreature)",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5491"
+    },
+    {
+      "type": "Feats",
+      "name": "Beast of Burden",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5370"
+    },
+    {
+      "type": "Feats",
+      "name": "Beastkin Resilience",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5488"
+    },
+    {
+      "type": "Feats",
+      "name": "Begin Stampede",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5382"
+    },
+    {
+      "type": "Feats",
+      "name": "Bestial Protection",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5424"
+    },
+    {
+      "type": "Feats",
+      "name": "Bestial Snarling",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5416"
+    },
+    {
+      "type": "Feats",
+      "name": "Billowing Wings",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5433"
+    },
+    {
+      "type": "Feats",
+      "name": "Bombing Run",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5539"
+    },
+    {
+      "type": "Feats",
+      "name": "Brutal Crush",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5399"
+    },
+    {
+      "type": "Feats",
+      "name": "Buzzing Death Cicadas",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5472"
+    },
+    {
+      "type": "Feats",
+      "name": "Camoflage Coat",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5337"
+    },
+    {
+      "type": "Feats",
+      "name": "Carried with the Swarm",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5469"
+    },
+    {
+      "type": "Feats",
+      "name": "Cattle Speech",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5362"
+    },
+    {
+      "type": "Feats",
+      "name": "Cellular Reconstruction",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5462"
+    },
+    {
+      "type": "Feats",
+      "name": "Centaur Lore",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5322"
+    },
+    {
+      "type": "Feats",
+      "name": "Centaur Weapon Familiarity",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5323"
+    },
+    {
+      "type": "Feats",
+      "name": "Chaining Mutation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5458"
+    },
+    {
+      "type": "Feats",
+      "name": "Chemical Trail",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5389"
+    },
+    {
+      "type": "Feats",
+      "name": "Chorus Companion",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5420"
+    },
+    {
+      "type": "Feats",
+      "name": "Claw and Talon Flow",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5448"
+    },
+    {
+      "type": "Feats",
+      "name": "Claw Snag",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5437"
+    },
+    {
+      "type": "Feats",
+      "name": "Clawdancer Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5436"
+    },
+    {
+      "type": "Feats",
+      "name": "Cleansing Transformation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5406"
+    },
+    {
+      "type": "Feats",
+      "name": "Cloaking Pulse",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5455"
+    },
+    {
+      "type": "Feats",
+      "name": "Community-Minded",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5275"
+    },
+    {
+      "type": "Feats",
+      "name": "Consume Magic",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5392"
+    },
+    {
+      "type": "Feats",
+      "name": "Coral Detoxification",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5286"
+    },
+    {
+      "type": "Feats",
+      "name": "Coral Growth",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5281"
+    },
+    {
+      "type": "Feats",
+      "name": "Coral Lifeline",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5294"
+    },
+    {
+      "type": "Feats",
+      "name": "Coral Reserve",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5291"
+    },
+    {
+      "type": "Feats",
+      "name": "Coral Symbiotes",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5276"
+    },
+    {
+      "type": "Feats",
+      "name": "Cornered Animal",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5499"
+    },
+    {
+      "type": "Feats",
+      "name": "Cratering Drop",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5540"
+    },
+    {
+      "type": "Feats",
+      "name": "Creature Comforts",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5400"
+    },
+    {
+      "type": "Feats",
+      "name": "Dashing Pounce",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5438"
+    },
+    {
+      "type": "Feats",
+      "name": "Deadly Mutation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5459"
+    },
+    {
+      "type": "Feats",
+      "name": "Death Roll",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5492"
+    },
+    {
+      "type": "Feats",
+      "name": "Defensive Dismissal",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5404"
+    },
+    {
+      "type": "Feats",
+      "name": "Deflecting Pulse",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5456"
+    },
+    {
+      "type": "Feats",
+      "name": "Digger",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5317"
+    },
+    {
+      "type": "Feats",
+      "name": "Dire Growth",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5503"
+    },
+    {
+      "type": "Feats",
+      "name": "Distant Archer",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5328"
+    },
+    {
+      "type": "Feats",
+      "name": "Distracting Bites",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5467"
+    },
+    {
+      "type": "Feats",
+      "name": "Doom of Sailors",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5359"
+    },
+    {
+      "type": "Feats",
+      "name": "Ears of the Forest",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5418"
+    },
+    {
+      "type": "Feats",
+      "name": "Echolocation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5493"
+    },
+    {
+      "type": "Feats",
+      "name": "Electrogenesis",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5518"
+    },
+    {
+      "type": "Feats",
+      "name": "Elver Pet",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5277"
+    },
+    {
+      "type": "Feats",
+      "name": "Emergency Regeneration",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5526"
+    },
+    {
+      "type": "Feats",
+      "name": "Emissary Assistance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5287"
+    },
+    {
+      "type": "Feats",
+      "name": "Emit Defensive Odor",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5278"
+    },
+    {
+      "type": "Feats",
+      "name": "Environmental Adaptability",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5521"
+    },
+    {
+      "type": "Feats",
+      "name": "Expanded Swarm",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5473"
+    },
+    {
+      "type": "Feats",
+      "name": "Explosive Metamorphosis",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5405"
+    },
+    {
+      "type": "Feats",
+      "name": "Eye for Masonry",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5363"
+    },
+    {
+      "type": "Feats",
+      "name": "Falcon Swoop",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5535"
+    },
+    {
+      "type": "Feats",
+      "name": "Fascinated by Society",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5299"
+    },
+    {
+      "type": "Feats",
+      "name": "Fearful Symmetry",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5494"
+    },
+    {
+      "type": "Feats",
+      "name": "Fearsome Form",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5320"
+    },
+    {
+      "type": "Feats",
+      "name": "Feathered Flechettes",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5532"
+    },
+    {
+      "type": "Feats",
+      "name": "Feeding Frenzy",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5495"
+    },
+    {
+      "type": "Feats",
+      "name": "Feline Dance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5445"
+    },
+    {
+      "type": "Feats",
+      "name": "Feral Lunge",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5504"
+    },
+    {
+      "type": "Feats",
+      "name": "Feral Mending",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5500"
+    },
+    {
+      "type": "Feats",
+      "name": "Feral Scramble",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5505"
+    },
+    {
+      "type": "Feats",
+      "name": "Feral Senses",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5489"
+    },
+    {
+      "type": "Feats",
+      "name": "Feral Toss",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5506"
+    },
+    {
+      "type": "Feats",
+      "name": "Ferocious Charge",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5428"
+    },
+    {
+      "type": "Feats",
+      "name": "Ferocity Mimicry",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5516"
+    },
+    {
+      "type": "Feats",
+      "name": "Fierce Competitor",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5332"
+    },
+    {
+      "type": "Feats",
+      "name": "Fierce Grasp",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5307"
+    },
+    {
+      "type": "Feats",
+      "name": "Fishblooded",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5350"
+    },
+    {
+      "type": "Feats",
+      "name": "Fly Swat",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5475"
+    },
+    {
+      "type": "Feats",
+      "name": "Force of Nature",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5514"
+    },
+    {
+      "type": "Feats",
+      "name": "Friendly Fling",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5375"
+    },
+    {
+      "type": "Feats",
+      "name": "Friendly Nudge",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5364"
+    },
+    {
+      "type": "Feats",
+      "name": "Full Flight",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5315"
+    },
+    {
+      "type": "Feats",
+      "name": "Generation Digger",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5395"
+    },
+    {
+      "type": "Feats",
+      "name": "Goring Charge",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5376"
+    },
+    {
+      "type": "Feats",
+      "name": "Graft Technician",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5542"
+    },
+    {
+      "type": "Feats",
+      "name": "Grand Metamorphosis",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5393"
+    },
+    {
+      "type": "Feats",
+      "name": "Growing Eel Friend",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5282"
+    },
+    {
+      "type": "Feats",
+      "name": "Gusting Spell",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5529"
+    },
+    {
+      "type": "Feats",
+      "name": "Healing Flesh",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5351"
+    },
+    {
+      "type": "Feats",
+      "name": "Heightened Instincts",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5434"
+    },
+    {
+      "type": "Feats",
+      "name": "Herbal Forager",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5331"
+    },
+    {
+      "type": "Feats",
+      "name": "Hindquarter Kick",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5442"
+    },
+    {
+      "type": "Feats",
+      "name": "Hunting Snag",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5446"
+    },
+    {
+      "type": "Feats",
+      "name": "Ill Tide",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5353"
+    },
+    {
+      "type": "Feats",
+      "name": "Incredible Sprint",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5338"
+    },
+    {
+      "type": "Feats",
+      "name": "Into the Labyrinth",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5383"
+    },
+    {
+      "type": "Feats",
+      "name": "Keen Nose",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5365"
+    },
+    {
+      "type": "Feats",
+      "name": "Kraken's Call",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5360"
+    },
+    {
+      "type": "Feats",
+      "name": "Labyrinthine Echoes",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5371"
+    },
+    {
+      "type": "Feats",
+      "name": "Land Legs",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5300"
+    },
+    {
+      "type": "Feats",
+      "name": "Lassoing Lash",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5476"
+    },
+    {
+      "type": "Feats",
+      "name": "Late Awakener",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5308"
+    },
+    {
+      "type": "Feats",
+      "name": "Learn by Watching",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5301"
+    },
+    {
+      "type": "Feats",
+      "name": "Levered Swing",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5479"
+    },
+    {
+      "type": "Feats",
+      "name": "Magitaxis",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5396"
+    },
+    {
+      "type": "Feats",
+      "name": "Mentor of Legends",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5333"
+    },
+    {
+      "type": "Feats",
+      "name": "Merfolk Lore",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5343"
+    },
+    {
+      "type": "Feats",
+      "name": "Merfolk Weapon Familiarity",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5344"
+    },
+    {
+      "type": "Feats",
+      "name": "Merge with the Source",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5341"
+    },
+    {
+      "type": "Feats",
+      "name": "Minotaur Lore",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5366"
+    },
+    {
+      "type": "Feats",
+      "name": "Minotaur Weapon Familiarity",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5367"
+    },
+    {
+      "type": "Feats",
+      "name": "Miraculous Medic",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5339"
+    },
+    {
+      "type": "Feats",
+      "name": "Misty Transformation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5402"
+    },
+    {
+      "type": "Feats",
+      "name": "Mobile Swarm",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5468"
+    },
+    {
+      "type": "Feats",
+      "name": "Moray Ambush",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5295"
+    },
+    {
+      "type": "Feats",
+      "name": "Moray Eel Mount",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5288"
+    },
+    {
+      "type": "Feats",
+      "name": "Musical Summons",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5421"
+    },
+    {
+      "type": "Feats",
+      "name": "Natural Ambassador",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5309"
+    },
+    {
+      "type": "Feats",
+      "name": "Natural Conduit",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5409"
+    },
+    {
+      "type": "Feats",
+      "name": "Natural Orienteering",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5372"
+    },
+    {
+      "type": "Feats",
+      "name": "Natural Senses",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5302"
+    },
+    {
+      "type": "Feats",
+      "name": "Nature Prowler",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5411"
+    },
+    {
+      "type": "Feats",
+      "name": "Nature's Precision",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5425"
+    },
+    {
+      "type": "Feats",
+      "name": "Nodal Healing",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5394"
+    },
+    {
+      "type": "Feats",
+      "name": "Nodal Regeneration",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5398"
+    },
+    {
+      "type": "Feats",
+      "name": "Noxious Odor",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5283"
+    },
+    {
+      "type": "Feats",
+      "name": "Ocean Wariness",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5279"
+    },
+    {
+      "type": "Feats",
+      "name": "Ocean's Bite",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5345"
+    },
+    {
+      "type": "Feats",
+      "name": "Offensive Odor",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5296"
+    },
+    {
+      "type": "Feats",
+      "name": "Ostilli Host Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5451"
+    },
+    {
+      "type": "Feats",
+      "name": "Pack Attack",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5496"
+    },
+    {
+      "type": "Feats",
+      "name": "Pack Movement",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5427"
+    },
+    {
+      "type": "Feats",
+      "name": "Pack Performance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5422"
+    },
+    {
+      "type": "Feats",
+      "name": "Pack Takedown",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5435"
+    },
+    {
+      "type": "Feats",
+      "name": "Pantheon Magic",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5368"
+    },
+    {
+      "type": "Feats",
+      "name": "Persistent Odor",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5289"
+    },
+    {
+      "type": "Feats",
+      "name": "Petrifying Gaze Mimicry",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5522"
+    },
+    {
+      "type": "Feats",
+      "name": "Phantom Charm",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5379"
+    },
+    {
+      "type": "Feats",
+      "name": "Pheromonal Message",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5280"
+    },
+    {
+      "type": "Feats",
+      "name": "Plague Rat",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5497"
+    },
+    {
+      "type": "Feats",
+      "name": "Pluck From the Sky",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5533"
+    },
+    {
+      "type": "Feats",
+      "name": "Portents of the Haruspex",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5413"
+    },
+    {
+      "type": "Feats",
+      "name": "Pounce Mimicry",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5525"
+    },
+    {
+      "type": "Feats",
+      "name": "Pouncing Transformation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5508"
+    },
+    {
+      "type": "Feats",
+      "name": "Powerful Lash",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5477"
+    },
+    {
+      "type": "Feats",
+      "name": "Practiced Brawn",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5324"
+    },
+    {
+      "type": "Feats",
+      "name": "Precise Hooks",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5449"
+    },
+    {
+      "type": "Feats",
+      "name": "Primal Proportions",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5519"
+    },
+    {
+      "type": "Feats",
+      "name": "Propulsive Mutation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5457"
+    },
+    {
+      "type": "Feats",
+      "name": "Proud Mentor",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5329"
+    },
+    {
+      "type": "Feats",
+      "name": "Pummeling Whirlpool",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5357"
+    },
+    {
+      "type": "Feats",
+      "name": "Puzzle Solver",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5373"
+    },
+    {
+      "type": "Feats",
+      "name": "Pyre Ant Sting",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5465"
+    },
+    {
+      "type": "Feats",
+      "name": "Rapid Hybridization",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5513"
+    },
+    {
+      "type": "Feats",
+      "name": "Rapid Pheromone Recovery",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5292"
+    },
+    {
+      "type": "Feats",
+      "name": "Redirecting Draft",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5536"
+    },
+    {
+      "type": "Feats",
+      "name": "Reflexive Grapple",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5483"
+    },
+    {
+      "type": "Feats",
+      "name": "Rend Mimicry",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5517"
+    },
+    {
+      "type": "Feats",
+      "name": "Ride On",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5334"
+    },
+    {
+      "type": "Feats",
+      "name": "Rip and Tear",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5401"
+    },
+    {
+      "type": "Feats",
+      "name": "Riptide Mount",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5284"
+    },
+    {
+      "type": "Feats",
+      "name": "Roar Mimicry",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5524"
+    },
+    {
+      "type": "Feats",
+      "name": "Running Kick",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5429"
+    },
+    {
+      "type": "Feats",
+      "name": "Rushing Boar",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5498"
+    },
+    {
+      "type": "Feats",
+      "name": "Scarred Hide",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5512"
+    },
+    {
+      "type": "Feats",
+      "name": "Scatter Swarm",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5412"
+    },
+    {
+      "type": "Feats",
+      "name": "Scurry!",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5310"
+    },
+    {
+      "type": "Feats",
+      "name": "Sea Legs",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5303"
+    },
+    {
+      "type": "Feats",
+      "name": "Sea Witch",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5358"
+    },
+    {
+      "type": "Feats",
+      "name": "Seasong",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5346"
+    },
+    {
+      "type": "Feats",
+      "name": "Secondary Adaptation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5390"
+    },
+    {
+      "type": "Feats",
+      "name": "Sequestered Spell",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5384"
+    },
+    {
+      "type": "Feats",
+      "name": "Shared Tide",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5509"
+    },
+    {
+      "type": "Feats",
+      "name": "Sharpened Senses",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5318"
+    },
+    {
+      "type": "Feats",
+      "name": "Shift the Little Ones",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5380"
+    },
+    {
+      "type": "Feats",
+      "name": "Shore Gift",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5354"
+    },
+    {
+      "type": "Feats",
+      "name": "Sinking Jaws",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5430"
+    },
+    {
+      "type": "Feats",
+      "name": "Siphon Torment",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5377"
+    },
+    {
+      "type": "Feats",
+      "name": "Siren Song",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5355"
+    },
+    {
+      "type": "Feats",
+      "name": "Skilled Herbalist",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5325"
+    },
+    {
+      "type": "Feats",
+      "name": "Skilled Swimmer",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5285"
+    },
+    {
+      "type": "Feats",
+      "name": "Slingshot Maneuver",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5482"
+    },
+    {
+      "type": "Feats",
+      "name": "Slurp Up",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5480"
+    },
+    {
+      "type": "Feats",
+      "name": "Small Speak",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5385"
+    },
+    {
+      "type": "Feats",
+      "name": "Smooth Hover",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5537"
+    },
+    {
+      "type": "Feats",
+      "name": "Snap Falling Fruit",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5478"
+    },
+    {
+      "type": "Feats",
+      "name": "Songbird's Call",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5419"
+    },
+    {
+      "type": "Feats",
+      "name": "Sonic Strafe",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5541"
+    },
+    {
+      "type": "Feats",
+      "name": "Soothing Pulse",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5452"
+    },
+    {
+      "type": "Feats",
+      "name": "Speaker in Training",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5330"
+    },
+    {
+      "type": "Feats",
+      "name": "Speaker's Defense",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5335"
+    },
+    {
+      "type": "Feats",
+      "name": "Spell Swallow",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5460"
+    },
+    {
+      "type": "Feats",
+      "name": "Spinning Release",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5484"
+    },
+    {
+      "type": "Feats",
+      "name": "Spinning Stand",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5443"
+    },
+    {
+      "type": "Feats",
+      "name": "Spirit of the Beast",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5423"
+    },
+    {
+      "type": "Feats",
+      "name": "Sportlebore Choke",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5470"
+    },
+    {
+      "type": "Feats",
+      "name": "Spraying Mutation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5461"
+    },
+    {
+      "type": "Feats",
+      "name": "Springboard",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5447"
+    },
+    {
+      "type": "Feats",
+      "name": "Starshot Arrow",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5342"
+    },
+    {
+      "type": "Feats",
+      "name": "Steelhoof",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5326"
+    },
+    {
+      "type": "Feats",
+      "name": "Stone Passage",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5378"
+    },
+    {
+      "type": "Feats",
+      "name": "Storm of Claws",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5450"
+    },
+    {
+      "type": "Feats",
+      "name": "Stretching Reach",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5374"
+    },
+    {
+      "type": "Feats",
+      "name": "Strong of Wing",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5311"
+    },
+    {
+      "type": "Feats",
+      "name": "Strong Tail",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5352"
+    },
+    {
+      "type": "Feats",
+      "name": "Stubborn Defiance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5336"
+    },
+    {
+      "type": "Feats",
+      "name": "Sunbird Glare",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5531"
+    },
+    {
+      "type": "Feats",
+      "name": "Surki Lore",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5386"
+    },
+    {
+      "type": "Feats",
+      "name": "Surki Weapon Familiarity",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5387"
+    },
+    {
+      "type": "Feats",
+      "name": "Swarmkeeper Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5463"
+    },
+    {
+      "type": "Feats",
+      "name": "Sweeping Tail",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5431"
+    },
+    {
+      "type": "Feats",
+      "name": "Swift Eel Mount",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5293"
+    },
+    {
+      "type": "Feats",
+      "name": "Swimmer's Guidance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5347"
+    },
+    {
+      "type": "Feats",
+      "name": "Tactile Magic Feedback",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5453"
+    },
+    {
+      "type": "Feats",
+      "name": "Tail Guard",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5481"
+    },
+    {
+      "type": "Feats",
+      "name": "Take Flight",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5304"
+    },
+    {
+      "type": "Feats",
+      "name": "Talon Sweep",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5439"
+    },
+    {
+      "type": "Feats",
+      "name": "Tear Tendons",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5444"
+    },
+    {
+      "type": "Feats",
+      "name": "Tears of Pearl",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5356"
+    },
+    {
+      "type": "Feats",
+      "name": "Tenacious Endurance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5426"
+    },
+    {
+      "type": "Feats",
+      "name": "Terrifying Transformation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5501"
+    },
+    {
+      "type": "Feats",
+      "name": "Thlipit Contestant Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5474"
+    },
+    {
+      "type": "Feats",
+      "name": "Threatening Pursuit",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5381"
+    },
+    {
+      "type": "Feats",
+      "name": "Thunderous Landing",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5538"
+    },
+    {
+      "type": "Feats",
+      "name": "Too Much to Swallow",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5408"
+    },
+    {
+      "type": "Feats",
+      "name": "Tooth and Claw",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5305"
+    },
+    {
+      "type": "Feats",
+      "name": "Toppling Transformation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5403"
+    },
+    {
+      "type": "Feats",
+      "name": "Touch of Lunacy",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5507"
+    },
+    {
+      "type": "Feats",
+      "name": "Towering Transformation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5407"
+    },
+    {
+      "type": "Feats",
+      "name": "Trample (Centaur)",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5340"
+    },
+    {
+      "type": "Feats",
+      "name": "Trample Mimicry",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5523"
+    },
+    {
+      "type": "Feats",
+      "name": "True Senses",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5321"
+    },
+    {
+      "type": "Feats",
+      "name": "Tunnel Roll",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5391"
+    },
+    {
+      "type": "Feats",
+      "name": "Undying Beast",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5510"
+    },
+    {
+      "type": "Feats",
+      "name": "Unlimited Pluripotency",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5397"
+    },
+    {
+      "type": "Feats",
+      "name": "Urban Jungle",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5312"
+    },
+    {
+      "type": "Feats",
+      "name": "Veil of Bugs",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5471"
+    },
+    {
+      "type": "Feats",
+      "name": "Versatile Mutation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5454"
+    },
+    {
+      "type": "Feats",
+      "name": "Vestigial Magicsense",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5388"
+    },
+    {
+      "type": "Feats",
+      "name": "Vicious Rend",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5432"
+    },
+    {
+      "type": "Feats",
+      "name": "Wave Speaker",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5348"
+    },
+    {
+      "type": "Feats",
+      "name": "Weaver's Web",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5466"
+    },
+    {
+      "type": "Feats",
+      "name": "Werecreature Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5486"
+    },
+    {
+      "type": "Feats",
+      "name": "Wheeling Grab",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5441"
+    },
+    {
+      "type": "Feats",
+      "name": "Whirling Clobber",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5485"
+    },
+    {
+      "type": "Feats",
+      "name": "Wild Mimic Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5515"
+    },
+    {
+      "type": "Feats",
+      "name": "Wild Speech",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5520"
+    },
+    {
+      "type": "Feats",
+      "name": "Wild Stride",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5313"
+    },
+    {
+      "type": "Feats",
+      "name": "Wild Witch's Armaments",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5414"
+    },
+    {
+      "type": "Feats",
+      "name": "Wing Bounce",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5530"
+    },
+    {
+      "type": "Feats",
+      "name": "Wing Shove",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5534"
+    },
+    {
+      "type": "Feats",
+      "name": "Winged Warrior Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5527"
+    },
+    {
+      "type": "Feats",
+      "name": "Wings of the Moon",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5511"
+    },
+    {
+      "type": "Feats",
+      "name": "You Don't Smell Right",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5502"
+    },
+    {
+      "type": "Feats",
+      "name": "You're So Cute!",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5306"
+    },
+    {
+      "type": "Feats",
+      "name": "Zoophonic Communication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5415"
+    },
+    {
+      "type": "Feats",
+      "name": "Zoophonic Composition",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5417"
+    },
+    {
+      "type": "Languages",
+      "name": "Lashunta",
+      "url": "https://2e.aonprd.com/Languages.aspx?ID=177"
+    },
+    {
+      "type": "Languages",
+      "name": "Surki",
+      "url": "https://2e.aonprd.com/Languages.aspx?ID=176"
+    },
+    {
+      "type": "Lessons",
+      "name": "Lesson of Decay",
+      "url": "https://2e.aonprd.com/Lessons.aspx?ID=26"
+    },
+    {
+      "type": "Lessons",
+      "name": "Lesson of the Flock",
+      "url": "https://2e.aonprd.com/Lessons.aspx?ID=27"
+    },
+    {
+      "type": "Lessons",
+      "name": "Lesson of the Shark",
+      "url": "https://2e.aonprd.com/Lessons.aspx?ID=28"
+    },
+    {
+      "type": "Monsters",
+      "name": "Alicorn",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3320"
+    },
+    {
+      "type": "Monsters",
+      "name": "Almiraj",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3253"
+    },
+    {
+      "type": "Monsters",
+      "name": "Apothecary Bee",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3254"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ascendant Griffon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3287"
+    },
+    {
+      "type": "Monsters",
+      "name": "Barded Manticore",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3300"
+    },
+    {
+      "type": "Monsters",
+      "name": "Blooming Guardian",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3256"
+    },
+    {
+      "type": "Monsters",
+      "name": "Carnotaurus",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3263"
+    },
+    {
+      "type": "Monsters",
+      "name": "Chaos Falcon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3270"
+    },
+    {
+      "type": "Monsters",
+      "name": "Concert Frog",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3281"
+    },
+    {
+      "type": "Monsters",
+      "name": "Crying Cicada",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3258"
+    },
+    {
+      "type": "Monsters",
+      "name": "Decapod Dinghy",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3259"
+    },
+    {
+      "type": "Monsters",
+      "name": "Desert Manticore",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3299"
+    },
+    {
+      "type": "Monsters",
+      "name": "Drthak",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3268"
+    },
+    {
+      "type": "Monsters",
+      "name": "Fangtooth School",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3276"
+    },
+    {
+      "type": "Monsters",
+      "name": "Flynkett",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3279"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ghost Ape",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3272"
+    },
+    {
+      "type": "Monsters",
+      "name": "Giant Coppermouth",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3283"
+    },
+    {
+      "type": "Monsters",
+      "name": "Giant Fangtooth",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3278"
+    },
+    {
+      "type": "Monsters",
+      "name": "Giant Tardigrade",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3316"
+    },
+    {
+      "type": "Monsters",
+      "name": "Goblin Shark",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3307"
+    },
+    {
+      "type": "Monsters",
+      "name": "Greater Chimera",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3257"
+    },
+    {
+      "type": "Monsters",
+      "name": "Harbor Seal",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3305"
+    },
+    {
+      "type": "Monsters",
+      "name": "Hardhead Mole",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3288"
+    },
+    {
+      "type": "Monsters",
+      "name": "Heliocoprion",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3308"
+    },
+    {
+      "type": "Monsters",
+      "name": "Hexmoth",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3290"
+    },
+    {
+      "type": "Monsters",
+      "name": "Hexworm",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3289"
+    },
+    {
+      "type": "Monsters",
+      "name": "Holdfast",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3291"
+    },
+    {
+      "type": "Monsters",
+      "name": "Hooplamander",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3292"
+    },
+    {
+      "type": "Monsters",
+      "name": "Karkadann",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3318"
+    },
+    {
+      "type": "Monsters",
+      "name": "Leopard Seal",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3306"
+    },
+    {
+      "type": "Monsters",
+      "name": "Lightning Turtle",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3284"
+    },
+    {
+      "type": "Monsters",
+      "name": "Magnegor",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3297"
+    },
+    {
+      "type": "Monsters",
+      "name": "Magnetic Gecko",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3282"
+    },
+    {
+      "type": "Monsters",
+      "name": "Majungasaurus",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3262"
+    },
+    {
+      "type": "Monsters",
+      "name": "Mammoth Land Star",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3298"
+    },
+    {
+      "type": "Monsters",
+      "name": "Marp",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3301"
+    },
+    {
+      "type": "Monsters",
+      "name": "Mirror Wolf",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3312"
+    },
+    {
+      "type": "Monsters",
+      "name": "Mist Bear",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3273"
+    },
+    {
+      "type": "Monsters",
+      "name": "Mjolgat",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3302"
+    },
+    {
+      "type": "Monsters",
+      "name": "Mocking Chorus",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3296"
+    },
+    {
+      "type": "Monsters",
+      "name": "Morthak",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3267"
+    },
+    {
+      "type": "Monsters",
+      "name": "Pale Horse",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3319"
+    },
+    {
+      "type": "Monsters",
+      "name": "Plated Python",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3286"
+    },
+    {
+      "type": "Monsters",
+      "name": "Prismhydra",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3295"
+    },
+    {
+      "type": "Monsters",
+      "name": "Protoceratops",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3261"
+    },
+    {
+      "type": "Monsters",
+      "name": "Rift Chameleon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3271"
+    },
+    {
+      "type": "Monsters",
+      "name": "Royal Basilisk",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3255"
+    },
+    {
+      "type": "Monsters",
+      "name": "Rumindrol",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3303"
+    },
+    {
+      "type": "Monsters",
+      "name": "Scroungefeather",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3304"
+    },
+    {
+      "type": "Monsters",
+      "name": "Shotalashu",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3309"
+    },
+    {
+      "type": "Monsters",
+      "name": "Sky Fisher",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3310"
+    },
+    {
+      "type": "Monsters",
+      "name": "Soniphak",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3269"
+    },
+    {
+      "type": "Monsters",
+      "name": "Sporeback Frog",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3280"
+    },
+    {
+      "type": "Monsters",
+      "name": "Stargut Hydra",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3293"
+    },
+    {
+      "type": "Monsters",
+      "name": "Stonefish",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3274"
+    },
+    {
+      "type": "Monsters",
+      "name": "Stonefish Swarm",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3275"
+    },
+    {
+      "type": "Monsters",
+      "name": "Stony Bat",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3285"
+    },
+    {
+      "type": "Monsters",
+      "name": "Stony Goat",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3313"
+    },
+    {
+      "type": "Monsters",
+      "name": "Storm Snake",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3314"
+    },
+    {
+      "type": "Monsters",
+      "name": "Sunscale Serpent",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3311"
+    },
+    {
+      "type": "Monsters",
+      "name": "Swordfish",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3277"
+    },
+    {
+      "type": "Monsters",
+      "name": "Taldan Cave Squirrel",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3315"
+    },
+    {
+      "type": "Monsters",
+      "name": "Tardigrade Swarm",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3317"
+    },
+    {
+      "type": "Monsters",
+      "name": "Therizinosaurus",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3264"
+    },
+    {
+      "type": "Monsters",
+      "name": "Thruneosaurus Rex",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3266"
+    },
+    {
+      "type": "Monsters",
+      "name": "Titanosaur",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3265"
+    },
+    {
+      "type": "Monsters",
+      "name": "Troodon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3260"
+    },
+    {
+      "type": "Monsters",
+      "name": "Tyrafdir",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3294"
+    },
+    {
+      "type": "Monsters",
+      "name": "Vibrant Pup Swarm",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3321"
+    },
+    {
+      "type": "Monsters",
+      "name": "Virtuosic Lyrebird",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3322"
+    },
+    {
+      "type": "Monsters",
+      "name": "Warden of Caverns and Burrows",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3325"
+    },
+    {
+      "type": "Monsters",
+      "name": "Warden of Forests and Meadows",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3326"
+    },
+    {
+      "type": "Monsters",
+      "name": "Warden of Ocean and Rivers",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3327"
+    },
+    {
+      "type": "Monsters",
+      "name": "Warden of Peaks and Skies",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3328"
+    },
+    {
+      "type": "Monsters",
+      "name": "Weremoose",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3323"
+    },
+    {
+      "type": "Monsters",
+      "name": "Wereshark",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3324"
+    },
+    {
+      "type": "Muses",
+      "name": "Zoophonia",
+      "url": "https://2e.aonprd.com/Muses.aspx?ID=9"
+    },
+    {
+      "type": "Patron Themes",
+      "name": "Devourer of Decay",
+      "url": "https://2e.aonprd.com/Patrons.aspx?ID=19"
+    },
+    {
+      "type": "Patron Themes",
+      "name": "Ripple in the Deep",
+      "url": "https://2e.aonprd.com/Patrons.aspx?ID=20"
+    },
+    {
+      "type": "Patron Themes",
+      "name": "Whisper of Wings",
+      "url": "https://2e.aonprd.com/Patrons.aspx?ID=21"
+    },
+    {
+      "type": "Rules",
+      "name": "Grafting Rules",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3275"
+    },
+    {
+      "type": "Rules",
+      "name": "Special Ancestry Rules",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3269"
+    },
+    {
+      "type": "Siege Weapons",
+      "name": "Anesthetizing Jaws",
+      "url": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=21"
+    },
+    {
+      "type": "Siege Weapons",
+      "name": "Aquatic Disintegrator",
+      "url": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=22"
+    },
+    {
+      "type": "Siege Weapons",
+      "name": "Blob Paste Propulsor",
+      "url": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=23"
+    },
+    {
+      "type": "Siege Weapons",
+      "name": "Harpoon Cannon",
+      "url": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=24"
+    },
+    {
+      "type": "Siege Weapons",
+      "name": "Kickback Spring",
+      "url": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=25"
+    },
+    {
+      "type": "Siege Weapons",
+      "name": "Lashtail",
+      "url": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=26"
+    },
+    {
+      "type": "Siege Weapons",
+      "name": "Marking Powder Cannon",
+      "url": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=27"
+    },
+    {
+      "type": "Siege Weapons",
+      "name": "Pheromone Sprayer",
+      "url": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=28"
+    },
+    {
+      "type": "Siege Weapons",
+      "name": "Seedpod Shooter",
+      "url": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=30"
+    },
+    {
+      "type": "Siege Weapons",
+      "name": "Seismic Amplifier",
+      "url": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=31"
+    },
+    {
+      "type": "Siege Weapons",
+      "name": "Sonic Horn",
+      "url": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=29"
+    },
+    {
+      "type": "Siege Weapons",
+      "name": "Teekdoon",
+      "url": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=32"
+    },
+    {
+      "type": "Siege Weapons",
+      "name": "Trapdoor Actuator",
+      "url": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=33"
+    },
+    {
+      "type": "Spells",
+      "name": "Albatross Curse",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1946"
+    },
+    {
+      "type": "Spells",
+      "name": "Antlion Trap",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1947"
+    },
+    {
+      "type": "Spells",
+      "name": "Blood in the Water",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1941"
+    },
+    {
+      "type": "Spells",
+      "name": "Camel Spit",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1948"
+    },
+    {
+      "type": "Spells",
+      "name": "Canopy Crawler",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1931"
+    },
+    {
+      "type": "Spells",
+      "name": "Claws of the Otter",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1949"
+    },
+    {
+      "type": "Spells",
+      "name": "Confusing Cry",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1950"
+    },
+    {
+      "type": "Spells",
+      "name": "Croak Voice",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1951"
+    },
+    {
+      "type": "Spells",
+      "name": "Distracting Decoy",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1928"
+    },
+    {
+      "type": "Spells",
+      "name": "Foraging Friends",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1952"
+    },
+    {
+      "type": "Spells",
+      "name": "Frog Tongue",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1953"
+    },
+    {
+      "type": "Spells",
+      "name": "Gluttonous Growth",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1935"
+    },
+    {
+      "type": "Spells",
+      "name": "Hidebound",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1954"
+    },
+    {
+      "type": "Spells",
+      "name": "Hippocampus Retreat",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1955"
+    },
+    {
+      "type": "Spells",
+      "name": "Imitate Fauna",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1932"
+    },
+    {
+      "type": "Spells",
+      "name": "Keen Smell",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1929"
+    },
+    {
+      "type": "Spells",
+      "name": "Luring Wail",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1956"
+    },
+    {
+      "type": "Spells",
+      "name": "Murmuration",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1940"
+    },
+    {
+      "type": "Spells",
+      "name": "Mycological Malady",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1942"
+    },
+    {
+      "type": "Spells",
+      "name": "Pack Breaker",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1936"
+    },
+    {
+      "type": "Spells",
+      "name": "Primal Chorus",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1957"
+    },
+    {
+      "type": "Spells",
+      "name": "Pulverizing Wake",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1937"
+    },
+    {
+      "type": "Spells",
+      "name": "Sacred Beasts",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1958"
+    },
+    {
+      "type": "Spells",
+      "name": "Scrounger's Glee",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1938"
+    },
+    {
+      "type": "Spells",
+      "name": "Sheltering Wings",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1943"
+    },
+    {
+      "type": "Spells",
+      "name": "Slime Spit",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1930"
+    },
+    {
+      "type": "Spells",
+      "name": "Snake Fangs",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1959"
+    },
+    {
+      "type": "Spells",
+      "name": "Songbird's Call",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1944"
+    },
+    {
+      "type": "Spells",
+      "name": "Spirit of the Beast",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1945"
+    },
+    {
+      "type": "Spells",
+      "name": "Sting of the Sea",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1939"
+    },
+    {
+      "type": "Spells",
+      "name": "Summon Stampede",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1960"
+    },
+    {
+      "type": "Spells",
+      "name": "Summon Warden of the Wild",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1961"
+    },
+    {
+      "type": "Spells",
+      "name": "Threatening Mimicry",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1933"
+    },
+    {
+      "type": "Spells",
+      "name": "Warning Stripes",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1934"
+    },
+    {
+      "type": "Traits",
+      "name": "Aquadynamic (Armor)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=792"
+    },
+    {
+      "type": "Traits",
+      "name": "Awakened Animal (Ancestry)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=787"
+    },
+    {
+      "type": "Traits",
+      "name": "Catalyst (Equipment)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=791"
+    },
+    {
+      "type": "Traits",
+      "name": "Graft (Equipment)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=790"
+    },
+    {
+      "type": "Traits",
+      "name": "Incarnate (Mechanics)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=786"
+    },
+    {
+      "type": "Traits",
+      "name": "Minotaur (Ancestry)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=788"
+    },
+    {
+      "type": "Traits",
+      "name": "Surki (Ancestry)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=789"
+    }
+  ]
+}

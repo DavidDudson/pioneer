@@ -1,0 +1,870 @@
+{
+  "etag": "\"08ea823f6b294ad4b9fbe277115ddf5d\"",
+  "entries": [
+    {
+      "type": "Ancestries",
+      "name": "Anadi",
+      "url": "https://2e.aonprd.com/Ancestries.aspx?ID=42"
+    },
+    {
+      "type": "Ancestries",
+      "name": "Conrasu",
+      "url": "https://2e.aonprd.com/Ancestries.aspx?ID=43"
+    },
+    {
+      "type": "Ancestries",
+      "name": "Gnoll",
+      "url": "https://2e.aonprd.com/Ancestries.aspx?ID=44"
+    },
+    {
+      "type": "Ancestries",
+      "name": "Goloma",
+      "url": "https://2e.aonprd.com/Ancestries.aspx?ID=45"
+    },
+    {
+      "type": "Ancestries",
+      "name": "Grippli",
+      "url": "https://2e.aonprd.com/Ancestries.aspx?ID=46"
+    },
+    {
+      "type": "Ancestries",
+      "name": "Shisk",
+      "url": "https://2e.aonprd.com/Ancestries.aspx?ID=47"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Adaptive Anadi",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=156"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Ant Gnoll",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=166"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Farsight Goloma",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=170"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Frightful Goloma",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=171"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Great Gnoll",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=167"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Insightful Goloma",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=172"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Lorekeeper Shisk",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=179"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Poisonhide Grippli",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=175"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Polychromatic Anadi",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=157"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Quillcoat Shisk",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=180"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Rite of Invocation",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=165"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Rite of Knowing",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=161"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Rite of Light",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=162"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Rite of Passage",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=163"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Rite of Reinforcement",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=164"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Snaptongue Grippli",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=176"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Snaring Anadi",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=158"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Spellkeeper Shisk",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=181"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Spindly Anadi",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=159"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Stickytoe Grippli",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=177"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Stonestep Shisk",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=183"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Stronggut Shisk",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=182"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Sweetbreath Gnoll",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=168"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Venomous Anadi",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=160"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Vicious Goloma",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=173"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Vigilant Goloma",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=174"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Windweb Grippli",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=178"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Witch Gnoll",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=169"
+    },
+    {
+      "type": "Bloodlines",
+      "name": "Wyrmblessed",
+      "url": "https://2e.aonprd.com/Bloodlines.aspx?ID=17"
+    },
+    {
+      "type": "Deities",
+      "name": "Adanye",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=223"
+    },
+    {
+      "type": "Deities",
+      "name": "Angazhan",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=72"
+    },
+    {
+      "type": "Deities",
+      "name": "Balumbdar",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=224"
+    },
+    {
+      "type": "Deities",
+      "name": "Kalekot",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=225"
+    },
+    {
+      "type": "Deities",
+      "name": "Kitumu",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=229"
+    },
+    {
+      "type": "Deities",
+      "name": "Lubaiko",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=226"
+    },
+    {
+      "type": "Deities",
+      "name": "Mazludeh",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=227"
+    },
+    {
+      "type": "Deities",
+      "name": "Uvuko",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=228"
+    },
+    {
+      "type": "Deities",
+      "name": "Walkena",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=159"
+    },
+    {
+      "type": "Equipment",
+      "name": "Armor Latches",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=959"
+    },
+    {
+      "type": "Equipment",
+      "name": "Genealogy Mask",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=956"
+    },
+    {
+      "type": "Equipment",
+      "name": "Jahan Waystone",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=957"
+    },
+    {
+      "type": "Equipment",
+      "name": "Oath of the Devoted",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=958"
+    },
+    {
+      "type": "Feats",
+      "name": "Absorb Toxin",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2826"
+    },
+    {
+      "type": "Feats",
+      "name": "Ambush Awareness",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2810"
+    },
+    {
+      "type": "Feats",
+      "name": "Anadi Lore",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2762"
+    },
+    {
+      "type": "Feats",
+      "name": "Ancestor's Rage",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2803"
+    },
+    {
+      "type": "Feats",
+      "name": "Arcane Sight",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2814"
+    },
+    {
+      "type": "Feats",
+      "name": "Bone Rider",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2845"
+    },
+    {
+      "type": "Feats",
+      "name": "Breath Like Honey",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2800"
+    },
+    {
+      "type": "Feats",
+      "name": "Bristle",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2835"
+    },
+    {
+      "type": "Feats",
+      "name": "Catch the Details",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2805"
+    },
+    {
+      "type": "Feats",
+      "name": "Ceremony of Aeon's Guidance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2783"
+    },
+    {
+      "type": "Feats",
+      "name": "Ceremony of Aeon's Shield",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2784"
+    },
+    {
+      "type": "Feats",
+      "name": "Ceremony of Fortification",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2785"
+    },
+    {
+      "type": "Feats",
+      "name": "Ceremony of Growth",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2788"
+    },
+    {
+      "type": "Feats",
+      "name": "Ceremony of Knowledge",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2780"
+    },
+    {
+      "type": "Feats",
+      "name": "Ceremony of Protection",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2776"
+    },
+    {
+      "type": "Feats",
+      "name": "Ceremony of Sun's Gift",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2789"
+    },
+    {
+      "type": "Feats",
+      "name": "Ceremony of Sunlight",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2781"
+    },
+    {
+      "type": "Feats",
+      "name": "Ceremony of the Evened Hand",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2777"
+    },
+    {
+      "type": "Feats",
+      "name": "Ceremony of the Strengthened Hand",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2786"
+    },
+    {
+      "type": "Feats",
+      "name": "Conrasu Lore",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2779"
+    },
+    {
+      "type": "Feats",
+      "name": "Conrasu Weapon Expertise",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2787"
+    },
+    {
+      "type": "Feats",
+      "name": "Conrasu Weapon Familiarity",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2778"
+    },
+    {
+      "type": "Feats",
+      "name": "Conrasu Weapon Understanding",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2782"
+    },
+    {
+      "type": "Feats",
+      "name": "Constant Gaze",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2812"
+    },
+    {
+      "type": "Feats",
+      "name": "Crunch",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2790"
+    },
+    {
+      "type": "Feats",
+      "name": "Defensive Instincts",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2813"
+    },
+    {
+      "type": "Feats",
+      "name": "Delver",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2841"
+    },
+    {
+      "type": "Feats",
+      "name": "Demonbane Warrior",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2760"
+    },
+    {
+      "type": "Feats",
+      "name": "Demonblood Frenzy",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2761"
+    },
+    {
+      "type": "Feats",
+      "name": "Dig Up Secrets",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2838"
+    },
+    {
+      "type": "Feats",
+      "name": "Disorienting Venom",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2771"
+    },
+    {
+      "type": "Feats",
+      "name": "Distant Cackle",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2796"
+    },
+    {
+      "type": "Feats",
+      "name": "Eidetic Ear",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2831"
+    },
+    {
+      "type": "Feats",
+      "name": "Envenomed Edge",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2829"
+    },
+    {
+      "type": "Feats",
+      "name": "Fountain of Secrets",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2844"
+    },
+    {
+      "type": "Feats",
+      "name": "Friendform",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2768"
+    },
+    {
+      "type": "Feats",
+      "name": "Gnoll Lore",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2791"
+    },
+    {
+      "type": "Feats",
+      "name": "Gnoll Weapon Expertise",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2804"
+    },
+    {
+      "type": "Feats",
+      "name": "Gnoll Weapon Familiarity",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2792"
+    },
+    {
+      "type": "Feats",
+      "name": "Gnoll Weapon Practicality",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2797"
+    },
+    {
+      "type": "Feats",
+      "name": "Goloma Courage",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2806"
+    },
+    {
+      "type": "Feats",
+      "name": "Goloma Lore",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2807"
+    },
+    {
+      "type": "Feats",
+      "name": "Grandmother's Wisdom",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2801"
+    },
+    {
+      "type": "Feats",
+      "name": "Grippli Glide",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2822"
+    },
+    {
+      "type": "Feats",
+      "name": "Grippli Lore",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2817"
+    },
+    {
+      "type": "Feats",
+      "name": "Grippli Weapon Expertise",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2830"
+    },
+    {
+      "type": "Feats",
+      "name": "Grippli Weapon Familiarity",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2818"
+    },
+    {
+      "type": "Feats",
+      "name": "Grippli Weapon Innovator",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2823"
+    },
+    {
+      "type": "Feats",
+      "name": "Hunter's Defense",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2819"
+    },
+    {
+      "type": "Feats",
+      "name": "Hunter's Fangs",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2769"
+    },
+    {
+      "type": "Feats",
+      "name": "Hybrid Shape",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2770"
+    },
+    {
+      "type": "Feats",
+      "name": "Hyena Familiar",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2793"
+    },
+    {
+      "type": "Feats",
+      "name": "Inured to the Heat",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2836"
+    },
+    {
+      "type": "Feats",
+      "name": "Jungle Strider",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2820"
+    },
+    {
+      "type": "Feats",
+      "name": "Laughing Gnoll",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2802"
+    },
+    {
+      "type": "Feats",
+      "name": "Long Tongue",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2824"
+    },
+    {
+      "type": "Feats",
+      "name": "Nocturnal Grippli",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2821"
+    },
+    {
+      "type": "Feats",
+      "name": "None Shall Know",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2842"
+    },
+    {
+      "type": "Feats",
+      "name": "Pack Hunter",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2794"
+    },
+    {
+      "type": "Feats",
+      "name": "Pack Stalker",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2798"
+    },
+    {
+      "type": "Feats",
+      "name": "Pierce the Darkness",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2808"
+    },
+    {
+      "type": "Feats",
+      "name": "Piercing Quills",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2839"
+    },
+    {
+      "type": "Feats",
+      "name": "Protective Claws",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2811"
+    },
+    {
+      "type": "Feats",
+      "name": "Quill Spray",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2840"
+    },
+    {
+      "type": "Feats",
+      "name": "Reassuring Presence",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2763"
+    },
+    {
+      "type": "Feats",
+      "name": "Renewing Quills",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2837"
+    },
+    {
+      "type": "Feats",
+      "name": "Ricocheting Leap",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2827"
+    },
+    {
+      "type": "Feats",
+      "name": "Right-Hand Blood",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2799"
+    },
+    {
+      "type": "Feats",
+      "name": "Secret Eyes",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2843"
+    },
+    {
+      "type": "Feats",
+      "name": "See the Unseen",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2815"
+    },
+    {
+      "type": "Feats",
+      "name": "Sensitive Nose",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2795"
+    },
+    {
+      "type": "Feats",
+      "name": "Shisk Lore",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2832"
+    },
+    {
+      "type": "Feats",
+      "name": "Skittertalk",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2764"
+    },
+    {
+      "type": "Feats",
+      "name": "Spelunker",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2833"
+    },
+    {
+      "type": "Feats",
+      "name": "Spine Stabber",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2834"
+    },
+    {
+      "type": "Feats",
+      "name": "Strand Strider",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2772"
+    },
+    {
+      "type": "Feats",
+      "name": "Studious Adept",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2773"
+    },
+    {
+      "type": "Feats",
+      "name": "Studious Magic",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2765"
+    },
+    {
+      "type": "Feats",
+      "name": "Tenacious Net",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2825"
+    },
+    {
+      "type": "Feats",
+      "name": "Tongue Tether",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2828"
+    },
+    {
+      "type": "Feats",
+      "name": "True Gaze",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2816"
+    },
+    {
+      "type": "Feats",
+      "name": "Watchful Gaze",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2809"
+    },
+    {
+      "type": "Feats",
+      "name": "Web Hunter",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2774"
+    },
+    {
+      "type": "Feats",
+      "name": "Web Walker",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2766"
+    },
+    {
+      "type": "Feats",
+      "name": "Web Weaver",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2767"
+    },
+    {
+      "type": "Feats",
+      "name": "Webslinger",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2775"
+    },
+    {
+      "type": "Languages",
+      "name": "Calda",
+      "url": "https://2e.aonprd.com/Languages.aspx?ID=75"
+    },
+    {
+      "type": "Languages",
+      "name": "Ekujae",
+      "url": "https://2e.aonprd.com/Languages.aspx?ID=76"
+    },
+    {
+      "type": "Languages",
+      "name": "Goloma",
+      "url": "https://2e.aonprd.com/Languages.aspx?ID=83"
+    },
+    {
+      "type": "Languages",
+      "name": "Kibwani",
+      "url": "https://2e.aonprd.com/Languages.aspx?ID=77"
+    },
+    {
+      "type": "Languages",
+      "name": "Lirgeni",
+      "url": "https://2e.aonprd.com/Languages.aspx?ID=78"
+    },
+    {
+      "type": "Languages",
+      "name": "Mzunu",
+      "url": "https://2e.aonprd.com/Languages.aspx?ID=79"
+    },
+    {
+      "type": "Languages",
+      "name": "Ocotan",
+      "url": "https://2e.aonprd.com/Languages.aspx?ID=80"
+    },
+    {
+      "type": "Languages",
+      "name": "Rasu",
+      "url": "https://2e.aonprd.com/Languages.aspx?ID=82"
+    },
+    {
+      "type": "Languages",
+      "name": "Shisk",
+      "url": "https://2e.aonprd.com/Languages.aspx?ID=84"
+    },
+    {
+      "type": "Languages",
+      "name": "Xanmba",
+      "url": "https://2e.aonprd.com/Languages.aspx?ID=81"
+    },
+    {
+      "type": "Monsters",
+      "name": "Aigamuxa",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1425"
+    },
+    {
+      "type": "Monsters",
+      "name": "Anadi Elder",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1424"
+    },
+    {
+      "type": "Monsters",
+      "name": "Anadi Hunter",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1422"
+    },
+    {
+      "type": "Monsters",
+      "name": "Anadi Sage",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1423"
+    },
+    {
+      "type": "Monsters",
+      "name": "Asanbosam",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1426"
+    },
+    {
+      "type": "Monsters",
+      "name": "Biloko Veteran",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1428"
+    },
+    {
+      "type": "Monsters",
+      "name": "Biloko Warrior",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1427"
+    },
+    {
+      "type": "Monsters",
+      "name": "Charau-ka Acolyte of Angazhan",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1431"
+    },
+    {
+      "type": "Monsters",
+      "name": "Charau-ka Butcher",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1432"
+    },
+    {
+      "type": "Monsters",
+      "name": "Charau-ka Warrior",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1430"
+    },
+    {
+      "type": "Monsters",
+      "name": "Eloko",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1429"
+    },
+    {
+      "type": "Monsters",
+      "name": "Grootslang",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1433"
+    },
+    {
+      "type": "Monsters",
+      "name": "Kaava Stalker",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1436"
+    },
+    {
+      "type": "Monsters",
+      "name": "Karina",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1437"
+    },
+    {
+      "type": "Monsters",
+      "name": "K'nonna",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1434"
+    },
+    {
+      "type": "Monsters",
+      "name": "Maliadi",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1438"
+    },
+    {
+      "type": "Monsters",
+      "name": "Mamlambo",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1439"
+    },
+    {
+      "type": "Monsters",
+      "name": "Pygmy Kaava",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1435"
+    },
+    {
+      "type": "Monsters",
+      "name": "Rompo",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1440"
+    },
+    {
+      "type": "Monsters",
+      "name": "Sié Goluo",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1441"
+    },
+    {
+      "type": "Monsters",
+      "name": "Solar Ibis",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1442"
+    },
+    {
+      "type": "Monsters",
+      "name": "Zinba",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1443"
+    },
+    {
+      "type": "Traits",
+      "name": "Adjustment (Equipment)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=380"
+    },
+    {
+      "type": "Traits",
+      "name": "Anadi (Monster)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=255"
+    },
+    {
+      "type": "Traits",
+      "name": "Charau-ka (Monster)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=263"
+    },
+    {
+      "type": "Traits",
+      "name": "Goloma (Ancestry)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=381"
+    },
+    {
+      "type": "Traits",
+      "name": "Shisk (Ancestry)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=382"
+    },
+    {
+      "type": "Weapons",
+      "name": "Fighting Stick",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=168"
+    },
+    {
+      "type": "Weapons",
+      "name": "Gaff",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=169"
+    }
+  ]
+}

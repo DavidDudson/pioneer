@@ -1,0 +1,425 @@
+{
+  "etag": "\"34ba27193eca44f0a07f9900a9423729\"",
+  "entries": [
+    {
+      "type": "Archetypes",
+      "name": "Avenging Runelord",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=338"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Heroic Scion",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=339"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Timewracked",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=340"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Warshard Warrior",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=341"
+    },
+    {
+      "type": "Deities",
+      "name": "Nocticula",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=724"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cyrusian Wand",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4045"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cyrusian Wand (1st-rank Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4045"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cyrusian Wand (2nd-rank Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4045"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cyrusian Wand (3rd-rank Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4045"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cyrusian Wand (4th-rank Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4045"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cyrusian Wand (5th-rank Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4045"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cyrusian Wand (6th-rank Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4045"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cyrusian Wand (7th-rank Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4045"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cyrusian Wand (8th-rank Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4045"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cyrusian Wand (9th-rank Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4045"
+    },
+    {
+      "type": "Equipment",
+      "name": "Elixir of the Peaks",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4042"
+    },
+    {
+      "type": "Equipment",
+      "name": "Greater Elixir of the Peaks",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4042"
+    },
+    {
+      "type": "Equipment",
+      "name": "Greater Sihedron Medallion",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4043"
+    },
+    {
+      "type": "Equipment",
+      "name": "Greater Sihedron Ring",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4044"
+    },
+    {
+      "type": "Equipment",
+      "name": "Hollow Robes",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4046"
+    },
+    {
+      "type": "Equipment",
+      "name": "Lesser Elixir of the Peaks",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4042"
+    },
+    {
+      "type": "Equipment",
+      "name": "Major Elixir of the Peaks",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4042"
+    },
+    {
+      "type": "Equipment",
+      "name": "Major Sihedron Medallion",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4043"
+    },
+    {
+      "type": "Equipment",
+      "name": "Moderate Elixir of the Peaks",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4042"
+    },
+    {
+      "type": "Equipment",
+      "name": "Paradigm Cube",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4041"
+    },
+    {
+      "type": "Equipment",
+      "name": "Sihedron Medallion",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4043"
+    },
+    {
+      "type": "Equipment",
+      "name": "Sihedron Ring",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4044"
+    },
+    {
+      "type": "Feats",
+      "name": "Advanced Runelord Magic",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8148"
+    },
+    {
+      "type": "Feats",
+      "name": "Apocalyptic Visions",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8149"
+    },
+    {
+      "type": "Feats",
+      "name": "Athlete's Ally",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8179"
+    },
+    {
+      "type": "Feats",
+      "name": "Autonomous Arms",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8145"
+    },
+    {
+      "type": "Feats",
+      "name": "Avenging Runelord Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8139"
+    },
+    {
+      "type": "Feats",
+      "name": "Avoid Fate's Gaze",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8152"
+    },
+    {
+      "type": "Feats",
+      "name": "Be Right Back",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8167"
+    },
+    {
+      "type": "Feats",
+      "name": "Bolstered Recovery",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8172"
+    },
+    {
+      "type": "Feats",
+      "name": "Craft Runewell",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8150"
+    },
+    {
+      "type": "Feats",
+      "name": "Daunting Spell",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8158"
+    },
+    {
+      "type": "Feats",
+      "name": "Divide and Conquer",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8184"
+    },
+    {
+      "type": "Feats",
+      "name": "Echoing Fury",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8173"
+    },
+    {
+      "type": "Feats",
+      "name": "Eternal Hero",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8165"
+    },
+    {
+      "type": "Feats",
+      "name": "Expanded Runelord Magic",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8140"
+    },
+    {
+      "type": "Feats",
+      "name": "Final Shot Knows the Way",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8187"
+    },
+    {
+      "type": "Feats",
+      "name": "Fracture Time Flow",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8175"
+    },
+    {
+      "type": "Feats",
+      "name": "Heroic Scion Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8151"
+    },
+    {
+      "type": "Feats",
+      "name": "I Am the Weapon",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8189"
+    },
+    {
+      "type": "Feats",
+      "name": "I've Been Here Before",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8153"
+    },
+    {
+      "type": "Feats",
+      "name": "Indomitable Shot",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8185"
+    },
+    {
+      "type": "Feats",
+      "name": "Internal Dialogue",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8154"
+    },
+    {
+      "type": "Feats",
+      "name": "Let Death Be My Weapon",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8159"
+    },
+    {
+      "type": "Feats",
+      "name": "Lightless Sight",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8180"
+    },
+    {
+      "type": "Feats",
+      "name": "Live Off Borrowed Time",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8168"
+    },
+    {
+      "type": "Feats",
+      "name": "Momentary Respite",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8160"
+    },
+    {
+      "type": "Feats",
+      "name": "My Reputation Precedes Me",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8155"
+    },
+    {
+      "type": "Feats",
+      "name": "Not This Time",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8176"
+    },
+    {
+      "type": "Feats",
+      "name": "Now You See Me",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8169"
+    },
+    {
+      "type": "Feats",
+      "name": "On My Best Day",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8162"
+    },
+    {
+      "type": "Feats",
+      "name": "Prescient Parry",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8186"
+    },
+    {
+      "type": "Feats",
+      "name": "Preserve the Moment",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8174"
+    },
+    {
+      "type": "Feats",
+      "name": "Reincarnated Companion",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8156"
+    },
+    {
+      "type": "Feats",
+      "name": "Reliable Magic",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8141"
+    },
+    {
+      "type": "Feats",
+      "name": "Second Sight",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8170"
+    },
+    {
+      "type": "Feats",
+      "name": "Shining Runes",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8142"
+    },
+    {
+      "type": "Feats",
+      "name": "Steadfast Grip",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8181"
+    },
+    {
+      "type": "Feats",
+      "name": "Subjugation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8146"
+    },
+    {
+      "type": "Feats",
+      "name": "Telling Blow",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8163"
+    },
+    {
+      "type": "Feats",
+      "name": "Temporal Fury",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8171"
+    },
+    {
+      "type": "Feats",
+      "name": "Throw and Catch",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8188"
+    },
+    {
+      "type": "Feats",
+      "name": "Timelessness",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8177"
+    },
+    {
+      "type": "Feats",
+      "name": "Timewracked Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8166"
+    },
+    {
+      "type": "Feats",
+      "name": "To Me!",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8164"
+    },
+    {
+      "type": "Feats",
+      "name": "To Thine Own Self",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8157"
+    },
+    {
+      "type": "Feats",
+      "name": "Transmute Weapon",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8182"
+    },
+    {
+      "type": "Feats",
+      "name": "Vigorous Victor",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8161"
+    },
+    {
+      "type": "Feats",
+      "name": "Vindictive Thoughts",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8147"
+    },
+    {
+      "type": "Feats",
+      "name": "Warshard Rune",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8183"
+    },
+    {
+      "type": "Feats",
+      "name": "Warshard Warrior Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8178"
+    },
+    {
+      "type": "Feats",
+      "name": "Willing Runes",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8143"
+    },
+    {
+      "type": "Feats",
+      "name": "Writhing Runelord Weapon",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8144"
+    },
+    {
+      "type": "Hazards",
+      "name": "A Falling Star's Memories",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=622"
+    },
+    {
+      "type": "Hazards",
+      "name": "Endless Realities",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=621"
+    },
+    {
+      "type": "Hazards",
+      "name": "Haunted Forge",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=620"
+    },
+    {
+      "type": "Hazards",
+      "name": "Mirror of Glory",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=623"
+    },
+    {
+      "type": "Hazards",
+      "name": "Shattered Runewell of Pride",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=624"
+    },
+    {
+      "type": "Rituals",
+      "name": "Raise Runelord",
+      "url": "https://2e.aonprd.com/Rituals.aspx?ID=221"
+    }
+  ]
+}

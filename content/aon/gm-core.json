@@ -1,0 +1,5030 @@
+{
+  "etag": "\"0b0cd70243344f73a4ef506fca20bea2\"",
+  "entries": [
+    {
+      "type": "Curses",
+      "name": "Cowards's Roots",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=80"
+    },
+    {
+      "type": "Curses",
+      "name": "Curse of Nightmares",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=77"
+    },
+    {
+      "type": "Curses",
+      "name": "Curse of Slumber",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=85"
+    },
+    {
+      "type": "Curses",
+      "name": "Curse of the Ravenous",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=81"
+    },
+    {
+      "type": "Curses",
+      "name": "Grave Curse",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=92"
+    },
+    {
+      "type": "Curses",
+      "name": "Oath of the Flesh",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=83"
+    },
+    {
+      "type": "Curses",
+      "name": "Reviled of Nature",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=89"
+    },
+    {
+      "type": "Curses",
+      "name": "Reviling Earth",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=86"
+    },
+    {
+      "type": "Curses",
+      "name": "Sellswords's Folly",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=84"
+    },
+    {
+      "type": "Curses",
+      "name": "Slayer's Haunt",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=79"
+    },
+    {
+      "type": "Curses",
+      "name": "Spirit Anchor",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=87"
+    },
+    {
+      "type": "Curses",
+      "name": "Sword of Anathema",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=91"
+    },
+    {
+      "type": "Curses",
+      "name": "Theft of Thought",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=78"
+    },
+    {
+      "type": "Curses",
+      "name": "Thief's Retribution",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=90"
+    },
+    {
+      "type": "Curses",
+      "name": "Unending Thirst",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=88"
+    },
+    {
+      "type": "Curses",
+      "name": "Wizard's Ward",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=82"
+    },
+    {
+      "type": "Diseases",
+      "name": "Blinding Sickness",
+      "url": "https://2e.aonprd.com/Diseases.aspx?ID=35"
+    },
+    {
+      "type": "Diseases",
+      "name": "Bog Rot",
+      "url": "https://2e.aonprd.com/Diseases.aspx?ID=26"
+    },
+    {
+      "type": "Diseases",
+      "name": "Bonechill",
+      "url": "https://2e.aonprd.com/Diseases.aspx?ID=33"
+    },
+    {
+      "type": "Diseases",
+      "name": "Brain Worms",
+      "url": "https://2e.aonprd.com/Diseases.aspx?ID=38"
+    },
+    {
+      "type": "Diseases",
+      "name": "Bubonic Plague",
+      "url": "https://2e.aonprd.com/Diseases.aspx?ID=31"
+    },
+    {
+      "type": "Diseases",
+      "name": "Choking Death",
+      "url": "https://2e.aonprd.com/Diseases.aspx?ID=34"
+    },
+    {
+      "type": "Diseases",
+      "name": "Crimson Ooze",
+      "url": "https://2e.aonprd.com/Diseases.aspx?ID=39"
+    },
+    {
+      "type": "Diseases",
+      "name": "Malaria",
+      "url": "https://2e.aonprd.com/Diseases.aspx?ID=30"
+    },
+    {
+      "type": "Diseases",
+      "name": "Nightmare Fever",
+      "url": "https://2e.aonprd.com/Diseases.aspx?ID=37"
+    },
+    {
+      "type": "Diseases",
+      "name": "Scarlet Fever",
+      "url": "https://2e.aonprd.com/Diseases.aspx?ID=27"
+    },
+    {
+      "type": "Diseases",
+      "name": "Scarlet Leprosy",
+      "url": "https://2e.aonprd.com/Diseases.aspx?ID=32"
+    },
+    {
+      "type": "Diseases",
+      "name": "Sewer Haze",
+      "url": "https://2e.aonprd.com/Diseases.aspx?ID=36"
+    },
+    {
+      "type": "Diseases",
+      "name": "Tetanus",
+      "url": "https://2e.aonprd.com/Diseases.aspx?ID=28"
+    },
+    {
+      "type": "Diseases",
+      "name": "Tuberculosis",
+      "url": "https://2e.aonprd.com/Diseases.aspx?ID=29"
+    },
+    {
+      "type": "Equipment",
+      "name": "10th-rank Scroll",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2962"
+    },
+    {
+      "type": "Equipment",
+      "name": "1st-rank Scroll",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2962"
+    },
+    {
+      "type": "Equipment",
+      "name": "2nd-rank Scroll",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2962"
+    },
+    {
+      "type": "Equipment",
+      "name": "3rd-rank Scroll",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2962"
+    },
+    {
+      "type": "Equipment",
+      "name": "4th-rank Scroll",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2962"
+    },
+    {
+      "type": "Equipment",
+      "name": "5th-rank Scroll",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2962"
+    },
+    {
+      "type": "Equipment",
+      "name": "6th-rank Scroll",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2962"
+    },
+    {
+      "type": "Equipment",
+      "name": "7th-rank Scroll",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2962"
+    },
+    {
+      "type": "Equipment",
+      "name": "8th-rank Scroll",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2962"
+    },
+    {
+      "type": "Equipment",
+      "name": "9th-rank Scroll",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2962"
+    },
+    {
+      "type": "Equipment",
+      "name": "Accolade Robe",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3054"
+    },
+    {
+      "type": "Equipment",
+      "name": "Accolade Robe (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3054"
+    },
+    {
+      "type": "Equipment",
+      "name": "Acid Flask",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2875"
+    },
+    {
+      "type": "Equipment",
+      "name": "Acid Flask (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2875"
+    },
+    {
+      "type": "Equipment",
+      "name": "Acid Flask (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2875"
+    },
+    {
+      "type": "Equipment",
+      "name": "Acid Flask (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2875"
+    },
+    {
+      "type": "Equipment",
+      "name": "Acid Flask (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2875"
+    },
+    {
+      "type": "Equipment",
+      "name": "Adamantine",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2915"
+    },
+    {
+      "type": "Equipment",
+      "name": "Adamantine Armor",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2797"
+    },
+    {
+      "type": "Equipment",
+      "name": "Adamantine Armor (High-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2797"
+    },
+    {
+      "type": "Equipment",
+      "name": "Adamantine Armor (Standard-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2797"
+    },
+    {
+      "type": "Equipment",
+      "name": "Adamantine Buckler (High-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2812"
+    },
+    {
+      "type": "Equipment",
+      "name": "Adamantine Buckler (Standard-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2812"
+    },
+    {
+      "type": "Equipment",
+      "name": "Adamantine Chunk",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2915"
+    },
+    {
+      "type": "Equipment",
+      "name": "Adamantine Ingot",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2915"
+    },
+    {
+      "type": "Equipment",
+      "name": "Adamantine Object (High-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2915"
+    },
+    {
+      "type": "Equipment",
+      "name": "Adamantine Object (Standard-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2915"
+    },
+    {
+      "type": "Equipment",
+      "name": "Adamantine Shield",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2812"
+    },
+    {
+      "type": "Equipment",
+      "name": "Adamantine Shield (High-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2812"
+    },
+    {
+      "type": "Equipment",
+      "name": "Adamantine Shield (Standard-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2812"
+    },
+    {
+      "type": "Equipment",
+      "name": "Adamantine Weapon",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2855"
+    },
+    {
+      "type": "Equipment",
+      "name": "Adamantine Weapon (High-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2855"
+    },
+    {
+      "type": "Equipment",
+      "name": "Adamantine Weapon (Standard-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2855"
+    },
+    {
+      "type": "Equipment",
+      "name": "Aeon Stone",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3055"
+    },
+    {
+      "type": "Equipment",
+      "name": "Aeon Stone (Amplifying)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3055"
+    },
+    {
+      "type": "Equipment",
+      "name": "Aeon Stone (Consumed)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3055"
+    },
+    {
+      "type": "Equipment",
+      "name": "Aeon Stone (Delaying)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3055"
+    },
+    {
+      "type": "Equipment",
+      "name": "Aeon Stone (Envisioning)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3055"
+    },
+    {
+      "type": "Equipment",
+      "name": "Aeon Stone (Nourishing)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3055"
+    },
+    {
+      "type": "Equipment",
+      "name": "Aeon Stone (Peering)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3055"
+    },
+    {
+      "type": "Equipment",
+      "name": "Aeon Stone (Preserving)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3055"
+    },
+    {
+      "type": "Equipment",
+      "name": "Aeon Stone (Smoothing)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3055"
+    },
+    {
+      "type": "Equipment",
+      "name": "Aeon Stone (Sprouting)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3055"
+    },
+    {
+      "type": "Equipment",
+      "name": "Alacritous Horsehoes",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3013"
+    },
+    {
+      "type": "Equipment",
+      "name": "Alacritous Horseshoes",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3013"
+    },
+    {
+      "type": "Equipment",
+      "name": "Alacritous Horseshoes (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3013"
+    },
+    {
+      "type": "Equipment",
+      "name": "Alchemist's Fire",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2876"
+    },
+    {
+      "type": "Equipment",
+      "name": "Alchemist's Fire (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2876"
+    },
+    {
+      "type": "Equipment",
+      "name": "Alchemist's Fire (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2876"
+    },
+    {
+      "type": "Equipment",
+      "name": "Alchemist's Fire (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2876"
+    },
+    {
+      "type": "Equipment",
+      "name": "Alchemist's Fire (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2876"
+    },
+    {
+      "type": "Equipment",
+      "name": "Alloy Orb",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2963"
+    },
+    {
+      "type": "Equipment",
+      "name": "Alloy Orb (High-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2963"
+    },
+    {
+      "type": "Equipment",
+      "name": "Alloy Orb (Low-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2963"
+    },
+    {
+      "type": "Equipment",
+      "name": "Alloy Orb (Standard-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2963"
+    },
+    {
+      "type": "Equipment",
+      "name": "Animal Staff",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3035"
+    },
+    {
+      "type": "Equipment",
+      "name": "Animal Staff (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3035"
+    },
+    {
+      "type": "Equipment",
+      "name": "Animal Staff (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3035"
+    },
+    {
+      "type": "Equipment",
+      "name": "Animated",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2831"
+    },
+    {
+      "type": "Equipment",
+      "name": "Antidote",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2879"
+    },
+    {
+      "type": "Equipment",
+      "name": "Antidote (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2879"
+    },
+    {
+      "type": "Equipment",
+      "name": "Antidote (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2879"
+    },
+    {
+      "type": "Equipment",
+      "name": "Antidote (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2879"
+    },
+    {
+      "type": "Equipment",
+      "name": "Antidote (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2879"
+    },
+    {
+      "type": "Equipment",
+      "name": "Antimagic",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2787"
+    },
+    {
+      "type": "Equipment",
+      "name": "Antimagic Oil",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2930"
+    },
+    {
+      "type": "Equipment",
+      "name": "Antiplague",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2880"
+    },
+    {
+      "type": "Equipment",
+      "name": "Antiplague (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2880"
+    },
+    {
+      "type": "Equipment",
+      "name": "Antiplague (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2880"
+    },
+    {
+      "type": "Equipment",
+      "name": "Antiplague (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2880"
+    },
+    {
+      "type": "Equipment",
+      "name": "Antiplague (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2880"
+    },
+    {
+      "type": "Equipment",
+      "name": "Arboreal Boots",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3056"
+    },
+    {
+      "type": "Equipment",
+      "name": "Arboreal Boots (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3056"
+    },
+    {
+      "type": "Equipment",
+      "name": "Armbands of Athleticism",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3057"
+    },
+    {
+      "type": "Equipment",
+      "name": "Armbands of Athleticism (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3057"
+    },
+    {
+      "type": "Equipment",
+      "name": "Armor Potency",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2785"
+    },
+    {
+      "type": "Equipment",
+      "name": "Armor Potency (+1)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2785"
+    },
+    {
+      "type": "Equipment",
+      "name": "Armor Potency (+2)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2785"
+    },
+    {
+      "type": "Equipment",
+      "name": "Armor Potency (+3)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2785"
+    },
+    {
+      "type": "Equipment",
+      "name": "Arsenic",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2891"
+    },
+    {
+      "type": "Equipment",
+      "name": "Astral",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2832"
+    },
+    {
+      "type": "Equipment",
+      "name": "Astral (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2832"
+    },
+    {
+      "type": "Equipment",
+      "name": "Bag of Weasels",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3128"
+    },
+    {
+      "type": "Equipment",
+      "name": "Bands of Force",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3058"
+    },
+    {
+      "type": "Equipment",
+      "name": "Bands of Force (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3058"
+    },
+    {
+      "type": "Equipment",
+      "name": "Bands of Force (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3058"
+    },
+    {
+      "type": "Equipment",
+      "name": "Barding of the Zephyr",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3014"
+    },
+    {
+      "type": "Equipment",
+      "name": "Basilisk Eye",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2964"
+    },
+    {
+      "type": "Equipment",
+      "name": "Beacon Shot",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2921"
+    },
+    {
+      "type": "Equipment",
+      "name": "Belt of Long Life",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3007"
+    },
+    {
+      "type": "Equipment",
+      "name": "Black Adder Venom",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2892"
+    },
+    {
+      "type": "Equipment",
+      "name": "Black Lotus Extract",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2893"
+    },
+    {
+      "type": "Equipment",
+      "name": "Blightburn Resin",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2894"
+    },
+    {
+      "type": "Equipment",
+      "name": "Bloodletting Kukri",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2862"
+    },
+    {
+      "type": "Equipment",
+      "name": "Bloodseeker Beak",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2965"
+    },
+    {
+      "type": "Equipment",
+      "name": "Bloodseeker Beak (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2965"
+    },
+    {
+      "type": "Equipment",
+      "name": "Bomber's Eye Elixir",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2881"
+    },
+    {
+      "type": "Equipment",
+      "name": "Bomber's Eye Elixir (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2881"
+    },
+    {
+      "type": "Equipment",
+      "name": "Bomber's Eye Elixir (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2881"
+    },
+    {
+      "type": "Equipment",
+      "name": "Boots of Bounding",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3059"
+    },
+    {
+      "type": "Equipment",
+      "name": "Boots of Bounding (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3059"
+    },
+    {
+      "type": "Equipment",
+      "name": "Bottled Air",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3017"
+    },
+    {
+      "type": "Equipment",
+      "name": "Bracelet of Dashing",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3060"
+    },
+    {
+      "type": "Equipment",
+      "name": "Bracers of Missile Deflection",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3061"
+    },
+    {
+      "type": "Equipment",
+      "name": "Bracers of Missile Deflection (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3061"
+    },
+    {
+      "type": "Equipment",
+      "name": "Bracers of Strength",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3008"
+    },
+    {
+      "type": "Equipment",
+      "name": "Bravo's Brew",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2882"
+    },
+    {
+      "type": "Equipment",
+      "name": "Bravo's Brew (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2882"
+    },
+    {
+      "type": "Equipment",
+      "name": "Bravo's Brew (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2882"
+    },
+    {
+      "type": "Equipment",
+      "name": "Bravo's Brew (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2882"
+    },
+    {
+      "type": "Equipment",
+      "name": "Brilliant",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2833"
+    },
+    {
+      "type": "Equipment",
+      "name": "Brilliant (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2833"
+    },
+    {
+      "type": "Equipment",
+      "name": "Brimstone Fumes",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2895"
+    },
+    {
+      "type": "Equipment",
+      "name": "Bronze Bull Pendant",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2966"
+    },
+    {
+      "type": "Equipment",
+      "name": "Candle of Truth",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2999"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cat's Eye Elixir",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2883"
+    },
+    {
+      "type": "Equipment",
+      "name": "Caterwaul Sling",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2863"
+    },
+    {
+      "type": "Equipment",
+      "name": "Channel Protection Amulet",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3062"
+    },
+    {
+      "type": "Equipment",
+      "name": "Chaplain's Cudgel",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2864"
+    },
+    {
+      "type": "Equipment",
+      "name": "Charlatan's Cape",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3063"
+    },
+    {
+      "type": "Equipment",
+      "name": "Charlatan's Gloves",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3064"
+    },
+    {
+      "type": "Equipment",
+      "name": "Charlatan's Gloves (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3064"
+    },
+    {
+      "type": "Equipment",
+      "name": "Charm of Resistance",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3065"
+    },
+    {
+      "type": "Equipment",
+      "name": "Charm of Resistance (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3065"
+    },
+    {
+      "type": "Equipment",
+      "name": "Charm of Resistance (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3065"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cheetah's Elixir",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2884"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cheetah's Elixir (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2884"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cheetah's Elixir (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2884"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cheetah's Elixir (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2884"
+    },
+    {
+      "type": "Equipment",
+      "name": "Choker of Elocution",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3066"
+    },
+    {
+      "type": "Equipment",
+      "name": "Choker of Elocution (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3066"
+    },
+    {
+      "type": "Equipment",
+      "name": "Clandestine Cloak",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3067"
+    },
+    {
+      "type": "Equipment",
+      "name": "Clandestine Cloak (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3067"
+    },
+    {
+      "type": "Equipment",
+      "name": "Clawed Bracers",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3068"
+    },
+    {
+      "type": "Equipment",
+      "name": "Climbing Bolt",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2922"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cloak of Illusions",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3069"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cloak of Illusions (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3069"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cloak of Immolation",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3129"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cloak of Swiftness",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3009"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cloud Pouch",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3018"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cold Iron",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2916"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cold Iron Armor",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2798"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cold Iron Armor (High-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2798"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cold Iron Armor (Low-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2798"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cold Iron Armor (Standard-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2798"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cold Iron Buckler (High-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2813"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cold Iron Buckler (Low-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2813"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cold Iron Buckler (Standard-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2813"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cold Iron Chunk",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2916"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cold Iron Ingot",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2916"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cold Iron Object (High-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2916"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cold Iron Object (Low-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2916"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cold Iron Object (Standard-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2916"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cold Iron Shield",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2813"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cold Iron Shield (High-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2813"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cold Iron Shield (Low-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2813"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cold Iron Shield (Standard-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2813"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cold Iron Weapon",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2856"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cold Iron Weapon (High-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2856"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cold Iron Weapon (Low-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2856"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cold Iron Weapon (Standard-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2856"
+    },
+    {
+      "type": "Equipment",
+      "name": "Collar of Empathy",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3015"
+    },
+    {
+      "type": "Equipment",
+      "name": "Collar of Inconspicuousness",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3016"
+    },
+    {
+      "type": "Equipment",
+      "name": "Corrosive",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2834"
+    },
+    {
+      "type": "Equipment",
+      "name": "Corrosive (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2834"
+    },
+    {
+      "type": "Equipment",
+      "name": "Countering Charm",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3070"
+    },
+    {
+      "type": "Equipment",
+      "name": "Countering Charm (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3070"
+    },
+    {
+      "type": "Equipment",
+      "name": "Countering Charm (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3070"
+    },
+    {
+      "type": "Equipment",
+      "name": "Coyote Cloak",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3071"
+    },
+    {
+      "type": "Equipment",
+      "name": "Coyote Cloak (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3071"
+    },
+    {
+      "type": "Equipment",
+      "name": "Crafter's Eyepiece",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3072"
+    },
+    {
+      "type": "Equipment",
+      "name": "Crafter's Eyepiece (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3072"
+    },
+    {
+      "type": "Equipment",
+      "name": "Crown of Intellect",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3010"
+    },
+    {
+      "type": "Equipment",
+      "name": "Crown of Witchcraft",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3073"
+    },
+    {
+      "type": "Equipment",
+      "name": "Crown of Witchcraft (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3073"
+    },
+    {
+      "type": "Equipment",
+      "name": "Crying Angel Pendant",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2967"
+    },
+    {
+      "type": "Equipment",
+      "name": "Crystal Ball",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3019"
+    },
+    {
+      "type": "Equipment",
+      "name": "Crystal Ball (Clear Quartz)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3019"
+    },
+    {
+      "type": "Equipment",
+      "name": "Crystal Ball (Moonstone)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3019"
+    },
+    {
+      "type": "Equipment",
+      "name": "Crystal Ball (Obsidian)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3019"
+    },
+    {
+      "type": "Equipment",
+      "name": "Crystal Ball (Peridot)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3019"
+    },
+    {
+      "type": "Equipment",
+      "name": "Crystal Ball (Selenite)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3019"
+    },
+    {
+      "type": "Equipment",
+      "name": "Dancing Scarf",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3074"
+    },
+    {
+      "type": "Equipment",
+      "name": "Dancing Scarf (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3074"
+    },
+    {
+      "type": "Equipment",
+      "name": "Daredevil Boots",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3075"
+    },
+    {
+      "type": "Equipment",
+      "name": "Daredevil Boots (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3075"
+    },
+    {
+      "type": "Equipment",
+      "name": "Darkvision Elixir",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2885"
+    },
+    {
+      "type": "Equipment",
+      "name": "Darkvision Elixir (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2885"
+    },
+    {
+      "type": "Equipment",
+      "name": "Darkvision Elixir (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2885"
+    },
+    {
+      "type": "Equipment",
+      "name": "Darkvision Elixir (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2885"
+    },
+    {
+      "type": "Equipment",
+      "name": "Dawnsilver",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2917"
+    },
+    {
+      "type": "Equipment",
+      "name": "Dawnsilver Armor",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2799"
+    },
+    {
+      "type": "Equipment",
+      "name": "Dawnsilver Armor (High-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2799"
+    },
+    {
+      "type": "Equipment",
+      "name": "Dawnsilver Armor (Standard-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2799"
+    },
+    {
+      "type": "Equipment",
+      "name": "Dawnsilver Buckler (High-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2814"
+    },
+    {
+      "type": "Equipment",
+      "name": "Dawnsilver Buckler (Standard-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2814"
+    },
+    {
+      "type": "Equipment",
+      "name": "Dawnsilver Chunk",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2917"
+    },
+    {
+      "type": "Equipment",
+      "name": "Dawnsilver Ingot",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2917"
+    },
+    {
+      "type": "Equipment",
+      "name": "Dawnsilver Object (High-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2917"
+    },
+    {
+      "type": "Equipment",
+      "name": "Dawnsilver Object (Standard-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2917"
+    },
+    {
+      "type": "Equipment",
+      "name": "Dawnsilver Shield",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2814"
+    },
+    {
+      "type": "Equipment",
+      "name": "Dawnsilver Shield (High-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2814"
+    },
+    {
+      "type": "Equipment",
+      "name": "Dawnsilver Shield (Standard-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2814"
+    },
+    {
+      "type": "Equipment",
+      "name": "Dawnsilver Weapon",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2857"
+    },
+    {
+      "type": "Equipment",
+      "name": "Dawnsilver Weapon (High-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2857"
+    },
+    {
+      "type": "Equipment",
+      "name": "Dawnsilver Weapon (Standard-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2857"
+    },
+    {
+      "type": "Equipment",
+      "name": "Dazing Coil",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2968"
+    },
+    {
+      "type": "Equipment",
+      "name": "Deathcap Powder",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2896"
+    },
+    {
+      "type": "Equipment",
+      "name": "Decaying",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2835"
+    },
+    {
+      "type": "Equipment",
+      "name": "Decaying (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2835"
+    },
+    {
+      "type": "Equipment",
+      "name": "Demon Mask",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3076"
+    },
+    {
+      "type": "Equipment",
+      "name": "Demon Mask (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3076"
+    },
+    {
+      "type": "Equipment",
+      "name": "Devoted Vestments",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3077"
+    },
+    {
+      "type": "Equipment",
+      "name": "Diplomat's Badge",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3078"
+    },
+    {
+      "type": "Equipment",
+      "name": "Dispelling Sliver",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2969"
+    },
+    {
+      "type": "Equipment",
+      "name": "Doubling Rings",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3079"
+    },
+    {
+      "type": "Equipment",
+      "name": "Doubling Rings (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3079"
+    },
+    {
+      "type": "Equipment",
+      "name": "Dragon Turtle Scale",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2970"
+    },
+    {
+      "type": "Equipment",
+      "name": "Dragon Turtle Scale (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2970"
+    },
+    {
+      "type": "Equipment",
+      "name": "Dragonslayer's Shield",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2818"
+    },
+    {
+      "type": "Equipment",
+      "name": "Dread Ampoule",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2877"
+    },
+    {
+      "type": "Equipment",
+      "name": "Dread Ampoule (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2877"
+    },
+    {
+      "type": "Equipment",
+      "name": "Dread Ampoule (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2877"
+    },
+    {
+      "type": "Equipment",
+      "name": "Dread Ampoule (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2877"
+    },
+    {
+      "type": "Equipment",
+      "name": "Dread Ampoule (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2877"
+    },
+    {
+      "type": "Equipment",
+      "name": "Dread Blindfold",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3080"
+    },
+    {
+      "type": "Equipment",
+      "name": "Duskwood",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2918"
+    },
+    {
+      "type": "Equipment",
+      "name": "Duskwood Armor",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2800"
+    },
+    {
+      "type": "Equipment",
+      "name": "Duskwood Armor (High-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2800"
+    },
+    {
+      "type": "Equipment",
+      "name": "Duskwood Armor (Standard-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2800"
+    },
+    {
+      "type": "Equipment",
+      "name": "Duskwood Branch",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2918"
+    },
+    {
+      "type": "Equipment",
+      "name": "Duskwood Buckler (High-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2815"
+    },
+    {
+      "type": "Equipment",
+      "name": "Duskwood Buckler (Standard-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2815"
+    },
+    {
+      "type": "Equipment",
+      "name": "Duskwood Lumber",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2918"
+    },
+    {
+      "type": "Equipment",
+      "name": "Duskwood Object (High-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2918"
+    },
+    {
+      "type": "Equipment",
+      "name": "Duskwood Object (Standard-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2918"
+    },
+    {
+      "type": "Equipment",
+      "name": "Duskwood Shield",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2815"
+    },
+    {
+      "type": "Equipment",
+      "name": "Duskwood Shield (High-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2815"
+    },
+    {
+      "type": "Equipment",
+      "name": "Duskwood Shield (Standard-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2815"
+    },
+    {
+      "type": "Equipment",
+      "name": "Duskwood Tower Shield (High-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2815"
+    },
+    {
+      "type": "Equipment",
+      "name": "Duskwood Tower Shield (Standard-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2815"
+    },
+    {
+      "type": "Equipment",
+      "name": "Duskwood Weapon",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2858"
+    },
+    {
+      "type": "Equipment",
+      "name": "Duskwood Weapon (High-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2858"
+    },
+    {
+      "type": "Equipment",
+      "name": "Duskwood Weapon (Standard-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2858"
+    },
+    {
+      "type": "Equipment",
+      "name": "Eagle-Eye Elixir",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2886"
+    },
+    {
+      "type": "Equipment",
+      "name": "Eagle-Eye Elixir (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2886"
+    },
+    {
+      "type": "Equipment",
+      "name": "Eagle-Eye Elixir (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2886"
+    },
+    {
+      "type": "Equipment",
+      "name": "Eagle-Eye Elixir (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2886"
+    },
+    {
+      "type": "Equipment",
+      "name": "Eagle-Eye Elixir (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2886"
+    },
+    {
+      "type": "Equipment",
+      "name": "Earthglide Cloak",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3081"
+    },
+    {
+      "type": "Equipment",
+      "name": "Effervescent Ampoule",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2971"
+    },
+    {
+      "type": "Equipment",
+      "name": "Electric Eelskin",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2805"
+    },
+    {
+      "type": "Equipment",
+      "name": "Elixir of Life",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2887"
+    },
+    {
+      "type": "Equipment",
+      "name": "Elixir of Life (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2887"
+    },
+    {
+      "type": "Equipment",
+      "name": "Elixir of Life (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2887"
+    },
+    {
+      "type": "Equipment",
+      "name": "Elixir of Life (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2887"
+    },
+    {
+      "type": "Equipment",
+      "name": "Elixir of Life (Minor)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2887"
+    },
+    {
+      "type": "Equipment",
+      "name": "Elixir of Life (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2887"
+    },
+    {
+      "type": "Equipment",
+      "name": "Elixir of Life (True)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2887"
+    },
+    {
+      "type": "Equipment",
+      "name": "Elven Chain",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2801"
+    },
+    {
+      "type": "Equipment",
+      "name": "Elven Chain (High-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2801"
+    },
+    {
+      "type": "Equipment",
+      "name": "Elven Chain (Standard-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2801"
+    },
+    {
+      "type": "Equipment",
+      "name": "Emerald Grasshopper",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2972"
+    },
+    {
+      "type": "Equipment",
+      "name": "Emerald Grasshopper (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2972"
+    },
+    {
+      "type": "Equipment",
+      "name": "Energy Breath Potion",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2941"
+    },
+    {
+      "type": "Equipment",
+      "name": "Energy Breath Potion (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2941"
+    },
+    {
+      "type": "Equipment",
+      "name": "Energy Breath Potion (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2941"
+    },
+    {
+      "type": "Equipment",
+      "name": "Energy Breath Potion (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2941"
+    },
+    {
+      "type": "Equipment",
+      "name": "Energy-Resistant",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2788"
+    },
+    {
+      "type": "Equipment",
+      "name": "Energy-Resistant (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2788"
+    },
+    {
+      "type": "Equipment",
+      "name": "Entertainer's Cincture",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3082"
+    },
+    {
+      "type": "Equipment",
+      "name": "Entertainer's Cincture (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3082"
+    },
+    {
+      "type": "Equipment",
+      "name": "Eternal Eruption",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3020"
+    },
+    {
+      "type": "Equipment",
+      "name": "Eternal Eruption ",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3020"
+    },
+    {
+      "type": "Equipment",
+      "name": "Eternal Eruption of Barrowsiege",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3020"
+    },
+    {
+      "type": "Equipment",
+      "name": "Eternal Eruption of Blackpeak",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3020"
+    },
+    {
+      "type": "Equipment",
+      "name": "Eternal Eruption of Droskar's Crag",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3020"
+    },
+    {
+      "type": "Equipment",
+      "name": "Eternal Eruption of Ka",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3020"
+    },
+    {
+      "type": "Equipment",
+      "name": "Eternal Eruption of Mhar Massif",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3020"
+    },
+    {
+      "type": "Equipment",
+      "name": "Eternal Eruption of Pale Mountain",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3020"
+    },
+    {
+      "type": "Equipment",
+      "name": "Eternal Eruption of Sakalayo",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3020"
+    },
+    {
+      "type": "Equipment",
+      "name": "Everlight Crystal",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3021"
+    },
+    {
+      "type": "Equipment",
+      "name": "Explorer's Yurt",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3022"
+    },
+    {
+      "type": "Equipment",
+      "name": "Explosive Ammunition",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2923"
+    },
+    {
+      "type": "Equipment",
+      "name": "Explosive Ammunition (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2923"
+    },
+    {
+      "type": "Equipment",
+      "name": "Exquisite Alloy Orb (High-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2963"
+    },
+    {
+      "type": "Equipment",
+      "name": "Exquisite Alloy Orb (Standard-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2963"
+    },
+    {
+      "type": "Equipment",
+      "name": "Extending",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2836"
+    },
+    {
+      "type": "Equipment",
+      "name": "Extending (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2836"
+    },
+    {
+      "type": "Equipment",
+      "name": "Eye of Apprehension",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2973"
+    },
+    {
+      "type": "Equipment",
+      "name": "Eye of Fortune",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3083"
+    },
+    {
+      "type": "Equipment",
+      "name": "Eyes of the Cat",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3084"
+    },
+    {
+      "type": "Equipment",
+      "name": "Fade Band",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2974"
+    },
+    {
+      "type": "Equipment",
+      "name": "Fear Gem",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2975"
+    },
+    {
+      "type": "Equipment",
+      "name": "Fearflower Nectar",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2897"
+    },
+    {
+      "type": "Equipment",
+      "name": "Fearsome",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2837"
+    },
+    {
+      "type": "Equipment",
+      "name": "Fearsome (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2837"
+    },
+    {
+      "type": "Equipment",
+      "name": "Feather Step Stone",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2976"
+    },
+    {
+      "type": "Equipment",
+      "name": "Fighter's Fork",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2865"
+    },
+    {
+      "type": "Equipment",
+      "name": "Flaming",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2838"
+    },
+    {
+      "type": "Equipment",
+      "name": "Flaming (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2838"
+    },
+    {
+      "type": "Equipment",
+      "name": "Floating Shield",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2819"
+    },
+    {
+      "type": "Equipment",
+      "name": "Floating Shield (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2819"
+    },
+    {
+      "type": "Equipment",
+      "name": "Fluid Form Staff",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3036"
+    },
+    {
+      "type": "Equipment",
+      "name": "Fluid Form Staff (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3036"
+    },
+    {
+      "type": "Equipment",
+      "name": "Fluid Form Staff (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3036"
+    },
+    {
+      "type": "Equipment",
+      "name": "Flying Broomstick",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3023"
+    },
+    {
+      "type": "Equipment",
+      "name": "Force Shield",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2820"
+    },
+    {
+      "type": "Equipment",
+      "name": "Forge Warden",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2821"
+    },
+    {
+      "type": "Equipment",
+      "name": "Forgefather's Seal",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3120"
+    },
+    {
+      "type": "Equipment",
+      "name": "Fortification",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2789"
+    },
+    {
+      "type": "Equipment",
+      "name": "Fortification (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2789"
+    },
+    {
+      "type": "Equipment",
+      "name": "Frost",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2839"
+    },
+    {
+      "type": "Equipment",
+      "name": "Frost (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2839"
+    },
+    {
+      "type": "Equipment",
+      "name": "Frozen Lava",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3000"
+    },
+    {
+      "type": "Equipment",
+      "name": "Frozen Lava of Barrowsiege",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3000"
+    },
+    {
+      "type": "Equipment",
+      "name": "Frozen Lava of Blackpeak",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3000"
+    },
+    {
+      "type": "Equipment",
+      "name": "Frozen Lava of Droskar's Crag",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3000"
+    },
+    {
+      "type": "Equipment",
+      "name": "Frozen Lava of Ka",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3000"
+    },
+    {
+      "type": "Equipment",
+      "name": "Frozen Lava of Mhar Massif",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3000"
+    },
+    {
+      "type": "Equipment",
+      "name": "Frozen Lava of Pale Mountain",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3000"
+    },
+    {
+      "type": "Equipment",
+      "name": "Frozen Lava of Sakalayo",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3000"
+    },
+    {
+      "type": "Equipment",
+      "name": "Gallows Tooth",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2977"
+    },
+    {
+      "type": "Equipment",
+      "name": "Gecko Potion",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2942"
+    },
+    {
+      "type": "Equipment",
+      "name": "Genius Diadem",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3125"
+    },
+    {
+      "type": "Equipment",
+      "name": "Ghost Ammunition",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2924"
+    },
+    {
+      "type": "Equipment",
+      "name": "Ghost Dust",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2978"
+    },
+    {
+      "type": "Equipment",
+      "name": "Ghost Touch",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2840"
+    },
+    {
+      "type": "Equipment",
+      "name": "Giant Centipede Venom",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2898"
+    },
+    {
+      "type": "Equipment",
+      "name": "Giant Scorpion Venom",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2899"
+    },
+    {
+      "type": "Equipment",
+      "name": "Gloom Blade",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2866"
+    },
+    {
+      "type": "Equipment",
+      "name": "Glow Rod",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2910"
+    },
+    {
+      "type": "Equipment",
+      "name": "Glue Bomb",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2878"
+    },
+    {
+      "type": "Equipment",
+      "name": "Glue Bomb (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2878"
+    },
+    {
+      "type": "Equipment",
+      "name": "Glue Bomb (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2878"
+    },
+    {
+      "type": "Equipment",
+      "name": "Glue Bomb (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2878"
+    },
+    {
+      "type": "Equipment",
+      "name": "Glue Bomb (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2878"
+    },
+    {
+      "type": "Equipment",
+      "name": "Gorget of the Primal Roar",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3085"
+    },
+    {
+      "type": "Equipment",
+      "name": "Graveroot",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2900"
+    },
+    {
+      "type": "Equipment",
+      "name": "Greater Staff of Arcane Might",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3038"
+    },
+    {
+      "type": "Equipment",
+      "name": "Grievous",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2841"
+    },
+    {
+      "type": "Equipment",
+      "name": "Grim Trophy",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2979"
+    },
+    {
+      "type": "Equipment",
+      "name": "Grim Trophy (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2979"
+    },
+    {
+      "type": "Equipment",
+      "name": "Handwraps of Mighty Blows",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3086"
+    },
+    {
+      "type": "Equipment",
+      "name": "Handwraps of Mighty Blows (+1 striking)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3086"
+    },
+    {
+      "type": "Equipment",
+      "name": "Handwraps of Mighty Blows (+1)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3086"
+    },
+    {
+      "type": "Equipment",
+      "name": "Handwraps of Mighty Blows (+2 greater striking)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3086"
+    },
+    {
+      "type": "Equipment",
+      "name": "Handwraps of Mighty Blows (+2 striking)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3086"
+    },
+    {
+      "type": "Equipment",
+      "name": "Handwraps of Mighty Blows (+3 greater striking)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3086"
+    },
+    {
+      "type": "Equipment",
+      "name": "Handwraps of Mighty Blows (+3 major striking)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3086"
+    },
+    {
+      "type": "Equipment",
+      "name": "Headwrap of Wisdom",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3011"
+    },
+    {
+      "type": "Equipment",
+      "name": "Healer's Gloves",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3087"
+    },
+    {
+      "type": "Equipment",
+      "name": "Healer's Gloves (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3087"
+    },
+    {
+      "type": "Equipment",
+      "name": "Healing Potion",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2943"
+    },
+    {
+      "type": "Equipment",
+      "name": "Healing Potion (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2943"
+    },
+    {
+      "type": "Equipment",
+      "name": "Healing Potion (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2943"
+    },
+    {
+      "type": "Equipment",
+      "name": "Healing Potion (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2943"
+    },
+    {
+      "type": "Equipment",
+      "name": "Healing Potion (Minor)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2943"
+    },
+    {
+      "type": "Equipment",
+      "name": "Healing Potion (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2943"
+    },
+    {
+      "type": "Equipment",
+      "name": "Hellfire Boots",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3088"
+    },
+    {
+      "type": "Equipment",
+      "name": "Hemlock",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2901"
+    },
+    {
+      "type": "Equipment",
+      "name": "Holy",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2842"
+    },
+    {
+      "type": "Equipment",
+      "name": "Holy Water",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3001"
+    },
+    {
+      "type": "Equipment",
+      "name": "Horn of Exorcism",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3024"
+    },
+    {
+      "type": "Equipment",
+      "name": "Humbug Pocket",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3089"
+    },
+    {
+      "type": "Equipment",
+      "name": "Humbug Pocket (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3089"
+    },
+    {
+      "type": "Equipment",
+      "name": "Hunter's Anthem",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2867"
+    },
+    {
+      "type": "Equipment",
+      "name": "Icicle",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2868"
+    },
+    {
+      "type": "Equipment",
+      "name": "Impenetrable Scale",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2806"
+    },
+    {
+      "type": "Equipment",
+      "name": "Indestructible Shield",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2822"
+    },
+    {
+      "type": "Equipment",
+      "name": "Inexplicable Apparatus",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3090"
+    },
+    {
+      "type": "Equipment",
+      "name": "Invisibility",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2790"
+    },
+    {
+      "type": "Equipment",
+      "name": "Invisibility (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2790"
+    },
+    {
+      "type": "Equipment",
+      "name": "Invisibility Potion",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2944"
+    },
+    {
+      "type": "Equipment",
+      "name": "Iron Cube",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2980"
+    },
+    {
+      "type": "Equipment",
+      "name": "Iron Medallion",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2981"
+    },
+    {
+      "type": "Equipment",
+      "name": "Jade Cat",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2982"
+    },
+    {
+      "type": "Equipment",
+      "name": "Keen",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2843"
+    },
+    {
+      "type": "Equipment",
+      "name": "Lethargy Poison",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2902"
+    },
+    {
+      "type": "Equipment",
+      "name": "Life-Saver Mail",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2808"
+    },
+    {
+      "type": "Equipment",
+      "name": "Life-Saver Mail (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2808"
+    },
+    {
+      "type": "Equipment",
+      "name": "Lifting Belt",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3091"
+    },
+    {
+      "type": "Equipment",
+      "name": "Lion's Armor",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2807"
+    },
+    {
+      "type": "Equipment",
+      "name": "Lion's Armor (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2807"
+    },
+    {
+      "type": "Equipment",
+      "name": "Lion's Shield",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2823"
+    },
+    {
+      "type": "Equipment",
+      "name": "Living Mantle",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3092"
+    },
+    {
+      "type": "Equipment",
+      "name": "Living Mantle (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3092"
+    },
+    {
+      "type": "Equipment",
+      "name": "Lodestone Shield",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2824"
+    },
+    {
+      "type": "Equipment",
+      "name": "Lover's Gloves",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3093"
+    },
+    {
+      "type": "Equipment",
+      "name": "Madcap Top",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3025"
+    },
+    {
+      "type": "Equipment",
+      "name": "Maestro's Instrument",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3026"
+    },
+    {
+      "type": "Equipment",
+      "name": "Maestro's Instrument (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3026"
+    },
+    {
+      "type": "Equipment",
+      "name": "Maestro's Instrument (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3026"
+    },
+    {
+      "type": "Equipment",
+      "name": "Maestro's Instrument (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3026"
+    },
+    {
+      "type": "Equipment",
+      "name": "Mage's Hat",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3094"
+    },
+    {
+      "type": "Equipment",
+      "name": "Mage's Hat (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3094"
+    },
+    {
+      "type": "Equipment",
+      "name": "Magic Armor",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2804"
+    },
+    {
+      "type": "Equipment",
+      "name": "Magic Armor (+1 Resilient)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2804"
+    },
+    {
+      "type": "Equipment",
+      "name": "Magic Armor (+1)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2804"
+    },
+    {
+      "type": "Equipment",
+      "name": "Magic Armor (+2 Greater Resilient)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2804"
+    },
+    {
+      "type": "Equipment",
+      "name": "Magic Armor (+2 Resilient)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2804"
+    },
+    {
+      "type": "Equipment",
+      "name": "Magic Armor (+3 Greater Resilient)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2804"
+    },
+    {
+      "type": "Equipment",
+      "name": "Magic Armor (+3 Major Resilient)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2804"
+    },
+    {
+      "type": "Equipment",
+      "name": "Magic Scroll",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2962"
+    },
+    {
+      "type": "Equipment",
+      "name": "Magic Wand",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3050"
+    },
+    {
+      "type": "Equipment",
+      "name": "Magic Wand (1st-rank Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3050"
+    },
+    {
+      "type": "Equipment",
+      "name": "Magic Wand (2nd-rank Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3050"
+    },
+    {
+      "type": "Equipment",
+      "name": "Magic Wand (3rd-rank Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3050"
+    },
+    {
+      "type": "Equipment",
+      "name": "Magic Wand (4th-rank Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3050"
+    },
+    {
+      "type": "Equipment",
+      "name": "Magic Wand (5th-rank Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3050"
+    },
+    {
+      "type": "Equipment",
+      "name": "Magic Wand (6th-rank Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3050"
+    },
+    {
+      "type": "Equipment",
+      "name": "Magic Wand (7th-rank Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3050"
+    },
+    {
+      "type": "Equipment",
+      "name": "Magic Wand (8th-rank Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3050"
+    },
+    {
+      "type": "Equipment",
+      "name": "Magic Wand (9th-rank Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3050"
+    },
+    {
+      "type": "Equipment",
+      "name": "Magic Weapon",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2861"
+    },
+    {
+      "type": "Equipment",
+      "name": "Magic Weapon (+1 Striking)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2861"
+    },
+    {
+      "type": "Equipment",
+      "name": "Magic Weapon (+1)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2861"
+    },
+    {
+      "type": "Equipment",
+      "name": "Magic Weapon (+2 Greater Striking)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2861"
+    },
+    {
+      "type": "Equipment",
+      "name": "Magic Weapon (+2 Striking)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2861"
+    },
+    {
+      "type": "Equipment",
+      "name": "Magic Weapon (+3 Greater Striking)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2861"
+    },
+    {
+      "type": "Equipment",
+      "name": "Magic Weapon (+3 Major Striking)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2861"
+    },
+    {
+      "type": "Equipment",
+      "name": "Major Staff of Arcane Might",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3038"
+    },
+    {
+      "type": "Equipment",
+      "name": "Martyr's Shield",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3126"
+    },
+    {
+      "type": "Equipment",
+      "name": "Marvelous Medicines",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3027"
+    },
+    {
+      "type": "Equipment",
+      "name": "Marvelous Medicines (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3027"
+    },
+    {
+      "type": "Equipment",
+      "name": "Marvelous Miniature",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3002"
+    },
+    {
+      "type": "Equipment",
+      "name": "Marvelous Miniature (Boat)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3002"
+    },
+    {
+      "type": "Equipment",
+      "name": "Marvelous Miniature (Campfire)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3002"
+    },
+    {
+      "type": "Equipment",
+      "name": "Marvelous Miniature (Chest)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3002"
+    },
+    {
+      "type": "Equipment",
+      "name": "Marvelous Miniature (Horse)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3002"
+    },
+    {
+      "type": "Equipment",
+      "name": "Marvelous Miniature (Ladder)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3002"
+    },
+    {
+      "type": "Equipment",
+      "name": "Masquerade Scarf",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3095"
+    },
+    {
+      "type": "Equipment",
+      "name": "Masquerade Scarf (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3095"
+    },
+    {
+      "type": "Equipment",
+      "name": "Matchstick",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2911"
+    },
+    {
+      "type": "Equipment",
+      "name": "Medusa Armor",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3130"
+    },
+    {
+      "type": "Equipment",
+      "name": "Mending Lattice",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2983"
+    },
+    {
+      "type": "Equipment",
+      "name": "Mentalist's Staff",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3037"
+    },
+    {
+      "type": "Equipment",
+      "name": "Mentalist's Staff (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3037"
+    },
+    {
+      "type": "Equipment",
+      "name": "Mentalist's Staff (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3037"
+    },
+    {
+      "type": "Equipment",
+      "name": "Mesmerizing Opal",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2984"
+    },
+    {
+      "type": "Equipment",
+      "name": "Messenger's Ring",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3096"
+    },
+    {
+      "type": "Equipment",
+      "name": "Messenger's Ring (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3096"
+    },
+    {
+      "type": "Equipment",
+      "name": "Mindfog Mist",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2903"
+    },
+    {
+      "type": "Equipment",
+      "name": "Mirror of Sorshen",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3121"
+    },
+    {
+      "type": "Equipment",
+      "name": "Mistform Elixir",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2888"
+    },
+    {
+      "type": "Equipment",
+      "name": "Mistform Elixir (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2888"
+    },
+    {
+      "type": "Equipment",
+      "name": "Mistform Elixir (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2888"
+    },
+    {
+      "type": "Equipment",
+      "name": "Mistform Elixir (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2888"
+    },
+    {
+      "type": "Equipment",
+      "name": "Monkey Pin",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2985"
+    },
+    {
+      "type": "Equipment",
+      "name": "Monkey's Paw",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3131"
+    },
+    {
+      "type": "Equipment",
+      "name": "Moonlit Chain",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2809"
+    },
+    {
+      "type": "Equipment",
+      "name": "Mummified Bat",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2986"
+    },
+    {
+      "type": "Equipment",
+      "name": "Murderer's Knot",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2987"
+    },
+    {
+      "type": "Equipment",
+      "name": "Necklace of Allure",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3012"
+    },
+    {
+      "type": "Equipment",
+      "name": "Nectar of Purification",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2931"
+    },
+    {
+      "type": "Equipment",
+      "name": "Oak Potion",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2945"
+    },
+    {
+      "type": "Equipment",
+      "name": "Obfuscation Oil",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2932"
+    },
+    {
+      "type": "Equipment",
+      "name": "Obsidian Goggles",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3097"
+    },
+    {
+      "type": "Equipment",
+      "name": "Obsidian Goggles (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3097"
+    },
+    {
+      "type": "Equipment",
+      "name": "Obsidian Goggles (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3097"
+    },
+    {
+      "type": "Equipment",
+      "name": "Oil of Animation",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2933"
+    },
+    {
+      "type": "Equipment",
+      "name": "Oil of Keen Edges",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2934"
+    },
+    {
+      "type": "Equipment",
+      "name": "Oil of Mending",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2935"
+    },
+    {
+      "type": "Equipment",
+      "name": "Oil of Potency",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2936"
+    },
+    {
+      "type": "Equipment",
+      "name": "Oil of Potency (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2936"
+    },
+    {
+      "type": "Equipment",
+      "name": "Oil of Potency (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2936"
+    },
+    {
+      "type": "Equipment",
+      "name": "Oil of Repulsion",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2937"
+    },
+    {
+      "type": "Equipment",
+      "name": "Oil of Unlife",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2938"
+    },
+    {
+      "type": "Equipment",
+      "name": "Oil of Unlife (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2938"
+    },
+    {
+      "type": "Equipment",
+      "name": "Oil of Unlife (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2938"
+    },
+    {
+      "type": "Equipment",
+      "name": "Oil of Unlife (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2938"
+    },
+    {
+      "type": "Equipment",
+      "name": "Oil of Unlife (Minor)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2938"
+    },
+    {
+      "type": "Equipment",
+      "name": "Oil of Unlife (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2938"
+    },
+    {
+      "type": "Equipment",
+      "name": "Oil of Weightlessness",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2939"
+    },
+    {
+      "type": "Equipment",
+      "name": "Oil of Weightlessness (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2939"
+    },
+    {
+      "type": "Equipment",
+      "name": "Onyx Panther",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2988"
+    },
+    {
+      "type": "Equipment",
+      "name": "Orichalcum",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2919"
+    },
+    {
+      "type": "Equipment",
+      "name": "Orichalcum Armor",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2802"
+    },
+    {
+      "type": "Equipment",
+      "name": "Orichalcum Armor (High-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2802"
+    },
+    {
+      "type": "Equipment",
+      "name": "Orichalcum Buckler (High-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2816"
+    },
+    {
+      "type": "Equipment",
+      "name": "Orichalcum Chunk",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2919"
+    },
+    {
+      "type": "Equipment",
+      "name": "Orichalcum Ingot",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2919"
+    },
+    {
+      "type": "Equipment",
+      "name": "Orichalcum Object (High-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2919"
+    },
+    {
+      "type": "Equipment",
+      "name": "Orichalcum Shield",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2816"
+    },
+    {
+      "type": "Equipment",
+      "name": "Orichalcum Shield (High-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2816"
+    },
+    {
+      "type": "Equipment",
+      "name": "Orichalcum Weapon",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2859"
+    },
+    {
+      "type": "Equipment",
+      "name": "Orichalcum Weapon (High-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2859"
+    },
+    {
+      "type": "Equipment",
+      "name": "Panacea",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2946"
+    },
+    {
+      "type": "Equipment",
+      "name": "Pendant of the Occult",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3098"
+    },
+    {
+      "type": "Equipment",
+      "name": "Pendant of the Occult (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3098"
+    },
+    {
+      "type": "Equipment",
+      "name": "Penetrating Ammunition",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2925"
+    },
+    {
+      "type": "Equipment",
+      "name": "Persona Mask",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3099"
+    },
+    {
+      "type": "Equipment",
+      "name": "Persona Mask (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3099"
+    },
+    {
+      "type": "Equipment",
+      "name": "Philosopher's Extractor",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3122"
+    },
+    {
+      "type": "Equipment",
+      "name": "Pocket Stage",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3028"
+    },
+    {
+      "type": "Equipment",
+      "name": "Possibility Tome",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3029"
+    },
+    {
+      "type": "Equipment",
+      "name": "Potency Crystal",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2989"
+    },
+    {
+      "type": "Equipment",
+      "name": "Potency Crystal (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2989"
+    },
+    {
+      "type": "Equipment",
+      "name": "Potency Crystal (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2989"
+    },
+    {
+      "type": "Equipment",
+      "name": "Potion of Emergency Escape",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2947"
+    },
+    {
+      "type": "Equipment",
+      "name": "Potion of Flying",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2948"
+    },
+    {
+      "type": "Equipment",
+      "name": "Potion of Flying (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2948"
+    },
+    {
+      "type": "Equipment",
+      "name": "Potion of Leaping",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2949"
+    },
+    {
+      "type": "Equipment",
+      "name": "Potion of Quickness",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2950"
+    },
+    {
+      "type": "Equipment",
+      "name": "Potion of Resistance",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2951"
+    },
+    {
+      "type": "Equipment",
+      "name": "Potion of Resistance (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2951"
+    },
+    {
+      "type": "Equipment",
+      "name": "Potion of Resistance (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2951"
+    },
+    {
+      "type": "Equipment",
+      "name": "Potion of Resistance (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2951"
+    },
+    {
+      "type": "Equipment",
+      "name": "Potion of Shared Memories",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2952"
+    },
+    {
+      "type": "Equipment",
+      "name": "Potion of Swimming",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2953"
+    },
+    {
+      "type": "Equipment",
+      "name": "Potion of Swimming (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2953"
+    },
+    {
+      "type": "Equipment",
+      "name": "Potion of Truespeech",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2954"
+    },
+    {
+      "type": "Equipment",
+      "name": "Potion of Undetectability",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2955"
+    },
+    {
+      "type": "Equipment",
+      "name": "Potion of Water Breathing",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2956"
+    },
+    {
+      "type": "Equipment",
+      "name": "Predator's Claw",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2990"
+    },
+    {
+      "type": "Equipment",
+      "name": "Primeval Mistletoe",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3100"
+    },
+    {
+      "type": "Equipment",
+      "name": "Primeval Mistletoe (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3100"
+    },
+    {
+      "type": "Equipment",
+      "name": "Propulsive Boots",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3101"
+    },
+    {
+      "type": "Equipment",
+      "name": "Quickstrike",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2844"
+    },
+    {
+      "type": "Equipment",
+      "name": "Raiment",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2791"
+    },
+    {
+      "type": "Equipment",
+      "name": "Ready",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2792"
+    },
+    {
+      "type": "Equipment",
+      "name": "Ready (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2792"
+    },
+    {
+      "type": "Equipment",
+      "name": "Reflecting Shield",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2825"
+    },
+    {
+      "type": "Equipment",
+      "name": "Reinforcing Rune",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2811"
+    },
+    {
+      "type": "Equipment",
+      "name": "Reinforcing Rune (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2811"
+    },
+    {
+      "type": "Equipment",
+      "name": "Reinforcing Rune (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2811"
+    },
+    {
+      "type": "Equipment",
+      "name": "Reinforcing Rune (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2811"
+    },
+    {
+      "type": "Equipment",
+      "name": "Reinforcing Rune (Minor)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2811"
+    },
+    {
+      "type": "Equipment",
+      "name": "Reinforcing Rune (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2811"
+    },
+    {
+      "type": "Equipment",
+      "name": "Reinforcing Rune (Supreme)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2811"
+    },
+    {
+      "type": "Equipment",
+      "name": "Resilient",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2786"
+    },
+    {
+      "type": "Equipment",
+      "name": "Resilient (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2786"
+    },
+    {
+      "type": "Equipment",
+      "name": "Resilient (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2786"
+    },
+    {
+      "type": "Equipment",
+      "name": "Retribution Axe",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2869"
+    },
+    {
+      "type": "Equipment",
+      "name": "Retrieval Belt",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3102"
+    },
+    {
+      "type": "Equipment",
+      "name": "Retrieval Belt (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3102"
+    },
+    {
+      "type": "Equipment",
+      "name": "Retrieval Belt (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3102"
+    },
+    {
+      "type": "Equipment",
+      "name": "Returning",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2845"
+    },
+    {
+      "type": "Equipment",
+      "name": "Ring of Climbing",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3103"
+    },
+    {
+      "type": "Equipment",
+      "name": "Ring of Lies",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3104"
+    },
+    {
+      "type": "Equipment",
+      "name": "Ring of Sigils",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3105"
+    },
+    {
+      "type": "Equipment",
+      "name": "Ring of Sigils (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3105"
+    },
+    {
+      "type": "Equipment",
+      "name": "Ring of Sustenance",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3106"
+    },
+    {
+      "type": "Equipment",
+      "name": "Ring of Swimming",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3107"
+    },
+    {
+      "type": "Equipment",
+      "name": "Runestone",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3003"
+    },
+    {
+      "type": "Equipment",
+      "name": "Salve of Antiparalysis",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2940"
+    },
+    {
+      "type": "Equipment",
+      "name": "Salve of Antiparalysis (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2940"
+    },
+    {
+      "type": "Equipment",
+      "name": "Savior Spike",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2991"
+    },
+    {
+      "type": "Equipment",
+      "name": "Sea Touch Elixir",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2889"
+    },
+    {
+      "type": "Equipment",
+      "name": "Sea Touch Elixir (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2889"
+    },
+    {
+      "type": "Equipment",
+      "name": "Sea Touch Elixir (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2889"
+    },
+    {
+      "type": "Equipment",
+      "name": "Sea Touch Elixir (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2889"
+    },
+    {
+      "type": "Equipment",
+      "name": "Searing Blade",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2870"
+    },
+    {
+      "type": "Equipment",
+      "name": "Searing Blade (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2870"
+    },
+    {
+      "type": "Equipment",
+      "name": "Serithtial",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3123"
+    },
+    {
+      "type": "Equipment",
+      "name": "Serpent Dagger",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2871"
+    },
+    {
+      "type": "Equipment",
+      "name": "Serum of Sex Shift",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2957"
+    },
+    {
+      "type": "Equipment",
+      "name": "Shadow",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2793"
+    },
+    {
+      "type": "Equipment",
+      "name": "Shadow (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2793"
+    },
+    {
+      "type": "Equipment",
+      "name": "Shadow (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2793"
+    },
+    {
+      "type": "Equipment",
+      "name": "Shadow Signet",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3108"
+    },
+    {
+      "type": "Equipment",
+      "name": "Shark Tooth Charm",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2992"
+    },
+    {
+      "type": "Equipment",
+      "name": "Shifting",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2846"
+    },
+    {
+      "type": "Equipment",
+      "name": "Shining Ammunition",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2926"
+    },
+    {
+      "type": "Equipment",
+      "name": "Shining Symbol",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3109"
+    },
+    {
+      "type": "Equipment",
+      "name": "Shining Symbol (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3109"
+    },
+    {
+      "type": "Equipment",
+      "name": "Shining Symbol (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3109"
+    },
+    {
+      "type": "Equipment",
+      "name": "Shock",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2847"
+    },
+    {
+      "type": "Equipment",
+      "name": "Shock (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2847"
+    },
+    {
+      "type": "Equipment",
+      "name": "Shockwave",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2848"
+    },
+    {
+      "type": "Equipment",
+      "name": "Shot of the First Vault",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3124"
+    },
+    {
+      "type": "Equipment",
+      "name": "Shrinking Potion",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2958"
+    },
+    {
+      "type": "Equipment",
+      "name": "Shrinking Potion (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2958"
+    },
+    {
+      "type": "Equipment",
+      "name": "Silver",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2920"
+    },
+    {
+      "type": "Equipment",
+      "name": "Silver Armor",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2803"
+    },
+    {
+      "type": "Equipment",
+      "name": "Silver Armor (High-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2803"
+    },
+    {
+      "type": "Equipment",
+      "name": "Silver Armor (Low-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2803"
+    },
+    {
+      "type": "Equipment",
+      "name": "Silver Armor (Standard-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2803"
+    },
+    {
+      "type": "Equipment",
+      "name": "Silver Buckler (High-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2817"
+    },
+    {
+      "type": "Equipment",
+      "name": "Silver Buckler (Low-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2817"
+    },
+    {
+      "type": "Equipment",
+      "name": "Silver Buckler (Standard-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2817"
+    },
+    {
+      "type": "Equipment",
+      "name": "Silver Chunk",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2920"
+    },
+    {
+      "type": "Equipment",
+      "name": "Silver Ingot",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2920"
+    },
+    {
+      "type": "Equipment",
+      "name": "Silver Object (High-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2920"
+    },
+    {
+      "type": "Equipment",
+      "name": "Silver Object (Low-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2920"
+    },
+    {
+      "type": "Equipment",
+      "name": "Silver Object (Standard-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2920"
+    },
+    {
+      "type": "Equipment",
+      "name": "Silver Salve",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2912"
+    },
+    {
+      "type": "Equipment",
+      "name": "Silver Shield",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2817"
+    },
+    {
+      "type": "Equipment",
+      "name": "Silver Shield (High-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2817"
+    },
+    {
+      "type": "Equipment",
+      "name": "Silver Shield (Low-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2817"
+    },
+    {
+      "type": "Equipment",
+      "name": "Silver Shield (Standard-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2817"
+    },
+    {
+      "type": "Equipment",
+      "name": "Silver Weapon",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2860"
+    },
+    {
+      "type": "Equipment",
+      "name": "Silver Weapon (High-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2860"
+    },
+    {
+      "type": "Equipment",
+      "name": "Silver Weapon (Low-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2860"
+    },
+    {
+      "type": "Equipment",
+      "name": "Silver Weapon (Standard-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2860"
+    },
+    {
+      "type": "Equipment",
+      "name": "Singing Sword",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3127"
+    },
+    {
+      "type": "Equipment",
+      "name": "Size-Changing",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2795"
+    },
+    {
+      "type": "Equipment",
+      "name": "Skeleton Key",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3030"
+    },
+    {
+      "type": "Equipment",
+      "name": "Skeleton Key (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3030"
+    },
+    {
+      "type": "Equipment",
+      "name": "Sky Hammer",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2872"
+    },
+    {
+      "type": "Equipment",
+      "name": "Slates of Distant Letters",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3031"
+    },
+    {
+      "type": "Equipment",
+      "name": "Sleeves of Storage",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3110"
+    },
+    {
+      "type": "Equipment",
+      "name": "Sleeves of Storage (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3110"
+    },
+    {
+      "type": "Equipment",
+      "name": "Slick",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2794"
+    },
+    {
+      "type": "Equipment",
+      "name": "Slick (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2794"
+    },
+    {
+      "type": "Equipment",
+      "name": "Slick (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2794"
+    },
+    {
+      "type": "Equipment",
+      "name": "Slumber Wine",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2904"
+    },
+    {
+      "type": "Equipment",
+      "name": "Smoke Ball",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2913"
+    },
+    {
+      "type": "Equipment",
+      "name": "Smoke Ball (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2913"
+    },
+    {
+      "type": "Equipment",
+      "name": "Smoke Ball (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2913"
+    },
+    {
+      "type": "Equipment",
+      "name": "Snake Oil",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2914"
+    },
+    {
+      "type": "Equipment",
+      "name": "Sneaky Key",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2993"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spacious Pouch",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3032"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spacious Pouch (Type I)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3032"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spacious Pouch (Type II)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3032"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spacious Pouch (Type III)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3032"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spacious Pouch (Type IV)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3032"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spell Reservoir",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2849"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spellguard Shield",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2826"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spellstrike Ammunition",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2927"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spellstrike Ammunition (Type I)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2927"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spellstrike Ammunition (Type II)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2927"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spellstrike Ammunition (Type III)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2927"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spellstrike Ammunition (Type IV)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2927"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spellstrike Ammunition (Type IX)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2927"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spellstrike Ammunition (Type V)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2927"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spellstrike Ammunition (Type VI)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2927"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spellstrike Ammunition (Type VII)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2927"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spellstrike Ammunition (Type VIII)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2927"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spider Root",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2905"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spider Venom",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2906"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spined Shield",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2827"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spirit Bulb",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3004"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spirit Bulb (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3004"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spirit Bulb (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3004"
+    },
+    {
+      "type": "Equipment",
+      "name": "Staff of Arcane Might",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3038"
+    },
+    {
+      "type": "Equipment",
+      "name": "Staff of Control",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3039"
+    },
+    {
+      "type": "Equipment",
+      "name": "Staff of Control (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3039"
+    },
+    {
+      "type": "Equipment",
+      "name": "Staff of Control (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3039"
+    },
+    {
+      "type": "Equipment",
+      "name": "Staff of Elemental Power",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3040"
+    },
+    {
+      "type": "Equipment",
+      "name": "Staff of Elemental Power (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3040"
+    },
+    {
+      "type": "Equipment",
+      "name": "Staff of Elemental Power (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3040"
+    },
+    {
+      "type": "Equipment",
+      "name": "Staff of Fire",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3041"
+    },
+    {
+      "type": "Equipment",
+      "name": "Staff of Fire (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3041"
+    },
+    {
+      "type": "Equipment",
+      "name": "Staff of Fire (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3041"
+    },
+    {
+      "type": "Equipment",
+      "name": "Staff of Healing",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3042"
+    },
+    {
+      "type": "Equipment",
+      "name": "Staff of Healing (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3042"
+    },
+    {
+      "type": "Equipment",
+      "name": "Staff of Healing (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3042"
+    },
+    {
+      "type": "Equipment",
+      "name": "Staff of Healing (True)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3042"
+    },
+    {
+      "type": "Equipment",
+      "name": "Staff of Illumination",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3043"
+    },
+    {
+      "type": "Equipment",
+      "name": "Staff of Phantasms",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3044"
+    },
+    {
+      "type": "Equipment",
+      "name": "Staff of Phantasms (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3044"
+    },
+    {
+      "type": "Equipment",
+      "name": "Staff of Phantasms (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3044"
+    },
+    {
+      "type": "Equipment",
+      "name": "Staff of Protection",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3045"
+    },
+    {
+      "type": "Equipment",
+      "name": "Staff of Protection (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3045"
+    },
+    {
+      "type": "Equipment",
+      "name": "Staff of Protection (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3045"
+    },
+    {
+      "type": "Equipment",
+      "name": "Staff of Summoning",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3046"
+    },
+    {
+      "type": "Equipment",
+      "name": "Staff of Summoning (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3046"
+    },
+    {
+      "type": "Equipment",
+      "name": "Staff of Summoning (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3046"
+    },
+    {
+      "type": "Equipment",
+      "name": "Staff of the Dead",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3047"
+    },
+    {
+      "type": "Equipment",
+      "name": "Staff of the Dead (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3047"
+    },
+    {
+      "type": "Equipment",
+      "name": "Staff of the Dead (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3047"
+    },
+    {
+      "type": "Equipment",
+      "name": "Staff of the Unblinking Eye",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3048"
+    },
+    {
+      "type": "Equipment",
+      "name": "Staff of the Unblinking Eye (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3048"
+    },
+    {
+      "type": "Equipment",
+      "name": "Staff of the Unblinking Eye (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3048"
+    },
+    {
+      "type": "Equipment",
+      "name": "Stone Bullet",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2928"
+    },
+    {
+      "type": "Equipment",
+      "name": "Stone Fist Elixir",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2890"
+    },
+    {
+      "type": "Equipment",
+      "name": "Storm Flash",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2873"
+    },
+    {
+      "type": "Equipment",
+      "name": "Storm Flash (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2873"
+    },
+    {
+      "type": "Equipment",
+      "name": "Striking",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2829"
+    },
+    {
+      "type": "Equipment",
+      "name": "Striking (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2829"
+    },
+    {
+      "type": "Equipment",
+      "name": "Striking (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2829"
+    },
+    {
+      "type": "Equipment",
+      "name": "Sturdy Shield",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2828"
+    },
+    {
+      "type": "Equipment",
+      "name": "Sturdy Shield (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2828"
+    },
+    {
+      "type": "Equipment",
+      "name": "Sturdy Shield (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2828"
+    },
+    {
+      "type": "Equipment",
+      "name": "Sturdy Shield (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2828"
+    },
+    {
+      "type": "Equipment",
+      "name": "Sturdy Shield (Minor)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2828"
+    },
+    {
+      "type": "Equipment",
+      "name": "Sturdy Shield (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2828"
+    },
+    {
+      "type": "Equipment",
+      "name": "Sturdy Shield (Supreme)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2828"
+    },
+    {
+      "type": "Equipment",
+      "name": "Swift Block Cabochon",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2994"
+    },
+    {
+      "type": "Equipment",
+      "name": "Symbol of Conflict",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3111"
+    },
+    {
+      "type": "Equipment",
+      "name": "Symbol of Conflict (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3111"
+    },
+    {
+      "type": "Equipment",
+      "name": "Symbol of Conflict (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3111"
+    },
+    {
+      "type": "Equipment",
+      "name": "Tears of Death",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2907"
+    },
+    {
+      "type": "Equipment",
+      "name": "Third Eye",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3112"
+    },
+    {
+      "type": "Equipment",
+      "name": "Thundering",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2850"
+    },
+    {
+      "type": "Equipment",
+      "name": "Thundering (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2850"
+    },
+    {
+      "type": "Equipment",
+      "name": "Thurible of Revelation",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3033"
+    },
+    {
+      "type": "Equipment",
+      "name": "Thurible of Revelation (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3033"
+    },
+    {
+      "type": "Equipment",
+      "name": "Thurible of Revelation (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3033"
+    },
+    {
+      "type": "Equipment",
+      "name": "Thurible of Revelation (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3033"
+    },
+    {
+      "type": "Equipment",
+      "name": "Tideplate",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2810"
+    },
+    {
+      "type": "Equipment",
+      "name": "Tiger Menuki",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2995"
+    },
+    {
+      "type": "Equipment",
+      "name": "Time Shield Potion",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2959"
+    },
+    {
+      "type": "Equipment",
+      "name": "Tracker's Goggles",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3113"
+    },
+    {
+      "type": "Equipment",
+      "name": "Tracker's Goggles (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3113"
+    },
+    {
+      "type": "Equipment",
+      "name": "Traveler's Any-Tool",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3034"
+    },
+    {
+      "type": "Equipment",
+      "name": "Trident of Lightning",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3005"
+    },
+    {
+      "type": "Equipment",
+      "name": "Truesight Potion",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2960"
+    },
+    {
+      "type": "Equipment",
+      "name": "Truth Potion",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2961"
+    },
+    {
+      "type": "Equipment",
+      "name": "Twining Staff",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2874"
+    },
+    {
+      "type": "Equipment",
+      "name": "Unholy",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2851"
+    },
+    {
+      "type": "Equipment",
+      "name": "Unholy Water",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3006"
+    },
+    {
+      "type": "Equipment",
+      "name": "Vanishing Coin",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2996"
+    },
+    {
+      "type": "Equipment",
+      "name": "Ventriloquist's Ring",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3114"
+    },
+    {
+      "type": "Equipment",
+      "name": "Ventriloquist's Ring (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3114"
+    },
+    {
+      "type": "Equipment",
+      "name": "Verdant Staff",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3049"
+    },
+    {
+      "type": "Equipment",
+      "name": "Verdant Staff (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3049"
+    },
+    {
+      "type": "Equipment",
+      "name": "Vine Arrow",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2929"
+    },
+    {
+      "type": "Equipment",
+      "name": "Viper's Fang",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2997"
+    },
+    {
+      "type": "Equipment",
+      "name": "Vitalizing",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2852"
+    },
+    {
+      "type": "Equipment",
+      "name": "Vitalizing (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2852"
+    },
+    {
+      "type": "Equipment",
+      "name": "Vorpal",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2853"
+    },
+    {
+      "type": "Equipment",
+      "name": "Voyager's Pack",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3115"
+    },
+    {
+      "type": "Equipment",
+      "name": "Walking Cauldron",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3116"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wand of Continuation",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3051"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wand of Continuation (1st-rank Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3051"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wand of Continuation (2nd-rank Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3051"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wand of Continuation (3rd-rank Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3051"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wand of Continuation (4th-rank Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3051"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wand of Continuation (5th-rank Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3051"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wand of Continuation (6th-rank Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3051"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wand of Continuation (7th-rank Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3051"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wand of Continuation (8th-rank Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3051"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wand of Shardstorm",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3052"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wand of Shardstorm (1st-rank Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3052"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wand of Shardstorm (3rd-rank Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3052"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wand of Shardstorm (5th-rank Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3052"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wand of Shardstorm (7th-rank Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3052"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wand of Widening",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3053"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wand of Widening (1st-rank Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3053"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wand of Widening (2nd-rank Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3053"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wand of Widening (3rd-rank Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3053"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wand of Widening (4th-rank Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3053"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wand of Widening (5th-rank Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3053"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wand of Widening (6th-rank Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3053"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wand of Widening (7th-rank Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3053"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wand of Widening (8th-rank Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3053"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wand of Widening (9th-rank Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3053"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wayfinder",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3117"
+    },
+    {
+      "type": "Equipment",
+      "name": "Weapon Potency",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2830"
+    },
+    {
+      "type": "Equipment",
+      "name": "Weapon Potency (+1)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2830"
+    },
+    {
+      "type": "Equipment",
+      "name": "Weapon Potency (+2)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2830"
+    },
+    {
+      "type": "Equipment",
+      "name": "Weapon Potency (+3)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2830"
+    },
+    {
+      "type": "Equipment",
+      "name": "Whisper of the First Lie",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3118"
+    },
+    {
+      "type": "Equipment",
+      "name": "Winged",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2796"
+    },
+    {
+      "type": "Equipment",
+      "name": "Winged (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2796"
+    },
+    {
+      "type": "Equipment",
+      "name": "Winged Sandals",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3119"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wolf Fang",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2998"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wolfsbane",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2908"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wounding",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2854"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wyvern Poison",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2909"
+    },
+    {
+      "type": "Hazards",
+      "name": "Armageddon Orb",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=465"
+    },
+    {
+      "type": "Hazards",
+      "name": "Bloodthirsty Urge",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=466"
+    },
+    {
+      "type": "Hazards",
+      "name": "Bottomless Pit",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=467"
+    },
+    {
+      "type": "Hazards",
+      "name": "Confounding Betrayal",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=487"
+    },
+    {
+      "type": "Hazards",
+      "name": "Dance of Death",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=488"
+    },
+    {
+      "type": "Hazards",
+      "name": "Drowning Pit",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=489"
+    },
+    {
+      "type": "Hazards",
+      "name": "Electric Latch Rune",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=468"
+    },
+    {
+      "type": "Hazards",
+      "name": "Eternal Flame",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=490"
+    },
+    {
+      "type": "Hazards",
+      "name": "Fireball Rune",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=469"
+    },
+    {
+      "type": "Hazards",
+      "name": "Flensing Blades",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=491"
+    },
+    {
+      "type": "Hazards",
+      "name": "Ghostly Choir",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=470"
+    },
+    {
+      "type": "Hazards",
+      "name": "Hallucination Powder Trap",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=471"
+    },
+    {
+      "type": "Hazards",
+      "name": "Hammer Of Forbiddance",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=472"
+    },
+    {
+      "type": "Hazards",
+      "name": "Hampering Web",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=473"
+    },
+    {
+      "type": "Hazards",
+      "name": "Hidden Pit",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=474"
+    },
+    {
+      "type": "Hazards",
+      "name": "Pharaoh's Ward",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=475"
+    },
+    {
+      "type": "Hazards",
+      "name": "Planar Rift",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=476"
+    },
+    {
+      "type": "Hazards",
+      "name": "Poisoned Dart Gallery",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=492"
+    },
+    {
+      "type": "Hazards",
+      "name": "Poisoned Lock",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=477"
+    },
+    {
+      "type": "Hazards",
+      "name": "Poisonous Mold",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=478"
+    },
+    {
+      "type": "Hazards",
+      "name": "Polymorph Trap",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=479"
+    },
+    {
+      "type": "Hazards",
+      "name": "Quicksand",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=493"
+    },
+    {
+      "type": "Hazards",
+      "name": "Scythe Blades",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=480"
+    },
+    {
+      "type": "Hazards",
+      "name": "Slamming Door",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=481"
+    },
+    {
+      "type": "Hazards",
+      "name": "Snowfall",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=482"
+    },
+    {
+      "type": "Hazards",
+      "name": "Spear Launcher",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=483"
+    },
+    {
+      "type": "Hazards",
+      "name": "Spectral Reflection",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=484"
+    },
+    {
+      "type": "Hazards",
+      "name": "Spinning Blade Pillar",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=494"
+    },
+    {
+      "type": "Hazards",
+      "name": "Summoning Rune",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=495"
+    },
+    {
+      "type": "Hazards",
+      "name": "Titanic Flytrap",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=485"
+    },
+    {
+      "type": "Hazards",
+      "name": "Vorpal Executioner",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=486"
+    },
+    {
+      "type": "Hazards",
+      "name": "Wheel of Misery",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=496"
+    },
+    {
+      "type": "Item Curses",
+      "name": "Arsonous",
+      "url": "https://2e.aonprd.com/ItemCurses.aspx?ID=53"
+    },
+    {
+      "type": "Item Curses",
+      "name": "Bloodbiter",
+      "url": "https://2e.aonprd.com/ItemCurses.aspx?ID=54"
+    },
+    {
+      "type": "Item Curses",
+      "name": "Degenerating",
+      "url": "https://2e.aonprd.com/ItemCurses.aspx?ID=55"
+    },
+    {
+      "type": "Item Curses",
+      "name": "Grandstanding",
+      "url": "https://2e.aonprd.com/ItemCurses.aspx?ID=56"
+    },
+    {
+      "type": "Item Curses",
+      "name": "Raucous",
+      "url": "https://2e.aonprd.com/ItemCurses.aspx?ID=57"
+    },
+    {
+      "type": "Item Curses",
+      "name": "Ravenous",
+      "url": "https://2e.aonprd.com/ItemCurses.aspx?ID=58"
+    },
+    {
+      "type": "Item Curses",
+      "name": "Staining",
+      "url": "https://2e.aonprd.com/ItemCurses.aspx?ID=59"
+    },
+    {
+      "type": "Languages",
+      "name": "Hallit",
+      "url": "https://2e.aonprd.com/Languages.aspx?ID=167"
+    },
+    {
+      "type": "Languages",
+      "name": "Kelish",
+      "url": "https://2e.aonprd.com/Languages.aspx?ID=168"
+    },
+    {
+      "type": "Languages",
+      "name": "Mwangi",
+      "url": "https://2e.aonprd.com/Languages.aspx?ID=169"
+    },
+    {
+      "type": "Languages",
+      "name": "Osiriani",
+      "url": "https://2e.aonprd.com/Languages.aspx?ID=170"
+    },
+    {
+      "type": "Languages",
+      "name": "Shoanti",
+      "url": "https://2e.aonprd.com/Languages.aspx?ID=171"
+    },
+    {
+      "type": "Languages",
+      "name": "Skald",
+      "url": "https://2e.aonprd.com/Languages.aspx?ID=172"
+    },
+    {
+      "type": "Languages",
+      "name": "Tien",
+      "url": "https://2e.aonprd.com/Languages.aspx?ID=173"
+    },
+    {
+      "type": "Languages",
+      "name": "Varisian",
+      "url": "https://2e.aonprd.com/Languages.aspx?ID=174"
+    },
+    {
+      "type": "Languages",
+      "name": "Vudrani",
+      "url": "https://2e.aonprd.com/Languages.aspx?ID=175"
+    },
+    {
+      "type": "Planes",
+      "name": "Abaddon",
+      "url": "https://2e.aonprd.com/Planes.aspx?ID=37"
+    },
+    {
+      "type": "Planes",
+      "name": "Astral Plane",
+      "url": "https://2e.aonprd.com/Planes.aspx?ID=33"
+    },
+    {
+      "type": "Planes",
+      "name": "Axis",
+      "url": "https://2e.aonprd.com/Planes.aspx?ID=38"
+    },
+    {
+      "type": "Planes",
+      "name": "Boneyard",
+      "url": "https://2e.aonprd.com/Planes.aspx?ID=39"
+    },
+    {
+      "type": "Planes",
+      "name": "Creation's Forge",
+      "url": "https://2e.aonprd.com/Planes.aspx?ID=27"
+    },
+    {
+      "type": "Planes",
+      "name": "Dimension of Time",
+      "url": "https://2e.aonprd.com/Planes.aspx?ID=46"
+    },
+    {
+      "type": "Planes",
+      "name": "Dreamlands",
+      "url": "https://2e.aonprd.com/Planes.aspx?ID=47"
+    },
+    {
+      "type": "Planes",
+      "name": "Elysium",
+      "url": "https://2e.aonprd.com/Planes.aspx?ID=40"
+    },
+    {
+      "type": "Planes",
+      "name": "Ethereal Plane",
+      "url": "https://2e.aonprd.com/Planes.aspx?ID=34"
+    },
+    {
+      "type": "Planes",
+      "name": "First World",
+      "url": "https://2e.aonprd.com/Planes.aspx?ID=35"
+    },
+    {
+      "type": "Planes",
+      "name": "Heaven",
+      "url": "https://2e.aonprd.com/Planes.aspx?ID=41"
+    },
+    {
+      "type": "Planes",
+      "name": "Hell",
+      "url": "https://2e.aonprd.com/Planes.aspx?ID=42"
+    },
+    {
+      "type": "Planes",
+      "name": "Maelstrom",
+      "url": "https://2e.aonprd.com/Planes.aspx?ID=43"
+    },
+    {
+      "type": "Planes",
+      "name": "Nirvana",
+      "url": "https://2e.aonprd.com/Planes.aspx?ID=44"
+    },
+    {
+      "type": "Planes",
+      "name": "Outer Rifts",
+      "url": "https://2e.aonprd.com/Planes.aspx?ID=45"
+    },
+    {
+      "type": "Planes",
+      "name": "Plane of Air",
+      "url": "https://2e.aonprd.com/Planes.aspx?ID=29"
+    },
+    {
+      "type": "Planes",
+      "name": "Plane of Earth",
+      "url": "https://2e.aonprd.com/Planes.aspx?ID=30"
+    },
+    {
+      "type": "Planes",
+      "name": "Plane of Fire",
+      "url": "https://2e.aonprd.com/Planes.aspx?ID=31"
+    },
+    {
+      "type": "Planes",
+      "name": "Plane of Metal",
+      "url": "https://2e.aonprd.com/Planes.aspx?ID=24"
+    },
+    {
+      "type": "Planes",
+      "name": "Plane of Water",
+      "url": "https://2e.aonprd.com/Planes.aspx?ID=32"
+    },
+    {
+      "type": "Planes",
+      "name": "Plane of Wood",
+      "url": "https://2e.aonprd.com/Planes.aspx?ID=25"
+    },
+    {
+      "type": "Planes",
+      "name": "The Netherworld",
+      "url": "https://2e.aonprd.com/Planes.aspx?ID=36"
+    },
+    {
+      "type": "Planes",
+      "name": "The Universe",
+      "url": "https://2e.aonprd.com/Planes.aspx?ID=26"
+    },
+    {
+      "type": "Planes",
+      "name": "The Void",
+      "url": "https://2e.aonprd.com/Planes.aspx?ID=28"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Angelic Vessel",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=141"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Apothecary's Garden",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=178"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Beast Senses",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=130"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Bestow Life",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=166"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Blazing Soul",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=165"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Bottomless Reservoir",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=193"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Call of the Wild",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=131"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Command Legion",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=159"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Curse Wound",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=154"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Dancing Shadow",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=187"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Dark Roads",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=188"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Deadly Spark",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=124"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Death Gaze",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=142"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Divine Retribution",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=136"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Ease Burden",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=148"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Encompassing Darkness",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=184"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Feather Steps",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=125"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Feral Claws",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=132"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Fiendish Bargain",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=157"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Fiendish Defiance",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=155"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Flare Bolt",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=160"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Flowing Footsteps",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=194"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Form of Fury",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=133"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Form of Vengeance",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=135"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Grappling Vine",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=181"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Grim Specter",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=147"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Healing Wave",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=167"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Heat Haze",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=161"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Heaven's Grace",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=137"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Incandescent Sight",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=162"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Inextinguishable",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=169"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Jet Propulsion",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=163"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Lashing Currents",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=190"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Life Everlasting",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=171"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Lightning Storm",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=127"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Linguistic Nexus",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=172"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Little Helper",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=156"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Living Death",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=143"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Living Statue",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=153"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Living Storm",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=129"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Megaflora",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=183"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Mental Bastion",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=177"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Monsoon Curtain",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=191"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Obscure",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=185"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Overflowing Life",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=168"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Perception Filter",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=175"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Petal Dance",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=182"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Pierce the Veil",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=145"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Pollen Spray",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=179"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Profane Fervor",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=158"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Propelling Winds",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=128"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Psychic Scream",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=176"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Raise Ramparts",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=151"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Recalculate",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=173"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Repository of Knowledge",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=174"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Righteous Call",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=139"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Ripples and Waves",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=195"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Rolling Geode",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=149"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Sacred Glow",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=140"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Searing Wave",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=164"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Shadow Smith",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=186"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Shattered Earth",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=150"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Shroud of the Afterlife",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=144"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Sprout Ally",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=180"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Tidal Crash",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=192"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Tide of Death",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=146"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Track of the Beast",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=134"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Umbral Body",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=189"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Underground Bounty",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=152"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Vitality Siphon",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=170"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Wind Barrier",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=126"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Word of Faith",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=138"
+    },
+    {
+      "type": "Rules",
+      "name": "Chapter 1: Running the Game",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2468"
+    },
+    {
+      "type": "Rules",
+      "name": "Chapter 2: Building Games",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2665"
+    },
+    {
+      "type": "Rules",
+      "name": "Chapter 3: Age of Lost Omens",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2989"
+    },
+    {
+      "type": "Rules",
+      "name": "Chapter 4: Subsystems",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3026"
+    },
+    {
+      "type": "Rules",
+      "name": "Chapter 5: Treasure Trove",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3135"
+    },
+    {
+      "type": "Rules",
+      "name": "Introduction",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2460"
+    },
+    {
+      "type": "Traits",
+      "name": "Aeon (Monster)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=525"
+    },
+    {
+      "type": "Traits",
+      "name": "Apex (Equipment)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=532"
+    },
+    {
+      "type": "Traits",
+      "name": "Artifact (Equipment)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=537"
+    },
+    {
+      "type": "Traits",
+      "name": "Astral (Creature Type)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=538"
+    },
+    {
+      "type": "Traits",
+      "name": "City (Settlement)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=553"
+    },
+    {
+      "type": "Traits",
+      "name": "Companion (Equipment)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=558"
+    },
+    {
+      "type": "Traits",
+      "name": "Contact (Poison)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=565"
+    },
+    {
+      "type": "Traits",
+      "name": "Cursed (Equipment)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=567"
+    },
+    {
+      "type": "Traits",
+      "name": "Dream (Creature Type)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=582"
+    },
+    {
+      "type": "Traits",
+      "name": "Environmental (Hazard)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=591"
+    },
+    {
+      "type": "Traits",
+      "name": "Erratic (Planar)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=592"
+    },
+    {
+      "type": "Traits",
+      "name": "Expandable (Equipment)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=475"
+    },
+    {
+      "type": "Traits",
+      "name": "Finite (Planar)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=603"
+    },
+    {
+      "type": "Traits",
+      "name": "Flowing (Planar)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=607"
+    },
+    {
+      "type": "Traits",
+      "name": "Focused (Equipment)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=609"
+    },
+    {
+      "type": "Traits",
+      "name": "Haunt (Hazard)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=622"
+    },
+    {
+      "type": "Traits",
+      "name": "High Gravity (Planar)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=625"
+    },
+    {
+      "type": "Traits",
+      "name": "Immeasurable (Planar)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=630"
+    },
+    {
+      "type": "Traits",
+      "name": "Incorporeal (Monster)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=632"
+    },
+    {
+      "type": "Traits",
+      "name": "Ingested (Poison)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=633"
+    },
+    {
+      "type": "Traits",
+      "name": "Inhaled (Poison)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=634"
+    },
+    {
+      "type": "Traits",
+      "name": "Injury (Poison)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=635"
+    },
+    {
+      "type": "Traits",
+      "name": "Intelligent (Equipment)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=636"
+    },
+    {
+      "type": "Traits",
+      "name": "Invested (Equipment)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=637"
+    },
+    {
+      "type": "Traits",
+      "name": "Low Gravity (Planar)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=643"
+    },
+    {
+      "type": "Traits",
+      "name": "Metamorphic (Planar)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=649"
+    },
+    {
+      "type": "Traits",
+      "name": "Metropolis (Settlement)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=650"
+    },
+    {
+      "type": "Traits",
+      "name": "Microgravity (Planar)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=651"
+    },
+    {
+      "type": "Traits",
+      "name": "Oil (Equipment)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=663"
+    },
+    {
+      "type": "Traits",
+      "name": "Precious (Equipment)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=673"
+    },
+    {
+      "type": "Traits",
+      "name": "Protean (Monster)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=678"
+    },
+    {
+      "type": "Traits",
+      "name": "Psychopomp (Monster)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=679"
+    },
+    {
+      "type": "Traits",
+      "name": "Reckless (Mechanics)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=685"
+    },
+    {
+      "type": "Traits",
+      "name": "Scroll (Equipment)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=688"
+    },
+    {
+      "type": "Traits",
+      "name": "Sentient (Planar)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=691"
+    },
+    {
+      "type": "Traits",
+      "name": "Shade (Creature Type)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=692"
+    },
+    {
+      "type": "Traits",
+      "name": "Splash (Mechanics)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=699"
+    },
+    {
+      "type": "Traits",
+      "name": "Staff (Equipment)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=700"
+    },
+    {
+      "type": "Traits",
+      "name": "Static (Planar)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=702"
+    },
+    {
+      "type": "Traits",
+      "name": "Strange Gravity (Planar)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=703"
+    },
+    {
+      "type": "Traits",
+      "name": "Subjective Gravity (Planar)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=705"
+    },
+    {
+      "type": "Traits",
+      "name": "Swarm (Monster)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=707"
+    },
+    {
+      "type": "Traits",
+      "name": "Talisman (Equipment)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=709"
+    },
+    {
+      "type": "Traits",
+      "name": "Time (Creature Type)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=712"
+    },
+    {
+      "type": "Traits",
+      "name": "Timeless (Planar)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=713"
+    },
+    {
+      "type": "Traits",
+      "name": "Town (Settlement)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=714"
+    },
+    {
+      "type": "Traits",
+      "name": "Unbounded (Planar)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=720"
+    },
+    {
+      "type": "Traits",
+      "name": "Village (Settlement)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=725"
+    },
+    {
+      "type": "Traits",
+      "name": "Virulent (Affliction)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=726"
+    },
+    {
+      "type": "Traits",
+      "name": "Werecreature (Monster)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=733"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Airship",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=57"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Bathysphere",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=73"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Carriage",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=63"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Cart",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=64"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Chariot, Heavy",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=65"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Chariot, Light",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=66"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Cutter",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=74"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Galley",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=75"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Glider",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=58"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Hot Air Balloon",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=59"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Longship",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=76"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Raft",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=77"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Rowboat",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=78"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Sailing Ship",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=79"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Sky Chariot, Heavy",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=62"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Sky Chariot, Light",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=60"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Sky Chariot, Medium",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=61"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Sled",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=67"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Sleigh",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=68"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Steam Giant",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=69"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Strider",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=70"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Velocipede",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=71"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Wagon",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=72"
+    }
+  ]
+}

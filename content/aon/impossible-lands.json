@@ -1,0 +1,1455 @@
+{
+  "etag": "\"6e73b151be68420688b2750730750b02\"",
+  "entries": [
+    {
+      "type": "Ancestries",
+      "name": "Ghoran",
+      "url": "https://2e.aonprd.com/Ancestries.aspx?ID=52"
+    },
+    {
+      "type": "Ancestries",
+      "name": "Kashrishi",
+      "url": "https://2e.aonprd.com/Ancestries.aspx?ID=53"
+    },
+    {
+      "type": "Ancestries",
+      "name": "Nagaji",
+      "url": "https://2e.aonprd.com/Ancestries.aspx?ID=54"
+    },
+    {
+      "type": "Ancestries",
+      "name": "Vanara",
+      "url": "https://2e.aonprd.com/Ancestries.aspx?ID=55"
+    },
+    {
+      "type": "Ancestries",
+      "name": "Vishkanya",
+      "url": "https://2e.aonprd.com/Ancestries.aspx?ID=56"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Ancient Ash",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=207"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Athamasi",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=211"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Bandaagee Vanara",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=221"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Cataphract Fleshwarp",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=204"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Discarded Fleshwarp",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=205"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Elusive Vishkanya",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=225"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Enchanting Lily",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=208"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Hooded Nagaji",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=216"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Keen-Venom Vishkanya",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=226"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Lahkgyan Vanara",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=222"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Lethoci",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=212"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Nascent",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=213"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Old-Blood Vishkanya",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=227"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Prismatic Vishkanya",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=228"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Ragdyan Vanara",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=223"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Sacred Nagaji",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=217"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Scalekeeper Vishkanya",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=229"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Strong Oak",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=209"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Surgewise Fleshwarp",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=206"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Thorned Rose",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=210"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Titan Nagaji",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=218"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Trogloshi",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=214"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Venom-Resistant Vishkanya",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=230"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Venomshield Nagaji",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=219"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Wajaghand Vanara",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=224"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Whipfang Nagaji",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=220"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Xyloshi",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=215"
+    },
+    {
+      "type": "Companions",
+      "name": "Water Wraith",
+      "url": "https://2e.aonprd.com/Companions.aspx?ID=54"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Jalmeri Heavenseeker",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=198"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Shieldmarshal",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=197"
+    },
+    {
+      "type": "Curses",
+      "name": "Boatman's Toll",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=46"
+    },
+    {
+      "type": "Curses",
+      "name": "Consummate Liar",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=48"
+    },
+    {
+      "type": "Curses",
+      "name": "Curse of Biting Swarms",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=44"
+    },
+    {
+      "type": "Curses",
+      "name": "Curse of Petulant Whispers",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=43"
+    },
+    {
+      "type": "Curses",
+      "name": "Curse of the Rotting Heart",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=45"
+    },
+    {
+      "type": "Curses",
+      "name": "Lord's Arrogance",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=47"
+    },
+    {
+      "type": "Deities",
+      "name": "Aakriti",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=261"
+    },
+    {
+      "type": "Deities",
+      "name": "Arazni",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=31"
+    },
+    {
+      "type": "Deities",
+      "name": "Arundhat",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=186"
+    },
+    {
+      "type": "Deities",
+      "name": "Chamidu",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=188"
+    },
+    {
+      "type": "Deities",
+      "name": "Diomazul",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=190"
+    },
+    {
+      "type": "Deities",
+      "name": "Haagenti",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=260"
+    },
+    {
+      "type": "Deities",
+      "name": "Likha",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=192"
+    },
+    {
+      "type": "Deities",
+      "name": "Mahathallah",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=170"
+    },
+    {
+      "type": "Deities",
+      "name": "Ragdya",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=194"
+    },
+    {
+      "type": "Deities",
+      "name": "Ravithra",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=218"
+    },
+    {
+      "type": "Deities",
+      "name": "Vineshvakhi",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=262"
+    },
+    {
+      "type": "Equipment",
+      "name": "Alkenstar Ice Wine",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1788"
+    },
+    {
+      "type": "Equipment",
+      "name": "Bottled Screams",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1792"
+    },
+    {
+      "type": "Equipment",
+      "name": "Carrion Cask",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1797"
+    },
+    {
+      "type": "Equipment",
+      "name": "Condensed Mana",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1802"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cube of Force",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1803"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cube of Nex",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1805"
+    },
+    {
+      "type": "Equipment",
+      "name": "Defiled Costa",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1793"
+    },
+    {
+      "type": "Equipment",
+      "name": "Defiled Costa (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1793"
+    },
+    {
+      "type": "Equipment",
+      "name": "Doctrine of Blissful Eternity",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1798"
+    },
+    {
+      "type": "Equipment",
+      "name": "Goo Grenade",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1811"
+    },
+    {
+      "type": "Equipment",
+      "name": "Goo Grenade (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1811"
+    },
+    {
+      "type": "Equipment",
+      "name": "Goo Grenade (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1811"
+    },
+    {
+      "type": "Equipment",
+      "name": "Goo Grenade (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1811"
+    },
+    {
+      "type": "Equipment",
+      "name": "Goo Grenade (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1811"
+    },
+    {
+      "type": "Equipment",
+      "name": "Grave Token",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1794"
+    },
+    {
+      "type": "Equipment",
+      "name": "Lesser Cube of Nex",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1804"
+    },
+    {
+      "type": "Equipment",
+      "name": "Oozepick",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1812"
+    },
+    {
+      "type": "Equipment",
+      "name": "Oozepick (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1812"
+    },
+    {
+      "type": "Equipment",
+      "name": "Open Mind",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1806"
+    },
+    {
+      "type": "Equipment",
+      "name": "Oxygen Ooze",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1813"
+    },
+    {
+      "type": "Equipment",
+      "name": "Palanquin of Night",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1799"
+    },
+    {
+      "type": "Equipment",
+      "name": "Plated Duster",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1789"
+    },
+    {
+      "type": "Equipment",
+      "name": "Pocket Watch",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1790"
+    },
+    {
+      "type": "Equipment",
+      "name": "Silent Heart",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1807"
+    },
+    {
+      "type": "Equipment",
+      "name": "Sunflower Censer",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1800"
+    },
+    {
+      "type": "Equipment",
+      "name": "Thoughtwhip Claw",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1808"
+    },
+    {
+      "type": "Equipment",
+      "name": "Tyrant's Writ",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1801"
+    },
+    {
+      "type": "Equipment",
+      "name": "Unsullied Blood",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1795"
+    },
+    {
+      "type": "Equipment",
+      "name": "Unsullied Blood (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1795"
+    },
+    {
+      "type": "Equipment",
+      "name": "Unsullied Blood (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1795"
+    },
+    {
+      "type": "Equipment",
+      "name": "Unsullied Blood (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1795"
+    },
+    {
+      "type": "Equipment",
+      "name": "Unsullied Blood (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1795"
+    },
+    {
+      "type": "Equipment",
+      "name": "Vengeful Arm",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1809"
+    },
+    {
+      "type": "Equipment",
+      "name": "Venomed Tongue",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1810"
+    },
+    {
+      "type": "Equipment",
+      "name": "Vulture's Wing",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1796"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wrenchgear",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1791"
+    },
+    {
+      "type": "Familiar Abilities",
+      "name": "Created Magic (familiar)",
+      "url": "https://2e.aonprd.com/Familiars.aspx?ID=88"
+    },
+    {
+      "type": "Familiar Abilities",
+      "name": "Turn of Fate (familiar)",
+      "url": "https://2e.aonprd.com/Familiars.aspx?ID=89"
+    },
+    {
+      "type": "Feats",
+      "name": "Alabaster Eyes",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4021"
+    },
+    {
+      "type": "Feats",
+      "name": "Alluring Performance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4029"
+    },
+    {
+      "type": "Feats",
+      "name": "Ancient Memories",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3944"
+    },
+    {
+      "type": "Feats",
+      "name": "Asura Magic",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3940"
+    },
+    {
+      "type": "Feats",
+      "name": "Bend Space",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3980"
+    },
+    {
+      "type": "Feats",
+      "name": "Breath of Calamity",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3998"
+    },
+    {
+      "type": "Feats",
+      "name": "Cannibalize Magic",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4049"
+    },
+    {
+      "type": "Feats",
+      "name": "Canopy Sight",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4000"
+    },
+    {
+      "type": "Feats",
+      "name": "Cleansing Light",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3981"
+    },
+    {
+      "type": "Feats",
+      "name": "Climbing Tail",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4001"
+    },
+    {
+      "type": "Feats",
+      "name": "Cold Minded",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3982"
+    },
+    {
+      "type": "Feats",
+      "name": "Community Knowledge",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3962"
+    },
+    {
+      "type": "Feats",
+      "name": "Consolidated Overlay Panopticon",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4041"
+    },
+    {
+      "type": "Feats",
+      "name": "Counterclockwork Focus",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4043"
+    },
+    {
+      "type": "Feats",
+      "name": "Cross the Final Horizon",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2205"
+    },
+    {
+      "type": "Feats",
+      "name": "Crystal Luminescence",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3963"
+    },
+    {
+      "type": "Feats",
+      "name": "Dangle (Vanara)",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4012"
+    },
+    {
+      "type": "Feats",
+      "name": "Darting Monkey",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4006"
+    },
+    {
+      "type": "Feats",
+      "name": "Debilitating Venom",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4026"
+    },
+    {
+      "type": "Feats",
+      "name": "Defy Fey",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4054"
+    },
+    {
+      "type": "Feats",
+      "name": "Disruptive Stare",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3995"
+    },
+    {
+      "type": "Feats",
+      "name": "Dominion Aura",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3943"
+    },
+    {
+      "type": "Feats",
+      "name": "Drain Emotion",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4047"
+    },
+    {
+      "type": "Feats",
+      "name": "Eldritch Calm",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4051"
+    },
+    {
+      "type": "Feats",
+      "name": "Embodied Dragoon Subjectivity",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3929"
+    },
+    {
+      "type": "Feats",
+      "name": "Embodied Dreadnought Subjectivity",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3927"
+    },
+    {
+      "type": "Feats",
+      "name": "Embodied Legionary Subjectivity",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3926"
+    },
+    {
+      "type": "Feats",
+      "name": "Emotional Partitions",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3964"
+    },
+    {
+      "type": "Feats",
+      "name": "Empathic Calm",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3970"
+    },
+    {
+      "type": "Feats",
+      "name": "Endless Memories",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3953"
+    },
+    {
+      "type": "Feats",
+      "name": "Envenom Strike",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3991"
+    },
+    {
+      "type": "Feats",
+      "name": "Equitable Defense",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4042"
+    },
+    {
+      "type": "Feats",
+      "name": "Eternal Memories",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3957"
+    },
+    {
+      "type": "Feats",
+      "name": "Faultspawn",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3937"
+    },
+    {
+      "type": "Feats",
+      "name": "Fey Ascension",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4048"
+    },
+    {
+      "type": "Feats",
+      "name": "Fey Influence",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1239"
+    },
+    {
+      "type": "Feats",
+      "name": "Fey Tracker",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4055"
+    },
+    {
+      "type": "Feats",
+      "name": "Fey Transcendence",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4052"
+    },
+    {
+      "type": "Feats",
+      "name": "Fighting Horn",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3971"
+    },
+    {
+      "type": "Feats",
+      "name": "Flexible Form",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3945"
+    },
+    {
+      "type": "Feats",
+      "name": "Flower Magic",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3954"
+    },
+    {
+      "type": "Feats",
+      "name": "Fortified Mind",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3975"
+    },
+    {
+      "type": "Feats",
+      "name": "Ghoran Lore",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3946"
+    },
+    {
+      "type": "Feats",
+      "name": "Ghoran Weapon Expertise",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3958"
+    },
+    {
+      "type": "Feats",
+      "name": "Ghoran Weapon Familiarity",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3947"
+    },
+    {
+      "type": "Feats",
+      "name": "Ghoran Weapon Practice",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3949"
+    },
+    {
+      "type": "Feats",
+      "name": "Ghoran's Wrath",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3961"
+    },
+    {
+      "type": "Feats",
+      "name": "Glamour",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4050"
+    },
+    {
+      "type": "Feats",
+      "name": "Grand Dance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4046"
+    },
+    {
+      "type": "Feats",
+      "name": "Greater Enhance Venom",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4036"
+    },
+    {
+      "type": "Feats",
+      "name": "Greenwatch Initiate",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4053"
+    },
+    {
+      "type": "Feats",
+      "name": "Greenwatch Veteran",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4056"
+    },
+    {
+      "type": "Feats",
+      "name": "Greenwatcher",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4058"
+    },
+    {
+      "type": "Feats",
+      "name": "Guarded Thoughts",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3992"
+    },
+    {
+      "type": "Feats",
+      "name": "Heaven's Thunder",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2199"
+    },
+    {
+      "type": "Feats",
+      "name": "Hidden Thorn",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3948"
+    },
+    {
+      "type": "Feats",
+      "name": "Hypnotic Lure",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3987"
+    },
+    {
+      "type": "Feats",
+      "name": "Idol Threat",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3942"
+    },
+    {
+      "type": "Feats",
+      "name": "Jalmeri Heavenseeker Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2198"
+    },
+    {
+      "type": "Feats",
+      "name": "Jalmeri Rakshasa Magic",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3941"
+    },
+    {
+      "type": "Feats",
+      "name": "Jungle Runner",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4007"
+    },
+    {
+      "type": "Feats",
+      "name": "Kashrishi Revivification",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3978"
+    },
+    {
+      "type": "Feats",
+      "name": "Legendary Size",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4013"
+    },
+    {
+      "type": "Feats",
+      "name": "Lesser Enhance Venom",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4022"
+    },
+    {
+      "type": "Feats",
+      "name": "Look but Don't Touch",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3959"
+    },
+    {
+      "type": "Feats",
+      "name": "Masquerade of Seasons Stance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4044"
+    },
+    {
+      "type": "Feats",
+      "name": "Mental Sustenance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3965"
+    },
+    {
+      "type": "Feats",
+      "name": "Miraculous Repair",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3935"
+    },
+    {
+      "type": "Feats",
+      "name": "Moderate Enhance Venom",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4030"
+    },
+    {
+      "type": "Feats",
+      "name": "Molten Wit",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3930"
+    },
+    {
+      "type": "Feats",
+      "name": "Monkey Spirits",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4016"
+    },
+    {
+      "type": "Feats",
+      "name": "Murderous Thorns",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3950"
+    },
+    {
+      "type": "Feats",
+      "name": "Nagaji Lore",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3983"
+    },
+    {
+      "type": "Feats",
+      "name": "Nagaji Spell Expertise",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3996"
+    },
+    {
+      "type": "Feats",
+      "name": "Nagaji Spell Familiarity",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3984"
+    },
+    {
+      "type": "Feats",
+      "name": "Nagaji Spell Mysteries",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3988"
+    },
+    {
+      "type": "Feats",
+      "name": "Native Waters",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3931"
+    },
+    {
+      "type": "Feats",
+      "name": "Noble Resolve",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3934"
+    },
+    {
+      "type": "Feats",
+      "name": "Open Mind",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3966"
+    },
+    {
+      "type": "Feats",
+      "name": "Perfect Ki Exemplar",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4062"
+    },
+    {
+      "type": "Feats",
+      "name": "Perfect Ki Expert",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4061"
+    },
+    {
+      "type": "Feats",
+      "name": "Perfect Ki Grandmaster",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4063"
+    },
+    {
+      "type": "Feats",
+      "name": "Perfect Resistance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4060"
+    },
+    {
+      "type": "Feats",
+      "name": "Perfect Weaponry",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4059"
+    },
+    {
+      "type": "Feats",
+      "name": "Perfume Cloud",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3955"
+    },
+    {
+      "type": "Feats",
+      "name": "Pirouette",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4045"
+    },
+    {
+      "type": "Feats",
+      "name": "Pit of Snakes",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3997"
+    },
+    {
+      "type": "Feats",
+      "name": "Planar Sidestep",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3936"
+    },
+    {
+      "type": "Feats",
+      "name": "Prismatic Scales",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3999"
+    },
+    {
+      "type": "Feats",
+      "name": "Puncturing Horn",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3967"
+    },
+    {
+      "type": "Feats",
+      "name": "Ragdya's Dance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4014"
+    },
+    {
+      "type": "Feats",
+      "name": "Ragdya's Revelry",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4008"
+    },
+    {
+      "type": "Feats",
+      "name": "Rakshasa Ravaged",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4015"
+    },
+    {
+      "type": "Feats",
+      "name": "Reimagine",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3979"
+    },
+    {
+      "type": "Feats",
+      "name": "Restoring Blood",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4027"
+    },
+    {
+      "type": "Feats",
+      "name": "Reveal Hidden Self",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3938"
+    },
+    {
+      "type": "Feats",
+      "name": "Scuttle Up",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3968"
+    },
+    {
+      "type": "Feats",
+      "name": "Serpent's Tongue",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3985"
+    },
+    {
+      "type": "Feats",
+      "name": "Serpentcoil Slam",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3993"
+    },
+    {
+      "type": "Feats",
+      "name": "Serpentine Swimmer",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3994"
+    },
+    {
+      "type": "Feats",
+      "name": "Shieldmarshal Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4040"
+    },
+    {
+      "type": "Feats",
+      "name": "Silent Stone",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3932"
+    },
+    {
+      "type": "Feats",
+      "name": "Skilled Climber",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3972"
+    },
+    {
+      "type": "Feats",
+      "name": "Skillful Climber",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4009"
+    },
+    {
+      "type": "Feats",
+      "name": "Skin Split",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3989"
+    },
+    {
+      "type": "Feats",
+      "name": "Sky and Heaven Stance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2200"
+    },
+    {
+      "type": "Feats",
+      "name": "Skyseeker",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2201"
+    },
+    {
+      "type": "Feats",
+      "name": "Social Camouflage",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4023"
+    },
+    {
+      "type": "Feats",
+      "name": "Solar Rejuvenation (Ghoran)",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3956"
+    },
+    {
+      "type": "Feats",
+      "name": "Speak with Flowers",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3951"
+    },
+    {
+      "type": "Feats",
+      "name": "Speaking Sky",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2204"
+    },
+    {
+      "type": "Feats",
+      "name": "Steal the Sky",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2202"
+    },
+    {
+      "type": "Feats",
+      "name": "Stronger Debilitating Venom",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4033"
+    },
+    {
+      "type": "Feats",
+      "name": "Sudden Mindfulness",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4002"
+    },
+    {
+      "type": "Feats",
+      "name": "Swift Application",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4031"
+    },
+    {
+      "type": "Feats",
+      "name": "Tail Snatch",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4010"
+    },
+    {
+      "type": "Feats",
+      "name": "Telekinetic Slip",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3976"
+    },
+    {
+      "type": "Feats",
+      "name": "Tough Skin",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3969"
+    },
+    {
+      "type": "Feats",
+      "name": "Towering Presence",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3939"
+    },
+    {
+      "type": "Feats",
+      "name": "Transcendent Realization",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3977"
+    },
+    {
+      "type": "Feats",
+      "name": "Transposable Compliance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3928"
+    },
+    {
+      "type": "Feats",
+      "name": "Tree's Ward",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3952"
+    },
+    {
+      "type": "Feats",
+      "name": "Triggerbrand Blitz",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4039"
+    },
+    {
+      "type": "Feats",
+      "name": "Triggerbrand Salvo",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4038"
+    },
+    {
+      "type": "Feats",
+      "name": "Unbound Freedom",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4017"
+    },
+    {
+      "type": "Feats",
+      "name": "Unfettering Prankster",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4020"
+    },
+    {
+      "type": "Feats",
+      "name": "Unlock Secret",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3973"
+    },
+    {
+      "type": "Feats",
+      "name": "Unseen Passage",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4057"
+    },
+    {
+      "type": "Feats",
+      "name": "Vanara Battle Clarity",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4018"
+    },
+    {
+      "type": "Feats",
+      "name": "Vanara Lore",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4003"
+    },
+    {
+      "type": "Feats",
+      "name": "Vanara Weapon Expertise",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4019"
+    },
+    {
+      "type": "Feats",
+      "name": "Vanara Weapon Familiarity",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4004"
+    },
+    {
+      "type": "Feats",
+      "name": "Vanara Weapon Trickery",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4011"
+    },
+    {
+      "type": "Feats",
+      "name": "Venom Purge",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4034"
+    },
+    {
+      "type": "Feats",
+      "name": "Venom Spit",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3990"
+    },
+    {
+      "type": "Feats",
+      "name": "Vicious Venom",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4037"
+    },
+    {
+      "type": "Feats",
+      "name": "Violent Vines",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3960"
+    },
+    {
+      "type": "Feats",
+      "name": "Viper Strike",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4032"
+    },
+    {
+      "type": "Feats",
+      "name": "Vishkanya Lore",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4024"
+    },
+    {
+      "type": "Feats",
+      "name": "Vishkanya Weapon Arts",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4028"
+    },
+    {
+      "type": "Feats",
+      "name": "Vishkanya Weapon Expertise",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4035"
+    },
+    {
+      "type": "Feats",
+      "name": "Vishkanya Weapon Familiarity",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4025"
+    },
+    {
+      "type": "Feats",
+      "name": "Water Nagaji",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3986"
+    },
+    {
+      "type": "Feats",
+      "name": "Well of Potential",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3974"
+    },
+    {
+      "type": "Feats",
+      "name": "Whitecape",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4005"
+    },
+    {
+      "type": "Feats",
+      "name": "Wind Pillow",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3933"
+    },
+    {
+      "type": "Hazards",
+      "name": "Cracked Earth",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=304"
+    },
+    {
+      "type": "Hazards",
+      "name": "Mana Whorl",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=305"
+    },
+    {
+      "type": "Hazards",
+      "name": "Spell Pitchers",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=306"
+    },
+    {
+      "type": "Languages",
+      "name": "Kashrishi",
+      "url": "https://2e.aonprd.com/Languages.aspx?ID=102"
+    },
+    {
+      "type": "Languages",
+      "name": "Ratajin",
+      "url": "https://2e.aonprd.com/Languages.aspx?ID=104"
+    },
+    {
+      "type": "Languages",
+      "name": "Vishkanya",
+      "url": "https://2e.aonprd.com/Languages.aspx?ID=103"
+    },
+    {
+      "type": "Monsters",
+      "name": "Benthic Reaver",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2403"
+    },
+    {
+      "type": "Monsters",
+      "name": "Clockwork Cannoneer",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2404"
+    },
+    {
+      "type": "Monsters",
+      "name": "Cursed King",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2405"
+    },
+    {
+      "type": "Monsters",
+      "name": "Fleshforged Conformer",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2406"
+    },
+    {
+      "type": "Monsters",
+      "name": "Fleshforged Dreadnought",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2407"
+    },
+    {
+      "type": "Monsters",
+      "name": "Gunpowder Ooze",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2412"
+    },
+    {
+      "type": "Monsters",
+      "name": "Kasesh",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2409"
+    },
+    {
+      "type": "Monsters",
+      "name": "Kashrishi Evaluator",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2410"
+    },
+    {
+      "type": "Monsters",
+      "name": "Mutant Gnoll Hulk",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2411"
+    },
+    {
+      "type": "Monsters",
+      "name": "Quantium Golem",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2413"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ratajin Mastermind",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2414"
+    },
+    {
+      "type": "Monsters",
+      "name": "Skinskitter",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2408"
+    },
+    {
+      "type": "Monsters",
+      "name": "Spellscar Fext",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2415"
+    },
+    {
+      "type": "Monsters",
+      "name": "Stone Sister",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2098"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ugvashi",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2416"
+    },
+    {
+      "type": "Rules",
+      "name": "Wild Magic",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1879"
+    },
+    {
+      "type": "Spells",
+      "name": "Speaking Sky",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=824"
+    },
+    {
+      "type": "Spells",
+      "name": "Steal the Sky",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=825"
+    },
+    {
+      "type": "Spells",
+      "name": "Summon Ancient Fleshforged",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1256"
+    },
+    {
+      "type": "Spells",
+      "name": "Summon Healing Servitor",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1257"
+    },
+    {
+      "type": "Spells",
+      "name": "Unblinking Flame Aura",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1244"
+    },
+    {
+      "type": "Spells",
+      "name": "Unblinking Flame Emblem",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1245"
+    },
+    {
+      "type": "Spells",
+      "name": "Unblinking Flame Ignition",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1246"
+    },
+    {
+      "type": "Spells",
+      "name": "Unbreaking Wave Barrier",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1247"
+    },
+    {
+      "type": "Spells",
+      "name": "Unbreaking Wave Containment",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1248"
+    },
+    {
+      "type": "Spells",
+      "name": "Unbreaking Wave Vapor",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1249"
+    },
+    {
+      "type": "Spells",
+      "name": "Unfolding Wind Blitz",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1250"
+    },
+    {
+      "type": "Spells",
+      "name": "Unfolding Wind Buffet",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1251"
+    },
+    {
+      "type": "Spells",
+      "name": "Unfolding Wind Crash",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1252"
+    },
+    {
+      "type": "Spells",
+      "name": "Untwisting Iron Augmentation",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1253"
+    },
+    {
+      "type": "Spells",
+      "name": "Untwisting Iron Pillar",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1254"
+    },
+    {
+      "type": "Spells",
+      "name": "Untwisting Iron Roots",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1255"
+    },
+    {
+      "type": "Traits",
+      "name": "Kashrishi (Ancestry)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=462"
+    },
+    {
+      "type": "Traits",
+      "name": "Ratajin (Monster)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=463"
+    },
+    {
+      "type": "Ways",
+      "name": "Way of the Triggerbrand",
+      "url": "https://2e.aonprd.com/Ways.aspx?ID=6"
+    },
+    {
+      "type": "Weapons",
+      "name": "Broadspear",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=258"
+    },
+    {
+      "type": "Weapons",
+      "name": "Chakri",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=270"
+    },
+    {
+      "type": "Weapons",
+      "name": "Dandpatta",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=260"
+    },
+    {
+      "type": "Weapons",
+      "name": "Donchak",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=261"
+    },
+    {
+      "type": "Weapons",
+      "name": "Gada",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=262"
+    },
+    {
+      "type": "Weapons",
+      "name": "Panabas",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=265"
+    },
+    {
+      "type": "Weapons",
+      "name": "Talwar",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=266"
+    },
+    {
+      "type": "Weapons",
+      "name": "Thorn Whip",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=267"
+    },
+    {
+      "type": "Weapons",
+      "name": "Triggerbrand",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=257"
+    },
+    {
+      "type": "Weapons",
+      "name": "Visap",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=268"
+    },
+    {
+      "type": "Weapons",
+      "name": "Zulfikar",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=269"
+    },
+    {
+      "type": "Weapons",
+      "name": "Kalis",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=263"
+    },
+    {
+      "type": "Weapons",
+      "name": "Kris",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=264"
+    }
+  ]
+}

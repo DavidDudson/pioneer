@@ -1,0 +1,805 @@
+{
+  "etag": "\"afa9aca8784e41f18ab3fa0569c69f6d\"",
+  "entries": [
+    {
+      "type": "Curses",
+      "name": "Face at the Foot of the Bed",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=111"
+    },
+    {
+      "type": "Deities",
+      "name": "Kugaptee",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=725"
+    },
+    {
+      "type": "Deities",
+      "name": "Musagani",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=726"
+    },
+    {
+      "type": "Deities",
+      "name": "Sigek",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=729"
+    },
+    {
+      "type": "Equipment",
+      "name": "Animal-Turning Fulu",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4082"
+    },
+    {
+      "type": "Equipment",
+      "name": "Ascendant Dragon Spirit",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4068"
+    },
+    {
+      "type": "Equipment",
+      "name": "Branch of the Great Sugi",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4103"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cape of Justice",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4086"
+    },
+    {
+      "type": "Equipment",
+      "name": "Covenant Tea",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4075"
+    },
+    {
+      "type": "Equipment",
+      "name": "Dragon Turtle Armor",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4059"
+    },
+    {
+      "type": "Equipment",
+      "name": "Dragon Turtle Artillery",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4087"
+    },
+    {
+      "type": "Equipment",
+      "name": "Dragonfire Halfbow",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4060"
+    },
+    {
+      "type": "Equipment",
+      "name": "Energizing Pill",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4055"
+    },
+    {
+      "type": "Equipment",
+      "name": "Energizing Tea",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4076"
+    },
+    {
+      "type": "Equipment",
+      "name": "Evil-Reflecting Shield",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4061"
+    },
+    {
+      "type": "Equipment",
+      "name": "Fan of Falling Words",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4088"
+    },
+    {
+      "type": "Equipment",
+      "name": "Fiend's Hunger",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4062"
+    },
+    {
+      "type": "Equipment",
+      "name": "Firecracker Fulu",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4083"
+    },
+    {
+      "type": "Equipment",
+      "name": "Fortune Cord",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4089"
+    },
+    {
+      "type": "Equipment",
+      "name": "Four-Tiger Blade",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4063"
+    },
+    {
+      "type": "Equipment",
+      "name": "Ghost Scarf",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4104"
+    },
+    {
+      "type": "Equipment",
+      "name": "Gossamer Sash",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4110"
+    },
+    {
+      "type": "Equipment",
+      "name": "Greater Silversoul Bomb",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4058"
+    },
+    {
+      "type": "Equipment",
+      "name": "Hairpin of Blooming Flowers",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4105"
+    },
+    {
+      "type": "Equipment",
+      "name": "Hongrui's Gratitude",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4090"
+    },
+    {
+      "type": "Equipment",
+      "name": "Injigo's Loving Embrace",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4099"
+    },
+    {
+      "type": "Equipment",
+      "name": "Invigorating Soap",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4056"
+    },
+    {
+      "type": "Equipment",
+      "name": "Jiang-Shi Bell",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4091"
+    },
+    {
+      "type": "Equipment",
+      "name": "Juubun's One Thousand Poems",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4101"
+    },
+    {
+      "type": "Equipment",
+      "name": "Kinburi's Sandals of Bounding",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4100"
+    },
+    {
+      "type": "Equipment",
+      "name": "Lacquered Waist Drum",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4092"
+    },
+    {
+      "type": "Equipment",
+      "name": "Longnight Tea",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4077"
+    },
+    {
+      "type": "Equipment",
+      "name": "Lumber Lord's Axe",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4064"
+    },
+    {
+      "type": "Equipment",
+      "name": "Major Silversoul Bomb",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4058"
+    },
+    {
+      "type": "Equipment",
+      "name": "Matsuki's Medicinal Wine",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4057"
+    },
+    {
+      "type": "Equipment",
+      "name": "Moon Blossom Tea",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4078"
+    },
+    {
+      "type": "Equipment",
+      "name": "Moonsilver Necklace",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4093"
+    },
+    {
+      "type": "Equipment",
+      "name": "Noppera-Bo Hood",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4094"
+    },
+    {
+      "type": "Equipment",
+      "name": "Panaceatic Salve",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4069"
+    },
+    {
+      "type": "Equipment",
+      "name": "Peace in Dreams Tea",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4079"
+    },
+    {
+      "type": "Equipment",
+      "name": "Phoenix Fulu Holder",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4095"
+    },
+    {
+      "type": "Equipment",
+      "name": "Privacy Ward Fulu",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4084"
+    },
+    {
+      "type": "Equipment",
+      "name": "Privacy Ward Fulu (Chamber)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4084"
+    },
+    {
+      "type": "Equipment",
+      "name": "Privacy Ward Fulu (Hallway)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4084"
+    },
+    {
+      "type": "Equipment",
+      "name": "Privacy Ward Fulu (Room)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4084"
+    },
+    {
+      "type": "Equipment",
+      "name": "Purgatory Emissary's Staff",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4096"
+    },
+    {
+      "type": "Equipment",
+      "name": "Red Thread Knot",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4106"
+    },
+    {
+      "type": "Equipment",
+      "name": "Resolute Mind Wrap",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4107"
+    },
+    {
+      "type": "Equipment",
+      "name": "Resurrection Tea",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4080"
+    },
+    {
+      "type": "Equipment",
+      "name": "Root Boots",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4108"
+    },
+    {
+      "type": "Equipment",
+      "name": "Sanctified Beans",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4070"
+    },
+    {
+      "type": "Equipment",
+      "name": "Sensei's Parasol",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4065"
+    },
+    {
+      "type": "Equipment",
+      "name": "Silversoul Bomb",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4058"
+    },
+    {
+      "type": "Equipment",
+      "name": "Skyfang Crystal",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4097"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spider Lily Tattoo",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4098"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spirit Fan",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4109"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spirit Trap",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4071"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spiritsight Tea",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4081"
+    },
+    {
+      "type": "Equipment",
+      "name": "Taljjae Tassel",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4072"
+    },
+    {
+      "type": "Equipment",
+      "name": "Thousand-Year Dragonroot",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4073"
+    },
+    {
+      "type": "Equipment",
+      "name": "Thundering Fury Dadao",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4066"
+    },
+    {
+      "type": "Equipment",
+      "name": "Traveler's Fulu",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4085"
+    },
+    {
+      "type": "Equipment",
+      "name": "Ugly Cute's Gift",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4067"
+    },
+    {
+      "type": "Equipment",
+      "name": "Vashu's Ninth Life",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4102"
+    },
+    {
+      "type": "Equipment",
+      "name": "Vengeful Demon's Tears",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4074"
+    },
+    {
+      "type": "Feats",
+      "name": "Animal Soul Siblings",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8197"
+    },
+    {
+      "type": "Feats",
+      "name": "Boneyard Acquaintance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8212"
+    },
+    {
+      "type": "Feats",
+      "name": "Calm and Centered",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8190"
+    },
+    {
+      "type": "Feats",
+      "name": "Clinging to Life",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8206"
+    },
+    {
+      "type": "Feats",
+      "name": "Comforting Presence",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8191"
+    },
+    {
+      "type": "Feats",
+      "name": "Empathy Incarnate",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8198"
+    },
+    {
+      "type": "Feats",
+      "name": "Go With the Flow",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8192"
+    },
+    {
+      "type": "Feats",
+      "name": "I Sense Malevolence",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8207"
+    },
+    {
+      "type": "Feats",
+      "name": "I've Had Many Jobs",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8199"
+    },
+    {
+      "type": "Feats",
+      "name": "Indomitable Spirit",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8213"
+    },
+    {
+      "type": "Feats",
+      "name": "Let's Try That Again",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8193"
+    },
+    {
+      "type": "Feats",
+      "name": "Like a Roach",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8194"
+    },
+    {
+      "type": "Feats",
+      "name": "Lingering Echoes",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8202"
+    },
+    {
+      "type": "Feats",
+      "name": "Linguistic Revival",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8208"
+    },
+    {
+      "type": "Feats",
+      "name": "Pain is Temporary",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8209"
+    },
+    {
+      "type": "Feats",
+      "name": "Plant Soul Siblings",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8203"
+    },
+    {
+      "type": "Feats",
+      "name": "Rapid Retraining",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8204"
+    },
+    {
+      "type": "Feats",
+      "name": "Reincarnated Ridiculer",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8200"
+    },
+    {
+      "type": "Feats",
+      "name": "Release the Light",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8214"
+    },
+    {
+      "type": "Feats",
+      "name": "See You in Hell",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8215"
+    },
+    {
+      "type": "Feats",
+      "name": "Sleep of the Reborn",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8201"
+    },
+    {
+      "type": "Feats",
+      "name": "Stone Soul Siblings",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8210"
+    },
+    {
+      "type": "Feats",
+      "name": "This is What It's Like to Die",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8216"
+    },
+    {
+      "type": "Feats",
+      "name": "Unbreakable Resolve",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8211"
+    },
+    {
+      "type": "Feats",
+      "name": "Weight of Experience",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8195"
+    },
+    {
+      "type": "Feats",
+      "name": "Wisdom From Another Life",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8196"
+    },
+    {
+      "type": "Feats",
+      "name": "You Seem Somewhat Familiar",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8205"
+    },
+    {
+      "type": "Hazards",
+      "name": "Arms of the Drowned",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=654"
+    },
+    {
+      "type": "Hazards",
+      "name": "Fiendish Reflection",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=655"
+    },
+    {
+      "type": "Hazards",
+      "name": "Goh's Shame",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=652"
+    },
+    {
+      "type": "Hazards",
+      "name": "Grasping Currents",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=648"
+    },
+    {
+      "type": "Hazards",
+      "name": "Haphazard Wood Pile",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=649"
+    },
+    {
+      "type": "Hazards",
+      "name": "Haunting Presence",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=647"
+    },
+    {
+      "type": "Hazards",
+      "name": "Kugaptee's Anger",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=653"
+    },
+    {
+      "type": "Hazards",
+      "name": "Kugaptee's Tree",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=656"
+    },
+    {
+      "type": "Hazards",
+      "name": "Major Wards",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=659"
+    },
+    {
+      "type": "Hazards",
+      "name": "Nosois' Vengeance",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=660"
+    },
+    {
+      "type": "Hazards",
+      "name": "Spiritual Disruptor",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=658"
+    },
+    {
+      "type": "Hazards",
+      "name": "Unholy Hunger",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=657"
+    },
+    {
+      "type": "Hazards",
+      "name": "Unwelcoming Facade",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=663"
+    },
+    {
+      "type": "Hazards",
+      "name": "Warding Bell",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=661"
+    },
+    {
+      "type": "Hazards",
+      "name": "Weakened Floor",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=664"
+    },
+    {
+      "type": "Hazards",
+      "name": "Witherweird Runes",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=665"
+    },
+    {
+      "type": "Hazards",
+      "name": "Writhing Hair",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=651"
+    },
+    {
+      "type": "Item Curses",
+      "name": "Infected Silver",
+      "url": "https://2e.aonprd.com/ItemCurses.aspx?ID=107"
+    },
+    {
+      "type": "Monsters",
+      "name": "Akashti",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4633"
+    },
+    {
+      "type": "Monsters",
+      "name": "Algriever",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4624"
+    },
+    {
+      "type": "Monsters",
+      "name": "Argyrzei",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4635"
+    },
+    {
+      "type": "Monsters",
+      "name": "Bakeneko",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4625"
+    },
+    {
+      "type": "Monsters",
+      "name": "Dalgyal Gwishin",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4626"
+    },
+    {
+      "type": "Monsters",
+      "name": "Guhdggi",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4630"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ijda",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4631"
+    },
+    {
+      "type": "Monsters",
+      "name": "Imprecasia",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4627"
+    },
+    {
+      "type": "Monsters",
+      "name": "Kagekuma",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4632"
+    },
+    {
+      "type": "Monsters",
+      "name": "Meokdan",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4628"
+    },
+    {
+      "type": "Monsters",
+      "name": "Noppera-Bo Grunt",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4637"
+    },
+    {
+      "type": "Monsters",
+      "name": "Noppera-Bo Impersonator",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4640"
+    },
+    {
+      "type": "Monsters",
+      "name": "Noppera-Bo Occultist",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4639"
+    },
+    {
+      "type": "Monsters",
+      "name": "Noppera-Bo Trickster",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4638"
+    },
+    {
+      "type": "Monsters",
+      "name": "Path Maiden",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4641"
+    },
+    {
+      "type": "Monsters",
+      "name": "Red-Hooded Thatchling",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4647"
+    },
+    {
+      "type": "Monsters",
+      "name": "Shimmerthief",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4642"
+    },
+    {
+      "type": "Monsters",
+      "name": "Shinigami",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4643"
+    },
+    {
+      "type": "Monsters",
+      "name": "Shisagishin",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4634"
+    },
+    {
+      "type": "Monsters",
+      "name": "Silsyche",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4644"
+    },
+    {
+      "type": "Monsters",
+      "name": "Sojiruh",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4629"
+    },
+    {
+      "type": "Monsters",
+      "name": "Stone Spider",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4645"
+    },
+    {
+      "type": "Monsters",
+      "name": "Thatchling",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4646"
+    },
+    {
+      "type": "NPCs",
+      "name": "Hu Ban-Niang",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4652"
+    },
+    {
+      "type": "NPCs",
+      "name": "Mago Kai",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4655"
+    },
+    {
+      "type": "NPCs",
+      "name": "Matsuki Shou",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4656"
+    },
+    {
+      "type": "NPCs",
+      "name": "Ren Mei Li",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4657"
+    },
+    {
+      "type": "NPCs",
+      "name": "Xin Yue",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4658"
+    },
+    {
+      "type": "NPCs",
+      "name": "Zhi Hui",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4659"
+    },
+    {
+      "type": "Rituals",
+      "name": "Gnaw At The Moon",
+      "url": "https://2e.aonprd.com/Rituals.aspx?ID=233"
+    },
+    {
+      "type": "Rituals",
+      "name": "Last Night's Vigil",
+      "url": "https://2e.aonprd.com/Rituals.aspx?ID=234"
+    },
+    {
+      "type": "Rituals",
+      "name": "Mindscape Shift",
+      "url": "https://2e.aonprd.com/Rituals.aspx?ID=235"
+    },
+    {
+      "type": "Rituals",
+      "name": "Open the Wall of Ghosts",
+      "url": "https://2e.aonprd.com/Rituals.aspx?ID=236"
+    },
+    {
+      "type": "Rituals",
+      "name": "Ransack the Night",
+      "url": "https://2e.aonprd.com/Rituals.aspx?ID=237"
+    },
+    {
+      "type": "Rituals",
+      "name": "Regale the Lost Ones",
+      "url": "https://2e.aonprd.com/Rituals.aspx?ID=238"
+    },
+    {
+      "type": "Rituals",
+      "name": "Sweetest Solstice",
+      "url": "https://2e.aonprd.com/Rituals.aspx?ID=239"
+    },
+    {
+      "type": "Rituals",
+      "name": "Transmigrate",
+      "url": "https://2e.aonprd.com/Rituals.aspx?ID=240"
+    },
+    {
+      "type": "Rituals",
+      "name": "Winter's Breath",
+      "url": "https://2e.aonprd.com/Rituals.aspx?ID=241"
+    },
+    {
+      "type": "Spells",
+      "name": "Cycle of Retribution",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2537"
+    },
+    {
+      "type": "Spells",
+      "name": "Entangle Fate",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2541"
+    },
+    {
+      "type": "Spells",
+      "name": "Fated Healing",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2539"
+    },
+    {
+      "type": "Spells",
+      "name": "Fateful Condemnation",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2538"
+    },
+    {
+      "type": "Spells",
+      "name": "Life's Flowing River",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2540"
+    },
+    {
+      "type": "Spells",
+      "name": "Life's Fresh Bloom",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2542"
+    },
+    {
+      "type": "Spells",
+      "name": "Prophet's Luck",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2543"
+    },
+    {
+      "type": "Spells",
+      "name": "Sacred Nimbus",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2544"
+    },
+    {
+      "type": "Spells",
+      "name": "Tomorrow's Dawn",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2545"
+    },
+    {
+      "type": "Spells",
+      "name": "Wall of Mirrors",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2546"
+    },
+    {
+      "type": "Traits",
+      "name": "Nindoru (Creature Type)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=904"
+    },
+    {
+      "type": "Traits",
+      "name": "Reincarnated (Feat)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=903"
+    }
+  ]
+}

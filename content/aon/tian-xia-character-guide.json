@@ -1,0 +1,2560 @@
+{
+  "etag": "\"09b9f00db9334e83a47e2e657d2d28fe\"",
+  "entries": [
+    {
+      "type": "Ancestries",
+      "name": "Hungerseed",
+      "url": "https://2e.aonprd.com/Ancestries.aspx?ID=94"
+    },
+    {
+      "type": "Ancestries",
+      "name": "Samsaran",
+      "url": "https://2e.aonprd.com/Ancestries.aspx?ID=88"
+    },
+    {
+      "type": "Ancestries",
+      "name": "Sarangay",
+      "url": "https://2e.aonprd.com/Ancestries.aspx?ID=89"
+    },
+    {
+      "type": "Ancestries",
+      "name": "Tanuki",
+      "url": "https://2e.aonprd.com/Ancestries.aspx?ID=90"
+    },
+    {
+      "type": "Ancestries",
+      "name": "Wayang",
+      "url": "https://2e.aonprd.com/Ancestries.aspx?ID=91"
+    },
+    {
+      "type": "Ancestries",
+      "name": "Yaksha",
+      "url": "https://2e.aonprd.com/Ancestries.aspx?ID=92"
+    },
+    {
+      "type": "Ancestries",
+      "name": "Yaoguai",
+      "url": "https://2e.aonprd.com/Ancestries.aspx?ID=93"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Ascetic Tanuki",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=396"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Bakuwa Lizardfolk",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=377"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Born of Animal",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=412"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Born of Celestial",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=413"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Born of Elements",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=414"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Born of Item",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=415"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Born of Vegetation",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=416"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Chrysanthemum Leshy",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=375"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Courageous Tanuki",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=398"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Deny Lady Nanbyo's Charity",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=407"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Deny the Firstborn Pursuit",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=406"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Deny the Traitor's Rebirth",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=408"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Dijiang",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=379"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Dokkaebi Goblin",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=370"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Even-tempered Tanuki",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=397"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Full Moon Sarangay",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=391"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Gandharva",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=380"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Half Moon Sarangay",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=392"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Healer Samsaran",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=386"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Heavenscribe Kobold",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=373"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Hungerseed",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=371"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Kanchil",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=381"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Kijimuna Gnome",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=372"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Leungli",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=382"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Makari Lizardfolk",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=378"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Mightyfall Kobold",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=374"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Mountaineer Samsaran",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=387"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "New Moon Sarangay",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=393"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Oracular Samsaran",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=388"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Palace Echoes Kitsune",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=384"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Peachchild Leshy",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=376"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Respite of a Thousand Roofs",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=411"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Respite of Cloudless Paths",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=409"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Respite of Loam and Leaf",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=410"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Sanctuary Samsaran",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=389"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Shadow of the Courtier",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=401"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Shadow of the Hermit",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=402"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Shadow of the Sailor",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=403"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Shadow of the Smith",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=404"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Shadow of the Wanderer",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=405"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Shimmertongue Nagaji",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=385"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Steadfast Tanuki",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=399"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Tsukumogami Poppet",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=383"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Virtuous Tanuki",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=400"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Waning Moon Sarangay",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=394"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Waxing Moon Sarangay",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=395"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Wilderness Samsaran",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=390"
+    },
+    {
+      "type": "Companions",
+      "name": "Durian Crab",
+      "url": "https://2e.aonprd.com/Companions.aspx?ID=108"
+    },
+    {
+      "type": "Companions",
+      "name": "Hermit Krait",
+      "url": "https://2e.aonprd.com/Companions.aspx?ID=109"
+    },
+    {
+      "type": "Companions",
+      "name": "Sundaflora",
+      "url": "https://2e.aonprd.com/Companions.aspx?ID=110"
+    },
+    {
+      "type": "Companions",
+      "name": "Tikar Urchinpad",
+      "url": "https://2e.aonprd.com/Companions.aspx?ID=111"
+    },
+    {
+      "type": "Companions",
+      "name": "Yzobu",
+      "url": "https://2e.aonprd.com/Companions.aspx?ID=112"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Cultivator",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=278"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Familiar Sage",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=279"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Fan Dancer",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=276"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Five-breath Vanguard",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=272"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Spirit Warrior",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=274"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Starlit Sentinel",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=275"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Wandering Chef",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=277"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Acupuncturist",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=471"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Bachuan Revolutionary",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=472"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Banished Celestial",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=483"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Eagle Hunter",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=484"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Fated Rival",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=485"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Favored",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=486"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Gossip",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=473"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Jeweler",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=474"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Kaiju Stalker",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=488"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Ocean Diver",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=475"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Professional Letter Writer",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=489"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Remittance Agent",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=477"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Runaway Noble",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=476"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Silk Farmer",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=478"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Streetfood Vendor",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=479"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Tiffin Box Deliverer",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=480"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Traveling Gourmand",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=482"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Warded by Kami",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=487"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Weaver",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=481"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Zodiac Bound",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=490"
+    },
+    {
+      "type": "Equipment",
+      "name": "Bow of Sun Slaying",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3478"
+    },
+    {
+      "type": "Equipment",
+      "name": "Caress of the Great Serpent",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3461"
+    },
+    {
+      "type": "Equipment",
+      "name": "Celestial Peachwood Sword",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3462"
+    },
+    {
+      "type": "Equipment",
+      "name": "Chilled Fire Noodles",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3458"
+    },
+    {
+      "type": "Equipment",
+      "name": "Chilled Fire Noodles (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3458"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cloak of Waves & Clouds",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3463"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cloud Buns",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3459"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cloud Buns (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3459"
+    },
+    {
+      "type": "Equipment",
+      "name": "Deathseeker",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3464"
+    },
+    {
+      "type": "Equipment",
+      "name": "Dragon Pearl",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3482"
+    },
+    {
+      "type": "Equipment",
+      "name": "Flashblade",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3465"
+    },
+    {
+      "type": "Equipment",
+      "name": "Flashblade (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3465"
+    },
+    {
+      "type": "Equipment",
+      "name": "Flashblade (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3465"
+    },
+    {
+      "type": "Equipment",
+      "name": "Frost Fair Yanyuedao",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3479"
+    },
+    {
+      "type": "Equipment",
+      "name": "Ghost Fowl Porridge",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3460"
+    },
+    {
+      "type": "Equipment",
+      "name": "Heavenly Rolling Flames",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3466"
+    },
+    {
+      "type": "Equipment",
+      "name": "Iron Wine",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3455"
+    },
+    {
+      "type": "Equipment",
+      "name": "Jian of Life's Duality",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3467"
+    },
+    {
+      "type": "Equipment",
+      "name": "Kotodama Bells",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3468"
+    },
+    {
+      "type": "Equipment",
+      "name": "Kotodama Whistle",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3469"
+    },
+    {
+      "type": "Equipment",
+      "name": "Navaratna of the Solar Ruby",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3480"
+    },
+    {
+      "type": "Equipment",
+      "name": "Peachwood",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3470"
+    },
+    {
+      "type": "Equipment",
+      "name": "Peachwood Branch",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3470"
+    },
+    {
+      "type": "Equipment",
+      "name": "Peachwood Lumber",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3470"
+    },
+    {
+      "type": "Equipment",
+      "name": "Peachwood Object (High-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3470"
+    },
+    {
+      "type": "Equipment",
+      "name": "Peachwood Object (Standard-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3470"
+    },
+    {
+      "type": "Equipment",
+      "name": "Peachwood Talisman",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3471"
+    },
+    {
+      "type": "Equipment",
+      "name": "Peachwood Weapon",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3472"
+    },
+    {
+      "type": "Equipment",
+      "name": "Peachwood Weapon (High-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3472"
+    },
+    {
+      "type": "Equipment",
+      "name": "Peachwood Weapon (Standard-Grade)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3472"
+    },
+    {
+      "type": "Equipment",
+      "name": "Preserved Moonflower",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3457"
+    },
+    {
+      "type": "Equipment",
+      "name": "Rainbow Vinegar",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3456"
+    },
+    {
+      "type": "Equipment",
+      "name": "Rainbow Vinegar (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3456"
+    },
+    {
+      "type": "Equipment",
+      "name": "Staff of Sun Wukong",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3481"
+    },
+    {
+      "type": "Equipment",
+      "name": "Sun Herald's Stylus",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3473"
+    },
+    {
+      "type": "Equipment",
+      "name": "Tiger Fork",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3474"
+    },
+    {
+      "type": "Equipment",
+      "name": "Twisting Gale",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3475"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wand of Purification",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3476"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wand of Purification (2nd-rank Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3476"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wand of Purification (3rd-rank Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3476"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wand of Purification (4th-rank Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3476"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wand of Purification (5th-rank Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3476"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wand of Purification (6th-rank Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3476"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wand of Purification (7th-rank Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3476"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wand of Purification (8th-rank Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3476"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wand of Purification (9th-rank Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3476"
+    },
+    {
+      "type": "Equipment",
+      "name": "Worldringer",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3477"
+    },
+    {
+      "type": "Equipment",
+      "name": "Worldringer (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3477"
+    },
+    {
+      "type": "Familiar Abilities",
+      "name": "Dazzling Show (familiar)",
+      "url": "https://2e.aonprd.com/Familiars.aspx?ID=170"
+    },
+    {
+      "type": "Familiar Abilities",
+      "name": "Flatten (familiar)",
+      "url": "https://2e.aonprd.com/Familiars.aspx?ID=175"
+    },
+    {
+      "type": "Familiar Abilities",
+      "name": "Kindling (master)",
+      "url": "https://2e.aonprd.com/Familiars.aspx?ID=169"
+    },
+    {
+      "type": "Familiar Abilities",
+      "name": "Mass-Produced (familiar)",
+      "url": "https://2e.aonprd.com/Familiars.aspx?ID=176"
+    },
+    {
+      "type": "Familiar Abilities",
+      "name": "Play Dead (familiar)",
+      "url": "https://2e.aonprd.com/Familiars.aspx?ID=167"
+    },
+    {
+      "type": "Familiar Abilities",
+      "name": "Pot of Tea (familiar)",
+      "url": "https://2e.aonprd.com/Familiars.aspx?ID=178"
+    },
+    {
+      "type": "Familiar Abilities",
+      "name": "Seal-Bearer (familiar)",
+      "url": "https://2e.aonprd.com/Familiars.aspx?ID=177"
+    },
+    {
+      "type": "Familiar Abilities",
+      "name": "Shadow Projection (familiar)",
+      "url": "https://2e.aonprd.com/Familiars.aspx?ID=174"
+    },
+    {
+      "type": "Familiar Abilities",
+      "name": "Soul Bond (familiar)",
+      "url": "https://2e.aonprd.com/Familiars.aspx?ID=171"
+    },
+    {
+      "type": "Familiar Abilities",
+      "name": "Stunning Flare (familiar)",
+      "url": "https://2e.aonprd.com/Familiars.aspx?ID=173"
+    },
+    {
+      "type": "Familiar Abilities",
+      "name": "Versatile Form (familiar)",
+      "url": "https://2e.aonprd.com/Familiars.aspx?ID=168"
+    },
+    {
+      "type": "Familiar Abilities",
+      "name": "Vina Song (familiar)",
+      "url": "https://2e.aonprd.com/Familiars.aspx?ID=172"
+    },
+    {
+      "type": "Feats",
+      "name": "Abjure the False Kin",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6979"
+    },
+    {
+      "type": "Feats",
+      "name": "Acupuncturist",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7066"
+    },
+    {
+      "type": "Feats",
+      "name": "Adamantine Body",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7116"
+    },
+    {
+      "type": "Feats",
+      "name": "Adamantine Mantra",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6985"
+    },
+    {
+      "type": "Feats",
+      "name": "Additional Servings",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7055"
+    },
+    {
+      "type": "Feats",
+      "name": "Advanced Monastic Weaponry",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7108"
+    },
+    {
+      "type": "Feats",
+      "name": "Aegis of the Dissolution",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6949"
+    },
+    {
+      "type": "Feats",
+      "name": "All This Has Happened Before",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6900"
+    },
+    {
+      "type": "Feats",
+      "name": "All This Will Happen Again",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6894"
+    },
+    {
+      "type": "Feats",
+      "name": "Along the Deep River",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6871"
+    },
+    {
+      "type": "Feats",
+      "name": "Among Humanity",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6996"
+    },
+    {
+      "type": "Feats",
+      "name": "Ancestral Form",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6863"
+    },
+    {
+      "type": "Feats",
+      "name": "Ancestral Healer",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6922"
+    },
+    {
+      "type": "Feats",
+      "name": "And Will Do So Once More",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6901"
+    },
+    {
+      "type": "Feats",
+      "name": "Arboreal Conversationalist",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6846"
+    },
+    {
+      "type": "Feats",
+      "name": "Ash-piercing Gaze",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6967"
+    },
+    {
+      "type": "Feats",
+      "name": "Avowed Insight",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6968"
+    },
+    {
+      "type": "Feats",
+      "name": "Awaken the Obake",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6878"
+    },
+    {
+      "type": "Feats",
+      "name": "Awakened Jewel",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6912"
+    },
+    {
+      "type": "Feats",
+      "name": "Awakened Yaoguai Heritage",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6997"
+    },
+    {
+      "type": "Feats",
+      "name": "Bamboo and Silt Repose",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6969"
+    },
+    {
+      "type": "Feats",
+      "name": "Blade of the Heart",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7036"
+    },
+    {
+      "type": "Feats",
+      "name": "Blood Like Water",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6902"
+    },
+    {
+      "type": "Feats",
+      "name": "Blood Must Have Blood",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6839"
+    },
+    {
+      "type": "Feats",
+      "name": "Bloodsoaked Dash",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6836"
+    },
+    {
+      "type": "Feats",
+      "name": "Bold Defiance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6998"
+    },
+    {
+      "type": "Feats",
+      "name": "Brilliant Vision",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7002"
+    },
+    {
+      "type": "Feats",
+      "name": "Briny Beverage",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6844"
+    },
+    {
+      "type": "Feats",
+      "name": "Celestial Cacophony",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7080"
+    },
+    {
+      "type": "Feats",
+      "name": "Charmed Sleep",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6868"
+    },
+    {
+      "type": "Feats",
+      "name": "Childlike Plant",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6853"
+    },
+    {
+      "type": "Feats",
+      "name": "Close Formation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7047"
+    },
+    {
+      "type": "Feats",
+      "name": "Colugo's Traversal",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6975"
+    },
+    {
+      "type": "Feats",
+      "name": "Combined Form",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6944"
+    },
+    {
+      "type": "Feats",
+      "name": "Convocation of Earth and Moon",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6928"
+    },
+    {
+      "type": "Feats",
+      "name": "Cosmic Cocktail",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7059"
+    },
+    {
+      "type": "Feats",
+      "name": "Crawling Form",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6990"
+    },
+    {
+      "type": "Feats",
+      "name": "Crocodile's Twin",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6861"
+    },
+    {
+      "type": "Feats",
+      "name": "Crown of Bone",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6913"
+    },
+    {
+      "type": "Feats",
+      "name": "Cultivator Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7085"
+    },
+    {
+      "type": "Feats",
+      "name": "Cultivator's Keen Eye",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7090"
+    },
+    {
+      "type": "Feats",
+      "name": "Cutting Heaven, Crushing Earth",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7024"
+    },
+    {
+      "type": "Feats",
+      "name": "Dalang's Ally",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6961"
+    },
+    {
+      "type": "Feats",
+      "name": "Dance of the Jester",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6962"
+    },
+    {
+      "type": "Feats",
+      "name": "Dance of the Mousedeer",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6950"
+    },
+    {
+      "type": "Feats",
+      "name": "Dance of the Tiger",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6957"
+    },
+    {
+      "type": "Feats",
+      "name": "Deflecting Jewel",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6917"
+    },
+    {
+      "type": "Feats",
+      "name": "Desperate Wish",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7037"
+    },
+    {
+      "type": "Feats",
+      "name": "Dissolution's Clarity",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6955"
+    },
+    {
+      "type": "Feats",
+      "name": "Dissolution's Sight",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6958"
+    },
+    {
+      "type": "Feats",
+      "name": "Dissolution's Sovereignty",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6965"
+    },
+    {
+      "type": "Feats",
+      "name": "Distant Waterbird's Poise",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7081"
+    },
+    {
+      "type": "Feats",
+      "name": "Dizzying Spin Dance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7048"
+    },
+    {
+      "type": "Feats",
+      "name": "Dokkaebi Fire",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6530"
+    },
+    {
+      "type": "Feats",
+      "name": "Dragon's Journey",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7052"
+    },
+    {
+      "type": "Feats",
+      "name": "Duck!",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6849"
+    },
+    {
+      "type": "Feats",
+      "name": "Duo Dragon Kick",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7075"
+    },
+    {
+      "type": "Feats",
+      "name": "Echoing Violence",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7117"
+    },
+    {
+      "type": "Feats",
+      "name": "Elemental Spark",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6870"
+    },
+    {
+      "type": "Feats",
+      "name": "Elucidating Vision",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6895"
+    },
+    {
+      "type": "Feats",
+      "name": "Elucidation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7006"
+    },
+    {
+      "type": "Feats",
+      "name": "Energy Fortification",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7067"
+    },
+    {
+      "type": "Feats",
+      "name": "Everyday Form",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6930"
+    },
+    {
+      "type": "Feats",
+      "name": "False Priest Form",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6935"
+    },
+    {
+      "type": "Feats",
+      "name": "Familiar Ritualist",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7099"
+    },
+    {
+      "type": "Feats",
+      "name": "Familiar Sage Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7095"
+    },
+    {
+      "type": "Feats",
+      "name": "Familiar's Resolve",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7096"
+    },
+    {
+      "type": "Feats",
+      "name": "Fan Dancer Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7039"
+    },
+    {
+      "type": "Feats",
+      "name": "Feast Planner",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7057"
+    },
+    {
+      "type": "Feats",
+      "name": "Fermenting Liquors",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7062"
+    },
+    {
+      "type": "Feats",
+      "name": "Ferry Through Waves",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6865"
+    },
+    {
+      "type": "Feats",
+      "name": "Fiend-trampling Stature",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6980"
+    },
+    {
+      "type": "Feats",
+      "name": "Fisheye",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6843"
+    },
+    {
+      "type": "Feats",
+      "name": "Five Breaths, One Death",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7015"
+    },
+    {
+      "type": "Feats",
+      "name": "Five-breath Vanguard Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7011"
+    },
+    {
+      "type": "Feats",
+      "name": "Five-gods Ram",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7112"
+    },
+    {
+      "type": "Feats",
+      "name": "Flames of Vision",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6831"
+    },
+    {
+      "type": "Feats",
+      "name": "Flower Chimera",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6859"
+    },
+    {
+      "type": "Feats",
+      "name": "Flowing Palm Deflection",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7025"
+    },
+    {
+      "type": "Feats",
+      "name": "Fluttering Distraction",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7049"
+    },
+    {
+      "type": "Feats",
+      "name": "Fluttering Misdirection",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7043"
+    },
+    {
+      "type": "Feats",
+      "name": "Folk Healer",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6914"
+    },
+    {
+      "type": "Feats",
+      "name": "Food Preservation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7056"
+    },
+    {
+      "type": "Feats",
+      "name": "Forever Among Humanity",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7003"
+    },
+    {
+      "type": "Feats",
+      "name": "Form of the Beloved Mother",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6893"
+    },
+    {
+      "type": "Feats",
+      "name": "Form Up!",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7018"
+    },
+    {
+      "type": "Feats",
+      "name": "Four-armed Aspect",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6981"
+    },
+    {
+      "type": "Feats",
+      "name": "Fox Arson",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6882"
+    },
+    {
+      "type": "Feats",
+      "name": "Fox Possession",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6885"
+    },
+    {
+      "type": "Feats",
+      "name": "Friend of the Family",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6850"
+    },
+    {
+      "type": "Feats",
+      "name": "Fulu Familiar",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7097"
+    },
+    {
+      "type": "Feats",
+      "name": "General's Gambit",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7019"
+    },
+    {
+      "type": "Feats",
+      "name": "Gentle Death and Rebirth",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7009"
+    },
+    {
+      "type": "Feats",
+      "name": "Geobukseon Retaliation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7079"
+    },
+    {
+      "type": "Feats",
+      "name": "Germination of Resolve",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6986"
+    },
+    {
+      "type": "Feats",
+      "name": "Ghost-path Epiphany",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7091"
+    },
+    {
+      "type": "Feats",
+      "name": "Glitter Crystals",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7063"
+    },
+    {
+      "type": "Feats",
+      "name": "Glorious Gamtu",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6828"
+    },
+    {
+      "type": "Feats",
+      "name": "Goblin Club",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6829"
+    },
+    {
+      "type": "Feats",
+      "name": "Gods' Palm",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7028"
+    },
+    {
+      "type": "Feats",
+      "name": "Golden Dragon's Bounty",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7100"
+    },
+    {
+      "type": "Feats",
+      "name": "Greater Transformation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7118"
+    },
+    {
+      "type": "Feats",
+      "name": "Green Dash",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6857"
+    },
+    {
+      "type": "Feats",
+      "name": "Guardian Lion Roar",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7078"
+    },
+    {
+      "type": "Feats",
+      "name": "Hasty Celebration",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6936"
+    },
+    {
+      "type": "Feats",
+      "name": "Heaven-Earth Encompassing Sleeves",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7082"
+    },
+    {
+      "type": "Feats",
+      "name": "Horn and Bone Incantation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6982"
+    },
+    {
+      "type": "Feats",
+      "name": "Howling Aspect",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6970"
+    },
+    {
+      "type": "Feats",
+      "name": "Hungry Eyes",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6833"
+    },
+    {
+      "type": "Feats",
+      "name": "Hypnotic Gaze",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6891"
+    },
+    {
+      "type": "Feats",
+      "name": "I Will Return",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6904"
+    },
+    {
+      "type": "Feats",
+      "name": "Immobile Form",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6999"
+    },
+    {
+      "type": "Feats",
+      "name": "Immortal Lightness",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7086"
+    },
+    {
+      "type": "Feats",
+      "name": "Imperial Dragon Potion",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6851"
+    },
+    {
+      "type": "Feats",
+      "name": "Improved Signature Weapon",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7007"
+    },
+    {
+      "type": "Feats",
+      "name": "Induce Imbalance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7013"
+    },
+    {
+      "type": "Feats",
+      "name": "Inherit the Dreaming Heirloom",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6951"
+    },
+    {
+      "type": "Feats",
+      "name": "Innate Understanding",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6896"
+    },
+    {
+      "type": "Feats",
+      "name": "Insulated Poppet",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6875"
+    },
+    {
+      "type": "Feats",
+      "name": "Intensified Element Stance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7070"
+    },
+    {
+      "type": "Feats",
+      "name": "Intercepting Hand",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7031"
+    },
+    {
+      "type": "Feats",
+      "name": "Iron Belly",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6931"
+    },
+    {
+      "type": "Feats",
+      "name": "It Takes a Village",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6886"
+    },
+    {
+      "type": "Feats",
+      "name": "Kaiju Defense Oath",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7021"
+    },
+    {
+      "type": "Feats",
+      "name": "Kaiju Stance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7110"
+    },
+    {
+      "type": "Feats",
+      "name": "Kaiju's Footfalls",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6852"
+    },
+    {
+      "type": "Feats",
+      "name": "Kijimuna Whistle",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6847"
+    },
+    {
+      "type": "Feats",
+      "name": "Kin Hunter",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7000"
+    },
+    {
+      "type": "Feats",
+      "name": "Kishin Rage",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6842"
+    },
+    {
+      "type": "Feats",
+      "name": "Know Your Enemy",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7017"
+    },
+    {
+      "type": "Feats",
+      "name": "Kodama Call",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6856"
+    },
+    {
+      "type": "Feats",
+      "name": "Koi Secrets",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6848"
+    },
+    {
+      "type": "Feats",
+      "name": "Landscape Form",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6947"
+    },
+    {
+      "type": "Feats",
+      "name": "Larger than Life (Kitsune)",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6884"
+    },
+    {
+      "type": "Feats",
+      "name": "Leaf Transformation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6937"
+    },
+    {
+      "type": "Feats",
+      "name": "Legendary Monster",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7010"
+    },
+    {
+      "type": "Feats",
+      "name": "Life's Blood",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6905"
+    },
+    {
+      "type": "Feats",
+      "name": "Light-bending Jewel",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6925"
+    },
+    {
+      "type": "Feats",
+      "name": "Lightning Rings' Intervention",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7101"
+    },
+    {
+      "type": "Feats",
+      "name": "Lightning Rings' Overcharge",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7103"
+    },
+    {
+      "type": "Feats",
+      "name": "Lotus Above the Mud",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7087"
+    },
+    {
+      "type": "Feats",
+      "name": "Made for Combat",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6872"
+    },
+    {
+      "type": "Feats",
+      "name": "Majestic Proclamation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6741"
+    },
+    {
+      "type": "Feats",
+      "name": "Many Faces",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6940"
+    },
+    {
+      "type": "Feats",
+      "name": "Many Guises",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6883"
+    },
+    {
+      "type": "Feats",
+      "name": "Meditate on This!",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7072"
+    },
+    {
+      "type": "Feats",
+      "name": "Memory of Mastery",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6908"
+    },
+    {
+      "type": "Feats",
+      "name": "Memory of Skill",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6906"
+    },
+    {
+      "type": "Feats",
+      "name": "Metabolic Control",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6889"
+    },
+    {
+      "type": "Feats",
+      "name": "Meticulous Restorer",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6971"
+    },
+    {
+      "type": "Feats",
+      "name": "Minuscule Mentee",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6874"
+    },
+    {
+      "type": "Feats",
+      "name": "Momentous Charge",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7109"
+    },
+    {
+      "type": "Feats",
+      "name": "Mooneater",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6867"
+    },
+    {
+      "type": "Feats",
+      "name": "Morning Side Dishes",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7054"
+    },
+    {
+      "type": "Feats",
+      "name": "Morphic Strike",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6991"
+    },
+    {
+      "type": "Feats",
+      "name": "Mud Boat's Passage",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6941"
+    },
+    {
+      "type": "Feats",
+      "name": "Nalinivati's Light",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6887"
+    },
+    {
+      "type": "Feats",
+      "name": "Natural Mutagen",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6992"
+    },
+    {
+      "type": "Feats",
+      "name": "No Hands, No Problems",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6876"
+    },
+    {
+      "type": "Feats",
+      "name": "Noble Bloom",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6855"
+    },
+    {
+      "type": "Feats",
+      "name": "Nourishing Symbiosis",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6682"
+    },
+    {
+      "type": "Feats",
+      "name": "Numbing Spice Exhalation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7061"
+    },
+    {
+      "type": "Feats",
+      "name": "Oil Fire",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7073"
+    },
+    {
+      "type": "Feats",
+      "name": "Oni Form",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6835"
+    },
+    {
+      "type": "Feats",
+      "name": "Oni Rampage",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6841"
+    },
+    {
+      "type": "Feats",
+      "name": "Oni Weapon Familiarity",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6834"
+    },
+    {
+      "type": "Feats",
+      "name": "Oni's Mask",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6837"
+    },
+    {
+      "type": "Feats",
+      "name": "Packed with Flavor",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7058"
+    },
+    {
+      "type": "Feats",
+      "name": "Palm-leaf Silhouette",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6963"
+    },
+    {
+      "type": "Feats",
+      "name": "Paralyzing Jewel",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6923"
+    },
+    {
+      "type": "Feats",
+      "name": "Pei Zing Adept",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7068"
+    },
+    {
+      "type": "Feats",
+      "name": "Peony's Flourish",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7051"
+    },
+    {
+      "type": "Feats",
+      "name": "Perfected Gamtu",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6832"
+    },
+    {
+      "type": "Feats",
+      "name": "Petal Step",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7040"
+    },
+    {
+      "type": "Feats",
+      "name": "Phantom Orchestra",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6942"
+    },
+    {
+      "type": "Feats",
+      "name": "Phantom Resemblance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6827"
+    },
+    {
+      "type": "Feats",
+      "name": "Phantom Visage",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6825"
+    },
+    {
+      "type": "Feats",
+      "name": "Phoenix's Flight",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7105"
+    },
+    {
+      "type": "Feats",
+      "name": "Polymorphic Escape",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6993"
+    },
+    {
+      "type": "Feats",
+      "name": "Ponpoko",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6938"
+    },
+    {
+      "type": "Feats",
+      "name": "Ponpoko-pon!",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6945"
+    },
+    {
+      "type": "Feats",
+      "name": "Prepare Elemental Medicine",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7065"
+    },
+    {
+      "type": "Feats",
+      "name": "Protective Cycle",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7014"
+    },
+    {
+      "type": "Feats",
+      "name": "Protective Pose",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7071"
+    },
+    {
+      "type": "Feats",
+      "name": "Pushing Wind",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7045"
+    },
+    {
+      "type": "Feats",
+      "name": "Quick Recovery (Yaoguai)",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7004"
+    },
+    {
+      "type": "Feats",
+      "name": "Refined Motion in Darkness",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6952"
+    },
+    {
+      "type": "Feats",
+      "name": "Regional Specialty",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7060"
+    },
+    {
+      "type": "Feats",
+      "name": "Rejuvenating Embrace",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6926"
+    },
+    {
+      "type": "Feats",
+      "name": "Rekindled Light",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6880"
+    },
+    {
+      "type": "Feats",
+      "name": "Remnants of the Past",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6897"
+    },
+    {
+      "type": "Feats",
+      "name": "Renewing Cycle",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7012"
+    },
+    {
+      "type": "Feats",
+      "name": "Return to the Seed",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6860"
+    },
+    {
+      "type": "Feats",
+      "name": "River Adaptation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6864"
+    },
+    {
+      "type": "Feats",
+      "name": "Rolling White Bottle Form",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6943"
+    },
+    {
+      "type": "Feats",
+      "name": "Rouse the Dreaming Relic",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6959"
+    },
+    {
+      "type": "Feats",
+      "name": "Rushing Goat Stance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7106"
+    },
+    {
+      "type": "Feats",
+      "name": "Sacred Wilds Oath",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7022"
+    },
+    {
+      "type": "Feats",
+      "name": "Sage of Scattered Leaves",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6972"
+    },
+    {
+      "type": "Feats",
+      "name": "Samsaran Lore",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6898"
+    },
+    {
+      "type": "Feats",
+      "name": "Samsaran Weapon Memory",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6899"
+    },
+    {
+      "type": "Feats",
+      "name": "Sarangay Lore",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6915"
+    },
+    {
+      "type": "Feats",
+      "name": "Sash of the Wind",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6858"
+    },
+    {
+      "type": "Feats",
+      "name": "Scarlet Strands",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6845"
+    },
+    {
+      "type": "Feats",
+      "name": "Scattering in Spring",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7111"
+    },
+    {
+      "type": "Feats",
+      "name": "Scorched on the Crackling Mountain",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6932"
+    },
+    {
+      "type": "Feats",
+      "name": "Seal of the Golden Dragon",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7102"
+    },
+    {
+      "type": "Feats",
+      "name": "Secrets of the Past",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6907"
+    },
+    {
+      "type": "Feats",
+      "name": "Sentinel's Orbit",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7038"
+    },
+    {
+      "type": "Feats",
+      "name": "Seven Changes Performance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6879"
+    },
+    {
+      "type": "Feats",
+      "name": "Sever the Dreaming Shadow",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6966"
+    },
+    {
+      "type": "Feats",
+      "name": "Shadow Tempo",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6960"
+    },
+    {
+      "type": "Feats",
+      "name": "Shadowplay",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6956"
+    },
+    {
+      "type": "Feats",
+      "name": "Sheltering Jewel",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6927"
+    },
+    {
+      "type": "Feats",
+      "name": "Sheltering Pulse",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7029"
+    },
+    {
+      "type": "Feats",
+      "name": "Signature Weapon",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7001"
+    },
+    {
+      "type": "Feats",
+      "name": "Silk Bracelet",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7076"
+    },
+    {
+      "type": "Feats",
+      "name": "Slay Giants Unseen",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6964"
+    },
+    {
+      "type": "Feats",
+      "name": "Smoke Through Bamboo",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6919"
+    },
+    {
+      "type": "Feats",
+      "name": "Solidarity",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6877"
+    },
+    {
+      "type": "Feats",
+      "name": "Solo Dancer",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7041"
+    },
+    {
+      "type": "Feats",
+      "name": "Sour Bomb",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7064"
+    },
+    {
+      "type": "Feats",
+      "name": "Speak with the Sleeping",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6869"
+    },
+    {
+      "type": "Feats",
+      "name": "Special Sentinel Technique",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7034"
+    },
+    {
+      "type": "Feats",
+      "name": "Spirit Coffin",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6862"
+    },
+    {
+      "type": "Feats",
+      "name": "Spirit of the Blade",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7026"
+    },
+    {
+      "type": "Feats",
+      "name": "Spirit Warrior Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7020"
+    },
+    {
+      "type": "Feats",
+      "name": "Spiritual Echo",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6924"
+    },
+    {
+      "type": "Feats",
+      "name": "Spiritual Headhunter",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6572"
+    },
+    {
+      "type": "Feats",
+      "name": "Splendid Illusion",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6946"
+    },
+    {
+      "type": "Feats",
+      "name": "Starlit Sentinel Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7033"
+    },
+    {
+      "type": "Feats",
+      "name": "Start the Festival!",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6948"
+    },
+    {
+      "type": "Feats",
+      "name": "Statue Form",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6939"
+    },
+    {
+      "type": "Feats",
+      "name": "Stem the Tide",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6977"
+    },
+    {
+      "type": "Feats",
+      "name": "Storming Gaze",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6838"
+    },
+    {
+      "type": "Feats",
+      "name": "Strategist Stance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7016"
+    },
+    {
+      "type": "Feats",
+      "name": "Strength of Eight Legions",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6988"
+    },
+    {
+      "type": "Feats",
+      "name": "Sudden Terror",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6873"
+    },
+    {
+      "type": "Feats",
+      "name": "Sweeping Fan Block",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7044"
+    },
+    {
+      "type": "Feats",
+      "name": "Sweeping Fan Redirection",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7050"
+    },
+    {
+      "type": "Feats",
+      "name": "Sword of Sealing",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7032"
+    },
+    {
+      "type": "Feats",
+      "name": "Sword-light Wave",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7027"
+    },
+    {
+      "type": "Feats",
+      "name": "Synchronous Slither",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6892"
+    },
+    {
+      "type": "Feats",
+      "name": "Tangle of Limbs",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6826"
+    },
+    {
+      "type": "Feats",
+      "name": "Tangle-tongue's Wit",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6973"
+    },
+    {
+      "type": "Feats",
+      "name": "Tanuki Lore",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6933"
+    },
+    {
+      "type": "Feats",
+      "name": "Teakettle Form",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6934"
+    },
+    {
+      "type": "Feats",
+      "name": "Temperature Adjustment",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7069"
+    },
+    {
+      "type": "Feats",
+      "name": "Tempest Cloud's Speed",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7098"
+    },
+    {
+      "type": "Feats",
+      "name": "Tempest Gaze",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6840"
+    },
+    {
+      "type": "Feats",
+      "name": "The Bitter Scholar's Promotion",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7093"
+    },
+    {
+      "type": "Feats",
+      "name": "The Cycle Continues",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6910"
+    },
+    {
+      "type": "Feats",
+      "name": "The Immortal Attains the Summit",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7094"
+    },
+    {
+      "type": "Feats",
+      "name": "The Moon Weaver's Art",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6918"
+    },
+    {
+      "type": "Feats",
+      "name": "This Too Shall Pass",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6911"
+    },
+    {
+      "type": "Feats",
+      "name": "Thousand-Year Grudge",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6903"
+    },
+    {
+      "type": "Feats",
+      "name": "Three Clear Breaths",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7088"
+    },
+    {
+      "type": "Feats",
+      "name": "Three Pecks of Dew",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7092"
+    },
+    {
+      "type": "Feats",
+      "name": "Throat Pocket",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6888"
+    },
+    {
+      "type": "Feats",
+      "name": "Tikling Bird Twirl",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6920"
+    },
+    {
+      "type": "Feats",
+      "name": "Trample",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6929"
+    },
+    {
+      "type": "Feats",
+      "name": "Transcend the Azimuth",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6989"
+    },
+    {
+      "type": "Feats",
+      "name": "Transcendent Deflection",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7030"
+    },
+    {
+      "type": "Feats",
+      "name": "Traveler's Counsel",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6916"
+    },
+    {
+      "type": "Feats",
+      "name": "Tricksterbane Oath",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7023"
+    },
+    {
+      "type": "Feats",
+      "name": "Twilight Dweller",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6994"
+    },
+    {
+      "type": "Feats",
+      "name": "Twirl Through",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7042"
+    },
+    {
+      "type": "Feats",
+      "name": "Twirling Strike",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7046"
+    },
+    {
+      "type": "Feats",
+      "name": "Twisting Petal Stance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7107"
+    },
+    {
+      "type": "Feats",
+      "name": "Unassuming Heroes",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6854"
+    },
+    {
+      "type": "Feats",
+      "name": "Unleash Yaoguai Might",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7005"
+    },
+    {
+      "type": "Feats",
+      "name": "Unnerving Terror",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7008"
+    },
+    {
+      "type": "Feats",
+      "name": "Unsheathing the Sword-Light",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7084"
+    },
+    {
+      "type": "Feats",
+      "name": "Unwavering Guide",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6974"
+    },
+    {
+      "type": "Feats",
+      "name": "Venom Gulp",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6890"
+    },
+    {
+      "type": "Feats",
+      "name": "Vermilion Threads",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7083"
+    },
+    {
+      "type": "Feats",
+      "name": "Vexing Tempest",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7104"
+    },
+    {
+      "type": "Feats",
+      "name": "Vulpine Scamper",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6881"
+    },
+    {
+      "type": "Feats",
+      "name": "Wake of Devastation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7115"
+    },
+    {
+      "type": "Feats",
+      "name": "Wandering Chef Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7053"
+    },
+    {
+      "type": "Feats",
+      "name": "Warding Jewel",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6921"
+    },
+    {
+      "type": "Feats",
+      "name": "Water to Water",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6909"
+    },
+    {
+      "type": "Feats",
+      "name": "Wayang Lore",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6953"
+    },
+    {
+      "type": "Feats",
+      "name": "Wayang Weapon Familiarity",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6954"
+    },
+    {
+      "type": "Feats",
+      "name": "Whirling in the Summer Storm",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7113"
+    },
+    {
+      "type": "Feats",
+      "name": "Whispers in the Night",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6830"
+    },
+    {
+      "type": "Feats",
+      "name": "Wild-haired Fury",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6987"
+    },
+    {
+      "type": "Feats",
+      "name": "Wisteria-and-Peony Reunion",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7089"
+    },
+    {
+      "type": "Feats",
+      "name": "Withstand the Storm",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6978"
+    },
+    {
+      "type": "Feats",
+      "name": "Witness of Earth",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6689"
+    },
+    {
+      "type": "Feats",
+      "name": "World-breaking Footfall",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7114"
+    },
+    {
+      "type": "Feats",
+      "name": "World-protector's Hospitality",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6984"
+    },
+    {
+      "type": "Feats",
+      "name": "Wukong Extension",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7074"
+    },
+    {
+      "type": "Feats",
+      "name": "Xidao Sea Mine Drop",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7077"
+    },
+    {
+      "type": "Feats",
+      "name": "Yaoguai Historian",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6995"
+    },
+    {
+      "type": "Hybrid Studies",
+      "name": "Aloof Firmament",
+      "url": "https://2e.aonprd.com/HybridStudies.aspx?ID=7"
+    },
+    {
+      "type": "Hybrid Studies",
+      "name": "Unfurling Brocade",
+      "url": "https://2e.aonprd.com/HybridStudies.aspx?ID=8"
+    },
+    {
+      "type": "Languages",
+      "name": "Tanuki",
+      "url": "https://2e.aonprd.com/Languages.aspx?ID=179"
+    },
+    {
+      "type": "Languages",
+      "name": "Wayang",
+      "url": "https://2e.aonprd.com/Languages.aspx?ID=180"
+    },
+    {
+      "type": "Languages",
+      "name": "Yaksha",
+      "url": "https://2e.aonprd.com/Languages.aspx?ID=181"
+    },
+    {
+      "type": "Rituals",
+      "name": "Bonding Meal",
+      "url": "https://2e.aonprd.com/Rituals.aspx?ID=169"
+    },
+    {
+      "type": "Rituals",
+      "name": "Butterfly Bender",
+      "url": "https://2e.aonprd.com/Rituals.aspx?ID=170"
+    },
+    {
+      "type": "Rituals",
+      "name": "Feast of Supplication",
+      "url": "https://2e.aonprd.com/Rituals.aspx?ID=171"
+    },
+    {
+      "type": "Spells",
+      "name": "Home Among Mulberry Leaves",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2134"
+    },
+    {
+      "type": "Spells",
+      "name": "Luminous Stardust Healing",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2132"
+    },
+    {
+      "type": "Spells",
+      "name": "Shining Starlight Attack",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2133"
+    },
+    {
+      "type": "Spells",
+      "name": "Sky Laughs at Waves",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2135"
+    },
+    {
+      "type": "Traits",
+      "name": "Hungerseed (Ancestry)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=827"
+    },
+    {
+      "type": "Traits",
+      "name": "Samsaran (Ancestry)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=828"
+    },
+    {
+      "type": "Traits",
+      "name": "Sarangay (Ancestry)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=829"
+    },
+    {
+      "type": "Traits",
+      "name": "Tanuki (Ancestry)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=830"
+    },
+    {
+      "type": "Traits",
+      "name": "Wayang (Ancestry)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=831"
+    },
+    {
+      "type": "Traits",
+      "name": "Yaksha (Ancestry)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=832"
+    },
+    {
+      "type": "Traits",
+      "name": "Yaoguai (Ancestry)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=833"
+    },
+    {
+      "type": "Weapons",
+      "name": "Bladed Scarf",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=273"
+    },
+    {
+      "type": "Weapons",
+      "name": "Bo Staff",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=372"
+    },
+    {
+      "type": "Weapons",
+      "name": "Butterfly Sword",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=275"
+    },
+    {
+      "type": "Weapons",
+      "name": "Chakram",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=235"
+    },
+    {
+      "type": "Weapons",
+      "name": "Composite Longbow",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=434"
+    },
+    {
+      "type": "Weapons",
+      "name": "Daikyu",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=472"
+    },
+    {
+      "type": "Weapons",
+      "name": "Feng Huo Lun",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=283"
+    },
+    {
+      "type": "Weapons",
+      "name": "Fighting Fan",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=284"
+    },
+    {
+      "type": "Weapons",
+      "name": "Gakgung",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=334"
+    },
+    {
+      "type": "Weapons",
+      "name": "Glaive",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=375"
+    },
+    {
+      "type": "Weapons",
+      "name": "Heavy Crossbow",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=428"
+    },
+    {
+      "type": "Weapons",
+      "name": "Hongali Hornbow",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=238"
+    },
+    {
+      "type": "Weapons",
+      "name": "Hook Sword",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=287"
+    },
+    {
+      "type": "Weapons",
+      "name": "Jiu Huan Dao",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=288"
+    },
+    {
+      "type": "Weapons",
+      "name": "Kalis",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=263"
+    },
+    {
+      "type": "Weapons",
+      "name": "Kama",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=410"
+    },
+    {
+      "type": "Weapons",
+      "name": "Karambit",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=289"
+    },
+    {
+      "type": "Weapons",
+      "name": "Katana",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=411"
+    },
+    {
+      "type": "Weapons",
+      "name": "Katar",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=369"
+    },
+    {
+      "type": "Weapons",
+      "name": "Khakkhara",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=412"
+    },
+    {
+      "type": "Weapons",
+      "name": "Kris",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=264"
+    },
+    {
+      "type": "Weapons",
+      "name": "Kukri",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=413"
+    },
+    {
+      "type": "Weapons",
+      "name": "Kusarigama",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=291"
+    },
+    {
+      "type": "Weapons",
+      "name": "Liuyedao",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=491"
+    },
+    {
+      "type": "Weapons",
+      "name": "Meteor Hammer",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=296"
+    },
+    {
+      "type": "Weapons",
+      "name": "Naginata",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=297"
+    },
+    {
+      "type": "Weapons",
+      "name": "Nodachi",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=298"
+    },
+    {
+      "type": "Weapons",
+      "name": "Nunchaku",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=414"
+    },
+    {
+      "type": "Weapons",
+      "name": "Ogre Hook",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=495"
+    },
+    {
+      "type": "Weapons",
+      "name": "Panabas",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=299"
+    },
+    {
+      "type": "Weapons",
+      "name": "Repeating Crossbow",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=448"
+    },
+    {
+      "type": "Weapons",
+      "name": "Sai",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=416"
+    },
+    {
+      "type": "Weapons",
+      "name": "Sansetsukon",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=302"
+    },
+    {
+      "type": "Weapons",
+      "name": "Shortbow",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=437"
+    },
+    {
+      "type": "Weapons",
+      "name": "Shuan Ji",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=492"
+    },
+    {
+      "type": "Weapons",
+      "name": "Shuriken",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=439"
+    },
+    {
+      "type": "Weapons",
+      "name": "Spear",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=365"
+    },
+    {
+      "type": "Weapons",
+      "name": "Staff",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=367"
+    },
+    {
+      "type": "Weapons",
+      "name": "Starknife",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=399"
+    },
+    {
+      "type": "Weapons",
+      "name": "Sukgung",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=341"
+    },
+    {
+      "type": "Weapons",
+      "name": "Sword Cane",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=400"
+    },
+    {
+      "type": "Weapons",
+      "name": "Tekko-Kagi",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=304"
+    },
+    {
+      "type": "Weapons",
+      "name": "Temple Sword",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=418"
+    },
+    {
+      "type": "Weapons",
+      "name": "Tengu Gale Blade",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=479"
+    },
+    {
+      "type": "Weapons",
+      "name": "Tetsubo",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=493"
+    },
+    {
+      "type": "Weapons",
+      "name": "Three-Section Naginata",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=305"
+    },
+    {
+      "type": "Weapons",
+      "name": "Tonfa",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=245"
+    },
+    {
+      "type": "Weapons",
+      "name": "Tri-Bladed Katar",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=540"
+    },
+    {
+      "type": "Weapons",
+      "name": "Urumi",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=306"
+    },
+    {
+      "type": "Weapons",
+      "name": "Wakizashi",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=419"
+    },
+    {
+      "type": "Weapons",
+      "name": "Zhuazhi Bang",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=494"
+    }
+  ]
+}

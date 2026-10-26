@@ -1,0 +1,1620 @@
+{
+  "etag": "\"55ea6bb025c3485fa611bf6ec64127e4\"",
+  "entries": [
+    {
+      "type": "Equipment",
+      "name": "Digly's Oil of Sympathy",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3586"
+    },
+    {
+      "type": "Equipment",
+      "name": "Digly's Oil of Sympathy (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3586"
+    },
+    {
+      "type": "Equipment",
+      "name": "Digly's Oil of Sympathy (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3586"
+    },
+    {
+      "type": "Equipment",
+      "name": "Digly's Oil of Sympathy (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3586"
+    },
+    {
+      "type": "Equipment",
+      "name": "Digly's Oil of Sympathy (Minor)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3586"
+    },
+    {
+      "type": "Equipment",
+      "name": "Digly's Oil of Sympathy (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3586"
+    },
+    {
+      "type": "Equipment",
+      "name": "Fetters",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3591"
+    },
+    {
+      "type": "Equipment",
+      "name": "Fetters (Average)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3591"
+    },
+    {
+      "type": "Equipment",
+      "name": "Fetters (Good)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3591"
+    },
+    {
+      "type": "Equipment",
+      "name": "Fetters (Simple)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3591"
+    },
+    {
+      "type": "Equipment",
+      "name": "Fetters (Superior)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3591"
+    },
+    {
+      "type": "Equipment",
+      "name": "Loaded Dice",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3582"
+    },
+    {
+      "type": "Equipment",
+      "name": "Malefic Mirror",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3590"
+    },
+    {
+      "type": "Equipment",
+      "name": "Map",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3585"
+    },
+    {
+      "type": "Equipment",
+      "name": "Map (Geographical Map)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3585"
+    },
+    {
+      "type": "Equipment",
+      "name": "Map (Geologic Map)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3585"
+    },
+    {
+      "type": "Equipment",
+      "name": "Map (Local Map)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3585"
+    },
+    {
+      "type": "Equipment",
+      "name": "Map (Nautical Chart)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3585"
+    },
+    {
+      "type": "Equipment",
+      "name": "Map (Pictorial Map)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3585"
+    },
+    {
+      "type": "Equipment",
+      "name": "Map (Political Map)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3585"
+    },
+    {
+      "type": "Equipment",
+      "name": "Map (Treasure Map)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3585"
+    },
+    {
+      "type": "Equipment",
+      "name": "Map (Weather Map)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3585"
+    },
+    {
+      "type": "Equipment",
+      "name": "Musket Staff of Force",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3587"
+    },
+    {
+      "type": "Equipment",
+      "name": "Musket Staff of the Void",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3588"
+    },
+    {
+      "type": "Equipment",
+      "name": "Pistol Wand",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3589"
+    },
+    {
+      "type": "Equipment",
+      "name": "Sun Goggles",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3584"
+    },
+    {
+      "type": "Equipment",
+      "name": "Surprise Doll",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3583"
+    },
+    {
+      "type": "Equipment",
+      "name": "Surprise Doll (Exquisite)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3583"
+    },
+    {
+      "type": "Monsters",
+      "name": "Beast Eidolon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3679"
+    },
+    {
+      "type": "Monsters",
+      "name": "Experienced Hound",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3678"
+    },
+    {
+      "type": "Monsters",
+      "name": "Trained Bat",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3676"
+    },
+    {
+      "type": "Monsters",
+      "name": "Veteran War Horse",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3677"
+    },
+    {
+      "type": "NPCs",
+      "name": "Abbot of Abadar",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3439"
+    },
+    {
+      "type": "NPCs",
+      "name": "Accuser Agent",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3565"
+    },
+    {
+      "type": "NPCs",
+      "name": "Acolyte of Iomedae",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3440"
+    },
+    {
+      "type": "NPCs",
+      "name": "Acrobat",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3570"
+    },
+    {
+      "type": "NPCs",
+      "name": "Adept",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3532"
+    },
+    {
+      "type": "NPCs",
+      "name": "Advisor",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3420"
+    },
+    {
+      "type": "NPCs",
+      "name": "Aiuvarin Translator",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3630"
+    },
+    {
+      "type": "NPCs",
+      "name": "Apothecary",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3479"
+    },
+    {
+      "type": "NPCs",
+      "name": "Apprentice",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3411"
+    },
+    {
+      "type": "NPCs",
+      "name": "Archer Sentry",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3552"
+    },
+    {
+      "type": "NPCs",
+      "name": "Arms Dealer",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3506"
+    },
+    {
+      "type": "NPCs",
+      "name": "Arrester Squadron",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3564"
+    },
+    {
+      "type": "NPCs",
+      "name": "Artillerist",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3459"
+    },
+    {
+      "type": "NPCs",
+      "name": "Assassin",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3434"
+    },
+    {
+      "type": "NPCs",
+      "name": "Astronomer",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3590"
+    },
+    {
+      "type": "NPCs",
+      "name": "Avuncular Professor",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3592"
+    },
+    {
+      "type": "NPCs",
+      "name": "Bandit",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3425"
+    },
+    {
+      "type": "NPCs",
+      "name": "Bandit Gang",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3432"
+    },
+    {
+      "type": "NPCs",
+      "name": "Barrister",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3546"
+    },
+    {
+      "type": "NPCs",
+      "name": "Beast Tamer",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3576"
+    },
+    {
+      "type": "NPCs",
+      "name": "Beggar",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3452"
+    },
+    {
+      "type": "NPCs",
+      "name": "Big Boss Goblin",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3643"
+    },
+    {
+      "type": "NPCs",
+      "name": "Bill-Band",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3645"
+    },
+    {
+      "type": "NPCs",
+      "name": "Black Belt",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3504"
+    },
+    {
+      "type": "NPCs",
+      "name": "Blasphemer of Zon-Kuthon",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3441"
+    },
+    {
+      "type": "NPCs",
+      "name": "Bleachling Survivor",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3636"
+    },
+    {
+      "type": "NPCs",
+      "name": "Bodyguard",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3513"
+    },
+    {
+      "type": "NPCs",
+      "name": "Bone Mother",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3669"
+    },
+    {
+      "type": "NPCs",
+      "name": "Bone Scavenger",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3651"
+    },
+    {
+      "type": "NPCs",
+      "name": "Bosun",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3600"
+    },
+    {
+      "type": "NPCs",
+      "name": "Bounty Hunter",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3515"
+    },
+    {
+      "type": "NPCs",
+      "name": "Burglar",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3429"
+    },
+    {
+      "type": "NPCs",
+      "name": "Captain of the Guard",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3560"
+    },
+    {
+      "type": "NPCs",
+      "name": "Castaway",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3602"
+    },
+    {
+      "type": "NPCs",
+      "name": "Catfolk Name Collector",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3624"
+    },
+    {
+      "type": "NPCs",
+      "name": "Champion of Rovagug",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3613"
+    },
+    {
+      "type": "NPCs",
+      "name": "Champion of Shelyn",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3446"
+    },
+    {
+      "type": "NPCs",
+      "name": "Charlatan",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3428"
+    },
+    {
+      "type": "NPCs",
+      "name": "Chronicler",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3470"
+    },
+    {
+      "type": "NPCs",
+      "name": "City Guard Squadron",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3558"
+    },
+    {
+      "type": "NPCs",
+      "name": "Combat Engineer",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3521"
+    },
+    {
+      "type": "NPCs",
+      "name": "Commoner",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3488"
+    },
+    {
+      "type": "NPCs",
+      "name": "Conscript Squad",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3523"
+    },
+    {
+      "type": "NPCs",
+      "name": "Conspiracist",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3606"
+    },
+    {
+      "type": "NPCs",
+      "name": "Construction Worker",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3498"
+    },
+    {
+      "type": "NPCs",
+      "name": "Corn Leshy Throng",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3658"
+    },
+    {
+      "type": "NPCs",
+      "name": "Court Historian",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3415"
+    },
+    {
+      "type": "NPCs",
+      "name": "Court Jester",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3578"
+    },
+    {
+      "type": "NPCs",
+      "name": "Courtesan",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3417"
+    },
+    {
+      "type": "NPCs",
+      "name": "Coven Aspirant",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3535"
+    },
+    {
+      "type": "NPCs",
+      "name": "Crime Kingpin",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3435"
+    },
+    {
+      "type": "NPCs",
+      "name": "Cult Leader",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3539"
+    },
+    {
+      "type": "NPCs",
+      "name": "Cultist",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3534"
+    },
+    {
+      "type": "NPCs",
+      "name": "Curse Monger",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3544"
+    },
+    {
+      "type": "NPCs",
+      "name": "Dancer",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3569"
+    },
+    {
+      "type": "NPCs",
+      "name": "Dedicated Druid",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3583"
+    },
+    {
+      "type": "NPCs",
+      "name": "Deific Champion of Iomedae",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3450"
+    },
+    {
+      "type": "NPCs",
+      "name": "Deific Vessel of Urgathoa",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3451"
+    },
+    {
+      "type": "NPCs",
+      "name": "Deluded Mob",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3611"
+    },
+    {
+      "type": "NPCs",
+      "name": "Demolitionist",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3461"
+    },
+    {
+      "type": "NPCs",
+      "name": "Demonbane Warrior",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3632"
+    },
+    {
+      "type": "NPCs",
+      "name": "Demonologist",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3540"
+    },
+    {
+      "type": "NPCs",
+      "name": "Departmental Chair",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3594"
+    },
+    {
+      "type": "NPCs",
+      "name": "Despot",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3614"
+    },
+    {
+      "type": "NPCs",
+      "name": "Diver",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3601"
+    },
+    {
+      "type": "NPCs",
+      "name": "Dockhand",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3490"
+    },
+    {
+      "type": "NPCs",
+      "name": "Drill Sergeant",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3529"
+    },
+    {
+      "type": "NPCs",
+      "name": "Driver",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3458"
+    },
+    {
+      "type": "NPCs",
+      "name": "Dromaar Lorekeeper",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3664"
+    },
+    {
+      "type": "NPCs",
+      "name": "Drover",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3491"
+    },
+    {
+      "type": "NPCs",
+      "name": "Druid Initiate",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3580"
+    },
+    {
+      "type": "NPCs",
+      "name": "Drunkard",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3455"
+    },
+    {
+      "type": "NPCs",
+      "name": "Dwarf Battalion",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3628"
+    },
+    {
+      "type": "NPCs",
+      "name": "Dwarf General",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3629"
+    },
+    {
+      "type": "NPCs",
+      "name": "Dwarf Smith",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3626"
+    },
+    {
+      "type": "NPCs",
+      "name": "Dynamo",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3464"
+    },
+    {
+      "type": "NPCs",
+      "name": "Eldritch Emeritus",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3596"
+    },
+    {
+      "type": "NPCs",
+      "name": "Elven Court Guard",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3634"
+    },
+    {
+      "type": "NPCs",
+      "name": "Enchanting Ritualist",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3545"
+    },
+    {
+      "type": "NPCs",
+      "name": "Enigmatic Conspiracist",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3536"
+    },
+    {
+      "type": "NPCs",
+      "name": "Envoy",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3416"
+    },
+    {
+      "type": "NPCs",
+      "name": "Equestrian Constable",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3557"
+    },
+    {
+      "type": "NPCs",
+      "name": "Executioner",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3561"
+    },
+    {
+      "type": "NPCs",
+      "name": "Exiled Revolutionary",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3519"
+    },
+    {
+      "type": "NPCs",
+      "name": "Expedition Leader",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3478"
+    },
+    {
+      "type": "NPCs",
+      "name": "Exuberant Apprentice",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3591"
+    },
+    {
+      "type": "NPCs",
+      "name": "False Priest",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3537"
+    },
+    {
+      "type": "NPCs",
+      "name": "Farmer",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3492"
+    },
+    {
+      "type": "NPCs",
+      "name": "Fence",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3430"
+    },
+    {
+      "type": "NPCs",
+      "name": "Fiend Caller",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3609"
+    },
+    {
+      "type": "NPCs",
+      "name": "Fisher",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3493"
+    },
+    {
+      "type": "NPCs",
+      "name": "Flamboyant Thief",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3436"
+    },
+    {
+      "type": "NPCs",
+      "name": "Fleshwarper",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3617"
+    },
+    {
+      "type": "NPCs",
+      "name": "Forager",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3467"
+    },
+    {
+      "type": "NPCs",
+      "name": "Forlorn Artist",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3631"
+    },
+    {
+      "type": "NPCs",
+      "name": "Gadgeteer",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3462"
+    },
+    {
+      "type": "NPCs",
+      "name": "Gambling Companion",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3670"
+    },
+    {
+      "type": "NPCs",
+      "name": "Gamekeeper",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3475"
+    },
+    {
+      "type": "NPCs",
+      "name": "Gang Leader",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3618"
+    },
+    {
+      "type": "NPCs",
+      "name": "Gendarme",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3563"
+    },
+    {
+      "type": "NPCs",
+      "name": "Globetrotting Scholar",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3595"
+    },
+    {
+      "type": "NPCs",
+      "name": "Gnome Conservationist",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3639"
+    },
+    {
+      "type": "NPCs",
+      "name": "Gnome Daredevil",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3637"
+    },
+    {
+      "type": "NPCs",
+      "name": "Gnome Philomath",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3635"
+    },
+    {
+      "type": "NPCs",
+      "name": "Goblin Chef",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3640"
+    },
+    {
+      "type": "NPCs",
+      "name": "Goblin Get Gang",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3642"
+    },
+    {
+      "type": "NPCs",
+      "name": "Goblin Scavenger",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3641"
+    },
+    {
+      "type": "NPCs",
+      "name": "God Caller",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3542"
+    },
+    {
+      "type": "NPCs",
+      "name": "Gourd Leshy Witch",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3659"
+    },
+    {
+      "type": "NPCs",
+      "name": "Grand Inquisitor",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3568"
+    },
+    {
+      "type": "NPCs",
+      "name": "Grandmaster",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3503"
+    },
+    {
+      "type": "NPCs",
+      "name": "Grave Robber",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3424"
+    },
+    {
+      "type": "NPCs",
+      "name": "Gravedigger",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3495"
+    },
+    {
+      "type": "NPCs",
+      "name": "Guard",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3551"
+    },
+    {
+      "type": "NPCs",
+      "name": "Guide",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3472"
+    },
+    {
+      "type": "NPCs",
+      "name": "Guildmaster",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3414"
+    },
+    {
+      "type": "NPCs",
+      "name": "Gunsmith",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3456"
+    },
+    {
+      "type": "NPCs",
+      "name": "Gunwitch",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3510"
+    },
+    {
+      "type": "NPCs",
+      "name": "Halfling Head Chef",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3644"
+    },
+    {
+      "type": "NPCs",
+      "name": "Halfling Smuggler",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3646"
+    },
+    {
+      "type": "NPCs",
+      "name": "Halfling Yarnspinner",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3647"
+    },
+    {
+      "type": "NPCs",
+      "name": "Harbormaster",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3553"
+    },
+    {
+      "type": "NPCs",
+      "name": "Harrow Reader",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3533"
+    },
+    {
+      "type": "NPCs",
+      "name": "Heavy Cavalry",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3528"
+    },
+    {
+      "type": "NPCs",
+      "name": "Hellknight Cavalry Brigade",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3530"
+    },
+    {
+      "type": "NPCs",
+      "name": "Hero Hunter",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3621"
+    },
+    {
+      "type": "NPCs",
+      "name": "High Priest of Pharasma",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3447"
+    },
+    {
+      "type": "NPCs",
+      "name": "High Roller",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3511"
+    },
+    {
+      "type": "NPCs",
+      "name": "Hobgoblin Battalion",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3649"
+    },
+    {
+      "type": "NPCs",
+      "name": "Hobgoblin Spellbreaker",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3648"
+    },
+    {
+      "type": "NPCs",
+      "name": "Hobgoblin Vanguard",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3650"
+    },
+    {
+      "type": "NPCs",
+      "name": "Humanitarian Hermit",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3486"
+    },
+    {
+      "type": "NPCs",
+      "name": "Hunter",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3476"
+    },
+    {
+      "type": "NPCs",
+      "name": "Infantry Soldier",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3522"
+    },
+    {
+      "type": "NPCs",
+      "name": "Infernal Registrar",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3566"
+    },
+    {
+      "type": "NPCs",
+      "name": "Innkeeper",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3496"
+    },
+    {
+      "type": "NPCs",
+      "name": "Inspector",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3554"
+    },
+    {
+      "type": "NPCs",
+      "name": "Interrogator",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3615"
+    },
+    {
+      "type": "NPCs",
+      "name": "Iruxi Masked Mummer",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3661"
+    },
+    {
+      "type": "NPCs",
+      "name": "Jailer",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3555"
+    },
+    {
+      "type": "NPCs",
+      "name": "Jinx Eater",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3671"
+    },
+    {
+      "type": "NPCs",
+      "name": "Judge",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3547"
+    },
+    {
+      "type": "NPCs",
+      "name": "Juggernaut",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3465"
+    },
+    {
+      "type": "NPCs",
+      "name": "Juggler",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3572"
+    },
+    {
+      "type": "NPCs",
+      "name": "Kholo Outrider",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3653"
+    },
+    {
+      "type": "NPCs",
+      "name": "Kholo Pragmatist",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3652"
+    },
+    {
+      "type": "NPCs",
+      "name": "Knight",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3423"
+    },
+    {
+      "type": "NPCs",
+      "name": "Kobold Earth Diver",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3680"
+    },
+    {
+      "type": "NPCs",
+      "name": "Kobold Egg Guardian",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3655"
+    },
+    {
+      "type": "NPCs",
+      "name": "Kobold Trapper",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3654"
+    },
+    {
+      "type": "NPCs",
+      "name": "Leaping Thief",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3623"
+    },
+    {
+      "type": "NPCs",
+      "name": "Legbreaker",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3431"
+    },
+    {
+      "type": "NPCs",
+      "name": "Librarian",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3587"
+    },
+    {
+      "type": "NPCs",
+      "name": "Line Infantry",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3526"
+    },
+    {
+      "type": "NPCs",
+      "name": "Loan Shark",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3426"
+    },
+    {
+      "type": "NPCs",
+      "name": "Local Herbalist",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3481"
+    },
+    {
+      "type": "NPCs",
+      "name": "Lucky Courser",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3625"
+    },
+    {
+      "type": "NPCs",
+      "name": "Maestro",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3579"
+    },
+    {
+      "type": "NPCs",
+      "name": "Mage For Hire",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3514"
+    },
+    {
+      "type": "NPCs",
+      "name": "Mage Killer",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3517"
+    },
+    {
+      "type": "NPCs",
+      "name": "Mage Knight",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3531"
+    },
+    {
+      "type": "NPCs",
+      "name": "Martial Student",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3500"
+    },
+    {
+      "type": "NPCs",
+      "name": "Master Of Disguise",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3433"
+    },
+    {
+      "type": "NPCs",
+      "name": "Mastermind",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3612"
+    },
+    {
+      "type": "NPCs",
+      "name": "Mayor",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3549"
+    },
+    {
+      "type": "NPCs",
+      "name": "Mechanic",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3457"
+    },
+    {
+      "type": "NPCs",
+      "name": "Mercenary Band",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3518"
+    },
+    {
+      "type": "NPCs",
+      "name": "Merchant",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3412"
+    },
+    {
+      "type": "NPCs",
+      "name": "Messenger",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3497"
+    },
+    {
+      "type": "NPCs",
+      "name": "Mime",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3573"
+    },
+    {
+      "type": "NPCs",
+      "name": "Miner",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3494"
+    },
+    {
+      "type": "NPCs",
+      "name": "Mirror Seer",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3541"
+    },
+    {
+      "type": "NPCs",
+      "name": "Mixed Martial Artist",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3502"
+    },
+    {
+      "type": "NPCs",
+      "name": "Monster Hunter",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3516"
+    },
+    {
+      "type": "NPCs",
+      "name": "Mountain Guardian",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3582"
+    },
+    {
+      "type": "NPCs",
+      "name": "Mountaineer",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3473"
+    },
+    {
+      "type": "NPCs",
+      "name": "Musketeer",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3507"
+    },
+    {
+      "type": "NPCs",
+      "name": "Natural Scientist",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3468"
+    },
+    {
+      "type": "NPCs",
+      "name": "Navigator",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3598"
+    },
+    {
+      "type": "NPCs",
+      "name": "Necromancer",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3538"
+    },
+    {
+      "type": "NPCs",
+      "name": "Noble",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3418"
+    },
+    {
+      "type": "NPCs",
+      "name": "Obsessive Researcher",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3588"
+    },
+    {
+      "type": "NPCs",
+      "name": "Ocean Nomad",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3605"
+    },
+    {
+      "type": "NPCs",
+      "name": "Orc Agriculturalist",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3662"
+    },
+    {
+      "type": "NPCs",
+      "name": "Orc Gamekeeper",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3663"
+    },
+    {
+      "type": "NPCs",
+      "name": "Orc Skullcrushers",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3665"
+    },
+    {
+      "type": "NPCs",
+      "name": "Orc Veteran Master",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3666"
+    },
+    {
+      "type": "NPCs",
+      "name": "Pack Leader",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3581"
+    },
+    {
+      "type": "NPCs",
+      "name": "Palace Guard",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3419"
+    },
+    {
+      "type": "NPCs",
+      "name": "Peerless Duelist",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3512"
+    },
+    {
+      "type": "NPCs",
+      "name": "Peerless Healer",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3487"
+    },
+    {
+      "type": "NPCs",
+      "name": "Penitent Of Calistria ",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3438"
+    },
+    {
+      "type": "NPCs",
+      "name": "Phalanx Formation",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3527"
+    },
+    {
+      "type": "NPCs",
+      "name": "Physician",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3480"
+    },
+    {
+      "type": "NPCs",
+      "name": "Pilgrim of Irori",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3437"
+    },
+    {
+      "type": "NPCs",
+      "name": "Pirate",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3599"
+    },
+    {
+      "type": "NPCs",
+      "name": "Plague Doctor",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3484"
+    },
+    {
+      "type": "NPCs",
+      "name": "Poacher",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3469"
+    },
+    {
+      "type": "NPCs",
+      "name": "Political Upstart",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3505"
+    },
+    {
+      "type": "NPCs",
+      "name": "Priest of Sarenrae",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3445"
+    },
+    {
+      "type": "NPCs",
+      "name": "Prime Minister",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3550"
+    },
+    {
+      "type": "NPCs",
+      "name": "Prisoner",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3454"
+    },
+    {
+      "type": "NPCs",
+      "name": "Propagandist",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3610"
+    },
+    {
+      "type": "NPCs",
+      "name": "Prophet",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3442"
+    },
+    {
+      "type": "NPCs",
+      "name": "Puppeteer",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3577"
+    },
+    {
+      "type": "NPCs",
+      "name": "Rancorous Priesthood",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3449"
+    },
+    {
+      "type": "NPCs",
+      "name": "Razzle Dazzler",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3638"
+    },
+    {
+      "type": "NPCs",
+      "name": "Reckless Scientist",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3616"
+    },
+    {
+      "type": "NPCs",
+      "name": "Rigger",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3597"
+    },
+    {
+      "type": "NPCs",
+      "name": "Rocketeer",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3463"
+    },
+    {
+      "type": "NPCs",
+      "name": "Root Leshy Groundskeeper",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3656"
+    },
+    {
+      "type": "NPCs",
+      "name": "Ruffian",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3427"
+    },
+    {
+      "type": "NPCs",
+      "name": "Runaway Blueblood",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3508"
+    },
+    {
+      "type": "NPCs",
+      "name": "Saboteur",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3608"
+    },
+    {
+      "type": "NPCs",
+      "name": "Sage",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3593"
+    },
+    {
+      "type": "NPCs",
+      "name": "Servant",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3489"
+    },
+    {
+      "type": "NPCs",
+      "name": "Ship Captain",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3604"
+    },
+    {
+      "type": "NPCs",
+      "name": "Sibyl",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3443"
+    },
+    {
+      "type": "NPCs",
+      "name": "Siegebreaker",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3520"
+    },
+    {
+      "type": "NPCs",
+      "name": "Skin Shifter",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3584"
+    },
+    {
+      "type": "NPCs",
+      "name": "Smith",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3413"
+    },
+    {
+      "type": "NPCs",
+      "name": "Sniper",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3525"
+    },
+    {
+      "type": "NPCs",
+      "name": "Spirit Binder",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3543"
+    },
+    {
+      "type": "NPCs",
+      "name": "Spirit Priest",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3627"
+    },
+    {
+      "type": "NPCs",
+      "name": "Spy",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3421"
+    },
+    {
+      "type": "NPCs",
+      "name": "Standard Bearer",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3524"
+    },
+    {
+      "type": "NPCs",
+      "name": "Street Musician",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3571"
+    },
+    {
+      "type": "NPCs",
+      "name": "Subaquatic Marauder",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3603"
+    },
+    {
+      "type": "NPCs",
+      "name": "Surgeon",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3482"
+    },
+    {
+      "type": "NPCs",
+      "name": "Swarm Voice",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3668"
+    },
+    {
+      "type": "NPCs",
+      "name": "Tax Collector",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3548"
+    },
+    {
+      "type": "NPCs",
+      "name": "Teacher",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3589"
+    },
+    {
+      "type": "NPCs",
+      "name": "Tempest Incarnate",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3586"
+    },
+    {
+      "type": "NPCs",
+      "name": "Tengu Bladesmith",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3672"
+    },
+    {
+      "type": "NPCs",
+      "name": "Therapeutic Healer",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3485"
+    },
+    {
+      "type": "NPCs",
+      "name": "Tidewater Guard",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3660"
+    },
+    {
+      "type": "NPCs",
+      "name": "Toady",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3607"
+    },
+    {
+      "type": "NPCs",
+      "name": "Tomb Raider",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3474"
+    },
+    {
+      "type": "NPCs",
+      "name": "Tonic Merchant",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3483"
+    },
+    {
+      "type": "NPCs",
+      "name": "Torchbearer",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3466"
+    },
+    {
+      "type": "NPCs",
+      "name": "Tournament Combatant",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3501"
+    },
+    {
+      "type": "NPCs",
+      "name": "Toymaker",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3460"
+    },
+    {
+      "type": "NPCs",
+      "name": "Tracker",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3471"
+    },
+    {
+      "type": "NPCs",
+      "name": "Traveling Actor",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3574"
+    },
+    {
+      "type": "NPCs",
+      "name": "Traveling Priest of Desna",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3448"
+    },
+    {
+      "type": "NPCs",
+      "name": "Tree Singer",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3585"
+    },
+    {
+      "type": "NPCs",
+      "name": "Tripkee Camoufleur",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3674"
+    },
+    {
+      "type": "NPCs",
+      "name": "Tripkee Fiend Keeper",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3675"
+    },
+    {
+      "type": "NPCs",
+      "name": "Tripkee Scout",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3673"
+    },
+    {
+      "type": "NPCs",
+      "name": "Troubadour",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3575"
+    },
+    {
+      "type": "NPCs",
+      "name": "Tumbleweed Leshy Courier",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3657"
+    },
+    {
+      "type": "NPCs",
+      "name": "Tunnel Viper",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3667"
+    },
+    {
+      "type": "NPCs",
+      "name": "Unsanctioned Sheriff",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3509"
+    },
+    {
+      "type": "NPCs",
+      "name": "Urchin",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3453"
+    },
+    {
+      "type": "NPCs",
+      "name": "Vermin Catcher",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3499"
+    },
+    {
+      "type": "NPCs",
+      "name": "Veteran Noble",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3422"
+    },
+    {
+      "type": "NPCs",
+      "name": "Warden",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3562"
+    },
+    {
+      "type": "NPCs",
+      "name": "Warmonger",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3620"
+    },
+    {
+      "type": "NPCs",
+      "name": "Watch Officer",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3556"
+    },
+    {
+      "type": "NPCs",
+      "name": "Watchmage",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3559"
+    },
+    {
+      "type": "NPCs",
+      "name": "Watchmage Squadron",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3567"
+    },
+    {
+      "type": "NPCs",
+      "name": "Wealthy Vigilante",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3619"
+    },
+    {
+      "type": "NPCs",
+      "name": "Woodland Scouts",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3633"
+    },
+    {
+      "type": "NPCs",
+      "name": "Wooly Wrangler",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3477"
+    },
+    {
+      "type": "NPCs",
+      "name": "World Ender",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3622"
+    },
+    {
+      "type": "NPCs",
+      "name": "Zealot of Asmodeus",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3444"
+    },
+    {
+      "type": "Rules",
+      "name": "Chapter 1: NPC Gallery",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3363"
+    },
+    {
+      "type": "Rules",
+      "name": "Chapter 2: Ancestry NPCs",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3367"
+    },
+    {
+      "type": "Rules",
+      "name": "Creature Companions",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3370"
+    },
+    {
+      "type": "Rules",
+      "name": "Introduction",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3355"
+    },
+    {
+      "type": "Rules",
+      "name": "Relationships and Advancement",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3397"
+    },
+    {
+      "type": "Rules",
+      "name": "Themed Spell Lists",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3383"
+    },
+    {
+      "type": "Spells",
+      "name": "500 Toads",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2335"
+    },
+    {
+      "type": "Spells",
+      "name": "Burglar's Blind",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2336"
+    },
+    {
+      "type": "Spells",
+      "name": "Far-Flung Fetch",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2337"
+    },
+    {
+      "type": "Spells",
+      "name": "Infiltrator's Tunnel",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2338"
+    },
+    {
+      "type": "Traits",
+      "name": "Capacity (Weapon)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=845"
+    },
+    {
+      "type": "Traits",
+      "name": "Concussive (Weapon)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=846"
+    },
+    {
+      "type": "Traits",
+      "name": "Kickback (Weapon)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=847"
+    },
+    {
+      "type": "Traits",
+      "name": "Scatter (Weapon)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=848"
+    },
+    {
+      "type": "Traits",
+      "name": "Troop (Monster)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=849"
+    },
+    {
+      "type": "Weapons",
+      "name": "Arquebus",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=518"
+    },
+    {
+      "type": "Weapons",
+      "name": "Dragon-Mouth Pistol",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=519"
+    },
+    {
+      "type": "Weapons",
+      "name": "Dueling Pistol",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=520"
+    },
+    {
+      "type": "Weapons",
+      "name": "Flintlock Musket",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=521"
+    },
+    {
+      "type": "Weapons",
+      "name": "Flintlock Pistol",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=522"
+    },
+    {
+      "type": "Weapons",
+      "name": "Frying Pan",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=517"
+    },
+    {
+      "type": "Weapons",
+      "name": "Hand Cannon",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=523"
+    },
+    {
+      "type": "Weapons",
+      "name": "Machete",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=516"
+    },
+    {
+      "type": "Weapons",
+      "name": "War Razor",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=525"
+    },
+    {
+      "type": "Weapons",
+      "name": "Slide Pistol",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=206"
+    }
+  ]
+}

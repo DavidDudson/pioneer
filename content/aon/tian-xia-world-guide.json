@@ -1,0 +1,290 @@
+{
+  "etag": "\"c056e0f31a58460b952e442bb58c2cf9\"",
+  "entries": [
+    {
+      "type": "Deities",
+      "name": "Baekho",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=299"
+    },
+    {
+      "type": "Deities",
+      "name": "Daikitsu",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=304"
+    },
+    {
+      "type": "Deities",
+      "name": "Fumeiyoshi",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=305"
+    },
+    {
+      "type": "Deities",
+      "name": "General Susumu",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=306"
+    },
+    {
+      "type": "Deities",
+      "name": "Hei Feng",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=307"
+    },
+    {
+      "type": "Deities",
+      "name": "Jin Li",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=308"
+    },
+    {
+      "type": "Deities",
+      "name": "Kofusachi",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=309"
+    },
+    {
+      "type": "Deities",
+      "name": "Lady Jingxi",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=310"
+    },
+    {
+      "type": "Deities",
+      "name": "Lady Nanbyo",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=311"
+    },
+    {
+      "type": "Deities",
+      "name": "Lao Shu Po",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=312"
+    },
+    {
+      "type": "Deities",
+      "name": "Mugura and Nrithu",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=300"
+    },
+    {
+      "type": "Deities",
+      "name": "Nalinivati",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=313"
+    },
+    {
+      "type": "Deities",
+      "name": "Phi Deva",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=301"
+    },
+    {
+      "type": "Deities",
+      "name": "Qi Zhong",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=314"
+    },
+    {
+      "type": "Deities",
+      "name": "Shizuru",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=315"
+    },
+    {
+      "type": "Deities",
+      "name": "Srikalis, Sritaming, and Sribaril",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=302"
+    },
+    {
+      "type": "Deities",
+      "name": "Sun Wukong",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=316"
+    },
+    {
+      "type": "Deities",
+      "name": "The Lady of the North Star",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=303"
+    },
+    {
+      "type": "Deities",
+      "name": "Tsukiyo",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=317"
+    },
+    {
+      "type": "Deities",
+      "name": "Yaezhing",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=318"
+    },
+    {
+      "type": "Deities",
+      "name": "Yamatsumi",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=319"
+    },
+    {
+      "type": "Monsters",
+      "name": "Animated Bamboo Figure",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2763"
+    },
+    {
+      "type": "Monsters",
+      "name": "Animated Kite",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2762"
+    },
+    {
+      "type": "Monsters",
+      "name": "Animated Wine Vessel",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2764"
+    },
+    {
+      "type": "Monsters",
+      "name": "Aoyin",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2765"
+    },
+    {
+      "type": "Monsters",
+      "name": "Aso Berang",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2766"
+    },
+    {
+      "type": "Monsters",
+      "name": "Bul-Gae",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2767"
+    },
+    {
+      "type": "Monsters",
+      "name": "Five-Color Orchid Mantis",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2779"
+    },
+    {
+      "type": "Monsters",
+      "name": "Gau Cho Rong",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2768"
+    },
+    {
+      "type": "Monsters",
+      "name": "Giant Orchid Mantis",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2777"
+    },
+    {
+      "type": "Monsters",
+      "name": "Hopping Head",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2770"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ijhyeojin",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2783"
+    },
+    {
+      "type": "Monsters",
+      "name": "Imugi",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2772"
+    },
+    {
+      "type": "Monsters",
+      "name": "Inkdrop",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2761"
+    },
+    {
+      "type": "Monsters",
+      "name": "Jiidon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2773"
+    },
+    {
+      "type": "Monsters",
+      "name": "Joseung Saja",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2782"
+    },
+    {
+      "type": "Monsters",
+      "name": "Kun",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2774"
+    },
+    {
+      "type": "Monsters",
+      "name": "Manananggal",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2775"
+    },
+    {
+      "type": "Monsters",
+      "name": "Nue",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2776"
+    },
+    {
+      "type": "Monsters",
+      "name": "Orchid Mantis Swarm",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2778"
+    },
+    {
+      "type": "Monsters",
+      "name": "Peng",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2780"
+    },
+    {
+      "type": "Monsters",
+      "name": "Pixiu",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2781"
+    },
+    {
+      "type": "Monsters",
+      "name": "Shui Gui",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2784"
+    },
+    {
+      "type": "Monsters",
+      "name": "The Caterpillar Carriage",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2771"
+    },
+    {
+      "type": "Monsters",
+      "name": "The Great Flood",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2769"
+    },
+    {
+      "type": "Monsters",
+      "name": "Yeongno",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2785"
+    },
+    {
+      "type": "Rituals",
+      "name": "Perfection of Essence",
+      "url": "https://2e.aonprd.com/Rituals.aspx?ID=133"
+    },
+    {
+      "type": "Rituals",
+      "name": "Power of the Beasts",
+      "url": "https://2e.aonprd.com/Rituals.aspx?ID=134"
+    },
+    {
+      "type": "Rituals",
+      "name": "Seed of Mercy",
+      "url": "https://2e.aonprd.com/Rituals.aspx?ID=135"
+    },
+    {
+      "type": "Rituals",
+      "name": "The Unseeing Blade Master",
+      "url": "https://2e.aonprd.com/Rituals.aspx?ID=136"
+    },
+    {
+      "type": "Rituals",
+      "name": "Wild Allegiance",
+      "url": "https://2e.aonprd.com/Rituals.aspx?ID=137"
+    },
+    {
+      "type": "Traits",
+      "name": "Trial (Mechanics)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=740"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Atakebune",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=83"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Baochuan",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=84"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Djong",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=85"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Geobukseon",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=86"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Karakoa",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=87"
+    }
+  ]
+}

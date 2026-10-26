@@ -1,0 +1,1505 @@
+{
+  "etag": "\"045762f57dd741ba92c4faa0a56300b3\"",
+  "entries": [
+    {
+      "type": "Ancestries",
+      "name": "Hobgoblin",
+      "url": "https://2e.aonprd.com/Ancestries.aspx?ID=13"
+    },
+    {
+      "type": "Ancestries",
+      "name": "Leshy",
+      "url": "https://2e.aonprd.com/Ancestries.aspx?ID=14"
+    },
+    {
+      "type": "Ancestries",
+      "name": "Lizardfolk",
+      "url": "https://2e.aonprd.com/Ancestries.aspx?ID=15"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Ancient Elf",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=34"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Anvil Dwarf",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=31"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Cliffscale Lizardfolk",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=49"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Desert Elf",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=35"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Elemental Heart Dwarf",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=32"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Elfbane Hobgoblin",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=40"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Frilled Lizardfolk",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=50"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Fungus Leshy",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=45"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Gourd Leshy",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=46"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Leaf Leshy",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=47"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Oathkeeper Dwarf",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=33"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Observant Halfling",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=39"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Runtboss Hobgoblin",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=41"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Sandstrider Lizardfolk",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=51"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Smokeworker Hobgoblin",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=42"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Tailed Goblin",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=37"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Treedweller Goblin",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=38"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Unseen Lizardfolk",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=52"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Vine Leshy",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=48"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Vivacious Gnome",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=36"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Warmarch Hobgoblin",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=43"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Warrenbred Hobgoblin",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=44"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Wetlander Lizardfolk",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=53"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Wintertouched Human",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=30"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Firebrand Braggart",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=24"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Halcyon Speaker",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=30"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Hellknight",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=25"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Hellknight Signifer",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=26"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Knight Reclaimant",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=28"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Knight Vigilant",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=27"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Magaambyan Attendant",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=29"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Scrollmaster",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=31"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Spellmaster",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=32"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Swordmaster",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=33"
+    },
+    {
+      "type": "Armor",
+      "name": "Hellknight Plate",
+      "url": "https://2e.aonprd.com/Armor.aspx?ID=14"
+    },
+    {
+      "type": "Equipment",
+      "name": "Arcane Scroll Case of Simplicity",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=525"
+    },
+    {
+      "type": "Equipment",
+      "name": "Armored Skirt",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=514"
+    },
+    {
+      "type": "Equipment",
+      "name": "Bi-Resonant Wayfinder",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=470"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cloak of Repute",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=510"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cloak of Repute (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=510"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cloak of Repute (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=510"
+    },
+    {
+      "type": "Equipment",
+      "name": "Crimson Brand",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=515"
+    },
+    {
+      "type": "Equipment",
+      "name": "Divine Scroll Case of Simplicity",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=525"
+    },
+    {
+      "type": "Equipment",
+      "name": "Fortifying Pebble",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=522"
+    },
+    {
+      "type": "Equipment",
+      "name": "Glorious Plate",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=520"
+    },
+    {
+      "type": "Equipment",
+      "name": "Insistent Door Knocker",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=511"
+    },
+    {
+      "type": "Equipment",
+      "name": "Insistent Door Knocker (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=511"
+    },
+    {
+      "type": "Equipment",
+      "name": "Insistent Door Knocker (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=511"
+    },
+    {
+      "type": "Equipment",
+      "name": "Lastwall Soup",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=516"
+    },
+    {
+      "type": "Equipment",
+      "name": "Occult Scroll Case of Simplicity",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=525"
+    },
+    {
+      "type": "Equipment",
+      "name": "Pathfinder Chronicle",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=64"
+    },
+    {
+      "type": "Equipment",
+      "name": "Pathfinder Chronicle",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2763"
+    },
+    {
+      "type": "Equipment",
+      "name": "Pathfinder's Coin",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=523"
+    },
+    {
+      "type": "Equipment",
+      "name": "Pathfinder's Pouch",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=524"
+    },
+    {
+      "type": "Equipment",
+      "name": "Primal Scroll Case of Simplicity",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=525"
+    },
+    {
+      "type": "Equipment",
+      "name": "Radiant Lance",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=517"
+    },
+    {
+      "type": "Equipment",
+      "name": "Scroll Case of Simplicity",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=525"
+    },
+    {
+      "type": "Equipment",
+      "name": "Scrollstaff",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=521"
+    },
+    {
+      "type": "Equipment",
+      "name": "Serrating",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=519"
+    },
+    {
+      "type": "Equipment",
+      "name": "Shining Wayfinder",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=470"
+    },
+    {
+      "type": "Equipment",
+      "name": "Sinister Knight",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=518"
+    },
+    {
+      "type": "Equipment",
+      "name": "Snapleaf",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=512"
+    },
+    {
+      "type": "Equipment",
+      "name": "Unmemorable Mantle",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=513"
+    },
+    {
+      "type": "Equipment",
+      "name": "Unmemorable Mantle (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=513"
+    },
+    {
+      "type": "Equipment",
+      "name": "Unmemorable Mantle (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=513"
+    },
+    {
+      "type": "Equipment",
+      "name": "Vanishing Wayfinder",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=470"
+    },
+    {
+      "type": "Feats",
+      "name": "Absorb Spell",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1138"
+    },
+    {
+      "type": "Feats",
+      "name": "Adaptive Mask Familiar",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1104"
+    },
+    {
+      "type": "Feats",
+      "name": "Adroit Manipulation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1012"
+    },
+    {
+      "type": "Feats",
+      "name": "Advanced Order Training",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1076"
+    },
+    {
+      "type": "Feats",
+      "name": "Aegis of Arnisant",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1095"
+    },
+    {
+      "type": "Feats",
+      "name": "Agonizing Rebuke",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1030"
+    },
+    {
+      "type": "Feats",
+      "name": "Alchemical Scholar",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1024"
+    },
+    {
+      "type": "Feats",
+      "name": "Ankle Bite",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1002"
+    },
+    {
+      "type": "Feats",
+      "name": "Arcane Tattoos",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=938"
+    },
+    {
+      "type": "Feats",
+      "name": "Avenge in Glory",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=964"
+    },
+    {
+      "type": "Feats",
+      "name": "Backup Disguise",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1064"
+    },
+    {
+      "type": "Feats",
+      "name": "Bark and Tendril",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1047"
+    },
+    {
+      "type": "Feats",
+      "name": "Battleforger",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=971"
+    },
+    {
+      "type": "Feats",
+      "name": "Blade of Law",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1080"
+    },
+    {
+      "type": "Feats",
+      "name": "Blade of the Crimson Oath",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1101"
+    },
+    {
+      "type": "Feats",
+      "name": "Boaster's Challenge",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1068"
+    },
+    {
+      "type": "Feats",
+      "name": "Bouncy Goblin",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=999"
+    },
+    {
+      "type": "Feats",
+      "name": "Bravo's Determination",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1070"
+    },
+    {
+      "type": "Feats",
+      "name": "Brightness Seeker",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=984"
+    },
+    {
+      "type": "Feats",
+      "name": "Cascade Bearer's Flexibility",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1105"
+    },
+    {
+      "type": "Feats",
+      "name": "Cascade Bearer's Spellcasting",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1110"
+    },
+    {
+      "type": "Feats",
+      "name": "Charged Creation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1120"
+    },
+    {
+      "type": "Feats",
+      "name": "Chosen of Lamashtu",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1003"
+    },
+    {
+      "type": "Feats",
+      "name": "Clan Protector",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=968"
+    },
+    {
+      "type": "Feats",
+      "name": "Clan's Edge",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=965"
+    },
+    {
+      "type": "Feats",
+      "name": "Cobble Dancer",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1022"
+    },
+    {
+      "type": "Feats",
+      "name": "Courteous Comeback",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=939"
+    },
+    {
+      "type": "Feats",
+      "name": "Cunning Climber",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1019"
+    },
+    {
+      "type": "Feats",
+      "name": "Daredevil's Gambit",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1074"
+    },
+    {
+      "type": "Feats",
+      "name": "Daring Act",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1069"
+    },
+    {
+      "type": "Feats",
+      "name": "Daring Flourish",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1072"
+    },
+    {
+      "type": "Feats",
+      "name": "Darkseer",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=950"
+    },
+    {
+      "type": "Feats",
+      "name": "Death's Door",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1142"
+    },
+    {
+      "type": "Feats",
+      "name": "Defiance Unto Death",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=980"
+    },
+    {
+      "type": "Feats",
+      "name": "Demanding Challenge",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1073"
+    },
+    {
+      "type": "Feats",
+      "name": "Devil's Advocate",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=940"
+    },
+    {
+      "type": "Feats",
+      "name": "Dragon Prince",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=953"
+    },
+    {
+      "type": "Feats",
+      "name": "Dragon Spit",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=941"
+    },
+    {
+      "type": "Feats",
+      "name": "Dualistic Synergy",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1116"
+    },
+    {
+      "type": "Feats",
+      "name": "Easily Dismissed",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1016"
+    },
+    {
+      "type": "Feats",
+      "name": "Eclectic Obsession",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=995"
+    },
+    {
+      "type": "Feats",
+      "name": "Educated Assessment",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1129"
+    },
+    {
+      "type": "Feats",
+      "name": "Elemental Wrath",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=975"
+    },
+    {
+      "type": "Feats",
+      "name": "Elven Instincts",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=981"
+    },
+    {
+      "type": "Feats",
+      "name": "Elven Verve",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=976"
+    },
+    {
+      "type": "Feats",
+      "name": "Emerald Boughs Accustomation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1106"
+    },
+    {
+      "type": "Feats",
+      "name": "Emerald Boughs Hideaway",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1111"
+    },
+    {
+      "type": "Feats",
+      "name": "Endure Death's Touch",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1094"
+    },
+    {
+      "type": "Feats",
+      "name": "Energy Blessed",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=972"
+    },
+    {
+      "type": "Feats",
+      "name": "Entourage",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1066"
+    },
+    {
+      "type": "Feats",
+      "name": "Envenom Fangs",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1057"
+    },
+    {
+      "type": "Feats",
+      "name": "Everstand Stance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1087"
+    },
+    {
+      "type": "Feats",
+      "name": "Everstand Strike",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1088"
+    },
+    {
+      "type": "Feats",
+      "name": "Everyone Duck!",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1128"
+    },
+    {
+      "type": "Feats",
+      "name": "Expert Drill Sergeant",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1031"
+    },
+    {
+      "type": "Feats",
+      "name": "Fade Away",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1020"
+    },
+    {
+      "type": "Feats",
+      "name": "Fang Sharpener",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1000"
+    },
+    {
+      "type": "Feats",
+      "name": "Firebrand Braggart Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1067"
+    },
+    {
+      "type": "Feats",
+      "name": "Flexible Halcyon Spellcasting",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1121"
+    },
+    {
+      "type": "Feats",
+      "name": "Font of Knowledge",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1133"
+    },
+    {
+      "type": "Feats",
+      "name": "Forced Entry",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1126"
+    },
+    {
+      "type": "Feats",
+      "name": "Forest Stealth",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=982"
+    },
+    {
+      "type": "Feats",
+      "name": "Forge-Day's Rest",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=966"
+    },
+    {
+      "type": "Feats",
+      "name": "Formation Master",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1035"
+    },
+    {
+      "type": "Feats",
+      "name": "Formation Training",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1032"
+    },
+    {
+      "type": "Feats",
+      "name": "Fortuitous Shift",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=998"
+    },
+    {
+      "type": "Feats",
+      "name": "Freeze It!",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1007"
+    },
+    {
+      "type": "Feats",
+      "name": "Fulminating Synergy",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1123"
+    },
+    {
+      "type": "Feats",
+      "name": "Gaze of Veracity",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1084"
+    },
+    {
+      "type": "Feats",
+      "name": "Gecko's Grip",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1058"
+    },
+    {
+      "type": "Feats",
+      "name": "Gloomseer",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=942"
+    },
+    {
+      "type": "Feats",
+      "name": "Gnome Polyglot",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=987"
+    },
+    {
+      "type": "Feats",
+      "name": "Grasping Reach",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1037"
+    },
+    {
+      "type": "Feats",
+      "name": "Great Boaster",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1071"
+    },
+    {
+      "type": "Feats",
+      "name": "Grim Insight",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=988"
+    },
+    {
+      "type": "Feats",
+      "name": "Halcyon Speaker Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1115"
+    },
+    {
+      "type": "Feats",
+      "name": "Halcyon Spellcasting Adept",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1122"
+    },
+    {
+      "type": "Feats",
+      "name": "Halcyon Spellcasting Initiate",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1118"
+    },
+    {
+      "type": "Feats",
+      "name": "Halcyon Spellcasting Sage",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1124"
+    },
+    {
+      "type": "Feats",
+      "name": "Halfling Ingenuity",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1017"
+    },
+    {
+      "type": "Feats",
+      "name": "Hard Tail",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1001"
+    },
+    {
+      "type": "Feats",
+      "name": "Harmlessly Cute",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1038"
+    },
+    {
+      "type": "Feats",
+      "name": "Harrying Strike",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1140"
+    },
+    {
+      "type": "Feats",
+      "name": "Heir of the Saoc",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=954"
+    },
+    {
+      "type": "Feats",
+      "name": "Hell's Armaments",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1081"
+    },
+    {
+      "type": "Feats",
+      "name": "Hellknight Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1078"
+    },
+    {
+      "type": "Feats",
+      "name": "Hellknight Order Cross-Training",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1077"
+    },
+    {
+      "type": "Feats",
+      "name": "Hellknight Signifer Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1082"
+    },
+    {
+      "type": "Feats",
+      "name": "Helpful Halfling",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1021"
+    },
+    {
+      "type": "Feats",
+      "name": "Heroes' Call",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=973"
+    },
+    {
+      "type": "Feats",
+      "name": "Hobgoblin Lore",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1025"
+    },
+    {
+      "type": "Feats",
+      "name": "Hobgoblin Weapon Discipline",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1033"
+    },
+    {
+      "type": "Feats",
+      "name": "Hobgoblin Weapon Expertise",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1036"
+    },
+    {
+      "type": "Feats",
+      "name": "Hobgoblin Weapon Familiarity",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1026"
+    },
+    {
+      "type": "Feats",
+      "name": "Hungry Goblin",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1008"
+    },
+    {
+      "type": "Feats",
+      "name": "Impassable Wall Stance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1091"
+    },
+    {
+      "type": "Feats",
+      "name": "Incredible Luck (Halfling)",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1023"
+    },
+    {
+      "type": "Feats",
+      "name": "Innocuous",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1013"
+    },
+    {
+      "type": "Feats",
+      "name": "Intuitive Cooperation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1014"
+    },
+    {
+      "type": "Feats",
+      "name": "Intuitive Illusions",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=996"
+    },
+    {
+      "type": "Feats",
+      "name": "Inventive Offensive",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=989"
+    },
+    {
+      "type": "Feats",
+      "name": "Invoke the Crimson Oath",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1098"
+    },
+    {
+      "type": "Feats",
+      "name": "Irriseni Ice-Witch",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=957"
+    },
+    {
+      "type": "Feats",
+      "name": "Iruxi Unarmed Cunning",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1059"
+    },
+    {
+      "type": "Feats",
+      "name": "Keep Up Appearances",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=943"
+    },
+    {
+      "type": "Feats",
+      "name": "Kneel for No God",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=974"
+    },
+    {
+      "type": "Feats",
+      "name": "Knight in Shining Armor",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1096"
+    },
+    {
+      "type": "Feats",
+      "name": "Knight Reclaimant Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1097"
+    },
+    {
+      "type": "Feats",
+      "name": "Knight Vigilant",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1092"
+    },
+    {
+      "type": "Feats",
+      "name": "Know Oneself",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=944"
+    },
+    {
+      "type": "Feats",
+      "name": "Leech-Clipper",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1027"
+    },
+    {
+      "type": "Feats",
+      "name": "Leshy Glide",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1044"
+    },
+    {
+      "type": "Feats",
+      "name": "Leshy Lore",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1039"
+    },
+    {
+      "type": "Feats",
+      "name": "Leshy Superstition",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1040"
+    },
+    {
+      "type": "Feats",
+      "name": "Life-Giving Magic",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=990"
+    },
+    {
+      "type": "Feats",
+      "name": "Light of Revelation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1089"
+    },
+    {
+      "type": "Feats",
+      "name": "Lizardfolk Lore",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1050"
+    },
+    {
+      "type": "Feats",
+      "name": "Lore Seeker",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1131"
+    },
+    {
+      "type": "Feats",
+      "name": "Lucky Keepsake",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1048"
+    },
+    {
+      "type": "Feats",
+      "name": "Magaambyan Attendant Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1102"
+    },
+    {
+      "type": "Feats",
+      "name": "Marsh Runner",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1051"
+    },
+    {
+      "type": "Feats",
+      "name": "Mask Familiar",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1103"
+    },
+    {
+      "type": "Feats",
+      "name": "Masked Casting",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1083"
+    },
+    {
+      "type": "Feats",
+      "name": "Natural Illusionist",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=997"
+    },
+    {
+      "type": "Feats",
+      "name": "Natural Performer",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=991"
+    },
+    {
+      "type": "Feats",
+      "name": "Order Training",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1075"
+    },
+    {
+      "type": "Feats",
+      "name": "Ornate Tattoo",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=951"
+    },
+    {
+      "type": "Feats",
+      "name": "Overlooked Mastermind",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=962"
+    },
+    {
+      "type": "Feats",
+      "name": "Parthenogenic Hatchling",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1052"
+    },
+    {
+      "type": "Feats",
+      "name": "Persistent Creation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1117"
+    },
+    {
+      "type": "Feats",
+      "name": "Pride in Arms",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1034"
+    },
+    {
+      "type": "Feats",
+      "name": "Primal Rampage",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=2846"
+    },
+    {
+      "type": "Feats",
+      "name": "Protective Sheath",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=969"
+    },
+    {
+      "type": "Feats",
+      "name": "Quah Bond",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=945"
+    },
+    {
+      "type": "Feats",
+      "name": "Rain-Scribe Mobility",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1112"
+    },
+    {
+      "type": "Feats",
+      "name": "Rain-Scribe Sustenance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1107"
+    },
+    {
+      "type": "Feats",
+      "name": "Razor Claws",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1053"
+    },
+    {
+      "type": "Feats",
+      "name": "Reaper of Repose",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1100"
+    },
+    {
+      "type": "Feats",
+      "name": "Recognize Threat",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1127"
+    },
+    {
+      "type": "Feats",
+      "name": "Remorseless Lash",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1028"
+    },
+    {
+      "type": "Feats",
+      "name": "Reptile Speaker",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1054"
+    },
+    {
+      "type": "Feats",
+      "name": "Ritual Reversion",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1045"
+    },
+    {
+      "type": "Feats",
+      "name": "Roll with It (Goblin)",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1009"
+    },
+    {
+      "type": "Feats",
+      "name": "Round Ears",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=960"
+    },
+    {
+      "type": "Feats",
+      "name": "Saoc Astrology",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=946"
+    },
+    {
+      "type": "Feats",
+      "name": "Scalding Spit",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1010"
+    },
+    {
+      "type": "Feats",
+      "name": "Scrollmaster Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1130"
+    },
+    {
+      "type": "Feats",
+      "name": "Seedpod",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1041"
+    },
+    {
+      "type": "Feats",
+      "name": "Sense Chaos",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1079"
+    },
+    {
+      "type": "Feats",
+      "name": "Sense Thoughts",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=985"
+    },
+    {
+      "type": "Feats",
+      "name": "Shadow of the Wilds",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1042"
+    },
+    {
+      "type": "Feats",
+      "name": "Shadow Pact",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=958"
+    },
+    {
+      "type": "Feats",
+      "name": "Share Thoughts",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=977"
+    },
+    {
+      "type": "Feats",
+      "name": "Shared Luck (Halfling)",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1018"
+    },
+    {
+      "type": "Feats",
+      "name": "Shared Synergy",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1119"
+    },
+    {
+      "type": "Feats",
+      "name": "Sharp Fangs",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1055"
+    },
+    {
+      "type": "Feats",
+      "name": "Shed Tail",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1060"
+    },
+    {
+      "type": "Feats",
+      "name": "Shory Aerialist",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=959"
+    },
+    {
+      "type": "Feats",
+      "name": "Shory Aeromancer",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=955"
+    },
+    {
+      "type": "Feats",
+      "name": "Shoulder Catastrophe",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1141"
+    },
+    {
+      "type": "Feats",
+      "name": "Signifer Armor Expertise",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1086"
+    },
+    {
+      "type": "Feats",
+      "name": "Signifer's Sight",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1085"
+    },
+    {
+      "type": "Feats",
+      "name": "Sociable",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=961"
+    },
+    {
+      "type": "Feats",
+      "name": "Solar Rejuvenation (Leshy)",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1049"
+    },
+    {
+      "type": "Feats",
+      "name": "Sow Rumor",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1065"
+    },
+    {
+      "type": "Feats",
+      "name": "Speak with Kindred",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1046"
+    },
+    {
+      "type": "Feats",
+      "name": "Spellmaster Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1134"
+    },
+    {
+      "type": "Feats",
+      "name": "Spellmaster's Resilience",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1137"
+    },
+    {
+      "type": "Feats",
+      "name": "Sun Blade",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1090"
+    },
+    {
+      "type": "Feats",
+      "name": "Surface Culture",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=967"
+    },
+    {
+      "type": "Feats",
+      "name": "Surreptitious Spellcaster",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1135"
+    },
+    {
+      "type": "Feats",
+      "name": "Survivor of Desolation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1099"
+    },
+    {
+      "type": "Feats",
+      "name": "Swift Swimmer",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1061"
+    },
+    {
+      "type": "Feats",
+      "name": "Swordmaster Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1139"
+    },
+    {
+      "type": "Feats",
+      "name": "Synergistic Spell",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1125"
+    },
+    {
+      "type": "Feats",
+      "name": "Tail Spin",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1004"
+    },
+    {
+      "type": "Feats",
+      "name": "Tail Whip",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1056"
+    },
+    {
+      "type": "Feats",
+      "name": "Tempest-Sun Redirection",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1108"
+    },
+    {
+      "type": "Feats",
+      "name": "Tempest-Sun Shielding",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1113"
+    },
+    {
+      "type": "Feats",
+      "name": "Terrain Advantage",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1062"
+    },
+    {
+      "type": "Feats",
+      "name": "Theoretical Acumen",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=992"
+    },
+    {
+      "type": "Feats",
+      "name": "Tomb-Watcher's Glare",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=970"
+    },
+    {
+      "type": "Feats",
+      "name": "Torch Goblin",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1005"
+    },
+    {
+      "type": "Feats",
+      "name": "Tree Climber (Goblin)",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1006"
+    },
+    {
+      "type": "Feats",
+      "name": "Tupilaq Carver",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=947"
+    },
+    {
+      "type": "Feats",
+      "name": "Tusks",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=963"
+    },
+    {
+      "type": "Feats",
+      "name": "Unassuming Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1015"
+    },
+    {
+      "type": "Feats",
+      "name": "Unbreakable-er Goblin",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1011"
+    },
+    {
+      "type": "Feats",
+      "name": "Undaunted",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1043"
+    },
+    {
+      "type": "Feats",
+      "name": "Unexpected Shift",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=993"
+    },
+    {
+      "type": "Feats",
+      "name": "Unravel Mysteries",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1132"
+    },
+    {
+      "type": "Feats",
+      "name": "Unshakable Idealism",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1093"
+    },
+    {
+      "type": "Feats",
+      "name": "Uzunjati Recollection",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1114"
+    },
+    {
+      "type": "Feats",
+      "name": "Uzunjati Storytelling",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1109"
+    },
+    {
+      "type": "Feats",
+      "name": "Vibrant Display",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=994"
+    },
+    {
+      "type": "Feats",
+      "name": "Vigorous Health",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1029"
+    },
+    {
+      "type": "Feats",
+      "name": "Viking Shieldbearer",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=948"
+    },
+    {
+      "type": "Feats",
+      "name": "Virtue-Forged Tattoos",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=956"
+    },
+    {
+      "type": "Feats",
+      "name": "Wandering Heart",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=986"
+    },
+    {
+      "type": "Feats",
+      "name": "Ward Casting",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1136"
+    },
+    {
+      "type": "Feats",
+      "name": "Wavetouched Paragon",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=952"
+    },
+    {
+      "type": "Feats",
+      "name": "Wildborn Adept",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=983"
+    },
+    {
+      "type": "Feats",
+      "name": "Wildborn Magic",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=978"
+    },
+    {
+      "type": "Feats",
+      "name": "Witch Warden",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=949"
+    },
+    {
+      "type": "Feats",
+      "name": "Woodcraft",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=979"
+    },
+    {
+      "type": "Hellknight Orders",
+      "name": "Order of the Chain",
+      "url": "https://2e.aonprd.com/HellknightOrders.aspx?ID=1"
+    },
+    {
+      "type": "Hellknight Orders",
+      "name": "Order of the Gate",
+      "url": "https://2e.aonprd.com/HellknightOrders.aspx?ID=2"
+    },
+    {
+      "type": "Hellknight Orders",
+      "name": "Order of the Godclaw",
+      "url": "https://2e.aonprd.com/HellknightOrders.aspx?ID=3"
+    },
+    {
+      "type": "Hellknight Orders",
+      "name": "Order of the Nail",
+      "url": "https://2e.aonprd.com/HellknightOrders.aspx?ID=4"
+    },
+    {
+      "type": "Hellknight Orders",
+      "name": "Order of the Pyre",
+      "url": "https://2e.aonprd.com/HellknightOrders.aspx?ID=5"
+    },
+    {
+      "type": "Hellknight Orders",
+      "name": "Order of the Rack",
+      "url": "https://2e.aonprd.com/HellknightOrders.aspx?ID=6"
+    },
+    {
+      "type": "Hellknight Orders",
+      "name": "Order of the Scourge",
+      "url": "https://2e.aonprd.com/HellknightOrders.aspx?ID=7"
+    },
+    {
+      "type": "NPCs",
+      "name": "Charming Scoundrel",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=965"
+    },
+    {
+      "type": "NPCs",
+      "name": "Hellknight Armiger",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=967"
+    },
+    {
+      "type": "NPCs",
+      "name": "Hellknight Paravicar",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=968"
+    },
+    {
+      "type": "NPCs",
+      "name": "Pathfinder Field Agent",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=973"
+    },
+    {
+      "type": "NPCs",
+      "name": "Pathfinder Venture-Captain",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=974"
+    },
+    {
+      "type": "NPCs",
+      "name": "Privateer Captain",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=966"
+    },
+    {
+      "type": "NPCs",
+      "name": "Rain-Scribe",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=971"
+    },
+    {
+      "type": "NPCs",
+      "name": "Tempest-Sun Mage",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=972"
+    },
+    {
+      "type": "NPCs",
+      "name": "Veteran Reclaimer",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=970"
+    },
+    {
+      "type": "NPCs",
+      "name": "Virtuous Defender",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=969"
+    },
+    {
+      "type": "Rules",
+      "name": "NPC Gallery",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1387"
+    },
+    {
+      "type": "Spells",
+      "name": "Invoke the Crimson Oath",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=556"
+    },
+    {
+      "type": "Spells",
+      "name": "Light of Revelation",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=557"
+    },
+    {
+      "type": "Spells",
+      "name": "Sun Blade",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=558"
+    },
+    {
+      "type": "Traits",
+      "name": "Hobgoblin (Ancestry)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=268"
+    },
+    {
+      "type": "Traits",
+      "name": "Leshy (Monster)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=225"
+    },
+    {
+      "type": "Traits",
+      "name": "Lizardfolk (Monster)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=226"
+    },
+    {
+      "type": "Weapons",
+      "name": "Fauchard",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=90"
+    },
+    {
+      "type": "Weapons",
+      "name": "Scourge",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=89"
+    }
+  ]
+}
