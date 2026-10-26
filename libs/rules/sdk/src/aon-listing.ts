@@ -3,16 +3,13 @@ import * as z from 'zod';
 import { AonUrl } from './source-ref';
 
 /** The heading AoN lists an entry under (`Feats`, `Spells`), as written there. */
-export const AonListingType = z.string().min(1).brand<'AonListingType'>();
-export type AonListingType = z.infer<typeof AonListingType>;
+const AonListingType = z.string().min(1).brand<'AonListingType'>();
 
 /** An entry's name as AoN prints it. */
-export const AonEntryName = z.string().min(1).brand<'AonEntryName'>();
-export type AonEntryName = z.infer<typeof AonEntryName>;
+const AonEntryName = z.string().min(1).brand<'AonEntryName'>();
 
 /** The `ETag` of a Sources page, sent back as `If-None-Match`. */
-export const AonEtag = z.string().min(1).brand<'AonEtag'>();
-export type AonEtag = z.infer<typeof AonEtag>;
+const AonEtag = z.string().min(1).brand<'AonEtag'>();
 
 /** One entry in a book's AoN listing: its type heading, name and exact URL (ADR-0071). */
 export const AonListedEntry = z.strictObject({ type: AonListingType, name: AonEntryName, url: AonUrl });
