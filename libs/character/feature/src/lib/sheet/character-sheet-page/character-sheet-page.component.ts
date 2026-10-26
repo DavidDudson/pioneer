@@ -30,6 +30,9 @@ import { SheetLastRoll } from '../sheet-last-roll/sheet-last-roll.component';
 import { SheetResources } from '../sheet-resources/sheet-resources.component';
 import { SHEET_ROLLS_PROVIDERS } from '../sheet-rolls';
 import { SHEET_TABS } from '../sheet-sections';
+import { SheetSidePanelState } from '../sheet-side-panel/sheet-side-panel-state';
+import { SheetSidePanelHost } from '../sheet-side-panel/sheet-side-panel.component';
+// oxlint-disable-next-line import/max-dependencies -- the page that gathers every region of the sheet, and its side panel
 import { SHEET_PLAY_PROVIDERS } from '../sheet-spender';
 import { SheetState } from '../sheet-state';
 
@@ -58,6 +61,7 @@ import { SheetState } from '../sheet-state';
     SheetHitPoints,
     SheetLastRoll,
     SheetDrawers,
+    SheetSidePanelHost,
     Skeleton,
     Stack,
     Tab,
@@ -68,6 +72,7 @@ import { SheetState } from '../sheet-state';
   ],
   templateUrl: './character-sheet-page.component.html',
   providers: [
+    SheetSidePanelState,
     SheetState,
     ...SHEET_PLAY_PROVIDERS,
     FeatDisplayStore,

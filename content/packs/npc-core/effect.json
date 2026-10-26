@@ -1,0 +1,4998 @@
+[
+  {
+    "id": "85e1c9ad-3ddc-5224-b692-e628c8671ab1",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-air-of-authority",
+    "name": "Effect: Air of Authority",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –2 status penalty to your Will DC against the origin's attempts to Coerce or Demoralize you."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.Df5j0AitqDVE08hL"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "1faba3e3-a6dc-5707-8224-e51f7e81984a",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-alchemical-embalming",
+    "name": "Effect: Alchemical Embalming",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –10‐foot penalty to all your Speeds."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "untyped",
+        "value": -10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.HVGl2hSrfqHE4OZ2"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "6a759ee6-39f3-5779-972e-6296836157bf",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-apprentices-ambition",
+    "name": "Effect: Apprentice's Ambition",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The apprentice gains a +2 circumstance bonus to attack rolls, damage rolls, saving throws, and skill checks."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack", "damage", "saving-throw", "skill-check"],
+        "type": "circumstance",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.4QPXRx8RuZLNSFvw"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "016dcbb3-fb32-5779-a730-c7bb5f0536d1",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-aura-of-command",
+    "name": "Effect: Aura of Command",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to your attack rolls and a +2 status bonus to your Will saves."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack"],
+        "type": "status",
+        "value": 1
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:will"],
+        "type": "status",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.OxOMYmlPtjsEkRtY"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "b23a6d92-abfb-5186-b868-6356caaac249",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-avenge-the-fallen",
+    "name": "Effect: Avenge the Fallen",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You roll the attack roll twice and use the higher result."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.X2R07pnGkxvKi6pV"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "turn",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "9920683e-ab44-5b7f-a155-9c188efa6d96",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-beguiling-presence",
+    "name": "Effect: Beguiling Presence",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Creatures in the area that can observe the courtesan take a –2 status penalty on their Will DC against the courtesan's attempts to make a Request of them."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:will"],
+        "type": "status",
+        "value": -2,
+        "predicate": ["action:request"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.pPmtUt7lPYfbVqbR"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "142cde80-7624-55d8-84e8-e018a99468a0",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-beseech-the-spirits",
+    "name": "Effect: Beseech the Spirits",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain lifesense 60 feet and all-around vision."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "1f7ec30b-66fa-50a8-8fef-2f40f9c4d1f8",
+        "range": 60
+      },
+      {
+        "key": "GrantItem",
+        "item": "bd6f8b4e-a42c-5642-9818-e7e140447c57"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.JSruXKRV7iJv8Se0"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "0841dfda-b5c1-59c6-b377-f5d1a017c3cd",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-bodyguards-defense",
+    "name": "Effect: Bodyguard's Defense",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to AC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.IfUod2VxNmZMGGPq"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "9afcce44-44b4-567b-ad00-c6766419ddf8",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-bosuns-command",
+    "name": "Effect: Bosun's Command",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 status bonus to your attack rolls or a +10 status bonus to your Speeds."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.WfiaKdXNSxC3POcs"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "09ee2881-51b4-51cb-a9c7-7877cf862ce4",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-breach-the-outer-rifts",
+    "name": "Effect: Breach the Outer Rifts",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The weapon deals an extra 2d6 damage. Roll 1d20 to determine the type: 1–7 acid, 8–9 cold, 10–11 electricity, 12–18 fire, 19–20 void."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 2,
+        "dieSize": "d6",
+        "damageType": "acid",
+        "predicate": [
+          {
+            "lte": ["self:effect:breach-the-outer-rifts", 7]
+          }
+        ]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 2,
+        "dieSize": "d6",
+        "damageType": "cold",
+        "predicate": [
+          {
+            "gte": ["self:effect:breach-the-outer-rifts", 8]
+          },
+          {
+            "lte": ["self:effect:breach-the-outer-rifts", 9]
+          }
+        ]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 2,
+        "dieSize": "d6",
+        "damageType": "electricity",
+        "predicate": [
+          {
+            "gte": ["self:effect:breach-the-outer-rifts", 10]
+          },
+          {
+            "lte": ["self:effect:breach-the-outer-rifts", 11]
+          }
+        ]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 2,
+        "dieSize": "d6",
+        "damageType": "fire",
+        "predicate": [
+          {
+            "gte": ["self:effect:breach-the-outer-rifts", 12]
+          },
+          {
+            "lte": ["self:effect:breach-the-outer-rifts", 18]
+          }
+        ]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 2,
+        "dieSize": "d6",
+        "damageType": "void",
+        "predicate": [
+          {
+            "gte": ["self:effect:breach-the-outer-rifts", 19]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.68oispwYGLUUxjzt"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      },
+      "badge": {
+        "type": "formula",
+        "formula": "1d20"
+      }
+    }
+  },
+  {
+    "id": "ea8f15f9-7b9c-580e-ac9e-ba0f178e906c",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-break-legs",
+    "name": "Effect: Break Legs!",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You become clumsy 1, take a –5‐foot penalty to your Speeds, and have weakness 5 to the origin's Strikes."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "69f88e3c-d871-5fb9-82c6-120348a7c0e8"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "untyped",
+        "value": -5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.zOaP4yGwbFOszxeJ"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "82fe8883-0f57-5456-a1e6-22a00aad9b98",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-brutal-rally",
+    "name": "Effect: Brutal Rally",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to attack rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack"],
+        "type": "circumstance",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.7x0O2GqWBJiAk5PF"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "32f69db5-129b-50c2-9ffd-3e1a09e09735",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-call-to-action",
+    "name": "Effect: Call to Action",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains a +1 status bonus to attack and damage rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack", "damage"],
+        "type": "status",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.kdZEZ6iBYQPVGzYD"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "280f3a4d-af01-5058-b3e9-aec472d5fbef",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-champions-aura-champion-of-rovagug",
+    "name": "Effect: Champion's Aura (Champion of Rovagug)",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –1 circumstance penalty to saves against fear."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": -1,
+        "predicate": ["item:trait:fear"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.xLy4bBwk50AGbd7w"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "48c55068-c800-5a6a-8894-e92362711044",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-chant-of-dominance",
+    "name": "Effect: Chant of Dominance",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Any creature damaged this turn also takes 1d6 persistent spirit damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["inline-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "spirit",
+        "category": "persistent"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.yZTpWRNrg2jZMZpM"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "3c69f599-33fd-5c97-bef4-47ac901ebd04",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-cite-precedent",
+    "name": "Effect: Cite Precedent",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a -2 circumstance penalty on your next Diplomacy check in a legal argument."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.KdV8UtN8Af5oCerj"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "72459744-b0a7-5416-a4d1-9da9e20e74f2",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-cleansing-earth",
+    "name": "Effect: Cleansing Earth",
+    "level": 9,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain 20 temporary Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": 20
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.wLQEa9xChzWEc7Mn"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "c9a1ec24-134d-5912-8593-4a50f4941108",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-commanding-aura",
+    "name": "Effect: Commanding Aura",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain 8 temporary Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": 8
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.S7CMUc27ClPBvyVS"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "158dda82-40ce-5c0d-9b23-0d54ebe216c4",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-competitive-taunt",
+    "name": "Effect: Competitive Taunt",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You get a +2 circumstance bonus to your damage against the creature made off-guard by your taunt."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["damage"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["target:condition:off-guard", "target:mark:competitive-taunt"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.NKa2EMtpcatohaKJ"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "a7634a4b-23cb-598c-bbad-857a98ceed68",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-conduct-the-experiment",
+    "name": "Effect: Conduct the Experiment",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your melee Strikes deal an extra 2d8 precision damage against the marked creature."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["melee-strike-damage"],
+        "diceNumber": 2,
+        "dieSize": "d8",
+        "category": "precision",
+        "predicate": ["target:mark:conduct-the-experiment"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.m3bDBF65IMjaUlo1"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "ff98650e-59ce-5b1d-99e2-b3e09e0d6ca3",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-construct-trap",
+    "name": "Effect: Construct Trap",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –5 status penalty to all Speeds."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "status",
+        "value": -5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.lhgGLGL8phfu0bOL"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "f42b7763-9e48-5088-aede-59af805c6bcf",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-debilitating-sneak-attack",
+    "name": "Effect: Debilitating Sneak Attack",
+    "level": 9,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You either become enfeebled 1 or take a –10-foot status penalty to your Speeds."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-debilitating-sneak-attack",
+        "choices": [
+          {
+            "value": "enfeebled",
+            "label": "Enfeebled"
+          },
+          {
+            "value": "speed-penalty",
+            "label": "Speed Penalty"
+          }
+        ],
+        "rollOption": "debilitating-sneak-attack",
+        "display": {
+          "label": "Select a penalty."
+        }
+      },
+      {
+        "key": "GrantItem",
+        "item": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+        "predicate": ["debilitating-sneak-attack:enfeebled"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "status",
+        "value": -10,
+        "predicate": ["debilitating-sneak-attack:speed-penalty"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.MIznUE9YmCI01ZMr"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "fda335dc-8e9c-55c2-bd74-6430c54c498d",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-depth-charge",
+    "name": "Effect: Depth Charge",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –2 circumstance penalty to Acrobatics checks to Balance and Athletics checks to Swim. If you critically failed the save you are also deafened."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-depth-charge",
+        "choices": [
+          {
+            "value": "failure",
+            "label": "Failure"
+          },
+          {
+            "value": "critical-failure",
+            "label": "Critical Failure"
+          }
+        ],
+        "prompt": "Select the degree of success.",
+        "rollOption": "depth-charge"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:acrobatics"],
+        "type": "circumstance",
+        "value": -2,
+        "predicate": ["action:balance"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "circumstance",
+        "value": -2,
+        "predicate": ["action:swim"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "4271da2e-7225-5aa7-9807-c499d8af6a5a",
+        "predicate": ["depth-charge:critical-failure"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.cs9UyOf4D3hh7cDG"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "60810d29-bc32-5723-8f53-d91ca06cff5a",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-diplomatic-immunity",
+    "name": "Effect: Diplomatic Immunity",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The attacker gains weakness 2 to all damage from the envoy's allies while Diplomatic Immunity lasts, whether their attack was disrupted or not."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Weakness",
+        "type": ["all"],
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.reA6nqZH7Rj5OJ0E"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "dd31e83a-4a43-5533-9d8d-1f45edcfc3e2",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-divine-frenzy",
+    "name": "Effect: Divine Frenzy",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –2 penalty to Perception checks and Will saves and gain a +2 status bonus to your spell DC and spell attack modifier. You can't use actions with the concentrate trait unless you're Casting a Spell or Seeking."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception", "save:will"],
+        "type": "untyped",
+        "value": -2
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["spell-dc", "spell-attack"],
+        "type": "status",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.1zAL0XwjCx6koYWL"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "727899c3-65b8-53cc-aa81-f87b495469a2",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-don-mask",
+    "name": "Effect: Don Mask",
+    "level": 9,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The mummer gains a primal boon:"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Fiery Akkarok",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The mummer's melee Strikes deal an additional 2d6 fire damage."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Hazi Zephyr-Borne",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The mummer gains a fly Speed of 20 feet."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "King of Storms",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The mummer gains the Reactive Strike reaction that can be used only with their tail."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Nessek, the Wave Dancer",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The mummer's claw Strikes deal an additional 2d4 persistent bleed damage."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Zalok, Who was Called to Black Harbor",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The mummer gains a +10-foot status bonus to their land Speed and swim Speed."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-don-mask",
+        "choices": [
+          {
+            "value": "akkarok",
+            "label": "Fiery Akkarok"
+          },
+          {
+            "value": "hazi",
+            "label": "Hazi Zephyr-Borne"
+          },
+          {
+            "value": "king-of-storms",
+            "label": "King of Storms"
+          },
+          {
+            "value": "nessek",
+            "label": "Nessek, the Wave Dancer"
+          },
+          {
+            "value": "zalok",
+            "label": "Zalok, Who was Called to Black Harbor"
+          }
+        ],
+        "rollOption": "don-mask",
+        "display": {
+          "label": "Select an ancestral spirit."
+        }
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["melee-strike-damage"],
+        "diceNumber": 2,
+        "dieSize": "d6",
+        "damageType": "fire",
+        "predicate": ["don-mask:akkarok"]
+      },
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": 20,
+        "predicate": ["don-mask:hazi"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["claw-damage"],
+        "diceNumber": 2,
+        "dieSize": "d4",
+        "damageType": "bleed",
+        "predicate": ["don-mask:nessek"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed", "swim-speed"],
+        "type": "status",
+        "value": 10,
+        "predicate": ["don-mask:zalok"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.Nwgp2UbfTXHxuInm"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "eed928b0-9bf0-57b6-95a3-fcd4fd764212",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-eat-a-pickle",
+    "name": "Effect: Eat a Pickle",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain 4 temporary Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": 4
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.EBtQyoX3wTwlDMwP"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "dda3b3be-d966-58bb-ba55-5e373ee28f9d",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-exalted-retributive-strike",
+    "name": "Effect: Exalted Retributive Strike",
+    "level": 12,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance 14 to all damage against the triggering damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["all"],
+        "value": 14
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.KzwcLwJ4c6hon0pu"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "7bf78c78-f2a7-55e9-b6b3-3087b47bfc76",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-fanatical-frenzy",
+    "name": "Effect: Fanatical Frenzy",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to attack rolls and a +2 status bonus to damage rolls, and you take a –2 penalty to AC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll"],
+        "type": "status",
+        "value": 1
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["damage"],
+        "type": "status",
+        "value": 2
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "untyped",
+        "value": -2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.1MvAqwGlG2umgOSE"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "60128e12-53a8-5767-9efc-1031b1608975",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-fickle-prophecy",
+    "name": "Effect: Fickle Prophecy",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain 1d8+4 temporary Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "@item.value"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.GXQg0rAJGgk7Kfx9"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      },
+      "badge": {
+        "type": "formula",
+        "formula": "1d8+4"
+      }
+    }
+  },
+  {
+    "id": "c818951c-6db1-55ec-9f96-06bd41390414",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-fiery-rhetoric",
+    "name": "Effect: Fiery Rhetoric",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –2 status penalty to Perception and Will saves."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception", "save:will"],
+        "type": "status",
+        "value": -2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.Sekb8YSa36xlqcgk"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "57909b50-01bf-5b38-b24d-73b024acf72c",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-flesh-mutation",
+    "name": "Effect: Flesh Mutation",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are affected by a mutation according to the result."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "1 Spongy Flesh",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have weakness 5 to physical damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "2 Caustic Blood",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take 2d4 persistent acid damage that can't be removed normally, but ends when the mutation does."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "3 Sprouting Eyes",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are dazzled, but also immune to flanking."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "4 Mutated Mind",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are confused. You can still recover as noted in the condition, but if you do you remain off-guard until the mutation ends."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Weakness",
+        "type": ["physical"],
+        "value": 5,
+        "predicate": ["parent:badge:value:1"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "943dfd55-ad09-5abf-9138-95a6149d3302",
+        "predicate": ["parent:badge:value:3"]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:flesh-mutation",
+        "toggleable": true,
+        "suboptions": [
+          {
+            "value": "confused",
+            "label": "Confused"
+          },
+          {
+            "value": "off-guard",
+            "label": "Off-Guard"
+          }
+        ],
+        "predicate": ["parent:badge:value:4"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "6f53a234-670f-5b02-a986-7cce57585fc8",
+        "predicate": ["parent:badge:value:4", "flesh-mutation:confused"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "071324e5-bb4c-5ed2-9e2f-28185b65ded7",
+        "predicate": ["parent:badge:value:4", "flesh-mutation:off-guard"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.5w675gmnZqbND0mt"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      },
+      "badge": {
+        "type": "formula",
+        "formula": "1d4"
+      }
+    }
+  },
+  {
+    "id": "cca2ab00-9573-5a70-97ce-7089f7ba9f68",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-follow-me",
+    "name": "Effect: Follow Me",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to Deception and Stealth checks."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception", "skill:stealth"],
+        "type": "circumstance",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.EJVV3zsMOhDBqxGM"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "4fe8ecdc-4615-51c1-bc15-5c1552bc21a9",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-greased-palms",
+    "name": "Effect: Greased Palms",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 status bonus to Gather Information in the sheriff's settlement."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "skill-check",
+        "option": "option:sheriffs-settlement",
+        "toggleable": true,
+        "value": true
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["action:gather-information", "option:sheriffs-settlement"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.XwFoyhCUU5TCtG50"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 24,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "410d82cd-d4d0-54e4-b0d8-9e62e0efe254",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-guards-parry-guard",
+    "name": "Effect: Guard's Parry (Guard)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The palace guard gains a +2 circumstance bonus to attack and damage rolls until the end of their next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack", "damage"],
+        "type": "circumstance",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.vGW3GPd2HO2ecgJX"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "0a93a61e-26a1-52ba-adfc-a881c0fa3c6e",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-guards-parry-liege",
+    "name": "Effect: Guard's Parry (Liege)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The liege gains a +2 circumstance bonus to AC against the triggering attack."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.57gVKu4lxbGhBpQf"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "d3148263-5315-5573-9e69-b4b1cdd54889",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-guides-warning",
+    "name": "Effect: Guide's Warning",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to your initiative rolls. This bonus increases to +2 if the guide was Scouting."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["initiative"],
+        "type": "circumstance",
+        "value": 1,
+        "slug": "guides-warning"
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["initiative"],
+        "slug": "guides-warning",
+        "mode": "upgrade",
+        "value": 2,
+        "predicate": ["parent:origin:effect:scout"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.UiISDbCjK6AUDsll"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "turn",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "da29a3bd-62df-5fc1-867d-23ae6f670bc4",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-guiding-words-guide",
+    "name": "Effect: Guiding Words (Guide)",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to attack rolls against the marked creature."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["target:mark:guiding-words"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.wxu8CmL75ZxhCJmG"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "85f44004-9746-54c2-850a-0d5564de1b2c",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-harness-wickedness",
+    "name": "Effect: Harness Wickedness",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your Strikes deal an additional die of damage and gain the unholy trait. You also gains 10 temporary Hit Points, a +5-foot status bonus to Speed, and weakness 5 to holy."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 1
+      },
+      {
+        "key": "AdjustStrike",
+        "property": "traits",
+        "mode": "add",
+        "value": "unholy"
+      },
+      {
+        "key": "TempHP",
+        "value": 10
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "status",
+        "value": 5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.T7GQbAbS6jh7Au15"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "20289c01-5e08-50c5-a527-dd1a53a4b534",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-hunters-onslaught",
+    "name": "Effect: Hunter's Onslaught",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You become fascinated by the marked creature and you gain 10 temporary Hit Points that last as long as the onslaught does. You gain a +8 status bonus to damage rolls against the marked enemy, and allies in a 30-foot aura around the hunter gain half that bonus."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["damage"],
+        "type": "status",
+        "value": 8,
+        "slug": "hunters-onslaught",
+        "predicate": ["target:mark:hunters-onslaught"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.2eQDm7Oor2hSZKyf"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "e75894e2-43e7-5839-8c83-814d00687af4",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-hurl-net",
+    "name": "Effect: Hurl Net",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "On a hit, you are off-guard and take a –10-foot circumstance penalty to your Speeds. On a critical hit, you are restrained instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-hurl-net",
+        "choices": [
+          {
+            "value": "critical-success",
+            "label": "Critical Hit"
+          },
+          {
+            "value": "success",
+            "label": "Hit"
+          }
+        ],
+        "prompt": "Select the degree of success.",
+        "rollOption": "hurl-net"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "circumstance",
+        "value": -10,
+        "predicate": ["hurl-net:success"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "071324e5-bb4c-5ed2-9e2f-28185b65ded7",
+        "predicate": ["hurl-net:success"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "b374c4c9-d230-5167-8878-38e08932a071",
+        "predicate": ["hurl-net:critical-success"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.q2D1QBalqBQfKzTc"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "6a68e503-57a0-5b69-ae40-10636f32750f",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-i-am-the-law",
+    "name": "Effect: I Am the Law!",
+    "level": 15,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can use your reaction to Grapple, Strike, or Trip with a +2 status bonus."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.y3D02GsvQHveTnuz"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "bcada8b8-24e6-5e2c-9931-b4036d7e3ca5",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-imbue-righteousness",
+    "name": "Effect: Imbue Righteousness",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your strikes with that weapon gain the holy trait and deal an additional 1d6 spirit damage to unholy creatures."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.QbkOLg8ZoIg1gUNB"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "a843ab0e-a1fa-53a3-9735-39ea808c3687",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-inspirational-presence",
+    "name": "Effect: Inspirational Presence",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Any of the teacher's students in the aura gains a +1 circumstance bonus to Recall Knowledge."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:inspirational-presence",
+        "toggleable": true
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["action:recall-knowledge", "option:inspirational-presence"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.CiCG3r7SHYMJeUxz"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "f2b64328-1192-5bac-9df6-6bb5862e58a8",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-inspiring-aura",
+    "name": "Effect: Inspiring Aura",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to initiative rolls and saves against fear effects."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["initiative", "saving-throw"],
+        "type": "status",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["check:statistic:initiative", "item:trait:fear"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.lM0swBGK6CfkMb6E"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "629360df-5510-5916-958b-8e264ff266e0",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-interest-is-due",
+    "name": "Effect: Interest is Due!",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your Strike deals an an additional 1d6 mental damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "mental"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.T13bc44lsaOUjJa9"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "c44d1187-742a-5e6c-99f3-bf1c18fd50fb",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-keep-up-with-me",
+    "name": "Effect: Keep Up With Me!",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +3 status bonus to your attack roll on the next Strike you make, or to the DC of your next offensive ability if you're a troop."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll"],
+        "type": "status",
+        "value": 3,
+        "slug": "keep-up-with-me-attack",
+        "predicate": [
+          {
+            "not": "self:trait:troop"
+          }
+        ]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:keep-up-with-me-dc",
+        "toggleable": true,
+        "predicate": ["self:trait:troop"],
+        "display": {
+          "label": "Keep Up With Me! — Increase DC of an ability"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["inline-dc"],
+        "type": "status",
+        "value": 3,
+        "predicate": ["self:trait:troop", "option:keep-up-with-me-dc"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.TMxGd734w9od0C8O"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "da5bc98d-9576-50f3-8132-31d0aaf4d99c",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-kingpins-presence",
+    "name": "Effect: Kingpin's Presence",
+    "level": 12,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 status bonus to saving throws against mental effects."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["item:trait:mental"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.X40cigEVNNMBtOre"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "e7ef7d77-138a-541e-97c3-2b6128e043c6",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-liberating-step",
+    "name": "Effect: Liberating Step",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance 10 to all damage against the triggering damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["all"],
+        "value": 10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.n6vsjGq2CDZDW3U1"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "d7d948ba-f41d-562d-8c49-535314fde0cb",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-life-burn-aura",
+    "name": "Effect: Life Burn Aura",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are surrounded by a 30-foot emanation. While Life Burn Aura is active, your fist Strikes deal 2 additional die of weapon damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Aura",
+        "radius": 30,
+        "traits": ["force"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["fist-damage"],
+        "diceNumber": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.ya5dwx5pxUKeWn3z"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "fcb14a8b-9d22-5e95-9aca-17633460d54a",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-magnificent",
+    "name": "Effect: Magnificent…!",
+    "level": 13,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to attack and damage rolls against the marked creature."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The origin deals an extra 3d6 precision damage with their weapon and unarmed Strikes that hit that creature."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack", "damage"],
+        "type": "status",
+        "value": 1,
+        "predicate": ["target:mark:magnificent"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.OBzvZ9LoZLiPyHEW"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "ab1ad82e-05d2-58c6-8bcf-9337dab06dae",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-mark-of-fate-urgathoa",
+    "name": "Effect: Mark of Fate (Urgathoa)",
+    "level": 15,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain weakness 10 to unholy and take a –2 circumstance penalty to Charisma-based skill checks against followers of Urgathoa."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["cha-skill-check"],
+        "type": "circumstance",
+        "value": -2,
+        "predicate": ["option:urgathoa-follower"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.yHI1DhZkAyqwRpDh"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "d57b9c50-232d-53cd-8b33-d5d6367c461f",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-medical-malpractice",
+    "name": "Effect: Medical Malpractice",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The surgeon's melee Strikes deal extra precision damage against the marked creature."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.m8RWVvhQ3LCMGQzs"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "d29a44a4-6294-53c1-bb9c-35977167a615",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-monologue",
+    "name": "Effect: Monologue",
+    "level": 16,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to Will saves and a +2 status bonus to damage rolls with your spells. Each time you take this action again, the bonuses increase by 1 and 2, respectively."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:will"],
+        "type": "status",
+        "value": "@item.value",
+        "slug": "monologue-will"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["spell-damage"],
+        "type": "status",
+        "value": "2 * @item.value",
+        "slug": "monologue-damage"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.pzeGJHUdODOQslZO"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      },
+      "badge": {
+        "type": "counter",
+        "value": 1
+      }
+    }
+  },
+  {
+    "id": "d8c53ae2-d37a-57c3-8768-23c98754d41f",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-natural-disguise",
+    "name": "Effect: Natural Disguise",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 item bonus to Stealth checks while in a natural environment until your next daily preparations or until its disguise is ruined, whichever comes first."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["option:in-natural-terrain"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.ppYqbg4erAFt8C9W"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "day",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "3f0d57f7-8161-5ce3-86be-b50a09135a0c",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-never-off-the-hook",
+    "name": "Effect: Never off the Hook",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –3 circumstance penalty to your Will DC against the origin's attempts to Demoralize or Coerce you."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.hJJzppHOKE6g6iEJ"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "4649abf9-492c-5df5-b4c3-15ec4019425b",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-no-fight-fair",
+    "name": "Effect: No Fight Fair",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a status penalty to your speed."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.mfJIVTQ8drSzsrQc"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "77a44f99-f47b-5d4f-a1f2-35b0d49aa7c4",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-no-quarter",
+    "name": "Effect: No Quarter!",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to attack rolls and damage rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack", "damage"],
+        "type": "status",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.TjRZbd52qWPjTbNT"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "4e977032-097a-5ea8-8081-e3625b0fd4a6",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-on-guard",
+    "name": "Effect: On Guard",
+    "level": 9,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to your initiative roll."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["initiative"],
+        "type": "circumstance",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.MLwh53NzVrfN5Bbc"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "bd9db8e5-af7a-500e-9e2f-6126a7c0cd25",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-one-for-all",
+    "name": "Effect: One for All",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to AC. If you would benefit from more than one creature's One for All ability, the bonus is +2 instead of +1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.CR2D12ZAhwmnbz15"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "ad5728b2-5829-5886-895b-bb36cbc7ebe0",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-owe-money",
+    "name": "Effect: Owe Money",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You owe money."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.pZ0Vr0Pe3LHe4ptx"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "32995273-94ee-5653-a5e1-a36ee1786a3e",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-perfect-formation",
+    "name": "Effect: Perfect Formation",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The troop gains a +2 item bonus to AC and a +2 status bonus to Reflex saves."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "save:reflex"],
+        "type": "item",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.PXVtir1Z88UpxBHR"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "dbf3dd40-442d-5611-a59d-293a63d6ffc8",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-posses-edge",
+    "name": "Effect: Posse's Edge",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus on initiative rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.m1Vd997DEVoOeaJu"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "42c219b7-9fae-5d99-9fa3-a09568cc68b5",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-remember-youre-under-oath",
+    "name": "Effect: Remember, You're Under Oath",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a status penalty to Deception checks to Lie."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.ESvcHy4CQbYLaZVu"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "314ba94f-a896-539b-9437-434166e6fed2",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-repentant-defiance",
+    "name": "Effect: Repentant Defiance",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance 3 to physical damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["physical"],
+        "value": 3
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.is84dtk4w3W62L7D"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "9f4b8ecd-c213-503b-8a25-5ef7c26c0844",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-root-in-place",
+    "name": "Effect: Root in Place",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your Speed is reduced to 0 and you gain a +1 circumstance bonus to AC and 2 temporary Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 1
+      },
+      {
+        "key": "TempHP",
+        "value": 2
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "untyped",
+        "value": -25
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.NAdAO5ElcSlSBkza"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "e70fba69-3eaf-5b15-9156-de2c78478387",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-sages-analysis",
+    "name": "Effect: Sage's Analysis",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to attack rolls and AC against the marked creature and deal an additional 2d6 damage to the creature with weapon attacks."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["target:mark:sages-analysis"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["origin:mark:sages-analysis"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 2,
+        "dieSize": "d6",
+        "predicate": [
+          "target:mark:sages-analysis",
+          {
+            "not": "item:category:unarmed"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.pdEXnJrIHIEX9NM4"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "1ae6d226-e07b-515a-8de6-ce6a4ae54190",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-scent-of-blood",
+    "name": "Effect: Scent of Blood",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You 10 temporary HP and a +4 status bonus to damage rolls with your unarmed attacks, but become off-guard."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": 10
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["damage"],
+        "type": "status",
+        "value": 4
+      },
+      {
+        "key": "GrantItem",
+        "item": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.94ZHsHjS1OWHa2rg"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "5ef4b443-379d-54b5-8bd0-f8dd8a0d8b87",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-shared-confidence",
+    "name": "Effect: Shared Confidence",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to Will saves."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:will"],
+        "type": "status",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.uKJRRrlReO0CceVc"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "23822a37-cbca-5b3e-8609-19a1556a26fc",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-shields-up",
+    "name": "Effect: Shields Up!",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to AC and Reflex saves."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "save:reflex"],
+        "type": "circumstance",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.EkXmCnn0wdTgzLoM"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "c28b5ca5-b2bc-5af0-9c6a-155106b8f819",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-sic-em",
+    "name": "Effect: Sic 'Em!",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to attack rolls and a +2 status bonus to damage rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll"],
+        "type": "status",
+        "value": 1
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["damage"],
+        "type": "status",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.o1VvOndRq2pNhSeK"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "d2cf7e7c-39a0-5e8e-9d88-ce826bd6d57f",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-sight-prey",
+    "name": "Effect: Sight Prey",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The warmonger's ranged Strikes against the marked creature gain a +1 circumstance bonus to the attack roll and deal an extra 3d6 precision damage. Each time the warmonger hits that creature with a ranged Strike, the creature takes a –10-foot penalty to its Speeds for 1 minute and falls 20 feet if it's flying."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ranged-strike-attack-roll"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["target:mark:sight-prey"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["ranged-strike-damage"],
+        "diceNumber": 3,
+        "dieSize": "d6",
+        "category": "precision",
+        "predicate": ["target:mark:sight-prey"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.tuFMtIJXeI4yAXeD"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "turn",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "fd675317-7a1c-5a9b-9b7a-079a12abf8e3",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-sight-prey-speed-penalty",
+    "name": "Effect: Sight Prey (Speed Penalty)",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a penalty to your Speeds."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "untyped",
+        "value": "-10 * @item.value"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.WK55ybwI2Tn5OW5x"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      },
+      "badge": {
+        "type": "counter",
+        "value": 1,
+        "labels": ["-10 ft.", "-20 ft.", "-30 ft.", "-40 ft."],
+        "loop": false
+      }
+    }
+  },
+  {
+    "id": "92d622dc-fb9c-5424-9425-0258e8191056",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-solidarity",
+    "name": "Effect: Solidarity",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to saving throws against fatigue and mental effects."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["item:trait:mental", "inflicts:fatigued"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.UbDVVOjTMLXdKMb8"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "60430c7c-c241-5d60-8e62-eacc88457750",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-spear-parry",
+    "name": "Effect: Spear Parry",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to AC until the start of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.GLvCZJmTRxfjxGDZ"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "c2a3df38-7005-5ec7-a7f6-517c852a027f",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-spill-secrets",
+    "name": "Effect: Spill Secrets",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to AC and saving throws against the marked creature."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "saving-throw"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["origin:mark:spill-secrets"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.FtYnwBGZscmV8Fow"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "6cbc3677-5065-5eb3-a4f0-8c13b5e3a041",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-stab-it-stab-it-stab-it",
+    "name": "Effect: Stab it! Stab it! Stab it!",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your attacks against the marked target deal 1 additional damage dice."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 1,
+        "predicate": ["target:mark:stab-it-stab-it-stab-it"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.Sv99eNoXedd9Zw26"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "59e01269-d95b-5aa1-974e-c496379a2b15",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-stay-in-the-fight",
+    "name": "Effect: Stay in the Fight!",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain 10 temporary Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": 10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.WF0Ydce6nmFDNnrf"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "87893c2a-5233-58ce-b9a0-1ff34c9ae5fa",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-stay-strong",
+    "name": "Effect: Stay Strong!",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to the save."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.1zwFkM7KSsuMrAD3"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "turn",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "e59d1cc3-aa45-5e2d-aebf-e752cfda98b1",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-steward-of-the-faithful",
+    "name": "Effect: Steward of the Faithful",
+    "level": 9,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each ally in the aura who worships Pharasma gains resistance 5 to void and a +1 status bonus to Will saves, Diplomacy checks, and Medicine checks."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["void"],
+        "value": 5
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:will", "skill:diplomacy", "skill:medicine"],
+        "type": "status",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.Fjyhw3lhuHCz01xS"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "bdc4b143-596b-5a49-a156-872ccdec376f",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-still-got-it",
+    "name": "Effect: Still Got It!",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The retired creature gains temporary Hit Points equal to its level that last until the end of the encounter. The retired creature also suppresses the effects of being rusty until the end of the encounter."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "@level"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.EZVgNBwMrJWeKLXp"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "0db6478a-54c4-5ed2-b6cd-cfd4922e3dc5",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-super-qi-blast",
+    "name": "Effect: Super Qi Blast",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For your next casting of the two-action version of "
+          },
+          {
+            "type": "text",
+            "text": "qi blast",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", the size of the cone increases to 120 feet and the damage increases to 16d6. You also become one size category larger, dealing an additional +9 damage with your melee Strikes."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:super-qi-blast",
+        "toggleable": true,
+        "value": true,
+        "display": {
+          "label": "First cast of qi blast"
+        }
+      },
+      {
+        "key": "DamageAlteration",
+        "selectors": ["spell-damage"],
+        "property": "dice-number",
+        "mode": "upgrade",
+        "value": 16,
+        "predicate": ["item:slug:qi-blast", "item:cast:actions:2", "option:super-qi-blast"]
+      },
+      {
+        "key": "CreatureSize",
+        "value": 1,
+        "resizeEquipment": true
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["melee-strike-damage"],
+        "type": "untyped",
+        "value": 9
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.f1w5p5AVfAajZi9t"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "7c1cd495-fc35-585f-9db4-a598cd0b80e3",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-swig",
+    "name": "Effect: Swig",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 item bonus to melee damage rolls and saving throws against fear but are off-guard."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["melee-strike-damage"],
+        "type": "item",
+        "value": 2
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["item:trait:fear"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.HArljmKc2IR7rtfc"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "3c0ced2d-7698-5afe-932b-4dff58e55e9a",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-symbol-of-loyalty",
+    "name": "Effect: Symbol of Loyalty",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Allies in the aura who are 14th level and lower and are loyal to the grand inquisitor's cause get a +3 status bonus to Will saves."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:will"],
+        "type": "status",
+        "value": 3,
+        "predicate": [
+          {
+            "lte": ["self:level", 14]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.QMRMgU8l697aBcxj"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "578ceb69-8693-5621-bf77-bc0ca90fbf2a",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-tactical-command",
+    "name": "Effect: Tactical Command",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains a +2 status bonus to their Strike if the veteran noble has dealt with that creature or an organization that creature belongs to before, as the veteran offers hard-earned tactical advice."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack"],
+        "type": "status",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.RtLFTZmVtYKf0p6j"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "c60110d5-4e84-5047-84ef-8abe77b114bc",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-temper-armament",
+    "name": "Effect: Temper Armament",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Tempering armor or a shield increases its Hardness by 1. Tempering a weapon grants the weapon a +1 circumstance bonus to damage rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.ERBJL8rBEURa05N8"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 3,
+        "unit": "day",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "9a953495-fb3d-52b2-80e0-3a680f703665",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-timely-advice",
+    "name": "Effect: Timely Advice",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to the triggering roll."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.FISKjI7bal26AnyL"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "74cb14ef-eed1-5e69-a706-b9f51291fd26",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-tip-the-scales",
+    "name": "Effect: Tip the Scales",
+    "level": 11,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You roll twice on your next d20 roll before the end of your next turn and take the better result."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollTwice",
+        "selectors": ["all"],
+        "keep": "higher"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.haDTCFX3EhkdF9sz"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "f13e4fb3-0e5e-5a7b-94e6-b73298a6fdc1",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-unbelievable-connection",
+    "name": "Effect: Unbelievable Connection",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The marked creature is off-guard against your attacks until it is no longer stupefied."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.Q4LJQDtEYEYw5Sjo"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "d887eba8-aab8-5d94-9ebb-271ba67ca037",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-under-command",
+    "name": "Effect: Under Command",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are commanded by a captain of the guard."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.T9wQ1LvsvPWTefQR"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "83970400-f0a7-5d4f-a29f-39ddc94baa02",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-verdant-aria",
+    "name": "Effect: Verdant Aria",
+    "level": 13,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 status bonus to AC and saving throws."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "status",
+        "value": 2
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.Kwz70TYirPYYL3J3"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "88594092-f939-5ced-b5de-57f78688b1b1",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-void-tendrils",
+    "name": "Effect: Void Tendrils",
+    "level": 15,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you would be healed by a vitality effect, the healing is reduced by 15."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["healing-received"],
+        "type": "untyped",
+        "value": -15,
+        "predicate": ["item:trait:vitality"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.dl8qj25dK6PtO5Y7"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "3ae3561f-91bf-52ce-8199-8cc7a0e1e39b",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-war-cry",
+    "name": "Effect: War Cry",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You deal an additional 1d6 damage with your Strikes."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.9MKYHKHbfHGbJlU3"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "9e27b8a8-0b09-51c7-87c5-4916d35951b5",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-will-not-falter",
+    "name": "Effect: Will Not Falter",
+    "level": 12,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 status bonus to attack rolls and saving throws against fear."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll"],
+        "type": "status",
+        "value": 2
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["item:trait:fear"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.N402OXwxrqVkcK87"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "e94f8980-ad31-575e-8b97-33e0855ac1cf",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-words-of-encouragement",
+    "name": "Effect: Words of Encouragement",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You ignore any circumstance and status penalties you have."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["all"],
+        "suppress": true,
+        "predicate": [
+          {
+            "or": ["penalty:type:circumstance", "penalty:type:status"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.GPcmgpyTtPoXu5N1"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "d4eefd84-931d-5f1b-8511-29684a177098",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:effect-youll-pay-for-that",
+    "name": "Effect: You'll Pay for That",
+    "level": 12,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +5 status bonus to your next damage roll against the marked enemy."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["damage"],
+        "type": "status",
+        "value": 5,
+        "predicate": ["target:mark:youll-pay-for-that"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.Xf5zZEYgLL4ku11j"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "1dab6ad6-b181-55a4-8afd-daa91e08393a",
+    "pack": "npc-core",
+    "kind": "effect",
+    "slug": "effect:stance-hunters-precision",
+    "name": "Stance: Hunter's Precision",
+    "level": 13,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your Strikes deal an additional 2d8 precision damage, and the range increment for your ranged weapon Strikes is 20 feet longer than normal. On a critical hit with a weapon Strike, the target also takes 2d6 persistent bleed damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 2,
+        "dieSize": "d8",
+        "category": "precision"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:ranged"],
+        "property": "range-increment",
+        "mode": "add",
+        "value": 20
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 2,
+        "dieSize": "d6",
+        "damageType": "bleed",
+        "critical": true,
+        "predicate": [
+          {
+            "not": "item:category:unarmed"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.F9Wz99k6pXJYOfrC"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  }
+]

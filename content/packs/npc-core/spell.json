@@ -1,0 +1,322 @@
+[
+  {
+    "id": "ee80946f-d517-57f6-b7ea-2e5a4564a782",
+    "pack": "npc-core",
+    "kind": "spell",
+    "slug": "spell:500-toads",
+    "name": "500 Toads",
+    "level": 1,
+    "rarity": "rare",
+    "traits": ["concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You conjure hundreds of magical toads to fill the area and hop around. The vast quantity of hopping toads provides enough weight and height for the creatures to trigger any potential trap in the area that could be triggered by the weight, movement, or position of a Medium creature. The area is difficult terrain, and the magic reconstructs any toads destroyed by traps to keep the area full of toads for the duration of the spell."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.w7BHU5rk5JKuIRCe"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "area": {
+        "shape": "burst",
+        "size": 15
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round"
+      },
+      "traditions": ["arcane", "primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "9e5dbe40-8343-56f9-b0c8-d4e7c091925c",
+    "pack": "npc-core",
+    "kind": "spell",
+    "slug": "spell:burglars-blind",
+    "name": "Burglar's Blind",
+    "level": 3,
+    "rarity": "rare",
+    "traits": ["illusion", "manipulate", "subtle"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The only thing thieves love more than being silent and stealthy is the piles of gold they win with that silence and stealth. You mask the target with multiple illusions combined in a perfect mix, affecting them with both the "
+          },
+          {
+            "type": "ref",
+            "id": "e8221b18-c4c7-5d99-a604-a3cf119d41b1"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "306213b0-9e11-55d8-b630-8786ea86a27d"
+          },
+          {
+            "type": "text",
+            "text": " spells. If the target takes a hostile action, "
+          },
+          {
+            "type": "text",
+            "text": "burglar's blind",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " and both the spells it grants end after the hostile action is completed."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (5th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can target up to 5 willing creatures. The spells end for all targets if any one of them takes a hostile action."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.UkXTcJAeTOF2inPy"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 60
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature",
+            "qualifiers": ["willing"]
+          }
+        ]
+      },
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "sustained": true
+      },
+      "traditions": ["occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "9092a427-3b5b-593a-9979-a2d2b72ce43e",
+    "pack": "npc-core",
+    "kind": "spell",
+    "slug": "spell:far-flung-fetch",
+    "name": "Far-Flung Fetch",
+    "level": 2,
+    "rarity": "rare",
+    "traits": ["manipulate", "subtle", "teleportation"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can pilfer an object even if it's outside the reach of your fingers. You teleport the target into one of your open hands. If you don't have a hand free, it falls to the ground at your feet."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (3rd)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The range increases to 120 feet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (5th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The range increases to 120 feet, and you can target an unattended object with a Bulk of 1 or less."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (7th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As 5th rank, and when you Cast the Spell you can spend 3 actions instead of 1 to increase the range to planetary. If you do, you don't need line of sight to the target, but you must be extremely familiar with the target."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.O6BIfXsbiisKfLTe"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 60
+      },
+      "traditions": ["arcane", "divine", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "ada76c80-2c04-5e6c-83c6-f67377fbf0be",
+    "pack": "npc-core",
+    "kind": "spell",
+    "slug": "spell:infiltrators-tunnel",
+    "name": "Infiltrator's Tunnel",
+    "level": 4,
+    "rarity": "rare",
+    "traits": ["concentrate", "manipulate", "teleportation"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "npc-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "It's best to know the ingress and egress points for any location you plan to rob. But it's even better to make your own! You create two portals. One appears on a flat surface you can touch, and the other appears on a different flat surface in range that you can see."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can move through the portals as though they were adjacent to each other. Any other creature attempting to move through the portals must succeed at a Will saving throw or be teleported up to 30 feet away from their starting point to a random safe space determined by the GM."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (6th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " When you Cast the Spell, you can designate up to 5 other creatures to freely move between the portals."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.U5dw9SiuVcLmdHoi"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": []
+    }
+  }
+]

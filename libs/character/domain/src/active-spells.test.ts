@@ -45,12 +45,12 @@ const TWO_LEFT = ActionCount.parse(2);
 const FIRST = Serial.parse(1);
 const SECOND = Serial.parse(2);
 
-function spellId(serial: number): ActiveSpellId {
+function spellId(serial: Serial): ActiveSpellId {
   return ActiveSpellId.parse(`00000000-0000-4000-8000-${String(serial).padStart(12, '0')}`);
 }
 
-const CAST = spellId(1);
-const OTHER = spellId(2);
+const CAST = spellId(FIRST);
+const OTHER = spellId(SECOND);
 
 function spend(serial: Serial, spell: SpellSpend, cost = actions(1)): SpendCommand {
   return { ...spendOf(serial, cost), action: FORCE_BARRAGE, spell };
@@ -137,7 +137,7 @@ describe('casting a sustained spell', () => {
 
   test('a full list is refused', () => {
     const full = Array.from({ length: ACTIVE_SPELLS_MAX }, (_slot, index) =>
-      activeOf(TEN_MINUTES, true, spellId(index + 100)),
+      activeOf(TEN_MINUTES, true, spellId(Serial.parse(index + 100))),
     );
     expect(refusal(withSpells(...full), castSpend(FIRST, OTHER))).toBe(SpendProblem.TooManySpells);
   });
@@ -198,6 +198,12 @@ describe('dismissing', () => {
     expect(play.activeSpells).toStrictEqual([spell]);
     const missing = dismissSpend(SECOND, OTHER);
     expect(refusal(play, missing)).toBe(SpendProblem.NoSuchSpell);
+  });
+
+  test('taking the spend back is refused when the id was cast again since', () => {
+    const spent = apply(withSpells(activeOf(TEN_MINUTES, false)), dismissSpend(FIRST));
+    const recast = apply(spent, castSpend(SECOND));
+    expect(apply(recast, undo(FIRST))).toStrictEqual(recast);
   });
 });
 

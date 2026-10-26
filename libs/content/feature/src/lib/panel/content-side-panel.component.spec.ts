@@ -9,7 +9,7 @@ import { prebuildContentTesting, provideContentTesting, TestContentDelivery } fr
 import { packContentsFromFiles, rulesMessages } from '@pioneer/rules/sdk';
 import type { ContentPack, PackContentsLoader } from '@pioneer/rules/sdk';
 import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
-import { IDLE_SCHEDULER, provideI18n } from '@pioneer/shared/web';
+import { IDLE_SCHEDULER, provideI18n, ShellSearch } from '@pioneer/shared/web';
 import { provideTanStackQuery, QueryClient } from '@tanstack/angular-query-experimental';
 import { afterEach, beforeAll, beforeEach, describe, expect, it, onTestFinished, vi } from 'vitest';
 
@@ -223,6 +223,17 @@ describe(ContentSidePanel, () => {
     const opened = await open('/?drawer=open');
     opened.input.blur();
     document.dispatchEvent(new KeyboardEvent('keydown', { key: 'k', ctrlKey: true, bubbles: true, cancelable: true }));
+    await vi.waitFor(() => {
+      opened.fixture.detectChanges();
+      expect(document.activeElement).toBe(opened.input);
+    });
+    expect(opened.router.url).toBe('/?drawer=open');
+  });
+
+  it('moves the cursor to the box when the page asks for it while the drawer is already open', async () => {
+    const opened = await open('/?drawer=open');
+    opened.input.blur();
+    TestBed.inject(ShellSearch).requestFocus();
     await vi.waitFor(() => {
       opened.fixture.detectChanges();
       expect(document.activeElement).toBe(opened.input);

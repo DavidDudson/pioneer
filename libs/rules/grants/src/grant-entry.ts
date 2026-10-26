@@ -1,4 +1,5 @@
 import type {
+  AdditionalFeat,
   ContentId,
   ContentKind,
   ContentLevel,
@@ -70,6 +71,11 @@ export interface GrantEntry {
    * `deity:primary:favored-weapon:dagger`. Absent for any other kind.
    */
   readonly characterOptions?: readonly RollOption[];
+  /**
+   * What an archetype says of its feats, as its data does: the feat that opens it, and the feats of other sources it
+   * lists as its own. Absent for any other kind.
+   */
+  readonly archetype?: { readonly dedication: ContentId; readonly additionalFeats: readonly AdditionalFeat[] };
   /** The traits an ancestry gives the character it is on (`human`, `humanoid`); absent for any other kind. */
   readonly actorTraits?: readonly Trait[];
   /** A deity's spells for its clerics, at the rank each is granted at, which a `DeitySpells` element reads. */

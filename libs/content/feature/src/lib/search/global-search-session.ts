@@ -58,7 +58,8 @@ export class GlobalSearchSession {
     const words = this.#typed().trim();
     const held = this.#index.byId();
     // Matches of words typed since are not this query's: they would only be dropped as stale.
-    const found = this.#quiet().trim() === words ? (this.#server.data() ?? []) : [];
+    // Blank words ask the server nothing, yet its query still holds the answer to the words before.
+    const found = words !== '' && this.#quiet().trim() === words ? (this.#server.data() ?? []) : [];
     return {
       words,
       local: nameMatches(this.#index.entries(), words, (left, right) => this.#format.compare(left, right)).map(

@@ -177,6 +177,18 @@ export async function monsterCore2Pack() {
   ]);
 }
 
+export async function npcCorePack() {
+  return pack(import('@pioneer/content/packs/npc-core/pack.json'), [
+    import('@pioneer/content/packs/npc-core/action.json'),
+    import('@pioneer/content/packs/npc-core/consumable.json'),
+    import('@pioneer/content/packs/npc-core/creature.json'),
+    import('@pioneer/content/packs/npc-core/effect.json'),
+    import('@pioneer/content/packs/npc-core/equipment.json'),
+    import('@pioneer/content/packs/npc-core/spell.json'),
+    import('@pioneer/content/packs/npc-core/weapon.json'),
+  ]);
+}
+
 export async function monsterCorePack() {
   return pack(import('@pioneer/content/packs/monster-core/pack.json'), [
     import('@pioneer/content/packs/monster-core/action.json'),

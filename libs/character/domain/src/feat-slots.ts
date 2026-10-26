@@ -94,13 +94,24 @@ function levelsUp(): Level[] {
   return Array.from({ length: count }, (_unused, index) => Level.parse(CHARACTER_LEVEL_MIN + index));
 }
 
-/** Whether `slot` is a `ChoiceSet` querying feats: an ancestry, class, skill or general feat slot, or a feature's. */
+/**
+ * Whether `slot` is a `ChoiceSet` of feats: one querying them (an ancestry, class, skill or general feat slot, or a
+ * feature's), or one listing only feats (Voice of Nature's Animal Empathy or Plant Empathy).
+ */
 function isFeatSlot(slot: ChoiceSlot, lookup: ContentLookup): boolean {
   const element = lookup.entry(slot.origin.entry)?.rules[slot.rule];
+  if (element?.key !== RuleElementKey.ChoiceSet) {
+    return false;
+  }
+  if (!Array.isArray(element.choices)) {
+    return element.choices.kind === ContentKind.Feat;
+  }
   return (
-    element?.key === RuleElementKey.ChoiceSet &&
-    !Array.isArray(element.choices) &&
-    element.choices.kind === ContentKind.Feat
+    element.choices.length > 0 &&
+    element.choices.every(({ value }) => {
+      const id = ContentId.safeParse(value);
+      return id.success && lookup.entry(id.data)?.kind === ContentKind.Feat;
+    })
   );
 }
 

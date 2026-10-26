@@ -32,6 +32,14 @@
     "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=276"
   },
   {
+    "id": "npc-core",
+    "publisher": "paizo",
+    "license": "ORC",
+    "remaster": true,
+    "released": "2025-02-26",
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=236"
+  },
+  {
     "id": "player-core-2",
     "publisher": "paizo",
     "license": "ORC",

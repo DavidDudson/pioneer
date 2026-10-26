@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import { SummaryKind } from '@pioneer/rules/predicate';
-import { ContentKind, ContentText, OriginHop, RollOption } from '@pioneer/rules/sdk';
+import { ContentKind, ContentLevel, ContentText, OriginHop, RollOption } from '@pioneer/rules/sdk';
 import type { SlotKey } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 
@@ -68,6 +68,68 @@ describe('resolveGrants choice queries', () => {
     const offeredNames = offered(resolve([fighter(['item:trait:fighter']), ...feats, feature]));
     expect(offeredNames).not.toContain('Bravery');
     expect(offeredNames).toContain('Sudden Charge');
+  });
+
+  test('a general feat query also offers skill feats, which are general feats', () => {
+    const query = entry('fighter', [
+      {
+        key: 'ChoiceSet',
+        flag: 'general-feat',
+        choices: { kind: 'feat', filter: ['item:trait:general'] },
+      },
+    ]);
+    const content = [
+      query,
+      feat('toughness', ['trait:general'], 'Toughness'),
+      feat('break-curse', ['trait:skill'], 'Break Curse'),
+      feat('double-slice', ['trait:fighter'], 'Double Slice'),
+    ];
+    expect(offered(resolve(content))).toEqual(['Break Curse', 'Toughness']);
+  });
+
+  test('an ancestry feat query offers a Universal Ancestry feat as the trait of the ancestry', () => {
+    const query = entry('fighter', [
+      { key: 'ChoiceSet', flag: 'ancestry-feat', choices: { kind: 'feat', filter: ['item:trait:human'] } },
+    ]);
+    const content = [
+      query,
+      feat('fey-influence', ['trait:universal-ancestry'], 'Fey Influence'),
+      feat('adapted-cantrip', ['trait:human'], 'Adapted Cantrip'),
+      feat('burrow', ['trait:gnome'], 'Burrow'),
+    ];
+    expect(offered(resolve(content, { situation: ['ancestry:human'] }))).toEqual(['Adapted Cantrip', 'Fey Influence']);
+    expect(offered(resolve(content, { situation: ['ancestry:gnome'] }))).toEqual(['Adapted Cantrip']);
+  });
+
+  test('an archetype feat query offers an additional feat of an archetype whose dedication the character holds, at its level', () => {
+    const query = entry('fighter', [
+      {
+        key: 'ChoiceSet',
+        flag: 'archetype-feat',
+        choices: { kind: 'feat', filter: ['item:trait:archetype', { lte: ['item:level', 'self:level'] }] },
+      },
+    ]);
+    const archetype: GrantEntry = {
+      ...entry('knight-vigilant'),
+      kind: ContentKind.Archetype,
+      archetype: {
+        dedication: idOf('knight-vigilant-dedication'),
+        additionalFeats: [{ feat: idOf('shield-warden'), level: ContentLevel.parse(8) }],
+      },
+    };
+    const content = [
+      query,
+      archetype,
+      { ...feat('knight-vigilant-dedication', ['trait:archetype', 'level:6']) },
+      feat('shield-warden', ['trait:champion', 'level:6'], 'Shield Warden'),
+    ];
+    const held = ['feat:knight-vigilant-dedication'];
+    expect(offered(resolve(content, { level: 8, situation: held }))).toEqual([
+      'Shield Warden',
+      'knight-vigilant-dedication',
+    ]);
+    expect(offered(resolve(content, { level: 7, situation: held }))).toEqual(['knight-vigilant-dedication']);
+    expect(offered(resolve(content, { level: 8 }))).toEqual(['knight-vigilant-dedication']);
   });
 
   test('ownTrait offers only entries with a trait named like the character class', () => {

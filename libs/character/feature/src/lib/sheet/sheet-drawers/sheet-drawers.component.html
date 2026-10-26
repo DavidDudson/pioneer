@@ -1,4 +1,6 @@
-<fr-drawer [title]="'character.sheet.sidePanel.title' | transloco">
-  <pio-sheet-side-panel />
-</fr-drawer>
+@if (sidePanel.panel(); as panel) {
+  <fr-drawer [title]="'character.sheet.sidePanel.title' | transloco">
+    <ng-container [ngComponentOutlet]="panel" />
+  </fr-drawer>
+}
 <pio-sheet-breakdown />

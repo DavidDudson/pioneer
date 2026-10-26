@@ -72,3 +72,4 @@ export {
   type FeatSlotFixture,
   featSlotFixtureId,
 } from './feat-slot-fixtures';
+export { scriptedPicks } from './scripted-picks';

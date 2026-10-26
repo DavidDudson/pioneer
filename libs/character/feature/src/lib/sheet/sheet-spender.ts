@@ -10,7 +10,7 @@ import {
   SpendKind,
   UseCountKey,
 } from '@pioneer/character/domain';
-import type { SpellSpend, SpendCost, SpendRequest, TurnState } from '@pioneer/character/domain';
+import type { SpellSpend, SpendCommand, SpendCost, SpendRequest, TurnState } from '@pioneer/character/domain';
 import { ActionCost, ContentKind } from '@pioneer/rules/sdk';
 import type { ContentId, ContentRegistry } from '@pioneer/rules/sdk';
 import { ActionUser } from '@pioneer/rules/ui';
@@ -22,6 +22,9 @@ import { PlayStore } from '../data/play-store';
 import { ACTION_CONTENT_KINDS, makesAttack, spendCostOf } from './sheet-actions';
 import { sustainedCast } from './sheet-active-list';
 import { raisedEdit, shieldIds } from './sheet-shields';
+
+/** What a spend reads: the actions, and the spells a sustained cast starts an active spell from. */
+const SPENDER_CONTENT_KINDS: readonly ContentKind[] = [...ACTION_CONTENT_KINDS, ContentKind.Spell];
 
 /** The cost of Sustain and of the Dismiss action: one action. */
 const ONE_ACTION: SpendCost = { kind: SpendKind.Actions, count: SpendCount.parse(1) };
@@ -44,6 +47,31 @@ function frequencyOf(registry: ContentRegistry, { line }: ActionUse): SpendPayme
 }
 
 /**
+ * The spend using `request` records, or undefined when its cost is not known. Casting a sustained spell also records
+ * the active spell it starts, which reads the spell from `registry`.
+ */
+export function spendOf(registry: ContentRegistry, request: ActionUse): SpendCommand | undefined {
+  const { line, actions } = request;
+  const pays = line.payment !== undefined;
+  const cost = spendCostOf(line.cost ?? (pays ? ActionCost.Free : undefined), actions);
+  if (cost === undefined) {
+    return undefined;
+  }
+  const recorded = pays ? paymentOf(line.payment) : frequencyOf(registry, request);
+  const attacks = line.attack === true || makesAttack(registry, line.id);
+  const cast = sustainedCast(registry, line.id, recorded.slot);
+  return {
+    field: PlayCommandField.SpendAction,
+    id: SpendId.parse(newId()),
+    action: line.id,
+    cost,
+    ...recorded,
+    ...(attacks ? { attack: true as const } : {}),
+    ...(cast === undefined ? {} : { spell: cast }),
+  };
+}
+
+/**
  * What using an action, Strike, spell or item activation does on the sheet (#355): its cost taken from the turn with
  * what it pays (a frequency use, a spell slot or a Focus Point), and logged, by one `spendAction` edit the server
  * checks. Provided by the sheet page, so every list on its tabs spends the same way, and the turn it reads is the one
@@ -52,34 +80,19 @@ function frequencyOf(registry: ContentRegistry, { line }: ActionUse): SpendPayme
 @Injectable()
 export class SheetSpender extends ActionUser {
   readonly #play = inject(PlayStore);
-  readonly #registry = injectContentRegistry(ACTION_CONTENT_KINDS);
-  readonly #spells = injectContentRegistry([ContentKind.Spell]);
+  readonly #registry = injectContentRegistry(SPENDER_CONTENT_KINDS);
 
   /** The turn as the play state has it; undefined while that loads. */
   public readonly turn = computed((): TurnState | undefined => this.#play.play.data()?.play.turn);
 
   public override async use(request: ActionUse): Promise<void> {
-    const { line, actions } = request;
     const registry = this.#registry.data();
-    const pays = line.payment !== undefined;
-    const cost = spendCostOf(line.cost ?? (pays ? ActionCost.Free : undefined), actions);
-    if (registry === undefined || cost === undefined) {
+    const spend = registry === undefined ? undefined : spendOf(registry, request);
+    if (spend === undefined) {
       return;
     }
-    const recorded = pays ? paymentOf(line.payment) : frequencyOf(registry, request);
-    const attacks = line.attack === true || makesAttack(registry, line.id);
-    const spells = this.#spells.data();
-    const cast = spells === undefined ? undefined : sustainedCast(spells, line.id);
-    await this.#play.send({
-      field: PlayCommandField.SpendAction,
-      id: SpendId.parse(newId()),
-      action: line.id,
-      cost,
-      ...recorded,
-      ...(attacks ? { attack: true as const } : {}),
-      ...(cast === undefined ? {} : { spell: cast }),
-    });
-    await this.#raised(line.id);
+    await this.#play.send(spend);
+    await this.#raised(request.line.id);
   }
 
   /** Sustains or dismisses the active spell `change` names with the one action each takes, spent and logged like any other. */

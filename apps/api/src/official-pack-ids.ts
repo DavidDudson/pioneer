@@ -20,6 +20,7 @@ export const OFFICIAL_PACK_IDS = [
   'impossible-magic',
   'monster-core',
   'monster-core-2',
+  'npc-core',
   'mwangi-expanse',
   'myth-speakers',
   'player-core',
