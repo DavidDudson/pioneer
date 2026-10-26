@@ -10,8 +10,15 @@
       } @empty {
         <fr-text>{{ 'character.sheet.environments.none' | transloco }}</fr-text>
       }
-      @for (restriction of restrictions(); track restriction.environment + restriction.id) {
-        <fr-text>{{ restriction.reason }}</fr-text>
+      @for (restriction of restrictions(); track restriction.key) {
+        @if (restriction.liftedBy.length === 0) {
+          <fr-text>{{ restriction.reason }}</fr-text>
+        } @else {
+          <fr-text>{{
+            'character.sheet.environments.lifted'
+              | transloco: { reason: restriction.reason, source: restriction.liftedBy.join(', ') }
+          }}</fr-text>
+        }
       }
     </fr-stack>
   </ng-template>

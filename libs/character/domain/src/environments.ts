@@ -1,6 +1,7 @@
+import type { LiftedRestriction } from '@pioneer/rules/engine';
 import type { GrantRoot } from '@pioneer/rules/grants';
 import { ContentId, ContentKind, OriginHopKind } from '@pioneer/rules/sdk';
-import type { ContentRegistry, ContentText, EnvironmentData, Slug } from '@pioneer/rules/sdk';
+import type { ContentRegistry, ContentText, EnvironmentData, Origin, Slug } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
@@ -70,19 +71,43 @@ export function environmentContent(registry: ContentRegistry): EnvironmentConten
   );
 }
 
-/** What an environment the character is in forbids: the restriction's id, the reason the sheet shows, and whose it is. */
+/**
+ * What an environment the character is in forbids: the restriction's id, the reason the sheet shows, and whose it is.
+ * When something lifts it, `liftedBy` holds what does, and the restriction no longer holds.
+ */
 export interface RestrictionInPlay {
   readonly environment: ContentId;
   readonly id: Slug;
   readonly reason: ContentText;
+  /** What lifts the restriction; empty while it holds. */
+  readonly liftedBy: readonly Origin[];
 }
 
-/** The restrictions of the environments the character is in, environment by environment in the order turned on. */
+/** Whether `lift` lifts the restriction `id` of `environment`: it names that restriction, in that environment or any. */
+function lifts(lift: LiftedRestriction, environment: ContentId, id: Slug): boolean {
+  return lift.restriction === id && (lift.environment === undefined || lift.environment === environment);
+}
+
+/**
+ * The restrictions of the environments the character is in, environment by environment in the order turned on, each
+ * with the origins of the `lifted` restrictions that lift it.
+ */
 export function restrictionsInPlay(
   environments: ActiveEnvironments,
   content: EnvironmentContent,
+  lifted: readonly LiftedRestriction[] = [],
 ): readonly RestrictionInPlay[] {
   return environments.flatMap((environment) =>
-    (content.get(environment)?.restrictions ?? []).map(({ id, reason }) => ({ environment, id, reason })),
+    (content.get(environment)?.restrictions ?? []).map(({ id, reason }) => ({
+      environment,
+      id,
+      reason,
+      liftedBy: lifted.filter((lift) => lifts(lift, environment, id)).flatMap((lift) => lift.origins),
+    })),
   );
+}
+
+/** The restrictions that hold: those of `restrictions` nothing lifts. */
+export function restrictionsHolding(restrictions: readonly RestrictionInPlay[]): readonly RestrictionInPlay[] {
+  return restrictions.filter(({ liftedBy }) => liftedBy.length === 0);
 }

@@ -1,5 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
+import { inPlay } from '@pioneer/rules/engine/testing';
 import { ContentId, ContentText, HitPoints, OriginHopKind, Slug } from '@pioneer/rules/sdk';
 import { installRulesFakes } from '@pioneer/rules/sdk/testing';
 
@@ -12,6 +13,7 @@ import {
   environmentContent,
   environmentRoots,
   isEnvironmentCommand,
+  restrictionsHolding,
   restrictionsInPlay,
 } from './environments';
 import type { EnvironmentCommand } from './environments';
@@ -105,6 +107,7 @@ describe('restrictionsInPlay', () => {
         environment: underwater,
         id: Slug.parse('speech'),
         reason: ContentText.parse("You can't speak underwater."),
+        liftedBy: [],
       },
     ]);
   });
@@ -112,6 +115,36 @@ describe('restrictionsInPlay', () => {
   test('lists nothing for a character in no environment, or in one the content lacks', () => {
     expect(restrictionsInPlay([], content)).toEqual([]);
     expect(restrictionsInPlay([DARK], content)).toEqual([]);
+  });
+
+  describe('with lifts', () => {
+    const { origin } = inPlay({ key: 'LiftRestriction', restriction: 'speech' }, 'aquatic-ancestry');
+    const speech = { restriction: Slug.parse('speech'), origins: [origin] };
+
+    test('names what lifts a restriction, and no longer holds it', () => {
+      const [only] = restrictionsInPlay([underwater], content, [speech]);
+
+      expect(only?.liftedBy).toEqual([origin]);
+      expect(restrictionsHolding(restrictionsInPlay([underwater], content, [speech]))).toEqual([]);
+    });
+
+    test('holds a restriction a lift names for another environment', () => {
+      const elsewhere = { ...speech, environment: DARK };
+
+      expect(restrictionsHolding(restrictionsInPlay([underwater], content, [elsewhere]))).toHaveLength(1);
+    });
+
+    test('lifts a restriction a lift names for its environment', () => {
+      const here = { ...speech, environment: underwater };
+
+      expect(restrictionsHolding(restrictionsInPlay([underwater], content, [here]))).toEqual([]);
+    });
+
+    test('holds a restriction a lift does not name', () => {
+      const other = { restriction: Slug.parse('fire-effects'), origins: [origin] };
+
+      expect(restrictionsHolding(restrictionsInPlay([underwater], content, [other]))).toHaveLength(1);
+    });
   });
 });
 

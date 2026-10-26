@@ -1,14 +1,20 @@
 import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { EnvironmentCommandField, environmentContent, restrictionsInPlay } from '@pioneer/character/domain';
-import type { RestrictionInPlay } from '@pioneer/character/domain';
+import {
+  characterLiftedRestrictions,
+  EnvironmentCommandField,
+  environmentContent,
+  restrictionsInPlay,
+} from '@pioneer/character/domain';
 import { AsyncData, AsyncPending, AsyncRegion, Skeleton, Stack, Text, ToggleButton } from '@pioneer/frontier';
 import type { ContentId } from '@pioneer/rules/sdk';
 
 import { injectContentRegistry } from '../../data/content-registry-query';
 import { PlayStore } from '../../data/play-store';
-import { ENVIRONMENT_CONTENT_KINDS, environmentOptions } from '../sheet-environments';
-import type { EnvironmentOption } from '../sheet-environments';
+import { ENVIRONMENT_CONTENT_KINDS, environmentOptions, restrictionRows } from '../sheet-environments';
+import type { EnvironmentOption, RestrictionRow } from '../sheet-environments';
+import { sheetSources } from '../sheet-sources';
+import { SheetState } from '../sheet-state';
 
 /**
  * The environments the character can be in (#684): a toggle for each, and below them what the ones it is in forbid, each
@@ -22,6 +28,7 @@ import type { EnvironmentOption } from '../sheet-environments';
 })
 export class SheetEnvironments {
   readonly #play = inject(PlayStore);
+  readonly #state = inject(SheetState);
 
   protected readonly registry = injectContentRegistry(ENVIRONMENT_CONTENT_KINDS);
   protected readonly playQuery = this.#play.play;
@@ -36,13 +43,20 @@ export class SheetEnvironments {
     (): ReadonlySet<ContentId> => new Set(this.#play.play.data()?.play.environments),
   );
 
-  /** What the environments the character is in forbid. */
-  protected readonly restrictions = computed((): readonly RestrictionInPlay[] => {
+  /** What the environments the character is in forbid, with what lifts each, if anything. */
+  protected readonly restrictions = computed((): readonly RestrictionRow[] => {
     const registry = this.registry.data();
+    const engine = this.#state.engine();
+    const character = this.#state.character();
     const environments = this.#play.play.data()?.play.environments;
-    return registry === undefined || environments === undefined
-      ? []
-      : restrictionsInPlay(environments, environmentContent(registry));
+    if (registry === undefined || environments === undefined) {
+      return [];
+    }
+    const lifted =
+      engine === undefined || character === undefined
+        ? []
+        : characterLiftedRestrictions(character.document, sheetSources(engine, character));
+    return restrictionRows(engine ?? registry, restrictionsInPlay(environments, environmentContent(registry), lifted));
   });
 
   protected readonly set = async (environment: ContentId, active: boolean): Promise<void> => {

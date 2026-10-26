@@ -1,7 +1,7 @@
 import { HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { SheetMode } from '@pioneer/character/domain';
-import { ITEM_FIXTURE_FILES, underwaterFixtureId } from '@pioneer/character/domain/testing';
+import { gilledFixtureId, ITEM_FIXTURE_FILES, underwaterFixtureId } from '@pioneer/character/domain/testing';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { CHARACTER_CONTENT_KINDS } from '../../data/content-registry-query';
@@ -71,6 +71,23 @@ describe('CharacterSheetPage environments', () => {
     });
     await vi.waitFor(() => {
       expect(textOf(sectionOf(root))).toContain(NO_SPEECH);
+    });
+  });
+
+  it('says what lifts a restriction, and shows it no longer forbids', async () => {
+    const gilled = {
+      id: '00000000-0000-4000-8000-000000000401',
+      condition: gilledFixtureId(),
+      duration: { kind: 'unlimited' },
+    };
+    const play = {
+      revision: 1,
+      play: { hp: { damage: 0, temp: 0 }, environments: [UNDERWATER], conditions: [gilled] },
+    };
+    const { root } = await openSheet(MERISIEL, { play, packs: PACKS });
+
+    await vi.waitFor(() => {
+      expect(textOf(sectionOf(root))).toContain(`${NO_SPEECH} Lifted by Gilled.`);
     });
   });
 });
