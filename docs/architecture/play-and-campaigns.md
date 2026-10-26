@@ -386,6 +386,12 @@ before it in the same edit, together with the temporary Hit Points it gave (an e
 as polymorph even when its content lacks the trait). An active form keeps the form chosen, the spell rank it was cast
 at and the temporary Hit Points it raised, so Dismiss, expiry and replacement all end it the same way.
 
+A polymorph effect need not be a battle form. One with the trait and ordinary rule elements (`CreatureSize`,
+`RollOption`, `FlatModifier`) and no `BattleForm` changes size, roll options and modifiers, replaces no statistic and
+restricts no section; it is exclusive with every other polymorph effect, battle form or not. The header names it like
+any form, and the Exploration tab says the appearance there is the character's own, not the form's. Only a polymorph
+effect is cast at a rank; the server refuses a rank on any other.
+
 End-of-turn bookkeeping (frightened decreasing, persistent damage flat checks, effect expiry) is a pure function
 over play state and the turn event, so it can run in the browser and on the server identically.
 

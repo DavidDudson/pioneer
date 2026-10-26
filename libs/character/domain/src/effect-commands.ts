@@ -47,6 +47,8 @@ export const EffectProblem = {
   Full: 'full',
   /** A formula badge needs its rolled value, and an effect with a counter or no badge takes none; a counter stays within its bounds. */
   Badge: 'badge',
+  /** A spell rank is cast at, which only a polymorph effect is; any other effect takes none. */
+  Rank: 'rank',
 } as const;
 export type EffectProblem = ValueOf<typeof EffectProblem>;
 
@@ -74,6 +76,9 @@ function problemOfApply(
   const rolls = terms.badge?.type === EffectBadgeType.Formula;
   if (rolls !== (command.rolled !== undefined)) {
     return EffectProblem.Badge;
+  }
+  if (command.rank !== undefined && terms.polymorph !== true) {
+    return EffectProblem.Rank;
   }
   return effects.length >= EFFECTS_MAX ? EffectProblem.Full : undefined;
 }

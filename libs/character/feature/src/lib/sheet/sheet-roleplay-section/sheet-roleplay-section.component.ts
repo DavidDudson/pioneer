@@ -1,8 +1,8 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { CharacterPatchField, CharacterProseInput } from '@pioneer/character/domain';
 import type { Character } from '@pioneer/character/domain';
-import { InlineField, Stack, TextArea } from '@pioneer/frontier';
+import { InlineField, Stack, Text, TextArea } from '@pioneer/frontier';
 import type { InlineEdit } from '@pioneer/frontier';
 
 import { sheetField } from '../sheet-field';
@@ -21,7 +21,7 @@ type ProseField = typeof CharacterPatchField.SetAppearance | typeof CharacterPat
  */
 @Component({
   selector: 'pio-sheet-roleplay-section',
-  imports: [InlineField, Stack, TextArea, TranslocoPipe],
+  imports: [InlineField, Stack, Text, TextArea, TranslocoPipe],
   templateUrl: './sheet-roleplay-section.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -29,6 +29,8 @@ export class SheetRoleplaySection {
   readonly #sheet = inject(SheetState);
   readonly #i18n = inject(TranslocoService);
   protected readonly rows = EDITOR_ROWS;
+  /** The name of the form the character is in: the appearance below is their own, not the form's. */
+  protected readonly form = computed((): string | undefined => this.#sheet.activeForm()?.name);
 
   protected readonly appearance = this.#prose(
     (character) => richTextToProse(character.document.appearance),

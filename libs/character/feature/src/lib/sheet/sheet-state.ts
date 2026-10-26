@@ -14,7 +14,8 @@ import { PlayStore } from '../data/play-store';
 import { sheetBuildPicks } from './sheet-build-picks';
 import type { BuildPicks } from './sheet-build-picks';
 import { sheetConditionPreviews } from './sheet-condition-previews';
-import { withoutForms } from './sheet-effects';
+import { activeFormOf, withoutForms } from './sheet-effects';
+import type { EffectView } from './sheet-effects';
 import { sheetFetchingPreviews } from './sheet-entry-previews';
 import { readsEquipment, EQUIPMENT_CONTENT_KINDS, sheetInvestments } from './sheet-equipment';
 import { sheetFocus } from './sheet-focus-spells';
@@ -58,6 +59,18 @@ export class SheetState {
           effects: [...played.effects],
           toggles: played.toggles,
         });
+  });
+
+  /**
+   * The form the character is in (#528), whether or not the base view hides it; undefined in no form or while the
+   * content that names it loads.
+   */
+  public readonly activeForm: Signal<EffectView | undefined> = computed((): EffectView | undefined => {
+    const registry = this.equipment.data();
+    const full = this.#full();
+    return registry === undefined || full === undefined
+      ? undefined
+      : activeFormOf(registry, full.document.play.effects);
   });
 
   readonly #baseView = signal(false);

@@ -155,7 +155,8 @@
       "heading": "Appearance and personality",
       "appearance": "Appearance",
       "personality": "Personality",
-      "empty": "Not written yet"
+      "empty": "Not written yet",
+      "inForm": "In form: {name}. The appearance below is your own."
     },
     "downtimeHeading": "Downtime",
     "shop": {
@@ -520,6 +521,7 @@
     "effectMissing": "That effect is no longer on the character. Reload the sheet and try again.",
     "effectFull": "This character has as many effects as it can hold. Remove one first.",
     "effectBadge": "The badge does not fit that effect: a rolled effect needs its roll, and a counter stays within its range.",
+    "effectRank": "Only a polymorph effect is cast at a rank.",
     "consumableNotHeld": "That item is not a consumable you hold.",
     "consumableWrongAction": "That spend is not this consumable's activation.",
     "consumableWrongEffect": "That effect is not the one this consumable gives.",
