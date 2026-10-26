@@ -1,10 +1,18 @@
 import { describe, expect, test } from 'bun:test';
 
 import type { Character, CharacterVariantRule } from '@pioneer/character/domain';
-import { ImportKind, UnmatchedReason } from '@pioneer/interop/pathbuilder';
+import { ImportKind, RuleBreakingCount, UnmatchedReason } from '@pioneer/interop/pathbuilder';
 import type { CharacterImportReport } from '@pioneer/interop/pathbuilder';
 import { mordredExport } from '@pioneer/interop/pathbuilder/testing';
-import { Attribute, ChoiceValue, ContentKind, SlotKey, VariantRuleId, VariantStructure } from '@pioneer/rules/sdk';
+import {
+  Attribute,
+  ChoiceValue,
+  ContentId,
+  ContentKind,
+  SlotKey,
+  VariantRuleId,
+  VariantStructure,
+} from '@pioneer/rules/sdk';
 import { ContentPackBuilder, fixedContent } from '@pioneer/rules/sdk/testing';
 import { fixedClock, newId, UserId } from '@pioneer/shared/kernel';
 
@@ -91,8 +99,8 @@ describe('PathbuilderImportService.importPathbuilder: Free Archetype', () => {
     expect(enabled).toStrictEqual([]);
     const dedication = pack.idOf(ContentKind.Feat, 'sorcerer-dedication');
     expect(Object.values(character.document.build.choices)).not.toContain(dedication);
-    expect(character.document.build.unplacedFeats).toStrictEqual([dedication]);
-    expect(report.ruleBreakingFeats).toBe(1);
+    expect(character.document.build.unplacedFeats).toStrictEqual([ContentId.parse(dedication)]);
+    expect(report.ruleBreakingFeats).toBe(RuleBreakingCount.parse(1));
     expect(leftBehind(report, UnmatchedReason.NotOffered)).not.toContain('Sorcerer Dedication');
   });
 });

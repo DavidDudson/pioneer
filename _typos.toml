@@ -30,6 +30,11 @@ extend-ignore-re = [
   "JournalEntryPage\\.[A-Za-z0-9]{16}",
   # Names and terms: Ded Moroz-style fey patrons (Dark Archive), a ba-sadhak (Impossible Lands).
   "Ded (Bolota|Bereza)",
+  # Misspellings in the names Archives of Nethys lists, kept as AoN spells them so the URL table matches.
+  "Elemental Subsitution",
+  "Extendible Pincer",
+  "Camoflage Coat",
+  "Exemplar Resilency",
   "ba-sadhak",
   # A French term in a creature name (NPC Core): Idée Fixe.
   "Idée Fixe",
