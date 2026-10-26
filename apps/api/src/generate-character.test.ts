@@ -1,32 +1,20 @@
 import { describe, expect, test } from 'bun:test';
 
-import {
-  ANCESTRY_SLOT,
-  Character,
-  CharacterId,
-  CharacterLevel,
-  CharacterName,
-  CharacterPatchField,
-  characterSlots,
-  CLASS_SLOT,
-  featSlots,
-  generateCharacter,
-  Seed,
-  slotCandidates,
-  slotContent,
-  SlotStatus,
-} from '@pioneer/character/domain';
-import type { Generated } from '@pioneer/character/domain';
-import { contentCatalog } from '@pioneer/rules/catalog';
-import { AncestryId, ChoiceValue, ContentKind, ContentRegistry } from '@pioneer/rules/sdk';
-import { derivedId, FixtureNamespace, fixedClock, UserId } from '@pioneer/shared/kernel';
+import { CharacterLevel, characterSlots, featSlots, slotCandidates, SlotStatus } from '@pioneer/character/domain';
+import type { Character, Generated } from '@pioneer/character/domain';
 import { assert, constantFrom, integer, property } from 'fast-check';
 
+import {
+  blankIn,
+  CLASS_TIMEOUT_MS,
+  contentOf,
+  generatorIn,
+  LEVELS,
+  PLAYER_CORE_CLASSES,
+  SEED_MAX,
+} from './generate-character-testing';
 import { unfillableSlots } from './level-20-derive';
 
-/** Time to generate a character at every level. */
-const CLASS_TIMEOUT_MS = 180_000;
-const SEED_MAX = 2_147_483_647;
 const PROPERTY_RUNS = 12;
 /**
  * Slots a generated character leaves open on top of the ones no build can fill: the generator can pick a feat whose
@@ -34,54 +22,17 @@ const PROPERTY_RUNS = 12;
  */
 const GENERATED_UNFILLABLE: Readonly<Record<string, number>> = { Rogue: 2 };
 
-/** The classes of Player Core (remaster). */
-const PLAYER_CORE_CLASSES = [
-  'Alchemist',
-  'Barbarian',
-  'Bard',
-  'Champion',
-  'Cleric',
-  'Druid',
-  'Fighter',
-  'Monk',
-  'Ranger',
-  'Rogue',
-  'Sorcerer',
-  'Wizard',
-] as const;
-const LEVELS = Array.from({ length: 20 }, (_unused, index) => CharacterLevel.parse(index + 1));
 /** The levels each class is generated at: the first, then every fifth, where classes gain most. */
 const CLASS_LEVELS = [1, 5, 10, 15, 20].map((level) => CharacterLevel.parse(level));
 
-const registry = new ContentRegistry();
-await Promise.all(contentCatalog.map(async (loader) => registry.load(loader)));
-const content = slotContent(registry);
-const now = fixedClock('2026-01-01T00:00:00Z').now();
-const classes = content.lookup.ofKind(ContentKind.Class);
-const [anyAncestry] = content.lookup.ofKind(ContentKind.Ancestry);
+const content = await contentOf();
 
-/** A character with nothing picked, or only `className` if given: the ancestry its creation asks for is taken out. */
+/** A character with nothing picked, or only `className` if given. */
 function blank(className?: string): Character {
-  const created = Character.create({
-    id: CharacterId.parse(derivedId(FixtureNamespace, 'character:generated')),
-    ownerId: UserId.parse(derivedId(FixtureNamespace, 'user:generated')),
-    name: CharacterName.parse('Generated'),
-    ancestry: AncestryId.parse(anyAncestry?.id),
-    now,
-  });
-  const cleared = created.apply({ field: CharacterPatchField.ClearSlot, slot: ANCESTRY_SLOT }, now);
-  const chosen = classes.find((entry) => entry.name === className);
-  return chosen === undefined
-    ? cleared
-    : cleared.apply(
-        { field: CharacterPatchField.SelectSlot, slot: CLASS_SLOT, selection: ChoiceValue.parse(chosen.id) },
-        now,
-      );
+  return blankIn(content, className);
 }
 
-function generated(start: Character, seed: number, level: CharacterLevel): Generated {
-  return generateCharacter({ start, seed: Seed.parse(seed), level, content, now });
-}
+const generated = generatorIn(content);
 
 /**
  * The slots left open that something could fill. A feat slot whose every feat with known-met prerequisites is taken
