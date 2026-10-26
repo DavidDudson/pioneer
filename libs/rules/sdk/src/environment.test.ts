@@ -23,7 +23,9 @@ describe('EnvironmentData', () => {
   test('restrictions and consequences are kept as written', () => {
     const data = { restrictions: [speech, fireEffects], consequences: [{ ...suffocation, repeats: true }] };
 
-    expect(EnvironmentData.parse(data)).toEqual(data);
+    const kept: unknown = EnvironmentData.parse(data);
+
+    expect(kept).toEqual(data);
   });
 
   test('a repeated restriction id is an error at the repeat', () => {
