@@ -7957,7 +7957,51 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "BattleForm",
+        "form": {
+          "armorClass": {
+            "modifier": "16 + @level",
+            "ignoreCheckPenalty": true,
+            "ignoreSpeedReduction": true
+          },
+          "size": "large",
+          "speeds": {
+            "climb": 20,
+            "land": 20,
+            "swim": 20
+          },
+          "senses": [
+            {
+              "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c"
+            },
+            {
+              "sense": "279973df-e7b9-5fa1-9bb6-1cfdc54b82b6",
+              "acuity": "imprecise",
+              "range": 30
+            }
+          ],
+          "weaknesses": [
+            {
+              "type": "area-damage",
+              "value": 5
+            },
+            {
+              "type": "splash-damage",
+              "value": 5
+            }
+          ],
+          "resistances": [
+            {
+              "type": "physical",
+              "value": 5
+            }
+          ],
+          "traits": ["large"]
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.MwOIzOn144wosWHQ"
     },
@@ -11039,6 +11083,84 @@
         "count": 1,
         "unit": "minute",
         "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "e8d87e87-1a49-519c-bdca-d63b8df0a9a2",
+    "pack": "treasure-vault",
+    "kind": "effect",
+    "slug": "effect:effect-tome-of-restorative-cleansing",
+    "name": "Effect: Tome of Restorative Cleansing",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "19eb54fa-b973-5b97-86c4-71cd37b6921f"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "5477ca5d-1a37-50b4-9f21-6e5d9db13a19"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "c0781331-8794-596d-9390-0fad8c732c27"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "@item.value"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.r1IsOaxM5tgVU29b"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      },
+      "badge": {
+        "type": "formula",
+        "formula": "(@flag.spellheart.tomeOfRestorativeCleansing)d8"
       }
     }
   },

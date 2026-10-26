@@ -5,7 +5,8 @@ import * as z from 'zod';
 /**
  * A rule element on the character: the element, where it came from, its position in its entry's `rules`, the level of
  * the item it sits on when it is on an item (`@item.level`), and the value of the condition it sits on when that
- * condition carries one (`@item.value`, 2 on Frightened 2). Grant resolution (Epic 1.4) will produce these; for now
+ * condition carries one (`@item.value`, 2 on Frightened 2), and the level of what applied it when it is on an effect
+ * (`@item.origin.level`). Grant resolution (Epic 1.4) will produce these; for now
  * they are supplied directly.
  */
 export const RuleInPlay = z.strictObject({
@@ -14,20 +15,25 @@ export const RuleInPlay = z.strictObject({
   rule: RuleIndex,
   itemLevel: Level.optional(),
   conditionValue: ConditionValue.optional(),
+  originLevel: Level.optional(),
 });
 export type RuleInPlay = z.output<typeof RuleInPlay>;
 
-/** What `@item` references read: the level of the item a rule element is on, and the value of the condition it is on. */
+/**
+ * What `@item` references read: the level of the item a rule element is on, the value of the condition it is on, and
+ * the level of what applied it.
+ */
 export interface ItemScope {
   readonly level: Level | undefined;
   readonly value: ConditionValue | undefined;
+  readonly originLevel: Level | undefined;
 }
 
 /** The scope of a rule element on no item: a statistic's own formula, or a line the engine makes itself. */
-export const NO_ITEM: ItemScope = { level: undefined, value: undefined };
+export const NO_ITEM: ItemScope = { level: undefined, value: undefined, originLevel: undefined };
 
-export function itemScopeOf({ itemLevel, conditionValue }: RuleInPlay): ItemScope {
-  return { level: itemLevel, value: conditionValue };
+export function itemScopeOf({ itemLevel, conditionValue, originLevel }: RuleInPlay): ItemScope {
+  return { level: itemLevel, value: conditionValue, originLevel };
 }
 
 /** A rule element in play, named by its entry and its position there: `<entry>#<rule>`. Stable across derivations. */

@@ -7,18 +7,6 @@
     {
       "type": "entry",
       "pack": "treasure-vault",
-      "slug": "action:time-reversal",
-      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.nqvcehh10TCwADjE",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Dark Archive (Remastered)"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
       "slug": "armor:black-hole-armor",
       "foundry": "Compendium.pf2e.equipment-srd.Item.DUTKrSu5iJMktfZI",
       "gaps": [
@@ -184,18 +172,6 @@
         {
           "type": "enricher",
           "enricher": "@Check[traits]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "consumable:bargainers-instrument",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.VFUOEkaCaSCJsu6U",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core"
         }
       ]
     },
@@ -383,6 +359,12 @@
             "requiresEquipped": false,
             "value": "{item|flags.system.rulesSelections.dragon}"
           }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "effect",
+          "raw": "Compendium.pf2e.equipment-effects.Item.Effect: Dragon Breath Scale"
         },
         {
           "type": "enricher",
@@ -4568,54 +4550,6 @@
     {
       "type": "entry",
       "pack": "treasure-vault",
-      "slug": "effect:effect-ouroboros-buckles-swarm-of-snakes",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.MwOIzOn144wosWHQ",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "BattleForm",
-          "raw": {
-            "key": "BattleForm",
-            "overrides": {
-              "armorClass": {
-                "ignoreCheckPenalty": true,
-                "ignoreSpeedReduction": true,
-                "modifier": "16 + @actor.level"
-              },
-              "resistances": [
-                {
-                  "type": "physical",
-                  "value": 5
-                }
-              ],
-              "senses": {
-                "lowLightVision": {},
-                "scent": {
-                  "acuity": "imprecise",
-                  "range": 30
-                }
-              },
-              "size": "lg",
-              "speeds": {
-                "climb": 20,
-                "land": 20,
-                "swim": 20
-              },
-              "traits": ["large"],
-              "weaknesses": [
-                {
-                  "type": ["area-damage", "splash-damage"],
-                  "value": 5
-                }
-              ]
-            }
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
       "slug": "effect:effect-phantasmal-doorknob-armor",
       "foundry": "Compendium.pf2e.equipment-effects.Item.PBvLrztlLIfr2dlV",
       "gaps": [
@@ -5528,10 +5462,6 @@
       "pack": "treasure-vault",
       "slug": "effect:effect-tome-of-restorative-cleansing",
       "foundry": "Compendium.pf2e.equipment-effects.Item.r1IsOaxM5tgVU29b",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
       "gaps": [
         {
           "type": "rule",
@@ -5616,140 +5546,8 @@
             "predicate": ["tome-of-restorative-cleansing:tome-of-restorative-cleansing-greater"],
             "value": 3
           }
-        },
-        {
-          "type": "field",
-          "reason": "invalid-data",
-          "field": "badge.formula",
-          "raw": {
-            "category": "equipment",
-            "duration": {
-              "type": "time",
-              "count": 1,
-              "unit": "hour",
-              "expiry": "turn-start"
-            },
-            "badge": {
-              "type": "formula",
-              "formula": "(@actor.flags.system.spellheart.tomeOfRestorativeCleansing)d8"
-            }
-          }
         }
-      ],
-      "document": {
-        "_id": "r1IsOaxM5tgVU29b",
-        "name": "Effect: Tome of Restorative Cleansing",
-        "type": "effect",
-        "system": {
-          "publication": {
-            "title": "Pathfinder Treasure Vault (Remastered)",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 5
-          },
-          "traits": {
-            "value": []
-          },
-          "description": {
-            "value": "<p>Granted by @UUID[Compendium.pf2e.equipment-srd.Item.Tome of Restorative Cleansing (Lesser)], @UUID[Compendium.pf2e.equipment-srd.Item.Tome of Restorative Cleansing (Moderate)], @UUID[Compendium.pf2e.equipment-srd.Item.Tome of Restorative Cleansing (Greater)]</p>\n<p>You gain temporary Hit Points.</p>"
-          },
-          "rules": [
-            {
-              "adjustName": false,
-              "choices": [
-                {
-                  "predicate": [
-                    {
-                      "or": [
-                        "parent:origin:item:slug:tome-of-restorative-cleansing-lesser",
-                        {
-                          "not": "parent:origin:item"
-                        }
-                      ]
-                    }
-                  ],
-                  "value": "Compendium.pf2e.equipment-srd.Item.Tome of Restorative Cleansing (Lesser)"
-                },
-                {
-                  "predicate": [
-                    {
-                      "or": [
-                        "parent:origin:item:slug:tome-of-restorative-cleansing-moderate",
-                        {
-                          "not": "parent:origin:item"
-                        }
-                      ]
-                    }
-                  ],
-                  "value": "Compendium.pf2e.equipment-srd.Item.Tome of Restorative Cleansing (Moderate)"
-                },
-                {
-                  "predicate": [
-                    {
-                      "or": [
-                        "parent:origin:item:slug:tome-of-restorative-cleansing-greater",
-                        {
-                          "not": "parent:origin:item"
-                        }
-                      ]
-                    }
-                  ],
-                  "value": "Compendium.pf2e.equipment-srd.Item.Tome of Restorative Cleansing (Greater)"
-                }
-              ],
-              "key": "ChoiceSet",
-              "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
-              "rollOption": "tome-of-restorative-cleansing"
-            },
-            {
-              "key": "ActiveEffectLike",
-              "mode": "override",
-              "path": "flags.system.spellheart.tomeOfRestorativeCleansing",
-              "predicate": ["tome-of-restorative-cleansing:tome-of-restorative-cleansing-lesser"],
-              "value": 1
-            },
-            {
-              "key": "ActiveEffectLike",
-              "mode": "override",
-              "path": "flags.system.spellheart.tomeOfRestorativeCleansing",
-              "predicate": ["tome-of-restorative-cleansing:tome-of-restorative-cleansing-moderate"],
-              "value": 2
-            },
-            {
-              "key": "ActiveEffectLike",
-              "mode": "override",
-              "path": "flags.system.spellheart.tomeOfRestorativeCleansing",
-              "predicate": ["tome-of-restorative-cleansing:tome-of-restorative-cleansing-greater"],
-              "value": 3
-            },
-            {
-              "key": "TempHP",
-              "value": "@item.badge.value"
-            }
-          ],
-          "badge": {
-            "evaluate": true,
-            "reevaluate": null,
-            "type": "formula",
-            "value": "(@actor.flags.system.spellheart.tomeOfRestorativeCleansing)d8"
-          },
-          "duration": {
-            "expiry": "turn-start",
-            "sustained": false,
-            "unit": "hours",
-            "value": 1
-          },
-          "start": {
-            "initiative": null,
-            "value": 0
-          },
-          "tokenIcon": {
-            "show": true
-          }
-        }
-      }
+      ]
     },
     {
       "type": "entry",
@@ -6302,18 +6100,6 @@
     {
       "type": "entry",
       "pack": "treasure-vault",
-      "slug": "equipment:drums-of-war-major",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.nXq9pxB3RVnGb0rB",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Dark Archive (Remastered)"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
       "slug": "equipment:dullahan-codex",
       "foundry": "Compendium.pf2e.equipment-srd.Item.1wrRaLsT6nuz8gj6",
       "gaps": [
@@ -6386,10 +6172,6 @@
               }
             ]
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core"
         }
       ]
     },
@@ -6411,10 +6193,6 @@
               }
             ]
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core"
         }
       ]
     },
@@ -6436,10 +6214,6 @@
               }
             ]
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core"
         }
       ]
     },
@@ -6461,10 +6235,6 @@
               }
             ]
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core"
         }
       ]
     },
@@ -7058,54 +6828,6 @@
         {
           "type": "enricher",
           "enricher": "@Check[options]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "equipment:tome-of-restorative-cleansing-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.m9v1YKUvQuFGVZ10",
-      "gaps": [
-        {
-          "type": "link",
-          "entry": "treasure-vault/effect:effect-tome-of-restorative-cleansing",
-          "element": {
-            "type": "ref",
-            "id": "e8d87e87-1a49-519c-bdca-d63b8df0a9a2"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "equipment:tome-of-restorative-cleansing-lesser",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.KqzTdCwrfoqfSR5b",
-      "gaps": [
-        {
-          "type": "link",
-          "entry": "treasure-vault/effect:effect-tome-of-restorative-cleansing",
-          "element": {
-            "type": "ref",
-            "id": "e8d87e87-1a49-519c-bdca-d63b8df0a9a2"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "equipment:tome-of-restorative-cleansing-moderate",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.NwyyVc5G6zUbcXRs",
-      "gaps": [
-        {
-          "type": "link",
-          "entry": "treasure-vault/effect:effect-tome-of-restorative-cleansing",
-          "element": {
-            "type": "ref",
-            "id": "e8d87e87-1a49-519c-bdca-d63b8df0a9a2"
-          }
         }
       ]
     },
@@ -8314,18 +8036,6 @@
     {
       "type": "entry",
       "pack": "treasure-vault",
-      "slug": "weapon:chronomancer-staff",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.XBn3aapPC0x7X13W",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Dark Archive (Remastered)"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
       "slug": "weapon:crescent-cross",
       "foundry": "Compendium.pf2e.equipment-srd.Item.KaYvuSNXZaOammij",
       "gaps": [
@@ -8467,30 +8177,6 @@
             "group": "spear",
             "traits": ["critical-fusion", "reach"]
           }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "weapon:librarian-staff",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.bh1Jr4YqfXQe7r9I",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Lost Omens Rival Academies"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "weapon:librarian-staff-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.QFvB2qgpWdeEa4fT",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Lost Omens Rival Academies"
         }
       ]
     },

@@ -1,7 +1,7 @@
 import { EffectBadgeType, EffectCategory, EffectDurationType } from '@pioneer/rules/sdk';
 import * as z from 'zod';
 
-import { fromFoundryFormula } from './foundry-formula';
+import { fromFoundryBadgeFormula } from './foundry-formula';
 import { ENVELOPE_FIELDS, KindDataGapReason, report } from './kind-data-gaps';
 import type { GapLog, KindInput } from './kind-data-gaps';
 import { setFields, systemOf } from './kind-fields';
@@ -117,7 +117,11 @@ function badgeOf(badge: FoundryBadge, log: GapLog): object | undefined {
   }
   if (badge.type === EffectBadgeType.Formula && typeof badge.value === 'string') {
     const reevaluate = badge.reevaluate ?? undefined;
-    return { type: EffectBadgeType.Formula, formula: fromFoundryFormula(badge.value), ...setFields({ reevaluate }) };
+    return {
+      type: EffectBadgeType.Formula,
+      formula: fromFoundryBadgeFormula(badge.value),
+      ...setFields({ reevaluate }),
+    };
   }
   report(log, { reason: KindDataGapReason.UnmappedValue, field: 'badge.type', raw: badge.type });
   return undefined;

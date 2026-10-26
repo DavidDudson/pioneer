@@ -488,8 +488,7 @@
         }
       },
       "traditions": ["arcane", "primal"],
-      "damage": [],
-      "dismiss": true
+      "damage": []
     }
   },
   {
@@ -2123,8 +2122,7 @@
             "formula": "2d4"
           }
         ]
-      },
-      "dismiss": true
+      }
     }
   },
   {
@@ -3116,8 +3114,7 @@
             "formula": "1d6"
           }
         ]
-      },
-      "dismiss": true
+      }
     }
   },
   {
@@ -4210,8 +4207,7 @@
       },
       "traditions": ["arcane", "divine"],
       "damage": [],
-      "counteraction": true,
-      "dismiss": true
+      "counteraction": true
     }
   },
   {

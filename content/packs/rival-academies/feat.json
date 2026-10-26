@@ -1454,6 +1454,136 @@
     }
   },
   {
+    "id": "47a5ffaa-4f0f-581b-bbfd-ded89f42f4b4",
+    "pack": "rival-academies",
+    "kind": "feat",
+    "slug": "feat:in-lightning-life",
+    "name": "In Lightning, Life",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype", "concentrate", "electricity", "healing", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're wearing or holding a "
+          },
+          {
+            "type": "ref",
+            "id": "050458fd-ce2e-53a2-ac9d-e9a790d70513"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "\"In lightning, there is life.\" This lesson is whispered throughout Lepidstadt, and you can put it to practical use. You have integrated a miniature Stasian coil into your healer's toolkit. You use the coil to gently shock a willing or "
+          },
+          {
+            "type": "ref",
+            "id": "e1a78dad-4887-518e-9120-e58b7009ebfd"
+          },
+          {
+            "type": "text",
+            "text": " ally within your reach, who gains 2d4 temporary Hit Points from the jolt. These temporary Hit Points last for 1 minute. These temporary Hit Points increase by 1d4 at 8th level and every 4 levels thereafter."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "a397e002-f18b-59e4-8ce8-746f0a305be3"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A creature that has resistance or immunity to electricity is immune to this ability, and a creature that received temporary Hit Points from In Lightning, Life is temporarily immune to it for 24 hours."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.1RQLf09kpOO6ljmb"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lepidstadt Surgeon Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You're wearing or holding a Healer's Toolkit."
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "ten-minutes"
+        },
+        "selfEffect": "a397e002-f18b-59e4-8ce8-746f0a305be3"
+      },
+      "archetype": "eabb56a4-084b-5bd9-bc7f-05246f4c3b39"
+    }
+  },
+  {
     "id": "9231c586-a1d2-5d27-96e3-30583fd11165",
     "pack": "rival-academies",
     "kind": "feat",

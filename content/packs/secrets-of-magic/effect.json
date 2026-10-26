@@ -20,7 +20,19 @@
         "content": [
           {
             "type": "text",
-            "text": "Granted by Blade of Four Energies, Blade of Four Energies (Greater)"
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "d5407e86-31bd-5311-830d-32703e53171b"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "e9c54a0a-992a-5d4d-af00-6952765988f9"
           }
         ]
       },
@@ -281,7 +293,11 @@
         "content": [
           {
             "type": "text",
-            "text": "Granted by Ghostbane Fulu"
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "c03cda1b-5333-5804-a274-2104f99da8ce"
           }
         ]
       },
@@ -399,7 +415,27 @@
         "content": [
           {
             "type": "text",
-            "text": "Granted by Healer's Gel, Healer's Gel (Greater), Healer's Gel (Major)"
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "4861ae45-495e-5f71-9f6e-d1a45b4880d0"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "a10927d3-8de0-50c6-9bde-84f7a031ce4a"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "a1f3ed2c-576b-5f59-a859-acf05738121a"
           }
         ]
       },
@@ -464,7 +500,11 @@
         "content": [
           {
             "type": "text",
-            "text": "Granted by Resounding Cascade"
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "f7f3abf7-9ff3-5a58-b264-2d19ee77f7f6"
           }
         ]
       },
@@ -510,7 +550,19 @@
         "content": [
           {
             "type": "text",
-            "text": "Granted by Singing Shortbow, Singing Shortbow (Greater)"
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "8352355d-1e78-54c7-a5b7-2d39542317ed"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "9cd5f7d1-b82f-54c2-b673-09f994b445ab"
           }
         ]
       },
@@ -1055,7 +1107,11 @@
         "content": [
           {
             "type": "text",
-            "text": "Granted by Angel Form"
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "3c6879ee-204f-5dfd-8cec-ecdce36f2696"
           }
         ]
       },
@@ -1219,6 +1275,97 @@
     ],
     "rules": [
       {
+        "key": "BattleForm",
+        "form": {
+          "speeds": {
+            "fly": 40,
+            "land": 30
+          },
+          "senses": [
+            {
+              "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+            }
+          ],
+          "weaknesses": [
+            {
+              "type": "unholy",
+              "value": "10 + 5 * floor((@item.level - 7) / 2)"
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "holy-mace",
+              "baseType": "mace",
+              "ability": "str",
+              "category": "simple",
+              "group": "club",
+              "traits": ["shove"],
+              "damage": {
+                "dice": 2,
+                "die": "d6",
+                "damageType": "bludgeoning"
+              }
+            }
+          ],
+          "traits": ["angel", "empyrean"],
+          "hasHands": true
+        },
+        "brackets": [
+          {
+            "start": 7,
+            "armorClass": {
+              "modifier": "22 + @level"
+            },
+            "size": "medium",
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 9
+              }
+            ],
+            "tempHP": 40,
+            "strikes": [
+              {
+                "slug": "holy-mace",
+                "label": "Holy Mace",
+                "baseType": "mace",
+                "ability": "str",
+                "category": "simple",
+                "group": "club",
+                "traits": ["shove"],
+                "modifier": 25,
+                "damage": {
+                  "dice": 2,
+                  "die": "d6",
+                  "damageType": "bludgeoning",
+                  "modifier": 12
+                }
+              }
+            ]
+          },
+          {
+            "start": 9,
+            "size": "large",
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 33
+              }
+            ],
+            "tempHP": 60,
+            "strikes": [
+              {
+                "slug": "holy-mace",
+                "modifier": 30,
+                "damage": {
+                  "modifier": 20
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
         "key": "DamageDice",
         "selectors": ["holy-mace-damage"],
         "diceNumber": 1,
@@ -1274,7 +1421,11 @@
         "content": [
           {
             "type": "text",
-            "text": "Granted by Angel Form"
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "3c6879ee-204f-5dfd-8cec-ecdce36f2696"
           }
         ]
       },
@@ -1437,6 +1588,104 @@
       }
     ],
     "rules": [
+      {
+        "key": "BattleForm",
+        "form": {
+          "speeds": {
+            "fly": 40,
+            "land": 30
+          },
+          "senses": [
+            {
+              "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+            }
+          ],
+          "weaknesses": [
+            {
+              "type": "unholy",
+              "value": "10 + 5 * floor((@item.level - 7) / 2)"
+            }
+          ],
+          "resistances": [
+            {
+              "type": "void",
+              "value": 10
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "bastard-sword",
+              "label": "Bastard Sword",
+              "baseType": "bastard-sword",
+              "ability": "str",
+              "category": "martial",
+              "group": "sword",
+              "traits": ["two-hand-d12"],
+              "damage": {
+                "dice": 1,
+                "die": "d8",
+                "damageType": "slashing"
+              }
+            }
+          ],
+          "traits": ["angel", "empyrean"],
+          "hasHands": true
+        },
+        "brackets": [
+          {
+            "start": 7,
+            "armorClass": {
+              "modifier": "22 + @level"
+            },
+            "size": "medium",
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 9
+              }
+            ],
+            "tempHP": 40,
+            "strikes": [
+              {
+                "slug": "bastard-sword",
+                "label": "Bastard Sword",
+                "baseType": "bastard-sword",
+                "ability": "str",
+                "category": "martial",
+                "group": "sword",
+                "traits": ["two-hand-d12"],
+                "modifier": 25,
+                "damage": {
+                  "dice": 1,
+                  "die": "d8",
+                  "damageType": "slashing",
+                  "modifier": 12
+                }
+              }
+            ]
+          },
+          {
+            "start": 9,
+            "size": "large",
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 33
+              }
+            ],
+            "tempHP": 60,
+            "strikes": [
+              {
+                "slug": "bastard-sword",
+                "modifier": 30,
+                "damage": {
+                  "modifier": 20
+                }
+              }
+            ]
+          }
+        ]
+      },
       {
         "key": "DamageDice",
         "selectors": ["bastard-sword-damage"],
@@ -1806,6 +2055,68 @@
     }
   },
   {
+    "id": "a8d48145-945b-57a2-b167-24e5cf868daf",
+    "pack": "secrets-of-magic",
+    "kind": "effect",
+    "slug": "effect:spell-effect-corrosive-body-temp-hp",
+    "name": "Spell Effect: Corrosive Body (Temp HP)",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "a8fa51c5-f5b8-548f-8be4-367df447523e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "@item.value"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.IUxQCyO3EXSkId5F"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      },
+      "badge": {
+        "type": "formula",
+        "formula": "(ternary(gte(@flag.corrosiveBody.rank,9),5,3))d6"
+      }
+    }
+  },
+  {
     "id": "9f7f10ef-bead-5c86-8c4a-598d1da839a8",
     "pack": "secrets-of-magic",
     "kind": "effect",
@@ -1826,7 +2137,11 @@
         "content": [
           {
             "type": "text",
-            "text": "Granted by Crushing Ground"
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "c91ffe89-c442-5eb6-8b94-ae07875e497b"
           }
         ]
       },
@@ -1908,7 +2223,11 @@
         "content": [
           {
             "type": "text",
-            "text": "Granted by Daemon Form"
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "a9576400-a0d3-564d-8978-e1806e451cf2"
           }
         ]
       },
@@ -2121,6 +2440,72 @@
     ],
     "rules": [
       {
+        "key": "BattleForm",
+        "form": {
+          "armorClass": {
+            "modifier": "21 + @level"
+          },
+          "size": "large",
+          "skills": [
+            {
+              "skill": "skill:athletics",
+              "modifier": 23
+            }
+          ],
+          "speeds": {
+            "land": 25
+          },
+          "senses": [
+            {
+              "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+            }
+          ],
+          "tempHP": 15,
+          "weaknesses": [
+            {
+              "type": "holy",
+              "value": 5
+            }
+          ],
+          "resistances": [
+            {
+              "type": "poison",
+              "value": 10
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "claw",
+              "baseType": "claw",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["reach-10", "unarmed", "agile"],
+              "modifier": 21,
+              "damage": {
+                "dice": 2,
+                "die": "d6",
+                "damageType": "slashing"
+              }
+            },
+            {
+              "slug": "jaws",
+              "baseType": "jaws",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed", "reach-10"],
+              "modifier": 21,
+              "damage": {
+                "dice": 2,
+                "die": "d10",
+                "damageType": "piercing",
+                "modifier": 10
+              }
+            }
+          ],
+          "hasHands": true
+        }
+      },
+      {
         "key": "FlatModifier",
         "selectors": ["saving-throw"],
         "type": "status",
@@ -2197,7 +2582,11 @@
         "content": [
           {
             "type": "text",
-            "text": "Granted by Daemon Form"
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "a9576400-a0d3-564d-8978-e1806e451cf2"
           }
         ]
       },
@@ -2399,6 +2788,71 @@
     ],
     "rules": [
       {
+        "key": "BattleForm",
+        "form": {
+          "armorClass": {
+            "modifier": "21 + @level"
+          },
+          "size": "large",
+          "skills": [
+            {
+              "skill": "skill:athletics",
+              "modifier": 23
+            }
+          ],
+          "speeds": {
+            "land": 25,
+            "swim": 40
+          },
+          "senses": [
+            {
+              "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+            }
+          ],
+          "tempHP": 15,
+          "weaknesses": [
+            {
+              "type": "holy",
+              "value": 5
+            }
+          ],
+          "resistances": [
+            {
+              "type": "poison",
+              "value": 10
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "claw",
+              "baseType": "claw",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed"],
+              "modifier": 21,
+              "damage": {
+                "dice": 2,
+                "die": "d10",
+                "damageType": "piercing"
+              }
+            },
+            {
+              "slug": "tentacle",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed", "agile"],
+              "modifier": 21,
+              "damage": {
+                "dice": 2,
+                "die": "d6",
+                "damageType": "bludgeoning"
+              }
+            }
+          ],
+          "hasHands": true
+        }
+      },
+      {
         "key": "FlatModifier",
         "selectors": ["saving-throw"],
         "type": "status",
@@ -2477,7 +2931,11 @@
         "content": [
           {
             "type": "text",
-            "text": "Granted by Demon Form"
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "340d43dc-1b53-5d3f-98ef-99fa4e8e1cde"
           }
         ]
       },
@@ -2709,6 +3167,88 @@
     ],
     "rules": [
       {
+        "key": "BattleForm",
+        "form": {
+          "armorClass": {
+            "modifier": "20 + @level"
+          },
+          "size": "medium",
+          "skills": [
+            {
+              "skill": "skill:athletics",
+              "modifier": 23
+            }
+          ],
+          "speeds": {
+            "land": 25
+          },
+          "senses": [
+            {
+              "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+            }
+          ],
+          "tempHP": 30,
+          "weaknesses": [
+            {
+              "type": "cold-iron",
+              "value": 5
+            },
+            {
+              "type": "holy",
+              "value": 5
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "claw",
+              "baseType": "claw",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed", "agile"],
+              "modifier": 22,
+              "damage": {
+                "dice": 2,
+                "die": "d4",
+                "damageType": "slashing",
+                "modifier": 10
+              }
+            },
+            {
+              "slug": "jaws",
+              "baseType": "jaws",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed"],
+              "modifier": 22,
+              "damage": {
+                "dice": 2,
+                "die": "d10",
+                "damageType": "piercing",
+                "modifier": 10
+              }
+            },
+            {
+              "slug": "longspear",
+              "label": "Longspear",
+              "baseType": "jaws",
+              "ability": "str",
+              "category": "simple",
+              "group": "polearm",
+              "traits": ["reach-10"],
+              "modifier": 22,
+              "damage": {
+                "dice": 2,
+                "die": "d8",
+                "damageType": "piercing",
+                "modifier": 10
+              }
+            }
+          ],
+          "traits": ["demon", "fiend"],
+          "hasHands": true
+        }
+      },
+      {
         "key": "DamageDice",
         "selectors": ["strike-damage"],
         "diceNumber": 2,
@@ -2758,7 +3298,11 @@
         "content": [
           {
             "type": "text",
-            "text": "Granted by Demon Form"
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "340d43dc-1b53-5d3f-98ef-99fa4e8e1cde"
           }
         ]
       },
@@ -2938,6 +3482,73 @@
     ],
     "rules": [
       {
+        "key": "BattleForm",
+        "form": {
+          "armorClass": {
+            "modifier": "20 + @level"
+          },
+          "size": "large",
+          "skills": [
+            {
+              "skill": "skill:athletics",
+              "modifier": 23
+            }
+          ],
+          "speeds": {
+            "land": 30,
+            "swim": 30
+          },
+          "senses": [
+            {
+              "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+            }
+          ],
+          "tempHP": 30,
+          "weaknesses": [
+            {
+              "type": "cold-iron",
+              "value": 5
+            },
+            {
+              "type": "holy",
+              "value": 5
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "claw",
+              "baseType": "claw",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed", "agile"],
+              "modifier": 22,
+              "damage": {
+                "dice": 2,
+                "die": "d8",
+                "damageType": "slashing",
+                "modifier": 10
+              }
+            },
+            {
+              "slug": "jaws",
+              "baseType": "jaws",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed", "reach-10"],
+              "modifier": 22,
+              "damage": {
+                "dice": 2,
+                "die": "d12",
+                "damageType": "piercing",
+                "modifier": 10
+              }
+            }
+          ],
+          "traits": ["demon", "fiend"],
+          "hasHands": true
+        }
+      },
+      {
         "key": "DamageDice",
         "selectors": ["strike-damage"],
         "diceNumber": 1,
@@ -2995,7 +3606,11 @@
         "content": [
           {
             "type": "text",
-            "text": "Granted by Demon Form"
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "340d43dc-1b53-5d3f-98ef-99fa4e8e1cde"
           }
         ]
       },
@@ -3175,6 +3790,73 @@
     ],
     "rules": [
       {
+        "key": "BattleForm",
+        "form": {
+          "armorClass": {
+            "modifier": "20 + @level"
+          },
+          "size": "medium",
+          "skills": [
+            {
+              "skill": "skill:athletics",
+              "modifier": 23
+            }
+          ],
+          "speeds": {
+            "fly": 40,
+            "land": 30
+          },
+          "senses": [
+            {
+              "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+            }
+          ],
+          "tempHP": 30,
+          "weaknesses": [
+            {
+              "type": "cold-iron",
+              "value": 5
+            },
+            {
+              "type": "holy",
+              "value": 5
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "claw",
+              "baseType": "claw",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed", "agile"],
+              "modifier": 22,
+              "damage": {
+                "dice": 2,
+                "die": "d6",
+                "damageType": "slashing",
+                "modifier": 10
+              }
+            },
+            {
+              "slug": "jaws",
+              "baseType": "jaws",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed"],
+              "modifier": 22,
+              "damage": {
+                "dice": 2,
+                "die": "d10",
+                "damageType": "piercing",
+                "modifier": 10
+              }
+            }
+          ],
+          "traits": ["demon", "fiend"],
+          "hasHands": true
+        }
+      },
+      {
         "key": "DamageDice",
         "selectors": ["strike-damage"],
         "diceNumber": 1,
@@ -3216,7 +3898,11 @@
         "content": [
           {
             "type": "text",
-            "text": "Granted by Demon Form"
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "340d43dc-1b53-5d3f-98ef-99fa4e8e1cde"
           }
         ]
       },
@@ -3429,6 +4115,91 @@
     ],
     "rules": [
       {
+        "key": "BattleForm",
+        "form": {
+          "armorClass": {
+            "modifier": "20 + @level"
+          },
+          "size": "medium",
+          "skills": [
+            {
+              "skill": "skill:athletics",
+              "modifier": 23
+            }
+          ],
+          "speeds": {
+            "fly": 35,
+            "land": 25
+          },
+          "senses": [
+            {
+              "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+            }
+          ],
+          "tempHP": 30,
+          "weaknesses": [
+            {
+              "type": "cold-iron",
+              "value": 5
+            },
+            {
+              "type": "holy",
+              "value": 5
+            }
+          ],
+          "resistances": [
+            {
+              "type": "electricity",
+              "value": 10
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "beak",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed"],
+              "modifier": 22,
+              "damage": {
+                "dice": 2,
+                "die": "d8",
+                "damageType": "piercing",
+                "modifier": 10
+              }
+            },
+            {
+              "slug": "claw",
+              "baseType": "claw",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed", "agile"],
+              "modifier": 22,
+              "damage": {
+                "dice": 2,
+                "die": "d6",
+                "damageType": "slashing",
+                "modifier": 10
+              }
+            },
+            {
+              "slug": "talon",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed", "agile"],
+              "modifier": 22,
+              "damage": {
+                "dice": 2,
+                "die": "d6",
+                "damageType": "slashing",
+                "modifier": 10
+              }
+            }
+          ],
+          "traits": ["demon", "fiend"],
+          "hasHands": true
+        }
+      },
+      {
         "key": "DamageDice",
         "selectors": ["strike-damage"],
         "diceNumber": 1,
@@ -3470,7 +4241,11 @@
         "content": [
           {
             "type": "text",
-            "text": "Granted by Devil Form"
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "224f2326-544e-5d6b-846b-e43b55ba105c"
           }
         ]
       },
@@ -3694,6 +4469,94 @@
     ],
     "rules": [
       {
+        "key": "BattleForm",
+        "form": {
+          "armorClass": {
+            "modifier": "22 + @level"
+          },
+          "size": "medium",
+          "skills": [
+            {
+              "skill": "skill:athletics",
+              "modifier": 23
+            }
+          ],
+          "speeds": {
+            "land": 35
+          },
+          "senses": [
+            {
+              "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+            }
+          ],
+          "tempHP": 5,
+          "weaknesses": [
+            {
+              "type": "holy",
+              "value": 5
+            }
+          ],
+          "resistances": [
+            {
+              "type": "physical",
+              "value": 5,
+              "exceptions": ["silver"]
+            },
+            {
+              "type": "fire",
+              "value": 10
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "beard",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed"],
+              "modifier": 20,
+              "damage": {
+                "dice": 3,
+                "die": "d8",
+                "damageType": "piercing",
+                "modifier": 10
+              }
+            },
+            {
+              "slug": "claw",
+              "baseType": "claw",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed", "agile"],
+              "modifier": 20,
+              "damage": {
+                "dice": 3,
+                "die": "d6",
+                "damageType": "slashing",
+                "modifier": 10
+              }
+            },
+            {
+              "slug": "glaive",
+              "label": "Glaive",
+              "baseType": "glaive",
+              "ability": "str",
+              "category": "martial",
+              "group": "polearm",
+              "traits": ["deadly-d8", "forceful", "reach-10"],
+              "modifier": 20,
+              "damage": {
+                "dice": 2,
+                "die": "d8",
+                "damageType": "slashing",
+                "modifier": 10
+              }
+            }
+          ],
+          "traits": ["devil", "fiend"],
+          "hasHands": true
+        }
+      },
+      {
         "key": "DamageDice",
         "selectors": ["strike-damage"],
         "diceNumber": 1,
@@ -3742,7 +4605,11 @@
         "content": [
           {
             "type": "text",
-            "text": "Granted by Devil Form"
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "224f2326-544e-5d6b-846b-e43b55ba105c"
           }
         ]
       },
@@ -3933,6 +4800,85 @@
     ],
     "rules": [
       {
+        "key": "BattleForm",
+        "form": {
+          "armorClass": {
+            "modifier": "22 + @level"
+          },
+          "size": "medium",
+          "skills": [
+            {
+              "skill": "skill:athletics",
+              "modifier": 23
+            }
+          ],
+          "speeds": {
+            "fly": 40,
+            "land": 25
+          },
+          "senses": [
+            {
+              "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+            }
+          ],
+          "tempHP": 5,
+          "weaknesses": [
+            {
+              "type": "holy",
+              "value": 5
+            }
+          ],
+          "resistances": [
+            {
+              "type": "physical",
+              "value": 5,
+              "exceptions": ["silver"]
+            },
+            {
+              "type": "fire",
+              "value": 10
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "composite-longbow",
+              "label": "Composite Longbow",
+              "baseType": "composite-longbow",
+              "ability": "str",
+              "category": "martial",
+              "group": "bow",
+              "traits": ["deadly-d10", "volley-30"],
+              "range": 100,
+              "modifier": 20,
+              "damage": {
+                "dice": 1,
+                "die": "d8",
+                "damageType": "piercing",
+                "modifier": 10
+              }
+            },
+            {
+              "slug": "longsword",
+              "label": "Longsword",
+              "baseType": "longsword",
+              "ability": "str",
+              "category": "martial",
+              "group": "sword",
+              "traits": ["versatile-p"],
+              "modifier": 20,
+              "damage": {
+                "dice": 1,
+                "die": "d8",
+                "damageType": "slashing",
+                "modifier": 10
+              }
+            }
+          ],
+          "traits": ["devil", "fiend"],
+          "hasHands": true
+        }
+      },
+      {
         "key": "DamageDice",
         "selectors": ["strike-damage"],
         "diceNumber": 1,
@@ -3981,7 +4927,11 @@
         "content": [
           {
             "type": "text",
-            "text": "Granted by Devil Form"
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "224f2326-544e-5d6b-846b-e43b55ba105c"
           }
         ]
       },
@@ -4238,6 +5188,107 @@
     ],
     "rules": [
       {
+        "key": "BattleForm",
+        "form": {
+          "armorClass": {
+            "modifier": "22 + @level"
+          },
+          "size": "large",
+          "skills": [
+            {
+              "skill": "skill:athletics",
+              "modifier": 23
+            }
+          ],
+          "speeds": {
+            "fly": 30,
+            "land": 35
+          },
+          "senses": [
+            {
+              "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+            }
+          ],
+          "tempHP": 5,
+          "weaknesses": [
+            {
+              "type": "holy",
+              "value": 5
+            }
+          ],
+          "resistances": [
+            {
+              "type": "physical",
+              "value": 5,
+              "exceptions": ["silver"]
+            },
+            {
+              "type": "fire",
+              "value": 10
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "bone-shard",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed"],
+              "range": 30,
+              "modifier": 20,
+              "damage": {
+                "dice": 2,
+                "die": "d6",
+                "damageType": "piercing",
+                "modifier": 10
+              }
+            },
+            {
+              "slug": "claw",
+              "baseType": "claw",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["reach-10", "agile", "unarmed"],
+              "modifier": 20,
+              "damage": {
+                "dice": 2,
+                "die": "d6",
+                "damageType": "slashing",
+                "modifier": 10
+              }
+            },
+            {
+              "slug": "jaws",
+              "baseType": "jaws",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed"],
+              "modifier": 20,
+              "damage": {
+                "dice": 2,
+                "die": "d10",
+                "damageType": "piercing",
+                "modifier": 10
+              }
+            },
+            {
+              "slug": "stinger",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed", "reach-15"],
+              "modifier": 20,
+              "damage": {
+                "dice": 1,
+                "die": "d10",
+                "damageType": "piercing",
+                "modifier": 10
+              }
+            }
+          ],
+          "traits": ["devil", "fiend"],
+          "hasHands": true
+        }
+      },
+      {
         "key": "DamageDice",
         "selectors": ["strike-damage"],
         "diceNumber": 1,
@@ -4392,7 +5443,11 @@
         "content": [
           {
             "type": "text",
-            "text": "Granted by Evolution Surge"
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "d6600dd2-6f78-599e-97c1-2800e0de4fbf"
           }
         ]
       },
@@ -4734,7 +5789,11 @@
         "content": [
           {
             "type": "text",
-            "text": "Granted by Infectious Enthusiasm"
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "d9740604-3ad7-5446-8cf1-a96815ac0c74"
           }
         ]
       },
@@ -4783,7 +5842,11 @@
         "content": [
           {
             "type": "text",
-            "text": "Granted by Infectious Melody"
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "184bfcdd-a178-5c10-95fe-b959762d1392"
           }
         ]
       },
@@ -4840,7 +5903,11 @@
         "content": [
           {
             "type": "text",
-            "text": "Granted by Infectious Melody"
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "184bfcdd-a178-5c10-95fe-b959762d1392"
           }
         ]
       },
@@ -4897,7 +5964,11 @@
         "content": [
           {
             "type": "text",
-            "text": "Granted by Infectious Melody"
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "184bfcdd-a178-5c10-95fe-b959762d1392"
           }
         ]
       },
@@ -5046,7 +6117,11 @@
         "content": [
           {
             "type": "text",
-            "text": "Granted by Instant Armor"
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "201ce1f3-f631-5513-8734-f0f0fd785203"
           }
         ]
       },
@@ -5100,7 +6175,11 @@
         "content": [
           {
             "type": "text",
-            "text": "Granted by Juvenile Companion"
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "7c17d67c-e490-52e4-8f5f-e0b2c20ea6c2"
           }
         ]
       },
@@ -5159,7 +6238,15 @@
         "content": [
           {
             "type": "text",
-            "text": "Granted by Life Connection."
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "0e77861a-ebaa-560e-83fe-9dc857c48094"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       },
@@ -5168,12 +6255,25 @@
         "content": [
           {
             "type": "text",
-            "text": "You gain the Defend Life reaction; once you use the reaction, the spell ends."
+            "text": "You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "596af506-8af6-579b-8fba-da8dca5d92f7"
+          },
+          {
+            "type": "text",
+            "text": " reaction; once you use the reaction, the spell ends."
           }
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "596af506-8af6-579b-8fba-da8dca5d92f7"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.j9l4LDnAwg9xzYsy"
     },
@@ -5208,7 +6308,11 @@
         "content": [
           {
             "type": "text",
-            "text": "Granted by Lifelink Surge"
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "094e953a-686a-5779-914a-915d361d5ea9"
           }
         ]
       },
@@ -5279,7 +6383,11 @@
         "content": [
           {
             "type": "text",
-            "text": "Granted by Mantle of the Frozen Heart"
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "438d2d39-35d8-563e-96e8-e898fad6028d"
           }
         ]
       },
@@ -5554,7 +6662,11 @@
         "content": [
           {
             "type": "text",
-            "text": "Granted by Mantle of the Magma Heart"
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "1dcd2d20-0268-546c-b11e-d81febed8845"
           }
         ]
       },
@@ -5921,7 +7033,11 @@
         "content": [
           {
             "type": "text",
-            "text": "Granted by Nudge the Odds"
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "0c5d2f4c-4097-5b70-a281-f24c681867d1"
           }
         ]
       },
@@ -5992,7 +7108,11 @@
         "content": [
           {
             "type": "text",
-            "text": "Granted by One with the Land"
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "bdbe4426-d4c2-559b-bf93-5171ac2d5f4d"
           }
         ]
       },
@@ -6346,7 +7466,15 @@
                       },
                       {
                         "type": "text",
-                        "text": " 1d6+5 bludgeoning and 1d6 acid, and you can spend an action after a hit to Grab the target."
+                        "text": " 1d6+5 bludgeoning and 1d6 acid, and you can spend an action after a hit to "
+                      },
+                      {
+                        "type": "ref",
+                        "id": "ae260fde-4929-5254-a10c-a5b9eddc2f4a"
+                      },
+                      {
+                        "type": "text",
+                        "text": " the target."
                       }
                     ]
                   }
@@ -6407,7 +7535,15 @@
                       },
                       {
                         "type": "text",
-                        "text": " 1d8+5 bludgeoning and 1d8 acid, and you can spend an action after a hit to Grab the target."
+                        "text": " 1d8+5 bludgeoning and 1d8 acid, and you can spend an action after a hit to "
+                      },
+                      {
+                        "type": "ref",
+                        "id": "ae260fde-4929-5254-a10c-a5b9eddc2f4a"
+                      },
+                      {
+                        "type": "text",
+                        "text": " the target."
                       }
                     ]
                   }
@@ -6771,7 +7907,11 @@
         "content": [
           {
             "type": "text",
-            "text": "Granted by Protect Companion"
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "9198ac81-2024-597a-81e7-00a1c256105d"
           }
         ]
       },
@@ -7117,7 +8257,11 @@
         "content": [
           {
             "type": "text",
-            "text": "Granted by Read the Air"
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "c273ca98-143e-5c76-a806-4b7a99fd855a"
           }
         ]
       },
@@ -7174,7 +8318,11 @@
         "content": [
           {
             "type": "text",
-            "text": "Granted by Runic Impression"
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "5926c84e-aa5e-5594-b943-d600115880f0"
           }
         ]
       },
@@ -7240,7 +8388,11 @@
         "content": [
           {
             "type": "text",
-            "text": "Granted by Soothing Blossoms"
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "cf5f423c-f1a2-518f-88c7-2bdd38b8bcdd"
           }
         ]
       },

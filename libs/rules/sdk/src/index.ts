@@ -336,6 +336,7 @@ export {
   FOUNDRY_REFERENCES,
   type FoundryReference,
   FoundryReferencePattern,
+  fromFoundryBadgePath,
   fromFoundryPath,
 } from './foundry-reference';
 export {

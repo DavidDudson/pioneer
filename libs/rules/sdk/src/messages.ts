@@ -82,6 +82,8 @@ export const RulesMessage = {
   ReferenceStatistic: 'rules.reference.statistic',
   ReferenceItemLevel: 'rules.reference.itemLevel',
   ReferenceItemValue: 'rules.reference.itemValue',
+  ReferenceItemOriginLevel: 'rules.reference.itemOriginLevel',
+  ReferenceFlag: 'rules.reference.flag',
   ReferenceWeaponAttributeModifier: 'rules.reference.weaponAttributeModifier',
   ReferenceWeaponDamageModifier: 'rules.reference.weaponDamageModifier',
   ReferenceWeaponProficiencyBonus: 'rules.reference.weaponProficiencyBonus',

@@ -283,6 +283,8 @@
       "statistic": "The base of that statistic, before its modifiers, such as the spell attack modifier in a spell DC.",
       "itemLevel": "The level of the item the rule element is on.",
       "itemValue": "The value of the condition the rule element is on: 2 on Frightened 2.",
+      "itemOriginLevel": "The level of the spell or feat that applied the effect the rule element is on.",
+      "flag": "The value of an actor flag a rule element sets, such as the dice count Consume Fear rolls.",
       "weaponAttributeModifier": "The modifier the weapon attacks with: Strength, Dexterity for a ranged weapon, or the higher of the two for a finesse weapon.",
       "weaponDamageModifier": "The modifier a Strike adds to damage: Strength for a melee or thrown weapon, half of a positive Strength (all of a negative one) for a propulsive one, none for any other ranged weapon.",
       "weaponProficiencyBonus": "The proficiency bonus for the weapon’s category: simple, martial, advanced or unarmed.",

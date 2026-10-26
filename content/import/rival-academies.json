@@ -405,16 +405,6 @@
           "raw": ["Compendium.pf2e.classfeatures.Item.Arcane Thesis"]
         },
         {
-          "type": "field",
-          "reason": "unresolved-reference",
-          "field": "subfeatures.languages.granted",
-          "raw": "thassilonian"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core"
-        },
-        {
           "type": "enricher",
           "enricher": "@Embed"
         }
@@ -877,82 +867,6 @@
           }
         }
       ]
-    },
-    {
-      "type": "entry",
-      "pack": "rival-academies",
-      "slug": "effect:effect-in-lightning-life",
-      "foundry": "Compendium.pf2e.feat-effects.Item.ZouxY0u1dKQEHQ6E",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "invalid-data",
-          "field": "badge.formula",
-          "raw": {
-            "category": "feat",
-            "duration": {
-              "type": "time",
-              "count": 1,
-              "unit": "minute",
-              "expiry": "turn-start"
-            },
-            "badge": {
-              "type": "formula",
-              "formula": "(1 + floor(@item.origin.level / 4))d4"
-            }
-          }
-        }
-      ],
-      "document": {
-        "_id": "ZouxY0u1dKQEHQ6E",
-        "name": "Effect: In Lightning, Life",
-        "type": "effect",
-        "system": {
-          "publication": {
-            "title": "Pathfinder Lost Omens Rival Academies",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 4
-          },
-          "traits": {
-            "value": []
-          },
-          "description": {
-            "value": "<p>Granted by @UUID[Compendium.pf2e.feats-srd.Item.In Lightning, Life]</p>\n<p>You gain temporary Hit Points.</p>"
-          },
-          "rules": [
-            {
-              "key": "TempHP",
-              "value": "@item.badge.value"
-            }
-          ],
-          "badge": {
-            "evaluate": true,
-            "reevaluate": null,
-            "type": "formula",
-            "value": "(1 + floor(@item.origin.level / 4))d4"
-          },
-          "duration": {
-            "expiry": "turn-start",
-            "sustained": false,
-            "unit": "minutes",
-            "value": 1
-          },
-          "start": {
-            "initiative": null,
-            "value": 0
-          },
-          "tokenIcon": {
-            "show": true
-          }
-        }
-      }
     },
     {
       "type": "entry",
@@ -1420,68 +1334,6 @@
           }
         }
       ]
-    },
-    {
-      "type": "entry",
-      "pack": "rival-academies",
-      "slug": "feat:in-lightning-life",
-      "foundry": "Compendium.pf2e.feats-srd.Item.1RQLf09kpOO6ljmb",
-      "leftOut": {
-        "reason": "unresolved-reference",
-        "detail": "rival-academies/effect:effect-in-lightning-life"
-      },
-      "gaps": [],
-      "document": {
-        "_id": "1RQLf09kpOO6ljmb",
-        "name": "In Lightning, Life",
-        "type": "feat",
-        "system": {
-          "publication": {
-            "title": "Pathfinder Lost Omens Rival Academies",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 4
-          },
-          "traits": {
-            "value": ["archetype", "concentrate", "electricity", "healing", "manipulate"],
-            "rarity": "common"
-          },
-          "description": {
-            "value": "<p><strong>Frequency</strong> once per 10 minutes</p>\n<p><strong>Requirements</strong> You're wearing or holding a @UUID[Compendium.pf2e.equipment-srd.Item.Healer's Toolkit].</p><hr /><p>\"In lightning, there is life.\" This lesson is whispered throughout Lepidstadt, and you can put it to practical use. You have integrated a miniature Stasian coil into your healer's toolkit. You use the coil to gently shock a willing or @UUID[Compendium.pf2e.conditionitems.Item.Unconscious] ally within your reach, who gains 2d4 temporary Hit Points from the jolt. These temporary Hit Points last for 1 minute. These temporary Hit Points increase by 1d4 at 8th level and every 4 levels thereafter.</p>\n<p>@UUID[Compendium.pf2e.feat-effects.Item.Effect: In Lightning, Life]</p>\n<p>A creature that has resistance or immunity to electricity is immune to this ability, and a creature that received temporary Hit Points from In Lightning, Life is temporarily immune to it for 24 hours.</p>"
-          },
-          "rules": [],
-          "actionType": {
-            "value": "action"
-          },
-          "actions": {
-            "value": 1
-          },
-          "category": "class",
-          "frequency": {
-            "max": 1,
-            "per": "PT10M"
-          },
-          "prerequisites": {
-            "value": [
-              {
-                "value": "Lepidstadt Surgeon Dedication"
-              }
-            ]
-          },
-          "selfEffect": {
-            "name": "Effect: In Lightning, Life",
-            "uuid": "Compendium.pf2e.feat-effects.Item.Effect: In Lightning, Life"
-          },
-          "subfeatures": {
-            "proficiencies": {},
-            "senses": {},
-            "suppressedFeatures": []
-          }
-        },
-        "folder": "rKTkNlqyaQuLy3sq"
-      }
     },
     {
       "type": "entry",

@@ -2100,7 +2100,15 @@
           },
           {
             "type": "text",
-            "text": " The relic casts Time Beacon on you."
+            "text": " The relic casts "
+          },
+          {
+            "type": "ref",
+            "id": "a12a8dde-819d-5b13-84ba-0e509380f1d7"
+          },
+          {
+            "type": "text",
+            "text": " on you."
           }
         ]
       }

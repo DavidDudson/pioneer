@@ -2455,7 +2455,16 @@
                 },
                 {
                   "type": "text",
-                  "text": " damage. The hand's Strikes don't take or contribute to your multiple attack penalty. On a successful Strike, the target is grabbed by the hand until the end of your next turn, unless the hand moves or the target successfully Escapes against your spell DC. However, if the hand has a target grabbed when it uses Crush, it instead Constricts the target, dealing "
+                  "text": " damage. The hand's Strikes don't take or contribute to your multiple attack penalty. On a successful Strike, the target is grabbed by the hand until the end of your next turn, unless the hand moves or the target successfully Escapes against your spell DC. However, if the hand has a target grabbed when it uses Crush, it instead "
+                },
+                {
+                  "type": "ref",
+                  "id": "ea2442b9-92c3-5ee4-b7d7-4059a262de1c",
+                  "label": "Constricts"
+                },
+                {
+                  "type": "text",
+                  "text": " the target, dealing "
                 },
                 {
                   "type": "damage",
@@ -3906,7 +3915,15 @@
                       },
                       {
                         "type": "text",
-                        "text": " 1d6+5 bludgeoning and 1d6 acid, and you can spend an action after a hit to Grab the target."
+                        "text": " 1d6+5 bludgeoning and 1d6 acid, and you can spend an action after a hit to "
+                      },
+                      {
+                        "type": "ref",
+                        "id": "ae260fde-4929-5254-a10c-a5b9eddc2f4a"
+                      },
+                      {
+                        "type": "text",
+                        "text": " the target."
                       }
                     ]
                   }
@@ -3967,7 +3984,15 @@
                       },
                       {
                         "type": "text",
-                        "text": " 1d8+5 bludgeoning and 1d8 acid, and you can spend an action after a hit to Grab the target."
+                        "text": " 1d8+5 bludgeoning and 1d8 acid, and you can spend an action after a hit to "
+                      },
+                      {
+                        "type": "ref",
+                        "id": "ae260fde-4929-5254-a10c-a5b9eddc2f4a"
+                      },
+                      {
+                        "type": "text",
+                        "text": " the target."
                       }
                     ]
                   }
@@ -4048,8 +4073,7 @@
         "unit": "minute"
       },
       "traditions": ["arcane", "occult"],
-      "damage": [],
-      "dismiss": true
+      "damage": []
     }
   },
   {
@@ -5640,8 +5664,7 @@
         "unit": "minute"
       },
       "traditions": ["arcane", "divine", "occult", "primal"],
-      "damage": [],
-      "dismiss": true
+      "damage": []
     }
   },
   {
@@ -6458,8 +6481,7 @@
         "sustained": true
       },
       "traditions": ["arcane", "occult"],
-      "damage": [],
-      "dismiss": true
+      "damage": []
     }
   }
 ]

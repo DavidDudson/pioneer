@@ -495,7 +495,11 @@
           },
           {
             "type": "text",
-            "text": " Wildfire"
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "4d797eae-314b-5ca3-bbc5-baa70026a664"
           }
         ]
       },
@@ -921,6 +925,10 @@
         "key": "Proficiency",
         "selector": "skill:religion",
         "rank": "trained"
+      },
+      {
+        "key": "Language",
+        "grant": ["545ef94f-a876-52d8-93d5-593af9a381ed"]
       }
     ],
     "externalIds": {
@@ -997,7 +1005,11 @@
           },
           {
             "type": "text",
-            "text": " Crushing Ground"
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "c91ffe89-c442-5eb6-8b94-ae07875e497b"
           }
         ]
       },
@@ -1143,7 +1155,11 @@
           },
           {
             "type": "text",
-            "text": " Rising Surf"
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "c860637c-50dd-525c-9e29-7a617ecdc936"
           }
         ]
       },

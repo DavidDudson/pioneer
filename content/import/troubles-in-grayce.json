@@ -7,80 +7,836 @@
     {
       "type": "entry",
       "pack": "troubles-in-grayce",
-      "slug": "effect:effect-gluttons-feast-aezar",
-      "foundry": "Compendium.pf2e.bestiary-effects.Item.LWFDNwi3iJuf476A",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
+      "slug": "creature:aezar",
+      "foundry": "Compendium.pf2e.troubles-in-grayce-bestiary.Actor.TwrwjR9OPZTDyVZB",
       "gaps": [
         {
           "type": "field",
-          "reason": "invalid-data",
-          "field": "badge.formula",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
           "raw": {
-            "category": "other",
-            "duration": {
-              "type": "time",
-              "count": 1,
-              "unit": "minute",
-              "expiry": "turn-start"
-            },
-            "badge": {
-              "type": "formula",
-              "formula": "(@actor.flags.system.gluttonsFeast)d6"
-            }
+            "key": "Note",
+            "predicate": ["item:damage:type:bludgeoning"],
+            "selector": ["damage-received"],
+            "text": "{item|description}",
+            "title": "{item|name}",
+            "visibility": "owner"
           }
-        }
-      ],
-      "document": {
-        "_id": "LWFDNwi3iJuf476A",
-        "name": "Effect: Glutton's Feast (Aezar)",
-        "type": "effect",
-        "system": {
-          "publication": {
-            "title": "Pathfinder Adventures: Troubles in Grayce",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 5
-          },
-          "traits": {
-            "value": []
-          },
-          "description": {
-            "value": "<p>You gain temporary Hit Points.</p>"
-          },
-          "rules": [
-            {
-              "key": "TempHP",
-              "value": "@item.badge.value"
-            }
-          ],
-          "badge": {
-            "evaluate": true,
-            "labels": null,
-            "reevaluate": null,
-            "type": "formula",
-            "value": "(@actor.flags.system.gluttonsFeast)d6"
-          },
-          "duration": {
-            "expiry": "turn-start",
-            "sustained": false,
-            "unit": "minutes",
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "selector": "jaws-damage",
+            "text": "{item|description}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "flags.system.gluttonsFeast",
             "value": 1
-          },
-          "fromSpell": false,
-          "start": {
-            "initiative": null,
-            "value": 0
-          },
-          "tokenIcon": {
-            "show": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "flags.system.gluttonsFeast",
+            "predicate": ["gluttons-rush"],
+            "priority": 51,
+            "value": 2
           }
         }
-      }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "troubles-in-grayce",
+      "slug": "creature:alendreu",
+      "foundry": "Compendium.pf2e.troubles-in-grayce-bestiary.Actor.vSy35m79dshCwgL4",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.Ghoul.SwiftLeap.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "troubles-in-grayce",
+      "slug": "creature:animated-wardrobe",
+      "foundry": "Compendium.pf2e.troubles-in-grayce-bestiary.Actor.WPP72z4n7z7qTbkq",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "(17 when broken)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hardness.value",
+            "phase": "afterDerived",
+            "predicate": [
+              {
+                "or": [
+                  "construct-armor",
+                  {
+                    "lt": ["hp-percent", 50]
+                  }
+                ]
+              }
+            ],
+            "value": 0
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "troubles-in-grayce",
+      "slug": "creature:automatic-butler",
+      "foundry": "Compendium.pf2e.troubles-in-grayce-bestiary.Actor.mLRU9uQeanf96GCP",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "one spoken by its creator (typically Common)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Immunity",
+          "raw": {
+            "key": "Immunity",
+            "mode": "remove",
+            "type": "spirit"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "troubles-in-grayce",
+      "slug": "creature:barrow-claw-leshy",
+      "foundry": "Compendium.pf2e.troubles-in-grayce-bestiary.Actor.UKSULD0e3gfanx1T",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Speak with Plants (Fungi Only)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "label": "PF2E.NPCAbility.ChangeShape.Label",
+            "option": "change-shape",
+            "selection": "leshy",
+            "suboptions": [
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Plant.Leshy",
+                "value": "leshy"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Plant.Mushroom",
+                "value": "mushroom"
+              }
+            ],
+            "toggleable": true,
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "troubles-in-grayce",
+      "slug": "creature:bitter-butler",
+      "foundry": "Compendium.pf2e.troubles-in-grayce-bestiary.Actor.L2Nea3jwrjyijHFW",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "one spoken by its creator (typically Common)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Immunity",
+          "raw": {
+            "key": "Immunity",
+            "mode": "remove",
+            "type": "spirit"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "troubles-in-grayce",
+      "slug": "creature:bristles",
+      "foundry": "Compendium.pf2e.troubles-in-grayce-bestiary.Actor.3tbuWyoOWD4ykJuI",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hardness.value",
+            "phase": "afterDerived",
+            "predicate": [
+              {
+                "or": [
+                  "construct-armor",
+                  {
+                    "lt": ["hp-percent", 50]
+                  }
+                ]
+              }
+            ],
+            "value": 0
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "troubles-in-grayce",
+      "slug": "creature:carexilia",
+      "foundry": "Compendium.pf2e.troubles-in-grayce-bestiary.Actor.BQIJAzrLVCvv2yQE",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "troubles-in-grayce",
+      "slug": "creature:cruel-automatic-butler",
+      "foundry": "Compendium.pf2e.troubles-in-grayce-bestiary.Actor.O5l94Emum5hWTiZ8",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "one spoken by its creator (typically Common)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Immunity",
+          "raw": {
+            "key": "Immunity",
+            "mode": "remove",
+            "type": "spirit"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "troubles-in-grayce",
+      "slug": "creature:crumbrunk",
+      "foundry": "Compendium.pf2e.troubles-in-grayce-bestiary.Actor.u7kT6j1uCZGVDeyr",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Shortsword.damage",
+          "raw": {
+            "damage": "1d6-2",
+            "damageType": "piercing"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Dart (Coated with Giant Viper Venom)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "troubles-in-grayce",
+      "slug": "creature:durtik",
+      "foundry": "Compendium.pf2e.troubles-in-grayce-bestiary.Actor.5UN8SqEfnzVY6P2P",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "troubles-in-grayce",
+      "slug": "creature:ecaterina-tache",
+      "foundry": "Compendium.pf2e.troubles-in-grayce-bestiary.Actor.4YTRcoHtrzw7iP60",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Destroyed Explorer's Clothing"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "troubles-in-grayce",
+      "slug": "creature:gauntling",
+      "foundry": "Compendium.pf2e.troubles-in-grayce-bestiary.Actor.rQqEjKlfSBfvDcGj",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "troubles-in-grayce",
+      "slug": "creature:genevye",
+      "foundry": "Compendium.pf2e.troubles-in-grayce-bestiary.Actor.OqbsNdSR6G08odm0",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Defiled Religios Symbol of Iomedae"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "troubles-in-grayce",
+      "slug": "creature:krethark",
+      "foundry": "Compendium.pf2e.troubles-in-grayce-bestiary.Actor.gHEJR7R7CYBmG315",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Inheritor's Kiss"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "troubles-in-grayce",
+      "slug": "creature:path-river-peeler",
+      "foundry": "Compendium.pf2e.troubles-in-grayce-bestiary.Actor.65OzVr2FfL0mX3Qy",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "predicate": ["item:damage:type:sonic"],
+            "selector": ["damage-received"],
+            "text": "PF2E.NPCAbility.PathRiverPeeler.SensitiveEars.Note",
+            "title": "{item|name}",
+            "visibility": "gm"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "troubles-in-grayce",
+      "slug": "creature:sangrist",
+      "foundry": "Compendium.pf2e.troubles-in-grayce-bestiary.Actor.qvHORqASyD9Poqym",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "blood scent 30 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Claw.damage",
+          "raw": {
+            "damage": "1d4",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.FastHealing",
+          "raw": {
+            "details": "PF2E.NPCAbility.Sangrist.BloodVigor.FastHealing.Details",
+            "key": "FastHealing",
+            "predicate": ["blood-vigor"],
+            "value": 3
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.FlatModifier",
+          "raw": {
+            "damageCategory": "precision",
+            "key": "FlatModifier",
+            "predicate": ["target:condition:persistent-damage:bleed", "target:mode:living"],
+            "selector": ["claw-damage"],
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "troubles-in-grayce",
+      "slug": "creature:shiverscale-kobold",
+      "foundry": "Compendium.pf2e.troubles-in-grayce-bestiary.Actor.TpIuWrGVSvhqQ1e3",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "troubles-in-grayce",
+      "slug": "creature:sticky-toffee-hound",
+      "foundry": "Compendium.pf2e.troubles-in-grayce-bestiary.Actor.MsELMjof55g0TOoB",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "predicate": ["item:trait:water"],
+            "selector": ["damage-received"],
+            "text": "{item|description}",
+            "title": "{item|name}",
+            "visibility": "gm"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "troubles-in-grayce",
+      "slug": "creature:studious-butler",
+      "foundry": "Compendium.pf2e.troubles-in-grayce-bestiary.Actor.dnP7hXNE1CuhT6Zt",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "one spoken by its creator (typically Common)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Immunity",
+          "raw": {
+            "key": "Immunity",
+            "mode": "remove",
+            "type": "spirit"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.EphemeralEffect",
+          "raw": {
+            "key": "EphemeralEffect",
+            "predicate": ["studious-strike"],
+            "selectors": ["fist-attack", "fist-damage"],
+            "uuid": "Compendium.pf2e.conditionitems.Item.Off-Guard"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "troubles-in-grayce",
+      "slug": "creature:the-count-of-petals",
+      "foundry": "Compendium.pf2e.troubles-in-grayce-bestiary.Actor.3XAnernU8xBNNj0Q",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "coffin restoration, fast healing 7, void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Resistance",
+          "raw": {
+            "exceptions": [
+              {
+                "definition": [
+                  "item:magical",
+                  {
+                    "or": ["damage:material:dawnsilver", "damage:material:silver"]
+                  }
+                ],
+                "label": "PF2E.IWR.Custom.MagicalSilver"
+              }
+            ],
+            "key": "Resistance",
+            "type": "physical",
+            "value": 7
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "label": "PF2E.NPCAbility.ChangeShape.Label",
+            "option": "change-shape",
+            "selection": "vampire",
+            "suboptions": [
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Vampire",
+                "value": "vampire"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Animal.Specific.BatGiant",
+                "value": "bat-giant"
+              }
+            ],
+            "toggleable": true,
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 15,
+            "damage": {
+              "base": {
+                "damageType": "piercing",
+                "dice": 1,
+                "die": "d8",
+                "modifier": 9
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.BattleForm.Attack.Fangs",
+            "predicate": ["change-shape:bat-giant"],
+            "replaceAll": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "troubles-in-grayce",
+      "slug": "creature:whimsical-butler",
+      "foundry": "Compendium.pf2e.troubles-in-grayce-bestiary.Actor.LU5gXvTWKZKB4OXL",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "one spoken by its creator (typically Common)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Immunity",
+          "raw": {
+            "key": "Immunity",
+            "mode": "remove",
+            "type": "spirit"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "troubles-in-grayce",
+      "slug": "creature:zoti",
+      "foundry": "Compendium.pf2e.troubles-in-grayce-bestiary.Actor.8EwWPFAi4K8Qdymk",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "20 with shield raised"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "troubles-in-grayce",
+      "slug": "creature:zurkurk",
+      "foundry": "Compendium.pf2e.troubles-in-grayce-bestiary.Actor.wN11zf2bN04vFx6Q",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        }
+      ]
     },
     {
       "type": "entry",

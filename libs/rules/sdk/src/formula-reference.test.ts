@@ -25,6 +25,9 @@ describe('formula reference vocabulary', () => {
     ['stat.spell-attack.arcane', { kind: ReferenceKind.Statistic, selector: 'spell-attack:arcane' }],
     ['item.level', { kind: ReferenceKind.ItemLevel }],
     ['item.value', { kind: ReferenceKind.ItemValue }],
+    ['item.origin.level', { kind: ReferenceKind.ItemOriginLevel }],
+    ['flag.consumeFear', { kind: ReferenceKind.Flag, flag: 'consumeFear' }],
+    ['flag.corrosiveBody.rank', { kind: ReferenceKind.Flag, flag: 'corrosiveBody.rank' }],
     ['weapon.attr', { kind: ReferenceKind.WeaponAttributeModifier }],
     ['weapon.prof', { kind: ReferenceKind.WeaponProficiencyBonus }],
     ['spellcasting.attr', { kind: ReferenceKind.SpellcastingAttributeModifier }],
@@ -54,6 +57,7 @@ describe('formula reference vocabulary', () => {
     'stat',
     'item.badge.value',
     'item.value.value',
+    'flag',
     'weapon',
     'weapon.prof.martial',
     'spellcasting.tradition',
@@ -61,11 +65,11 @@ describe('formula reference vocabulary', () => {
     expect(known(path)).toBeUndefined();
   });
 
-  test('only item.level and item.value read the item', () => {
+  test('only the item references read the item', () => {
     const itemScoped = Object.entries(REFERENCE_CATALOGUE)
       .filter(([, definition]) => definition.scope === 'item')
       .map(([kind]) => kind);
-    expect(itemScoped).toStrictEqual([ReferenceKind.ItemLevel, ReferenceKind.ItemValue]);
+    expect(itemScoped).toStrictEqual([ReferenceKind.ItemLevel, ReferenceKind.ItemValue, ReferenceKind.ItemOriginLevel]);
   });
 
   test.each([
@@ -123,7 +127,8 @@ describe('Foundry reference translation', () => {
         .replace('<skill>', 'stealth')
         .replace('<save>', 'will')
         .replace('<category>', 'simple')
-        .replace('<tradition>', 'occult'),
+        .replace('<tradition>', 'occult')
+        .replace('<flag>', 'consumeFear'),
     );
     expect(paths.filter((path) => translated(path) === undefined)).toStrictEqual([]);
   });
