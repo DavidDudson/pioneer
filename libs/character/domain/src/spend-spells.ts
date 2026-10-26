@@ -84,6 +84,21 @@ export function spellSpent({ activeSpells }: SpellPlay, { action, spell }: Spend
   };
 }
 
+/**
+ * Why taking back the spend `entry` is refused, or undefined when it is allowed: a dismissed spell comes back only
+ * while the list has room and its id is still free, since spells cast since may have used both.
+ */
+export function spellUndoRefusal(
+  { activeSpells }: SpellPlay,
+  { spell, dismissed }: SpendEntry,
+): SpendProblem | undefined {
+  if (spell?.kind !== SpellSpendKind.Dismiss || dismissed === undefined) {
+    return undefined;
+  }
+  const taken = activeSpellOf(activeSpells, dismissed.id) !== undefined;
+  return taken || activeSpells.length >= ACTIVE_SPELLS_MAX ? SpendProblem.TooManySpells : undefined;
+}
+
 /** `play`'s active spells after the spend `entry` is taken back: the cast spell is gone, the sustain is off, the dismissed spell is back. */
 export function spellUndone({ activeSpells }: SpellPlay, { spell, dismissed }: SpendEntry): readonly ActiveSpell[] {
   if (spell === undefined) {

@@ -1,4 +1,4 @@
-import { ActiveSpellId, EffectRounds } from '@pioneer/character/domain';
+import { ActiveSpellId, EffectRounds, SlotCountKey } from '@pioneer/character/domain';
 import type { ActiveSpell } from '@pioneer/character/domain';
 import { ContentId, ContentKind, ContentRegistry, SpellRank } from '@pioneer/rules/sdk';
 import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
@@ -75,6 +75,11 @@ describe(activeCount, () => {
 describe(sustainedCast, () => {
   it('records a cast of a sustained spell for as long as it can be kept up, at the rank its content gives', () => {
     expect(sustainedCast(registry, MIRROR)).toMatchObject({ kind: 'cast', rank: 3, rounds: 100 });
+  });
+
+  it('records the rank of the slot it was cast from, heightened or from a pool', () => {
+    expect(sustainedCast(registry, BARRIER, SlotCountKey.parse('wizard:4'))).toMatchObject({ rank: 4 });
+    expect(sustainedCast(registry, BARRIER, SlotCountKey.parse('cleric:font:5'))).toMatchObject({ rank: 5 });
   });
 
   it('records nothing for a spell that is not sustained, or for something that is no spell', () => {

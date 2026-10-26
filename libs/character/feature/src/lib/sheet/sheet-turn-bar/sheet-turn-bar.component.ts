@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, effect, inject, signal } from '@angular/core';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { lapsingSpells, TurnCommandField } from '@pioneer/character/domain';
+import { lapsingSpells, TurnCommandField, TurnPhase } from '@pioneer/character/domain';
 import type { ActiveSpell, TurnCommand } from '@pioneer/character/domain';
 import {
   AsyncButton,
@@ -53,6 +53,16 @@ export class SheetTurnBar {
   readonly #play = inject(PlayStore);
   #rolled = 0;
 
+  public constructor() {
+    // The confirmation closes once nothing would lapse, or the turn it would end is over (Leave encounter).
+    effect(() => {
+      const turning = this.#play.play.data()?.play.turn.phase === TurnPhase.Turn;
+      if (!turning || this.lapsing().length === 0) {
+        this.confirmingEnd.set(false);
+      }
+    });
+  }
+
   protected readonly badgeTone = BadgeTone;
   protected readonly playQuery = this.#play.play;
   protected readonly phaseKey = phaseKey;
@@ -80,19 +90,22 @@ export class SheetTurnBar {
     lapsingSpells(this.#play.play.data()?.play.activeSpells ?? []),
   );
 
-  /** The spells End turn would end, once it has been pressed and waits for the player to confirm; none otherwise. */
-  protected readonly pendingEnd = signal<readonly ActiveSpell[]>([]);
+  /** Whether End turn has been pressed and waits for the player to confirm. */
+  protected readonly confirmingEnd = signal(false);
+
+  /** The spells End turn would end while it waits to be confirmed: the live ones, so a spell sustained or dismissed meanwhile drops off. */
+  protected readonly pendingEnd = computed((): readonly ActiveSpell[] => (this.confirmingEnd() ? this.lapsing() : []));
 
   /** End turn, after asking first when a sustained spell would lapse. */
   protected readonly endTurn = async (): Promise<void> => {
     if (this.lapsing().length > 0) {
-      this.pendingEnd.set(this.lapsing());
+      this.confirmingEnd.set(true);
       return;
     }
     await this.#send({ field: TurnCommandField.EndTurn });
   };
   protected readonly confirmEnd = async (): Promise<void> => {
-    this.pendingEnd.set([]);
+    this.confirmingEnd.set(false);
     await this.#send({ field: TurnCommandField.EndTurn });
   };
   protected readonly leaveEncounter = async (): Promise<void> => {
