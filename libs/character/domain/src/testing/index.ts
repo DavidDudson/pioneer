@@ -32,7 +32,7 @@ export {
   wandEntry,
   wandSourceOf,
 } from './wand-fixtures';
-export { clumsyFixtureId, encumberedFixtureId } from './condition-fixture-ids';
+export { clumsyFixtureId, encumberedFixtureId, underwaterFixtureId } from './condition-fixture-ids';
 export { RuneFixture } from './rune-fixtures';
 export { KIT_FIXTURE_FILES, KIT_FIXTURES, KitFixture, kitFixtureContent, kitFixtureId } from './kit-fixtures';
 export {

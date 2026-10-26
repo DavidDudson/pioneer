@@ -53,3 +53,16 @@ export function rulesOf(
       ),
     );
 }
+
+const IN_PLAY_HOPS: ReadonlySet<OriginHopKind> = new Set([
+  OriginHopKind.Inventory,
+  OriginHopKind.Condition,
+  OriginHopKind.Effect,
+  OriginHopKind.Environment,
+]);
+
+/** Whether a resolved entry is in play through the inventory: an active item, or the condition its Bulk brings. */
+export function fromInventory(origin: Origin): boolean {
+  const kind = origin.hops[0]?.kind;
+  return kind !== undefined && IN_PLAY_HOPS.has(kind);
+}

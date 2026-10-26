@@ -6,6 +6,8 @@ import { isEffectCommand } from './effect-commands';
 import type { EffectCommand } from './effect-commands';
 import { applyEffectEdit } from './effect-ending';
 import type { ActiveEffect, EffectContent } from './effects';
+import { applyEnvironmentCommand, isEnvironmentCommand } from './environments';
+import type { ActiveEnvironments, EnvironmentCommand } from './environments';
 import { applyExplorationCommand, isExplorationCommand } from './exploration-commands';
 import type { ExplorationActivity, ExplorationCommand } from './exploration-commands';
 import { applyResourceCommand, ResourceCommandField } from './resource-commands';
@@ -33,12 +35,14 @@ export type CountingCommand =
   | RestCommand
   | ToggleCommand
   | SpendCommand
-  | ExplorationCommand;
+  | ExplorationCommand
+  | EnvironmentCommand;
 
 /** The part of a play state a counting edit reads and writes: what a restoring action does, and the toggles. */
 export type CountingPlay = RestPlay & {
   readonly toggles: Toggles;
   readonly effects: readonly ActiveEffect[];
+  readonly environments: ActiveEnvironments;
   readonly activeSpells: readonly ActiveSpell[];
   readonly spendLog: SpendLog;
   readonly turn: TurnState;
@@ -67,7 +71,8 @@ export function isCountingCommand<Command extends { readonly field: unknown }>(
     isToggleCommand(command) ||
     isSpendCommand(command) ||
     isActiveSpellCommand(command) ||
-    isExplorationCommand(command)
+    isExplorationCommand(command) ||
+    isEnvironmentCommand(command)
   );
 }
 
@@ -76,10 +81,16 @@ function resourceLimits(limits: CountingLimits): ResourceLimits {
   return { points: limits.resources, counted: limits.counted, staffCost: limits.staff.castCost ?? NO_CHARGES };
 }
 
-/** `play` after a toggle or the exploration activity set. */
-function applyChoiceCommand<Play extends CountingPlay>(play: Play, command: ToggleCommand | ExplorationCommand): Play {
-  return isExplorationCommand(command)
-    ? { ...play, exploration: applyExplorationCommand(command) }
+/** `play` after a toggle or an environment set, or the exploration activity chosen. */
+function applyChoiceCommand<Play extends CountingPlay>(
+  play: Play,
+  command: ToggleCommand | ExplorationCommand | EnvironmentCommand,
+): Play {
+  if (isExplorationCommand(command)) {
+    return { ...play, exploration: applyExplorationCommand(command) };
+  }
+  return isEnvironmentCommand(command)
+    ? { ...play, environments: applyEnvironmentCommand(play.environments, command) }
     : { ...play, toggles: applyToggleCommand(play.toggles, command) };
 }
 
@@ -106,7 +117,7 @@ export function applyCountingCommand<Play extends CountingPlay>(
   if (isSpendCommand(command)) {
     return { ...play, ...applySpendCommand(play, command, { ...resourceLimits(limits), ...limits.spend }) };
   }
-  if (isToggleCommand(command) || isExplorationCommand(command)) {
+  if (isToggleCommand(command) || isExplorationCommand(command) || isEnvironmentCommand(command)) {
     return applyChoiceCommand(play, command);
   }
   if (isEffectCommand(command) || isActiveSpellCommand(command)) {

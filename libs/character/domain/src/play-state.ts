@@ -1,3 +1,4 @@
+// oxlint-disable import/max-dependencies -- the one place every play edit and every part of play state is gathered
 import { DamageApplication } from '@pioneer/rules/dice';
 import { DegreeOfSuccessSchema, HitPoints } from '@pioneer/rules/sdk';
 import { Uuid, Version } from '@pioneer/shared/kernel';
@@ -28,6 +29,7 @@ import {
 } from './death-track';
 import { EffectCommandField, EffectCommandSchema } from './effect-commands';
 import { ActiveEffectsSchema } from './effects';
+import { ActiveEnvironmentsSchema, EnvironmentCommandField, EnvironmentCommandSchema } from './environments';
 import { ExplorationActivitySchema, ExplorationCommandField, ExplorationCommandSchema } from './exploration-commands';
 import { afterDamage, afterHealing, afterSetting, trackOf, withTempHitPoints, withTrack } from './hit-point-edits';
 import { ResourceCommandField, ResourceCommandSchema } from './resource-commands';
@@ -38,7 +40,6 @@ import type { ShieldContent } from './shield-commands';
 import { SpendCommandField, SpendCommandSchema, SpendLogSchema } from './spend-log';
 import { ToggleCommandField, ToggleCommandSchema, TogglesSchema } from './toggle-commands';
 import { TurnEventSchema } from './turn-events';
-// oxlint-disable-next-line import/max-dependencies -- the one place every play edit and every part of play state is gathered
 import { OUT_OF_ENCOUNTER, TurnCommandSchema, TurnStateSchema } from './turn-state';
 
 export { currentHitPoints, withTempHitPoints } from './hit-point-edits';
@@ -73,6 +74,8 @@ export const PlayStateSchema = z.strictObject({
   resources: ResourcesSpentSchema.default(ResourcesSpentSchema.parse({})),
   conditions: ActiveConditionsSchema,
   effects: ActiveEffectsSchema,
+  /** The environments the character is in (underwater, darkness); their rules apply while they are listed. */
+  environments: ActiveEnvironmentsSchema,
   /** The sustained spells the character has cast and keeps up. */
   activeSpells: ActiveSpellsSchema,
   toggles: TogglesSchema,
@@ -124,6 +127,8 @@ export const PlayCommandField = {
   /** A `RollOption` toggle set on or off (`toggle-commands.ts`). */
   ...ToggleCommandField,
   ...ExplorationCommandField,
+  /** An environment turned on or off (`environments.ts`). */
+  ...EnvironmentCommandField,
 } as const;
 export type PlayCommandField = ValueOf<typeof PlayCommandField>;
 
@@ -152,6 +157,7 @@ export const PlayCommandSchema = z.discriminatedUnion('field', [
   ...ConsumableCommandSchema.options,
   ...ToggleCommandSchema.options,
   ...ExplorationCommandSchema.options,
+  ...EnvironmentCommandSchema.options,
 ]);
 export type PlayCommand = z.infer<typeof PlayCommandSchema>;
 
