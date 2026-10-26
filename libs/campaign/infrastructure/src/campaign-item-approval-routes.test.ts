@@ -26,7 +26,13 @@ import { Elysia } from 'elysia';
 import type { AnyElysia } from 'elysia';
 
 import { campaignRoutes } from './campaign-routes';
-import { itemApprovalService, packService, ruleLimitService, variantService } from './testing/campaign-pack-fixtures';
+import {
+  itemApprovalService,
+  keyItemService,
+  packService,
+  ruleLimitService,
+  variantService,
+} from './testing/campaign-pack-fixtures';
 
 const amiri = UserId.parse(newId());
 const ezren = UserId.parse(newId());
@@ -61,6 +67,7 @@ function table(): Table {
     variants: variantService(campaigns, clock),
     ruleLimits: ruleLimitService(campaigns, clock),
     itemApprovals: itemApprovalService(campaigns, clock, flagged),
+    keyItems: keyItemService(campaigns, clock),
   };
   return { handler: new Elysia().use(problemHandler).use(campaignRoutes(services, new FakeAuthenticator())), flagged };
 }

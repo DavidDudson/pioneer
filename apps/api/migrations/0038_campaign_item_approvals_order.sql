@@ -1,0 +1,1 @@
+CREATE INDEX "campaign_item_approvals_campaign_idx" ON "campaign_item_approvals" USING btree ("campaign_id","approved_at","id") WHERE "campaign_item_approvals"."archived_at" is null;
