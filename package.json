@@ -26,6 +26,7 @@
     "content:aon-propose": "bun tools/propose-aon.ts",
     "content:seed": "bun apps/api/src/main.ts content-seed",
     "content:prerequisites": "bun tools/enrich-prerequisites.ts",
+    "content:enrich": "bun tools/enrich-content.ts",
     "content:staves": "bun tools/enrich-staves.ts",
     "content:triggers": "bun tools/enrich-triggers.ts"
   },

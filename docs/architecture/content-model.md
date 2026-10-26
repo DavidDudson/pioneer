@@ -448,7 +448,11 @@ between requests, uses `ETag`s and stops at the first refusal. It fetches only S
 URLs. Nothing in CI, the importer or the app calls AoN. `bun run content:aon-propose` reads those tables and adds an
 `{ book, aon }` mapping for each entry with exactly one URL for a same-named, same-kind listing (or its name without a
 parenthetical or comma suffix: a variant maps to its family page, as on AoN), keeping every mapping already in
-the file; entries with two candidates are reported, and a page number is never proposed.
+the file; entries with two candidates are reported, and a page number is never proposed. `just content-enrich --pack <pack>`
+writes each mapping's page and AoN URL onto the entry's book source for that book in `content/packs/<pack>/*.json`: a value
+already set is never replaced (there is no `--force`), a second run changes nothing, and only the source is edited.
+It applies what `checkEnrichment` returns as applicable and exits 1 on its issues, or on a mapping whose book the entry
+doesn't cite.
 
 `bun run content:coverage` reports, per registered book, how many catalog entries cite it and which cite it by AoN
 link alone, still waiting for a page, so pages can be filled in over time. It reports and never fails.
