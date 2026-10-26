@@ -385,7 +385,12 @@
       "add": "Apply",
       "raise": "Raise",
       "lower": "Lower",
-      "remove": "Remove",
+      "formPick": "Which form",
+      "rankPick": "Cast at rank",
+      "rankOption": "Rank {rank}",
+      "form": "{name} form",
+      "rank": "Rank {rank}",
+      "remove": "Dismiss",
       "fromAlly": "From {name}",
       "fromGm": "From the GM",
       "remaining": "{count, plural, one {# round left} other {# rounds left}}"

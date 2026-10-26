@@ -24,6 +24,9 @@ export interface EntryContext {
  */
 function itemLevelOf({ content, inventory }: EntryContext, { entry, origin }: Resolved): Level | undefined {
   const [hop] = origin.hops;
+  if (hop?.kind === OriginHopKind.Effect && hop.rank !== undefined) {
+    return Level.parse(hop.rank);
+  }
   const host = hop?.kind === OriginHopKind.Inventory ? inventory.items.find((each) => each.id === hop.item) : undefined;
   const id = entry.kind === ContentKind.Rune && host !== undefined ? host.item : entry.id;
   const level = content.get(id)?.level;

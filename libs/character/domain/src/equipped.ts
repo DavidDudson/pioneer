@@ -218,6 +218,7 @@ export interface EquippedRules extends ModifierInputs {
 function equippedResolution(document: CharacterDocument, content: ItemContent, slots: SlotContent): GrantResolution {
   const { lookup, namespaces, rootSlots } = slots;
   const active = activeItems(document.inventory, content);
+  const exclusive = exclusiveEffects(document.play.effects, lookup);
   const roots: GrantRoot[] = [
     ...active.flatMap((each) => {
       const hop = inventoryHop(each);
@@ -225,13 +226,16 @@ function equippedResolution(document: CharacterDocument, content: ItemContent, s
     }),
     ...encumberedRoots(document, content, slots),
     ...conditionRoots(document.play.conditions),
-    ...effectRoots(exclusiveEffects(document.play.effects, lookup).active),
+    ...effectRoots(exclusive.active),
   ];
   return resolveGrants({
     roots,
     lookup,
     level: Level.parse(document.level),
-    situation: slots.situation ?? [],
+    situation: [
+      ...(slots.situation ?? []),
+      ...exclusive.active.flatMap(({ form }) => (form === undefined ? [] : [form])),
+    ],
     picks: new Map(Object.entries(document.build.choices).map(([key, value]) => [SlotKey.parse(key), value])),
     toggles: toggleStates(document.play.toggles),
     rootSlots,

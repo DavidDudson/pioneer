@@ -1,4 +1,4 @@
-import { ContentId, EffectBadgeType } from '@pioneer/rules/sdk';
+import { ContentId, EffectBadgeType, HitPoints, RollOption, SpellRank } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
@@ -24,6 +24,12 @@ export const EffectCommandSchema = z.discriminatedUnion('field', [
     source: EffectSourceSchema.default(SELF),
     /** What a formula badge rolled when the effect was applied; the sheet rolls it, as it rolls every die. */
     rolled: EffectBadgeValue.optional(),
+    /** The form chosen for a polymorph effect, as the roll option its choice sets. */
+    form: RollOption.optional(),
+    /** The spell rank the effect is cast at. */
+    rank: SpellRank.optional(),
+    /** The temporary Hit Points the form gives, worked out by the sheet from the engine; they leave with the effect. */
+    tempHp: HitPoints.optional(),
   }),
   z.object({ field: z.literal(EffectCommandField.RemoveEffect), id: EffectInstanceId }),
   z.object({ field: z.literal(EffectCommandField.SetEffectRemaining), id: EffectInstanceId, remaining: EffectRounds }),
@@ -105,6 +111,9 @@ function applied(
     ...(terms.expiry === undefined ? {} : { expiry: terms.expiry }),
     ...(terms.sustained ? { sustained: true } : {}),
     ...(badge === undefined ? {} : { badge }),
+    ...(command.form === undefined ? {} : { form: command.form }),
+    ...(command.rank === undefined ? {} : { rank: command.rank }),
+    ...(command.tempHp === undefined || command.tempHp === 0 ? {} : { tempHp: command.tempHp }),
   };
 }
 

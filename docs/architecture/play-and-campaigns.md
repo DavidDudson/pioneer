@@ -376,7 +376,10 @@ worked out on every read rather than stored, and play sync leaves it out
 ([ADR-0039](../adr/0039-derived-conditions-are-grant-roots.md)).
 
 Effects with the `polymorph` trait are mutually exclusive in the effective set: the newest applied wins, and the older
-ones grant nothing. The derivation lists them as replaced effects so play can end them.
+ones grant nothing. The derivation lists them as replaced effects so play can end them. Applying one also ends the one
+before it in the same edit, together with the temporary Hit Points it gave (an effect with a `BattleForm` rule counts
+as polymorph even when its content lacks the trait). An active form keeps the form chosen, the spell rank it was cast
+at and the temporary Hit Points it raised, so Dismiss, expiry and replacement all end it the same way.
 
 End-of-turn bookkeeping (frightened decreasing, persistent damage flat checks, effect expiry) is a pure function
 over play state and the turn event, so it can run in the browser and on the server identically.

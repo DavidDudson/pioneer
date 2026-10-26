@@ -2,6 +2,7 @@ import type { ContentLookup } from '@pioneer/rules/grants';
 import { RollOption, Trait } from '@pioneer/rules/sdk';
 
 import type { ActiveEffect } from './effects';
+import { isPolymorphEntry } from './effects';
 
 /** The trait that makes effects exclusive: a polymorph spell or feature replaces the one before it. */
 const POLYMORPH = Trait.parse('polymorph');
@@ -16,9 +17,10 @@ export interface ExclusiveEffects {
   readonly replaced: readonly ActiveEffect[];
 }
 
-/** Whether the effect's content carries the polymorph trait; an effect the content lacks does not. */
+/** Whether the effect's content is a polymorph effect (`isPolymorphEntry`); an effect the content lacks is not. */
 export function isPolymorph(lookup: ContentLookup, effect: ActiveEffect): boolean {
-  return lookup.entry(effect.effect)?.rollOptions.includes(POLYMORPH_OPTION) === true;
+  const found = lookup.entry(effect.effect);
+  return found !== undefined && (found.rollOptions.includes(POLYMORPH_OPTION) || isPolymorphEntry([], found.rules));
 }
 
 /**

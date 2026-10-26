@@ -65,6 +65,7 @@ export {
   isEffectCommand,
 } from './effect-commands';
 export {
+  isPolymorphEntry,
   ActiveEffectSchema,
   ActiveEffectsSchema,
   type ActiveEffect,
