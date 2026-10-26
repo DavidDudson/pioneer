@@ -47,17 +47,69 @@
     "book": "rival-academies",
     "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=499"
   },
+  "consumable:aetheric-irritant-greater": {
+    "book": "rival-academies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3565"
+  },
+  "consumable:aetheric-irritant-lesser": {
+    "book": "rival-academies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3565"
+  },
+  "consumable:aetheric-irritant-major": {
+    "book": "rival-academies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3565"
+  },
+  "consumable:aetheric-irritant-moderate": {
+    "book": "rival-academies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3565"
+  },
   "consumable:blood-pack-squib": {
     "book": "rival-academies",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3527"
+  },
+  "consumable:bloodstone-doll-major": {
+    "book": "rival-academies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3574"
+  },
+  "consumable:bloodstone-doll-minor": {
+    "book": "rival-academies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3574"
+  },
+  "consumable:bloodstone-doll-moderate": {
+    "book": "rival-academies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3574"
   },
   "consumable:conspirators-cookie": {
     "book": "rival-academies",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3520"
   },
+  "consumable:demon-bone-tiles-brimorak": {
+    "book": "rival-academies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3581"
+  },
+  "consumable:demon-bone-tiles-pusk": {
+    "book": "rival-academies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3581"
+  },
+  "consumable:demon-bone-tiles-seraptis": {
+    "book": "rival-academies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3581"
+  },
   "consumable:demon-hunting-bands": {
     "book": "rival-academies",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3540"
+  },
+  "consumable:dr-ushernachts-astonishing-ink-major": {
+    "book": "rival-academies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3564"
+  },
+  "consumable:dr-ushernachts-astonishing-ink-minor": {
+    "book": "rival-academies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3564"
+  },
+  "consumable:dr-ushernachts-astonishing-ink-moderate": {
+    "book": "rival-academies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3564"
   },
   "consumable:drop-of-convergent-waters": {
     "book": "rival-academies",
@@ -79,7 +131,23 @@
     "book": "rival-academies",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3566"
   },
+  "consumable:maelstromic-destabilizer-lesser": {
+    "book": "rival-academies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3567"
+  },
+  "consumable:maelstromic-destabilizer-major": {
+    "book": "rival-academies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3567"
+  },
+  "consumable:maelstromic-destabilizer-moderate": {
+    "book": "rival-academies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3567"
+  },
   "consumable:moritype": {
+    "book": "rival-academies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3568"
+  },
+  "consumable:moritype-greater": {
     "book": "rival-academies",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3568"
   },
@@ -95,9 +163,37 @@
     "book": "rival-academies",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3562"
   },
+  "consumable:portable-seal-lesser": {
+    "book": "rival-academies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3569"
+  },
+  "consumable:portable-seal-major": {
+    "book": "rival-academies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3569"
+  },
+  "consumable:portable-seal-moderate": {
+    "book": "rival-academies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3569"
+  },
   "consumable:prismatic-dust": {
     "book": "rival-academies",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3533"
+  },
+  "consumable:quartz-coil-rail-transport-greater": {
+    "book": "rival-academies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3570"
+  },
+  "consumable:quartz-coil-rail-transport-lesser": {
+    "book": "rival-academies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3570"
+  },
+  "consumable:quartz-coil-rail-transport-major": {
+    "book": "rival-academies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3570"
+  },
+  "consumable:quartz-coil-rail-transport-moderate": {
+    "book": "rival-academies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3570"
   },
   "consumable:seed-pod-of-rooted-wisdom": {
     "book": "rival-academies",
@@ -115,9 +211,37 @@
     "book": "rival-academies",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3519"
   },
+  "consumable:tangibility-resonator-lesser": {
+    "book": "rival-academies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3572"
+  },
+  "consumable:tangibility-resonator-major": {
+    "book": "rival-academies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3572"
+  },
+  "consumable:tangibility-resonator-moderate": {
+    "book": "rival-academies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3572"
+  },
   "consumable:twig-of-knowledge-and-memory": {
     "book": "rival-academies",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3538"
+  },
+  "consumable:vanishing-shocker-greater": {
+    "book": "rival-academies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3573"
+  },
+  "consumable:vanishing-shocker-lesser": {
+    "book": "rival-academies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3573"
+  },
+  "consumable:vanishing-shocker-major": {
+    "book": "rival-academies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3573"
+  },
+  "consumable:vanishing-shocker-moderate": {
+    "book": "rival-academies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3573"
   },
   "equipment:branch-attendants-mask": {
     "book": "rival-academies",
@@ -130,6 +254,14 @@
   "equipment:illusory-backdrop": {
     "book": "rival-academies",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3530"
+  },
+  "equipment:inspiring-spotlight-mounted": {
+    "book": "rival-academies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3531"
+  },
+  "equipment:inspiring-spotlight-portable": {
+    "book": "rival-academies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3531"
   },
   "equipment:monster-suit": {
     "book": "rival-academies",

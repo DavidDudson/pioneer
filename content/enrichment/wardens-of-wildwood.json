@@ -3,9 +3,45 @@
     "book": "wardens-of-wildwood",
     "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=312"
   },
+  "consumable:arboreal-wand-rank-2": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3718"
+  },
+  "consumable:arboreal-wand-rank-3": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3718"
+  },
+  "consumable:arboreal-wand-rank-4": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3718"
+  },
+  "consumable:arboreal-wand-rank-5": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3718"
+  },
+  "consumable:arboreal-wand-rank-6": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3718"
+  },
+  "consumable:arboreal-wand-rank-7": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3718"
+  },
   "consumable:primal-pollen": {
     "book": "wardens-of-wildwood",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3715"
+  },
+  "consumable:skitter-knot-greater": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3719"
+  },
+  "consumable:skitter-knot-lesser": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3719"
+  },
+  "consumable:skitter-knot-major": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3719"
   },
   "creature:arboreal-sapling": {
     "book": "wardens-of-wildwood",

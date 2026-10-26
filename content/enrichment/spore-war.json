@@ -1,5 +1,29 @@
 {
+  "consumable:antifungal-salve-greater": {
+    "book": "spore-war",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3747"
+  },
+  "consumable:antifungal-salve-lesser": {
+    "book": "spore-war",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3747"
+  },
+  "consumable:antifungal-salve-major": {
+    "book": "spore-war",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3747"
+  },
+  "consumable:antifungal-salve-moderate": {
+    "book": "spore-war",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3747"
+  },
   "consumable:black-ash": {
+    "book": "spore-war",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3746"
+  },
+  "consumable:black-ash-greater": {
+    "book": "spore-war",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3746"
+  },
+  "consumable:black-ash-major": {
     "book": "spore-war",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3746"
   },

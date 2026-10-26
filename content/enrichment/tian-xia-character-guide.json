@@ -171,6 +171,10 @@
     "book": "tian-xia-character-guide",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3456"
   },
+  "consumable:rainbow-vinegar-moderate": {
+    "book": "tian-xia-character-guide",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3456"
+  },
   "equipment:cloak-of-waves-clouds": {
     "book": "tian-xia-character-guide",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3463"
@@ -799,6 +803,10 @@
     "book": "tian-xia-character-guide",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=6940"
   },
+  "feat:many-guises-kitsune": {
+    "book": "tian-xia-character-guide",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6883"
+  },
   "feat:meditate-on-this": {
     "book": "tian-xia-character-guide",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=7072"
@@ -1250,6 +1258,10 @@
   "feat:tikling-bird-twirl": {
     "book": "tian-xia-character-guide",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=6920"
+  },
+  "feat:trample-sarangay": {
+    "book": "tian-xia-character-guide",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6929"
   },
   "feat:transcend-the-azimuth": {
     "book": "tian-xia-character-guide",

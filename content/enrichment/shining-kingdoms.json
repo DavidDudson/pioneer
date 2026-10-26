@@ -27,7 +27,23 @@
     "book": "shining-kingdoms",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3761"
   },
+  "consumable:crimson-godsblood-serum-greater": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3762"
+  },
+  "consumable:crimson-godsblood-serum-lesser": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3762"
+  },
+  "consumable:crimson-godsblood-serum-moderate": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3762"
+  },
   "consumable:godrending-ammunition": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3763"
+  },
+  "consumable:godrending-ammunition-greater": {
     "book": "shining-kingdoms",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3763"
   },
@@ -146,6 +162,10 @@
   "feat:elven-persistence": {
     "book": "shining-kingdoms",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=7723"
+  },
+  "feat:even-the-odds-eagle-knight": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7675"
   },
   "feat:expeditious-advance": {
     "book": "shining-kingdoms",
@@ -379,11 +399,23 @@
     "book": "shining-kingdoms",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3769"
   },
+  "rune:bolkas-blessing-greater": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3769"
+  },
   "rune:kolss-oath": {
     "book": "shining-kingdoms",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3770"
   },
+  "rune:kolss-oath-greater": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3770"
+  },
   "rune:trudds-strength": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3771"
+  },
+  "rune:trudds-strength-greater": {
     "book": "shining-kingdoms",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3771"
   },

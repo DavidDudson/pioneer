@@ -1,4 +1,12 @@
 {
+  "consumable:alloy-orb-exquisite-high-grade": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2963"
+  },
+  "consumable:alloy-orb-exquisite-standard-grade": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2963"
+  },
   "consumable:alloy-orb-high-grade": {
     "book": "gm-core",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2963"
@@ -178,6 +186,66 @@
   "consumable:emerald-grasshopper-greater": {
     "book": "gm-core",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2972"
+  },
+  "consumable:energy-breath-potion-acid-greater": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2941"
+  },
+  "consumable:energy-breath-potion-acid-lesser": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2941"
+  },
+  "consumable:energy-breath-potion-acid-moderate": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2941"
+  },
+  "consumable:energy-breath-potion-cold-greater": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2941"
+  },
+  "consumable:energy-breath-potion-cold-lesser": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2941"
+  },
+  "consumable:energy-breath-potion-cold-moderate": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2941"
+  },
+  "consumable:energy-breath-potion-electricity-greater": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2941"
+  },
+  "consumable:energy-breath-potion-electricity-lesser": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2941"
+  },
+  "consumable:energy-breath-potion-electricity-moderate": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2941"
+  },
+  "consumable:energy-breath-potion-fire-greater": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2941"
+  },
+  "consumable:energy-breath-potion-fire-lesser": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2941"
+  },
+  "consumable:energy-breath-potion-fire-moderate": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2941"
+  },
+  "consumable:energy-breath-potion-sonic-greater": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2941"
+  },
+  "consumable:energy-breath-potion-sonic-lesser": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2941"
+  },
+  "consumable:energy-breath-potion-sonic-moderate": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2941"
   },
   "consumable:explosive-ammunition": {
     "book": "gm-core",
@@ -488,6 +556,10 @@
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2947"
   },
   "consumable:potion-of-flying-greater": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2948"
+  },
+  "consumable:potion-of-flying-standard": {
     "book": "gm-core",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2948"
   },
@@ -1058,6 +1130,10 @@
   "equipment:entertainers-cincture-greater": {
     "book": "gm-core",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3082"
+  },
+  "equipment:eternal-eruption": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3020"
   },
   "equipment:eternal-eruption-of-barrowsiege": {
     "book": "gm-core",

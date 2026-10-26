@@ -379,6 +379,10 @@
     "book": "war-of-immortals",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=7150"
   },
+  "feat:death-from-above-eternal-legend": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7380"
+  },
   "feat:decree-of-execution": {
     "book": "war-of-immortals",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=7412"

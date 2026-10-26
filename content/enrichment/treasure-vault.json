@@ -495,6 +495,66 @@
     "book": "treasure-vault",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2002"
   },
+  "consumable:elemental-ammunition-greater-acid": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1897"
+  },
+  "consumable:elemental-ammunition-greater-cold": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1897"
+  },
+  "consumable:elemental-ammunition-greater-electricity": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1897"
+  },
+  "consumable:elemental-ammunition-greater-fire": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1897"
+  },
+  "consumable:elemental-ammunition-greater-poison": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1897"
+  },
+  "consumable:elemental-ammunition-lesser-acid": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1897"
+  },
+  "consumable:elemental-ammunition-lesser-cold": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1897"
+  },
+  "consumable:elemental-ammunition-lesser-electricity": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1897"
+  },
+  "consumable:elemental-ammunition-lesser-fire": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1897"
+  },
+  "consumable:elemental-ammunition-lesser-poison": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1897"
+  },
+  "consumable:elemental-ammunition-moderate-acid": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1897"
+  },
+  "consumable:elemental-ammunition-moderate-cold": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1897"
+  },
+  "consumable:elemental-ammunition-moderate-electricity": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1897"
+  },
+  "consumable:elemental-ammunition-moderate-fire": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1897"
+  },
+  "consumable:elemental-ammunition-moderate-poison": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1897"
+  },
   "consumable:elysian-dew": {
     "book": "treasure-vault",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2082"
@@ -1507,6 +1567,34 @@
     "book": "treasure-vault",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2373"
   },
+  "consumable:wand-of-choking-mist-2nd-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2272"
+  },
+  "consumable:wand-of-choking-mist-4th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2272"
+  },
+  "consumable:wand-of-chromatic-burst-4th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2273"
+  },
+  "consumable:wand-of-chromatic-burst-7th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2273"
+  },
+  "consumable:wand-of-clinging-rime-7th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2274"
+  },
+  "consumable:wand-of-clinging-rime-8th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2274"
+  },
+  "consumable:wand-of-clinging-rime-9th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2274"
+  },
   "consumable:wand-of-contagious-frailty": {
     "book": "treasure-vault",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2275"
@@ -1515,6 +1603,186 @@
     "book": "treasure-vault",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2276"
   },
+  "consumable:wand-of-dazzling-rays-3rd-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2277"
+  },
+  "consumable:wand-of-dazzling-rays-4th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2277"
+  },
+  "consumable:wand-of-dazzling-rays-5th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2277"
+  },
+  "consumable:wand-of-dazzling-rays-6th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2277"
+  },
+  "consumable:wand-of-dazzling-rays-7th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2277"
+  },
+  "consumable:wand-of-dazzling-rays-8th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2277"
+  },
+  "consumable:wand-of-dazzling-rays-9th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2277"
+  },
+  "consumable:wand-of-dumbfounding-doom-3rd-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2278"
+  },
+  "consumable:wand-of-dumbfounding-doom-4th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2278"
+  },
+  "consumable:wand-of-dumbfounding-doom-5th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2278"
+  },
+  "consumable:wand-of-dumbfounding-doom-6th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2278"
+  },
+  "consumable:wand-of-dumbfounding-doom-7th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2278"
+  },
+  "consumable:wand-of-dumbfounding-doom-8th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2278"
+  },
+  "consumable:wand-of-dumbfounding-doom-9th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2278"
+  },
+  "consumable:wand-of-hawthorn-2nd-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2279"
+  },
+  "consumable:wand-of-hawthorn-4th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2279"
+  },
+  "consumable:wand-of-hawthorn-6th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2279"
+  },
+  "consumable:wand-of-hawthorn-8th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2279"
+  },
+  "consumable:wand-of-mental-purification-1st-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2282"
+  },
+  "consumable:wand-of-mental-purification-2nd-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2282"
+  },
+  "consumable:wand-of-mental-purification-3rd-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2282"
+  },
+  "consumable:wand-of-mental-purification-4th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2282"
+  },
+  "consumable:wand-of-mental-purification-5th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2282"
+  },
+  "consumable:wand-of-mental-purification-6th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2282"
+  },
+  "consumable:wand-of-mental-purification-7th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2282"
+  },
+  "consumable:wand-of-mental-purification-8th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2282"
+  },
+  "consumable:wand-of-mental-purification-9th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2282"
+  },
+  "consumable:wand-of-noisome-acid-2nd-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2284"
+  },
+  "consumable:wand-of-noisome-acid-4nd-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2284"
+  },
+  "consumable:wand-of-noisome-acid-6th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2284"
+  },
+  "consumable:wand-of-noisome-acid-8th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2284"
+  },
+  "consumable:wand-of-paralytic-shock-3rd-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2285"
+  },
+  "consumable:wand-of-paralytic-shock-7th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2285"
+  },
+  "consumable:wand-of-pernicious-poison-1st-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2286"
+  },
+  "consumable:wand-of-pernicious-poison-6th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2286"
+  },
+  "consumable:wand-of-refracting-rays-4th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2288"
+  },
+  "consumable:wand-of-refracting-rays-7th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2288"
+  },
+  "consumable:wand-of-rolling-flames-2nd-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2289"
+  },
+  "consumable:wand-of-rolling-flames-3rd-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2289"
+  },
+  "consumable:wand-of-rolling-flames-4th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2289"
+  },
+  "consumable:wand-of-rolling-flames-5th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2289"
+  },
+  "consumable:wand-of-rolling-flames-6th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2289"
+  },
+  "consumable:wand-of-rolling-flames-7th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2289"
+  },
+  "consumable:wand-of-rolling-flames-8th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2289"
+  },
+  "consumable:wand-of-rolling-flames-9th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2289"
+  },
   "consumable:wand-of-shocking-haze": {
     "book": "treasure-vault",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2290"
@@ -1522,6 +1790,38 @@
   "consumable:wand-of-shrouded-step": {
     "book": "treasure-vault",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2291"
+  },
+  "consumable:wand-of-teeming-ghosts-2nd-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2292"
+  },
+  "consumable:wand-of-teeming-ghosts-3rd-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2292"
+  },
+  "consumable:wand-of-teeming-ghosts-4th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2292"
+  },
+  "consumable:wand-of-teeming-ghosts-5th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2292"
+  },
+  "consumable:wand-of-teeming-ghosts-6th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2292"
+  },
+  "consumable:wand-of-teeming-ghosts-7th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2292"
+  },
+  "consumable:wand-of-teeming-ghosts-8th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2292"
+  },
+  "consumable:wand-of-teeming-ghosts-9th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2292"
   },
   "consumable:wand-of-the-ash-puppet": {
     "book": "treasure-vault",
@@ -1534,6 +1834,18 @@
   "consumable:wand-of-tormented-slumber": {
     "book": "treasure-vault",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2295"
+  },
+  "consumable:wand-of-toxic-blades-6th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2296"
+  },
+  "consumable:wand-of-toxic-blades-7th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2296"
+  },
+  "consumable:wand-of-toxic-blades-8th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2296"
   },
   "consumable:wand-of-traitorous-thoughts": {
     "book": "treasure-vault",
@@ -1804,6 +2116,10 @@
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2309"
   },
   "equipment:bravery-baldric-flight": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2309"
+  },
+  "equipment:bravery-baldric-greater-healthful": {
     "book": "treasure-vault",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2309"
   },
@@ -2162,6 +2478,30 @@
   "equipment:inquisitive-quill": {
     "book": "treasure-vault",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2396"
+  },
+  "equipment:instinct-crown-animal": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2338"
+  },
+  "equipment:instinct-crown-dragon": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2338"
+  },
+  "equipment:instinct-crown-fury": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2338"
+  },
+  "equipment:instinct-crown-giant": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2338"
+  },
+  "equipment:instinct-crown-spirit": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2338"
+  },
+  "equipment:instinct-crown-superstition": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2338"
   },
   "equipment:inventors-chair": {
     "book": "treasure-vault",
@@ -2826,6 +3166,146 @@
   "equipment:wand-cane": {
     "book": "treasure-vault",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2154"
+  },
+  "equipment:wand-of-hybrid-form-2nd-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2280"
+  },
+  "equipment:wand-of-hybrid-form-3rd-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2280"
+  },
+  "equipment:wand-of-hybrid-form-4th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2280"
+  },
+  "equipment:wand-of-hybrid-form-5th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2280"
+  },
+  "equipment:wand-of-hybrid-form-6th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2280"
+  },
+  "equipment:wand-of-hybrid-form-7th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2280"
+  },
+  "equipment:wand-of-hybrid-form-8th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2280"
+  },
+  "equipment:wand-of-hybrid-form-9th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2280"
+  },
+  "equipment:wand-of-legerdemain-1st-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2281"
+  },
+  "equipment:wand-of-legerdemain-2nd-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2281"
+  },
+  "equipment:wand-of-legerdemain-3rd-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2281"
+  },
+  "equipment:wand-of-legerdemain-4th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2281"
+  },
+  "equipment:wand-of-legerdemain-5th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2281"
+  },
+  "equipment:wand-of-legerdemain-6th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2281"
+  },
+  "equipment:wand-of-legerdemain-7th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2281"
+  },
+  "equipment:wand-of-legerdemain-8th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2281"
+  },
+  "equipment:wand-of-legerdemain-9th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2281"
+  },
+  "equipment:wand-of-mercy-1st-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2283"
+  },
+  "equipment:wand-of-mercy-2nd-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2283"
+  },
+  "equipment:wand-of-mercy-3rd-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2283"
+  },
+  "equipment:wand-of-mercy-4th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2283"
+  },
+  "equipment:wand-of-mercy-5th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2283"
+  },
+  "equipment:wand-of-mercy-6th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2283"
+  },
+  "equipment:wand-of-mercy-7th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2283"
+  },
+  "equipment:wand-of-mercy-8th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2283"
+  },
+  "equipment:wand-of-mercy-9th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2283"
+  },
+  "equipment:wand-of-reaching-1st-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2287"
+  },
+  "equipment:wand-of-reaching-2nd-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2287"
+  },
+  "equipment:wand-of-reaching-3rd-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2287"
+  },
+  "equipment:wand-of-reaching-4th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2287"
+  },
+  "equipment:wand-of-reaching-5th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2287"
+  },
+  "equipment:wand-of-reaching-6th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2287"
+  },
+  "equipment:wand-of-reaching-7th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2287"
+  },
+  "equipment:wand-of-reaching-8th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2287"
+  },
+  "equipment:wand-of-reaching-9th-rank": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2287"
   },
   "equipment:wardens-signet": {
     "book": "treasure-vault",

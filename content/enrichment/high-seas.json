@@ -23,11 +23,23 @@
     "book": "high-seas",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4957"
   },
+  "equipment:cloak-of-social-graces-greater": {
+    "book": "high-seas",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4957"
+  },
+  "equipment:cloak-of-social-graces-major": {
+    "book": "high-seas",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4957"
+  },
   "equipment:coral-aspect": {
     "book": "high-seas",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4968"
   },
   "equipment:crown-of-the-master": {
+    "book": "high-seas",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4972"
+  },
+  "equipment:crown-of-the-master-greater": {
     "book": "high-seas",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4972"
   },
@@ -39,7 +51,23 @@
     "book": "high-seas",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4958"
   },
+  "equipment:gloves-of-precision-greater": {
+    "book": "high-seas",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4958"
+  },
   "equipment:golden-wings": {
+    "book": "high-seas",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4959"
+  },
+  "equipment:golden-wings-greater": {
+    "book": "high-seas",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4959"
+  },
+  "equipment:golden-wings-major": {
+    "book": "high-seas",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4959"
+  },
+  "equipment:golden-wings-true": {
     "book": "high-seas",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4959"
   },
@@ -54,6 +82,18 @@
   "equipment:kinetic-wraps-of-strength": {
     "book": "high-seas",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4960"
+  },
+  "equipment:kinetic-wraps-of-strength-greater": {
+    "book": "high-seas",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4960"
+  },
+  "equipment:mariners-mien-greater": {
+    "book": "high-seas",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4969"
+  },
+  "equipment:mariners-mien-lesser": {
+    "book": "high-seas",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4969"
   },
   "equipment:mordant-mask": {
     "book": "high-seas",

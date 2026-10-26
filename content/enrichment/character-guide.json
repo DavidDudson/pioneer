@@ -663,6 +663,10 @@
     "book": "character-guide",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=947"
   },
+  "feat:tusks-half-orc": {
+    "book": "character-guide",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=963"
+  },
   "feat:unassuming-dedication": {
     "book": "character-guide",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=1015"

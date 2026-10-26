@@ -1051,6 +1051,94 @@
     "book": "monster-core-2",
     "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4279"
   },
+  "creature:shade-abaddon": {
+    "book": "monster-core-2",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4541"
+  },
+  "creature:shade-astral-plane": {
+    "book": "monster-core-2",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4541"
+  },
+  "creature:shade-axis": {
+    "book": "monster-core-2",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4541"
+  },
+  "creature:shade-boneyard": {
+    "book": "monster-core-2",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4541"
+  },
+  "creature:shade-creations-forge": {
+    "book": "monster-core-2",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4541"
+  },
+  "creature:shade-dead-vault": {
+    "book": "monster-core-2",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4541"
+  },
+  "creature:shade-dreamlands": {
+    "book": "monster-core-2",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4541"
+  },
+  "creature:shade-elysium": {
+    "book": "monster-core-2",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4541"
+  },
+  "creature:shade-ethereal-plane": {
+    "book": "monster-core-2",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4541"
+  },
+  "creature:shade-heaven": {
+    "book": "monster-core-2",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4541"
+  },
+  "creature:shade-hell": {
+    "book": "monster-core-2",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4541"
+  },
+  "creature:shade-maelstrom": {
+    "book": "monster-core-2",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4541"
+  },
+  "creature:shade-netherworld": {
+    "book": "monster-core-2",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4541"
+  },
+  "creature:shade-nirvana": {
+    "book": "monster-core-2",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4541"
+  },
+  "creature:shade-outer-rifts": {
+    "book": "monster-core-2",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4541"
+  },
+  "creature:shade-plane-of-air": {
+    "book": "monster-core-2",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4541"
+  },
+  "creature:shade-plane-of-earth": {
+    "book": "monster-core-2",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4541"
+  },
+  "creature:shade-plane-of-fire": {
+    "book": "monster-core-2",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4541"
+  },
+  "creature:shade-plane-of-metal": {
+    "book": "monster-core-2",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4541"
+  },
+  "creature:shade-plane-of-water": {
+    "book": "monster-core-2",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4541"
+  },
+  "creature:shade-plane-of-wood": {
+    "book": "monster-core-2",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4541"
+  },
+  "creature:shade-universe": {
+    "book": "monster-core-2",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4541"
+  },
   "creature:shae": {
     "book": "monster-core-2",
     "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4542"
@@ -1123,9 +1211,33 @@
     "book": "monster-core-2",
     "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4560"
   },
+  "creature:soulrider-celestial": {
+    "book": "monster-core-2",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4557"
+  },
+  "creature:soulrider-fiend": {
+    "book": "monster-core-2",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4557"
+  },
+  "creature:soulrider-monitor": {
+    "book": "monster-core-2",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4557"
+  },
   "creature:spark-moth": {
     "book": "monster-core-2",
     "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4378"
+  },
+  "creature:spawning-soulrider-celestial": {
+    "book": "monster-core-2",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4558"
+  },
+  "creature:spawning-soulrider-fiend": {
+    "book": "monster-core-2",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4558"
+  },
+  "creature:spawning-soulrider-monitor": {
+    "book": "monster-core-2",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4558"
   },
   "creature:spear-frog": {
     "book": "monster-core-2",

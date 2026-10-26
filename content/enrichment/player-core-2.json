@@ -1635,6 +1635,10 @@
     "book": "player-core-2",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=5604"
   },
+  "feat:breath-of-the-dragon-dragonblood": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5730"
+  },
   "feat:briar-battler": {
     "book": "player-core-2",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=5623"
@@ -2235,6 +2239,10 @@
     "book": "player-core-2",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=6121"
   },
+  "feat:efficient-alchemy-alchemist": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5771"
+  },
   "feat:efficient-rituals": {
     "book": "player-core-2",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=6391"
@@ -2775,6 +2783,10 @@
     "book": "player-core-2",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=5994"
   },
+  "feat:guardians-deflection-swashbuckler": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6147"
+  },
   "feat:hammer-quake": {
     "book": "player-core-2",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=6371"
@@ -2855,6 +2867,10 @@
     "book": "player-core-2",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=5864"
   },
+  "feat:implausible-purchase-investigator": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5971"
+  },
   "feat:imposing-destrier": {
     "book": "player-core-2",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=5908"
@@ -2878,6 +2894,10 @@
   "feat:improbable-elixirs": {
     "book": "player-core-2",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=5800"
+  },
+  "feat:improved-familiar-familiar-master": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6331"
   },
   "feat:improved-invigorating-elixir": {
     "book": "player-core-2",
@@ -2918,6 +2938,10 @@
   "feat:incredible-familiar-familiar-master": {
     "book": "player-core-2",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=8005"
+  },
+  "feat:incredible-luck-swashbuckler": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6178"
   },
   "feat:incredible-mount": {
     "book": "player-core-2",
@@ -3219,6 +3243,10 @@
     "book": "player-core-2",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=6444"
   },
+  "feat:many-guises-vigilante": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6432"
+  },
   "feat:mariners-fire": {
     "book": "player-core-2",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=5673"
@@ -3254,6 +3282,10 @@
   "feat:master-sorcerer-spellcasting": {
     "book": "player-core-2",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=6232"
+  },
+  "feat:master-spotter-investigator": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6209"
   },
   "feat:mature-beastmaster-companion": {
     "book": "player-core-2",
@@ -3647,6 +3679,10 @@
     "book": "player-core-2",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=5857"
   },
+  "feat:predictive-purchase-investigator": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5953"
+  },
   "feat:prevailing-position": {
     "book": "player-core-2",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=6020"
@@ -3711,6 +3747,10 @@
     "book": "player-core-2",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=6253"
   },
+  "feat:quick-stow-ratfolk": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5661"
+  },
   "feat:quietus-strikes": {
     "book": "player-core-2",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=5757"
@@ -3734,6 +3774,10 @@
   "feat:raging-thrower": {
     "book": "player-core-2",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=5811"
+  },
+  "feat:rallying-charge-marshal": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6357"
   },
   "feat:rallying-cry": {
     "book": "player-core-2",
@@ -4127,6 +4171,10 @@
     "book": "player-core-2",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=5770"
   },
+  "feat:snap-out-of-it-marshal": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6354"
+  },
   "feat:snare-crafting": {
     "book": "player-core-2",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=6506"
@@ -4250,6 +4298,10 @@
   "feat:stand-still": {
     "book": "player-core-2",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=5996"
+  },
+  "feat:startling-appearance-vigilante": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6429"
   },
   "feat:steel-skin": {
     "book": "player-core-2",

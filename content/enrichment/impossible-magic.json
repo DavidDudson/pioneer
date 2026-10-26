@@ -67,7 +67,15 @@
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5089"
   },
+  "consumable:beetle-gel-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5089"
+  },
   "consumable:binding-coil": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5101"
+  },
+  "consumable:binding-coil-greater": {
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5101"
   },
@@ -76,6 +84,10 @@
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5095"
   },
   "consumable:cantrip-deck-5-pack": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5140"
+  },
+  "consumable:cantrip-deck-full-pack": {
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5140"
   },
@@ -92,6 +104,10 @@
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5033"
   },
   "consumable:dazzling-rosary": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5047"
+  },
+  "consumable:dazzling-rosary-greater": {
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5047"
   },
@@ -115,6 +131,10 @@
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5035"
   },
+  "consumable:disruption-ammunition-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5035"
+  },
   "consumable:dragonbone-arrowhead": {
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5102"
@@ -132,6 +152,14 @@
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5103"
   },
   "consumable:firestarter-pellets": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5051"
+  },
+  "consumable:firestarter-pellets-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5051"
+  },
+  "consumable:firestarter-pellets-major": {
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5051"
   },
@@ -191,7 +219,19 @@
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5038"
   },
+  "consumable:gravebane-ammunition-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5038"
+  },
   "consumable:healers-gel": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5055"
+  },
+  "consumable:healers-gel-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5055"
+  },
+  "consumable:healers-gel-major": {
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5055"
   },
@@ -212,6 +252,14 @@
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5058"
   },
   "consumable:lockpickers-oil": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5092"
+  },
+  "consumable:lockpickers-oil-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5092"
+  },
+  "consumable:lockpickers-oil-major": {
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5092"
   },
@@ -239,6 +287,10 @@
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5060"
   },
+  "consumable:noxious-incense-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5060"
+  },
   "consumable:odious-token": {
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5061"
@@ -255,6 +307,14 @@
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5107"
   },
+  "consumable:possums-play-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5107"
+  },
+  "consumable:possums-play-major": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5107"
+  },
   "consumable:potion-of-grounding": {
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5097"
@@ -262,6 +322,14 @@
   "consumable:potion-of-minute-echoes": {
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5099"
+  },
+  "consumable:potion-of-stable-form": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5100"
+  },
+  "consumable:potion-of-stable-form-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5100"
   },
   "consumable:preserved-alecost": {
     "book": "impossible-magic",
@@ -283,6 +351,10 @@
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5108"
   },
+  "consumable:retrieval-prism-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5108"
+  },
   "consumable:runeveil-ammunition": {
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5041"
@@ -292,6 +364,14 @@
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5093"
   },
   "consumable:shatterpoint-ammunition": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5042"
+  },
+  "consumable:shatterpoint-ammunition-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5042"
+  },
+  "consumable:shatterpoint-ammunition-major": {
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5042"
   },
@@ -306,6 +386,14 @@
   "consumable:spiral-labyrinth": {
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5109"
+  },
+  "consumable:spirit-sealing-fulu": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5083"
+  },
+  "consumable:spirit-sealing-fulu-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5083"
   },
   "consumable:steel-cloud-road": {
     "book": "impossible-magic",
@@ -326,6 +414,22 @@
   "consumable:three-bird-pinion": {
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5111"
+  },
+  "consumable:thunderbird-tuft-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5067"
+  },
+  "consumable:thunderbird-tuft-lesser": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5067"
+  },
+  "consumable:thunderbird-tuft-major": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5067"
+  },
+  "consumable:thunderbird-tuft-moderate": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5067"
   },
   "consumable:topology-protoplasm": {
     "book": "impossible-magic",
@@ -359,6 +463,14 @@
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5043"
   },
+  "equipment:all-seeing-eye": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5147"
+  },
+  "equipment:all-seeing-eye-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5147"
+  },
   "equipment:anointed-waterskin": {
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5139"
@@ -376,6 +488,10 @@
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5119"
   },
   "equipment:backfire-mantle": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5182"
+  },
+  "equipment:backfire-mantle-greater": {
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5182"
   },
@@ -407,7 +523,35 @@
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5148"
   },
+  "equipment:cerebral-barbell-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5148"
+  },
+  "equipment:cerebral-barbell-major": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5148"
+  },
+  "equipment:chapbook-of-terrors": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5125"
+  },
+  "equipment:chapbook-of-terrors-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5125"
+  },
+  "equipment:chapbook-of-terrors-major": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5125"
+  },
   "equipment:cheery-chime": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5149"
+  },
+  "equipment:cheery-chime-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5149"
+  },
+  "equipment:cheery-chime-major": {
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5149"
   },
@@ -423,11 +567,35 @@
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5141"
   },
+  "equipment:codebreakers-parchment-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5141"
+  },
+  "equipment:codebreakers-parchment-major": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5141"
+  },
+  "equipment:codex-of-unimpeded-sight": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5126"
+  },
+  "equipment:codex-of-unimpeded-sight-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5126"
+  },
   "equipment:collar-of-the-eternal-bond": {
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5184"
   },
   "equipment:deathbane-crescent": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5150"
+  },
+  "equipment:deathbane-crescent-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5150"
+  },
+  "equipment:deathbane-crescent-major": {
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5150"
   },
@@ -447,7 +615,27 @@
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5127"
   },
+  "equipment:endless-grimoire-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5127"
+  },
+  "equipment:endless-grimoire-major": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5127"
+  },
+  "equipment:endless-grimoire-true": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5127"
+  },
   "equipment:energizing-vial": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5151"
+  },
+  "equipment:energizing-vial-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5151"
+  },
+  "equipment:energizing-vial-major": {
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5151"
   },
@@ -455,7 +643,27 @@
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5177"
   },
+  "equipment:five-feather-wreath": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5152"
+  },
+  "equipment:five-feather-wreath-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5152"
+  },
+  "equipment:five-feather-wreath-major": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5152"
+  },
   "equipment:flaming-star": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5153"
+  },
+  "equipment:flaming-star-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5153"
+  },
+  "equipment:flaming-star-major": {
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5153"
   },
@@ -479,6 +687,14 @@
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5154"
   },
+  "equipment:grim-sandglass-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5154"
+  },
+  "equipment:grim-sandglass-major": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5154"
+  },
   "equipment:grudge-journal": {
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5128"
@@ -491,11 +707,31 @@
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5155"
   },
+  "equipment:helping-hand-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5155"
+  },
+  "equipment:helping-hand-major": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5155"
+  },
   "equipment:hydrating-pinwheel": {
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5156"
   },
+  "equipment:hydrating-pinwheel-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5156"
+  },
+  "equipment:hydrating-pinwheel-major": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5156"
+  },
   "equipment:ice-gliders": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5187"
+  },
+  "equipment:ice-gliders-greater": {
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5187"
   },
@@ -527,6 +763,14 @@
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5157"
   },
+  "equipment:perfect-droplet-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5157"
+  },
+  "equipment:perfect-droplet-major": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5157"
+  },
   "equipment:psalter-of-the-blessed": {
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5130"
@@ -551,7 +795,15 @@
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5158"
   },
+  "equipment:silver-tongue-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5158"
+  },
   "equipment:sparking-grimoire": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5132"
+  },
+  "equipment:sparking-grimoire-greater": {
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5132"
   },
@@ -560,6 +812,14 @@
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5133"
   },
   "equipment:stampede-medallion": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5189"
+  },
+  "equipment:stampede-medallion-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5189"
+  },
+  "equipment:stampede-medallion-major": {
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5189"
   },
@@ -575,6 +835,14 @@
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5159"
   },
+  "equipment:thirsty-chalice-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5159"
+  },
+  "equipment:thirsty-chalice-major": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5159"
+  },
   "equipment:thousand-blade-thesis": {
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5146"
@@ -587,7 +855,23 @@
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5160"
   },
+  "equipment:trinity-geode-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5160"
+  },
+  "equipment:trinity-geode-major": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5160"
+  },
   "equipment:verdant-leaves": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5136"
+  },
+  "equipment:verdant-leaves-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5136"
+  },
+  "equipment:verdant-leaves-major": {
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5136"
   },
@@ -596,6 +880,18 @@
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5137"
   },
   "equipment:warding-tattoo": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5181"
+  },
+  "equipment:warding-tattoo-fiend": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5181"
+  },
+  "equipment:warding-tattoo-trail": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5181"
+  },
+  "equipment:warding-tattoo-wave": {
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5181"
   },
@@ -1335,6 +1631,10 @@
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=9075"
   },
+  "feat:magic-sense-magus": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5044"
+  },
   "feat:magical-adept": {
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=9255"
@@ -1799,6 +2099,10 @@
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=9058"
   },
+  "feat:steady-spellcasting-magus": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4602"
+  },
   "feat:steal-magics-breath": {
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=9348"
@@ -2035,6 +2339,10 @@
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=9186"
   },
+  "feat:zombie-horde-necromancer": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9122"
+  },
   "heritage:defensive-automaton": {
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Heritages.aspx?ID=438"
@@ -2119,6 +2427,14 @@
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4987"
   },
+  "rune:convincing-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4987"
+  },
+  "rune:convincing-major": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4987"
+  },
   "rune:deflecting": {
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4988"
@@ -2127,7 +2443,15 @@
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4989"
   },
+  "rune:energy-vulnerability-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4989"
+  },
   "rune:impactful": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4990"
+  },
+  "rune:impactful-greater": {
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4990"
   },
@@ -2136,6 +2460,14 @@
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4991"
   },
   "rune:moonweave": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4992"
+  },
+  "rune:moonweave-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4992"
+  },
+  "rune:moonweave-major": {
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4992"
   },
@@ -2152,6 +2484,14 @@
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4995"
   },
   "rune:sunweave": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4996"
+  },
+  "rune:sunweave-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4996"
+  },
+  "rune:sunweave-major": {
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4996"
   },

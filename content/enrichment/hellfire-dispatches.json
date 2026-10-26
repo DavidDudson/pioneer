@@ -447,6 +447,10 @@
     "book": "hellfire-dispatches",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=8891"
   },
+  "feat:remote-detonation-snarecrafter": {
+    "book": "hellfire-dispatches",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8903"
+  },
   "feat:repel-darkness": {
     "book": "hellfire-dispatches",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=8939"
@@ -454,6 +458,10 @@
   "feat:repelling-enforcer": {
     "book": "hellfire-dispatches",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=8899"
+  },
+  "feat:riptide-undersea-privateer": {
+    "book": "hellfire-dispatches",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8923"
   },
   "feat:rise-up": {
     "book": "hellfire-dispatches",
@@ -586,6 +594,10 @@
   "feat:wall-of-roses": {
     "book": "hellfire-dispatches",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=8912"
+  },
+  "feat:watch-your-back-golden-legionnaire": {
+    "book": "hellfire-dispatches",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8845"
   },
   "feat:wrath-against-the-divine": {
     "book": "hellfire-dispatches",
