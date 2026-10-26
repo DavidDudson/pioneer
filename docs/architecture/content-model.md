@@ -224,6 +224,17 @@ its damage is its description, and the effects it applies are `effect` entries.
   `min` and `max`, with `labels` and `loop`, or a rolled `formula` that may `reevaluate` at initiative or a turn's
   start or end. Foundry's `tokenIcon`, `unidentified` and the context of the action that applied it are play
   state, not content.
+- **Polymorph effects that are no battle form.** An effect needs the `polymorph` trait to be exclusive with other
+  forms (`play-and-campaigns.md`, "Conditions and effects"). Foundry's effects carry no traits, so the importer gives a
+  `Spell Effect: X` (or `Spell Effect: X (variant)`) the trait of a `polymorph` spell `X` in the same import, and a
+  catalog test fails when a committed one lacks it. A pack is never re-imported (ADR-0031), so the committed packs got
+  the trait in a one-off content pass. Humanoid Form shows the shape such a form takes: a `ChoiceSet` for the form
+  (`humanoid-form:small|medium|large`), a `CreatureSize` for each, `ActorTraits`, and `RollOption` toggles for what
+  the player turns on while it lasts (`option:pass-as-humanoid`, and `option:humanoid-form-sense` with a suboption per
+  sense). An active form keeps one chosen roll option, so a further choice is a toggle with suboptions, not a second
+  `ChoiceSet`. Foundry's rank gates (`parent:origin:item:level`) are not facts here and are dropped, and
+  `proficiency:untrained` is not a roll option, so the untrained bonus is `ternary(@rank.skill.deception, 0, @level)`
+  in the value.
 
 #### Equipment data
 

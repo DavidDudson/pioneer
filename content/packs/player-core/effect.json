@@ -17509,17 +17509,44 @@
       {
         "key": "Sense",
         "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb",
-        "predicate": ["vision-type:darkvision"]
+        "predicate": ["option:humanoid-form-sense:darkvision"]
       },
       {
         "key": "Sense",
         "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c",
-        "predicate": ["vision-type:low-light-vision"]
+        "predicate": ["option:humanoid-form-sense:low-light-vision"]
       },
       {
         "key": "ActorTraits",
         "add": ["humanoid"],
         "remove": []
+      },
+      {
+        "key": "CreatureSize",
+        "value": "small",
+        "resizeEquipment": true,
+        "reach": {
+          "override": 5
+        },
+        "predicate": ["humanoid-form:small"]
+      },
+      {
+        "key": "CreatureSize",
+        "value": "medium",
+        "resizeEquipment": true,
+        "reach": {
+          "override": 5
+        },
+        "predicate": ["humanoid-form:medium"]
+      },
+      {
+        "key": "CreatureSize",
+        "value": "large",
+        "resizeEquipment": true,
+        "reach": {
+          "override": 10
+        },
+        "predicate": ["humanoid-form:large"]
       },
       {
         "key": "FlatModifier",
@@ -17533,9 +17560,9 @@
         "key": "FlatModifier",
         "selectors": ["skill:deception"],
         "type": "proficiency",
-        "value": "@level",
+        "value": "ternary(@rank.skill.deception, 0, @level)",
         "slug": "humanoid-form-proficiency-bonus",
-        "predicate": ["option:pass-as-humanoid", "proficiency:untrained"]
+        "predicate": ["option:pass-as-humanoid"]
       },
       {
         "key": "FlatModifier",
@@ -17551,6 +17578,25 @@
         "display": {
           "label": "Human Form — Pass as Humanoid"
         }
+      },
+      {
+        "key": "RollOption",
+        "option": "option:humanoid-form-sense",
+        "toggleable": true,
+        "value": false,
+        "display": {
+          "label": "Humanoid Form — Sense"
+        },
+        "suboptions": [
+          {
+            "value": "low-light-vision",
+            "label": "Low-Light Vision"
+          },
+          {
+            "value": "darkvision",
+            "label": "Darkvision"
+          }
+        ]
       },
       {
         "key": "ChoiceSet",
@@ -17576,31 +17622,6 @@
         ],
         "prompt": "Select a form.",
         "rollOption": "humanoid-form"
-      },
-      {
-        "key": "ChoiceSet",
-        "flag": "spell-effect-humanoid-form",
-        "choices": [
-          {
-            "value": "none",
-            "label": "None"
-          },
-          {
-            "value": "low-light-vision",
-            "label": "Low-Light Vision"
-          },
-          {
-            "value": "darkvision",
-            "label": "Darkvision"
-          }
-        ],
-        "prompt": "Select a sense.",
-        "rollOption": "vision-type",
-        "predicate": [
-          {
-            "gte": ["parent:origin:item:level", 3]
-          }
-        ]
       }
     ],
     "externalIds": {
