@@ -439,6 +439,14 @@ entry, the source's index and the book or pack, at `sources[i].book` or `sources
 every pack it loads, so a wrongly sourced entry fails `bun run affected`; the rules playground's "Content entry" mode
 runs them after the schema.
 
+Enrichment data comes from two committed places (ADR-0070, ADR-0071). `content/enrichment/<pack>.json` maps an entry slug
+to its book and, once known, its page and AoN URL; `EnrichmentMappingFile` validates it (a search page, another host or
+a page below 1 is rejected) and `checkEnrichment` reports a mapping that names an unknown slug or book instead of
+applying it. `content/aon/<book>.json` is a book's name-to-URL table from its AoN Sources page, fetched by
+`just aon-sources`: a developer-run script that reads `robots.txt`, sends a descriptive User-Agent, keeps two seconds
+between requests, uses `ETag`s and stops at the first refusal. It fetches only Sources pages and stores only names and
+URLs. Nothing in CI, the importer or the app calls AoN.
+
 `bun run content:coverage` reports, per registered book, how many catalog entries cite it and which cite it by AoN
 link alone, still waiting for a page, so pages can be filled in over time. It reports and never fails.
 
