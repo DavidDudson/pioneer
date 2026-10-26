@@ -2,11 +2,11 @@ import { inject } from '@angular/core';
 import type { Character } from '@pioneer/character/domain';
 import type { LinkTarget } from '@pioneer/frontier';
 import { ContentLoader } from '@pioneer/rules/data-access';
-import { EffectMode } from '@pioneer/rules/engine';
-import { ContentKind } from '@pioneer/rules/sdk';
-import type { ContentEntry, ContentId, ContentRegistry } from '@pioneer/rules/sdk';
+import { EffectMode, spellAtRank } from '@pioneer/rules/engine';
+import { ContentKind, Trait } from '@pioneer/rules/sdk';
+import type { ContentEntry, ContentId, ContentRegistry, SpellRank } from '@pioneer/rules/sdk';
 import { entryTarget } from '@pioneer/rules/ui';
-import type { EntryPreview, EntryPreviews, PreviewEffect } from '@pioneer/rules/ui';
+import type { EntryPreview, EntryPreviews, PreviewEffect, PreviewRanks } from '@pioneer/rules/ui';
 
 import { injectStatisticLink } from './sheet-breakdown/sheet-breakdown';
 import { sheetEntryEffects } from './sheet-entry-effects';
@@ -37,13 +37,27 @@ export function sheetEntryPreview(registry: ContentRegistry | undefined, id: Con
   return entry === undefined ? undefined : previewOf(entry);
 }
 
+/** A cantrip heightens by the caster's level, not by a rank picked, so its card offers no pick. */
+const CANTRIP = Trait.parse('cantrip');
+
+/** A spell's ranks: the spell cast at each from its own up. None for any other entry, and for a cantrip. */
+function ranksOf(entry: ContentEntry): PreviewRanks | undefined {
+  if (entry.kind !== ContentKind.Spell || entry.traits.includes(CANTRIP)) {
+    return undefined;
+  }
+  const { data } = entry;
+  return { from: data.rank, cast: (rank) => spellAtRank(data, rank) };
+}
+
 function previewOf(entry: ContentEntry): EntryPreview {
+  const ranks = ranksOf(entry);
   return {
     name: entry.name,
     level: 'level' in entry ? entry.level : undefined,
     traits: entry.traits,
     summary: entry.description,
     sources: entry.sources,
+    ...(ranks === undefined ? {} : { ranks }),
   };
 }
 
@@ -63,6 +77,21 @@ function previewOnCharacter(
   // Derived on first read, when the card opens. Every row asks whether it can preview.
   // Deriving the statistics for each would cost the sheet a render.
   const kept: { effects: readonly PreviewEffect[] | undefined } = { effects: undefined };
+  const { ranks } = preview;
+  if (ranks !== undefined) {
+    // Each rank derives the first time it is picked; a card shows one rank at a time.
+    const keptByRank = new Map<SpellRank, readonly PreviewEffect[]>();
+    const effects = (rank: SpellRank): readonly PreviewEffect[] => {
+      const known = keptByRank.get(rank);
+      if (known !== undefined) {
+        return known;
+      }
+      const derived = sheetEntryEffects(registry, character, { entry, mode: EffectMode.WouldApply, rank });
+      keptByRank.set(rank, derived);
+      return derived;
+    };
+    return { ...preview, ranks: { ...ranks, effects } };
+  }
   return {
     ...preview,
     get effects(): readonly PreviewEffect[] {

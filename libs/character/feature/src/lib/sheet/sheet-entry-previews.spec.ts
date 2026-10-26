@@ -1,8 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 import { ContentLoader } from '@pioneer/rules/data-access';
-import { ContentId, ContentKind, contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
-import type { ContentRegistry } from '@pioneer/rules/sdk';
-import type { EntryPreviews } from '@pioneer/rules/ui';
+import { ContentId, ContentKind, contentId, EntrySlug, PackId, SpellRank, Trait } from '@pioneer/rules/sdk';
+import type { ContentEntry, ContentRegistry, SpellData } from '@pioneer/rules/sdk';
+import type { EntryPreviews, PreviewRanks } from '@pioneer/rules/ui';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 import type { Mock } from 'vitest';
 
@@ -14,6 +14,13 @@ import {
 import { cutTo } from '../testing/test-packs';
 import { INVENTORY_CONTENT_KINDS } from './inventory/sheet-inventory';
 import { sheetEntryPreview, sheetEntryPreviews, sheetFetchingPreviews } from './sheet-entry-previews';
+
+type SpellEntry = Extract<ContentEntry, { readonly kind: typeof ContentKind.Spell }>;
+
+interface SpellPreview {
+  readonly rank: SpellRank;
+  readonly ranks: PreviewRanks | undefined;
+}
 
 const FEAT_PACKS = cutTo([ContentKind.Feat]);
 
@@ -69,6 +76,56 @@ describe('previews of the kinds the spell and item rows show', () => {
 
     expect(entry).toBeDefined();
     expect(sheetEntryPreview(registry, ContentId.parse(entry?.id))).toMatchObject({ name: entry?.name });
+  });
+});
+
+const CANTRIP = Trait.parse('cantrip');
+
+/** The first spell in `registry` that `wanted` accepts: its own rank, and the ranks its preview offers. */
+function spellPreview(registry: ContentRegistry, wanted: (entry: SpellEntry) => boolean): SpellPreview {
+  for (const entry of registry.packs.flatMap((pack) => pack.otherEntries)) {
+    if (entry.kind === ContentKind.Spell && wanted(entry)) {
+      return { rank: entry.data.rank, ranks: sheetEntryPreview(registry, entry.id)?.ranks };
+    }
+  }
+  throw new Error('No such spell in the packs');
+}
+
+/** A spell that is no cantrip and grows its damage by the rank it is cast at. */
+function isHeightenedDamage({ traits, data }: SpellEntry): boolean {
+  return !traits.includes(CANTRIP) && data.heightening?.type === 'interval' && data.damage.length > 0;
+}
+
+/** The damage of `ranks` cast at `rank`. */
+function damageAt(ranks: PreviewRanks | undefined, rank: number): SpellData['damage'] | undefined {
+  return ranks?.cast(SpellRank.parse(rank)).damage;
+}
+
+describe('previews of a spell', () => {
+  const PACKS = cutTo([ContentKind.Spell]);
+
+  async function spells(): Promise<ContentRegistry> {
+    TestBed.configureTestingModule({ providers: provideServerStateTesting([], PACKS) });
+    return TestBed.inject(ContentLoader).registry([ContentKind.Spell]);
+  }
+
+  beforeAll(async () => {
+    await prebuildServerStateTesting([], PACKS);
+  }, PREBUILD_TIMEOUT);
+
+  it('offers the ranks from its own up, heightened', async () => {
+    const registry = await spells();
+    const { rank, ranks } = spellPreview(registry, isHeightenedDamage);
+
+    expect(ranks?.from).toBe(rank);
+    expect(damageAt(ranks, rank + 2)).not.toStrictEqual(damageAt(ranks, rank));
+  });
+
+  it('offers a cantrip no ranks', async () => {
+    const registry = await spells();
+    const { ranks } = spellPreview(registry, ({ traits }) => traits.includes(CANTRIP));
+
+    expect(ranks).toBeUndefined();
   });
 });
 

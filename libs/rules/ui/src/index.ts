@@ -13,6 +13,7 @@ export {
   type EntryPreview,
   type EntryPreviews,
   type PreviewEffect,
+  type PreviewRanks,
   type StatisticLink,
   provideEntryPreviews,
 } from './lib/entry-preview/entry-preview';
@@ -126,7 +127,12 @@ export type {
   SpellFieldsLine,
   SpellVariantLine,
 } from './lib/spell-list/spell-detail-line';
-export { type SpellIdentity, spellDetailLine } from './lib/spell-list/spell-detail-line-of';
+export {
+  type SpellCastLine,
+  type SpellIdentity,
+  spellCastLine,
+  spellDetailLine,
+} from './lib/spell-list/spell-detail-line-of';
 export { SpellDetails } from './lib/spell-list/spell-details.component';
 export { SpellListMessage } from './lib/spell-list/spell-list-messages';
 export type { Translate } from './lib/spell-list/spell-text';

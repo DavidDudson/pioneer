@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
-import { EffectStatusKind } from '@pioneer/rules/engine';
+import { EffectStatusKind, spellAtRank } from '@pioneer/rules/engine';
+import { SpellRank } from '@pioneer/rules/sdk';
 
+import { FIREBALL as FIREBALL_DATA } from '../testing/spell-fixtures';
 import { EntryPreviewView } from './entry-preview.component';
 import {
   CLUMSY_PREVIEW,
@@ -47,6 +49,22 @@ export const WouldDo: EntryPreviewStory = {
         }),
         notSummarisedPreviewEffect(FIREBALL),
       ],
+    },
+  },
+};
+
+/** A spell with ranks: pick the rank to cast it at and the card shows its damage and area there, and its effects. */
+export const SpellRanks: EntryPreviewStory = {
+  args: {
+    preview: {
+      ...FIREBALL_PREVIEW,
+      ranks: {
+        from: SpellRank.parse(3),
+        cast: (rank) => spellAtRank(FIREBALL_DATA, rank),
+        effects: (rank) => [
+          modifierPreviewEffect(FIREBALL, { statistic: 'Perception', selector: 'perception', value: rank }),
+        ],
+      },
     },
   },
 };

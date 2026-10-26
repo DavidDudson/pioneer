@@ -16,7 +16,9 @@
     </fr-stack>
   }
   <pio-rich-text [text]="summary()" [headingLevel]="headingLevel()" />
-  @if (preview().effects; as effects) {
+  @if (preview().ranks; as ranks) {
+    <pio-entry-ranks [ranks]="ranks" [name]="preview().name" />
+  } @else if (preview().effects; as effects) {
     <pio-entry-effects [effects]="effects" />
   }
   <pio-source-line [sources]="preview().sources" />
