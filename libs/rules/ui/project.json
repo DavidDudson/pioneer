@@ -33,7 +33,12 @@
         },
         "{workspaceRoot}/libs/frontier/.storybook/storybook-project.ts"
       ],
-      "command": "vitest run --config libs/rules/ui/.storybook/vitest.config.ts"
+      "command": "vitest run --config libs/rules/ui/.storybook/vitest.config.ts",
+      "configurations": {
+        "shard-1": { "command": "vitest run --config libs/rules/ui/.storybook/vitest.config.ts --shard=1/3" },
+        "shard-2": { "command": "vitest run --config libs/rules/ui/.storybook/vitest.config.ts --shard=2/3" },
+        "shard-3": { "command": "vitest run --config libs/rules/ui/.storybook/vitest.config.ts --shard=3/3" }
+      }
     }
   }
 }

@@ -22,6 +22,9 @@ env:
 jobs:
   build:
     name: Build and smoke test
+    # Pull requests only for now: on main the base-image pulls from public.ecr.aws hit its anonymous rate limit
+    # (429). Publish and Deploy need this job, so they are skipped on main too until it comes back.
+    if: github.event_name == 'pull_request'
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     permissions:
