@@ -14,6 +14,7 @@ import { PlayStore } from '../data/play-store';
 import { sheetBuildPicks } from './sheet-build-picks';
 import type { BuildPicks } from './sheet-build-picks';
 import { sheetConditionPreviews } from './sheet-condition-previews';
+import { withoutForms } from './sheet-effects';
 import { sheetFetchingPreviews } from './sheet-entry-previews';
 import { readsEquipment, EQUIPMENT_CONTENT_KINDS, sheetInvestments } from './sheet-equipment';
 import { sheetFocus } from './sheet-focus-spells';
@@ -25,6 +26,7 @@ import { SPELL_CONTENT_KINDS } from './sheet-prepared-spells';
 import { claimSituation, NO_CLAIMS } from './sheet-situations';
 import type { SituationClaims } from './sheet-situations';
 import { namedStatistics, sheetDerivation, sheetVitalsInPlay } from './sheet-statistics';
+// oxlint-disable-next-line import/max-dependencies -- the state every region of the sheet reads: the character, its forms and what the engine derives
 import { sheetVitals } from './sheet-vitals';
 
 /**
@@ -44,11 +46,8 @@ export class SheetState {
   readonly #played = computed((): PlayedInputs | undefined => this.#play.play.data()?.play, {
     equal: samePlayed,
   });
-  /**
-   * The open character with the conditions active now and its toggles, so every derivation (statistics, Strikes)
-   * reads them.
-   */
-  public readonly character: Signal<Character | undefined> = computed((): Character | undefined => {
+  /** The open character with the conditions and effects active now and its toggles, forms included. */
+  readonly #full: Signal<Character | undefined> = computed((): Character | undefined => {
     const selected = this.store.selected();
     const played = this.#played();
     return selected === undefined || played === undefined
@@ -61,18 +60,38 @@ export class SheetState {
         });
   });
 
+  readonly #baseView = signal(false);
+
+  /**
+   * Whether the sheet shows the character without its form (#528), for reference. A display preference only: the form
+   * stays active and nothing is sent.
+   */
+  public readonly baseView: Signal<boolean> = this.#baseView.asReadonly();
+
+  /**
+   * The open character with the conditions active now and its toggles, so every derivation (statistics, Strikes)
+   * reads them. In the base view it has none of its polymorph effects, so the sheet reads as it would out of form.
+   */
+  public readonly character: Signal<Character | undefined> = computed((): Character | undefined => {
+    const full = this.#full();
+    const registry = this.equipment.data();
+    return full === undefined || registry === undefined || !this.#baseView()
+      ? full
+      : withPlay(full, { ...full.document.play, effects: [...withoutForms(registry, full.document.play.effects)] });
+  });
+
   /** The registry the engine reads, shared with the ancestry options, so it loads once. */
   public readonly registry = injectContentRegistry(CHARACTER_CONTENT_KINDS);
   /**
    * The registry with the item and condition kinds too, so the character's equipment and Bulk reach the engine. It
    * loads only once the character carries something or has a condition, so a sheet with neither never fetches them for it.
    */
-  public readonly equipment = injectContentRegistry(EQUIPMENT_CONTENT_KINDS, () => readsEquipment(this.character()));
+  public readonly equipment = injectContentRegistry(EQUIPMENT_CONTENT_KINDS, () => readsEquipment(this.#full()));
   /** The query the engine's registry comes from, so the regions that wait on it show its pending and failed states. */
-  public readonly engineQuery = computed(() => (readsEquipment(this.character()) ? this.equipment : this.registry));
+  public readonly engineQuery = computed(() => (readsEquipment(this.#full()) ? this.equipment : this.registry));
   /** The registry the engine reads: with the item kinds once anything is carried, undefined while they load. */
   readonly #engineRegistry = computed((): ContentRegistry | undefined =>
-    readsEquipment(this.character()) ? this.equipment.data() : this.registry.data(),
+    readsEquipment(this.#full()) ? this.equipment.data() : this.registry.data(),
   );
 
   /** The registry the engine reads, for a roll that derives a statistic again; undefined while it loads. */
@@ -191,6 +210,11 @@ export class SheetState {
     const lines = this.picks.buildLines();
     return character === undefined || lines === undefined ? undefined : sheetIdentity(character, lines);
   });
+
+  /** Shows the sheet without the character's form, or with it again. */
+  public setBaseView(on: boolean): void {
+    this.#baseView.set(on);
+  }
 
   /** Claims the situation of a conditional line for the next roll of `selector`, or lets it go. */
   public claim(selector: Selector, rule: RuleId, on: boolean): void {

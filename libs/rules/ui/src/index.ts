@@ -95,6 +95,7 @@ export {
   type RunedNamer,
 } from './lib/inventory/rune-name';
 export { ProficiencyRankView } from './lib/proficiency-rank/proficiency-rank.component';
+export { FormBanner, type FormDetail, type FormSummary } from './lib/form-banner/form-banner.component';
 export { type Vital, type VitalBasis, VitalBasisKind } from './lib/vitals/vital';
 export { VitalsView } from './lib/vitals/vitals.component';
 export { ActionCostCell } from './lib/picker-cells/action-cost-cell/action-cost-cell.component';
