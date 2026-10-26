@@ -220,16 +220,33 @@ describe(sheetInvestments, () => {
     const worn = changed(carrying(wearing([CLOAK, ItemFixture.Cloak])), (inventory) =>
       investItem(inventory, CLOAK, true),
     );
-    const [cloak] = sheetInvestments(worn, itemContent(registry), sheetStatistics(registry, worn));
+    const [cloak] = sheetInvestments(worn, itemContent(registry), { statistics: sheetStatistics(registry, worn) });
     expect(cloak).toMatchObject({ id: CLOAK, name: 'Cloak', working: true });
     expect(cloak?.effects.map(({ statistic }) => statistic)).toStrictEqual(['Perception']);
+  });
+
+  it('melds an invested item that works in a form, and not one that is off', async () => {
+    const registry = await equipmentRegistry();
+    const worn = changed(carrying(wearing([CLOAK, ItemFixture.Cloak])), (inventory) =>
+      investItem(inventory, CLOAK, true),
+    );
+    const content = itemContent(registry);
+    const statistics = sheetStatistics(registry, worn);
+    expect(sheetInvestments(worn, content, { statistics, melded: true })).toMatchObject([{ id: CLOAK, melded: true }]);
+    expect(sheetInvestments(worn, content, { statistics })).toMatchObject([{ id: CLOAK, melded: false }]);
+    const stowed = carryItem(wearing([CLOAK, ItemFixture.Cloak]), CLOAK, { state: CarryState.Stowed });
+    const off = carrying(investItem(stowed, CLOAK, true));
+    const offStatistics = sheetStatistics(registry, off);
+    expect(sheetInvestments(off, content, { statistics: offStatistics, melded: true })).toMatchObject([
+      { melded: false },
+    ]);
   });
 
   it('says an invested item taken off does nothing', async () => {
     const registry = await equipmentRegistry();
     const stowed = carryItem(wearing([CLOAK, ItemFixture.Cloak]), CLOAK, { state: CarryState.Stowed });
     const off = carrying(investItem(stowed, CLOAK, true));
-    expect(sheetInvestments(off, itemContent(registry), sheetStatistics(registry, off))).toMatchObject([
+    expect(sheetInvestments(off, itemContent(registry), { statistics: sheetStatistics(registry, off) })).toMatchObject([
       { id: CLOAK, working: false, effects: [] },
     ]);
   });

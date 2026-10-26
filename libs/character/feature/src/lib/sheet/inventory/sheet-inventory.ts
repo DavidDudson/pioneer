@@ -1,4 +1,5 @@
 import {
+  activeState,
   CarryState,
   hasRunes,
   INVENTORY_KINDS,
@@ -83,6 +84,9 @@ export function lineRunes(
   };
 }
 
+/** The table's rules, and whether a battle form has the worn and held gear melded into it (#532). */
+export type InventoryRules = TableRules & { readonly melded?: boolean };
+
 /**
  * The inventory as the sheet lists it: loose items grouped worn, held, stowed and dropped as they are carried, each
  * container with what it holds beneath it, and each item named with its runes. Empty groups are left out.
@@ -90,7 +94,7 @@ export function lineRunes(
 export function sheetInventory(
   inventory: Inventory,
   { items, runes }: RunedContent,
-  { limits, approvals, campaign }: TableRules = CORE_TABLE,
+  { limits, approvals, campaign, melded = false }: InventoryRules = CORE_TABLE,
 ): readonly InventoryGroup[] {
   const contents = contentsByContainer(inventory.items);
   const { open, approved } = partitionApproved(inventoryViolations(inventory, { items, runes }, limits), approvals);
@@ -108,6 +112,7 @@ export function sheetInventory(
       bulkPer: entry?.data.bulkPer,
       hands: item.carry.state === CarryState.Held ? item.carry.hands : undefined,
       invested: item.invested === true,
+      melded: melded && activeState(item, entry) !== undefined,
       runes: lineRunes(item, entry, runes),
       breaks: breaks.get(item.id) ?? [],
       approved: approvedBreaks.get(item.id) ?? [],

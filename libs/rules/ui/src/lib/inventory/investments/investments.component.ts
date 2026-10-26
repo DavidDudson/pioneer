@@ -24,6 +24,7 @@ const InvestmentMessage = {
   Count: 'rules.investments.count',
   None: 'rules.investments.none',
   Off: 'rules.investments.off',
+  Melded: 'rules.investments.melded',
   NothingShown: 'rules.investments.nothingShown',
   Effect: 'rules.investments.effect',
   EffectMarked: 'rules.investments.effectMarked',
@@ -75,20 +76,21 @@ export class InvestmentsView {
   protected readonly shown = computed((): readonly ShownInvestment[] | undefined => {
     this.#messages();
     this.#format.locale();
-    return this.investments()?.map(({ id, name, working, effects }): ShownInvestment => ({
+    return this.investments()?.map(({ id, name, working, melded, effects }): ShownInvestment => ({
       id,
       name: name ?? this.#i18n.translate(InventoryMessage.UnknownItem),
-      effects: this.#effects(working, effects),
+      effects: this.#effects(working, melded === true, effects),
     }));
   });
 
-  #effects(working: boolean, effects: readonly InvestmentEffect[]): readonly string[] {
+  #effects(working: boolean, melded: boolean, effects: readonly InvestmentEffect[]): readonly string[] {
     if (!working) {
       return [this.#i18n.translate(InvestmentMessage.Off)];
     }
+    const melding = melded ? [this.#i18n.translate(InvestmentMessage.Melded)] : [];
     return effects.length === 0
-      ? [this.#i18n.translate(InvestmentMessage.NothingShown)]
-      : effects.map((effect) => this.#effect(effect));
+      ? [...melding, this.#i18n.translate(InvestmentMessage.NothingShown)]
+      : [...melding, ...effects.map((effect) => this.#effect(effect))];
   }
 
   /** "Perception +1 item", with the reason it doesn't count when it doesn't. */

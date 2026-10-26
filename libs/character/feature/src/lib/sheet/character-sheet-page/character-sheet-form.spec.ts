@@ -87,6 +87,15 @@ describe('CharacterSheetPage form header', () => {
     });
   });
 
+  it('shows what the form looks like above the appearance, by its traits', async () => {
+    const { root } = await openExploration(undefined, { play: playWith([plant]), packs: PACKS });
+
+    await vi.waitFor(() => {
+      const section = present(root.querySelector('section[aria-labelledby="sheet-roleplay"]'));
+      expect(textOf(section)).toContain('As Spell Effect: Plant Form you look like a creature with the traits plant.');
+    });
+  });
+
   it('shows nothing when the effects on the character are not a form', async () => {
     const onslaught = { id: FIRST, effect: EMPOWERED_ONSLAUGHT, source: { kind: 'self' }, badge: 1 };
     const { root } = await openSheet(undefined, { play: playWith([onslaught]), packs: PACKS });

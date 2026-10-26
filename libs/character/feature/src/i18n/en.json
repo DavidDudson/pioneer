@@ -159,12 +159,16 @@
       "hint": "Situations the character is in, such as underwater or in the dark. Each can forbid things, and says why.",
       "none": "No environments in the content yet"
     },
+    "skills": {
+      "formTraits": "Your form gives you the traits {traits} on this roll."
+    },
     "roleplay": {
       "heading": "Appearance and personality",
       "appearance": "Appearance",
       "personality": "Personality",
       "empty": "Not written yet",
-      "inForm": "In form: {name}. The appearance below is your own."
+      "inForm": "In form: {name}. The appearance below is your own.",
+      "formAppearance": "As {name} you look like a creature with the traits {traits}."
     },
     "downtimeHeading": "Downtime",
     "shop": {

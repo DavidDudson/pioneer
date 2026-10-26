@@ -25,6 +25,8 @@ export interface InventoryLine {
   /** The hands a held item is held in; undefined for one that isn't held. */
   readonly hands: number | undefined;
   readonly invested: boolean;
+  /** Whether it is worn or held in a battle form and so melded into it (#532): the form decides what it does. */
+  readonly melded?: boolean | undefined;
   /**
    * The runes its name reads ("+1 Striking Flaming"); undefined for an item with none, or a specific item, whose
    * name has them.

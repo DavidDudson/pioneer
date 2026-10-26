@@ -38,6 +38,10 @@
   </fr-section>
 
   <fr-section [anchor]="sections.inventory.anchor" [heading]="sections.inventory.headingKey | transloco">
-    <pio-inventory-section [investments]="sheet.investments()" [engine]="sheet.engineQuery()" />
+    <pio-inventory-section
+      [investments]="sheet.investments()"
+      [engine]="sheet.engineQuery()"
+      [melded]="sheet.melded()"
+    />
   </fr-section>
 </fr-stack>

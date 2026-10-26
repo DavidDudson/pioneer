@@ -38,6 +38,20 @@ describe(InvestmentsView, () => {
     expect(stealth).toStrictEqual(['Ring of Stealth', 'Not worn or held, so it does nothing.']);
   });
 
+  it('says a worn investment is melded into the form, and still lists what it turns on', async () => {
+    const [cloak] = shown(
+      await render(
+        INVESTMENTS.map(({ id, name, working, effects }) => ({ id, name, working, effects, melded: working })),
+      ),
+    );
+    expect(cloak).toStrictEqual([
+      'Cloak of Elvenkind',
+      'Melded into your form: its constant effects still apply, but it cannot be activated.',
+      'Reflex +1 item',
+      'Perception +1 item',
+    ]);
+  });
+
   it('shows placeholders while loading, and an empty state with nothing invested', async () => {
     const loading = await render(undefined);
     expect(loading.querySelectorAll('fr-skeleton').length).toBeGreaterThan(0);
