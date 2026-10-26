@@ -1,0 +1,210 @@
+{
+  "etag": "\"f0950cb469a34f229db70c9e0e03abec\"",
+  "entries": [
+    {
+      "type": "Equipment",
+      "name": "Chalice of Ozem",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3787"
+    },
+    {
+      "type": "Equipment",
+      "name": "Heart Bloodstone of Arazni",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3783"
+    },
+    {
+      "type": "Equipment",
+      "name": "Liver Bloodstone of Arazni",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3784"
+    },
+    {
+      "type": "Equipment",
+      "name": "Lung Bloodstone of Arazni",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3785"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spleen Bloodstone of Arazni",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3786"
+    },
+    {
+      "type": "Feats",
+      "name": "Adept Storyteller",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7756"
+    },
+    {
+      "type": "Feats",
+      "name": "Body Barrier",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7752"
+    },
+    {
+      "type": "Feats",
+      "name": "Cautious Word",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7757"
+    },
+    {
+      "type": "Feats",
+      "name": "Cenotaph Stance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7755"
+    },
+    {
+      "type": "Feats",
+      "name": "Crusader's Masquerade",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7758"
+    },
+    {
+      "type": "Feats",
+      "name": "Cut them Down, Burn them Out",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7748"
+    },
+    {
+      "type": "Feats",
+      "name": "Faith in the Fallen",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7759"
+    },
+    {
+      "type": "Feats",
+      "name": "Grave Threat",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7747"
+    },
+    {
+      "type": "Feats",
+      "name": "I Knew the Heroes",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7760"
+    },
+    {
+      "type": "Feats",
+      "name": "May Death Itself Reconsider",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7749"
+    },
+    {
+      "type": "Feats",
+      "name": "Preternatural Polish",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7751"
+    },
+    {
+      "type": "Feats",
+      "name": "Rallying Charge",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7750"
+    },
+    {
+      "type": "Feats",
+      "name": "Shattered Sacrament",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7742"
+    },
+    {
+      "type": "Feats",
+      "name": "Speak for the Gravelands",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7743"
+    },
+    {
+      "type": "Feats",
+      "name": "Spirit of Vigil",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7753"
+    },
+    {
+      "type": "Feats",
+      "name": "Tripartite Omen",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7745"
+    },
+    {
+      "type": "Feats",
+      "name": "Uncanny Vitae",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7754"
+    },
+    {
+      "type": "Feats",
+      "name": "Vellumis Excision",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7744"
+    },
+    {
+      "type": "Feats",
+      "name": "Vigil's Palisades",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7746"
+    },
+    {
+      "type": "Hazards",
+      "name": "Carnivorous Mold",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=527"
+    },
+    {
+      "type": "Hazards",
+      "name": "Chernasardo Chompers",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=518"
+    },
+    {
+      "type": "Hazards",
+      "name": "Cleansing Suite",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=529"
+    },
+    {
+      "type": "Hazards",
+      "name": "Collapsing Bridge",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=525"
+    },
+    {
+      "type": "Hazards",
+      "name": "Decrepit Bridge",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=516"
+    },
+    {
+      "type": "Hazards",
+      "name": "Electrified Entrance",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=521"
+    },
+    {
+      "type": "Hazards",
+      "name": "Grasping Gauntlet",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=528"
+    },
+    {
+      "type": "Hazards",
+      "name": "Grove of Despair",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=515"
+    },
+    {
+      "type": "Hazards",
+      "name": "Hardened Entry",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=526"
+    },
+    {
+      "type": "Hazards",
+      "name": "Haunting Echoes",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=514"
+    },
+    {
+      "type": "Hazards",
+      "name": "Iomedae's Flame",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=523"
+    },
+    {
+      "type": "Hazards",
+      "name": "Names of the Nameless",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=524"
+    },
+    {
+      "type": "Hazards",
+      "name": "Snake's Mane",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=517"
+    },
+    {
+      "type": "Hazards",
+      "name": "Thieves' Lament",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=522"
+    },
+    {
+      "type": "Hazards",
+      "name": "Twist of Fate",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=530"
+    },
+    {
+      "type": "Monsters",
+      "name": "Garrholdion",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3824"
+    },
+    {
+      "type": "Setting Articles",
+      "name": "Vellumis Gazetteer",
+      "url": "https://2e.aonprd.com/Articles.aspx?ID=115"
+    }
+  ]
+}

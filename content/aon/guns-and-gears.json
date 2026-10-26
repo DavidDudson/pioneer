@@ -1,0 +1,3445 @@
+{
+  "etag": "\"668af0b7f4004fd7be6eca945db5688a\"",
+  "entries": [
+    {
+      "type": "Ancestries",
+      "name": "Automaton",
+      "url": "https://2e.aonprd.com/Ancestries.aspx?ID=48"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Hunter Automaton",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=184"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Mage Automaton",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=185"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Sharpshooter Automaton",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=186"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Warrior Automaton",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=187"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Artillerist",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=115"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Beast Gunner",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=116"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Bullet Dancer",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=117"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Demolitionist",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=118"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Firework Technician",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=119"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Gunslinger",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=114"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Inventor",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=108"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Overwatch",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=109"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Pistol Phenom",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=120"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Sniping Duo",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=121"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Spellshot",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=122"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Sterling Dynamo",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=110"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Trapsmith",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=111"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Trick Driver",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=112"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Unexpected Sharpshooter",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=123"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Vehicle Mechanic",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=113"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Alkenstar Outlaw",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=280"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Alkenstar Sojourner",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=281"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Anti-Tech Activist",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=249"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Back-Alley Doctor",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=267"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Cannoneer",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=268"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Circuit Judge",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=282"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Clockfighter",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=250"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Clockwork Researcher",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=251"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Codebreaker",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=252"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Deputy",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=269"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Discarded Duplicate",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=262"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Disciple of the Gear",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=253"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Driver",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=254"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Farmsteader",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=273"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Fireworks Performer",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=270"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Goldhand Arms Dealer",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=283"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Gunsmith",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=271"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Hired Killer",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=272"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Hounded Thief",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=255"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Junk Collector",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=274"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Junker",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=256"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Mechanic",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=257"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Mechanical Symbiosis",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=263"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Medicinal Clocksmith",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=258"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Otherworldly Mission",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=286"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Press-Ganged (G&G)",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=284"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Printer",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=259"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Revenant",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=287"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Saboteur",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=260"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Saloon Entertainer",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=275"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Saved by Clockwork",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=264"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Sheriff",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=285"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Spotter",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=276"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Tall Tale",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=288"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Tech-Reliant",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=265"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Toymaker",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=261"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Undertaker",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=277"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Wandering Preacher",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=278"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Waste Walker",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=279"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Wished Alive",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=266"
+    },
+    {
+      "type": "Classes",
+      "name": "Gunslinger",
+      "url": "https://2e.aonprd.com/Classes.aspx?ID=20"
+    },
+    {
+      "type": "Classes",
+      "name": "Inventor",
+      "url": "https://2e.aonprd.com/Classes.aspx?ID=19"
+    },
+    {
+      "type": "Class Sample Builds",
+      "name": "Armor Inventor (Inventor)",
+      "url": "https://2e.aonprd.com/ClassSamples.aspx?ID=39"
+    },
+    {
+      "type": "Class Sample Builds",
+      "name": "Drifter (Gunslinger)",
+      "url": "https://2e.aonprd.com/ClassSamples.aspx?ID=41"
+    },
+    {
+      "type": "Class Sample Builds",
+      "name": "Pistolero (Gunslinger)",
+      "url": "https://2e.aonprd.com/ClassSamples.aspx?ID=42"
+    },
+    {
+      "type": "Class Sample Builds",
+      "name": "Sniper (Gunslinger)",
+      "url": "https://2e.aonprd.com/ClassSamples.aspx?ID=43"
+    },
+    {
+      "type": "Class Sample Builds",
+      "name": "Spellshot (Gunslinger)",
+      "url": "https://2e.aonprd.com/ClassSamples.aspx?ID=44"
+    },
+    {
+      "type": "Class Sample Builds",
+      "name": "Weapon Inventor (Inventor)",
+      "url": "https://2e.aonprd.com/ClassSamples.aspx?ID=40"
+    },
+    {
+      "type": "Equipment",
+      "name": "Ablative Armor Plating",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1102"
+    },
+    {
+      "type": "Equipment",
+      "name": "Ablative Armor Plating (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1102"
+    },
+    {
+      "type": "Equipment",
+      "name": "Ablative Armor Plating (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1102"
+    },
+    {
+      "type": "Equipment",
+      "name": "Ablative Armor Plating (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1102"
+    },
+    {
+      "type": "Equipment",
+      "name": "Ablative Armor Plating (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1102"
+    },
+    {
+      "type": "Equipment",
+      "name": "Ablative Armor Plating (True)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1102"
+    },
+    {
+      "type": "Equipment",
+      "name": "Ablative Shield Plating",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1103"
+    },
+    {
+      "type": "Equipment",
+      "name": "Ablative Shield Plating (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1103"
+    },
+    {
+      "type": "Equipment",
+      "name": "Ablative Shield Plating (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1103"
+    },
+    {
+      "type": "Equipment",
+      "name": "Ablative Shield Plating (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1103"
+    },
+    {
+      "type": "Equipment",
+      "name": "Ablative Shield Plating (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1103"
+    },
+    {
+      "type": "Equipment",
+      "name": "Ablative Shield Plating (True)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1103"
+    },
+    {
+      "type": "Equipment",
+      "name": "Acid Spitter",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1121"
+    },
+    {
+      "type": "Equipment",
+      "name": "Adaptive Cogwheel",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1225"
+    },
+    {
+      "type": "Equipment",
+      "name": "Admonishing Band",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1226"
+    },
+    {
+      "type": "Equipment",
+      "name": "Air Cartridge Firing System",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1220"
+    },
+    {
+      "type": "Equipment",
+      "name": "Animate Dreamer",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1177"
+    },
+    {
+      "type": "Equipment",
+      "name": "Aquarium Lamp",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1140"
+    },
+    {
+      "type": "Equipment",
+      "name": "Arboreal's Revenge",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1174"
+    },
+    {
+      "type": "Equipment",
+      "name": "Aromatic Ammunition",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1188"
+    },
+    {
+      "type": "Equipment",
+      "name": "Awakened Metal Shot",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1189"
+    },
+    {
+      "type": "Equipment",
+      "name": "Awakened Metal Shot (Awakened Adamantine Shot)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1189"
+    },
+    {
+      "type": "Equipment",
+      "name": "Awakened Metal Shot (Awakened Cold Iron Shot)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1189"
+    },
+    {
+      "type": "Equipment",
+      "name": "Awakened Metal Shot (Awakened Silver Shot)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1189"
+    },
+    {
+      "type": "Equipment",
+      "name": "Basic Chair",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1160"
+    },
+    {
+      "type": "Equipment",
+      "name": "Binding Snare",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1122"
+    },
+    {
+      "type": "Equipment",
+      "name": "Black Powder",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1190"
+    },
+    {
+      "type": "Equipment",
+      "name": "Black Powder (Dose or Round)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1190"
+    },
+    {
+      "type": "Equipment",
+      "name": "Black Powder (Horn)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1190"
+    },
+    {
+      "type": "Equipment",
+      "name": "Black Powder (Keg)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1190"
+    },
+    {
+      "type": "Equipment",
+      "name": "Blade Launcher",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1096"
+    },
+    {
+      "type": "Equipment",
+      "name": "Blast Boots",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1104"
+    },
+    {
+      "type": "Equipment",
+      "name": "Blast Boots (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1104"
+    },
+    {
+      "type": "Equipment",
+      "name": "Blast Boots (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1104"
+    },
+    {
+      "type": "Equipment",
+      "name": "Blast Boots (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1104"
+    },
+    {
+      "type": "Equipment",
+      "name": "Blast Boots (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1104"
+    },
+    {
+      "type": "Equipment",
+      "name": "Blazons of Shared Power",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1221"
+    },
+    {
+      "type": "Equipment",
+      "name": "Blazons of Shared Power (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1221"
+    },
+    {
+      "type": "Equipment",
+      "name": "Boastful Hunter",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1178"
+    },
+    {
+      "type": "Equipment",
+      "name": "Bomb Launcher",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1097"
+    },
+    {
+      "type": "Equipment",
+      "name": "Breath Blaster",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1165"
+    },
+    {
+      "type": "Equipment",
+      "name": "Breath Blaster (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1165"
+    },
+    {
+      "type": "Equipment",
+      "name": "Breath Blaster (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1165"
+    },
+    {
+      "type": "Equipment",
+      "name": "Breech Ejectors",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1222"
+    },
+    {
+      "type": "Equipment",
+      "name": "Camouflage Suit",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1201"
+    },
+    {
+      "type": "Equipment",
+      "name": "Camouflage Suit (Superb)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1201"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cauterizing Torch",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1105"
+    },
+    {
+      "type": "Equipment",
+      "name": "Chameleon Suit",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1106"
+    },
+    {
+      "type": "Equipment",
+      "name": "Chameleon Suit (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1106"
+    },
+    {
+      "type": "Equipment",
+      "name": "Chameleon Suit (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1106"
+    },
+    {
+      "type": "Equipment",
+      "name": "Clockwork Bookshelf",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1141"
+    },
+    {
+      "type": "Equipment",
+      "name": "Clockwork Box Packer",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1142"
+    },
+    {
+      "type": "Equipment",
+      "name": "Clockwork Chirper",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1123"
+    },
+    {
+      "type": "Equipment",
+      "name": "Clockwork Disguise",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1143"
+    },
+    {
+      "type": "Equipment",
+      "name": "Clockwork Diving Suit",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1144"
+    },
+    {
+      "type": "Equipment",
+      "name": "Clockwork Goggles",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1107"
+    },
+    {
+      "type": "Equipment",
+      "name": "Clockwork Goggles (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1107"
+    },
+    {
+      "type": "Equipment",
+      "name": "Clockwork Goggles (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1107"
+    },
+    {
+      "type": "Equipment",
+      "name": "Clockwork Megaphone",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1145"
+    },
+    {
+      "type": "Equipment",
+      "name": "Clockwork Monkey",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1124"
+    },
+    {
+      "type": "Equipment",
+      "name": "Concealed Holster",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1202"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cryomister",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1108"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cryomister (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1108"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cryomister (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1108"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cryomister (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1108"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cryomister (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1108"
+    },
+    {
+      "type": "Equipment",
+      "name": "Darkvision Scope",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1212"
+    },
+    {
+      "type": "Equipment",
+      "name": "Darkvision Scope (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1212"
+    },
+    {
+      "type": "Equipment",
+      "name": "Day Goggles",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1146"
+    },
+    {
+      "type": "Equipment",
+      "name": "Death Coil",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1125"
+    },
+    {
+      "type": "Equipment",
+      "name": "Deployable Cover",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1098"
+    },
+    {
+      "type": "Equipment",
+      "name": "Deployable Cover (Ballistic Cover)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1098"
+    },
+    {
+      "type": "Equipment",
+      "name": "Detonating Gears Snare",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1126"
+    },
+    {
+      "type": "Equipment",
+      "name": "Drake Rifle",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1166"
+    },
+    {
+      "type": "Equipment",
+      "name": "Dreaming Round",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1191"
+    },
+    {
+      "type": "Equipment",
+      "name": "Duchy Defender",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1179"
+    },
+    {
+      "type": "Equipment",
+      "name": "Earplugs",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1203"
+    },
+    {
+      "type": "Equipment",
+      "name": "Electrocable",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1147"
+    },
+    {
+      "type": "Equipment",
+      "name": "Electromuscular Stimulator",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1109"
+    },
+    {
+      "type": "Equipment",
+      "name": "Energized Cartridge",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1227"
+    },
+    {
+      "type": "Equipment",
+      "name": "Eroding Bullet",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1192"
+    },
+    {
+      "type": "Equipment",
+      "name": "Etheric Essence Disruptor",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1110"
+    },
+    {
+      "type": "Equipment",
+      "name": "Etheric Essence Disruptor (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1110"
+    },
+    {
+      "type": "Equipment",
+      "name": "Etheric Essence Disruptor (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1110"
+    },
+    {
+      "type": "Equipment",
+      "name": "Etheric Essence Disruptor (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1110"
+    },
+    {
+      "type": "Equipment",
+      "name": "Etheric Essence Disruptor (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1110"
+    },
+    {
+      "type": "Equipment",
+      "name": "Explosive Mine",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1111"
+    },
+    {
+      "type": "Equipment",
+      "name": "Explosive Mine (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1111"
+    },
+    {
+      "type": "Equipment",
+      "name": "Explosive Mine (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1111"
+    },
+    {
+      "type": "Equipment",
+      "name": "Explosive Mine (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1111"
+    },
+    {
+      "type": "Equipment",
+      "name": "Explosive Mine (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1111"
+    },
+    {
+      "type": "Equipment",
+      "name": "Exsanguinating Ammunition",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1193"
+    },
+    {
+      "type": "Equipment",
+      "name": "Exsanguinating Ammunition (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1193"
+    },
+    {
+      "type": "Equipment",
+      "name": "Exsanguinating Ammunition (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1193"
+    },
+    {
+      "type": "Equipment",
+      "name": "Extendible Pincer",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1148"
+    },
+    {
+      "type": "Equipment",
+      "name": "Fairy Bullet",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1194"
+    },
+    {
+      "type": "Equipment",
+      "name": "Fire Box",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1128"
+    },
+    {
+      "type": "Equipment",
+      "name": "Firearm Cleaning Kit",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1204"
+    },
+    {
+      "type": "Equipment",
+      "name": "Flame Drake Snare",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1127"
+    },
+    {
+      "type": "Equipment",
+      "name": "Flare Beacon",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1112"
+    },
+    {
+      "type": "Equipment",
+      "name": "Flare Beacon (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1112"
+    },
+    {
+      "type": "Equipment",
+      "name": "Flare Beacon (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1112"
+    },
+    {
+      "type": "Equipment",
+      "name": "Flare Beacon (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1112"
+    },
+    {
+      "type": "Equipment",
+      "name": "Flare Beacon (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1112"
+    },
+    {
+      "type": "Equipment",
+      "name": "Frog Chair",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1162"
+    },
+    {
+      "type": "Equipment",
+      "name": "Frost Worm Snare",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1129"
+    },
+    {
+      "type": "Equipment",
+      "name": "Gadget Skates",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1113"
+    },
+    {
+      "type": "Equipment",
+      "name": "Galvanic Mortal Coil",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1135"
+    },
+    {
+      "type": "Equipment",
+      "name": "Galvasphere",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1136"
+    },
+    {
+      "type": "Equipment",
+      "name": "Gecko Pads",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1114"
+    },
+    {
+      "type": "Equipment",
+      "name": "Gecko Pads (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1114"
+    },
+    {
+      "type": "Equipment",
+      "name": "Ghostshot Wrapping",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1228"
+    },
+    {
+      "type": "Equipment",
+      "name": "Glue Bullet",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1195"
+    },
+    {
+      "type": "Equipment",
+      "name": "Goblin-Eye Orb",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1229"
+    },
+    {
+      "type": "Equipment",
+      "name": "Grappling Gun",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1099"
+    },
+    {
+      "type": "Equipment",
+      "name": "Grappling Gun (Clockwork)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1099"
+    },
+    {
+      "type": "Equipment",
+      "name": "Growth Gun",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1167"
+    },
+    {
+      "type": "Equipment",
+      "name": "Gunner's Bandolier",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1209"
+    },
+    {
+      "type": "Equipment",
+      "name": "Gunner's Saddle",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1217"
+    },
+    {
+      "type": "Equipment",
+      "name": "Heated Cloak",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1149"
+    },
+    {
+      "type": "Equipment",
+      "name": "Holy Steam Ball",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1150"
+    },
+    {
+      "type": "Equipment",
+      "name": "Hyldarf's Fang",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1181"
+    },
+    {
+      "type": "Equipment",
+      "name": "Ignitor",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1151"
+    },
+    {
+      "type": "Equipment",
+      "name": "Immaculate Holsters",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1210"
+    },
+    {
+      "type": "Equipment",
+      "name": "Immolation Clan Pistol",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1175"
+    },
+    {
+      "type": "Equipment",
+      "name": "Immovable Tripod",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1218"
+    },
+    {
+      "type": "Equipment",
+      "name": "Impact Foam Chassis",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1115"
+    },
+    {
+      "type": "Equipment",
+      "name": "Impact Foam Chassis (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1115"
+    },
+    {
+      "type": "Equipment",
+      "name": "Impact Foam Chassis (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1115"
+    },
+    {
+      "type": "Equipment",
+      "name": "Impact Foam Chassis (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1115"
+    },
+    {
+      "type": "Equipment",
+      "name": "Impact Foam Chassis (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1115"
+    },
+    {
+      "type": "Equipment",
+      "name": "Indomitable Keepsake",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1230"
+    },
+    {
+      "type": "Equipment",
+      "name": "Indomitable Keepsake (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1230"
+    },
+    {
+      "type": "Equipment",
+      "name": "Indomitable Keepsake (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1230"
+    },
+    {
+      "type": "Equipment",
+      "name": "Instant Spy",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1116"
+    },
+    {
+      "type": "Equipment",
+      "name": "Iris of the Sky",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1182"
+    },
+    {
+      "type": "Equipment",
+      "name": "Large Bore Modifications",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1223"
+    },
+    {
+      "type": "Equipment",
+      "name": "Liar's Gun",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1173"
+    },
+    {
+      "type": "Equipment",
+      "name": "Light Writer",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1152"
+    },
+    {
+      "type": "Equipment",
+      "name": "Lucky Draw Bandolier",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1211"
+    },
+    {
+      "type": "Equipment",
+      "name": "Lucky Draw Bandolier (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1211"
+    },
+    {
+      "type": "Equipment",
+      "name": "Magnetic Suit",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1117"
+    },
+    {
+      "type": "Equipment",
+      "name": "Magnetic Suit (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1117"
+    },
+    {
+      "type": "Equipment",
+      "name": "Magnetic Suit (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1117"
+    },
+    {
+      "type": "Equipment",
+      "name": "Magnetite Scope",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1213"
+    },
+    {
+      "type": "Equipment",
+      "name": "Magnetite Scope (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1213"
+    },
+    {
+      "type": "Equipment",
+      "name": "Magnifying Scope",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1214"
+    },
+    {
+      "type": "Equipment",
+      "name": "Magnifying Scope (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1214"
+    },
+    {
+      "type": "Equipment",
+      "name": "Magnifying Scope (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1214"
+    },
+    {
+      "type": "Equipment",
+      "name": "Material Essence Disruptor",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1118"
+    },
+    {
+      "type": "Equipment",
+      "name": "Material Essence Disruptor (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1118"
+    },
+    {
+      "type": "Equipment",
+      "name": "Material Essence Disruptor (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1118"
+    },
+    {
+      "type": "Equipment",
+      "name": "Material Essence Disruptor (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1118"
+    },
+    {
+      "type": "Equipment",
+      "name": "Material Essence Disruptor (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1118"
+    },
+    {
+      "type": "Equipment",
+      "name": "Mechanical Torch",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1236"
+    },
+    {
+      "type": "Equipment",
+      "name": "Meteor Shot",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1196"
+    },
+    {
+      "type": "Equipment",
+      "name": "Meteor Shot (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1196"
+    },
+    {
+      "type": "Equipment",
+      "name": "Meteor Shot (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1196"
+    },
+    {
+      "type": "Equipment",
+      "name": "Mountebank's Passage",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1183"
+    },
+    {
+      "type": "Equipment",
+      "name": "Net Launcher",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1100"
+    },
+    {
+      "type": "Equipment",
+      "name": "Nightbreeze Machine",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1154"
+    },
+    {
+      "type": "Equipment",
+      "name": "Noisemaker Snare",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1130"
+    },
+    {
+      "type": "Equipment",
+      "name": "Pact-Bound Pistol",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1176"
+    },
+    {
+      "type": "Equipment",
+      "name": "Paper Shredder",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1155"
+    },
+    {
+      "type": "Equipment",
+      "name": "Peacemaker",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1231"
+    },
+    {
+      "type": "Equipment",
+      "name": "Persistent Lodestone",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1232"
+    },
+    {
+      "type": "Equipment",
+      "name": "Petrification Cannon",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1168"
+    },
+    {
+      "type": "Equipment",
+      "name": "Pistol of Wonder",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1187"
+    },
+    {
+      "type": "Equipment",
+      "name": "Portable Weapon Mount",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1219"
+    },
+    {
+      "type": "Equipment",
+      "name": "Portable Weapon Mount (Monopod)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1219"
+    },
+    {
+      "type": "Equipment",
+      "name": "Portable Weapon Mount (Tripod, Shielded)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1219"
+    },
+    {
+      "type": "Equipment",
+      "name": "Practice Targets",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1205"
+    },
+    {
+      "type": "Equipment",
+      "name": "Printing Press",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1156"
+    },
+    {
+      "type": "Equipment",
+      "name": "Puff Dragon",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1131"
+    },
+    {
+      "type": "Equipment",
+      "name": "Reaper's Grasp",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1184"
+    },
+    {
+      "type": "Equipment",
+      "name": "Rowan Rifle",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1185"
+    },
+    {
+      "type": "Equipment",
+      "name": "Sambuca",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1200"
+    },
+    {
+      "type": "Equipment",
+      "name": "Scope of Limning",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1215"
+    },
+    {
+      "type": "Equipment",
+      "name": "Scope of Truth",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1216"
+    },
+    {
+      "type": "Equipment",
+      "name": "Screech Shooter",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1169"
+    },
+    {
+      "type": "Equipment",
+      "name": "Screech Shooter (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1169"
+    },
+    {
+      "type": "Equipment",
+      "name": "Screech Shooter (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1169"
+    },
+    {
+      "type": "Equipment",
+      "name": "Shockguard Coil",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1137"
+    },
+    {
+      "type": "Equipment",
+      "name": "Shrapnel Snare",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1132"
+    },
+    {
+      "type": "Equipment",
+      "name": "Shrieking Skull",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1233"
+    },
+    {
+      "type": "Equipment",
+      "name": "Silencer",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1206"
+    },
+    {
+      "type": "Equipment",
+      "name": "Silencing Shot",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1197"
+    },
+    {
+      "type": "Equipment",
+      "name": "Silver Tripod",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1235"
+    },
+    {
+      "type": "Equipment",
+      "name": "Smoke Fan",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1119"
+    },
+    {
+      "type": "Equipment",
+      "name": "Smoke Fan (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1119"
+    },
+    {
+      "type": "Equipment",
+      "name": "Sniper's Bead",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1234"
+    },
+    {
+      "type": "Equipment",
+      "name": "Sniper's Bead (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1234"
+    },
+    {
+      "type": "Equipment",
+      "name": "Sniper's Bead (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1234"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spider Chair",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1163"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spider Gun",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1170"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spider Gun (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1170"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spider Gun (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1170"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spike Launcher",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1171"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spirit Snare",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1133"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spirit-Singer",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1138"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spirit-Singer (Handheld)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1138"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spirit-Singer (Incredible Handheld)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1138"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spirit-Singer (Incredible)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1138"
+    },
+    {
+      "type": "Equipment",
+      "name": "Steam Winch",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1158"
+    },
+    {
+      "type": "Equipment",
+      "name": "Steamflight Pack",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1157"
+    },
+    {
+      "type": "Equipment",
+      "name": "Stepping Stone Shot",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1198"
+    },
+    {
+      "type": "Equipment",
+      "name": "Stepping Stone Shot (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1198"
+    },
+    {
+      "type": "Equipment",
+      "name": "Storm Chair",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1164"
+    },
+    {
+      "type": "Equipment",
+      "name": "Sunken Pistol",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1180"
+    },
+    {
+      "type": "Equipment",
+      "name": "Tentacle Cannon",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1172"
+    },
+    {
+      "type": "Equipment",
+      "name": "Tentacle Cannon (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1172"
+    },
+    {
+      "type": "Equipment",
+      "name": "Tentacle Cannon (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1172"
+    },
+    {
+      "type": "Equipment",
+      "name": "Tiger's Claw",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1186"
+    },
+    {
+      "type": "Equipment",
+      "name": "Timepiece",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1159"
+    },
+    {
+      "type": "Equipment",
+      "name": "Timepiece (Desktop Clock)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1159"
+    },
+    {
+      "type": "Equipment",
+      "name": "Timepiece (Grand Clock)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1159"
+    },
+    {
+      "type": "Equipment",
+      "name": "Tin Cobra",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1134"
+    },
+    {
+      "type": "Equipment",
+      "name": "Traveler's Chair",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1161"
+    },
+    {
+      "type": "Equipment",
+      "name": "Tripod",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1207"
+    },
+    {
+      "type": "Equipment",
+      "name": "Trustworthy Round",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1199"
+    },
+    {
+      "type": "Equipment",
+      "name": "Underwater Firing Mechanism",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1224"
+    },
+    {
+      "type": "Equipment",
+      "name": "Violet Ray",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1139"
+    },
+    {
+      "type": "Equipment",
+      "name": "Waterproof Carrying Case",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1208"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wind-Up Cart",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1120"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wind-up Wings",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1101"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wind-up Wings (Flutterback)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1101"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wind-up Wings (Homing)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1101"
+    },
+    {
+      "type": "Feats",
+      "name": "Adaptive Vision",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3280"
+    },
+    {
+      "type": "Feats",
+      "name": "Advanced Breakthrough",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3115"
+    },
+    {
+      "type": "Feats",
+      "name": "Advanced Construct Companion",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3055"
+    },
+    {
+      "type": "Feats",
+      "name": "Advanced Firearm Familiarity",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3221"
+    },
+    {
+      "type": "Feats",
+      "name": "Advanced Shooter",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3169"
+    },
+    {
+      "type": "Feats",
+      "name": "Advanced Shooting",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3217"
+    },
+    {
+      "type": "Feats",
+      "name": "Alchemical Shot",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3165"
+    },
+    {
+      "type": "Feats",
+      "name": "Arcane Camouflage",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3099"
+    },
+    {
+      "type": "Feats",
+      "name": "Arcane Communication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3091"
+    },
+    {
+      "type": "Feats",
+      "name": "Arcane Eye",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3092"
+    },
+    {
+      "type": "Feats",
+      "name": "Arcane Locomotion",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3105"
+    },
+    {
+      "type": "Feats",
+      "name": "Arcane Propulsion",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3100"
+    },
+    {
+      "type": "Feats",
+      "name": "Arcane Safeguards",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3096"
+    },
+    {
+      "type": "Feats",
+      "name": "Arcane Slam",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3101"
+    },
+    {
+      "type": "Feats",
+      "name": "Artillerist Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3222"
+    },
+    {
+      "type": "Feats",
+      "name": "Astral Blink",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3106"
+    },
+    {
+      "type": "Feats",
+      "name": "Automaton Armament",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3090"
+    },
+    {
+      "type": "Feats",
+      "name": "Automaton Lore",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3093"
+    },
+    {
+      "type": "Feats",
+      "name": "Axial Recall",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3109"
+    },
+    {
+      "type": "Feats",
+      "name": "Banshee Cry Display",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3250"
+    },
+    {
+      "type": "Feats",
+      "name": "Banshee Cry Display",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8533"
+    },
+    {
+      "type": "Feats",
+      "name": "Basic Beast Gunner Spellcasting",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3230"
+    },
+    {
+      "type": "Feats",
+      "name": "Basic Breakthrough",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3113"
+    },
+    {
+      "type": "Feats",
+      "name": "Basic Modification",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3117"
+    },
+    {
+      "type": "Feats",
+      "name": "Basic Shooting",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3216"
+    },
+    {
+      "type": "Feats",
+      "name": "Beast Dynamo Howl",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3131"
+    },
+    {
+      "type": "Feats",
+      "name": "Beast Gunner Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3229"
+    },
+    {
+      "type": "Feats",
+      "name": "Black Powder Blaze",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3237"
+    },
+    {
+      "type": "Feats",
+      "name": "Black Powder Boost",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3166"
+    },
+    {
+      "type": "Feats",
+      "name": "Black Powder Embodiment",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3271"
+    },
+    {
+      "type": "Feats",
+      "name": "Blast Lock",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3154"
+    },
+    {
+      "type": "Feats",
+      "name": "Blast Resistance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3285"
+    },
+    {
+      "type": "Feats",
+      "name": "Blast Tackle",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3197"
+    },
+    {
+      "type": "Feats",
+      "name": "Blood in the Air",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3190"
+    },
+    {
+      "type": "Feats",
+      "name": "Boost Modulation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3073"
+    },
+    {
+      "type": "Feats",
+      "name": "Brilliant Crafter",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3114"
+    },
+    {
+      "type": "Feats",
+      "name": "Built-In Tools",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3044"
+    },
+    {
+      "type": "Feats",
+      "name": "Bullet Dancer Burn",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3236"
+    },
+    {
+      "type": "Feats",
+      "name": "Bullet Dancer Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3235"
+    },
+    {
+      "type": "Feats",
+      "name": "Bullet Dancer Reload",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3238"
+    },
+    {
+      "type": "Feats",
+      "name": "Bullet Split",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3177"
+    },
+    {
+      "type": "Feats",
+      "name": "Call Gun",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3269"
+    },
+    {
+      "type": "Feats",
+      "name": "Called Shot",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3182"
+    },
+    {
+      "type": "Feats",
+      "name": "Cannon Corner Shot",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3225"
+    },
+    {
+      "type": "Feats",
+      "name": "Cauterize",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3170"
+    },
+    {
+      "type": "Feats",
+      "name": "Chain Reaction",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3279"
+    },
+    {
+      "type": "Feats",
+      "name": "Clan Pistol",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3281"
+    },
+    {
+      "type": "Feats",
+      "name": "Clockwork Celerity",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3060"
+    },
+    {
+      "type": "Feats",
+      "name": "Collapse Armor",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3051"
+    },
+    {
+      "type": "Feats",
+      "name": "Collapse Construct",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3052"
+    },
+    {
+      "type": "Feats",
+      "name": "Collapse Wall",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3244"
+    },
+    {
+      "type": "Feats",
+      "name": "Come at Me!",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3198"
+    },
+    {
+      "type": "Feats",
+      "name": "Concentrated Assault",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3266"
+    },
+    {
+      "type": "Feats",
+      "name": "Construct Shell",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3061"
+    },
+    {
+      "type": "Feats",
+      "name": "Contingency Gadgets",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3074"
+    },
+    {
+      "type": "Feats",
+      "name": "Control Tower",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3125"
+    },
+    {
+      "type": "Feats",
+      "name": "Controlled Blast",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3243"
+    },
+    {
+      "type": "Feats",
+      "name": "Controlled Bullet",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3233"
+    },
+    {
+      "type": "Feats",
+      "name": "Converge",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3126"
+    },
+    {
+      "type": "Feats",
+      "name": "Core Attunement",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3102"
+    },
+    {
+      "type": "Feats",
+      "name": "Core Cannon",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3110"
+    },
+    {
+      "type": "Feats",
+      "name": "Core Rejuvenation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3107"
+    },
+    {
+      "type": "Feats",
+      "name": "Coughing Dragon Display",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3246"
+    },
+    {
+      "type": "Feats",
+      "name": "Coughing Dragon Display",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8529"
+    },
+    {
+      "type": "Feats",
+      "name": "Cover Fire",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3155"
+    },
+    {
+      "type": "Feats",
+      "name": "Crafter's Instinct",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3289"
+    },
+    {
+      "type": "Feats",
+      "name": "Crossbow Crack Shot",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3156"
+    },
+    {
+      "type": "Feats",
+      "name": "Dance of Thunder",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3199"
+    },
+    {
+      "type": "Feats",
+      "name": "Dazzling Bullet",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3253"
+    },
+    {
+      "type": "Feats",
+      "name": "Deadeye",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3191"
+    },
+    {
+      "type": "Feats",
+      "name": "Deep Freeze",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3075"
+    },
+    {
+      "type": "Feats",
+      "name": "Defensive Armaments",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3160"
+    },
+    {
+      "type": "Feats",
+      "name": "Deflecting Shot",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3183"
+    },
+    {
+      "type": "Feats",
+      "name": "Demolitionist",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3287"
+    },
+    {
+      "type": "Feats",
+      "name": "Demolitionist Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3240"
+    },
+    {
+      "type": "Feats",
+      "name": "Devastating Weaponry",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3085"
+    },
+    {
+      "type": "Feats",
+      "name": "Disruptive Blur",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3200"
+    },
+    {
+      "type": "Feats",
+      "name": "Distracting Explosion",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3069"
+    },
+    {
+      "type": "Feats",
+      "name": "Diving Armor",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3056"
+    },
+    {
+      "type": "Feats",
+      "name": "Dongun Education",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3282"
+    },
+    {
+      "type": "Feats",
+      "name": "Drain Vitality",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3231"
+    },
+    {
+      "type": "Feats",
+      "name": "Drifter's Juke",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3171"
+    },
+    {
+      "type": "Feats",
+      "name": "Drive-By Attack",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3146"
+    },
+    {
+      "type": "Feats",
+      "name": "Dual-Form Weapon",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3057"
+    },
+    {
+      "type": "Feats",
+      "name": "Dual-Weapon Reload (Gunslinger)",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3294"
+    },
+    {
+      "type": "Feats",
+      "name": "Duo's Aim",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3262"
+    },
+    {
+      "type": "Feats",
+      "name": "Eagle Eye",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3220"
+    },
+    {
+      "type": "Feats",
+      "name": "Eagle Eyes",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3265"
+    },
+    {
+      "type": "Feats",
+      "name": "Efficient Controls",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3151"
+    },
+    {
+      "type": "Feats",
+      "name": "Electrify Armor",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3070"
+    },
+    {
+      "type": "Feats",
+      "name": "Energy Beam",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3094"
+    },
+    {
+      "type": "Feats",
+      "name": "Engine Bay",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3148"
+    },
+    {
+      "type": "Feats",
+      "name": "Engine of Destruction",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3086"
+    },
+    {
+      "type": "Feats",
+      "name": "Enlarged Chassis",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3108"
+    },
+    {
+      "type": "Feats",
+      "name": "Expert Beast Gunner Spellcasting",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3232"
+    },
+    {
+      "type": "Feats",
+      "name": "Expert Fireworks Crafter",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3247"
+    },
+    {
+      "type": "Feats",
+      "name": "Expert Fireworks Crafter",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8530"
+    },
+    {
+      "type": "Feats",
+      "name": "Exploit Opening",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3260"
+    },
+    {
+      "type": "Feats",
+      "name": "Explosion",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3116"
+    },
+    {
+      "type": "Feats",
+      "name": "Explosive Entry",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3242"
+    },
+    {
+      "type": "Feats",
+      "name": "Explosive Expert",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3290"
+    },
+    {
+      "type": "Feats",
+      "name": "Explosive Leap",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3045"
+    },
+    {
+      "type": "Feats",
+      "name": "Explosive Maneuver",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3078"
+    },
+    {
+      "type": "Feats",
+      "name": "Explosive Savant",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3283"
+    },
+    {
+      "type": "Feats",
+      "name": "Express Driver",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3141"
+    },
+    {
+      "type": "Feats",
+      "name": "Fake Out",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3161"
+    },
+    {
+      "type": "Feats",
+      "name": "Fatal Bullet",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3204"
+    },
+    {
+      "type": "Feats",
+      "name": "Field Artillery",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3226"
+    },
+    {
+      "type": "Feats",
+      "name": "Final Shot",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3208"
+    },
+    {
+      "type": "Feats",
+      "name": "Finessed Features",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3139"
+    },
+    {
+      "type": "Feats",
+      "name": "Fire Savvy",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3284"
+    },
+    {
+      "type": "Feats",
+      "name": "Firework Technician Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8528"
+    },
+    {
+      "type": "Feats",
+      "name": "Firework Technician Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3245"
+    },
+    {
+      "type": "Feats",
+      "name": "Flesh Wound",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3192"
+    },
+    {
+      "type": "Feats",
+      "name": "Forewarn",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3123"
+    },
+    {
+      "type": "Feats",
+      "name": "Forge-Blessed Shot",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3292"
+    },
+    {
+      "type": "Feats",
+      "name": "Full Automation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3088"
+    },
+    {
+      "type": "Feats",
+      "name": "Fulminating Shot",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3268"
+    },
+    {
+      "type": "Feats",
+      "name": "Gadget Specialist",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3058"
+    },
+    {
+      "type": "Feats",
+      "name": "Gear Gnash",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3135"
+    },
+    {
+      "type": "Feats",
+      "name": "Gigaton Strike",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3064"
+    },
+    {
+      "type": "Feats",
+      "name": "Gigavolt",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3076"
+    },
+    {
+      "type": "Feats",
+      "name": "Goblin Jubilee Display",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3249"
+    },
+    {
+      "type": "Feats",
+      "name": "Goblin Jubilee Display",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8532"
+    },
+    {
+      "type": "Feats",
+      "name": "Golem Dynamo",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3132"
+    },
+    {
+      "type": "Feats",
+      "name": "Greater Augmentation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3111"
+    },
+    {
+      "type": "Feats",
+      "name": "Grit and Tenacity",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3178"
+    },
+    {
+      "type": "Feats",
+      "name": "Gunpowder Gauntlet",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3252"
+    },
+    {
+      "type": "Feats",
+      "name": "Gunslinger Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3215"
+    },
+    {
+      "type": "Feats",
+      "name": "Hair Trigger",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3205"
+    },
+    {
+      "type": "Feats",
+      "name": "Haphazard Repair",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3046"
+    },
+    {
+      "type": "Feats",
+      "name": "Headshot",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3201"
+    },
+    {
+      "type": "Feats",
+      "name": "Helpful Tinkering",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3071"
+    },
+    {
+      "type": "Feats",
+      "name": "Hit the Dirt!",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3157"
+    },
+    {
+      "type": "Feats",
+      "name": "Hot Foot",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3254"
+    },
+    {
+      "type": "Feats",
+      "name": "I Meant to Do That",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3278"
+    },
+    {
+      "type": "Feats",
+      "name": "Impervious Vehicle",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3152"
+    },
+    {
+      "type": "Feats",
+      "name": "Incredible Construct Companion",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3065"
+    },
+    {
+      "type": "Feats",
+      "name": "Instant Backup",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3167"
+    },
+    {
+      "type": "Feats",
+      "name": "Instant Return",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3206"
+    },
+    {
+      "type": "Feats",
+      "name": "Integrated Armament",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3097"
+    },
+    {
+      "type": "Feats",
+      "name": "Inventor Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3112"
+    },
+    {
+      "type": "Feats",
+      "name": "Jumping Jenny Display",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3248"
+    },
+    {
+      "type": "Feats",
+      "name": "Jumping Jenny Display",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8531"
+    },
+    {
+      "type": "Feats",
+      "name": "Just the Thing!",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3082"
+    },
+    {
+      "type": "Feats",
+      "name": "Leap and Fire",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3179"
+    },
+    {
+      "type": "Feats",
+      "name": "Lesser Augmentation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3103"
+    },
+    {
+      "type": "Feats",
+      "name": "Live Ammunition",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3227"
+    },
+    {
+      "type": "Feats",
+      "name": "Lock On",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3072"
+    },
+    {
+      "type": "Feats",
+      "name": "Lucky Escape",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3273"
+    },
+    {
+      "type": "Feats",
+      "name": "Magical Resistance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3098"
+    },
+    {
+      "type": "Feats",
+      "name": "Manifold Modifications",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3066"
+    },
+    {
+      "type": "Feats",
+      "name": "Master Beast Gunner Spellcasting",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3234"
+    },
+    {
+      "type": "Feats",
+      "name": "Master Siege Engineer",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3228"
+    },
+    {
+      "type": "Feats",
+      "name": "Master Spotter",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3124"
+    },
+    {
+      "type": "Feats",
+      "name": "Megaton Strike",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3059"
+    },
+    {
+      "type": "Feats",
+      "name": "Megavolt",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3062"
+    },
+    {
+      "type": "Feats",
+      "name": "Miraculous Flight",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3153"
+    },
+    {
+      "type": "Feats",
+      "name": "Modular Dynamo",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3128"
+    },
+    {
+      "type": "Feats",
+      "name": "Munitions Crafter",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3158"
+    },
+    {
+      "type": "Feats",
+      "name": "Munitions Machinist",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3172"
+    },
+    {
+      "type": "Feats",
+      "name": "Named Artillery",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3223"
+    },
+    {
+      "type": "Feats",
+      "name": "Negate Damage",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3087"
+    },
+    {
+      "type": "Feats",
+      "name": "No Hard Feelings",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3274"
+    },
+    {
+      "type": "Feats",
+      "name": "No! No! I Created You!",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3047"
+    },
+    {
+      "type": "Feats",
+      "name": "Overdrive Ally",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3067"
+    },
+    {
+      "type": "Feats",
+      "name": "Overwatch Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3118"
+    },
+    {
+      "type": "Feats",
+      "name": "Paired Shots",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3168"
+    },
+    {
+      "type": "Feats",
+      "name": "Paragon Companion",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3079"
+    },
+    {
+      "type": "Feats",
+      "name": "Patch Job",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3149"
+    },
+    {
+      "type": "Feats",
+      "name": "Penetrating Fire",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3184"
+    },
+    {
+      "type": "Feats",
+      "name": "Perfect Readiness",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3212"
+    },
+    {
+      "type": "Feats",
+      "name": "Persistent Boost",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3083"
+    },
+    {
+      "type": "Feats",
+      "name": "Phalanx Breaker",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3173"
+    },
+    {
+      "type": "Feats",
+      "name": "Phase Bullet",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3270"
+    },
+    {
+      "type": "Feats",
+      "name": "Phenom's Verve",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3255"
+    },
+    {
+      "type": "Feats",
+      "name": "Piercing Critical",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3209"
+    },
+    {
+      "type": "Feats",
+      "name": "Pistol Phenom Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3251"
+    },
+    {
+      "type": "Feats",
+      "name": "Pistol Twirl",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3162"
+    },
+    {
+      "type": "Feats",
+      "name": "Pistolero's Challenge",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3174"
+    },
+    {
+      "type": "Feats",
+      "name": "Piston Punch",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3129"
+    },
+    {
+      "type": "Feats",
+      "name": "Power Slide",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3143"
+    },
+    {
+      "type": "Feats",
+      "name": "Practiced Reloads",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3219"
+    },
+    {
+      "type": "Feats",
+      "name": "Precious Munitions",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3185"
+    },
+    {
+      "type": "Feats",
+      "name": "Propeller Attachment",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3136"
+    },
+    {
+      "type": "Feats",
+      "name": "Prototype Companion",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3048"
+    },
+    {
+      "type": "Feats",
+      "name": "Push it",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3144"
+    },
+    {
+      "type": "Feats",
+      "name": "Quick Draw",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4869"
+    },
+    {
+      "type": "Feats",
+      "name": "Rain of Bolts",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3104"
+    },
+    {
+      "type": "Feats",
+      "name": "Ranged Disarm",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3239"
+    },
+    {
+      "type": "Feats",
+      "name": "Reach for the Sky",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3256"
+    },
+    {
+      "type": "Feats",
+      "name": "Reach for the Stars",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3211"
+    },
+    {
+      "type": "Feats",
+      "name": "Rebounding Assault",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3186"
+    },
+    {
+      "type": "Feats",
+      "name": "Recycled Cogwheel",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3137"
+    },
+    {
+      "type": "Feats",
+      "name": "Redirecting Shot",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3187"
+    },
+    {
+      "type": "Feats",
+      "name": "Reinforced Chassis",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3095"
+    },
+    {
+      "type": "Feats",
+      "name": "Repurposed Parts",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3138"
+    },
+    {
+      "type": "Feats",
+      "name": "Reverse Engineer",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3053"
+    },
+    {
+      "type": "Feats",
+      "name": "Ricochet Legend",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3213"
+    },
+    {
+      "type": "Feats",
+      "name": "Ricochet Master",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3207"
+    },
+    {
+      "type": "Feats",
+      "name": "Ricochet Shot",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3193"
+    },
+    {
+      "type": "Feats",
+      "name": "Risky Reload",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3163"
+    },
+    {
+      "type": "Feats",
+      "name": "Roadkill",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3145"
+    },
+    {
+      "type": "Feats",
+      "name": "Running Reload",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4875"
+    },
+    {
+      "type": "Feats",
+      "name": "Safety Measures",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3241"
+    },
+    {
+      "type": "Feats",
+      "name": "Scatter Blast",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3175"
+    },
+    {
+      "type": "Feats",
+      "name": "Scrutinizing Gaze",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3291"
+    },
+    {
+      "type": "Feats",
+      "name": "Searing Restoration",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3054"
+    },
+    {
+      "type": "Feats",
+      "name": "Shared Overdrive",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3077"
+    },
+    {
+      "type": "Feats",
+      "name": "Shattering Shot",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3194"
+    },
+    {
+      "type": "Feats",
+      "name": "Shooter's Camouflage",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3195"
+    },
+    {
+      "type": "Feats",
+      "name": "Shorthanded",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3224"
+    },
+    {
+      "type": "Feats",
+      "name": "Showstopper",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3202"
+    },
+    {
+      "type": "Feats",
+      "name": "Slinger's Readiness",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3218"
+    },
+    {
+      "type": "Feats",
+      "name": "Slinger's Reflexes",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3214"
+    },
+    {
+      "type": "Feats",
+      "name": "Smoke Curtain",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3180"
+    },
+    {
+      "type": "Feats",
+      "name": "Smoke Sight",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3288"
+    },
+    {
+      "type": "Feats",
+      "name": "Sniper's Aim",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3176"
+    },
+    {
+      "type": "Feats",
+      "name": "Sniping Duo Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3258"
+    },
+    {
+      "type": "Feats",
+      "name": "Soaring Armor",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3080"
+    },
+    {
+      "type": "Feats",
+      "name": "Soaring Dynamo",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3133"
+    },
+    {
+      "type": "Feats",
+      "name": "Spark Fist",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3286"
+    },
+    {
+      "type": "Feats",
+      "name": "Spell-Woven Shot",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7437"
+    },
+    {
+      "type": "Feats",
+      "name": "Spellshot Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3267"
+    },
+    {
+      "type": "Feats",
+      "name": "Spyglass Modification",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3119"
+    },
+    {
+      "type": "Feats",
+      "name": "Stab and Blast",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3181"
+    },
+    {
+      "type": "Feats",
+      "name": "Stasian Smash",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3130"
+    },
+    {
+      "type": "Feats",
+      "name": "Sterling Dynamo Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3127"
+    },
+    {
+      "type": "Feats",
+      "name": "Superior Propulsion",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3150"
+    },
+    {
+      "type": "Feats",
+      "name": "Swift Intervention",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3120"
+    },
+    {
+      "type": "Feats",
+      "name": "Sword and Pistol",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3159"
+    },
+    {
+      "type": "Feats",
+      "name": "Tag Team",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3264"
+    },
+    {
+      "type": "Feats",
+      "name": "Take the Wheel",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3142"
+    },
+    {
+      "type": "Feats",
+      "name": "Tamper",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3049"
+    },
+    {
+      "type": "Feats",
+      "name": "Targeted Redirection",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3261"
+    },
+    {
+      "type": "Feats",
+      "name": "That was a Close One, Huh?",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3275"
+    },
+    {
+      "type": "Feats",
+      "name": "Topple Giants",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3121"
+    },
+    {
+      "type": "Feats",
+      "name": "Trapsmith Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3134"
+    },
+    {
+      "type": "Feats",
+      "name": "Triangulate",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3259"
+    },
+    {
+      "type": "Feats",
+      "name": "Trick Driver Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3140"
+    },
+    {
+      "type": "Feats",
+      "name": "Trick Shot",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3188"
+    },
+    {
+      "type": "Feats",
+      "name": "Twin Shot Knockdown",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3189"
+    },
+    {
+      "type": "Feats",
+      "name": "Two-Weapon Fusillade",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3203"
+    },
+    {
+      "type": "Feats",
+      "name": "Ubiquitous Gadgets",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3068"
+    },
+    {
+      "type": "Feats",
+      "name": "Ubiquitous Overdrive",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3089"
+    },
+    {
+      "type": "Feats",
+      "name": "Unbelievable Escape",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3277"
+    },
+    {
+      "type": "Feats",
+      "name": "Unbelievable Luck",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3276"
+    },
+    {
+      "type": "Feats",
+      "name": "Unerring Shot",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3210"
+    },
+    {
+      "type": "Feats",
+      "name": "Unexpected Sharpshooter Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3272"
+    },
+    {
+      "type": "Feats",
+      "name": "Unshakable Grit",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3196"
+    },
+    {
+      "type": "Feats",
+      "name": "Unstable Redundancies",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3081"
+    },
+    {
+      "type": "Feats",
+      "name": "Vantage Shot",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3263"
+    },
+    {
+      "type": "Feats",
+      "name": "Variable Core",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3050"
+    },
+    {
+      "type": "Feats",
+      "name": "Vehicle Mechanic Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3147"
+    },
+    {
+      "type": "Feats",
+      "name": "Visual Fidelity",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3063"
+    },
+    {
+      "type": "Feats",
+      "name": "Warning Shot",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3164"
+    },
+    {
+      "type": "Feats",
+      "name": "Whirling Knockdown",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3257"
+    },
+    {
+      "type": "Feats",
+      "name": "Wide Overwatch",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3122"
+    },
+    {
+      "type": "Feats",
+      "name": "You Failed to Account for… This!",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3084"
+    },
+    {
+      "type": "Hazards",
+      "name": "Insistent Privacy Fence",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=96"
+    },
+    {
+      "type": "Hazards",
+      "name": "Malevolent Mannequins",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=97"
+    },
+    {
+      "type": "Hazards",
+      "name": "Steam Vents",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=95"
+    },
+    {
+      "type": "Innovations",
+      "name": "Armor",
+      "url": "https://2e.aonprd.com/Innovations.aspx?ID=1"
+    },
+    {
+      "type": "Innovations",
+      "name": "Construct",
+      "url": "https://2e.aonprd.com/Innovations.aspx?ID=2"
+    },
+    {
+      "type": "Innovations",
+      "name": "Weapon",
+      "url": "https://2e.aonprd.com/Innovations.aspx?ID=3"
+    },
+    {
+      "type": "Languages",
+      "name": "Jistka\r\n",
+      "url": "https://2e.aonprd.com/Languages.aspx?ID=93"
+    },
+    {
+      "type": "Rules",
+      "name": "Gears Characters",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1599"
+    },
+    {
+      "type": "Rules",
+      "name": "Gears Equipment",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1616"
+    },
+    {
+      "type": "Rules",
+      "name": "Guns Characters",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1646"
+    },
+    {
+      "type": "Rules",
+      "name": "Guns Equipment",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1648"
+    },
+    {
+      "type": "Rules",
+      "name": "Introduction",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1587"
+    },
+    {
+      "type": "Siege Weapons",
+      "name": "Alchemical Springald",
+      "url": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=10"
+    },
+    {
+      "type": "Siege Weapons",
+      "name": "Alkenstar Cannon",
+      "url": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=20"
+    },
+    {
+      "type": "Siege Weapons",
+      "name": "Ballista",
+      "url": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=2"
+    },
+    {
+      "type": "Siege Weapons",
+      "name": "Battering Ram",
+      "url": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=3"
+    },
+    {
+      "type": "Siege Weapons",
+      "name": "Blasting Ram",
+      "url": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=11"
+    },
+    {
+      "type": "Siege Weapons",
+      "name": "Bombard",
+      "url": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=12"
+    },
+    {
+      "type": "Siege Weapons",
+      "name": "Cannon",
+      "url": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=13"
+    },
+    {
+      "type": "Siege Weapons",
+      "name": "Catapult",
+      "url": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=5"
+    },
+    {
+      "type": "Siege Weapons",
+      "name": "Door Ram",
+      "url": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=6"
+    },
+    {
+      "type": "Siege Weapons",
+      "name": "Fiend's Mouth Cannon",
+      "url": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=14"
+    },
+    {
+      "type": "Siege Weapons",
+      "name": "Firedrake",
+      "url": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=15"
+    },
+    {
+      "type": "Siege Weapons",
+      "name": "Heavy Ballista",
+      "url": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=7"
+    },
+    {
+      "type": "Siege Weapons",
+      "name": "Heavy Bombard",
+      "url": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=17"
+    },
+    {
+      "type": "Siege Weapons",
+      "name": "Hwacha",
+      "url": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=18"
+    },
+    {
+      "type": "Siege Weapons",
+      "name": "Mortar",
+      "url": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=19"
+    },
+    {
+      "type": "Siege Weapons",
+      "name": "Springald",
+      "url": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=8"
+    },
+    {
+      "type": "Siege Weapons",
+      "name": "Steelheart 21",
+      "url": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=16"
+    },
+    {
+      "type": "Siege Weapons",
+      "name": "Trebuchet",
+      "url": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=9"
+    },
+    {
+      "type": "Traits",
+      "name": "Automaton (Ancestry)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=398"
+    },
+    {
+      "type": "Traits",
+      "name": "Cobbled (Weapon)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=400"
+    },
+    {
+      "type": "Traits",
+      "name": "Concussive (Weapon)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=401"
+    },
+    {
+      "type": "Traits",
+      "name": "Double Barrel (Weapon)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=403"
+    },
+    {
+      "type": "Traits",
+      "name": "Fatal Aim (Weapon)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=404"
+    },
+    {
+      "type": "Traits",
+      "name": "Gadget (Equipment)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=405"
+    },
+    {
+      "type": "Traits",
+      "name": "Gunslinger (Class)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=406"
+    },
+    {
+      "type": "Traits",
+      "name": "Inventor (Class)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=408"
+    },
+    {
+      "type": "Traits",
+      "name": "Kickback (Weapon)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=409"
+    },
+    {
+      "type": "Traits",
+      "name": "Modification (Class-Specific)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=410"
+    },
+    {
+      "type": "Traits",
+      "name": "Mounted (Weapon)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=411"
+    },
+    {
+      "type": "Traits",
+      "name": "Portable (Weapon)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=412"
+    },
+    {
+      "type": "Traits",
+      "name": "Scatter (Weapon)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=413"
+    },
+    {
+      "type": "Traits",
+      "name": "Spellshot (Class-Specific)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=414"
+    },
+    {
+      "type": "Traits",
+      "name": "Steam (Equipment)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=415"
+    },
+    {
+      "type": "Traits",
+      "name": "Tearing (Weapon)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=844"
+    },
+    {
+      "type": "Traits",
+      "name": "Unstable (Class-Specific)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=416"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Adaptable Paddleboat",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=19"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Ambling Surveyor",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=33"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Apparatus of the Octopus",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=32"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Armored Carriage",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=25"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Automated Cycle",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=18"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Battery Tower",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=37"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Clockwork Borer",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=30"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Clockwork Castle",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=35"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Clockwork Hopper",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=27"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Clockwork Wagon",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=22"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Clunkerjunker",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=20"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Firefly",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=26"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Helepolis",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=16"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Mobile Inn",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=29"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Sand Diver",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=23"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Siege Tower",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=17"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Snail Coach",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=28"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Speedster",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=31"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Steam Cart",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=21"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Steam Trolley",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=24"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Titanic Stomper",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=34"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Vonthos's Golden Bridge",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=36"
+    },
+    {
+      "type": "Ways",
+      "name": "Way of the Drifter",
+      "url": "https://2e.aonprd.com/Ways.aspx?ID=1"
+    },
+    {
+      "type": "Ways",
+      "name": "Way of the Pistolero",
+      "url": "https://2e.aonprd.com/Ways.aspx?ID=2"
+    },
+    {
+      "type": "Ways",
+      "name": "Way of the Sniper",
+      "url": "https://2e.aonprd.com/Ways.aspx?ID=3"
+    },
+    {
+      "type": "Ways",
+      "name": "Way of the Spellshot",
+      "url": "https://2e.aonprd.com/Ways.aspx?ID=5"
+    },
+    {
+      "type": "Ways",
+      "name": "Way of the Vanguard",
+      "url": "https://2e.aonprd.com/Ways.aspx?ID=4"
+    },
+    {
+      "type": "Weapons",
+      "name": "Air Repeater",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=188"
+    },
+    {
+      "type": "Weapons",
+      "name": "Arquebus",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=195"
+    },
+    {
+      "type": "Weapons",
+      "name": "Axe Musket",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=213"
+    },
+    {
+      "type": "Weapons",
+      "name": "Backpack Ballista",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=447"
+    },
+    {
+      "type": "Weapons",
+      "name": "Backpack Ballista Bolts",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=179"
+    },
+    {
+      "type": "Weapons",
+      "name": "Backpack Catapult",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=174"
+    },
+    {
+      "type": "Weapons",
+      "name": "Backpack Catapult Stones",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=180"
+    },
+    {
+      "type": "Weapons",
+      "name": "Bayonet",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=186"
+    },
+    {
+      "type": "Weapons",
+      "name": "Big Boom Gun",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=226"
+    },
+    {
+      "type": "Weapons",
+      "name": "Black Powder Knuckle Dusters",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=214"
+    },
+    {
+      "type": "Weapons",
+      "name": "Blunderbuss",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=196"
+    },
+    {
+      "type": "Weapons",
+      "name": "Cane Pistol",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=215"
+    },
+    {
+      "type": "Weapons",
+      "name": "Clan Pistol",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=197"
+    },
+    {
+      "type": "Weapons",
+      "name": "Coat Pistol",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=189"
+    },
+    {
+      "type": "Weapons",
+      "name": "Dagger Pistol",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=216"
+    },
+    {
+      "type": "Weapons",
+      "name": "Dart Umbrella",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=175"
+    },
+    {
+      "type": "Weapons",
+      "name": "Dawnsilver Tree",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=204"
+    },
+    {
+      "type": "Weapons",
+      "name": "Double-Barreled Musket",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=198"
+    },
+    {
+      "type": "Weapons",
+      "name": "Double-Barreled Pistol",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=199"
+    },
+    {
+      "type": "Weapons",
+      "name": "Dragon-Mouth Pistol",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=200"
+    },
+    {
+      "type": "Weapons",
+      "name": "Dueling Pistol",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=201"
+    },
+    {
+      "type": "Weapons",
+      "name": "Dwarven Scattergun",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=207"
+    },
+    {
+      "type": "Weapons",
+      "name": "Explosive Dogslicer",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=224"
+    },
+    {
+      "type": "Weapons",
+      "name": "Fire Lance",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=190"
+    },
+    {
+      "type": "Weapons",
+      "name": "Firearm Ammunition (10 rounds)",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=211"
+    },
+    {
+      "type": "Weapons",
+      "name": "Firearm Ammunition (5 rounds)",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=212"
+    },
+    {
+      "type": "Weapons",
+      "name": "Flingflenser",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=208"
+    },
+    {
+      "type": "Weapons",
+      "name": "Flintlock Musket",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=191"
+    },
+    {
+      "type": "Weapons",
+      "name": "Flintlock Pistol",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=192"
+    },
+    {
+      "type": "Weapons",
+      "name": "Forked Bipod",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=184"
+    },
+    {
+      "type": "Weapons",
+      "name": "Gnome Amalgam Musket",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=217"
+    },
+    {
+      "type": "Weapons",
+      "name": "Gun Sword",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=218"
+    },
+    {
+      "type": "Weapons",
+      "name": "Hammer Gun",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=219"
+    },
+    {
+      "type": "Weapons",
+      "name": "Hand Cannon",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=193"
+    },
+    {
+      "type": "Weapons",
+      "name": "Harmona Gun",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=202"
+    },
+    {
+      "type": "Weapons",
+      "name": "Injection Spear",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=170"
+    },
+    {
+      "type": "Weapons",
+      "name": "Jezail",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=203"
+    },
+    {
+      "type": "Weapons",
+      "name": "Knuckle Duster",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=185"
+    },
+    {
+      "type": "Weapons",
+      "name": "Long Air Repeater",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=194"
+    },
+    {
+      "type": "Weapons",
+      "name": "Mace Multipistol",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=220"
+    },
+    {
+      "type": "Weapons",
+      "name": "Magazine (Air Repeater)",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=209"
+    },
+    {
+      "type": "Weapons",
+      "name": "Magazine (Long Air Repeater)",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=210"
+    },
+    {
+      "type": "Weapons",
+      "name": "Pantograph Gauntlet",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=172"
+    },
+    {
+      "type": "Weapons",
+      "name": "Pepperbox",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=205"
+    },
+    {
+      "type": "Weapons",
+      "name": "Piercing Wind",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=221"
+    },
+    {
+      "type": "Weapons",
+      "name": "Rapier Pistol",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=222"
+    },
+    {
+      "type": "Weapons",
+      "name": "Reinforced Stock",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=187"
+    },
+    {
+      "type": "Weapons",
+      "name": "Repeating Crossbow",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=176"
+    },
+    {
+      "type": "Weapons",
+      "name": "Repeating Crossbow Magazine",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=181"
+    },
+    {
+      "type": "Weapons",
+      "name": "Repeating Hand Crossbow",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=177"
+    },
+    {
+      "type": "Weapons",
+      "name": "Repeating Hand Crossbow Magazine",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=182"
+    },
+    {
+      "type": "Weapons",
+      "name": "Repeating Heavy Crossbow",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=450"
+    },
+    {
+      "type": "Weapons",
+      "name": "Repeating Heavy Crossbow Magazine",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=183"
+    },
+    {
+      "type": "Weapons",
+      "name": "Slide Pistol",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=206"
+    },
+    {
+      "type": "Weapons",
+      "name": "Spoon Gun",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=225"
+    },
+    {
+      "type": "Weapons",
+      "name": "Three Peaked Tree",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=223"
+    },
+    {
+      "type": "Weapons",
+      "name": "Umbrella Injector",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=171"
+    },
+    {
+      "type": "Weapons",
+      "name": "Hand Cannon",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=523"
+    },
+    {
+      "type": "Weapons",
+      "name": "Repeating Crossbow",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=448"
+    }
+  ]
+}

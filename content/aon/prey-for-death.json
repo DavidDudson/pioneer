@@ -1,0 +1,315 @@
+{
+  "etag": "\"810a15eddf18414293f0f9e2b0a3e23a\"",
+  "entries": [
+    {
+      "type": "Arcane Schools",
+      "name": "Red Mantis Magic School",
+      "url": "https://2e.aonprd.com/ArcaneSchools.aspx?ID=23"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Red Mantis Assassin",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=271"
+    },
+    {
+      "type": "Deities",
+      "name": "Achaekek",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=325"
+    },
+    {
+      "type": "Deities - Divine Intercessions",
+      "name": "Achaekek",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=325"
+    },
+    {
+      "type": "Equipment",
+      "name": "Assassin's Bracers",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3495"
+    },
+    {
+      "type": "Equipment",
+      "name": "Assassin's Bracers (Type I)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3495"
+    },
+    {
+      "type": "Equipment",
+      "name": "Assassin's Bracers (Type II)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3495"
+    },
+    {
+      "type": "Equipment",
+      "name": "Assassin's Bracers (Type III)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3495"
+    },
+    {
+      "type": "Equipment",
+      "name": "Assassin's Skin",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3483"
+    },
+    {
+      "type": "Equipment",
+      "name": "Blood Sight Elixir",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3490"
+    },
+    {
+      "type": "Equipment",
+      "name": "Blood Sight Elixir (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3490"
+    },
+    {
+      "type": "Equipment",
+      "name": "Blood Sight Elixir (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3490"
+    },
+    {
+      "type": "Equipment",
+      "name": "Blood Sight Elixir (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3490"
+    },
+    {
+      "type": "Equipment",
+      "name": "Blood Sight Elixir (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3490"
+    },
+    {
+      "type": "Equipment",
+      "name": "Blood-Drinker",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3485"
+    },
+    {
+      "type": "Equipment",
+      "name": "Bloody Fang",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3486"
+    },
+    {
+      "type": "Equipment",
+      "name": "Breath of the Mantis God",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3491"
+    },
+    {
+      "type": "Equipment",
+      "name": "Crimson Bluff",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3487"
+    },
+    {
+      "type": "Equipment",
+      "name": "Crimson Tome",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3492"
+    },
+    {
+      "type": "Equipment",
+      "name": "Elysian Clairglass",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3493"
+    },
+    {
+      "type": "Equipment",
+      "name": "Eye of the Mantis",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3494"
+    },
+    {
+      "type": "Equipment",
+      "name": "Fleshrender",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3488"
+    },
+    {
+      "type": "Equipment",
+      "name": "Mantis Embrace",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3496"
+    },
+    {
+      "type": "Equipment",
+      "name": "Mantis Embrace (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3496"
+    },
+    {
+      "type": "Equipment",
+      "name": "Mask of the Mantis",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3497"
+    },
+    {
+      "type": "Equipment",
+      "name": "Mask of the Mantis (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3497"
+    },
+    {
+      "type": "Equipment",
+      "name": "Mask of the Mantis (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3497"
+    },
+    {
+      "type": "Equipment",
+      "name": "Temperbrand",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3489"
+    },
+    {
+      "type": "Equipment",
+      "name": "Vernai Shell",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3484"
+    },
+    {
+      "type": "Feats",
+      "name": "Achaekek's Grip",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6523"
+    },
+    {
+      "type": "Feats",
+      "name": "Basic Red Mantis Magic",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6520"
+    },
+    {
+      "type": "Feats",
+      "name": "Crimson Shroud",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6521"
+    },
+    {
+      "type": "Feats",
+      "name": "Expert Red Mantis Magic",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6526"
+    },
+    {
+      "type": "Feats",
+      "name": "Fading",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6525"
+    },
+    {
+      "type": "Feats",
+      "name": "Mantis Form",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6524"
+    },
+    {
+      "type": "Feats",
+      "name": "Master Red Mantis Magic",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6529"
+    },
+    {
+      "type": "Feats",
+      "name": "Prayer Attack",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6528"
+    },
+    {
+      "type": "Feats",
+      "name": "Red Mantis Assassin Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6519"
+    },
+    {
+      "type": "Feats",
+      "name": "Red Mantis School Spell",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6522"
+    },
+    {
+      "type": "Feats",
+      "name": "Vernai Training",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=6527"
+    },
+    {
+      "type": "Hazards",
+      "name": "Flensing Floor",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=459"
+    },
+    {
+      "type": "Hazards",
+      "name": "The Trial of Finality",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=458"
+    },
+    {
+      "type": "Hazards",
+      "name": "Trial of the Gods",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=457"
+    },
+    {
+      "type": "Hazards",
+      "name": "Trial of Tolerance",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=456"
+    },
+    {
+      "type": "Monsters",
+      "name": "Bloodfog",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3389"
+    },
+    {
+      "type": "Monsters",
+      "name": "Bloody Hands",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3393"
+    },
+    {
+      "type": "Monsters",
+      "name": "Einherji Host",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3390"
+    },
+    {
+      "type": "Monsters",
+      "name": "Frost Roc",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3392"
+    },
+    {
+      "type": "Monsters",
+      "name": "Saint Fang",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3394"
+    },
+    {
+      "type": "Monsters",
+      "name": "Silver Saber",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3396"
+    },
+    {
+      "type": "Monsters",
+      "name": "Temperbrand",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3395"
+    },
+    {
+      "type": "Monsters",
+      "name": "The First Blade",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3391"
+    },
+    {
+      "type": "Monsters",
+      "name": "Valkyrie Tempest",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3397"
+    },
+    {
+      "type": "Spells",
+      "name": "Achaekek's Clutch",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2128"
+    },
+    {
+      "type": "Spells",
+      "name": "Bone Flense",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2123"
+    },
+    {
+      "type": "Spells",
+      "name": "Crimson Breath",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2124"
+    },
+    {
+      "type": "Spells",
+      "name": "Debilitating Terror",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2130"
+    },
+    {
+      "type": "Spells",
+      "name": "Mantis Form",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2129"
+    },
+    {
+      "type": "Spells",
+      "name": "Mantis's Grasp",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2125"
+    },
+    {
+      "type": "Spells",
+      "name": "Mark of Blood",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2126"
+    },
+    {
+      "type": "Spells",
+      "name": "Sawtooth Terrain",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2127"
+    },
+    {
+      "type": "Spells",
+      "name": "Shroud of the Mantis",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2131"
+    }
+  ]
+}

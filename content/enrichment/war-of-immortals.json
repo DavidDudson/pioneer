@@ -1,0 +1,1422 @@
+{
+  "archetype:animist": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=280"
+  },
+  "archetype:exemplar": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=281"
+  },
+  "armor:kilted-breastplate": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Armor.aspx?ID=51"
+  },
+  "armor:lattice-armor": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Armor.aspx?ID=54"
+  },
+  "armor:rattan-armor": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Armor.aspx?ID=52"
+  },
+  "armor:sankeit": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Armor.aspx?ID=53"
+  },
+  "class:animist": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Classes.aspx?ID=64"
+  },
+  "class:exemplar": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Classes.aspx?ID=65"
+  },
+  "equipment:cursed-immaculate-instrument": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3514"
+  },
+  "equipment:dragon-lotus-drum": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3507"
+  },
+  "equipment:final-scalecloak": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3508"
+  },
+  "equipment:immaculate-instrument": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3514"
+  },
+  "equipment:wandering-pipe": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3513"
+  },
+  "equipment:worldforge": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3511"
+  },
+  "feat:a-thousand-cries-for-help": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7337"
+  },
+  "feat:abjure-harm": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7336"
+  },
+  "feat:absolve-sins": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7396"
+  },
+  "feat:additional-ikon": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7167"
+  },
+  "feat:advanced-glory": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7229"
+  },
+  "feat:aegis-for-the-innocent": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7332"
+  },
+  "feat:aeonbound": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7195"
+  },
+  "feat:alter-resistance": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7214"
+  },
+  "feat:amorphous-aspect": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7203"
+  },
+  "feat:anarchic-arcana": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7209"
+  },
+  "feat:animist-dedication": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7219"
+  },
+  "feat:animists-power": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7222"
+  },
+  "feat:apocalypse-rider-dedication": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7304"
+  },
+  "feat:apparition-cloud": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7141"
+  },
+  "feat:apparition-magic": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7223"
+  },
+  "feat:apparition-sense": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7120"
+  },
+  "feat:apparition-stabilization": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7130"
+  },
+  "feat:apparitions-enhancement": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7127"
+  },
+  "feat:apparitions-quickening": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7139"
+  },
+  "feat:apparitions-reflection": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7135"
+  },
+  "feat:arc-of-destruction": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7290"
+  },
+  "feat:archfiend-dedication": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7320"
+  },
+  "feat:arise-ye-worthy": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7215"
+  },
+  "feat:arms-that-cut-the-waves": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7270"
+  },
+  "feat:army-of-one": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7340"
+  },
+  "feat:ascend": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7333"
+  },
+  "feat:ascended-celestial-dedication": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7331"
+  },
+  "feat:assume-godhood": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7402"
+  },
+  "feat:avenger-dedication": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7232"
+  },
+  "feat:banish-falsehoods-of-flesh": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7144"
+  },
+  "feat:basic-animist-spellcasting": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7220"
+  },
+  "feat:basic-glory": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7227"
+  },
+  "feat:bat-around": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7350"
+  },
+  "feat:battle-hymn-to-the-lost": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7168"
+  },
+  "feat:battleblooded": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7196"
+  },
+  "feat:beast-lord-dedication": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7345"
+  },
+  "feat:become-destiny": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7297"
+  },
+  "feat:become-shadow": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7277"
+  },
+  "feat:behold-a-pale-horse": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7305"
+  },
+  "feat:bestial-brutality": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7204"
+  },
+  "feat:binding-serpents-celestial-arrow": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7164"
+  },
+  "feat:binds-that-tie": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7271"
+  },
+  "feat:blazing-spirit": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7131"
+  },
+  "feat:bloc-tactics": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7358"
+  },
+  "feat:blood-calls-blood": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7240"
+  },
+  "feat:bloodrager-dedication": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7239"
+  },
+  "feat:bloom-of-health": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7404"
+  },
+  "feat:branched-tree-of-pain": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7188"
+  },
+  "feat:brandish-authority": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7327"
+  },
+  "feat:break-the-causal-chain": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7372"
+  },
+  "feat:break-the-cycle": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7359"
+  },
+  "feat:breath-of-vital-ash": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7171"
+  },
+  "feat:bring-into-the-fold": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7364"
+  },
+  "feat:broken-chain-dedication": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7357"
+  },
+  "feat:burning-surge": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7423"
+  },
+  "feat:call-from-deaths-door": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7298"
+  },
+  "feat:call-the-hunt": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7260"
+  },
+  "feat:call-to-battle": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7205"
+  },
+  "feat:cardinal-guardians": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7145"
+  },
+  "feat:celestial-armaments": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7338"
+  },
+  "feat:celestial-rebirth": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7344"
+  },
+  "feat:channel-divine-spark": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7335"
+  },
+  "feat:channel-the-godmind": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7217"
+  },
+  "feat:channeled-protection": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7128"
+  },
+  "feat:channelers-stance": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7434"
+  },
+  "feat:chosen-ward": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7346"
+  },
+  "feat:circle-of-spirits": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7121"
+  },
+  "feat:claim-cardinal-domains": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7393"
+  },
+  "feat:cleansing-spell": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7339"
+  },
+  "feat:complete-the-heros-journey": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7180"
+  },
+  "feat:compliant-gold": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7176"
+  },
+  "feat:consult-celestial-advisor": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7334"
+  },
+  "feat:contagious-spell": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7315"
+  },
+  "feat:correct-the-story": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7284"
+  },
+  "feat:creative-prodigy": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7199"
+  },
+  "feat:creature-of-myth": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7354"
+  },
+  "feat:crown-of-rule": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7183"
+  },
+  "feat:cry-of-rebellion": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7365"
+  },
+  "feat:cutting-rebuke": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7278"
+  },
+  "feat:cutting-without-blade": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7192"
+  },
+  "feat:cycle-of-souls": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7150"
+  },
+  "feat:decree-of-execution": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7412"
+  },
+  "feat:decree-of-prosperity": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7406"
+  },
+  "feat:decree-of-war": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7413"
+  },
+  "feat:defend-our-union": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7351"
+  },
+  "feat:demolishing-knockback": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7375"
+  },
+  "feat:destined-victory": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7181"
+  },
+  "feat:divert-destiny": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7285"
+  },
+  "feat:divine-invulnerability": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7394"
+  },
+  "feat:don-thy-fervor": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7321"
+  },
+  "feat:ears-that-hear-the-truth": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7272"
+  },
+  "feat:earth-to-heavens-strike": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7376"
+  },
+  "feat:embodiment-of-the-balance": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7124"
+  },
+  "feat:energized-spark": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7154"
+  },
+  "feat:eternal-guide": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7152"
+  },
+  "feat:eternal-legend-dedication": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7374"
+  },
+  "feat:eternity-incinerating-blaze": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7189"
+  },
+  "feat:exaltation-overwhelming": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7385"
+  },
+  "feat:exemplar-dedication": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7226"
+  },
+  "feat:exemplar-expertise": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7230"
+  },
+  "feat:expert-animist-spellcasting": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7224"
+  },
+  "feat:extend-surge": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7419"
+  },
+  "feat:extract-vow-of-nonviolence": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7177"
+  },
+  "feat:extraplanar-cloud": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7210"
+  },
+  "feat:extraplanar-haze": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7206"
+  },
+  "feat:exult-in-violence": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7172"
+  },
+  "feat:exultant-blood-magic": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7246"
+  },
+  "feat:eyes-that-see-eternity": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7299"
+  },
+  "feat:eyes-unclouded": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7341"
+  },
+  "feat:fated-duel": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7414"
+  },
+  "feat:faultspawn": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7197"
+  },
+  "feat:feet-that-stride-the-sky": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7273"
+  },
+  "feat:fiend-eternal": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7330"
+  },
+  "feat:fight-through-oblivion": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7389"
+  },
+  "feat:finish-their-story": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7390"
+  },
+  "feat:fish-from-the-falls-edge": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7173"
+  },
+  "feat:fling-into-action": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7286"
+  },
+  "feat:flow-of-war": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7165"
+  },
+  "feat:fly-on-shadowed-wings": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7140"
+  },
+  "feat:font-of-life-or-death": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7397"
+  },
+  "feat:forests-heart": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7146"
+  },
+  "feat:galvanize-spell": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7429"
+  },
+  "feat:gift-of-the-immortal-herb": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7184"
+  },
+  "feat:gird-champion": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7398"
+  },
+  "feat:glory-and-valor": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7211"
+  },
+  "feat:godling-dedication": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7392"
+  },
+  "feat:godspeed": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7279"
+  },
+  "feat:grasping-spirits-spell": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7125"
+  },
+  "feat:grudge-strike": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7132"
+  },
+  "feat:guarded-domain": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7347"
+  },
+  "feat:haft-beatdown": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7238"
+  },
+  "feat:haft-striker-stance": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7237"
+  },
+  "feat:hands-that-unweave-disaster": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7274"
+  },
+  "feat:hematocritical": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7244"
+  },
+  "feat:heroic-defiance": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7262"
+  },
+  "feat:history-of-violence": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7306"
+  },
+  "feat:hurl-at-the-horizon": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7158"
+  },
+  "feat:imbue-spell": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7424"
+  },
+  "feat:immortal-ruin": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7319"
+  },
+  "feat:immovable-object": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7378"
+  },
+  "feat:imprison-foe": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7328"
+  },
+  "feat:incredible-familiar-animist": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9420"
+  },
+  "feat:infinite-blades-celestial-arrow": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7182"
+  },
+  "feat:instinctive-maneuvers": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7136"
+  },
+  "feat:interrogate": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7257"
+  },
+  "feat:intuitive-crafting": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7200"
+  },
+  "feat:invigorating-surge": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7420"
+  },
+  "feat:irrepressible-nephilim": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7201"
+  },
+  "feat:jesters-gambol": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7147"
+  },
+  "feat:journey-of-the-sky-chariot": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7174"
+  },
+  "feat:jousting-mount": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7307"
+  },
+  "feat:kneel-before-the-rightful-heir": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7408"
+  },
+  "feat:know-thy-doom": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7265"
+  },
+  "feat:larcenous-tail": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7212"
+  },
+  "feat:leap-the-falls": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7159"
+  },
+  "feat:leaping-hedgehog-strike": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7381"
+  },
+  "feat:legacy-of-monarchs": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7416"
+  },
+  "feat:legend-of-combat": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7386"
+  },
+  "feat:liberty-or-death": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7369"
+  },
+  "feat:living-epic": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7391"
+  },
+  "feat:lord-of-the-fiends": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7322"
+  },
+  "feat:lose-your-chains": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7366"
+  },
+  "feat:mana-detonation": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7430"
+  },
+  "feat:manipulate-realm": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7323"
+  },
+  "feat:mark-of-the-sage": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7185"
+  },
+  "feat:marshall-fiendish-forces": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7324"
+  },
+  "feat:master-animist-spellcasting": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7225"
+  },
+  "feat:mated-birds-in-paired-flight": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7175"
+  },
+  "feat:mediums-awareness": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7133"
+  },
+  "feat:memory-of-nothing": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7317"
+  },
+  "feat:methodical-magic": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7213"
+  },
+  "feat:might-of-the-realm": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7407"
+  },
+  "feat:monstrous-inclinations": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7148"
+  },
+  "feat:motionless-cutter": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7166"
+  },
+  "feat:multifaceted-will": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7250"
+  },
+  "feat:my-kingdom-my-blood": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7409"
+  },
+  "feat:mystical-flare": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7425"
+  },
+  "feat:mythic-allies": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7291"
+  },
+  "feat:mythic-casting": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7300"
+  },
+  "feat:mythic-containment": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7301"
+  },
+  "feat:mythic-counter": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7431"
+  },
+  "feat:mythic-counterspell": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7287"
+  },
+  "feat:mythic-heightening": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7421"
+  },
+  "feat:mythic-magic": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7292"
+  },
+  "feat:mythic-refocus": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7293"
+  },
+  "feat:mythic-strike": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7302"
+  },
+  "feat:mythic-weapon-specialization": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7387"
+  },
+  "feat:night-terror": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7310"
+  },
+  "feat:noble-sacrifice": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7410"
+  },
+  "feat:once-and-future": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7417"
+  },
+  "feat:one-life-two-vessels": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7356"
+  },
+  "feat:only-my-doom-may-claim-me": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7266"
+  },
+  "feat:only-the-worthy": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7161"
+  },
+  "feat:pack-of-the-beast-lord": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7355"
+  },
+  "feat:pandemonium-eruption": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7218"
+  },
+  "feat:patron-reborn": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7255"
+  },
+  "feat:patrons-glamour": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7248"
+  },
+  "feat:patrons-whisper": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7253"
+  },
+  "feat:pierce-the-eye": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7382"
+  },
+  "feat:piercing-doom": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7263"
+  },
+  "feat:prescience": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7280"
+  },
+  "feat:profane-bargain": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7329"
+  },
+  "feat:prophesied-monarch-dedication": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7403"
+  },
+  "feat:proteankin": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7198"
+  },
+  "feat:protect-the-royal-line": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7411"
+  },
+  "feat:putrefaction": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7309"
+  },
+  "feat:raise-island": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7169"
+  },
+  "feat:rapid-spark": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7178"
+  },
+  "feat:rapid-switch": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7426"
+  },
+  "feat:razors-edge": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7267"
+  },
+  "feat:reach-for-immortality": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7193"
+  },
+  "feat:read-the-wind": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7281"
+  },
+  "feat:realm-strider": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7325"
+  },
+  "feat:rebellious-existence": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7370"
+  },
+  "feat:receive-prayers": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7395"
+  },
+  "feat:recharging-transference": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7427"
+  },
+  "feat:red-gold-mortality": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7160"
+  },
+  "feat:rejoice-in-solstice-storm": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7170"
+  },
+  "feat:release-me": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7360"
+  },
+  "feat:relinquish-control": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7122"
+  },
+  "feat:remake-the-world": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7194"
+  },
+  "feat:repel-assault": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7288"
+  },
+  "feat:reprisal-of-the-fallen": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7371"
+  },
+  "feat:resilient-physiology": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7207"
+  },
+  "feat:rising-blood-magic": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7241"
+  },
+  "feat:rites-of-liberation": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7361"
+  },
+  "feat:roaring-heart": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7134"
+  },
+  "feat:sanctified-relic": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7400"
+  },
+  "feat:sanctified-soul": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7155"
+  },
+  "feat:scattering-shout": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7379"
+  },
+  "feat:scouring-spark": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7343"
+  },
+  "feat:seat-of-power": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7326"
+  },
+  "feat:second-ikon": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7231"
+  },
+  "feat:seneschal-spell": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7249"
+  },
+  "feat:seneschal-witch-dedication": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7247"
+  },
+  "feat:seven-colored-cosmic-bridge": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7190"
+  },
+  "feat:shadow-of-death": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7235"
+  },
+  "feat:shadows-within-shadows": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7142"
+  },
+  "feat:shining-glory": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7342"
+  },
+  "feat:shroud-of-ghosts": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7186"
+  },
+  "feat:siphon-magic": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7242"
+  },
+  "feat:slay": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7236"
+  },
+  "feat:soul-vessel-mount": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7318"
+  },
+  "feat:sovereigns-blade": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7415"
+  },
+  "feat:spear-dancer": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7268"
+  },
+  "feat:spear-of-doom": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7264"
+  },
+  "feat:spell-network": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7422"
+  },
+  "feat:spelldrinker": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7243"
+  },
+  "feat:spirit-familiar-animist": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7123"
+  },
+  "feat:spirit-walk": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7137"
+  },
+  "feat:spirits-sacrifice": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7151"
+  },
+  "feat:spiritual-awakening": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7221"
+  },
+  "feat:spiritual-expansion-spell": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7126"
+  },
+  "feat:spiritual-secret": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7251"
+  },
+  "feat:spiritual-spellshape-stance": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7149"
+  },
+  "feat:stand-firm": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7368"
+  },
+  "feat:steal-death": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7311"
+  },
+  "feat:steal-magic": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7294"
+  },
+  "feat:steel-on-steel": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7162"
+  },
+  "feat:storied-companion": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7275"
+  },
+  "feat:strike-rivers-seize-winds": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7187"
+  },
+  "feat:stymie-the-gods": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7401"
+  },
+  "feat:sublime-mobility": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7202"
+  },
+  "feat:summon-mythic-power": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7295"
+  },
+  "feat:sunwrecker": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7191"
+  },
+  "feat:surging-blood-magic": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7245"
+  },
+  "feat:surging-interference": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7433"
+  },
+  "feat:telepathic-union": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7352"
+  },
+  "feat:terrifying-mien": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7383"
+  },
+  "feat:through-the-needles-eye": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7163"
+  },
+  "feat:thundering-surge": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7428"
+  },
+  "feat:to-war": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7312"
+  },
+  "feat:towering-presence": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7208"
+  },
+  "feat:true-channel-spell": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7153"
+  },
+  "feat:twin-stars": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7156"
+  },
+  "feat:unbelievable-interception": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7296"
+  },
+  "feat:unbelievably-believable": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7282"
+  },
+  "feat:unbreaking-castle": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7303"
+  },
+  "feat:unending-subsistence": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7283"
+  },
+  "feat:unified-stance": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7353"
+  },
+  "feat:united-front": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7362"
+  },
+  "feat:unrivaled-retort": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7289"
+  },
+  "feat:unstable-patronage": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7254"
+  },
+  "feat:unstoppable-force": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7388"
+  },
+  "feat:vindicator-dedication": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7256"
+  },
+  "feat:virulent-strike": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7313"
+  },
+  "feat:vow-of-mortal-defiance": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7157"
+  },
+  "feat:walk-the-wilds": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7129"
+  },
+  "feat:warped-by-rage": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7179"
+  },
+  "feat:warrior-of-legend-dedication": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7261"
+  },
+  "feat:watcher-on-the-wall": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7252"
+  },
+  "feat:we-are-one": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7348"
+  },
+  "feat:weft-and-warp": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7384"
+  },
+  "feat:weve-met-before": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7276"
+  },
+  "feat:wildspell-dedication": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7418"
+  },
+  "feat:wind-seeker": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7138"
+  },
+  "feat:wither-away": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7314"
+  },
+  "feat:you-cant-hide-from-us": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7349"
+  },
+  "feat:you-cant-keep-us-down": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7363"
+  },
+  "feat:you-cant-kill-an-idea": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7373"
+  },
+  "feat:zealous-inevitability": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7233"
+  },
+  "rune:mythic-armor-potency": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3498"
+  },
+  "rune:mythic-resilient": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3499"
+  },
+  "rune:mythic-striking": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3500"
+  },
+  "rune:mythic-weapon-potency": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3501"
+  },
+  "spell:arcane-explosion": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2151"
+  },
+  "spell:banishing-touch": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2152"
+  },
+  "spell:beseech-arcanotheign": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2153"
+  },
+  "spell:bounty-of-the-sky": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2154"
+  },
+  "spell:darkened-forest-form": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2143"
+  },
+  "spell:devouring-dark-form": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2140"
+  },
+  "spell:diadem-of-divine-radiance": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2163"
+  },
+  "spell:earths-bile": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2144"
+  },
+  "spell:embodiment-of-battle": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2146"
+  },
+  "spell:final-fate-of-the-locust-host": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2155"
+  },
+  "spell:garden-of-healing": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2166"
+  },
+  "spell:garden-of-the-green-mans-growth": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2156"
+  },
+  "spell:it-is-written": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2157"
+  },
+  "spell:manifest-will": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2147"
+  },
+  "spell:nymphs-grace": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2141"
+  },
+  "spell:part-the-mists-to-paradise": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2158"
+  },
+  "spell:perceive-the-threads-of-fate": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2159"
+  },
+  "spell:rainbows-end": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2160"
+  },
+  "spell:river-carving-mountains": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2145"
+  },
+  "spell:seize-identity": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2161"
+  },
+  "spell:spellsurge": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2150"
+  },
+  "spell:store-time": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2138"
+  },
+  "spell:summon-oliphaunt-of-jandelay": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2162"
+  },
+  "spell:travel-by-turtle": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2164"
+  },
+  "spell:traveling-workshop": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2137"
+  },
+  "spell:tricksters-feathers": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2165"
+  },
+  "spell:tricksters-mirrors": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2142"
+  },
+  "spell:vindicators-mark": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2148"
+  },
+  "weapon:combat-fishing-pole": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=508"
+  },
+  "weapon:fighting-oar": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=505"
+  },
+  "weapon:gladius": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=510"
+  },
+  "weapon:kestros": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=513"
+  },
+  "weapon:macuahuitl": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=511"
+  },
+  "weapon:palstave": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=506"
+  },
+  "weapon:war-gavel": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=507"
+  },
+  "weapon:war-javelin": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=512"
+  }
+}

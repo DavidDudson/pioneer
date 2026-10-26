@@ -1,0 +1,334 @@
+{
+  "ancestry:anadi": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=42"
+  },
+  "ancestry:conrasu": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=43"
+  },
+  "ancestry:goloma": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=45"
+  },
+  "ancestry:shisk": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=47"
+  },
+  "equipment:genealogy-mask": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=956"
+  },
+  "equipment:jahan-waystone": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=957"
+  },
+  "equipment:oath-of-the-devoted": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=958"
+  },
+  "feat:ambush-awareness": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2810"
+  },
+  "feat:anadi-lore": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2762"
+  },
+  "feat:arcane-sight": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2814"
+  },
+  "feat:bristle": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2835"
+  },
+  "feat:catch-the-details": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2805"
+  },
+  "feat:ceremony-of-aeons-guidance": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2783"
+  },
+  "feat:ceremony-of-aeons-shield": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2784"
+  },
+  "feat:ceremony-of-fortification": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2785"
+  },
+  "feat:ceremony-of-growth": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2788"
+  },
+  "feat:ceremony-of-knowledge": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2780"
+  },
+  "feat:ceremony-of-protection": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2776"
+  },
+  "feat:ceremony-of-sunlight": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2781"
+  },
+  "feat:ceremony-of-suns-gift": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2789"
+  },
+  "feat:ceremony-of-the-evened-hand": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2777"
+  },
+  "feat:conrasu-lore": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2779"
+  },
+  "feat:conrasu-weapon-expertise": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2787"
+  },
+  "feat:conrasu-weapon-familiarity": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2778"
+  },
+  "feat:conrasu-weapon-understanding": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2782"
+  },
+  "feat:constant-gaze": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2812"
+  },
+  "feat:defensive-instincts": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2813"
+  },
+  "feat:delver": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2841"
+  },
+  "feat:demonbane-warrior": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2760"
+  },
+  "feat:demonblood-frenzy": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2761"
+  },
+  "feat:dig-up-secrets": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2838"
+  },
+  "feat:disorienting-venom": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2771"
+  },
+  "feat:eidetic-ear": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2831"
+  },
+  "feat:fountain-of-secrets": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2844"
+  },
+  "feat:friendform": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2768"
+  },
+  "feat:goloma-courage": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2806"
+  },
+  "feat:goloma-lore": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2807"
+  },
+  "feat:hunters-fangs": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2769"
+  },
+  "feat:hybrid-shape": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2770"
+  },
+  "feat:inured-to-the-heat": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2836"
+  },
+  "feat:none-shall-know": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2842"
+  },
+  "feat:pierce-the-darkness": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2808"
+  },
+  "feat:piercing-quills": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2839"
+  },
+  "feat:protective-claws": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2811"
+  },
+  "feat:quill-spray": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2840"
+  },
+  "feat:reassuring-presence": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2763"
+  },
+  "feat:renewing-quills": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2837"
+  },
+  "feat:secret-eyes": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2843"
+  },
+  "feat:see-the-unseen": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2815"
+  },
+  "feat:shisk-lore": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2832"
+  },
+  "feat:skittertalk": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2764"
+  },
+  "feat:spelunker": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2833"
+  },
+  "feat:spine-stabber": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2834"
+  },
+  "feat:strand-strider": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2772"
+  },
+  "feat:studious-adept": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2773"
+  },
+  "feat:studious-magic": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2765"
+  },
+  "feat:true-gaze": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2816"
+  },
+  "feat:watchful-gaze": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2809"
+  },
+  "feat:web-hunter": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2774"
+  },
+  "feat:web-walker": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2766"
+  },
+  "feat:web-weaver": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2767"
+  },
+  "feat:webslinger": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2775"
+  },
+  "heritage:adaptive-anadi": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=156"
+  },
+  "heritage:farsight-goloma": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=170"
+  },
+  "heritage:frightful-goloma": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=171"
+  },
+  "heritage:insightful-goloma": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=172"
+  },
+  "heritage:lorekeeper-shisk": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=179"
+  },
+  "heritage:polychromatic-anadi": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=157"
+  },
+  "heritage:quillcoat-shisk": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=180"
+  },
+  "heritage:rite-of-invocation": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=165"
+  },
+  "heritage:rite-of-knowing": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=161"
+  },
+  "heritage:rite-of-light": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=162"
+  },
+  "heritage:rite-of-passage": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=163"
+  },
+  "heritage:rite-of-reinforcement": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=164"
+  },
+  "heritage:snaring-anadi": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=158"
+  },
+  "heritage:spellkeeper-shisk": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=181"
+  },
+  "heritage:spindly-anadi": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=159"
+  },
+  "heritage:stonestep-shisk": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=183"
+  },
+  "heritage:stronggut-shisk": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=182"
+  },
+  "heritage:venomous-anadi": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=160"
+  },
+  "heritage:vicious-goloma": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=173"
+  },
+  "heritage:vigilant-goloma": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=174"
+  },
+  "weapon:fighting-stick": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=168"
+  }
+}

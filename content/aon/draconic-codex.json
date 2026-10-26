@@ -1,0 +1,1160 @@
+{
+  "etag": "\"834f4c1a1b094c65b51951ecf35da15b\"",
+  "entries": [
+    {
+      "type": "Ancestries",
+      "name": "Dragonet",
+      "url": "https://2e.aonprd.com/Ancestries.aspx?ID=96"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Fey Dragonet",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=422"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Homing Drake",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=423"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "House Drake",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=424"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Pearl Dragonet",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=425"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Tidepool Dragonet",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=426"
+    },
+    {
+      "type": "Companions",
+      "name": "Riding Dragonet",
+      "url": "https://2e.aonprd.com/Companions.aspx?ID=122"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Draconic Acolyte",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=333"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Drake Rider",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=334"
+    },
+    {
+      "type": "Deities",
+      "name": "Apsu",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=330"
+    },
+    {
+      "type": "Deities",
+      "name": "Brixori",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=715"
+    },
+    {
+      "type": "Deities",
+      "name": "Dahak",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=337"
+    },
+    {
+      "type": "Deities",
+      "name": "Essence Dancers",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=723"
+    },
+    {
+      "type": "Deities",
+      "name": "Gaasham",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=716"
+    },
+    {
+      "type": "Deities",
+      "name": "Garhaazh",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=717"
+    },
+    {
+      "type": "Deities",
+      "name": "Otilaz",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=718"
+    },
+    {
+      "type": "Deities",
+      "name": "Sarshallatu",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=719"
+    },
+    {
+      "type": "Deities",
+      "name": "The Anointing of Kings",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=722"
+    },
+    {
+      "type": "Deities",
+      "name": "Turvu",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=720"
+    },
+    {
+      "type": "Deities",
+      "name": "Yluma",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=721"
+    },
+    {
+      "type": "Equipment",
+      "name": "Anti-Dragon Barding",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4010"
+    },
+    {
+      "type": "Equipment",
+      "name": "Dragon Eye",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4014"
+    },
+    {
+      "type": "Equipment",
+      "name": "Dragon Pearl",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4011"
+    },
+    {
+      "type": "Equipment",
+      "name": "Dragon Scute",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4015"
+    },
+    {
+      "type": "Equipment",
+      "name": "Dragon's Tongue",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4012"
+    },
+    {
+      "type": "Equipment",
+      "name": "Dragonaut's Wingsuit",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4013"
+    },
+    {
+      "type": "Equipment",
+      "name": "Duty of the Oathsworn",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4017"
+    },
+    {
+      "type": "Equipment",
+      "name": "Enkindled Quintessence",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4019"
+    },
+    {
+      "type": "Equipment",
+      "name": "Greater Anti-Dragon Barding",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4010"
+    },
+    {
+      "type": "Equipment",
+      "name": "Greater Dragon Scute",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4015"
+    },
+    {
+      "type": "Equipment",
+      "name": "Greater Dragon's Tongue",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4012"
+    },
+    {
+      "type": "Equipment",
+      "name": "Lesser Dragon Scute",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4015"
+    },
+    {
+      "type": "Equipment",
+      "name": "Major Dragon's Tongue",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4012"
+    },
+    {
+      "type": "Equipment",
+      "name": "Moderate Dragon Scute",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4015"
+    },
+    {
+      "type": "Equipment",
+      "name": "Pact of the Agonized Destroyer",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4020"
+    },
+    {
+      "type": "Equipment",
+      "name": "Pact of the Herald and Host",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4016"
+    },
+    {
+      "type": "Equipment",
+      "name": "The Timeless Bond",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4018"
+    },
+    {
+      "type": "Feats",
+      "name": "Aqueous Dragonblood",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8076"
+    },
+    {
+      "type": "Feats",
+      "name": "Ascendant Blood",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8089"
+    },
+    {
+      "type": "Feats",
+      "name": "Ascended Dragonet Heritage",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8053"
+    },
+    {
+      "type": "Feats",
+      "name": "Benefactor's Resistance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8064"
+    },
+    {
+      "type": "Feats",
+      "name": "Benefactor's Strike",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8069"
+    },
+    {
+      "type": "Feats",
+      "name": "Benefactor's Wings",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8095"
+    },
+    {
+      "type": "Feats",
+      "name": "Blood and Spirit",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8079"
+    },
+    {
+      "type": "Feats",
+      "name": "Bond Companion",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8057"
+    },
+    {
+      "type": "Feats",
+      "name": "Breath Unleashed",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8072"
+    },
+    {
+      "type": "Feats",
+      "name": "Call Draconic Ally",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8100"
+    },
+    {
+      "type": "Feats",
+      "name": "Covet Hoard",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8046"
+    },
+    {
+      "type": "Feats",
+      "name": "Dazzling Dragonet Disappearance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8062"
+    },
+    {
+      "type": "Feats",
+      "name": "Death Dive",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8109"
+    },
+    {
+      "type": "Feats",
+      "name": "Debilitating Breath",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8087"
+    },
+    {
+      "type": "Feats",
+      "name": "Deepening Devotion",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8097"
+    },
+    {
+      "type": "Feats",
+      "name": "Dracomancer",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8073"
+    },
+    {
+      "type": "Feats",
+      "name": "Draconic Acolyte Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8090"
+    },
+    {
+      "type": "Feats",
+      "name": "Draconic Familiar",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8093"
+    },
+    {
+      "type": "Feats",
+      "name": "Draconic Fury",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8091"
+    },
+    {
+      "type": "Feats",
+      "name": "Draconic Paragon",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8074"
+    },
+    {
+      "type": "Feats",
+      "name": "Draconic Resilience",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8092"
+    },
+    {
+      "type": "Feats",
+      "name": "Draconic Sycophant",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8065"
+    },
+    {
+      "type": "Feats",
+      "name": "Dragonet Breath",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8047"
+    },
+    {
+      "type": "Feats",
+      "name": "Dragonet Immunities",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8063"
+    },
+    {
+      "type": "Feats",
+      "name": "Dragonet Resistances",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8048"
+    },
+    {
+      "type": "Feats",
+      "name": "Dragonscaled Lore",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8066"
+    },
+    {
+      "type": "Feats",
+      "name": "Drake Rider Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8102"
+    },
+    {
+      "type": "Feats",
+      "name": "Earthbond",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8080"
+    },
+    {
+      "type": "Feats",
+      "name": "Elite Dracomancer",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8075"
+    },
+    {
+      "type": "Feats",
+      "name": "Energize Bite",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8083"
+    },
+    {
+      "type": "Feats",
+      "name": "Essence Overflow",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8094"
+    },
+    {
+      "type": "Feats",
+      "name": "Ferocious Will",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8058"
+    },
+    {
+      "type": "Feats",
+      "name": "Flair Rider Stance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8105"
+    },
+    {
+      "type": "Feats",
+      "name": "Form a Flock",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8060"
+    },
+    {
+      "type": "Feats",
+      "name": "Frightening Power",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8099"
+    },
+    {
+      "type": "Feats",
+      "name": "Guided Hover",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8111"
+    },
+    {
+      "type": "Feats",
+      "name": "Heart of Earth",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8088"
+    },
+    {
+      "type": "Feats",
+      "name": "Hidden Hoard",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8101"
+    },
+    {
+      "type": "Feats",
+      "name": "Hoarder's Craw",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8067"
+    },
+    {
+      "type": "Feats",
+      "name": "Home in the Deep",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8084"
+    },
+    {
+      "type": "Feats",
+      "name": "Incredible Dragon Companion",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8107"
+    },
+    {
+      "type": "Feats",
+      "name": "Inhale, Exhale!",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8054"
+    },
+    {
+      "type": "Feats",
+      "name": "Into the Sky",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8059"
+    },
+    {
+      "type": "Feats",
+      "name": "Jealous Grip",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8055"
+    },
+    {
+      "type": "Feats",
+      "name": "Kobold Breath",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8068"
+    },
+    {
+      "type": "Feats",
+      "name": "Kobold Momentum",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8070"
+    },
+    {
+      "type": "Feats",
+      "name": "Lurching Chomp",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8061"
+    },
+    {
+      "type": "Feats",
+      "name": "Mature Dragon Companion",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8103"
+    },
+    {
+      "type": "Feats",
+      "name": "Mighty Dragonet",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8049"
+    },
+    {
+      "type": "Feats",
+      "name": "Mineral Deposits",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8085"
+    },
+    {
+      "type": "Feats",
+      "name": "My Claws are Daggers",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8050"
+    },
+    {
+      "type": "Feats",
+      "name": "Reactive Resilience",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8096"
+    },
+    {
+      "type": "Feats",
+      "name": "Reflexive Devotion",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8098"
+    },
+    {
+      "type": "Feats",
+      "name": "Scales of Steel",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8051"
+    },
+    {
+      "type": "Feats",
+      "name": "Sheltering Wing",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8086"
+    },
+    {
+      "type": "Feats",
+      "name": "Strafing Breath",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8110"
+    },
+    {
+      "type": "Feats",
+      "name": "Summiting Dragonblood",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8077"
+    },
+    {
+      "type": "Feats",
+      "name": "Take Wing",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8052"
+    },
+    {
+      "type": "Feats",
+      "name": "Tenacious Jaws",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8081"
+    },
+    {
+      "type": "Feats",
+      "name": "Terra Dragonblood",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8078"
+    },
+    {
+      "type": "Feats",
+      "name": "Tip the Scales",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8071"
+    },
+    {
+      "type": "Feats",
+      "name": "Voice of the Elements",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8082"
+    },
+    {
+      "type": "Feats",
+      "name": "War Rider Stance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8106"
+    },
+    {
+      "type": "Feats",
+      "name": "Wing Rider",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8108"
+    },
+    {
+      "type": "Feats",
+      "name": "Winged Leap",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8104"
+    },
+    {
+      "type": "Feats",
+      "name": "Zip! Zoom!",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8056"
+    },
+    {
+      "type": "Monsters",
+      "name": "Adamantine Archdragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4097"
+    },
+    {
+      "type": "Monsters",
+      "name": "Adult Barrage Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4112"
+    },
+    {
+      "type": "Monsters",
+      "name": "Adult Bog Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4116"
+    },
+    {
+      "type": "Monsters",
+      "name": "Adult Brine Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4120"
+    },
+    {
+      "type": "Monsters",
+      "name": "Adult Cloud Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4124"
+    },
+    {
+      "type": "Monsters",
+      "name": "Adult Crystal Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4128"
+    },
+    {
+      "type": "Monsters",
+      "name": "Adult Delight Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4132"
+    },
+    {
+      "type": "Monsters",
+      "name": "Adult Executor Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4139"
+    },
+    {
+      "type": "Monsters",
+      "name": "Adult Forest Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4143"
+    },
+    {
+      "type": "Monsters",
+      "name": "Adult Magma Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4147"
+    },
+    {
+      "type": "Monsters",
+      "name": "Adult Mocking Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4151"
+    },
+    {
+      "type": "Monsters",
+      "name": "Adult Oath Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4155"
+    },
+    {
+      "type": "Monsters",
+      "name": "Adult Rime Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4159"
+    },
+    {
+      "type": "Monsters",
+      "name": "Adult Sage Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4163"
+    },
+    {
+      "type": "Monsters",
+      "name": "Adult Sea Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4167"
+    },
+    {
+      "type": "Monsters",
+      "name": "Adult Sky Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4171"
+    },
+    {
+      "type": "Monsters",
+      "name": "Adult Sovereign Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4175"
+    },
+    {
+      "type": "Monsters",
+      "name": "Adult Stormcrown Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4179"
+    },
+    {
+      "type": "Monsters",
+      "name": "Adult Time Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4183"
+    },
+    {
+      "type": "Monsters",
+      "name": "Adult Umbral Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4187"
+    },
+    {
+      "type": "Monsters",
+      "name": "Adult Underworld Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4191"
+    },
+    {
+      "type": "Monsters",
+      "name": "Adult Vizier Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4195"
+    },
+    {
+      "type": "Monsters",
+      "name": "Adult Vorpal Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4199"
+    },
+    {
+      "type": "Monsters",
+      "name": "Adult Wailing Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4203"
+    },
+    {
+      "type": "Monsters",
+      "name": "Adult Wish Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4207"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ancient Barrage Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4113"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ancient Bog Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4117"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ancient Brine Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4121"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ancient Cloud Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4125"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ancient Crystal Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4129"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ancient Delight Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4133"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ancient Executor Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4140"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ancient Forest Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4144"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ancient Magma Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4148"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ancient Mocking Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4152"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ancient Oath Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4156"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ancient Rime Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4160"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ancient Sage Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4164"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ancient Sea Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4168"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ancient Sky Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4172"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ancient Sovereign Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4176"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ancient Stormcrown Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4180"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ancient Time Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4184"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ancient Umbral Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4188"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ancient Underworld Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4192"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ancient Vizier Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4196"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ancient Vorpal Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4200"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ancient Wailing Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4204"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ancient Wish Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4208"
+    },
+    {
+      "type": "Monsters",
+      "name": "Barrage Archdragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4114"
+    },
+    {
+      "type": "Monsters",
+      "name": "Bog Archdragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4118"
+    },
+    {
+      "type": "Monsters",
+      "name": "Brine Archdragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4122"
+    },
+    {
+      "type": "Monsters",
+      "name": "Cinder Archdragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4098"
+    },
+    {
+      "type": "Monsters",
+      "name": "Cloud Archdragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4126"
+    },
+    {
+      "type": "Monsters",
+      "name": "Conspirator Archdragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4212"
+    },
+    {
+      "type": "Monsters",
+      "name": "Coral Archdragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4099"
+    },
+    {
+      "type": "Monsters",
+      "name": "Crystal Archdragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4130"
+    },
+    {
+      "type": "Monsters",
+      "name": "Delight Archdragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4134"
+    },
+    {
+      "type": "Monsters",
+      "name": "Despair Archdragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4100"
+    },
+    {
+      "type": "Monsters",
+      "name": "Diabolic Archdragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4101"
+    },
+    {
+      "type": "Monsters",
+      "name": "Elder Wyrmwraith",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4211"
+    },
+    {
+      "type": "Monsters",
+      "name": "Empyreal Archdragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4213"
+    },
+    {
+      "type": "Monsters",
+      "name": "Executor Archdragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4141"
+    },
+    {
+      "type": "Monsters",
+      "name": "Forest Archdragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4145"
+    },
+    {
+      "type": "Monsters",
+      "name": "Fortune Archdragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4102"
+    },
+    {
+      "type": "Monsters",
+      "name": "Horned Archdragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4103"
+    },
+    {
+      "type": "Monsters",
+      "name": "Magma Archdragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4149"
+    },
+    {
+      "type": "Monsters",
+      "name": "Mirage Archdragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4104"
+    },
+    {
+      "type": "Monsters",
+      "name": "Mocking Archdragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4153"
+    },
+    {
+      "type": "Monsters",
+      "name": "Oath Archdragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4157"
+    },
+    {
+      "type": "Monsters",
+      "name": "Omen Archdragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4105"
+    },
+    {
+      "type": "Monsters",
+      "name": "Pearl Dragonet",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4135"
+    },
+    {
+      "type": "Monsters",
+      "name": "Pest Drake Swarm",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4137"
+    },
+    {
+      "type": "Monsters",
+      "name": "Phase Archdragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4106"
+    },
+    {
+      "type": "Monsters",
+      "name": "Requiem Archdragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4107"
+    },
+    {
+      "type": "Monsters",
+      "name": "Resurrection Archdragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4108"
+    },
+    {
+      "type": "Monsters",
+      "name": "Rime Archdragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4161"
+    },
+    {
+      "type": "Monsters",
+      "name": "Rune Archdragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4109"
+    },
+    {
+      "type": "Monsters",
+      "name": "Sage Archdragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4165"
+    },
+    {
+      "type": "Monsters",
+      "name": "Sea Archdragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4169"
+    },
+    {
+      "type": "Monsters",
+      "name": "Sky Archdragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4173"
+    },
+    {
+      "type": "Monsters",
+      "name": "Sovereign Archdragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4177"
+    },
+    {
+      "type": "Monsters",
+      "name": "Stormcrown Archdragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4181"
+    },
+    {
+      "type": "Monsters",
+      "name": "Tidepool Dragonet",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4136"
+    },
+    {
+      "type": "Monsters",
+      "name": "Time Archdragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4185"
+    },
+    {
+      "type": "Monsters",
+      "name": "Umbral Archdragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4189"
+    },
+    {
+      "type": "Monsters",
+      "name": "Underworld Archdragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4193"
+    },
+    {
+      "type": "Monsters",
+      "name": "Vizier Archdragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4197"
+    },
+    {
+      "type": "Monsters",
+      "name": "Vorpal Archdragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4201"
+    },
+    {
+      "type": "Monsters",
+      "name": "Wailing Archdragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4205"
+    },
+    {
+      "type": "Monsters",
+      "name": "Whisper Archdragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4110"
+    },
+    {
+      "type": "Monsters",
+      "name": "Wish Archdragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4209"
+    },
+    {
+      "type": "Monsters",
+      "name": "Wyrmwraith",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4210"
+    },
+    {
+      "type": "Monsters",
+      "name": "Young Barrage Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4111"
+    },
+    {
+      "type": "Monsters",
+      "name": "Young Bog Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4115"
+    },
+    {
+      "type": "Monsters",
+      "name": "Young Brine Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4119"
+    },
+    {
+      "type": "Monsters",
+      "name": "Young Cloud Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4123"
+    },
+    {
+      "type": "Monsters",
+      "name": "Young Crystal Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4127"
+    },
+    {
+      "type": "Monsters",
+      "name": "Young Delight Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4131"
+    },
+    {
+      "type": "Monsters",
+      "name": "Young Executor Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4138"
+    },
+    {
+      "type": "Monsters",
+      "name": "Young Forest Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4142"
+    },
+    {
+      "type": "Monsters",
+      "name": "Young Magma Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4146"
+    },
+    {
+      "type": "Monsters",
+      "name": "Young Mocking Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4150"
+    },
+    {
+      "type": "Monsters",
+      "name": "Young Oath Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4154"
+    },
+    {
+      "type": "Monsters",
+      "name": "Young Rime Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4158"
+    },
+    {
+      "type": "Monsters",
+      "name": "Young Sage Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4162"
+    },
+    {
+      "type": "Monsters",
+      "name": "Young Sea Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4166"
+    },
+    {
+      "type": "Monsters",
+      "name": "Young Sky Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4170"
+    },
+    {
+      "type": "Monsters",
+      "name": "Young Sovereign Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4174"
+    },
+    {
+      "type": "Monsters",
+      "name": "Young Stormcrown Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4178"
+    },
+    {
+      "type": "Monsters",
+      "name": "Young Time Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4182"
+    },
+    {
+      "type": "Monsters",
+      "name": "Young Umbral Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4186"
+    },
+    {
+      "type": "Monsters",
+      "name": "Young Underworld Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4190"
+    },
+    {
+      "type": "Monsters",
+      "name": "Young Vizier Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4194"
+    },
+    {
+      "type": "Monsters",
+      "name": "Young Vorpal Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4198"
+    },
+    {
+      "type": "Monsters",
+      "name": "Young Wailing Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4202"
+    },
+    {
+      "type": "Monsters",
+      "name": "Young Wish Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4206"
+    },
+    {
+      "type": "Rules",
+      "name": "Dragon Pact Rules",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3491"
+    },
+    {
+      "type": "Spells",
+      "name": "Armor of Thorn and Claw",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2524"
+    },
+    {
+      "type": "Spells",
+      "name": "Blood-Feasting Breath",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2525"
+    },
+    {
+      "type": "Spells",
+      "name": "Channel Arrogance",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2526"
+    },
+    {
+      "type": "Spells",
+      "name": "Cloud Current",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2527"
+    },
+    {
+      "type": "Spells",
+      "name": "Divine Dragon's Watch",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2528"
+    },
+    {
+      "type": "Spells",
+      "name": "Dragon Turret",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2529"
+    },
+    {
+      "type": "Spells",
+      "name": "Earth and Sky",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2530"
+    },
+    {
+      "type": "Spells",
+      "name": "Horde of Underlings",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2531"
+    },
+    {
+      "type": "Spells",
+      "name": "Orb of Twisting Fate",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2532"
+    },
+    {
+      "type": "Traits",
+      "name": "Dragonet (Ancestry)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=893"
+    }
+  ]
+}

@@ -1,0 +1,1285 @@
+{
+  "etag": "\"52fa5db0595244dca8ef3415b23431da\"",
+  "entries": [
+    {
+      "type": "Ancestries",
+      "name": "Bugbear",
+      "url": "https://2e.aonprd.com/Ancestries.aspx?ID=99"
+    },
+    {
+      "type": "Ancestries",
+      "name": "Fetchling",
+      "url": "https://2e.aonprd.com/Ancestries.aspx?ID=100"
+    },
+    {
+      "type": "Ancestries",
+      "name": "Strix",
+      "url": "https://2e.aonprd.com/Ancestries.aspx?ID=101"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Bright Fetchling",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=446"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Deep Fetchling",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=447"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Kardan Bugbear",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=440"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Koblak Bugbear",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=441"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Liminal Fetchling",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=448"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Murd Bugbear",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=442"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Nightglider Strix",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=451"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Predator Strix",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=452"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Resolute Fetchling",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=449"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Scavenger Strix",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=453"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Shoreline Strix",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=454"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Slate-Stalker Bugbear",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=443"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Songbird Strix",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=455"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Towering Bugbear",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=444"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Wikkawak Bugbear",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=445"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Wisp Fetchling",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=450"
+    },
+    {
+      "type": "Companions",
+      "name": "Goblin Dog",
+      "url": "https://2e.aonprd.com/Companions.aspx?ID=132"
+    },
+    {
+      "type": "Companions",
+      "name": "Knurled Worm",
+      "url": "https://2e.aonprd.com/Companions.aspx?ID=133"
+    },
+    {
+      "type": "Companions",
+      "name": "Regal Toad",
+      "url": "https://2e.aonprd.com/Companions.aspx?ID=134"
+    },
+    {
+      "type": "Companions",
+      "name": "Thorngrip Shuffler",
+      "url": "https://2e.aonprd.com/Companions.aspx?ID=135"
+    },
+    {
+      "type": "Companions",
+      "name": "Yzobu",
+      "url": "https://2e.aonprd.com/Companions.aspx?ID=136"
+    },
+    {
+      "type": "Arcane Schools",
+      "name": "School of Corentyn Armada",
+      "url": "https://2e.aonprd.com/ArcaneSchools.aspx?ID=35"
+    },
+    {
+      "type": "Arcane Schools",
+      "name": "School of Shadow Veils",
+      "url": "https://2e.aonprd.com/ArcaneSchools.aspx?ID=36"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Bellflower Tiller",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=400"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Hellbound Aspirant",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=397"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Infernal Pactbreaker",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=398"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Midnight Illusionist",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=399"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Asmodean Apostate",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=679"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Brastlewark Student",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=680"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Chelaxian Trouper",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=681"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Chitterwood Refugee",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=691"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Council of Thieves Agent",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=682"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Hellknight Deserter",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=683"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Hinji Beachcomber",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=685"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Mount Spire Guide",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=687"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Ravounelian Civil Servant",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=688"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Secret Scion",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=692"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Shadowcaller Outcast",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=689"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Sisterhood Orphan",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=693"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Whisperwood Warden",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=690"
+    },
+    {
+      "type": "Deities",
+      "name": "Insight of Ego Triumphant",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=735"
+    },
+    {
+      "type": "Deities",
+      "name": "The Battered Chains",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=733"
+    },
+    {
+      "type": "Deities",
+      "name": "The Circle of the Damned",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=734"
+    },
+    {
+      "type": "Equipment",
+      "name": "Accursed Fame",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5231"
+    },
+    {
+      "type": "Equipment",
+      "name": "Armorskin Robes",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5241"
+    },
+    {
+      "type": "Equipment",
+      "name": "Armorskin Robes Of Air",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5241"
+    },
+    {
+      "type": "Equipment",
+      "name": "Armorskin Robes Of Fire",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5241"
+    },
+    {
+      "type": "Equipment",
+      "name": "Armorskin Robes Of Water",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5241"
+    },
+    {
+      "type": "Equipment",
+      "name": "Blast-off Bottle",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5253"
+    },
+    {
+      "type": "Equipment",
+      "name": "Blast-off Bottle (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5253"
+    },
+    {
+      "type": "Equipment",
+      "name": "Blast-off Bottle (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5253"
+    },
+    {
+      "type": "Equipment",
+      "name": "Blast-off Bottle (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5253"
+    },
+    {
+      "type": "Equipment",
+      "name": "Bracelet Of Buoyancy",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5237"
+    },
+    {
+      "type": "Equipment",
+      "name": "Crown Of The New Moon",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5246"
+    },
+    {
+      "type": "Equipment",
+      "name": "Devil's Trap",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5247"
+    },
+    {
+      "type": "Equipment",
+      "name": "Embedded Eye",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5242"
+    },
+    {
+      "type": "Equipment",
+      "name": "Energy Ointment",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5254"
+    },
+    {
+      "type": "Equipment",
+      "name": "Energy Ointment (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5254"
+    },
+    {
+      "type": "Equipment",
+      "name": "Energy Ointment (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5254"
+    },
+    {
+      "type": "Equipment",
+      "name": "Energy Ointment (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5254"
+    },
+    {
+      "type": "Equipment",
+      "name": "Exploitative Wealth",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5232"
+    },
+    {
+      "type": "Equipment",
+      "name": "Flask Of Elemental Air",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5243"
+    },
+    {
+      "type": "Equipment",
+      "name": "Flask Of Elemental Earth",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5243"
+    },
+    {
+      "type": "Equipment",
+      "name": "Flask Of Elemental Water",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5243"
+    },
+    {
+      "type": "Equipment",
+      "name": "Flask Of Elements",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5243"
+    },
+    {
+      "type": "Equipment",
+      "name": "Gleaming Cuirass",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5248"
+    },
+    {
+      "type": "Equipment",
+      "name": "Heat-seeking Harpoon",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5238"
+    },
+    {
+      "type": "Equipment",
+      "name": "Illicit Knowledge",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5233"
+    },
+    {
+      "type": "Equipment",
+      "name": "Liar's Bangle",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5249"
+    },
+    {
+      "type": "Equipment",
+      "name": "Lily Pad Platform",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5239"
+    },
+    {
+      "type": "Equipment",
+      "name": "Limitless Power",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5234"
+    },
+    {
+      "type": "Equipment",
+      "name": "Mark Of The Torrent",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5252"
+    },
+    {
+      "type": "Equipment",
+      "name": "Martial Mayhem Mutagen",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5255"
+    },
+    {
+      "type": "Equipment",
+      "name": "Martial Mayhem Mutagen (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5255"
+    },
+    {
+      "type": "Equipment",
+      "name": "Martial Mayhem Mutagen (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5255"
+    },
+    {
+      "type": "Equipment",
+      "name": "Martial Mayhem Mutagen (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5255"
+    },
+    {
+      "type": "Equipment",
+      "name": "Martial Mayhem Mutagen (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5255"
+    },
+    {
+      "type": "Equipment",
+      "name": "Megaphone Mutagen",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5256"
+    },
+    {
+      "type": "Equipment",
+      "name": "Megaphone Mutagen (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5256"
+    },
+    {
+      "type": "Equipment",
+      "name": "Megaphone Mutagen (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5256"
+    },
+    {
+      "type": "Equipment",
+      "name": "Megaphone Mutagen (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5256"
+    },
+    {
+      "type": "Equipment",
+      "name": "Megaphone Mutagen (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5256"
+    },
+    {
+      "type": "Equipment",
+      "name": "Night Sky Elixir",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5250"
+    },
+    {
+      "type": "Equipment",
+      "name": "Night Sky Elixir (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5250"
+    },
+    {
+      "type": "Equipment",
+      "name": "Night Sky Elixir (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5250"
+    },
+    {
+      "type": "Equipment",
+      "name": "Night Sky Elixir (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5250"
+    },
+    {
+      "type": "Equipment",
+      "name": "Pike Of The Monster Slayer",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5245"
+    },
+    {
+      "type": "Equipment",
+      "name": "Pit's Protection",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5235"
+    },
+    {
+      "type": "Equipment",
+      "name": "Sea Retrieval Line",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5240"
+    },
+    {
+      "type": "Equipment",
+      "name": "Soulpiercer",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5251"
+    },
+    {
+      "type": "Equipment",
+      "name": "Unholy Skill",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5236"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wind-up Widget",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5244"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wind-up Widget (Hand-powered Digger)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5244"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wind-up Widget (Thieves' Friend)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5244"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wind-up Widget (Wind-up Spy)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=5244"
+    },
+    {
+      "type": "Feats",
+      "name": "Abrasive Drag",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9517"
+    },
+    {
+      "type": "Feats",
+      "name": "Ancestor's Transformation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9474"
+    },
+    {
+      "type": "Feats",
+      "name": "And Yet It Still Hurts",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9508"
+    },
+    {
+      "type": "Feats",
+      "name": "Annul Compulsion",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9492"
+    },
+    {
+      "type": "Feats",
+      "name": "Archdiabolic Usurpation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9498"
+    },
+    {
+      "type": "Feats",
+      "name": "Balm Bomb",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9535"
+    },
+    {
+      "type": "Feats",
+      "name": "Basic Pactbreaker Spellcasting",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9489"
+    },
+    {
+      "type": "Feats",
+      "name": "Become As Shadow",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9460"
+    },
+    {
+      "type": "Feats",
+      "name": "Bellflower Tiller Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9518"
+    },
+    {
+      "type": "Feats",
+      "name": "Blazing Mutagen",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9533"
+    },
+    {
+      "type": "Feats",
+      "name": "Born In The Saddle",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9514"
+    },
+    {
+      "type": "Feats",
+      "name": "Bugbear Lore",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9421"
+    },
+    {
+      "type": "Feats",
+      "name": "Bugbear Weapon Familiarity",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9422"
+    },
+    {
+      "type": "Feats",
+      "name": "Bushwhack",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9423"
+    },
+    {
+      "type": "Feats",
+      "name": "Call Hellfire",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9483"
+    },
+    {
+      "type": "Feats",
+      "name": "Chiardmar Steed",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9512"
+    },
+    {
+      "type": "Feats",
+      "name": "Clarify Hellfire",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9496"
+    },
+    {
+      "type": "Feats",
+      "name": "Clever Shadow",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9450"
+    },
+    {
+      "type": "Feats",
+      "name": "Combustible Poison",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9532"
+    },
+    {
+      "type": "Feats",
+      "name": "Commandeer Hellmouth",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9500"
+    },
+    {
+      "type": "Feats",
+      "name": "Condemn Soul",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9494"
+    },
+    {
+      "type": "Feats",
+      "name": "Contract Blade",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9490"
+    },
+    {
+      "type": "Feats",
+      "name": "Coursing Weave",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9476"
+    },
+    {
+      "type": "Feats",
+      "name": "Crop Protection",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9519"
+    },
+    {
+      "type": "Feats",
+      "name": "Crush Their Spirits",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9439"
+    },
+    {
+      "type": "Feats",
+      "name": "Cut The Bonds",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9529"
+    },
+    {
+      "type": "Feats",
+      "name": "Death Of Hope",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9442"
+    },
+    {
+      "type": "Feats",
+      "name": "Devil In Disguise",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9481"
+    },
+    {
+      "type": "Feats",
+      "name": "Devil's Wings",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9487"
+    },
+    {
+      "type": "Feats",
+      "name": "Diabolic Usurpation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9491"
+    },
+    {
+      "type": "Feats",
+      "name": "Dispute Terms",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9485"
+    },
+    {
+      "type": "Feats",
+      "name": "Expert Pactbreaker Spellcasting",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9499"
+    },
+    {
+      "type": "Feats",
+      "name": "Extinguish Light",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9451"
+    },
+    {
+      "type": "Feats",
+      "name": "Eyes Of Night (Midnight Illusionist)",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9503"
+    },
+    {
+      "type": "Feats",
+      "name": "Fearsense",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9424"
+    },
+    {
+      "type": "Feats",
+      "name": "Feathered Cloak",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9466"
+    },
+    {
+      "type": "Feats",
+      "name": "Ferocious Gust",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9470"
+    },
+    {
+      "type": "Feats",
+      "name": "Fetchling Lore",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9444"
+    },
+    {
+      "type": "Feats",
+      "name": "Fiend Worshipper",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9425"
+    },
+    {
+      "type": "Feats",
+      "name": "Fiendish Arms",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9479"
+    },
+    {
+      "type": "Feats",
+      "name": "Fine Print",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9495"
+    },
+    {
+      "type": "Feats",
+      "name": "Fledgling Flight",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9462"
+    },
+    {
+      "type": "Feats",
+      "name": "Flock As One",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9477"
+    },
+    {
+      "type": "Feats",
+      "name": "Friend Of Fear",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9429"
+    },
+    {
+      "type": "Feats",
+      "name": "Frightful Figment",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9426"
+    },
+    {
+      "type": "Feats",
+      "name": "Fully Flighted",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9471"
+    },
+    {
+      "type": "Feats",
+      "name": "Fumigate",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9530"
+    },
+    {
+      "type": "Feats",
+      "name": "Galloping Launch",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9511"
+    },
+    {
+      "type": "Feats",
+      "name": "Garden Path",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9524"
+    },
+    {
+      "type": "Feats",
+      "name": "Glimpse The Netherworld",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9507"
+    },
+    {
+      "type": "Feats",
+      "name": "Hard To Fool",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9445"
+    },
+    {
+      "type": "Feats",
+      "name": "Hardening Necrosis",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9435"
+    },
+    {
+      "type": "Feats",
+      "name": "Harvest Moon",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9520"
+    },
+    {
+      "type": "Feats",
+      "name": "Hefting Shadow",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9454"
+    },
+    {
+      "type": "Feats",
+      "name": "Hellbound Aspirant Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9478"
+    },
+    {
+      "type": "Feats",
+      "name": "Icy Influence",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9427"
+    },
+    {
+      "type": "Feats",
+      "name": "Impose Order (Pactbreaker)",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9493"
+    },
+    {
+      "type": "Feats",
+      "name": "Infernal Anguish",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9484"
+    },
+    {
+      "type": "Feats",
+      "name": "Infernal Magic",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9482"
+    },
+    {
+      "type": "Feats",
+      "name": "Infernal Pactbreaker Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9488"
+    },
+    {
+      "type": "Feats",
+      "name": "Juvenile Flight",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9467"
+    },
+    {
+      "type": "Feats",
+      "name": "Know I Approach",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9440"
+    },
+    {
+      "type": "Feats",
+      "name": "Leave No Trace",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9430"
+    },
+    {
+      "type": "Feats",
+      "name": "Lightless Litheness",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9452"
+    },
+    {
+      "type": "Feats",
+      "name": "Lingering Bomb",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9534"
+    },
+    {
+      "type": "Feats",
+      "name": "Longshanks Slam",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9531"
+    },
+    {
+      "type": "Feats",
+      "name": "Looming Gait",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9431"
+    },
+    {
+      "type": "Feats",
+      "name": "Master Pactbreaker Spellcasting",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9501"
+    },
+    {
+      "type": "Feats",
+      "name": "Midnight Illusionist Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9502"
+    },
+    {
+      "type": "Feats",
+      "name": "Mocking Invisibility",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9436"
+    },
+    {
+      "type": "Feats",
+      "name": "Nidarrmar Steed",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9513"
+    },
+    {
+      "type": "Feats",
+      "name": "Painful Spell",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9504"
+    },
+    {
+      "type": "Feats",
+      "name": "Pierce The Light",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9461"
+    },
+    {
+      "type": "Feats",
+      "name": "Pin The Spears In The Lamb",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9505"
+    },
+    {
+      "type": "Feats",
+      "name": "Plan The Hunt",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9432"
+    },
+    {
+      "type": "Feats",
+      "name": "Practiced Guidance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9525"
+    },
+    {
+      "type": "Feats",
+      "name": "Prey Disguise",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9433"
+    },
+    {
+      "type": "Feats",
+      "name": "Proscribe Devilry",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9497"
+    },
+    {
+      "type": "Feats",
+      "name": "Quick Harvest",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9522"
+    },
+    {
+      "type": "Feats",
+      "name": "Reckless Riding Lunge",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9515"
+    },
+    {
+      "type": "Feats",
+      "name": "Ride-by Recovery",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9516"
+    },
+    {
+      "type": "Feats",
+      "name": "Rokoan Arts",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9472"
+    },
+    {
+      "type": "Feats",
+      "name": "Savor The Hunt",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9428"
+    },
+    {
+      "type": "Feats",
+      "name": "Scarecrow",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9526"
+    },
+    {
+      "type": "Feats",
+      "name": "Sculpt Shadows",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9455"
+    },
+    {
+      "type": "Feats",
+      "name": "Shadow Blending",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9446"
+    },
+    {
+      "type": "Feats",
+      "name": "Shadow Sight",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9456"
+    },
+    {
+      "type": "Feats",
+      "name": "Shadow's Assault",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9457"
+    },
+    {
+      "type": "Feats",
+      "name": "Shadowy Disguise",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9453"
+    },
+    {
+      "type": "Feats",
+      "name": "Shrouded Magic",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9447"
+    },
+    {
+      "type": "Feats",
+      "name": "Shrouded Mien",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9448"
+    },
+    {
+      "type": "Feats",
+      "name": "Silo Crop",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9523"
+    },
+    {
+      "type": "Feats",
+      "name": "Skirt The Light",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9458"
+    },
+    {
+      "type": "Feats",
+      "name": "Slink",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9449"
+    },
+    {
+      "type": "Feats",
+      "name": "Story Crooner",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9463"
+    },
+    {
+      "type": "Feats",
+      "name": "Stranglehold",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9437"
+    },
+    {
+      "type": "Feats",
+      "name": "Strix Defender",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9464"
+    },
+    {
+      "type": "Feats",
+      "name": "Strix Lore",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9465"
+    },
+    {
+      "type": "Feats",
+      "name": "Strix Vengeance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9468"
+    },
+    {
+      "type": "Feats",
+      "name": "Submit To Shadow",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9510"
+    },
+    {
+      "type": "Feats",
+      "name": "Sunless Slide",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9509"
+    },
+    {
+      "type": "Feats",
+      "name": "Swamp Gas Form",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9441"
+    },
+    {
+      "type": "Feats",
+      "name": "Swift Sower",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9527"
+    },
+    {
+      "type": "Feats",
+      "name": "Symphony Of Agony",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9506"
+    },
+    {
+      "type": "Feats",
+      "name": "Terrorize",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9438"
+    },
+    {
+      "type": "Feats",
+      "name": "The Devil Inside",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9486"
+    },
+    {
+      "type": "Feats",
+      "name": "Thrown Voice",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9469"
+    },
+    {
+      "type": "Feats",
+      "name": "Tiller's Aid",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9528"
+    },
+    {
+      "type": "Feats",
+      "name": "Umbra Ally",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9459"
+    },
+    {
+      "type": "Feats",
+      "name": "Unassuming Laborer",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9521"
+    },
+    {
+      "type": "Feats",
+      "name": "Unfaltering Ranks",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9443"
+    },
+    {
+      "type": "Feats",
+      "name": "Unholy Pact",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9480"
+    },
+    {
+      "type": "Feats",
+      "name": "Unrelenting Terror",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9434"
+    },
+    {
+      "type": "Feats",
+      "name": "Wing Step",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9473"
+    },
+    {
+      "type": "Feats",
+      "name": "Winged Mantle",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9475"
+    },
+    {
+      "type": "Hellknight Orders",
+      "name": "Order of the Pike",
+      "url": "https://2e.aonprd.com/HellknightOrders.aspx?ID=16"
+    },
+    {
+      "type": "Hellknight Orders",
+      "name": "Order of the Torrent",
+      "url": "https://2e.aonprd.com/HellknightOrders.aspx?ID=15"
+    },
+    {
+      "type": "Implements",
+      "name": "Censer",
+      "url": "https://2e.aonprd.com/Implements.aspx?ID=26"
+    },
+    {
+      "type": "Monsters",
+      "name": "Animate Aria",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4966"
+    },
+    {
+      "type": "Monsters",
+      "name": "Cephalophix",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4968"
+    },
+    {
+      "type": "Monsters",
+      "name": "Cerberus",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4967"
+    },
+    {
+      "type": "Monsters",
+      "name": "Enfiron",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4969"
+    },
+    {
+      "type": "Monsters",
+      "name": "Erinys",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4971"
+    },
+    {
+      "type": "Monsters",
+      "name": "Hellknight",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4972"
+    },
+    {
+      "type": "Monsters",
+      "name": "Hellknight Signifer",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4973"
+    },
+    {
+      "type": "Monsters",
+      "name": "Kophos",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4978"
+    },
+    {
+      "type": "Monsters",
+      "name": "Living Effigy",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4974"
+    },
+    {
+      "type": "Monsters",
+      "name": "Munagola",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4970"
+    },
+    {
+      "type": "Monsters",
+      "name": "Shadowbound Mare",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4975"
+    },
+    {
+      "type": "Monsters",
+      "name": "Strix Hunter",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4976"
+    },
+    {
+      "type": "Monsters",
+      "name": "Umbral Shepherd",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4977"
+    },
+    {
+      "type": "Monsters",
+      "name": "Yzobu",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4979"
+    },
+    {
+      "type": "Spells",
+      "name": "Brimstone Rain",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2928"
+    },
+    {
+      "type": "Spells",
+      "name": "Choking Fog",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2939"
+    },
+    {
+      "type": "Spells",
+      "name": "Control Currents",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2938"
+    },
+    {
+      "type": "Spells",
+      "name": "Curse Of Slippery Steps",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2932"
+    },
+    {
+      "type": "Spells",
+      "name": "Devil's Horseshoe",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2940"
+    },
+    {
+      "type": "Spells",
+      "name": "Diabolical Mantle",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2929"
+    },
+    {
+      "type": "Spells",
+      "name": "Gift Of Dusk",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2947"
+    },
+    {
+      "type": "Spells",
+      "name": "Glimpse The Netherworld",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2946"
+    },
+    {
+      "type": "Spells",
+      "name": "Gloom Mantle",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2948"
+    },
+    {
+      "type": "Spells",
+      "name": "Infernal Supervision",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2930"
+    },
+    {
+      "type": "Spells",
+      "name": "Kiss The Ring",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2931"
+    },
+    {
+      "type": "Spells",
+      "name": "Piercing Jet",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2933"
+    },
+    {
+      "type": "Spells",
+      "name": "Pin The Spears In The Lamb",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2945"
+    },
+    {
+      "type": "Spells",
+      "name": "Roar Of Freedom",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2941"
+    },
+    {
+      "type": "Spells",
+      "name": "Rude Awakening",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2934"
+    },
+    {
+      "type": "Spells",
+      "name": "Saturate",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2935"
+    },
+    {
+      "type": "Spells",
+      "name": "Searing Rain",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2936"
+    },
+    {
+      "type": "Spells",
+      "name": "Shadow Form",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2949"
+    },
+    {
+      "type": "Spells",
+      "name": "Silver Spear",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2942"
+    },
+    {
+      "type": "Spells",
+      "name": "Spray Of Salt",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2943"
+    },
+    {
+      "type": "Spells",
+      "name": "Tenebrous Freedom",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2951"
+    },
+    {
+      "type": "Spells",
+      "name": "The Night Is Mine",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2950"
+    },
+    {
+      "type": "Spells",
+      "name": "Turnip Lantern",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2944"
+    },
+    {
+      "type": "Spells",
+      "name": "Unending Tears",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2937"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Sea Fort",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=152"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Shadow Chaser",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=153"
+    }
+  ]
+}

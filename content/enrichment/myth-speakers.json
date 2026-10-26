@@ -1,0 +1,70 @@
+{
+  "consumable:pyrefeather-token": {
+    "book": "myth-speakers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3993"
+  },
+  "deity:aerekostes": {
+    "book": "myth-speakers",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=699"
+  },
+  "deity:drokalion": {
+    "book": "myth-speakers",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=702"
+  },
+  "deity:ongalte": {
+    "book": "myth-speakers",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=714"
+  },
+  "deity:pharimia": {
+    "book": "myth-speakers",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=704"
+  },
+  "deity:upion-and-warrik": {
+    "book": "myth-speakers",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=705"
+  },
+  "deity:ytildos": {
+    "book": "myth-speakers",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=706"
+  },
+  "deity:zeaki": {
+    "book": "myth-speakers",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=707"
+  },
+  "equipment:death-tusk-helm": {
+    "book": "myth-speakers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3990"
+  },
+  "equipment:gift-of-olives": {
+    "book": "myth-speakers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3991"
+  },
+  "equipment:pyrefeather-cloak": {
+    "book": "myth-speakers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3992"
+  },
+  "feat:fiery-rebirth": {
+    "book": "myth-speakers",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8007"
+  },
+  "feat:myth-hunter": {
+    "book": "myth-speakers",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8006"
+  },
+  "spell:crown-of-prophets": {
+    "book": "myth-speakers",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2521"
+  },
+  "spell:funeral-flames": {
+    "book": "myth-speakers",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2519"
+  },
+  "spell:gift-of-the-anemos": {
+    "book": "myth-speakers",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2522"
+  },
+  "spell:pyrefowl-rebuke": {
+    "book": "myth-speakers",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2520"
+  }
+}

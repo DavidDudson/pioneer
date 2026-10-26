@@ -1,0 +1,42 @@
+{
+  "archetype:venture-gossip": {
+    "book": "foolish-housekeeping",
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=311"
+  },
+  "creature:dust-bunny-swarm": {
+    "book": "foolish-housekeeping",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3681"
+  },
+  "creature:rt5rrmn": {
+    "book": "foolish-housekeeping",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3682"
+  },
+  "feat:a-little-bird-told-me": {
+    "book": "foolish-housekeeping",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7602"
+  },
+  "feat:catch-and-kill": {
+    "book": "foolish-housekeeping",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7604"
+  },
+  "feat:hey-over-here": {
+    "book": "foolish-housekeeping",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7601"
+  },
+  "feat:muckraking": {
+    "book": "foolish-housekeeping",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7605"
+  },
+  "feat:speedrun-strats": {
+    "book": "foolish-housekeeping",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7598"
+  },
+  "feat:venture-gossip-dedication": {
+    "book": "foolish-housekeeping",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7599"
+  },
+  "feat:verbose-distraction": {
+    "book": "foolish-housekeeping",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7600"
+  }
+}

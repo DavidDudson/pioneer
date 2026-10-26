@@ -1,0 +1,1110 @@
+{
+  "consumable:diglys-oil-of-sympathy-greater": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3586"
+  },
+  "consumable:diglys-oil-of-sympathy-lesser": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3586"
+  },
+  "consumable:diglys-oil-of-sympathy-major": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3586"
+  },
+  "consumable:diglys-oil-of-sympathy-minor": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3586"
+  },
+  "consumable:diglys-oil-of-sympathy-moderate": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3586"
+  },
+  "creature:abbot-of-abadar": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3439"
+  },
+  "creature:accuser-agent": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3565"
+  },
+  "creature:acolyte-of-iomedae": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3440"
+  },
+  "creature:acrobat": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3570"
+  },
+  "creature:adept": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3532"
+  },
+  "creature:advisor": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3420"
+  },
+  "creature:aiuvarin-translator": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3630"
+  },
+  "creature:apothecary": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3479"
+  },
+  "creature:apprentice": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3411"
+  },
+  "creature:archer-sentry": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3552"
+  },
+  "creature:arms-dealer": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3506"
+  },
+  "creature:arrester-squadron": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3564"
+  },
+  "creature:artillerist": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3459"
+  },
+  "creature:assassin": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3434"
+  },
+  "creature:astronomer": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3590"
+  },
+  "creature:avuncular-professor": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3592"
+  },
+  "creature:bandit": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3425"
+  },
+  "creature:bandit-gang": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3432"
+  },
+  "creature:barrister": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3546"
+  },
+  "creature:beast-eidolon": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3679"
+  },
+  "creature:beast-tamer": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3576"
+  },
+  "creature:beggar": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3452"
+  },
+  "creature:big-boss-goblin": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3643"
+  },
+  "creature:bill-band": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3645"
+  },
+  "creature:black-belt": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3504"
+  },
+  "creature:blasphemer-of-zon-kuthon": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3441"
+  },
+  "creature:bleachling-survivor": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3636"
+  },
+  "creature:bodyguard": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3513"
+  },
+  "creature:bone-mother": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3669"
+  },
+  "creature:bone-scavenger": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3651"
+  },
+  "creature:bosun": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3600"
+  },
+  "creature:bounty-hunter": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3515"
+  },
+  "creature:burglar": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3429"
+  },
+  "creature:captain-of-the-guard": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3560"
+  },
+  "creature:castaway": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3602"
+  },
+  "creature:catfolk-name-collector": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3624"
+  },
+  "creature:champion-of-rovagug": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3613"
+  },
+  "creature:champion-of-shelyn": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3446"
+  },
+  "creature:charlatan": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3428"
+  },
+  "creature:chronicler": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3470"
+  },
+  "creature:city-guard-squadron": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3558"
+  },
+  "creature:combat-engineer": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3521"
+  },
+  "creature:commoner": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3488"
+  },
+  "creature:conscript-squad": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3523"
+  },
+  "creature:conspiracist": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3606"
+  },
+  "creature:construction-worker": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3498"
+  },
+  "creature:corn-leshy-throng": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3658"
+  },
+  "creature:court-historian": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3415"
+  },
+  "creature:court-jester": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3578"
+  },
+  "creature:courtesan": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3417"
+  },
+  "creature:coven-aspirant": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3535"
+  },
+  "creature:crime-kingpin": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3435"
+  },
+  "creature:cult-leader": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3539"
+  },
+  "creature:cultist": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3534"
+  },
+  "creature:curse-monger": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3544"
+  },
+  "creature:dancer": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3569"
+  },
+  "creature:dedicated-druid": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3583"
+  },
+  "creature:deific-champion-of-iomedae": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3450"
+  },
+  "creature:deific-vessel-of-urgathoa": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3451"
+  },
+  "creature:deluded-mob": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3611"
+  },
+  "creature:demolitionist": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3461"
+  },
+  "creature:demonbane-warrior": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3632"
+  },
+  "creature:demonologist": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3540"
+  },
+  "creature:departmental-chair": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3594"
+  },
+  "creature:despot": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3614"
+  },
+  "creature:diver": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3601"
+  },
+  "creature:dockhand": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3490"
+  },
+  "creature:drill-sergeant": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3529"
+  },
+  "creature:driver": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3458"
+  },
+  "creature:dromaar-lorekeeper": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3664"
+  },
+  "creature:drover": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3491"
+  },
+  "creature:druid-initiate": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3580"
+  },
+  "creature:drunkard": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3455"
+  },
+  "creature:dwarf-battalion": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3628"
+  },
+  "creature:dwarf-general": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3629"
+  },
+  "creature:dwarf-smith": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3626"
+  },
+  "creature:dynamo": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3464"
+  },
+  "creature:eldritch-emeritus": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3596"
+  },
+  "creature:elven-court-guard": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3634"
+  },
+  "creature:enchanting-ritualist": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3545"
+  },
+  "creature:envoy": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3416"
+  },
+  "creature:equestrian-constable": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3557"
+  },
+  "creature:executioner": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3561"
+  },
+  "creature:exiled-revolutionary": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3519"
+  },
+  "creature:expedition-leader": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3478"
+  },
+  "creature:experienced-hound": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3678"
+  },
+  "creature:exuberant-apprentice": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3591"
+  },
+  "creature:false-priest": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3537"
+  },
+  "creature:farmer": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3492"
+  },
+  "creature:fence": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3430"
+  },
+  "creature:fiend-caller": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3609"
+  },
+  "creature:fisher": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3493"
+  },
+  "creature:flamboyant-thief": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3436"
+  },
+  "creature:fleshwarper": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3617"
+  },
+  "creature:forager": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3467"
+  },
+  "creature:forlorn-artist": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3631"
+  },
+  "creature:gadgeteer": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3462"
+  },
+  "creature:gambling-companion": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3670"
+  },
+  "creature:gamekeeper": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3475"
+  },
+  "creature:gang-leader": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3618"
+  },
+  "creature:gendarme": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3563"
+  },
+  "creature:globetrotting-scholar": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3595"
+  },
+  "creature:gnome-conservationist": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3639"
+  },
+  "creature:gnome-daredevil": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3637"
+  },
+  "creature:gnome-philomath": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3635"
+  },
+  "creature:goblin-chef": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3640"
+  },
+  "creature:goblin-get-gang": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3642"
+  },
+  "creature:goblin-scavenger": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3641"
+  },
+  "creature:god-caller": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3542"
+  },
+  "creature:gourd-leshy-witch": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3659"
+  },
+  "creature:grand-inquisitor": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3568"
+  },
+  "creature:grandmaster": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3503"
+  },
+  "creature:grave-robber": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3424"
+  },
+  "creature:gravedigger": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3495"
+  },
+  "creature:guard": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3551"
+  },
+  "creature:guide": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3472"
+  },
+  "creature:guildmaster": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3414"
+  },
+  "creature:gunsmith": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3456"
+  },
+  "creature:gunwitch": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3510"
+  },
+  "creature:halfling-head-chef": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3644"
+  },
+  "creature:halfling-smuggler": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3646"
+  },
+  "creature:halfling-yarnspinner": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3647"
+  },
+  "creature:harbormaster": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3553"
+  },
+  "creature:harrow-reader": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3533"
+  },
+  "creature:heavy-cavalry": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3528"
+  },
+  "creature:hellknight-cavalry-brigade": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3530"
+  },
+  "creature:hero-hunter": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3621"
+  },
+  "creature:high-priest-of-pharasma": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3447"
+  },
+  "creature:high-roller": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3511"
+  },
+  "creature:hobgoblin-battalion": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3649"
+  },
+  "creature:hobgoblin-spellbreaker": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3648"
+  },
+  "creature:hobgoblin-vanguard": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3650"
+  },
+  "creature:humanitarian-hermit": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3486"
+  },
+  "creature:hunter": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3476"
+  },
+  "creature:infantry-soldier": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3522"
+  },
+  "creature:infernal-registrar": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3566"
+  },
+  "creature:innkeeper": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3496"
+  },
+  "creature:inspector": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3554"
+  },
+  "creature:interrogator": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3615"
+  },
+  "creature:iruxi-masked-mummer": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3661"
+  },
+  "creature:jailer": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3555"
+  },
+  "creature:jinx-eater": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3671"
+  },
+  "creature:judge": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3547"
+  },
+  "creature:juggernaut": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3465"
+  },
+  "creature:juggler": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3572"
+  },
+  "creature:kholo-outrider": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3653"
+  },
+  "creature:kholo-pragmatist": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3652"
+  },
+  "creature:knight": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3423"
+  },
+  "creature:kobold-earth-diver": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3680"
+  },
+  "creature:kobold-egg-guardian": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3655"
+  },
+  "creature:kobold-trapper": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3654"
+  },
+  "creature:leaping-thief": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3623"
+  },
+  "creature:legbreaker": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3431"
+  },
+  "creature:librarian": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3587"
+  },
+  "creature:line-infantry": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3526"
+  },
+  "creature:loan-shark": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3426"
+  },
+  "creature:local-herbalist": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3481"
+  },
+  "creature:lucky-courser": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3625"
+  },
+  "creature:maestro": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3579"
+  },
+  "creature:mage-for-hire": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3514"
+  },
+  "creature:mage-killer": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3517"
+  },
+  "creature:mage-knight": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3531"
+  },
+  "creature:martial-student": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3500"
+  },
+  "creature:master-of-disguise": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3433"
+  },
+  "creature:mastermind": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3612"
+  },
+  "creature:mayor": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3549"
+  },
+  "creature:mechanic": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3457"
+  },
+  "creature:mercenary-band": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3518"
+  },
+  "creature:merchant": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3412"
+  },
+  "creature:messenger": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3497"
+  },
+  "creature:mime": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3573"
+  },
+  "creature:miner": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3494"
+  },
+  "creature:mirror-seer": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3541"
+  },
+  "creature:mixed-martial-artist": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3502"
+  },
+  "creature:monster-hunter": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3516"
+  },
+  "creature:mountain-guardian": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3582"
+  },
+  "creature:mountaineer": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3473"
+  },
+  "creature:musketeer": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3507"
+  },
+  "creature:natural-scientist": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3468"
+  },
+  "creature:navigator": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3598"
+  },
+  "creature:necromancer": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3538"
+  },
+  "creature:noble": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3418"
+  },
+  "creature:obsessive-researcher": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3588"
+  },
+  "creature:ocean-nomad": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3605"
+  },
+  "creature:orc-gamekeeper": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3663"
+  },
+  "creature:orc-skullcrushers": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3665"
+  },
+  "creature:orc-veteran-master": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3666"
+  },
+  "creature:pack-leader": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3581"
+  },
+  "creature:palace-guard": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3419"
+  },
+  "creature:peerless-duelist": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3512"
+  },
+  "creature:peerless-healer": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3487"
+  },
+  "creature:penitent-of-calistria": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3438"
+  },
+  "creature:phalanx-formation": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3527"
+  },
+  "creature:physician": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3480"
+  },
+  "creature:pilgrim-of-irori": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3437"
+  },
+  "creature:pirate": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3599"
+  },
+  "creature:plague-doctor": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3484"
+  },
+  "creature:poacher": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3469"
+  },
+  "creature:political-upstart": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3505"
+  },
+  "creature:priest-of-sarenrae": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3445"
+  },
+  "creature:prime-minister": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3550"
+  },
+  "creature:prisoner": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3454"
+  },
+  "creature:propagandist": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3610"
+  },
+  "creature:prophet": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3442"
+  },
+  "creature:puppeteer": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3577"
+  },
+  "creature:rancorous-priesthood": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3449"
+  },
+  "creature:razzle-dazzler": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3638"
+  },
+  "creature:reckless-scientist": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3616"
+  },
+  "creature:rigger": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3597"
+  },
+  "creature:rocketeer": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3463"
+  },
+  "creature:root-leshy-groundskeeper": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3656"
+  },
+  "creature:ruffian": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3427"
+  },
+  "creature:runaway-blueblood": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3508"
+  },
+  "creature:saboteur": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3608"
+  },
+  "creature:sage": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3593"
+  },
+  "creature:servant": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3489"
+  },
+  "creature:ship-captain": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3604"
+  },
+  "creature:sibyl": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3443"
+  },
+  "creature:siegebreaker": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3520"
+  },
+  "creature:skin-shifter": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3584"
+  },
+  "creature:smith": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3413"
+  },
+  "creature:sniper": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3525"
+  },
+  "creature:spirit-binder": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3543"
+  },
+  "creature:spirit-priest": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3627"
+  },
+  "creature:spy": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3421"
+  },
+  "creature:standard-bearer": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3524"
+  },
+  "creature:street-musician": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3571"
+  },
+  "creature:subaquatic-marauder": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3603"
+  },
+  "creature:surgeon": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3482"
+  },
+  "creature:swarm-voice": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3668"
+  },
+  "creature:tax-collector": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3548"
+  },
+  "creature:teacher": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3589"
+  },
+  "creature:tempest-incarnate": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3586"
+  },
+  "creature:tengu-bladesmith": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3672"
+  },
+  "creature:therapeutic-healer": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3485"
+  },
+  "creature:tidewater-guard": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3660"
+  },
+  "creature:toady": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3607"
+  },
+  "creature:tomb-raider": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3474"
+  },
+  "creature:tonic-merchant": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3483"
+  },
+  "creature:torchbearer": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3466"
+  },
+  "creature:tournament-combatant": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3501"
+  },
+  "creature:toymaker": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3460"
+  },
+  "creature:tracker": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3471"
+  },
+  "creature:trained-bat": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3676"
+  },
+  "creature:traveling-actor": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3574"
+  },
+  "creature:traveling-priest-of-desna": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3448"
+  },
+  "creature:tree-singer": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3585"
+  },
+  "creature:tripkee-camoufleur": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3674"
+  },
+  "creature:tripkee-scout": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3673"
+  },
+  "creature:troubadour": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3575"
+  },
+  "creature:tumbleweed-leshy-courier": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3657"
+  },
+  "creature:tunnel-viper": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3667"
+  },
+  "creature:unsanctioned-sheriff": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3509"
+  },
+  "creature:urchin": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3453"
+  },
+  "creature:vermin-catcher": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3499"
+  },
+  "creature:veteran-noble": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3422"
+  },
+  "creature:veteran-war-horse": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3677"
+  },
+  "creature:warden": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3562"
+  },
+  "creature:warmonger": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3620"
+  },
+  "creature:watch-officer": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3556"
+  },
+  "creature:watchmage": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3559"
+  },
+  "creature:watchmage-squadron": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3567"
+  },
+  "creature:wealthy-vigilante": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3619"
+  },
+  "creature:woodland-scouts": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3633"
+  },
+  "creature:world-ender": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3622"
+  },
+  "creature:zealot-of-asmodeus": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3444"
+  },
+  "equipment:malefic-mirror": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3590"
+  },
+  "equipment:sun-goggles": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3584"
+  },
+  "spell:500-toads": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2335"
+  },
+  "spell:burglars-blind": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2336"
+  },
+  "spell:far-flung-fetch": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2337"
+  },
+  "spell:infiltrators-tunnel": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2338"
+  }
+}

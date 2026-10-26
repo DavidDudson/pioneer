@@ -1,0 +1,82 @@
+{
+  "archetype:chelaxian-scion": {
+    "book": "hells-destiny",
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=384"
+  },
+  "consumable:golden-liberators-feather": {
+    "book": "hells-destiny",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4954"
+  },
+  "equipment:banner-of-common-cause": {
+    "book": "hells-destiny",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4952"
+  },
+  "equipment:the-eye-of-the-slumberer": {
+    "book": "hells-destiny",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4953"
+  },
+  "equipment:warpriests-cascade": {
+    "book": "hells-destiny",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4956"
+  },
+  "equipment:warpriests-cascade-greater": {
+    "book": "hells-destiny",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4956"
+  },
+  "equipment:warpriests-cascade-major": {
+    "book": "hells-destiny",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4956"
+  },
+  "feat:adventurous-outfitter": {
+    "book": "hells-destiny",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8980"
+  },
+  "feat:aristocratic-arms": {
+    "book": "hells-destiny",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8973"
+  },
+  "feat:as-on-the-board-so-on-the-battlefield": {
+    "book": "hells-destiny",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8981"
+  },
+  "feat:burning-demand": {
+    "book": "hells-destiny",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8977"
+  },
+  "feat:chelaxian-scion-dedication": {
+    "book": "hells-destiny",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8971"
+  },
+  "feat:drowning-mist": {
+    "book": "hells-destiny",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8978"
+  },
+  "feat:improvise-strategy": {
+    "book": "hells-destiny",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8982"
+  },
+  "feat:liberating-dive": {
+    "book": "hells-destiny",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8979"
+  },
+  "feat:patronize-the-arts": {
+    "book": "hells-destiny",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8975"
+  },
+  "feat:seasoned-command": {
+    "book": "hells-destiny",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8983"
+  },
+  "feat:stoic-as-hell": {
+    "book": "hells-destiny",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8976"
+  },
+  "feat:tactical-acumen": {
+    "book": "hells-destiny",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8984"
+  },
+  "spell:wish-market": {
+    "book": "hells-destiny",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2620"
+  }
+}

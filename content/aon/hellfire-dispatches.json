@@ -1,0 +1,910 @@
+{
+  "etag": "\"70b0eb1ee9534316a7d05ab77f05c88f\"",
+  "entries": [
+    {
+      "type": "Archetypes",
+      "name": "Golden Legionnaire",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=373"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Hellknight",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=372"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Nidalese Horselord",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=381"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Pure Legion Enforcer",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=377"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Rose Warden",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=378"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Sister of the Golden Erinys",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=380"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Starstone Aspirant",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=376"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Steel Falcon",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=374"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Twilight Talon",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=375"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Undersea Privateer",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=379"
+    },
+    {
+      "type": "Equipment",
+      "name": "Freezing Embrace Snare",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4340"
+    },
+    {
+      "type": "Equipment",
+      "name": "Glittering Lights Snare",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4341"
+    },
+    {
+      "type": "Equipment",
+      "name": "Mocking Mirror Snare",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4342"
+    },
+    {
+      "type": "Equipment",
+      "name": "Pit Illusion Snare",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4343"
+    },
+    {
+      "type": "Equipment",
+      "name": "Puddle Shove Snare",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4344"
+    },
+    {
+      "type": "Equipment",
+      "name": "Shadow Cloak Snare",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4345"
+    },
+    {
+      "type": "Feats",
+      "name": "Advanced Deific Power",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8883"
+    },
+    {
+      "type": "Feats",
+      "name": "Advanced Order Training",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8827"
+    },
+    {
+      "type": "Feats",
+      "name": "Anchor Stance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8916"
+    },
+    {
+      "type": "Feats",
+      "name": "Ardent Armiger",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8813"
+    },
+    {
+      "type": "Feats",
+      "name": "Armed and Armored",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8839"
+    },
+    {
+      "type": "Feats",
+      "name": "Armiger's Protection",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8814"
+    },
+    {
+      "type": "Feats",
+      "name": "Aroden's Innovation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8884"
+    },
+    {
+      "type": "Feats",
+      "name": "Barricade Snare",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8902"
+    },
+    {
+      "type": "Feats",
+      "name": "Blade of Law",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8824"
+    },
+    {
+      "type": "Feats",
+      "name": "Blessed Thorn Strike",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8907"
+    },
+    {
+      "type": "Feats",
+      "name": "Bloom Cabaret Entrance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8874"
+    },
+    {
+      "type": "Feats",
+      "name": "Boarding Party",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8922"
+    },
+    {
+      "type": "Feats",
+      "name": "Branding Spell",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8834"
+    },
+    {
+      "type": "Feats",
+      "name": "Brastlewark Snare Engineering",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8901"
+    },
+    {
+      "type": "Feats",
+      "name": "Broad Snare",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8904"
+    },
+    {
+      "type": "Feats",
+      "name": "Burn Identity",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8867"
+    },
+    {
+      "type": "Feats",
+      "name": "Cayden's Freedom",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8881"
+    },
+    {
+      "type": "Feats",
+      "name": "Commitment to Protection",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8836"
+    },
+    {
+      "type": "Feats",
+      "name": "Commitment to Valor",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8840"
+    },
+    {
+      "type": "Feats",
+      "name": "Commitment to Vigilance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8844"
+    },
+    {
+      "type": "Feats",
+      "name": "Conjure Hell",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8828"
+    },
+    {
+      "type": "Feats",
+      "name": "Crack Retort",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8841"
+    },
+    {
+      "type": "Feats",
+      "name": "Cruel Piercing",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8934"
+    },
+    {
+      "type": "Feats",
+      "name": "Deceptive Deduction",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8862"
+    },
+    {
+      "type": "Feats",
+      "name": "Defy Chains",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8946"
+    },
+    {
+      "type": "Feats",
+      "name": "Denounce Tyranny",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8849"
+    },
+    {
+      "type": "Feats",
+      "name": "Diabolic Certitude",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8815"
+    },
+    {
+      "type": "Feats",
+      "name": "Dismounting Strike",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8942"
+    },
+    {
+      "type": "Feats",
+      "name": "Do You Know Who I Am?",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8876"
+    },
+    {
+      "type": "Feats",
+      "name": "Domino Effect",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8905"
+    },
+    {
+      "type": "Feats",
+      "name": "Edict of Mortality",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8892"
+    },
+    {
+      "type": "Feats",
+      "name": "Eye for Smugglers",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8854"
+    },
+    {
+      "type": "Feats",
+      "name": "Eye for Weakness",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8931"
+    },
+    {
+      "type": "Feats",
+      "name": "Fabricated Credentials",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8861"
+    },
+    {
+      "type": "Feats",
+      "name": "Face Your Fears",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8938"
+    },
+    {
+      "type": "Feats",
+      "name": "Fast Swimmer",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8917"
+    },
+    {
+      "type": "Feats",
+      "name": "Fear No Pain!",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8940"
+    },
+    {
+      "type": "Feats",
+      "name": "Feign Innocence",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8865"
+    },
+    {
+      "type": "Feats",
+      "name": "Fiendish Brand",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8932"
+    },
+    {
+      "type": "Feats",
+      "name": "Float Free",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8919"
+    },
+    {
+      "type": "Feats",
+      "name": "Flower Street Infamy",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8875"
+    },
+    {
+      "type": "Feats",
+      "name": "For the Fallen!",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8878"
+    },
+    {
+      "type": "Feats",
+      "name": "Frightening Indignation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8857"
+    },
+    {
+      "type": "Feats",
+      "name": "Gallop Across Shadow",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8947"
+    },
+    {
+      "type": "Feats",
+      "name": "Gather Disciples",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8885"
+    },
+    {
+      "type": "Feats",
+      "name": "Gaze of Veracity",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8825"
+    },
+    {
+      "type": "Feats",
+      "name": "Godless Healing",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8888"
+    },
+    {
+      "type": "Feats",
+      "name": "Golden Erinys Stance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8930"
+    },
+    {
+      "type": "Feats",
+      "name": "Golden Legionnaire Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8835"
+    },
+    {
+      "type": "Feats",
+      "name": "Gray Corsair Training",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8850"
+    },
+    {
+      "type": "Feats",
+      "name": "Greater Deific Power",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8886"
+    },
+    {
+      "type": "Feats",
+      "name": "Hell-Lancer Shot",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8842"
+    },
+    {
+      "type": "Feats",
+      "name": "Hell's Armaments",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8829"
+    },
+    {
+      "type": "Feats",
+      "name": "Hellknight Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8812"
+    },
+    {
+      "type": "Feats",
+      "name": "Hellknight Mobility",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8820"
+    },
+    {
+      "type": "Feats",
+      "name": "Hellknight Preferment",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8818"
+    },
+    {
+      "type": "Feats",
+      "name": "Hellknight Signifer Preferment",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8819"
+    },
+    {
+      "type": "Feats",
+      "name": "Hellknight-Errant",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8817"
+    },
+    {
+      "type": "Feats",
+      "name": "Hidden Intentions",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8863"
+    },
+    {
+      "type": "Feats",
+      "name": "Holy Bloom",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8908"
+    },
+    {
+      "type": "Feats",
+      "name": "Holy Flower",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8913"
+    },
+    {
+      "type": "Feats",
+      "name": "Horselord's Bond",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8944"
+    },
+    {
+      "type": "Feats",
+      "name": "Infernal Interference",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8833"
+    },
+    {
+      "type": "Feats",
+      "name": "Inked Cache",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8864"
+    },
+    {
+      "type": "Feats",
+      "name": "Instant Credentials",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8866"
+    },
+    {
+      "type": "Feats",
+      "name": "Iomedae's Valor",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8882"
+    },
+    {
+      "type": "Feats",
+      "name": "Ivy District Influencer",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8868"
+    },
+    {
+      "type": "Feats",
+      "name": "Ivy Playhouse Strike",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8869"
+    },
+    {
+      "type": "Feats",
+      "name": "Lasting Protection",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8843"
+    },
+    {
+      "type": "Feats",
+      "name": "Legion's Aim",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8837"
+    },
+    {
+      "type": "Feats",
+      "name": "Liberated Mind",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8911"
+    },
+    {
+      "type": "Feats",
+      "name": "Liberty's Devotion",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8855"
+    },
+    {
+      "type": "Feats",
+      "name": "Liberty's Promise",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8851"
+    },
+    {
+      "type": "Feats",
+      "name": "Magpie Manor Recovery",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8873"
+    },
+    {
+      "type": "Feats",
+      "name": "Major Deific Power",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8887"
+    },
+    {
+      "type": "Feats",
+      "name": "Make Do",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8860"
+    },
+    {
+      "type": "Feats",
+      "name": "March of Law",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8831"
+    },
+    {
+      "type": "Feats",
+      "name": "Masked Casting",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8821"
+    },
+    {
+      "type": "Feats",
+      "name": "Minor Deific Power",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8879"
+    },
+    {
+      "type": "Feats",
+      "name": "Mortal Healing",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8889"
+    },
+    {
+      "type": "Feats",
+      "name": "Mortal Possibility",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8900"
+    },
+    {
+      "type": "Feats",
+      "name": "Mortification",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8816"
+    },
+    {
+      "type": "Feats",
+      "name": "Nidalese Horselord Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8937"
+    },
+    {
+      "type": "Feats",
+      "name": "No Gods, Only Mortals!",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8894"
+    },
+    {
+      "type": "Feats",
+      "name": "No Need to Fear",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8847"
+    },
+    {
+      "type": "Feats",
+      "name": "Norgorber's Secret",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8880"
+    },
+    {
+      "type": "Feats",
+      "name": "Officer's Protection",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8846"
+    },
+    {
+      "type": "Feats",
+      "name": "Order Cross-Training",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8830"
+    },
+    {
+      "type": "Feats",
+      "name": "Order Training",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8822"
+    },
+    {
+      "type": "Feats",
+      "name": "Paragon Battle Medicine",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8890"
+    },
+    {
+      "type": "Feats",
+      "name": "Perplex",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8856"
+    },
+    {
+      "type": "Feats",
+      "name": "Petal District Socialite",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8872"
+    },
+    {
+      "type": "Feats",
+      "name": "Polished Distraction",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8838"
+    },
+    {
+      "type": "Feats",
+      "name": "Promise of Pain",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8935"
+    },
+    {
+      "type": "Feats",
+      "name": "Propelled Leap",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8925"
+    },
+    {
+      "type": "Feats",
+      "name": "Pure Legion Enforcer Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8891"
+    },
+    {
+      "type": "Feats",
+      "name": "Remote Detonation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8903"
+    },
+    {
+      "type": "Feats",
+      "name": "Repel Darkness",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8939"
+    },
+    {
+      "type": "Feats",
+      "name": "Repelling Enforcer",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8899"
+    },
+    {
+      "type": "Feats",
+      "name": "Riptide",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8923"
+    },
+    {
+      "type": "Feats",
+      "name": "Rise Up!",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8914"
+    },
+    {
+      "type": "Feats",
+      "name": "Rose Warden Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8906"
+    },
+    {
+      "type": "Feats",
+      "name": "Sailfish Strike",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8927"
+    },
+    {
+      "type": "Feats",
+      "name": "Salt Kissed",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8852"
+    },
+    {
+      "type": "Feats",
+      "name": "Sense Iniquity",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8823"
+    },
+    {
+      "type": "Feats",
+      "name": "Shadowpiercing Charge",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8945"
+    },
+    {
+      "type": "Feats",
+      "name": "Shake Off the Gods",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8896"
+    },
+    {
+      "type": "Feats",
+      "name": "Ship's Shadow",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8924"
+    },
+    {
+      "type": "Feats",
+      "name": "Shroud of the Seas",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8926"
+    },
+    {
+      "type": "Feats",
+      "name": "Signifer's Sight",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8826"
+    },
+    {
+      "type": "Feats",
+      "name": "Sister of the Golden Erinys Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8929"
+    },
+    {
+      "type": "Feats",
+      "name": "Slippery as an Eel",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8920"
+    },
+    {
+      "type": "Feats",
+      "name": "Starstone Aspirant Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8877"
+    },
+    {
+      "type": "Feats",
+      "name": "Stealthy as an Octopus",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8921"
+    },
+    {
+      "type": "Feats",
+      "name": "Steel Falcon Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8848"
+    },
+    {
+      "type": "Feats",
+      "name": "Such a Disgrace!",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8870"
+    },
+    {
+      "type": "Feats",
+      "name": "Sundown Street Posturing",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8871"
+    },
+    {
+      "type": "Feats",
+      "name": "Swallow Pain",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8943"
+    },
+    {
+      "type": "Feats",
+      "name": "Swift Support",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8941"
+    },
+    {
+      "type": "Feats",
+      "name": "Talon's Mark",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8859"
+    },
+    {
+      "type": "Feats",
+      "name": "Throttle the Divine",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8897"
+    },
+    {
+      "type": "Feats",
+      "name": "Tidal Wave",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8928"
+    },
+    {
+      "type": "Feats",
+      "name": "Traces of the Divine",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8895"
+    },
+    {
+      "type": "Feats",
+      "name": "Trained Swimmer",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8918"
+    },
+    {
+      "type": "Feats",
+      "name": "Twilight Talon Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8858"
+    },
+    {
+      "type": "Feats",
+      "name": "Unassailable Enforcer",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8893"
+    },
+    {
+      "type": "Feats",
+      "name": "Unbalancing Appearance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8909"
+    },
+    {
+      "type": "Feats",
+      "name": "Uncanny Prediction",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8853"
+    },
+    {
+      "type": "Feats",
+      "name": "Undersea Privateer Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8915"
+    },
+    {
+      "type": "Feats",
+      "name": "Unfetter Sight",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8832"
+    },
+    {
+      "type": "Feats",
+      "name": "Unfettering Strike",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8910"
+    },
+    {
+      "type": "Feats",
+      "name": "Vengeance Strike",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8933"
+    },
+    {
+      "type": "Feats",
+      "name": "Wall of Roses",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8912"
+    },
+    {
+      "type": "Feats",
+      "name": "Watch Your Back",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8845"
+    },
+    {
+      "type": "Feats",
+      "name": "Wrath Against the Divine",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8898"
+    },
+    {
+      "type": "Feats",
+      "name": "Wrathful Presence",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8936"
+    },
+    {
+      "type": "Hellknight Orders",
+      "name": "Order of the Chain",
+      "url": "https://2e.aonprd.com/HellknightOrders.aspx?ID=8"
+    },
+    {
+      "type": "Hellknight Orders",
+      "name": "Order of the Gate",
+      "url": "https://2e.aonprd.com/HellknightOrders.aspx?ID=9"
+    },
+    {
+      "type": "Hellknight Orders",
+      "name": "Order of the Godclaw",
+      "url": "https://2e.aonprd.com/HellknightOrders.aspx?ID=10"
+    },
+    {
+      "type": "Hellknight Orders",
+      "name": "Order of the Nail",
+      "url": "https://2e.aonprd.com/HellknightOrders.aspx?ID=11"
+    },
+    {
+      "type": "Hellknight Orders",
+      "name": "Order of the Pyre",
+      "url": "https://2e.aonprd.com/HellknightOrders.aspx?ID=12"
+    },
+    {
+      "type": "Hellknight Orders",
+      "name": "Order of the Rack",
+      "url": "https://2e.aonprd.com/HellknightOrders.aspx?ID=13"
+    },
+    {
+      "type": "Hellknight Orders",
+      "name": "Order of the Scourge",
+      "url": "https://2e.aonprd.com/HellknightOrders.aspx?ID=14"
+    },
+    {
+      "type": "Monsters",
+      "name": "Brastlewark Sapper Squad",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4745"
+    },
+    {
+      "type": "Monsters",
+      "name": "Devastation Cavalry Brigade",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4749"
+    },
+    {
+      "type": "Monsters",
+      "name": "Fangwood Sentinel Corps",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4748"
+    },
+    {
+      "type": "Monsters",
+      "name": "Golden Erinys Novitiate Circle",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4751"
+    },
+    {
+      "type": "Monsters",
+      "name": "Hellbound Honor Guard",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4746"
+    },
+    {
+      "type": "Monsters",
+      "name": "Hellknight Retrieval Unit",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4742"
+    },
+    {
+      "type": "Monsters",
+      "name": "Iriatykian Outrider Band",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4754"
+    },
+    {
+      "type": "Monsters",
+      "name": "Oprak Firestorm Battalion",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4750"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ort Mob",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4747"
+    },
+    {
+      "type": "Monsters",
+      "name": "Pure Legion Regiment",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4743"
+    },
+    {
+      "type": "Monsters",
+      "name": "Sacristan Scourge",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4755"
+    },
+    {
+      "type": "Monsters",
+      "name": "Shackles Pirate Crew",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4744"
+    },
+    {
+      "type": "Monsters",
+      "name": "Thrune Champion Army",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4752"
+    },
+    {
+      "type": "Monsters",
+      "name": "Twilight Talon Infiltrator Team",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4753"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Augustana's Pride",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=145"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Duskwood Corvette",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=144"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Hellclad Trireme",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=146"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Smuggler's Speronara",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=148"
+    },
+    {
+      "type": "Vehicles",
+      "name": "The Dark Prince",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=147"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Undersurf Boat",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=149"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Yellow-Sailed Schooner",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=150"
+    },
+    {
+      "type": "Weapons",
+      "name": "Asp Coil",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=233"
+    }
+  ]
+}

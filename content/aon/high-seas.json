@@ -1,0 +1,610 @@
+{
+  "etag": "\"ed13ef9b647e4c5fbd638010051cdf9c\"",
+  "entries": [
+    {
+      "type": "Ancestry Heritages",
+      "name": "Aquatic Elf",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=435"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Benthic Athamaru",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=434"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Camouflage Tripkee",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=437"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Cecaelia Merfolk",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=436"
+    },
+    {
+      "type": "Companions",
+      "name": "Cephalopod",
+      "url": "https://2e.aonprd.com/Companions.aspx?ID=127"
+    },
+    {
+      "type": "Companions",
+      "name": "Iridescent Salamander",
+      "url": "https://2e.aonprd.com/Companions.aspx?ID=128"
+    },
+    {
+      "type": "Companions",
+      "name": "Pufferfish",
+      "url": "https://2e.aonprd.com/Companions.aspx?ID=129"
+    },
+    {
+      "type": "Companions",
+      "name": "Silt Frog",
+      "url": "https://2e.aonprd.com/Companions.aspx?ID=130"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Marine Marauder",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=385"
+    },
+    {
+      "type": "Deities",
+      "name": "Surveyors of the Deep",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=731"
+    },
+    {
+      "type": "Equipment",
+      "name": "Amaranthine Visage",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4967"
+    },
+    {
+      "type": "Equipment",
+      "name": "Bloodstride Blade",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4961"
+    },
+    {
+      "type": "Equipment",
+      "name": "Bloodstride Boots",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4962"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cloak of Social Graces",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4957"
+    },
+    {
+      "type": "Equipment",
+      "name": "Coral Aspect",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4968"
+    },
+    {
+      "type": "Equipment",
+      "name": "Crown of the Master",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4972"
+    },
+    {
+      "type": "Equipment",
+      "name": "Gaze of the Mantis",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4963"
+    },
+    {
+      "type": "Equipment",
+      "name": "Gloves of Precision",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4958"
+    },
+    {
+      "type": "Equipment",
+      "name": "Golden Wings",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4959"
+    },
+    {
+      "type": "Equipment",
+      "name": "Greater Cloak of Social Graces",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4957"
+    },
+    {
+      "type": "Equipment",
+      "name": "Greater Crown of the Master",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4972"
+    },
+    {
+      "type": "Equipment",
+      "name": "Greater Gloves of Precision",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4958"
+    },
+    {
+      "type": "Equipment",
+      "name": "Greater Golden Wings",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4959"
+    },
+    {
+      "type": "Equipment",
+      "name": "Greater Kinetic Wraps of Strength",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4960"
+    },
+    {
+      "type": "Equipment",
+      "name": "Greater Trident of the Azarketis",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4976"
+    },
+    {
+      "type": "Equipment",
+      "name": "Helm of the Tides",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4973"
+    },
+    {
+      "type": "Equipment",
+      "name": "Hydration Cloak",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4974"
+    },
+    {
+      "type": "Equipment",
+      "name": "Kinetic Wraps of Strength",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4960"
+    },
+    {
+      "type": "Equipment",
+      "name": "Lesser Mariner's Mien",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4969"
+    },
+    {
+      "type": "Equipment",
+      "name": "Major Cloak of Social Graces",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4957"
+    },
+    {
+      "type": "Equipment",
+      "name": "Major Golden Wings",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4959"
+    },
+    {
+      "type": "Equipment",
+      "name": "Mariner's Mien",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4969"
+    },
+    {
+      "type": "Equipment",
+      "name": "Moderate Mariner's Mien",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4969"
+    },
+    {
+      "type": "Equipment",
+      "name": "Mordant Mask",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4970"
+    },
+    {
+      "type": "Equipment",
+      "name": "Oneiric Crystals of the Slumberer",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4975"
+    },
+    {
+      "type": "Equipment",
+      "name": "Sanguine Ammunition",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4964"
+    },
+    {
+      "type": "Equipment",
+      "name": "Sawtooth Reaper",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4965"
+    },
+    {
+      "type": "Equipment",
+      "name": "Trident of the Azarketis",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4976"
+    },
+    {
+      "type": "Equipment",
+      "name": "True Golden Wings",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4959"
+    },
+    {
+      "type": "Equipment",
+      "name": "Whispering Veil",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4971"
+    },
+    {
+      "type": "Equipment",
+      "name": "Winged Terror",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4966"
+    },
+    {
+      "type": "Familiar Abilities",
+      "name": "Fascinating Flutter (familiar)",
+      "url": "https://2e.aonprd.com/Familiars.aspx?ID=192"
+    },
+    {
+      "type": "Familiar Abilities",
+      "name": "Fruity Ambrosia (familiar)",
+      "url": "https://2e.aonprd.com/Familiars.aspx?ID=193"
+    },
+    {
+      "type": "Familiar Abilities",
+      "name": "Gold Scent (familiar)",
+      "url": "https://2e.aonprd.com/Familiars.aspx?ID=190"
+    },
+    {
+      "type": "Familiar Abilities",
+      "name": "Twinkle Tail (familiar)",
+      "url": "https://2e.aonprd.com/Familiars.aspx?ID=191"
+    },
+    {
+      "type": "Feats",
+      "name": "Appraiser's Eye",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8996"
+    },
+    {
+      "type": "Feats",
+      "name": "Aquatic Elf Warrior",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8991"
+    },
+    {
+      "type": "Feats",
+      "name": "Aquatic Passage",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9036"
+    },
+    {
+      "type": "Feats",
+      "name": "Aquatic Pirouette",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9031"
+    },
+    {
+      "type": "Feats",
+      "name": "Bitter Taste of Betrayal",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9016"
+    },
+    {
+      "type": "Feats",
+      "name": "Bounce Boost",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9001"
+    },
+    {
+      "type": "Feats",
+      "name": "Bullet and a Broadside",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9021"
+    },
+    {
+      "type": "Feats",
+      "name": "Burrowing Tripkee",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9004"
+    },
+    {
+      "type": "Feats",
+      "name": "Cannonball Fall",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9026"
+    },
+    {
+      "type": "Feats",
+      "name": "Cheaters Always Prosper",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9023"
+    },
+    {
+      "type": "Feats",
+      "name": "Coerce the Current",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8988"
+    },
+    {
+      "type": "Feats",
+      "name": "Concealing Currents",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9037"
+    },
+    {
+      "type": "Feats",
+      "name": "Cutthroat Grapple",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9013"
+    },
+    {
+      "type": "Feats",
+      "name": "Deadly Casework",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9008"
+    },
+    {
+      "type": "Feats",
+      "name": "Decisive Swimmer",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8985"
+    },
+    {
+      "type": "Feats",
+      "name": "Deduce Habits",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9014"
+    },
+    {
+      "type": "Feats",
+      "name": "Eyes of the Sea",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8995"
+    },
+    {
+      "type": "Feats",
+      "name": "Fight or Flight",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9024"
+    },
+    {
+      "type": "Feats",
+      "name": "Fog Cloak",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9009"
+    },
+    {
+      "type": "Feats",
+      "name": "Forensic Countermeasures",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9012"
+    },
+    {
+      "type": "Feats",
+      "name": "Form of the Sea",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8990"
+    },
+    {
+      "type": "Feats",
+      "name": "Friend of the Sea",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8992"
+    },
+    {
+      "type": "Feats",
+      "name": "Frog Geyser",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9003"
+    },
+    {
+      "type": "Feats",
+      "name": "Frog Tide",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9006"
+    },
+    {
+      "type": "Feats",
+      "name": "Hallucinogenic Ink",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8999"
+    },
+    {
+      "type": "Feats",
+      "name": "Halyard Strike",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9028"
+    },
+    {
+      "type": "Feats",
+      "name": "Heartless Debilitations",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9011"
+    },
+    {
+      "type": "Feats",
+      "name": "Inner Sea Privateer",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9017"
+    },
+    {
+      "type": "Feats",
+      "name": "Into the Storm",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9018"
+    },
+    {
+      "type": "Feats",
+      "name": "Like a Fish in Water",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9032"
+    },
+    {
+      "type": "Feats",
+      "name": "Marine Combat Training",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9033"
+    },
+    {
+      "type": "Feats",
+      "name": "Marine Jet",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9041"
+    },
+    {
+      "type": "Feats",
+      "name": "Marine Marauder Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9030"
+    },
+    {
+      "type": "Feats",
+      "name": "Personalized Poisoning",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9007"
+    },
+    {
+      "type": "Feats",
+      "name": "Pirate's Pet",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9019"
+    },
+    {
+      "type": "Feats",
+      "name": "Pressure Change",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9039"
+    },
+    {
+      "type": "Feats",
+      "name": "Razorsharp Bite",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8986"
+    },
+    {
+      "type": "Feats",
+      "name": "Reactive Tangle",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9034"
+    },
+    {
+      "type": "Feats",
+      "name": "Reel 'Em In",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9042"
+    },
+    {
+      "type": "Feats",
+      "name": "Rock the Boat",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9027"
+    },
+    {
+      "type": "Feats",
+      "name": "Sanguine Evasion",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9015"
+    },
+    {
+      "type": "Feats",
+      "name": "Sawtooth Grapple",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9010"
+    },
+    {
+      "type": "Feats",
+      "name": "Sea Swarmer",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8989"
+    },
+    {
+      "type": "Feats",
+      "name": "Seize an Advantage",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9025"
+    },
+    {
+      "type": "Feats",
+      "name": "Shark Attack",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9038"
+    },
+    {
+      "type": "Feats",
+      "name": "Sharkskin Grip",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9020"
+    },
+    {
+      "type": "Feats",
+      "name": "Songs of the Sea's Wrath",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9000"
+    },
+    {
+      "type": "Feats",
+      "name": "Spray Ink",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8997"
+    },
+    {
+      "type": "Feats",
+      "name": "Stay Here!",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9040"
+    },
+    {
+      "type": "Feats",
+      "name": "Steal for the Depths",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8998"
+    },
+    {
+      "type": "Feats",
+      "name": "Submerged Stillness",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8994"
+    },
+    {
+      "type": "Feats",
+      "name": "Surface Rush",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9035"
+    },
+    {
+      "type": "Feats",
+      "name": "Swan Dive",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9022"
+    },
+    {
+      "type": "Feats",
+      "name": "Swimming Charge",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8987"
+    },
+    {
+      "type": "Feats",
+      "name": "Take in the Catch",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9043"
+    },
+    {
+      "type": "Feats",
+      "name": "Think Twice",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9029"
+    },
+    {
+      "type": "Feats",
+      "name": "Touch of the Sea",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8993"
+    },
+    {
+      "type": "Feats",
+      "name": "Waterweave Tripkee",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=9002"
+    },
+    {
+      "type": "Monsters",
+      "name": "Bone Ship",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4838"
+    },
+    {
+      "type": "Monsters",
+      "name": "Coral Capuchin",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4839"
+    },
+    {
+      "type": "Monsters",
+      "name": "Coral Juggernaut",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4840"
+    },
+    {
+      "type": "Monsters",
+      "name": "Dedalon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4842"
+    },
+    {
+      "type": "Monsters",
+      "name": "Flotsam Terror",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4843"
+    },
+    {
+      "type": "Monsters",
+      "name": "Gutaki",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4844"
+    },
+    {
+      "type": "Monsters",
+      "name": "Lunar Consort",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4845"
+    },
+    {
+      "type": "Monsters",
+      "name": "Naval Crew",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4846"
+    },
+    {
+      "type": "Monsters",
+      "name": "Pelagiadaemon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4841"
+    },
+    {
+      "type": "Monsters",
+      "name": "Scylla",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4847"
+    },
+    {
+      "type": "Monsters",
+      "name": "Silt Frog",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4848"
+    },
+    {
+      "type": "Rules",
+      "name": "Naval Conflicts",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3665"
+    },
+    {
+      "type": "Spells",
+      "name": "Anchoring Air",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2621"
+    },
+    {
+      "type": "Spells",
+      "name": "Connective Current",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2622"
+    },
+    {
+      "type": "Spells",
+      "name": "Shipwreck",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2623"
+    },
+    {
+      "type": "Spells",
+      "name": "Undertow",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2624"
+    },
+    {
+      "type": "Spells",
+      "name": "Whispers of a Dead Goddess",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2625"
+    },
+    {
+      "type": "Spells",
+      "name": "With Friends Like These",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2626"
+    }
+  ]
+}

@@ -1,0 +1,2950 @@
+{
+  "etag": "\"50965c39939045c5855616ca73181d6f\"",
+  "entries": [
+    {
+      "type": "Archetypes",
+      "name": "Battle Harbinger",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=304"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Mortal Herald",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=305"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Palatine Detective",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=306"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Razmiran Priest",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=307"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Rivethun Emissary",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=308"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Rivethun Invoker",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=309"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Rivethun Involutionist",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=310"
+    },
+    {
+      "type": "Deities",
+      "name": "Abadar",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=277"
+    },
+    {
+      "type": "Deities",
+      "name": "Abraxas",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=425"
+    },
+    {
+      "type": "Deities",
+      "name": "Acavna",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=402"
+    },
+    {
+      "type": "Deities",
+      "name": "Achaekek",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=325"
+    },
+    {
+      "type": "Deities",
+      "name": "Aegirran",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=490"
+    },
+    {
+      "type": "Deities",
+      "name": "Aesocar",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=403"
+    },
+    {
+      "type": "Deities",
+      "name": "Ah Pook",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=327"
+    },
+    {
+      "type": "Deities",
+      "name": "Ahriman",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=563"
+    },
+    {
+      "type": "Deities",
+      "name": "Alazhra",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=510"
+    },
+    {
+      "type": "Deities",
+      "name": "Aleth",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=328"
+    },
+    {
+      "type": "Deities",
+      "name": "Alglenweis",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=605"
+    },
+    {
+      "type": "Deities",
+      "name": "Alseta",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=329"
+    },
+    {
+      "type": "Deities",
+      "name": "Amaznen",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=404"
+    },
+    {
+      "type": "Deities",
+      "name": "Ananshea",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=592"
+    },
+    {
+      "type": "Deities",
+      "name": "Andoletta",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=464"
+    },
+    {
+      "type": "Deities",
+      "name": "Angradd",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=444"
+    },
+    {
+      "type": "Deities",
+      "name": "Anogetz",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=416"
+    },
+    {
+      "type": "Deities",
+      "name": "Anubis",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=511"
+    },
+    {
+      "type": "Deities",
+      "name": "Aonaurious",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=581"
+    },
+    {
+      "type": "Deities",
+      "name": "Apollyon",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=390"
+    },
+    {
+      "type": "Deities",
+      "name": "Apsu",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=330"
+    },
+    {
+      "type": "Deities",
+      "name": "Arazni",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=326"
+    },
+    {
+      "type": "Deities",
+      "name": "Ardad Lili",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=588"
+    },
+    {
+      "type": "Deities",
+      "name": "Areshkagal",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=426"
+    },
+    {
+      "type": "Deities",
+      "name": "Aroden",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=512"
+    },
+    {
+      "type": "Deities",
+      "name": "Arshea",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=465"
+    },
+    {
+      "type": "Deities",
+      "name": "Arundhat",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=610"
+    },
+    {
+      "type": "Deities",
+      "name": "Ashava",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=466"
+    },
+    {
+      "type": "Deities",
+      "name": "Ashukharma",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=611"
+    },
+    {
+      "type": "Deities",
+      "name": "Asmodeus",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=278"
+    },
+    {
+      "type": "Deities",
+      "name": "Atheism",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=297"
+    },
+    {
+      "type": "Deities",
+      "name": "Atreia",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=686"
+    },
+    {
+      "type": "Deities",
+      "name": "Atrogine",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=331"
+    },
+    {
+      "type": "Deities",
+      "name": "Atropos",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=533"
+    },
+    {
+      "type": "Deities",
+      "name": "Ayrzul",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=687"
+    },
+    {
+      "type": "Deities",
+      "name": "Azathoth",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=567"
+    },
+    {
+      "type": "Deities",
+      "name": "Baalzebul",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=394"
+    },
+    {
+      "type": "Deities",
+      "name": "Baphomet",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=427"
+    },
+    {
+      "type": "Deities",
+      "name": "Barbatos",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=395"
+    },
+    {
+      "type": "Deities",
+      "name": "Barzahk",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=534"
+    },
+    {
+      "type": "Deities",
+      "name": "Belial",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=396"
+    },
+    {
+      "type": "Deities",
+      "name": "Bergelmir",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=491"
+    },
+    {
+      "type": "Deities",
+      "name": "Besmara",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=332"
+    },
+    {
+      "type": "Deities",
+      "name": "Bharnarol",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=467"
+    },
+    {
+      "type": "Deities",
+      "name": "Bifrons",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=525"
+    },
+    {
+      "type": "Deities",
+      "name": "Black Butterfly",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=468"
+    },
+    {
+      "type": "Deities",
+      "name": "Blooms of the Spreading Weald",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=365"
+    },
+    {
+      "type": "Deities",
+      "name": "Bokrug",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=568"
+    },
+    {
+      "type": "Deities",
+      "name": "Bolka",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=445"
+    },
+    {
+      "type": "Deities",
+      "name": "Breath of the Endless Sky",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=366"
+    },
+    {
+      "type": "Deities",
+      "name": "Brigh",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=333"
+    },
+    {
+      "type": "Deities",
+      "name": "Calistria",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=279"
+    },
+    {
+      "type": "Deities",
+      "name": "Camazotz",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=334"
+    },
+    {
+      "type": "Deities",
+      "name": "Casandalee",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=335"
+    },
+    {
+      "type": "Deities",
+      "name": "Cayden Cailean",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=280"
+    },
+    {
+      "type": "Deities",
+      "name": "Cernunnos",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=513"
+    },
+    {
+      "type": "Deities",
+      "name": "Ceyannan",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=535"
+    },
+    {
+      "type": "Deities",
+      "name": "Chaldira",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=336"
+    },
+    {
+      "type": "Deities",
+      "name": "Chamiaholom",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=593"
+    },
+    {
+      "type": "Deities",
+      "name": "Chamidu",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=612"
+    },
+    {
+      "type": "Deities",
+      "name": "Charg",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=594"
+    },
+    {
+      "type": "Deities",
+      "name": "Charon",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=391"
+    },
+    {
+      "type": "Deities",
+      "name": "Chavazvug",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=582"
+    },
+    {
+      "type": "Deities",
+      "name": "Children of the Night",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=376"
+    },
+    {
+      "type": "Deities",
+      "name": "Cihua Coatl",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=413"
+    },
+    {
+      "type": "Deities",
+      "name": "Cixyron",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=417"
+    },
+    {
+      "type": "Deities",
+      "name": "Cong",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=502"
+    },
+    {
+      "type": "Deities",
+      "name": "Corosbel",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=418"
+    },
+    {
+      "type": "Deities",
+      "name": "Cosmic Caravan",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=377"
+    },
+    {
+      "type": "Deities",
+      "name": "Count Ranalc",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=452"
+    },
+    {
+      "type": "Deities",
+      "name": "Cthulhu",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=569"
+    },
+    {
+      "type": "Deities",
+      "name": "Cyth-V’sug",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=428"
+    },
+    {
+      "type": "Deities",
+      "name": "Dachzerul",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=595"
+    },
+    {
+      "type": "Deities",
+      "name": "Dagon",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=429"
+    },
+    {
+      "type": "Deities",
+      "name": "Dahak",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=337"
+    },
+    {
+      "type": "Deities",
+      "name": "Dajermube",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=338"
+    },
+    {
+      "type": "Deities",
+      "name": "Dalenydra",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=469"
+    },
+    {
+      "type": "Deities",
+      "name": "Dammar",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=536"
+    },
+    {
+      "type": "Deities",
+      "name": "Desna",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=281"
+    },
+    {
+      "type": "Deities",
+      "name": "Dhalavei",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=613"
+    },
+    {
+      "type": "Deities",
+      "name": "Diomazul",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=614"
+    },
+    {
+      "type": "Deities",
+      "name": "Dispater",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=397"
+    },
+    {
+      "type": "Deities",
+      "name": "Dolok Darkfur",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=606"
+    },
+    {
+      "type": "Deities",
+      "name": "Doloras",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=589"
+    },
+    {
+      "type": "Deities",
+      "name": "Dramindyr",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=537"
+    },
+    {
+      "type": "Deities",
+      "name": "Dranngvit",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=446"
+    },
+    {
+      "type": "Deities",
+      "name": "Droskar",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=447"
+    },
+    {
+      "type": "Deities",
+      "name": "Eiseth",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=590"
+    },
+    {
+      "type": "Deities",
+      "name": "Elion",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=405"
+    },
+    {
+      "type": "Deities",
+      "name": "Embaral",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=340"
+    },
+    {
+      "type": "Deities",
+      "name": "Emmeton Galardaria",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=341"
+    },
+    {
+      "type": "Deities",
+      "name": "Erastil",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=282"
+    },
+    {
+      "type": "Deities",
+      "name": "Erecura",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=564"
+    },
+    {
+      "type": "Deities",
+      "name": "Eritrice",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=470"
+    },
+    {
+      "type": "Deities",
+      "name": "Esoteric Order Of The Palatine Eye",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=362"
+    },
+    {
+      "type": "Deities",
+      "name": "Faith in the Fallen",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=367"
+    },
+    {
+      "type": "Deities",
+      "name": "Falayna",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=471"
+    },
+    {
+      "type": "Deities",
+      "name": "Fandarra",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=492"
+    },
+    {
+      "type": "Deities",
+      "name": "Ferrumnestra",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=688"
+    },
+    {
+      "type": "Deities",
+      "name": "Findeladlara",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=461"
+    },
+    {
+      "type": "Deities",
+      "name": "Folgrit",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=448"
+    },
+    {
+      "type": "Deities",
+      "name": "Fortune's Fate",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=378"
+    },
+    {
+      "type": "Deities",
+      "name": "Furcas",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=526"
+    },
+    {
+      "type": "Deities",
+      "name": "Genzaeri",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=342"
+    },
+    {
+      "type": "Deities",
+      "name": "Geryon",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=398"
+    },
+    {
+      "type": "Deities",
+      "name": "Ghlaunder",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=343"
+    },
+    {
+      "type": "Deities",
+      "name": "Gogunta",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=321"
+    },
+    {
+      "type": "Deities",
+      "name": "Good Neighbors",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=368"
+    },
+    {
+      "type": "Deities",
+      "name": "Gorum",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=283"
+    },
+    {
+      "type": "Deities",
+      "name": "Gozreh",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=284"
+    },
+    {
+      "type": "Deities",
+      "name": "Grandmother Spider",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=344"
+    },
+    {
+      "type": "Deities",
+      "name": "Grask Uldeth",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=555"
+    },
+    {
+      "type": "Deities",
+      "name": "Green Faith",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=298"
+    },
+    {
+      "type": "Deities",
+      "name": "Groetus",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=345"
+    },
+    {
+      "type": "Deities",
+      "name": "Gruhastha",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=346"
+    },
+    {
+      "type": "Deities",
+      "name": "Grundinnar",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=514"
+    },
+    {
+      "type": "Deities",
+      "name": "Guardians of the Sacred Self",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=379"
+    },
+    {
+      "type": "Deities",
+      "name": "Gyronna",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=515"
+    },
+    {
+      "type": "Deities",
+      "name": "Haagenti",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=430"
+    },
+    {
+      "type": "Deities",
+      "name": "Haborym",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=527"
+    },
+    {
+      "type": "Deities",
+      "name": "Hadregash",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=503"
+    },
+    {
+      "type": "Deities",
+      "name": "Haggakal",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=493"
+    },
+    {
+      "type": "Deities",
+      "name": "Hanspur",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=347"
+    },
+    {
+      "type": "Deities",
+      "name": "Hastur",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=570"
+    },
+    {
+      "type": "Deities",
+      "name": "Hataam",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=596"
+    },
+    {
+      "type": "Deities",
+      "name": "Hei Feng",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=307"
+    },
+    {
+      "type": "Deities",
+      "name": "Horus",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=516"
+    },
+    {
+      "type": "Deities",
+      "name": "Hshurha",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=689"
+    },
+    {
+      "type": "Deities",
+      "name": "Iggeret",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=597"
+    },
+    {
+      "type": "Deities",
+      "name": "Il’Surrish",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=538"
+    },
+    {
+      "type": "Deities",
+      "name": "Imbrex",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=454"
+    },
+    {
+      "type": "Deities",
+      "name": "Immaculate Growth",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=364"
+    },
+    {
+      "type": "Deities",
+      "name": "Inna",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=539"
+    },
+    {
+      "type": "Deities",
+      "name": "Iomedae",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=285"
+    },
+    {
+      "type": "Deities",
+      "name": "Irez",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=472"
+    },
+    {
+      "type": "Deities",
+      "name": "Irori",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=286"
+    },
+    {
+      "type": "Deities",
+      "name": "Isis",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=517"
+    },
+    {
+      "type": "Deities",
+      "name": "Isph-Aun-Vuln",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=583"
+    },
+    {
+      "type": "Deities",
+      "name": "Izuyaku",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=348"
+    },
+    {
+      "type": "Deities",
+      "name": "Jaidi",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=406"
+    },
+    {
+      "type": "Deities",
+      "name": "Jezelda",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=431"
+    },
+    {
+      "type": "Deities",
+      "name": "Jukha",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=556"
+    },
+    {
+      "type": "Deities",
+      "name": "Kabriri",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=432"
+    },
+    {
+      "type": "Deities",
+      "name": "Kagia",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=607"
+    },
+    {
+      "type": "Deities",
+      "name": "Kaldemash",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=349"
+    },
+    {
+      "type": "Deities",
+      "name": "Kazutal",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=350"
+    },
+    {
+      "type": "Deities",
+      "name": "Kelinahat",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=473"
+    },
+    {
+      "type": "Deities",
+      "name": "Kelizandri",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=690"
+    },
+    {
+      "type": "Deities",
+      "name": "Keltheald",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=474"
+    },
+    {
+      "type": "Deities",
+      "name": "Ketephys",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=462"
+    },
+    {
+      "type": "Deities",
+      "name": "Kols",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=449"
+    },
+    {
+      "type": "Deities",
+      "name": "Korada",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=475"
+    },
+    {
+      "type": "Deities",
+      "name": "Kurgess",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=351"
+    },
+    {
+      "type": "Deities",
+      "name": "Lahkgya",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=615"
+    },
+    {
+      "type": "Deities",
+      "name": "Laivatiniel",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=419"
+    },
+    {
+      "type": "Deities",
+      "name": "Lalaci",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=476"
+    },
+    {
+      "type": "Deities",
+      "name": "Lamashtu",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=287"
+    },
+    {
+      "type": "Deities",
+      "name": "Laudinmio",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=691"
+    },
+    {
+      "type": "Deities",
+      "name": "Laws of Mortality",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=386"
+    },
+    {
+      "type": "Deities",
+      "name": "Light of the Everlasting Flame",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=369"
+    },
+    {
+      "type": "Deities",
+      "name": "Liisglan",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=540"
+    },
+    {
+      "type": "Deities",
+      "name": "Likha",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=616"
+    },
+    {
+      "type": "Deities",
+      "name": "Lissala",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=407"
+    },
+    {
+      "type": "Deities",
+      "name": "Lissala",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=565"
+    },
+    {
+      "type": "Deities",
+      "name": "Lorris",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=477"
+    },
+    {
+      "type": "Deities",
+      "name": "Lurlup",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=504"
+    },
+    {
+      "type": "Deities",
+      "name": "Lysianassa",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=692"
+    },
+    {
+      "type": "Deities",
+      "name": "Ma’at",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=518"
+    },
+    {
+      "type": "Deities",
+      "name": "Magdh",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=457"
+    },
+    {
+      "type": "Deities",
+      "name": "Magrim",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=450"
+    },
+    {
+      "type": "Deities",
+      "name": "Mahathallah",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=591"
+    },
+    {
+      "type": "Deities",
+      "name": "Mahja Firehair",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=557"
+    },
+    {
+      "type": "Deities",
+      "name": "Malthus",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=528"
+    },
+    {
+      "type": "Deities",
+      "name": "Mammon",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=399"
+    },
+    {
+      "type": "Deities",
+      "name": "Matravash",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=617"
+    },
+    {
+      "type": "Deities",
+      "name": "Mephistopheles",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=400"
+    },
+    {
+      "type": "Deities",
+      "name": "Mestama",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=519"
+    },
+    {
+      "type": "Deities",
+      "name": "Mhar",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=571"
+    },
+    {
+      "type": "Deities",
+      "name": "Milani",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=352"
+    },
+    {
+      "type": "Deities",
+      "name": "Minderhal",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=494"
+    },
+    {
+      "type": "Deities",
+      "name": "Moloch",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=401"
+    },
+    {
+      "type": "Deities",
+      "name": "Monad",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=541"
+    },
+    {
+      "type": "Deities",
+      "name": "Mother Vulture",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=542"
+    },
+    {
+      "type": "Deities",
+      "name": "Mrtyu",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=543"
+    },
+    {
+      "type": "Deities",
+      "name": "Myr",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=408"
+    },
+    {
+      "type": "Deities",
+      "name": "Nameless",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=598"
+    },
+    {
+      "type": "Deities",
+      "name": "Narriseminek",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=544"
+    },
+    {
+      "type": "Deities",
+      "name": "Nergal",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=529"
+    },
+    {
+      "type": "Deities",
+      "name": "Neshen",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=478"
+    },
+    {
+      "type": "Deities",
+      "name": "Nethys",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=288"
+    },
+    {
+      "type": "Deities",
+      "name": "Ng",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=458"
+    },
+    {
+      "type": "Deities",
+      "name": "Nhimbaloth",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=572"
+    },
+    {
+      "type": "Deities",
+      "name": "Nin",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=353"
+    },
+    {
+      "type": "Deities",
+      "name": "Nivi Rhombodazzle",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=354"
+    },
+    {
+      "type": "Deities",
+      "name": "Nocticula",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=355"
+    },
+    {
+      "type": "Deities",
+      "name": "Norgorber",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=289"
+    },
+    {
+      "type": "Deities",
+      "name": "Nulgreth",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=558"
+    },
+    {
+      "type": "Deities",
+      "name": "Nurgal",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=433"
+    },
+    {
+      "type": "Deities",
+      "name": "Nyarlathotep (The Crawling Chaos)",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=573"
+    },
+    {
+      "type": "Deities",
+      "name": "Nyarlathotep (The Faceless Sphinx)",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=574"
+    },
+    {
+      "type": "Deities",
+      "name": "Nyarlathotep (The Veiled Voice)",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=575"
+    },
+    {
+      "type": "Deities",
+      "name": "Nyuo-Ogh",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=584"
+    },
+    {
+      "type": "Deities",
+      "name": "Oaur-Ooung",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=585"
+    },
+    {
+      "type": "Deities",
+      "name": "Obari",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=356"
+    },
+    {
+      "type": "Deities",
+      "name": "Olheon",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=479"
+    },
+    {
+      "type": "Deities",
+      "name": "Onos",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=409"
+    },
+    {
+      "type": "Deities",
+      "name": "Orgesh",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=576"
+    },
+    {
+      "type": "Deities",
+      "name": "Osiris",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=520"
+    },
+    {
+      "type": "Deities",
+      "name": "Ozranvial",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=599"
+    },
+    {
+      "type": "Deities",
+      "name": "Pahti Coatl",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=414"
+    },
+    {
+      "type": "Deities",
+      "name": "Pavnuri",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=420"
+    },
+    {
+      "type": "Deities",
+      "name": "Pazuzu",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=434"
+    },
+    {
+      "type": "Deities",
+      "name": "Pharasma",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=290"
+    },
+    {
+      "type": "Deities",
+      "name": "Phlegyas",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=546"
+    },
+    {
+      "type": "Deities",
+      "name": "Prophecies of Kalistrade",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=387"
+    },
+    {
+      "type": "Deities",
+      "name": "Pulura",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=480"
+    },
+    {
+      "type": "Deities",
+      "name": "Ra",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=521"
+    },
+    {
+      "type": "Deities",
+      "name": "Radiant Prism",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=380"
+    },
+    {
+      "type": "Deities",
+      "name": "Ragadahn",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=459"
+    },
+    {
+      "type": "Deities",
+      "name": "Ragathiel",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=481"
+    },
+    {
+      "type": "Deities",
+      "name": "Ragdya",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=618"
+    },
+    {
+      "type": "Deities",
+      "name": "Ranginori",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=693"
+    },
+    {
+      "type": "Deities",
+      "name": "Raumya",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=619"
+    },
+    {
+      "type": "Deities",
+      "name": "Ravithra",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=620"
+    },
+    {
+      "type": "Deities",
+      "name": "Razmir",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=357"
+    },
+    {
+      "type": "Deities",
+      "name": "Reymenda",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=482"
+    },
+    {
+      "type": "Deities",
+      "name": "Rhan-Tegoth",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=577"
+    },
+    {
+      "type": "Deities",
+      "name": "Ristrentho",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=608"
+    },
+    {
+      "type": "Deities",
+      "name": "Rivethun",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=388"
+    },
+    {
+      "type": "Deities",
+      "name": "Rovagug",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=291"
+    },
+    {
+      "type": "Deities",
+      "name": "Rull",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=559"
+    },
+    {
+      "type": "Deities",
+      "name": "Sairazul",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=694"
+    },
+    {
+      "type": "Deities",
+      "name": "Saloc",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=547"
+    },
+    {
+      "type": "Deities",
+      "name": "Sarenrae",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=292"
+    },
+    {
+      "type": "Deities",
+      "name": "Scal",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=410"
+    },
+    {
+      "type": "Deities",
+      "name": "Seramaydiel",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=483"
+    },
+    {
+      "type": "Deities",
+      "name": "Shadow Cabinet",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=372"
+    },
+    {
+      "type": "Deities",
+      "name": "Shapes of the Fading Luster",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=373"
+    },
+    {
+      "type": "Deities",
+      "name": "Shawnari",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=600"
+    },
+    {
+      "type": "Deities",
+      "name": "Shax",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=435"
+    },
+    {
+      "type": "Deities",
+      "name": "Shelyn",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=293"
+    },
+    {
+      "type": "Deities",
+      "name": "Shivaska",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=436"
+    },
+    {
+      "type": "Deities",
+      "name": "Shizuru",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=315"
+    },
+    {
+      "type": "Deities",
+      "name": "Shumunue",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=695"
+    },
+    {
+      "type": "Deities",
+      "name": "Shyka",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=460"
+    },
+    {
+      "type": "Deities",
+      "name": "Sicva",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=411"
+    },
+    {
+      "type": "Deities",
+      "name": "Sifkesh",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=437"
+    },
+    {
+      "type": "Deities",
+      "name": "Sithhud",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=438"
+    },
+    {
+      "type": "Deities",
+      "name": "Sivanah",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=358"
+    },
+    {
+      "type": "Deities",
+      "name": "Skode",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=495"
+    },
+    {
+      "type": "Deities",
+      "name": "Skrymir",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=496"
+    },
+    {
+      "type": "Deities",
+      "name": "Smiad",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=522"
+    },
+    {
+      "type": "Deities",
+      "name": "Soralyon",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=484"
+    },
+    {
+      "type": "Deities",
+      "name": "Sovyrian Conclave",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=381"
+    },
+    {
+      "type": "Deities",
+      "name": "Ssila’meshnik",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=548"
+    },
+    {
+      "type": "Deities",
+      "name": "Stag Mother of the Forest of Stones",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=609"
+    },
+    {
+      "type": "Deities",
+      "name": "Stone's Blood",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=382"
+    },
+    {
+      "type": "Deities",
+      "name": "Sturovenen",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=523"
+    },
+    {
+      "type": "Deities",
+      "name": "Suyuddha",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=621"
+    },
+    {
+      "type": "Deities",
+      "name": "Szuriel",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=392"
+    },
+    {
+      "type": "Deities",
+      "name": "Talons of the Godclaw",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=383"
+    },
+    {
+      "type": "Deities",
+      "name": "Teki Stronggut",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=505"
+    },
+    {
+      "type": "Deities",
+      "name": "Telastmar",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=549"
+    },
+    {
+      "type": "Deities",
+      "name": "Teshallas",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=550"
+    },
+    {
+      "type": "Deities",
+      "name": "Thamir",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=566"
+    },
+    {
+      "type": "Deities",
+      "name": "The Devourer",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=339"
+    },
+    {
+      "type": "Deities",
+      "name": "The Green Mother",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=453"
+    },
+    {
+      "type": "Deities",
+      "name": "The Lantern King",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=455"
+    },
+    {
+      "type": "Deities",
+      "name": "The Lost Prince",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=456"
+    },
+    {
+      "type": "Deities",
+      "name": "The Pale Horse",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=545"
+    },
+    {
+      "type": "Deities",
+      "name": "The Pandemonia",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=370"
+    },
+    {
+      "type": "Deities",
+      "name": "The Readied Strike",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=371"
+    },
+    {
+      "type": "Deities",
+      "name": "The Spirit Wall",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=363"
+    },
+    {
+      "type": "Deities",
+      "name": "Thoth",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=524"
+    },
+    {
+      "type": "Deities",
+      "name": "Thremyr",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=497"
+    },
+    {
+      "type": "Deities",
+      "name": "Thuskchoon",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=586"
+    },
+    {
+      "type": "Deities",
+      "name": "Titivilus",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=530"
+    },
+    {
+      "type": "Deities",
+      "name": "Tjasse",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=498"
+    },
+    {
+      "type": "Deities",
+      "name": "Tolte Coatl",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=415"
+    },
+    {
+      "type": "Deities",
+      "name": "Torag",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=294"
+    },
+    {
+      "type": "Deities",
+      "name": "Treasures of the Eternal Delve",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=374"
+    },
+    {
+      "type": "Deities",
+      "name": "Treerazer",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=324"
+    },
+    {
+      "type": "Deities",
+      "name": "Trelmarixian",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=393"
+    },
+    {
+      "type": "Deities",
+      "name": "Tresmalvos",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=421"
+    },
+    {
+      "type": "Deities",
+      "name": "Trudd",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=451"
+    },
+    {
+      "type": "Deities",
+      "name": "Tsukiyo",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=317"
+    },
+    {
+      "type": "Deities",
+      "name": "Uirch",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=560"
+    },
+    {
+      "type": "Deities",
+      "name": "Ulon",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=412"
+    },
+    {
+      "type": "Deities",
+      "name": "Urazra",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=499"
+    },
+    {
+      "type": "Deities",
+      "name": "Urgathoa",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=295"
+    },
+    {
+      "type": "Deities",
+      "name": "Uskyeria",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=485"
+    },
+    {
+      "type": "Deities",
+      "name": "Ussharassim",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=531"
+    },
+    {
+      "type": "Deities",
+      "name": "Valani",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=486"
+    },
+    {
+      "type": "Deities",
+      "name": "Vale",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=551"
+    },
+    {
+      "type": "Deities",
+      "name": "Vapula",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=532"
+    },
+    {
+      "type": "Deities",
+      "name": "Varg",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=561"
+    },
+    {
+      "type": "Deities",
+      "name": "Vavaalrav",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=552"
+    },
+    {
+      "type": "Deities",
+      "name": "Velgaas",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=601"
+    },
+    {
+      "type": "Deities",
+      "name": "Venkelvore",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=506"
+    },
+    {
+      "type": "Deities",
+      "name": "Verilorn",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=696"
+    },
+    {
+      "type": "Deities",
+      "name": "Vildeis",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=487"
+    },
+    {
+      "type": "Deities",
+      "name": "Vineshvakhi",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=622"
+    },
+    {
+      "type": "Deities",
+      "name": "Vonymos",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=553"
+    },
+    {
+      "type": "Deities",
+      "name": "Vorasha",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=422"
+    },
+    {
+      "type": "Deities",
+      "name": "Vudravati",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=359"
+    },
+    {
+      "type": "Deities",
+      "name": "Vulot",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=439"
+    },
+    {
+      "type": "Deities",
+      "name": "Waves of the Boundless Sea",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=375"
+    },
+    {
+      "type": "Deities",
+      "name": "Weight of the World",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=384"
+    },
+    {
+      "type": "Deities",
+      "name": "Wheels of Innovation",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=385"
+    },
+    {
+      "type": "Deities",
+      "name": "Whispering Way",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=389"
+    },
+    {
+      "type": "Deities",
+      "name": "Wulgren",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=562"
+    },
+    {
+      "type": "Deities",
+      "name": "Xhamen-Dor",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=578"
+    },
+    {
+      "type": "Deities",
+      "name": "Xoveron",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=440"
+    },
+    {
+      "type": "Deities",
+      "name": "Xsistaid",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=423"
+    },
+    {
+      "type": "Deities",
+      "name": "Yamasoth",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=587"
+    },
+    {
+      "type": "Deities",
+      "name": "Ydajisk",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=554"
+    },
+    {
+      "type": "Deities",
+      "name": "Ydersius",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=323"
+    },
+    {
+      "type": "Deities",
+      "name": "Yhidothrus",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=441"
+    },
+    {
+      "type": "Deities",
+      "name": "Yig",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=579"
+    },
+    {
+      "type": "Deities",
+      "name": "Ylimancha",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=488"
+    },
+    {
+      "type": "Deities",
+      "name": "Ymeri",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=697"
+    },
+    {
+      "type": "Deities",
+      "name": "Yog-Sothoth",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=580"
+    },
+    {
+      "type": "Deities",
+      "name": "Yrmidar",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=500"
+    },
+    {
+      "type": "Deities",
+      "name": "Yuelral",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=463"
+    },
+    {
+      "type": "Deities",
+      "name": "Zarongel",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=507"
+    },
+    {
+      "type": "Deities",
+      "name": "Zelishkar",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=424"
+    },
+    {
+      "type": "Deities",
+      "name": "Zevgavizeb",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=442"
+    },
+    {
+      "type": "Deities",
+      "name": "Zjar-Tovan",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=360"
+    },
+    {
+      "type": "Deities",
+      "name": "Zogmugot",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=508"
+    },
+    {
+      "type": "Deities",
+      "name": "Zohls",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=489"
+    },
+    {
+      "type": "Deities",
+      "name": "Zon-Kuthon",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=296"
+    },
+    {
+      "type": "Deities",
+      "name": "Zugero",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=509"
+    },
+    {
+      "type": "Deities",
+      "name": "Zura",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=443"
+    },
+    {
+      "type": "Deities",
+      "name": "Zursvaater",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=501"
+    },
+    {
+      "type": "Deities",
+      "name": "Zyphus",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=361"
+    },
+    {
+      "type": "Deities - Divine Intercessions",
+      "name": "Abadar",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=277"
+    },
+    {
+      "type": "Deities - Divine Intercessions",
+      "name": "Arazni",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=326"
+    },
+    {
+      "type": "Deities - Divine Intercessions",
+      "name": "Asmodeus",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=278"
+    },
+    {
+      "type": "Deities - Divine Intercessions",
+      "name": "Calistria",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=279"
+    },
+    {
+      "type": "Deities - Divine Intercessions",
+      "name": "Cayden Cailean",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=280"
+    },
+    {
+      "type": "Deities - Divine Intercessions",
+      "name": "Desna",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=281"
+    },
+    {
+      "type": "Deities - Divine Intercessions",
+      "name": "Erastil",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=282"
+    },
+    {
+      "type": "Deities - Divine Intercessions",
+      "name": "Gozreh",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=284"
+    },
+    {
+      "type": "Deities - Divine Intercessions",
+      "name": "Iomedae",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=285"
+    },
+    {
+      "type": "Deities - Divine Intercessions",
+      "name": "Irori",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=286"
+    },
+    {
+      "type": "Deities - Divine Intercessions",
+      "name": "Lamashtu",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=287"
+    },
+    {
+      "type": "Deities - Divine Intercessions",
+      "name": "Nethys",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=288"
+    },
+    {
+      "type": "Deities - Divine Intercessions",
+      "name": "Norgorber",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=289"
+    },
+    {
+      "type": "Deities - Divine Intercessions",
+      "name": "Pharasma",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=290"
+    },
+    {
+      "type": "Deities - Divine Intercessions",
+      "name": "Rovagug",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=291"
+    },
+    {
+      "type": "Deities - Divine Intercessions",
+      "name": "Sarenrae",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=292"
+    },
+    {
+      "type": "Deities - Divine Intercessions",
+      "name": "Shelyn",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=293"
+    },
+    {
+      "type": "Deities - Divine Intercessions",
+      "name": "Torag",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=294"
+    },
+    {
+      "type": "Deities - Divine Intercessions",
+      "name": "Urgathoa",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=295"
+    },
+    {
+      "type": "Deities - Divine Intercessions",
+      "name": "Zon-Kuthon",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=296"
+    },
+    {
+      "type": "Doctrines",
+      "name": "Battle Creed",
+      "url": "https://2e.aonprd.com/Doctrines.aspx?ID=6"
+    },
+    {
+      "type": "Domains",
+      "name": "Abomination",
+      "url": "https://2e.aonprd.com/Domains.aspx?ID=101"
+    },
+    {
+      "type": "Domains",
+      "name": "Change",
+      "url": "https://2e.aonprd.com/Domains.aspx?ID=102"
+    },
+    {
+      "type": "Domains",
+      "name": "Cold",
+      "url": "https://2e.aonprd.com/Domains.aspx?ID=103"
+    },
+    {
+      "type": "Domains",
+      "name": "Decay",
+      "url": "https://2e.aonprd.com/Domains.aspx?ID=104"
+    },
+    {
+      "type": "Domains",
+      "name": "Disorientation",
+      "url": "https://2e.aonprd.com/Domains.aspx?ID=105"
+    },
+    {
+      "type": "Domains",
+      "name": "Dragon",
+      "url": "https://2e.aonprd.com/Domains.aspx?ID=106"
+    },
+    {
+      "type": "Domains",
+      "name": "Dust",
+      "url": "https://2e.aonprd.com/Domains.aspx?ID=107"
+    },
+    {
+      "type": "Domains",
+      "name": "Duty",
+      "url": "https://2e.aonprd.com/Domains.aspx?ID=108"
+    },
+    {
+      "type": "Domains",
+      "name": "Glyph",
+      "url": "https://2e.aonprd.com/Domains.aspx?ID=109"
+    },
+    {
+      "type": "Domains",
+      "name": "Introspection",
+      "url": "https://2e.aonprd.com/Domains.aspx?ID=110"
+    },
+    {
+      "type": "Domains",
+      "name": "Lightning",
+      "url": "https://2e.aonprd.com/Domains.aspx?ID=111"
+    },
+    {
+      "type": "Domains",
+      "name": "Metal",
+      "url": "https://2e.aonprd.com/Domains.aspx?ID=112"
+    },
+    {
+      "type": "Domains",
+      "name": "Naga",
+      "url": "https://2e.aonprd.com/Domains.aspx?ID=113"
+    },
+    {
+      "type": "Domains",
+      "name": "Nothingness",
+      "url": "https://2e.aonprd.com/Domains.aspx?ID=114"
+    },
+    {
+      "type": "Domains",
+      "name": "Plague",
+      "url": "https://2e.aonprd.com/Domains.aspx?ID=115"
+    },
+    {
+      "type": "Domains",
+      "name": "Repose",
+      "url": "https://2e.aonprd.com/Domains.aspx?ID=116"
+    },
+    {
+      "type": "Domains",
+      "name": "Sorrow",
+      "url": "https://2e.aonprd.com/Domains.aspx?ID=117"
+    },
+    {
+      "type": "Domains",
+      "name": "Soul",
+      "url": "https://2e.aonprd.com/Domains.aspx?ID=118"
+    },
+    {
+      "type": "Domains",
+      "name": "Star",
+      "url": "https://2e.aonprd.com/Domains.aspx?ID=119"
+    },
+    {
+      "type": "Domains",
+      "name": "Swarm",
+      "url": "https://2e.aonprd.com/Domains.aspx?ID=120"
+    },
+    {
+      "type": "Domains",
+      "name": "Time",
+      "url": "https://2e.aonprd.com/Domains.aspx?ID=121"
+    },
+    {
+      "type": "Domains",
+      "name": "Toil",
+      "url": "https://2e.aonprd.com/Domains.aspx?ID=122"
+    },
+    {
+      "type": "Domains",
+      "name": "Vigil",
+      "url": "https://2e.aonprd.com/Domains.aspx?ID=123"
+    },
+    {
+      "type": "Domains",
+      "name": "Wood",
+      "url": "https://2e.aonprd.com/Domains.aspx?ID=124"
+    },
+    {
+      "type": "Equipment",
+      "name": "Razmiri Mask",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3593"
+    },
+    {
+      "type": "Feats",
+      "name": "Advanced Domain Spirit",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7576"
+    },
+    {
+      "type": "Feats",
+      "name": "Aura Enhancement",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7506"
+    },
+    {
+      "type": "Feats",
+      "name": "Aura Expertise",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7514"
+    },
+    {
+      "type": "Feats",
+      "name": "Basic Rivethun Spellcasting",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7589"
+    },
+    {
+      "type": "Feats",
+      "name": "Battle Harbinger Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7505"
+    },
+    {
+      "type": "Feats",
+      "name": "Celestial Form",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7525"
+    },
+    {
+      "type": "Feats",
+      "name": "Challenge Insight",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7562"
+    },
+    {
+      "type": "Feats",
+      "name": "Chastise",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7535"
+    },
+    {
+      "type": "Feats",
+      "name": "Consult the Spirits (Rivethun Emissary)",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7577"
+    },
+    {
+      "type": "Feats",
+      "name": "Creed Magic",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7510"
+    },
+    {
+      "type": "Feats",
+      "name": "Cursebreaker",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7563"
+    },
+    {
+      "type": "Feats",
+      "name": "Declare Anathema",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7536"
+    },
+    {
+      "type": "Feats",
+      "name": "Defy Sorrow",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7585"
+    },
+    {
+      "type": "Feats",
+      "name": "Deific Font",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7543"
+    },
+    {
+      "type": "Feats",
+      "name": "Dive of the Divine",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7537"
+    },
+    {
+      "type": "Feats",
+      "name": "Divine Presence",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7544"
+    },
+    {
+      "type": "Feats",
+      "name": "Domain Embodiment",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7529"
+    },
+    {
+      "type": "Feats",
+      "name": "Domain Spirit",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7573"
+    },
+    {
+      "type": "Feats",
+      "name": "Ease the Burden",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7551"
+    },
+    {
+      "type": "Feats",
+      "name": "Embolded With Glorious Purpose",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7580"
+    },
+    {
+      "type": "Feats",
+      "name": "Emissary Familiar",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7572"
+    },
+    {
+      "type": "Feats",
+      "name": "Empowered Onslaught",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7512"
+    },
+    {
+      "type": "Feats",
+      "name": "Enforce Oath",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7522"
+    },
+    {
+      "type": "Feats",
+      "name": "Enter Divine Realm",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7552"
+    },
+    {
+      "type": "Feats",
+      "name": "Esoteric Spellcasting",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7558"
+    },
+    {
+      "type": "Feats",
+      "name": "Exalted Greatness",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7524"
+    },
+    {
+      "type": "Feats",
+      "name": "Exigent Aura",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7508"
+    },
+    {
+      "type": "Feats",
+      "name": "Expanded Domain Initiate",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7595"
+    },
+    {
+      "type": "Feats",
+      "name": "Expert Rivethun Spellcasting",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7591"
+    },
+    {
+      "type": "Feats",
+      "name": "Eyes of God",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7545"
+    },
+    {
+      "type": "Feats",
+      "name": "Fear of God",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7530"
+    },
+    {
+      "type": "Feats",
+      "name": "Fiendish Form",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7526"
+    },
+    {
+      "type": "Feats",
+      "name": "Flash of Omipotence",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7553"
+    },
+    {
+      "type": "Feats",
+      "name": "Flash of Omnipresence",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7531"
+    },
+    {
+      "type": "Feats",
+      "name": "Flash of Omniscience",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7546"
+    },
+    {
+      "type": "Feats",
+      "name": "Following Smite",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7538"
+    },
+    {
+      "type": "Feats",
+      "name": "Free from Bonds",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7539"
+    },
+    {
+      "type": "Feats",
+      "name": "Glory on High",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7547"
+    },
+    {
+      "type": "Feats",
+      "name": "Greater Armament",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7515"
+    },
+    {
+      "type": "Feats",
+      "name": "Greater Esoteric Spellcasting",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7564"
+    },
+    {
+      "type": "Feats",
+      "name": "Guiding Words",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7548"
+    },
+    {
+      "type": "Feats",
+      "name": "Harbinger's Armament",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7511"
+    },
+    {
+      "type": "Feats",
+      "name": "Harbinger's Protection",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7509"
+    },
+    {
+      "type": "Feats",
+      "name": "Healing Sanctuary",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7540"
+    },
+    {
+      "type": "Feats",
+      "name": "Herald's Strike",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7554"
+    },
+    {
+      "type": "Feats",
+      "name": "Herald's Weapon",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7532"
+    },
+    {
+      "type": "Feats",
+      "name": "Heraldic Proclamation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7541"
+    },
+    {
+      "type": "Feats",
+      "name": "Invisible Hand",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7542"
+    },
+    {
+      "type": "Feats",
+      "name": "Invoke Defense",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7584"
+    },
+    {
+      "type": "Feats",
+      "name": "Invoke Movement",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7586"
+    },
+    {
+      "type": "Feats",
+      "name": "Invoke Offense",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7582"
+    },
+    {
+      "type": "Feats",
+      "name": "Kaleidoscopic Entreaty",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7574"
+    },
+    {
+      "type": "Feats",
+      "name": "Leverage Anguish",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7583"
+    },
+    {
+      "type": "Feats",
+      "name": "Live the Creed",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7516"
+    },
+    {
+      "type": "Feats",
+      "name": "Living God",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7570"
+    },
+    {
+      "type": "Feats",
+      "name": "Manifold Conduit",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7578"
+    },
+    {
+      "type": "Feats",
+      "name": "Marked For Rebuke",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7549"
+    },
+    {
+      "type": "Feats",
+      "name": "Mask of The 12th Step",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7568"
+    },
+    {
+      "type": "Feats",
+      "name": "Mask of The 15th Step",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7569"
+    },
+    {
+      "type": "Feats",
+      "name": "Master Rivethun Spellcasting",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7593"
+    },
+    {
+      "type": "Feats",
+      "name": "Moment of Apotheosis",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7555"
+    },
+    {
+      "type": "Feats",
+      "name": "Mortal Ascension",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7533"
+    },
+    {
+      "type": "Feats",
+      "name": "Mortal Herald Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7528"
+    },
+    {
+      "type": "Feats",
+      "name": "Oath of The Avenger",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7517"
+    },
+    {
+      "type": "Feats",
+      "name": "Oath of The Defender",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7518"
+    },
+    {
+      "type": "Feats",
+      "name": "Oath of The Slayer",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7519"
+    },
+    {
+      "type": "Feats",
+      "name": "One with the Spirits",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7587"
+    },
+    {
+      "type": "Feats",
+      "name": "Open the Blazing Eye",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7565"
+    },
+    {
+      "type": "Feats",
+      "name": "Palatine Detective Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7557"
+    },
+    {
+      "type": "Feats",
+      "name": "Palatine Enchantment",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7560"
+    },
+    {
+      "type": "Feats",
+      "name": "Palatine Strike",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7561"
+    },
+    {
+      "type": "Feats",
+      "name": "Pale Horse",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7523"
+    },
+    {
+      "type": "Feats",
+      "name": "Perfect Truths",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7567"
+    },
+    {
+      "type": "Feats",
+      "name": "Razmiran Priest Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7566"
+    },
+    {
+      "type": "Feats",
+      "name": "Retributive Focus",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7527"
+    },
+    {
+      "type": "Feats",
+      "name": "Rivethun Adept",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7579"
+    },
+    {
+      "type": "Feats",
+      "name": "Rivethun Devotion",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7575"
+    },
+    {
+      "type": "Feats",
+      "name": "Rivethun Emissary Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7571"
+    },
+    {
+      "type": "Feats",
+      "name": "Rivethun Invoker Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7581"
+    },
+    {
+      "type": "Feats",
+      "name": "Rivethun Involutionist Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7588"
+    },
+    {
+      "type": "Feats",
+      "name": "Sense Holiness",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7520"
+    },
+    {
+      "type": "Feats",
+      "name": "Sense Unholiness",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7521"
+    },
+    {
+      "type": "Feats",
+      "name": "Shield the Faithful",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7534"
+    },
+    {
+      "type": "Feats",
+      "name": "Spark of Immortality",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7556"
+    },
+    {
+      "type": "Feats",
+      "name": "Specialized Spirit Companion",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7592"
+    },
+    {
+      "type": "Feats",
+      "name": "Spirit Companion",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7590"
+    },
+    {
+      "type": "Feats",
+      "name": "Splinter Faith",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7596"
+    },
+    {
+      "type": "Feats",
+      "name": "Stand for the Fallen",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7550"
+    },
+    {
+      "type": "Feats",
+      "name": "Tandem Auras",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7513"
+    },
+    {
+      "type": "Feats",
+      "name": "Tandem Onslaught",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7507"
+    },
+    {
+      "type": "Feats",
+      "name": "Text Decoder",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7559"
+    },
+    {
+      "type": "Methodologies",
+      "name": "Esoterica",
+      "url": "https://2e.aonprd.com/Methodologies.aspx?ID=9"
+    },
+    {
+      "type": "Mysteries",
+      "name": "Ash",
+      "url": "https://2e.aonprd.com/Mysteries.aspx?ID=20"
+    },
+    {
+      "type": "Mysteries",
+      "name": "Blight",
+      "url": "https://2e.aonprd.com/Mysteries.aspx?ID=21"
+    },
+    {
+      "type": "Mysteries",
+      "name": "Time",
+      "url": "https://2e.aonprd.com/Mysteries.aspx?ID=22"
+    },
+    {
+      "type": "Patron Themes",
+      "name": "Baba Yaga",
+      "url": "https://2e.aonprd.com/Patrons.aspx?ID=27"
+    },
+    {
+      "type": "Patron Themes",
+      "name": "Choir Politic",
+      "url": "https://2e.aonprd.com/Patrons.aspx?ID=24"
+    },
+    {
+      "type": "Patron Themes",
+      "name": "Mosquito Witch",
+      "url": "https://2e.aonprd.com/Patrons.aspx?ID=28"
+    },
+    {
+      "type": "Patron Themes",
+      "name": "Paradox of Opposites",
+      "url": "https://2e.aonprd.com/Patrons.aspx?ID=25"
+    },
+    {
+      "type": "Patron Themes",
+      "name": "The Unseen Broker",
+      "url": "https://2e.aonprd.com/Patrons.aspx?ID=26"
+    },
+    {
+      "type": "Rules",
+      "name": "Rules Elements",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3352"
+    },
+    {
+      "type": "Spells",
+      "name": "Accelerated Decomposition",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2428"
+    },
+    {
+      "type": "Spells",
+      "name": "Acid Storm",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2339"
+    },
+    {
+      "type": "Spells",
+      "name": "Acidic Burst",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2340"
+    },
+    {
+      "type": "Spells",
+      "name": "Adapt Self",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2377"
+    },
+    {
+      "type": "Spells",
+      "name": "Adaptive Ablation",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2378"
+    },
+    {
+      "type": "Spells",
+      "name": "Agitate",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2341"
+    },
+    {
+      "type": "Spells",
+      "name": "Animus Mine",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2342"
+    },
+    {
+      "type": "Spells",
+      "name": "Anticipate Peril",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2343"
+    },
+    {
+      "type": "Spells",
+      "name": "Arms Of Nature",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2421"
+    },
+    {
+      "type": "Spells",
+      "name": "Ash Form",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2425"
+    },
+    {
+      "type": "Spells",
+      "name": "Ashen Wind",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2423"
+    },
+    {
+      "type": "Spells",
+      "name": "Asterism",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2412"
+    },
+    {
+      "type": "Spells",
+      "name": "Befuddle",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2344"
+    },
+    {
+      "type": "Spells",
+      "name": "Benediction",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2345"
+    },
+    {
+      "type": "Spells",
+      "name": "Bottle the Storm",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2396"
+    },
+    {
+      "type": "Spells",
+      "name": "Buzzing Bites",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2438"
+    },
+    {
+      "type": "Spells",
+      "name": "Charged Javelin",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2395"
+    },
+    {
+      "type": "Spells",
+      "name": "Chastising Retort",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2399"
+    },
+    {
+      "type": "Spells",
+      "name": "Cloak of Light",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2346"
+    },
+    {
+      "type": "Spells",
+      "name": "Clouded Focus",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2383"
+    },
+    {
+      "type": "Spells",
+      "name": "Confront Selves",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2394"
+    },
+    {
+      "type": "Spells",
+      "name": "Cup of Dust",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2347"
+    },
+    {
+      "type": "Spells",
+      "name": "Delay Consequence",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2415"
+    },
+    {
+      "type": "Spells",
+      "name": "Diamond Dust",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2380"
+    },
+    {
+      "type": "Spells",
+      "name": "Divine Plagues",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2403"
+    },
+    {
+      "type": "Spells",
+      "name": "Door to Beyond",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2402"
+    },
+    {
+      "type": "Spells",
+      "name": "Draconic Barrage",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2385"
+    },
+    {
+      "type": "Spells",
+      "name": "Dust Storm",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2388"
+    },
+    {
+      "type": "Spells",
+      "name": "Dutiful Challenge",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2390"
+    },
+    {
+      "type": "Spells",
+      "name": "Ectoplasmic Interstice",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2410"
+    },
+    {
+      "type": "Spells",
+      "name": "Eject Soul",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2409"
+    },
+    {
+      "type": "Spells",
+      "name": "Empty Inside",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2401"
+    },
+    {
+      "type": "Spells",
+      "name": "Endure",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2348"
+    },
+    {
+      "type": "Spells",
+      "name": "Entreat Spirit",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2432"
+    },
+    {
+      "type": "Spells",
+      "name": "Entreat the Many",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2433"
+    },
+    {
+      "type": "Spells",
+      "name": "Ephemeral Hazards",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2384"
+    },
+    {
+      "type": "Spells",
+      "name": "Expeditious Excavation",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2349"
+    },
+    {
+      "type": "Spells",
+      "name": "Fallow Field",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2382"
+    },
+    {
+      "type": "Spells",
+      "name": "Fear the Sun",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2350"
+    },
+    {
+      "type": "Spells",
+      "name": "Fearful Feast",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2376"
+    },
+    {
+      "type": "Spells",
+      "name": "Feast of Ashes",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2351"
+    },
+    {
+      "type": "Spells",
+      "name": "Font of Serenity",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2406"
+    },
+    {
+      "type": "Spells",
+      "name": "Foul Miasma",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2404"
+    },
+    {
+      "type": "Spells",
+      "name": "Fungal Hyphae",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2352"
+    },
+    {
+      "type": "Spells",
+      "name": "Ghostly Transcription",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2392"
+    },
+    {
+      "type": "Spells",
+      "name": "Glamorize",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2353"
+    },
+    {
+      "type": "Spells",
+      "name": "Guided Introspection",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2393"
+    },
+    {
+      "type": "Spells",
+      "name": "Incendiary Ashes",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2424"
+    },
+    {
+      "type": "Spells",
+      "name": "Lament",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2407"
+    },
+    {
+      "type": "Spells",
+      "name": "Liberating Command",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2354"
+    },
+    {
+      "type": "Spells",
+      "name": "Lift Nature's Caul",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2375"
+    },
+    {
+      "type": "Spells",
+      "name": "Malediction",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2355"
+    },
+    {
+      "type": "Spells",
+      "name": "Manifold Lives",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2431"
+    },
+    {
+      "type": "Spells",
+      "name": "Message Rune",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2356"
+    },
+    {
+      "type": "Spells",
+      "name": "Moonburst",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2357"
+    },
+    {
+      "type": "Spells",
+      "name": "Moonlight Ray",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2358"
+    },
+    {
+      "type": "Spells",
+      "name": "Object Memory",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2419"
+    },
+    {
+      "type": "Spells",
+      "name": "Overflowing Sorrow",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2408"
+    },
+    {
+      "type": "Spells",
+      "name": "Pact Broker",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2436"
+    },
+    {
+      "type": "Spells",
+      "name": "Parch",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2387"
+    },
+    {
+      "type": "Spells",
+      "name": "Penumbral Disguise",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2359"
+    },
+    {
+      "type": "Spells",
+      "name": "Penumbral Shroud",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2360"
+    },
+    {
+      "type": "Spells",
+      "name": "Practice Makes Perfect",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2417"
+    },
+    {
+      "type": "Spells",
+      "name": "Purging Toxins",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2427"
+    },
+    {
+      "type": "Spells",
+      "name": "Radiant Field",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2361"
+    },
+    {
+      "type": "Spells",
+      "name": "Redact",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2391"
+    },
+    {
+      "type": "Spells",
+      "name": "Reflective Scales",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2362"
+    },
+    {
+      "type": "Spells",
+      "name": "Remember the Lost",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2420"
+    },
+    {
+      "type": "Spells",
+      "name": "Repel Metal",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2398"
+    },
+    {
+      "type": "Spells",
+      "name": "Roar of the Dragon",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2386"
+    },
+    {
+      "type": "Spells",
+      "name": "Serrate",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2397"
+    },
+    {
+      "type": "Spells",
+      "name": "Share Burden",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2405"
+    },
+    {
+      "type": "Spells",
+      "name": "Share Lore",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2363"
+    },
+    {
+      "type": "Spells",
+      "name": "Share Vision",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2434"
+    },
+    {
+      "type": "Spells",
+      "name": "Shattering Gem",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2364"
+    },
+    {
+      "type": "Spells",
+      "name": "Shifting Sand",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2365"
+    },
+    {
+      "type": "Spells",
+      "name": "Shockwave",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2366"
+    },
+    {
+      "type": "Spells",
+      "name": "Show the Path",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2400"
+    },
+    {
+      "type": "Spells",
+      "name": "Show The Way",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2367"
+    },
+    {
+      "type": "Spells",
+      "name": "Slough Skin",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2368"
+    },
+    {
+      "type": "Spells",
+      "name": "Spirit Object",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2437"
+    },
+    {
+      "type": "Spells",
+      "name": "Stasis",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2416"
+    },
+    {
+      "type": "Spells",
+      "name": "Swarm Form",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2414"
+    },
+    {
+      "type": "Spells",
+      "name": "Swarmsense",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2413"
+    },
+    {
+      "type": "Spells",
+      "name": "Swear Oath",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2389"
+    },
+    {
+      "type": "Spells",
+      "name": "Temporal Distortion",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2429"
+    },
+    {
+      "type": "Spells",
+      "name": "Temporary Tool",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2369"
+    },
+    {
+      "type": "Spells",
+      "name": "Tether",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2370"
+    },
+    {
+      "type": "Spells",
+      "name": "Time Beacon",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2371"
+    },
+    {
+      "type": "Spells",
+      "name": "Time Skip",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2430"
+    },
+    {
+      "type": "Spells",
+      "name": "Tireless Worker",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2418"
+    },
+    {
+      "type": "Spells",
+      "name": "Trade Death for Life",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2435"
+    },
+    {
+      "type": "Spells",
+      "name": "Ulcerous Canker",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2426"
+    },
+    {
+      "type": "Spells",
+      "name": "Wall of Radiance",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2372"
+    },
+    {
+      "type": "Spells",
+      "name": "Wall of Shadow",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2373"
+    },
+    {
+      "type": "Spells",
+      "name": "Whirling Scarves",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2374"
+    },
+    {
+      "type": "Spells",
+      "name": "Winter Bolt",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2379"
+    },
+    {
+      "type": "Spells",
+      "name": "Withering Grasp",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2381"
+    },
+    {
+      "type": "Spells",
+      "name": "Wood Walk",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2422"
+    },
+    {
+      "type": "Spells",
+      "name": "Zenith Star",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2411"
+    }
+  ]
+}

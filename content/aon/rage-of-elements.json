@@ -1,0 +1,3040 @@
+{
+  "etag": "\"706990b97f2a4e4ca81f34950c8d424f\"",
+  "entries": [
+    {
+      "type": "Ancestries",
+      "name": "Ardande",
+      "url": "https://2e.aonprd.com/Ancestries.aspx?ID=57"
+    },
+    {
+      "type": "Ancestries",
+      "name": "Talos",
+      "url": "https://2e.aonprd.com/Ancestries.aspx?ID=58"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Ardande",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=232"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Talos",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=233"
+    },
+    {
+      "type": "Companions",
+      "name": "Air Elemental",
+      "url": "https://2e.aonprd.com/Companions.aspx?ID=60"
+    },
+    {
+      "type": "Companions",
+      "name": "Earth Elemental",
+      "url": "https://2e.aonprd.com/Companions.aspx?ID=61"
+    },
+    {
+      "type": "Companions",
+      "name": "Fire Elemental",
+      "url": "https://2e.aonprd.com/Companions.aspx?ID=62"
+    },
+    {
+      "type": "Companions",
+      "name": "Metal Elemental",
+      "url": "https://2e.aonprd.com/Companions.aspx?ID=63"
+    },
+    {
+      "type": "Companions",
+      "name": "Water Elemental",
+      "url": "https://2e.aonprd.com/Companions.aspx?ID=64"
+    },
+    {
+      "type": "Companions",
+      "name": "Wood Elemental",
+      "url": "https://2e.aonprd.com/Companions.aspx?ID=65"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Elementalist",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=207"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Kineticist",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=206"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Alloysmith",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=376"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Concordance Researcher",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=382"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Concordance Scout",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=383"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Crystal Healer",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=377"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Deep-Sea Diver",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=378"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Dendrologist",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=379"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Elementally Infused",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=384"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Fire Warden",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=380"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Planar Migrant",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=385"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Sky Rider",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=381"
+    },
+    {
+      "type": "Classes",
+      "name": "Kineticist",
+      "url": "https://2e.aonprd.com/Classes.aspx?ID=23"
+    },
+    {
+      "type": "Class Sample Builds",
+      "name": "Element Explorer (Kineticist)",
+      "url": "https://2e.aonprd.com/ClassSamples.aspx?ID=51"
+    },
+    {
+      "type": "Deities",
+      "name": "Atreia",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=101"
+    },
+    {
+      "type": "Deities",
+      "name": "Ayrzul",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=102"
+    },
+    {
+      "type": "Deities",
+      "name": "Ferrumnestra",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=273"
+    },
+    {
+      "type": "Deities",
+      "name": "Hshurha",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=103"
+    },
+    {
+      "type": "Deities",
+      "name": "Kelizandri",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=104"
+    },
+    {
+      "type": "Deities",
+      "name": "Laudinmio",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=274"
+    },
+    {
+      "type": "Deities",
+      "name": "Lysianassa",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=105"
+    },
+    {
+      "type": "Deities",
+      "name": "Ranginori",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=106"
+    },
+    {
+      "type": "Deities",
+      "name": "Sairazul",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=107"
+    },
+    {
+      "type": "Deities",
+      "name": "Shumunue",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=275"
+    },
+    {
+      "type": "Deities",
+      "name": "Verilorn",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=276"
+    },
+    {
+      "type": "Deities",
+      "name": "Ymeri",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=108"
+    },
+    {
+      "type": "Domains",
+      "name": "Metal",
+      "url": "https://2e.aonprd.com/Domains.aspx?ID=62"
+    },
+    {
+      "type": "Domains",
+      "name": "Toil",
+      "url": "https://2e.aonprd.com/Domains.aspx?ID=61"
+    },
+    {
+      "type": "Domains",
+      "name": "Wood",
+      "url": "https://2e.aonprd.com/Domains.aspx?ID=63"
+    },
+    {
+      "type": "Eidolons",
+      "name": "Elemental",
+      "url": "https://2e.aonprd.com/Eidolons.aspx?ID=12"
+    },
+    {
+      "type": "Equipment",
+      "name": "Aboutface Figurehead",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2623"
+    },
+    {
+      "type": "Equipment",
+      "name": "Aeon Stone (Cymophane Cabochon)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=407"
+    },
+    {
+      "type": "Equipment",
+      "name": "Aeon Stone (Olivine Pendeloque)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=407"
+    },
+    {
+      "type": "Equipment",
+      "name": "Aeon Stone (Polished Pebble)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=407"
+    },
+    {
+      "type": "Equipment",
+      "name": "Aerial Cloak",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2575"
+    },
+    {
+      "type": "Equipment",
+      "name": "Anglerfish Lantern",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2624"
+    },
+    {
+      "type": "Equipment",
+      "name": "Anglerfish Lantern (Submersible)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2624"
+    },
+    {
+      "type": "Equipment",
+      "name": "Animal Nip",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2636"
+    },
+    {
+      "type": "Equipment",
+      "name": "Animal Nip (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2636"
+    },
+    {
+      "type": "Equipment",
+      "name": "Animal Nip (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2636"
+    },
+    {
+      "type": "Equipment",
+      "name": "Animal Nip (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2636"
+    },
+    {
+      "type": "Equipment",
+      "name": "Ash Gown",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2599"
+    },
+    {
+      "type": "Equipment",
+      "name": "Ash Gown (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2599"
+    },
+    {
+      "type": "Equipment",
+      "name": "Atmospheric Staff",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2576"
+    },
+    {
+      "type": "Equipment",
+      "name": "Atmospheric Staff (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2576"
+    },
+    {
+      "type": "Equipment",
+      "name": "Atmospheric Staff (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2576"
+    },
+    {
+      "type": "Equipment",
+      "name": "Atmospheric Staff (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2576"
+    },
+    {
+      "type": "Equipment",
+      "name": "Blight Breath",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2577"
+    },
+    {
+      "type": "Equipment",
+      "name": "Bloodburn Censer",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2600"
+    },
+    {
+      "type": "Equipment",
+      "name": "Blooming Lotus Seed Pod",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2637"
+    },
+    {
+      "type": "Equipment",
+      "name": "Brazier of Harmony",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2601"
+    },
+    {
+      "type": "Equipment",
+      "name": "Brine Dragon Scale",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2625"
+    },
+    {
+      "type": "Equipment",
+      "name": "Broadleaf Shield",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2638"
+    },
+    {
+      "type": "Equipment",
+      "name": "Broadleaf Shield (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2638"
+    },
+    {
+      "type": "Equipment",
+      "name": "Broadleaf Shield (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2638"
+    },
+    {
+      "type": "Equipment",
+      "name": "Broadleaf Shield (True)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2638"
+    },
+    {
+      "type": "Equipment",
+      "name": "Candle of Inflamed Passions",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2602"
+    },
+    {
+      "type": "Equipment",
+      "name": "Captivating Rosebud",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2639"
+    },
+    {
+      "type": "Equipment",
+      "name": "Carver-Cutter",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2640"
+    },
+    {
+      "type": "Equipment",
+      "name": "Carver-Cutter (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2640"
+    },
+    {
+      "type": "Equipment",
+      "name": "Carver-Cutter (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2640"
+    },
+    {
+      "type": "Equipment",
+      "name": "Carver-Cutter (True)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2640"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cipher of the Elemental Planes",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2652"
+    },
+    {
+      "type": "Equipment",
+      "name": "Conch of Otherworldly Seas",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2626"
+    },
+    {
+      "type": "Equipment",
+      "name": "Curious Teardrop",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2612"
+    },
+    {
+      "type": "Equipment",
+      "name": "Drought Powder",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2588"
+    },
+    {
+      "type": "Equipment",
+      "name": "Elemental Fragment",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2653"
+    },
+    {
+      "type": "Equipment",
+      "name": "Elemental Fragment (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2653"
+    },
+    {
+      "type": "Equipment",
+      "name": "Elemental Fragment (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2653"
+    },
+    {
+      "type": "Equipment",
+      "name": "Everburning Coal",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2603"
+    },
+    {
+      "type": "Equipment",
+      "name": "Extra Lung",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2578"
+    },
+    {
+      "type": "Equipment",
+      "name": "Exuviae Powder",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2589"
+    },
+    {
+      "type": "Equipment",
+      "name": "Fan of Soothing Winds",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2579"
+    },
+    {
+      "type": "Equipment",
+      "name": "Fan of Soothing Winds (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2579"
+    },
+    {
+      "type": "Equipment",
+      "name": "Faydhaan's Dallah",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2627"
+    },
+    {
+      "type": "Equipment",
+      "name": "Ferrofluid Urchin",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2613"
+    },
+    {
+      "type": "Equipment",
+      "name": "Ferrofluid Urchin (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2613"
+    },
+    {
+      "type": "Equipment",
+      "name": "Ferrofluid Urchin (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2613"
+    },
+    {
+      "type": "Equipment",
+      "name": "Ferrofluid Urchin (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2613"
+    },
+    {
+      "type": "Equipment",
+      "name": "Floating Tent",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2580"
+    },
+    {
+      "type": "Equipment",
+      "name": "Floating Tent (Four-Person)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2580"
+    },
+    {
+      "type": "Equipment",
+      "name": "Floating Tent (Pup)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2580"
+    },
+    {
+      "type": "Equipment",
+      "name": "Fossil Fragment",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2590"
+    },
+    {
+      "type": "Equipment",
+      "name": "Fossil Fragment (Amber Mosquito)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2590"
+    },
+    {
+      "type": "Equipment",
+      "name": "Fossil Fragment (Brontosaurus Phalange)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2590"
+    },
+    {
+      "type": "Equipment",
+      "name": "Fossil Fragment (Deinonychus Claw)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2590"
+    },
+    {
+      "type": "Equipment",
+      "name": "Fossil Fragment (Eurypterid Paddle)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2590"
+    },
+    {
+      "type": "Equipment",
+      "name": "Fossil Fragment (Petrified Wood)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2590"
+    },
+    {
+      "type": "Equipment",
+      "name": "Fossil Fragment (Triceratops Frill)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2590"
+    },
+    {
+      "type": "Equipment",
+      "name": "Fossil Fragment (Tyrannosaur Tooth)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2590"
+    },
+    {
+      "type": "Equipment",
+      "name": "Frost Breath",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2581"
+    },
+    {
+      "type": "Equipment",
+      "name": "Gate Attenuator",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2654"
+    },
+    {
+      "type": "Equipment",
+      "name": "Gate Attenuator (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2654"
+    },
+    {
+      "type": "Equipment",
+      "name": "Gate Attenuator (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2654"
+    },
+    {
+      "type": "Equipment",
+      "name": "Globe of Shrouds",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2604"
+    },
+    {
+      "type": "Equipment",
+      "name": "Glowing Lantern Fruit",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2641"
+    },
+    {
+      "type": "Equipment",
+      "name": "Jaathoom's Scarf",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2582"
+    },
+    {
+      "type": "Equipment",
+      "name": "Jabali's Dice",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2591"
+    },
+    {
+      "type": "Equipment",
+      "name": "Jann's Prism",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2655"
+    },
+    {
+      "type": "Equipment",
+      "name": "Kizidhar's Shield",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2642"
+    },
+    {
+      "type": "Equipment",
+      "name": "Kraken Figurehead",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2628"
+    },
+    {
+      "type": "Equipment",
+      "name": "Kraken Figurehead (Wracking)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2628"
+    },
+    {
+      "type": "Equipment",
+      "name": "Lambent Perfume",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2605"
+    },
+    {
+      "type": "Equipment",
+      "name": "Limestone Shield",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2592"
+    },
+    {
+      "type": "Equipment",
+      "name": "Lionfish Spear",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2629"
+    },
+    {
+      "type": "Equipment",
+      "name": "Lionfish Spear (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2629"
+    },
+    {
+      "type": "Equipment",
+      "name": "Malleable",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2614"
+    },
+    {
+      "type": "Equipment",
+      "name": "Morphing Weapon",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2615"
+    },
+    {
+      "type": "Equipment",
+      "name": "Nimbus Breath",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2583"
+    },
+    {
+      "type": "Equipment",
+      "name": "Obsidian Edge",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2606"
+    },
+    {
+      "type": "Equipment",
+      "name": "Obsidian Edge (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2606"
+    },
+    {
+      "type": "Equipment",
+      "name": "Obsidian Edge (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2606"
+    },
+    {
+      "type": "Equipment",
+      "name": "Obsidian Edge (True)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2606"
+    },
+    {
+      "type": "Equipment",
+      "name": "Octopus Potion",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2630"
+    },
+    {
+      "type": "Equipment",
+      "name": "Octopus Potion (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2630"
+    },
+    {
+      "type": "Equipment",
+      "name": "Octopus Potion (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2630"
+    },
+    {
+      "type": "Equipment",
+      "name": "Octopus Potion (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2630"
+    },
+    {
+      "type": "Equipment",
+      "name": "Purifying Spoon",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2643"
+    },
+    {
+      "type": "Equipment",
+      "name": "Purifying Spoon (Ladle)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2643"
+    },
+    {
+      "type": "Equipment",
+      "name": "Purifying Spoon (Tablespoon)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2643"
+    },
+    {
+      "type": "Equipment",
+      "name": "Purifying Spoon (Teaspoon)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2643"
+    },
+    {
+      "type": "Equipment",
+      "name": "Resonant Guitar",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2616"
+    },
+    {
+      "type": "Equipment",
+      "name": "Rhyton of the Radiant Ifrit",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2607"
+    },
+    {
+      "type": "Equipment",
+      "name": "Robe of Stone",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2593"
+    },
+    {
+      "type": "Equipment",
+      "name": "Rooting",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2644"
+    },
+    {
+      "type": "Equipment",
+      "name": "Rooting (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2644"
+    },
+    {
+      "type": "Equipment",
+      "name": "Rooting (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2644"
+    },
+    {
+      "type": "Equipment",
+      "name": "Rooting (True)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2644"
+    },
+    {
+      "type": "Equipment",
+      "name": "Rustbringer",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2617"
+    },
+    {
+      "type": "Equipment",
+      "name": "Rustbringer (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2617"
+    },
+    {
+      "type": "Equipment",
+      "name": "Sairazul Blue",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2594"
+    },
+    {
+      "type": "Equipment",
+      "name": "Sandalwood Fan",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2645"
+    },
+    {
+      "type": "Equipment",
+      "name": "Sandcastle",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2595"
+    },
+    {
+      "type": "Equipment",
+      "name": "Scalding Gauntlets",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2608"
+    },
+    {
+      "type": "Equipment",
+      "name": "Scalding Gauntlets (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2608"
+    },
+    {
+      "type": "Equipment",
+      "name": "Scalding Gauntlets (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2608"
+    },
+    {
+      "type": "Equipment",
+      "name": "Scalding Gauntlets (True)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2608"
+    },
+    {
+      "type": "Equipment",
+      "name": "Sharkskin Robe",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2631"
+    },
+    {
+      "type": "Equipment",
+      "name": "Shell of Easy Breathing",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2632"
+    },
+    {
+      "type": "Equipment",
+      "name": "Shell of Easy Breathing (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2632"
+    },
+    {
+      "type": "Equipment",
+      "name": "Silver Snake Cane",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2618"
+    },
+    {
+      "type": "Equipment",
+      "name": "Singing Stone",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2596"
+    },
+    {
+      "type": "Equipment",
+      "name": "Smoke Veil",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2609"
+    },
+    {
+      "type": "Equipment",
+      "name": "Sparkshade Parasol",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2610"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spellsap Grenade",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2619"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spellsap Grenade (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2619"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spellsap Grenade (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2619"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spiny Lodestone",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2620"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spiny Lodestone (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2620"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spiny Lodestone (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2620"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spiral Chimes",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2584"
+    },
+    {
+      "type": "Equipment",
+      "name": "Splinter Spear",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2646"
+    },
+    {
+      "type": "Equipment",
+      "name": "Splinter Spear (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2646"
+    },
+    {
+      "type": "Equipment",
+      "name": "Splinter Spear (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2646"
+    },
+    {
+      "type": "Equipment",
+      "name": "Splintering Spear",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2646"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spun Cloud",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2585"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spun Cloud (Black)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2585"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spun Cloud (Blue)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2585"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spun Cloud (Green)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2585"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spun Cloud (Red)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2585"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spun Cloud (White)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2585"
+    },
+    {
+      "type": "Equipment",
+      "name": "Staff of Metal",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2621"
+    },
+    {
+      "type": "Equipment",
+      "name": "Staff of Metal (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2621"
+    },
+    {
+      "type": "Equipment",
+      "name": "Staff of Metal (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2621"
+    },
+    {
+      "type": "Equipment",
+      "name": "Stalagmite Seed",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2597"
+    },
+    {
+      "type": "Equipment",
+      "name": "Sticky Algae Bomb",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2633"
+    },
+    {
+      "type": "Equipment",
+      "name": "Sticky Algae Bomb (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2633"
+    },
+    {
+      "type": "Equipment",
+      "name": "Sticky Algae Bomb (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2633"
+    },
+    {
+      "type": "Equipment",
+      "name": "Sticky Algae Bomb (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2633"
+    },
+    {
+      "type": "Equipment",
+      "name": "Sticky Algae Bomb (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2633"
+    },
+    {
+      "type": "Equipment",
+      "name": "Storm Breath",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2586"
+    },
+    {
+      "type": "Equipment",
+      "name": "Tailor's Boll",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2647"
+    },
+    {
+      "type": "Equipment",
+      "name": "Tales in Timber",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2648"
+    },
+    {
+      "type": "Equipment",
+      "name": "Tales in Timber (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2648"
+    },
+    {
+      "type": "Equipment",
+      "name": "Tales in Timber (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2648"
+    },
+    {
+      "type": "Equipment",
+      "name": "Thawing Candle",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2611"
+    },
+    {
+      "type": "Equipment",
+      "name": "Therapeutic Snap Peas",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2649"
+    },
+    {
+      "type": "Equipment",
+      "name": "Thorn Triad",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2650"
+    },
+    {
+      "type": "Equipment",
+      "name": "Thorn Triad (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2650"
+    },
+    {
+      "type": "Equipment",
+      "name": "Thorn Triad (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2650"
+    },
+    {
+      "type": "Equipment",
+      "name": "Underwater",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2634"
+    },
+    {
+      "type": "Equipment",
+      "name": "Veiled Figurehead",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2635"
+    },
+    {
+      "type": "Equipment",
+      "name": "Veiled Figurehead (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2635"
+    },
+    {
+      "type": "Equipment",
+      "name": "Versatile Tinderbox",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2651"
+    },
+    {
+      "type": "Equipment",
+      "name": "Vital Earth",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2598"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wisp Chain",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2587"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wisp Chain (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2587"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wisp Chain (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2587"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wisp Chain (True)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2587"
+    },
+    {
+      "type": "Equipment",
+      "name": "Zuhra's Gloves",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2622"
+    },
+    {
+      "type": "Familiar Abilities",
+      "name": "Crystal Scent (familiar)",
+      "url": "https://2e.aonprd.com/Familiars.aspx?ID=97"
+    },
+    {
+      "type": "Familiar Abilities",
+      "name": "Elemental (familiar)",
+      "url": "https://2e.aonprd.com/Familiars.aspx?ID=93"
+    },
+    {
+      "type": "Familiar Abilities",
+      "name": "Elemental Breath (familiar)",
+      "url": "https://2e.aonprd.com/Familiars.aspx?ID=103"
+    },
+    {
+      "type": "Familiar Abilities",
+      "name": "Elemental Diplomat (familiar)",
+      "url": "https://2e.aonprd.com/Familiars.aspx?ID=102"
+    },
+    {
+      "type": "Familiar Abilities",
+      "name": "Elemental Mobility (familiar)",
+      "url": "https://2e.aonprd.com/Familiars.aspx?ID=105"
+    },
+    {
+      "type": "Familiar Abilities",
+      "name": "Elemental Mobility (familiar)",
+      "url": "https://2e.aonprd.com/Familiars.aspx?ID=106"
+    },
+    {
+      "type": "Familiar Abilities",
+      "name": "Elemental Mobility (familiar)",
+      "url": "https://2e.aonprd.com/Familiars.aspx?ID=98"
+    },
+    {
+      "type": "Familiar Abilities",
+      "name": "Emote (familiar)",
+      "url": "https://2e.aonprd.com/Familiars.aspx?ID=96"
+    },
+    {
+      "type": "Familiar Abilities",
+      "name": "Innate Element (familiar)",
+      "url": "https://2e.aonprd.com/Familiars.aspx?ID=99"
+    },
+    {
+      "type": "Familiar Abilities",
+      "name": "Jet (familiar)",
+      "url": "https://2e.aonprd.com/Familiars.aspx?ID=94"
+    },
+    {
+      "type": "Familiar Abilities",
+      "name": "Levitator (familiar)",
+      "url": "https://2e.aonprd.com/Familiars.aspx?ID=95"
+    },
+    {
+      "type": "Familiar Abilities",
+      "name": "Little Wish (familiar)",
+      "url": "https://2e.aonprd.com/Familiars.aspx?ID=101"
+    },
+    {
+      "type": "Familiar Abilities",
+      "name": "Resonance (familiar)",
+      "url": "https://2e.aonprd.com/Familiars.aspx?ID=100"
+    },
+    {
+      "type": "Familiar Abilities",
+      "name": "Scamp Elements (familiar)",
+      "url": "https://2e.aonprd.com/Familiars.aspx?ID=104"
+    },
+    {
+      "type": "Feats",
+      "name": "Add Element",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4338"
+    },
+    {
+      "type": "Feats",
+      "name": "Advanced Element Control",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4336"
+    },
+    {
+      "type": "Feats",
+      "name": "Aerial Boomerang",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4206"
+    },
+    {
+      "type": "Feats",
+      "name": "Air Cushion",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4207"
+    },
+    {
+      "type": "Feats",
+      "name": "Air Shroud",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4210"
+    },
+    {
+      "type": "Feats",
+      "name": "All Shall End in Flames",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4249"
+    },
+    {
+      "type": "Feats",
+      "name": "Alloy Flesh and Steel",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4263"
+    },
+    {
+      "type": "Feats",
+      "name": "Ambersoul",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4311"
+    },
+    {
+      "type": "Feats",
+      "name": "Ambush Bladderwort",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4296"
+    },
+    {
+      "type": "Feats",
+      "name": "Architect of Flame",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4246"
+    },
+    {
+      "type": "Feats",
+      "name": "Armor in Earth",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4221"
+    },
+    {
+      "type": "Feats",
+      "name": "Ash Strider",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4301"
+    },
+    {
+      "type": "Feats",
+      "name": "Assume Earth's Mantle",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4233"
+    },
+    {
+      "type": "Feats",
+      "name": "Aura Shaping",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4196"
+    },
+    {
+      "type": "Feats",
+      "name": "Barrier of Boreal Frost",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4278"
+    },
+    {
+      "type": "Feats",
+      "name": "Base Kinesis",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4334"
+    },
+    {
+      "type": "Feats",
+      "name": "Beasts of Slumbering Steel",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4264"
+    },
+    {
+      "type": "Feats",
+      "name": "Blazing Wave",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4240"
+    },
+    {
+      "type": "Feats",
+      "name": "Body of Air",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4218"
+    },
+    {
+      "type": "Feats",
+      "name": "Burning Jet",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4236"
+    },
+    {
+      "type": "Feats",
+      "name": "Burning Spell",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4343"
+    },
+    {
+      "type": "Feats",
+      "name": "Calcifying Sand",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4225"
+    },
+    {
+      "type": "Feats",
+      "name": "Call the Hurricane",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4274"
+    },
+    {
+      "type": "Feats",
+      "name": "Chain Infusion",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4197"
+    },
+    {
+      "type": "Feats",
+      "name": "Clear as Air",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4212"
+    },
+    {
+      "type": "Feats",
+      "name": "Command Elemental",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4189"
+    },
+    {
+      "type": "Feats",
+      "name": "Conductive Sphere",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4259"
+    },
+    {
+      "type": "Feats",
+      "name": "Conductor's Redirection",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4328"
+    },
+    {
+      "type": "Feats",
+      "name": "Consume Power",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4257"
+    },
+    {
+      "type": "Feats",
+      "name": "Counter Element",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4191"
+    },
+    {
+      "type": "Feats",
+      "name": "Crawling Fire",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4242"
+    },
+    {
+      "type": "Feats",
+      "name": "Crowned in Tempest's Fury",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4219"
+    },
+    {
+      "type": "Feats",
+      "name": "Current Spell",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4344"
+    },
+    {
+      "type": "Feats",
+      "name": "Cyclonic Ascent",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4214"
+    },
+    {
+      "type": "Feats",
+      "name": "Dash of Herbs",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4287"
+    },
+    {
+      "type": "Feats",
+      "name": "Deflecting Wave",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4266"
+    },
+    {
+      "type": "Feats",
+      "name": "Desert Wind",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4302"
+    },
+    {
+      "type": "Feats",
+      "name": "Dousing Spell",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4341"
+    },
+    {
+      "type": "Feats",
+      "name": "Drifting Pollen",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4289"
+    },
+    {
+      "type": "Feats",
+      "name": "Driving Rain",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4272"
+    },
+    {
+      "type": "Feats",
+      "name": "Effortless Impulse",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4199"
+    },
+    {
+      "type": "Feats",
+      "name": "Elemental Apotheosis",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4203"
+    },
+    {
+      "type": "Feats",
+      "name": "Elemental Artillery",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4303"
+    },
+    {
+      "type": "Feats",
+      "name": "Elemental Evolution",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4353"
+    },
+    {
+      "type": "Feats",
+      "name": "Elemental Explosion",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4354"
+    },
+    {
+      "type": "Feats",
+      "name": "Elemental Familiar",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4342"
+    },
+    {
+      "type": "Feats",
+      "name": "Elemental Familiar (Kineticist)",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4183"
+    },
+    {
+      "type": "Feats",
+      "name": "Elemental Overlap",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4194"
+    },
+    {
+      "type": "Feats",
+      "name": "Elemental Transformation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4198"
+    },
+    {
+      "type": "Feats",
+      "name": "Elementalist Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4340"
+    },
+    {
+      "type": "Feats",
+      "name": "Eternal Torch",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4237"
+    },
+    {
+      "type": "Feats",
+      "name": "Expanded Elemental Magic",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4345"
+    },
+    {
+      "type": "Feats",
+      "name": "Expert Kinetic Control",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4339"
+    },
+    {
+      "type": "Feats",
+      "name": "Extended Kinesis",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4184"
+    },
+    {
+      "type": "Feats",
+      "name": "Fearsome Familiar",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4192"
+    },
+    {
+      "type": "Feats",
+      "name": "Ferrousoul",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4324"
+    },
+    {
+      "type": "Feats",
+      "name": "Flash Forge",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4251"
+    },
+    {
+      "type": "Feats",
+      "name": "Flinging Updraft",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4213"
+    },
+    {
+      "type": "Feats",
+      "name": "Flowering Path",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4319"
+    },
+    {
+      "type": "Feats",
+      "name": "Flying Flame",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4238"
+    },
+    {
+      "type": "Feats",
+      "name": "Four Winds",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4208"
+    },
+    {
+      "type": "Feats",
+      "name": "Fresh Produce",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4281"
+    },
+    {
+      "type": "Feats",
+      "name": "Furnace Form",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4247"
+    },
+    {
+      "type": "Feats",
+      "name": "Geologic Attunement",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4222"
+    },
+    {
+      "type": "Feats",
+      "name": "Ghosts in the Storm",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4216"
+    },
+    {
+      "type": "Feats",
+      "name": "Gildedsoul",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4325"
+    },
+    {
+      "type": "Feats",
+      "name": "Glacial Prison",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4276"
+    },
+    {
+      "type": "Feats",
+      "name": "Grove-Harbored",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4312"
+    },
+    {
+      "type": "Feats",
+      "name": "Growth Spell",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4348"
+    },
+    {
+      "type": "Feats",
+      "name": "Hail of Splinters",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4282"
+    },
+    {
+      "type": "Feats",
+      "name": "Hardwood Armor",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4283"
+    },
+    {
+      "type": "Feats",
+      "name": "Hedge Maze",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4291"
+    },
+    {
+      "type": "Feats",
+      "name": "Hell of 1,000,000 Needles",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4265"
+    },
+    {
+      "type": "Feats",
+      "name": "Igneogenesis",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4226"
+    },
+    {
+      "type": "Feats",
+      "name": "Ignite the Sun",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4250"
+    },
+    {
+      "type": "Feats",
+      "name": "Impenetrable Fog",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4275"
+    },
+    {
+      "type": "Feats",
+      "name": "Imperious Aura",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4202"
+    },
+    {
+      "type": "Feats",
+      "name": "Improved Elemental Blast",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4337"
+    },
+    {
+      "type": "Feats",
+      "name": "Infinite Expanse of Bluest Heaven",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4220"
+    },
+    {
+      "type": "Feats",
+      "name": "Jagged Berms",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4304"
+    },
+    {
+      "type": "Feats",
+      "name": "Kindle Inner Flames",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4244"
+    },
+    {
+      "type": "Feats",
+      "name": "Kinetic Activation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4187"
+    },
+    {
+      "type": "Feats",
+      "name": "Kinetic Pinnacle",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4204"
+    },
+    {
+      "type": "Feats",
+      "name": "Kineticist Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4333"
+    },
+    {
+      "type": "Feats",
+      "name": "Kizidhar Magic",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4320"
+    },
+    {
+      "type": "Feats",
+      "name": "Lava Leap",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4297"
+    },
+    {
+      "type": "Feats",
+      "name": "Lightning Dash",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4211"
+    },
+    {
+      "type": "Feats",
+      "name": "Lightning Rod",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4305"
+    },
+    {
+      "type": "Feats",
+      "name": "Living Bonfire",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4298"
+    },
+    {
+      "type": "Feats",
+      "name": "Magnetic Field",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4255"
+    },
+    {
+      "type": "Feats",
+      "name": "Magnetic Pinions",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4252"
+    },
+    {
+      "type": "Feats",
+      "name": "Metabolize Element",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4346"
+    },
+    {
+      "type": "Feats",
+      "name": "Metal Carapace",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4253"
+    },
+    {
+      "type": "Feats",
+      "name": "Metallic Skin",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4332"
+    },
+    {
+      "type": "Feats",
+      "name": "Moldersoul",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4313"
+    },
+    {
+      "type": "Feats",
+      "name": "Molten Wire",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4306"
+    },
+    {
+      "type": "Feats",
+      "name": "Natural Magnetism",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4330"
+    },
+    {
+      "type": "Feats",
+      "name": "Nourishing Gate",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4200"
+    },
+    {
+      "type": "Feats",
+      "name": "Ocean's Balm",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4267"
+    },
+    {
+      "type": "Feats",
+      "name": "Omnikinesis",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4205"
+    },
+    {
+      "type": "Feats",
+      "name": "Orchard's Endurance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4293"
+    },
+    {
+      "type": "Feats",
+      "name": "Plate in Treasure",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4256"
+    },
+    {
+      "type": "Feats",
+      "name": "Precious Alloys",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4329"
+    },
+    {
+      "type": "Feats",
+      "name": "Purify Element",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4195"
+    },
+    {
+      "type": "Feats",
+      "name": "Quicksoul",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4326"
+    },
+    {
+      "type": "Feats",
+      "name": "Rain of Razors",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4261"
+    },
+    {
+      "type": "Feats",
+      "name": "Rain of Rust",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4299"
+    },
+    {
+      "type": "Feats",
+      "name": "Rapid Reattunement",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4201"
+    },
+    {
+      "type": "Feats",
+      "name": "Rattle The Earth",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4231"
+    },
+    {
+      "type": "Feats",
+      "name": "Ravel of Thorns",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4285"
+    },
+    {
+      "type": "Feats",
+      "name": "Read the Roots",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4317"
+    },
+    {
+      "type": "Feats",
+      "name": "Rebirth in Living Stone",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4234"
+    },
+    {
+      "type": "Feats",
+      "name": "Redirect Elements",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4350"
+    },
+    {
+      "type": "Feats",
+      "name": "Reflective Defense",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4327"
+    },
+    {
+      "type": "Feats",
+      "name": "Retch Rust",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4260"
+    },
+    {
+      "type": "Feats",
+      "name": "Return to the Sea",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4270"
+    },
+    {
+      "type": "Feats",
+      "name": "Reverberating Spell",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4347"
+    },
+    {
+      "type": "Feats",
+      "name": "Ride the Tsunami",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4279"
+    },
+    {
+      "type": "Feats",
+      "name": "Rising Hurricane",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4307"
+    },
+    {
+      "type": "Feats",
+      "name": "Rock Rampart",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4232"
+    },
+    {
+      "type": "Feats",
+      "name": "Rockslide Spell",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4349"
+    },
+    {
+      "type": "Feats",
+      "name": "Roiling Mudslide",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4308"
+    },
+    {
+      "type": "Feats",
+      "name": "Rouse the Forest's Fury",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4294"
+    },
+    {
+      "type": "Feats",
+      "name": "Safe Elements",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4190"
+    },
+    {
+      "type": "Feats",
+      "name": "Sand Snatcher",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4227"
+    },
+    {
+      "type": "Feats",
+      "name": "Sanguivolent Roots",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4290"
+    },
+    {
+      "type": "Feats",
+      "name": "Scorching Column",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4239"
+    },
+    {
+      "type": "Feats",
+      "name": "Scrap Barricade",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4258"
+    },
+    {
+      "type": "Feats",
+      "name": "Sea Glass Guardians",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4277"
+    },
+    {
+      "type": "Feats",
+      "name": "Shard Strike",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4254"
+    },
+    {
+      "type": "Feats",
+      "name": "Shattershields",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4262"
+    },
+    {
+      "type": "Feats",
+      "name": "Solar Detonation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4245"
+    },
+    {
+      "type": "Feats",
+      "name": "Spike Skin",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4229"
+    },
+    {
+      "type": "Feats",
+      "name": "Springsoul",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4314"
+    },
+    {
+      "type": "Feats",
+      "name": "Steam Knight",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4309"
+    },
+    {
+      "type": "Feats",
+      "name": "Stepping Stones",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4223"
+    },
+    {
+      "type": "Feats",
+      "name": "Storm Spiral",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4215"
+    },
+    {
+      "type": "Feats",
+      "name": "Summon Metal Elemental",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4331"
+    },
+    {
+      "type": "Feats",
+      "name": "Summon Wood Elemental",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4321"
+    },
+    {
+      "type": "Feats",
+      "name": "Sunlit Vitality",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4315"
+    },
+    {
+      "type": "Feats",
+      "name": "Swim Through Earth",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4230"
+    },
+    {
+      "type": "Feats",
+      "name": "The Shattered Mountain Weeps",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4235"
+    },
+    {
+      "type": "Feats",
+      "name": "Thermal Nimbus",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4241"
+    },
+    {
+      "type": "Feats",
+      "name": "Through the Gate",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4335"
+    },
+    {
+      "type": "Feats",
+      "name": "Tidal Hands",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4268"
+    },
+    {
+      "type": "Feats",
+      "name": "Timber Sentinel",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4284"
+    },
+    {
+      "type": "Feats",
+      "name": "Torrent in the Blood",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4273"
+    },
+    {
+      "type": "Feats",
+      "name": "Tree of Duality",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4310"
+    },
+    {
+      "type": "Feats",
+      "name": "Treespeech",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4318"
+    },
+    {
+      "type": "Feats",
+      "name": "Tremor",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4224"
+    },
+    {
+      "type": "Feats",
+      "name": "Tumbling Lumber",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4286"
+    },
+    {
+      "type": "Feats",
+      "name": "Turn the Wheel of Seasons",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4295"
+    },
+    {
+      "type": "Feats",
+      "name": "Two-Element Infusion",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4193"
+    },
+    {
+      "type": "Feats",
+      "name": "Usurp the Lunar Reins",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4280"
+    },
+    {
+      "type": "Feats",
+      "name": "Versatile Blasts",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4185"
+    },
+    {
+      "type": "Feats",
+      "name": "Voice of the Elements",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4188"
+    },
+    {
+      "type": "Feats",
+      "name": "Volcanic Escape",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4243"
+    },
+    {
+      "type": "Feats",
+      "name": "Walk Through the Conflagration",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4248"
+    },
+    {
+      "type": "Feats",
+      "name": "Water Step",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4351"
+    },
+    {
+      "type": "Feats",
+      "name": "Weapon Infusion",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4186"
+    },
+    {
+      "type": "Feats",
+      "name": "Weight of Stone",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4228"
+    },
+    {
+      "type": "Feats",
+      "name": "Whirling Grindstone",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4300"
+    },
+    {
+      "type": "Feats",
+      "name": "Whisper on the Wind",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4209"
+    },
+    {
+      "type": "Feats",
+      "name": "Wiles on the Wind",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4217"
+    },
+    {
+      "type": "Feats",
+      "name": "Wind-Tossed Spell",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4352"
+    },
+    {
+      "type": "Feats",
+      "name": "Winter Sleet",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4271"
+    },
+    {
+      "type": "Feats",
+      "name": "Winter's Clutch",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4269"
+    },
+    {
+      "type": "Feats",
+      "name": "Witchwood Seed",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4292"
+    },
+    {
+      "type": "Feats",
+      "name": "Wood Ward",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4323"
+    },
+    {
+      "type": "Feats",
+      "name": "Wooden Mantle",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4322"
+    },
+    {
+      "type": "Feats",
+      "name": "Wooden Palisade",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4288"
+    },
+    {
+      "type": "Feats",
+      "name": "Woodworker",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4316"
+    },
+    {
+      "type": "Instincts",
+      "name": "Elemental",
+      "url": "https://2e.aonprd.com/Instincts.aspx?ID=7"
+    },
+    {
+      "type": "Languages",
+      "name": "Muan",
+      "url": "https://2e.aonprd.com/Languages.aspx?ID=108"
+    },
+    {
+      "type": "Languages",
+      "name": "Orvian",
+      "url": "https://2e.aonprd.com/Languages.aspx?ID=120"
+    },
+    {
+      "type": "Languages",
+      "name": "Talican",
+      "url": "https://2e.aonprd.com/Languages.aspx?ID=112"
+    },
+    {
+      "type": "Monsters",
+      "name": "Abysium Horror",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2652"
+    },
+    {
+      "type": "Monsters",
+      "name": "Anemos",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2614"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ardande Gardener",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2686"
+    },
+    {
+      "type": "Monsters",
+      "name": "Asp Of Grief",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2640"
+    },
+    {
+      "type": "Monsters",
+      "name": "Avalanche Legion",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2622"
+    },
+    {
+      "type": "Monsters",
+      "name": "Blustering Gale",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2615"
+    },
+    {
+      "type": "Monsters",
+      "name": "Boiling Spring",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2661"
+    },
+    {
+      "type": "Monsters",
+      "name": "Brass Bastion",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2631"
+    },
+    {
+      "type": "Monsters",
+      "name": "Brochmaw",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2632"
+    },
+    {
+      "type": "Monsters",
+      "name": "Capritellix",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2641"
+    },
+    {
+      "type": "Monsters",
+      "name": "Carved Beast",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2675"
+    },
+    {
+      "type": "Monsters",
+      "name": "Coldmire Pond",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2660"
+    },
+    {
+      "type": "Monsters",
+      "name": "Comozant Wyrd",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2616"
+    },
+    {
+      "type": "Monsters",
+      "name": "Crystal Strider",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2625"
+    },
+    {
+      "type": "Monsters",
+      "name": "Cullitox",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2623"
+    },
+    {
+      "type": "Monsters",
+      "name": "Despairing Pall",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2617"
+    },
+    {
+      "type": "Monsters",
+      "name": "Dewdrop Jelly",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2659"
+    },
+    {
+      "type": "Monsters",
+      "name": "Elder Outcrop",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2626"
+    },
+    {
+      "type": "Monsters",
+      "name": "Elemental Thicket",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2679"
+    },
+    {
+      "type": "Monsters",
+      "name": "Faydhaan Shuyookh",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2662"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ferrous Butterfly",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2643"
+    },
+    {
+      "type": "Monsters",
+      "name": "Gennayn",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2687"
+    },
+    {
+      "type": "Monsters",
+      "name": "Gluttonous Geode",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2624"
+    },
+    {
+      "type": "Monsters",
+      "name": "Harvest Regiment",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2683"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ifrit Shuyookh",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2636"
+    },
+    {
+      "type": "Monsters",
+      "name": "Jaathoom Shuyookh",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2620"
+    },
+    {
+      "type": "Monsters",
+      "name": "Jabali Shuyookh",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2627"
+    },
+    {
+      "type": "Monsters",
+      "name": "Jann Shuyookh",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2688"
+    },
+    {
+      "type": "Monsters",
+      "name": "Kinzaruk",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2646"
+    },
+    {
+      "type": "Monsters",
+      "name": "Kizidhar",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2681"
+    },
+    {
+      "type": "Monsters",
+      "name": "Kizidhar Shuyookh",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2682"
+    },
+    {
+      "type": "Monsters",
+      "name": "Lava Otter",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2633"
+    },
+    {
+      "type": "Monsters",
+      "name": "Lithic Locus",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2628"
+    },
+    {
+      "type": "Monsters",
+      "name": "Living Grove",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2674"
+    },
+    {
+      "type": "Monsters",
+      "name": "Living Lodestone",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2649"
+    },
+    {
+      "type": "Monsters",
+      "name": "Living Magma",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2635"
+    },
+    {
+      "type": "Monsters",
+      "name": "Lomori Sprout",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2684"
+    },
+    {
+      "type": "Monsters",
+      "name": "Melomach",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2654"
+    },
+    {
+      "type": "Monsters",
+      "name": "Mercurial",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2645"
+    },
+    {
+      "type": "Monsters",
+      "name": "Metal Scamp",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2644"
+    },
+    {
+      "type": "Monsters",
+      "name": "Metal Wisp",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2642"
+    },
+    {
+      "type": "Monsters",
+      "name": "Moss Sloth",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2671"
+    },
+    {
+      "type": "Monsters",
+      "name": "Munsahir Gatecrasher",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2637"
+    },
+    {
+      "type": "Monsters",
+      "name": "Munsahir Trooper",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2638"
+    },
+    {
+      "type": "Monsters",
+      "name": "Murajau",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2663"
+    },
+    {
+      "type": "Monsters",
+      "name": "Nanoshard Swarm",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2651"
+    },
+    {
+      "type": "Monsters",
+      "name": "Nightwood Guardian",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2685"
+    },
+    {
+      "type": "Monsters",
+      "name": "Nursery Crawler",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2672"
+    },
+    {
+      "type": "Monsters",
+      "name": "Olobigonde",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2664"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ore Louse",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2665"
+    },
+    {
+      "type": "Monsters",
+      "name": "Oregorger",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2653"
+    },
+    {
+      "type": "Monsters",
+      "name": "Painted Stag",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2678"
+    },
+    {
+      "type": "Monsters",
+      "name": "Pelegox Cube",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2657"
+    },
+    {
+      "type": "Monsters",
+      "name": "Picture-in-Cloud",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2619"
+    },
+    {
+      "type": "Monsters",
+      "name": "Pine Pangolin",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2676"
+    },
+    {
+      "type": "Monsters",
+      "name": "Quickiron Plasm",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2647"
+    },
+    {
+      "type": "Monsters",
+      "name": "Rakkatak",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2690"
+    },
+    {
+      "type": "Monsters",
+      "name": "Rust Scarab",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2648"
+    },
+    {
+      "type": "Monsters",
+      "name": "Saltborn Stalkers",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2666"
+    },
+    {
+      "type": "Monsters",
+      "name": "Skymetal Striker",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2650"
+    },
+    {
+      "type": "Monsters",
+      "name": "Snapdrake",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2677"
+    },
+    {
+      "type": "Monsters",
+      "name": "Solar Crow",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2634"
+    },
+    {
+      "type": "Monsters",
+      "name": "Sootsoldiers",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2639"
+    },
+    {
+      "type": "Monsters",
+      "name": "Talos Gadgeteer",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2658"
+    },
+    {
+      "type": "Monsters",
+      "name": "Tantriog",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2667"
+    },
+    {
+      "type": "Monsters",
+      "name": "Twins of Rowan",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2680"
+    },
+    {
+      "type": "Monsters",
+      "name": "Vault Builder",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2630"
+    },
+    {
+      "type": "Monsters",
+      "name": "Vault Keeper",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2629"
+    },
+    {
+      "type": "Monsters",
+      "name": "Vegetable Lamb",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2669"
+    },
+    {
+      "type": "Monsters",
+      "name": "Veiled Current",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2618"
+    },
+    {
+      "type": "Monsters",
+      "name": "Veldenar",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2621"
+    },
+    {
+      "type": "Monsters",
+      "name": "Whipping Willow",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2673"
+    },
+    {
+      "type": "Monsters",
+      "name": "Wood Scamp",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2670"
+    },
+    {
+      "type": "Monsters",
+      "name": "Wood Wisp",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2668"
+    },
+    {
+      "type": "Monsters",
+      "name": "Zuhra",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2655"
+    },
+    {
+      "type": "Monsters",
+      "name": "Zuhra Shuyookh",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=2656"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "All Will Decay",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=121"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Enhancing Circuitry",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=116"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Precious Anodization",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=118"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Rail Dash",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=120"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Scrap Shot",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=117"
+    },
+    {
+      "type": "Rituals",
+      "name": "Bountiful Oasis",
+      "url": "https://2e.aonprd.com/Rituals.aspx?ID=103"
+    },
+    {
+      "type": "Rituals",
+      "name": "Elemental Servitor",
+      "url": "https://2e.aonprd.com/Rituals.aspx?ID=104"
+    },
+    {
+      "type": "Rituals",
+      "name": "Sky Signs",
+      "url": "https://2e.aonprd.com/Rituals.aspx?ID=102"
+    },
+    {
+      "type": "Rules",
+      "name": "Elemental Companions",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1993"
+    },
+    {
+      "type": "Spells",
+      "name": "Airlift",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1303"
+    },
+    {
+      "type": "Spells",
+      "name": "Arms of Nature",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1418"
+    },
+    {
+      "type": "Spells",
+      "name": "Arrow Salvo",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1399"
+    },
+    {
+      "type": "Spells",
+      "name": "Beheading Buzz Saw",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1365"
+    },
+    {
+      "type": "Spells",
+      "name": "Blastback",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1312"
+    },
+    {
+      "type": "Spells",
+      "name": "Blazing Armory",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1348"
+    },
+    {
+      "type": "Spells",
+      "name": "Brine Dragon Bile",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1382"
+    },
+    {
+      "type": "Spells",
+      "name": "Buoyant Bubbles",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1383"
+    },
+    {
+      "type": "Spells",
+      "name": "Burrow Ward",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1328"
+    },
+    {
+      "type": "Spells",
+      "name": "Cauterize Wounds",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1349"
+    },
+    {
+      "type": "Spells",
+      "name": "Cave Fangs",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1329"
+    },
+    {
+      "type": "Spells",
+      "name": "Cinder Swarm",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1350"
+    },
+    {
+      "type": "Spells",
+      "name": "Clad in Metal",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1366"
+    },
+    {
+      "type": "Spells",
+      "name": "Cleanse Air",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1313"
+    },
+    {
+      "type": "Spells",
+      "name": "Cloud Dragon's Cloak",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1314"
+    },
+    {
+      "type": "Spells",
+      "name": "Combustion",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1309"
+    },
+    {
+      "type": "Spells",
+      "name": "Conductive Weapon",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1367"
+    },
+    {
+      "type": "Spells",
+      "name": "Coral Scourge",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1384"
+    },
+    {
+      "type": "Spells",
+      "name": "Crushing Ground",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1306"
+    },
+    {
+      "type": "Spells",
+      "name": "Dancing Fountain",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1385"
+    },
+    {
+      "type": "Spells",
+      "name": "Deep Breath",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1315"
+    },
+    {
+      "type": "Spells",
+      "name": "Dehydrate",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1351"
+    },
+    {
+      "type": "Spells",
+      "name": "Detect Metal",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1368"
+    },
+    {
+      "type": "Spells",
+      "name": "Dive and Breach",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1386"
+    },
+    {
+      "type": "Spells",
+      "name": "Draw Moisture",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1387"
+    },
+    {
+      "type": "Spells",
+      "name": "Eat Fire",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1352"
+    },
+    {
+      "type": "Spells",
+      "name": "Elemental Breath",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1420"
+    },
+    {
+      "type": "Spells",
+      "name": "Elemental Counter",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1421"
+    },
+    {
+      "type": "Spells",
+      "name": "Elemental Sense",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1422"
+    },
+    {
+      "type": "Spells",
+      "name": "Engrave Memory",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1330"
+    },
+    {
+      "type": "Spells",
+      "name": "Entwined Roots",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1400"
+    },
+    {
+      "type": "Spells",
+      "name": "Exploding Earth",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1331"
+    },
+    {
+      "type": "Spells",
+      "name": "Falsify Heat",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1353"
+    },
+    {
+      "type": "Spells",
+      "name": "Ferrous Form",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1369"
+    },
+    {
+      "type": "Spells",
+      "name": "Field of Razors",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1370"
+    },
+    {
+      "type": "Spells",
+      "name": "Fire's Pathway",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1354"
+    },
+    {
+      "type": "Spells",
+      "name": "Fireproof",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1355"
+    },
+    {
+      "type": "Spells",
+      "name": "Flame Dancer",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1356"
+    },
+    {
+      "type": "Spells",
+      "name": "Flames of Ego",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1357"
+    },
+    {
+      "type": "Spells",
+      "name": "Flourishing Flora",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1401"
+    },
+    {
+      "type": "Spells",
+      "name": "Fold Metal",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1371"
+    },
+    {
+      "type": "Spells",
+      "name": "Freezing Rain",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1388"
+    },
+    {
+      "type": "Spells",
+      "name": "Frost Pillar",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1389"
+    },
+    {
+      "type": "Spells",
+      "name": "Gentle Breeze",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1316"
+    },
+    {
+      "type": "Spells",
+      "name": "Glass Form",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1332"
+    },
+    {
+      "type": "Spells",
+      "name": "Glass Shield",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1333"
+    },
+    {
+      "type": "Spells",
+      "name": "Grasp of the Deep",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1390"
+    },
+    {
+      "type": "Spells",
+      "name": "Grasping Earth",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1334"
+    },
+    {
+      "type": "Spells",
+      "name": "Heatvision",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1358"
+    },
+    {
+      "type": "Spells",
+      "name": "Heaving Earth",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1335"
+    },
+    {
+      "type": "Spells",
+      "name": "Helpful Wood Spirits",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1402"
+    },
+    {
+      "type": "Spells",
+      "name": "Hungry Depths",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1391"
+    },
+    {
+      "type": "Spells",
+      "name": "Illuminate",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1359"
+    },
+    {
+      "type": "Spells",
+      "name": "Instant Pottery",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1336"
+    },
+    {
+      "type": "Spells",
+      "name": "Interposing Earth",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1337"
+    },
+    {
+      "type": "Spells",
+      "name": "Life-Draining Roots",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1403"
+    },
+    {
+      "type": "Spells",
+      "name": "Lignify",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1404"
+    },
+    {
+      "type": "Spells",
+      "name": "Lotus Walk",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1405"
+    },
+    {
+      "type": "Spells",
+      "name": "Magnetic Dominion",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1372"
+    },
+    {
+      "type": "Spells",
+      "name": "Mantle of the Melting Heart",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1373"
+    },
+    {
+      "type": "Spells",
+      "name": "Mantle of the Unwavering Heart",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1406"
+    },
+    {
+      "type": "Spells",
+      "name": "Mercurial Stride",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1374"
+    },
+    {
+      "type": "Spells",
+      "name": "Misty Memory",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1392"
+    },
+    {
+      "type": "Spells",
+      "name": "Needle Darts",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1375"
+    },
+    {
+      "type": "Spells",
+      "name": "Noxious Metals",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1376"
+    },
+    {
+      "type": "Spells",
+      "name": "Pave Ground",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1338"
+    },
+    {
+      "type": "Spells",
+      "name": "Personal Ocean",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1393"
+    },
+    {
+      "type": "Spells",
+      "name": "Phantom Orchestra",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1317"
+    },
+    {
+      "type": "Spells",
+      "name": "Phoenix Ward",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1360"
+    },
+    {
+      "type": "Spells",
+      "name": "Pillar of Water",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1394"
+    },
+    {
+      "type": "Spells",
+      "name": "Pollen Pods",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1407"
+    },
+    {
+      "type": "Spells",
+      "name": "Powerful Inhalation",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1305"
+    },
+    {
+      "type": "Spells",
+      "name": "Practice Makes Perfect",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1346"
+    },
+    {
+      "type": "Spells",
+      "name": "Pressure Zone",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1318"
+    },
+    {
+      "type": "Spells",
+      "name": "Propulsive Breeze",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1319"
+    },
+    {
+      "type": "Spells",
+      "name": "Pulverizing Cascade",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1311"
+    },
+    {
+      "type": "Spells",
+      "name": "Rainbow Fumarole",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1361"
+    },
+    {
+      "type": "Spells",
+      "name": "Repel Metal",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1381"
+    },
+    {
+      "type": "Spells",
+      "name": "Rigid Form",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1408"
+    },
+    {
+      "type": "Spells",
+      "name": "Rising Surf",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1310"
+    },
+    {
+      "type": "Spells",
+      "name": "Root Reading",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1409"
+    },
+    {
+      "type": "Spells",
+      "name": "Rousing Splash",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1395"
+    },
+    {
+      "type": "Spells",
+      "name": "Rubble Step",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1339"
+    },
+    {
+      "type": "Spells",
+      "name": "Rust Cloud",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1377"
+    },
+    {
+      "type": "Spells",
+      "name": "Sand Form",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1340"
+    },
+    {
+      "type": "Spells",
+      "name": "Scrying Ripples",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1396"
+    },
+    {
+      "type": "Spells",
+      "name": "Serrate",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1380"
+    },
+    {
+      "type": "Spells",
+      "name": "Shielded Arm",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1378"
+    },
+    {
+      "type": "Spells",
+      "name": "Shock to the System",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1320"
+    },
+    {
+      "type": "Spells",
+      "name": "Signal Skyrocket",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1362"
+    },
+    {
+      "type": "Spells",
+      "name": "Slashing Gust",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1321"
+    },
+    {
+      "type": "Spells",
+      "name": "Sliding Blocks",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1341"
+    },
+    {
+      "type": "Spells",
+      "name": "Splinter Volley",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1410"
+    },
+    {
+      "type": "Spells",
+      "name": "Stifling Stillness",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1322"
+    },
+    {
+      "type": "Spells",
+      "name": "Stone Lance",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1307"
+    },
+    {
+      "type": "Spells",
+      "name": "Summon Elemental Herald",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1423"
+    },
+    {
+      "type": "Spells",
+      "name": "Take Root",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1411"
+    },
+    {
+      "type": "Spells",
+      "name": "Tempest Cloak",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1323"
+    },
+    {
+      "type": "Spells",
+      "name": "Thermal Remedy",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1363"
+    },
+    {
+      "type": "Spells",
+      "name": "Timber",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1412"
+    },
+    {
+      "type": "Spells",
+      "name": "Tireless Worker",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1347"
+    },
+    {
+      "type": "Spells",
+      "name": "Tremor Signs",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1342"
+    },
+    {
+      "type": "Spells",
+      "name": "Tremorsense",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1343"
+    },
+    {
+      "type": "Spells",
+      "name": "Updraft",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1304"
+    },
+    {
+      "type": "Spells",
+      "name": "Vacuum",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1324"
+    },
+    {
+      "type": "Spells",
+      "name": "Verdant Sprout",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1413"
+    },
+    {
+      "type": "Spells",
+      "name": "Vitrifying Blast",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1344"
+    },
+    {
+      "type": "Spells",
+      "name": "Voice on the Breeze",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1325"
+    },
+    {
+      "type": "Spells",
+      "name": "Wall of Metal",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1379"
+    },
+    {
+      "type": "Spells",
+      "name": "Wall of Shrubs",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1414"
+    },
+    {
+      "type": "Spells",
+      "name": "Waterproof",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1397"
+    },
+    {
+      "type": "Spells",
+      "name": "Weaken Earth",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1345"
+    },
+    {
+      "type": "Spells",
+      "name": "Weave Wood",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1415"
+    },
+    {
+      "type": "Spells",
+      "name": "Whirlpool",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1398"
+    },
+    {
+      "type": "Spells",
+      "name": "Wildfire",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1308"
+    },
+    {
+      "type": "Spells",
+      "name": "Wisdom of the Winds",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1326"
+    },
+    {
+      "type": "Spells",
+      "name": "Wood Walk",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1419"
+    },
+    {
+      "type": "Spells",
+      "name": "Wooden Double",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1416"
+    },
+    {
+      "type": "Spells",
+      "name": "Wooden Fists",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1417"
+    },
+    {
+      "type": "Spells",
+      "name": "Ymeri's Mark",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1364"
+    },
+    {
+      "type": "Spells",
+      "name": "Zephyr Slip",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1327"
+    },
+    {
+      "type": "Traits",
+      "name": "Ardande (Ancestry)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=498"
+    },
+    {
+      "type": "Traits",
+      "name": "Bottled Breath (Equipment)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=499"
+    },
+    {
+      "type": "Traits",
+      "name": "Censer (Equipment)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=500"
+    },
+    {
+      "type": "Traits",
+      "name": "Composite (Class-Specific)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=501"
+    },
+    {
+      "type": "Traits",
+      "name": "Figurehead (Equipment)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=512"
+    },
+    {
+      "type": "Traits",
+      "name": "Impulse (Class-Specific)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=502"
+    },
+    {
+      "type": "Traits",
+      "name": "Infusion (Class-Specific)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=503"
+    },
+    {
+      "type": "Traits",
+      "name": "Kineticist (Class)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=504"
+    },
+    {
+      "type": "Traits",
+      "name": "Overflow (Class-Specific)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=506"
+    },
+    {
+      "type": "Traits",
+      "name": "Talos (Ancestry)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=507"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Planar Skiff",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=56"
+    }
+  ]
+}

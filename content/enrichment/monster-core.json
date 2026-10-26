@@ -1,0 +1,1674 @@
+{
+  "creature:aapoph-granitescale": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3184"
+  },
+  "creature:aapoph-serpentfolk": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3182"
+  },
+  "creature:aeolaeka": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2843"
+  },
+  "creature:aesra": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2834"
+  },
+  "creature:air-scamp": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2985"
+  },
+  "creature:aiuvarin-elementalist": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=2996"
+  },
+  "creature:akhana": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2799"
+  },
+  "creature:animated-armor": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2819"
+  },
+  "creature:animated-broom": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2818"
+  },
+  "creature:animated-statue": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2820"
+  },
+  "creature:ankhrav": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2822"
+  },
+  "creature:ankhrav-hive-mother": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2823"
+  },
+  "creature:ankylosaurus": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2919"
+  },
+  "creature:aolaz": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2826"
+  },
+  "creature:arbiter": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2791"
+  },
+  "creature:arboreal-regent": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2831"
+  },
+  "creature:arboreal-warden": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2829"
+  },
+  "creature:army-ant-swarm": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2825"
+  },
+  "creature:astradaemon": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2894"
+  },
+  "creature:athamaru-hunter": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2837"
+  },
+  "creature:augnagar": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3156"
+  },
+  "creature:awakened-tree": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2830"
+  },
+  "creature:axiomite": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2792"
+  },
+  "creature:azarketi-crab-catcher": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2838"
+  },
+  "creature:azarketi-tide-tamer": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2839"
+  },
+  "creature:azuretzi": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3145"
+  },
+  "creature:balisse": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2816"
+  },
+  "creature:bandersnatch": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2844"
+  },
+  "creature:banshee": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2845"
+  },
+  "creature:barghest": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2846"
+  },
+  "creature:basilisk": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2847"
+  },
+  "creature:benthic-worm": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2872"
+  },
+  "creature:boar": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2854"
+  },
+  "creature:boggard-scout": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2856"
+  },
+  "creature:boggard-swampseer": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2858"
+  },
+  "creature:boggard-warrior": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2857"
+  },
+  "creature:bogwid": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2859"
+  },
+  "creature:bone-prophet": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3185"
+  },
+  "creature:bottlenose-dolphin": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2926"
+  },
+  "creature:brimorak": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2896"
+  },
+  "creature:brine-shark": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2989"
+  },
+  "creature:brontosaurus": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2922"
+  },
+  "creature:bugbear-prowler": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2860"
+  },
+  "creature:bugbear-tormentor": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2861"
+  },
+  "creature:cacodaemon": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2891"
+  },
+  "creature:caldera-oni": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3123"
+  },
+  "creature:caligni-dancer": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2862"
+  },
+  "creature:caligni-hunter": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2864"
+  },
+  "creature:caligni-skulker": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2863"
+  },
+  "creature:cassisian": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2814"
+  },
+  "creature:catfolk-pouncer": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=2869"
+  },
+  "creature:cauthooj": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2870"
+  },
+  "creature:cave-bear": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2851"
+  },
+  "creature:cave-worm": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2871"
+  },
+  "creature:centaur-herbalist": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=2874"
+  },
+  "creature:centipede-swarm": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2876"
+  },
+  "creature:changeling-exile": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2877"
+  },
+  "creature:charnel-creation": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2878"
+  },
+  "creature:chimera": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2879"
+  },
+  "creature:choral": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2815"
+  },
+  "creature:chupacabra": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2880"
+  },
+  "creature:cinder-rat": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2981"
+  },
+  "creature:clay-effigy": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2881"
+  },
+  "creature:cloud-giant": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3015"
+  },
+  "creature:coarti": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2907"
+  },
+  "creature:cockatrice": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2883"
+  },
+  "creature:coil-spy": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3183"
+  },
+  "creature:compsognathus": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2914"
+  },
+  "creature:con-rit": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2884"
+  },
+  "creature:crag-linnorm": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3083"
+  },
+  "creature:crawling-hand": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2885"
+  },
+  "creature:crocodile": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2887"
+  },
+  "creature:cuckoo-hag": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3043"
+  },
+  "creature:cyclops": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2889"
+  },
+  "creature:cythnigot": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3154"
+  },
+  "creature:daeodon": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2855"
+  },
+  "creature:deadly-mantis": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3095"
+  },
+  "creature:deinonychus": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2916"
+  },
+  "creature:deinosuchus": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2888"
+  },
+  "creature:dero-magister": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2904"
+  },
+  "creature:dero-stalker": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2902"
+  },
+  "creature:dero-strangler": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2903"
+  },
+  "creature:desert-drake": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2963"
+  },
+  "creature:dezullon": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2912"
+  },
+  "creature:dhampir-wizard": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=2913"
+  },
+  "creature:dire-wolf": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3242"
+  },
+  "creature:doldrums-heap": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3172"
+  },
+  "creature:dragon-turtle": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2956"
+  },
+  "creature:draxie": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3211"
+  },
+  "creature:dromaar-mountaineer": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3131"
+  },
+  "creature:dryad": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3112"
+  },
+  "creature:dryad-queen": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3114"
+  },
+  "creature:dullahan": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2964"
+  },
+  "creature:duskwalker-ghost-hunter": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3139"
+  },
+  "creature:dwarf-stonecaster": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=2966"
+  },
+  "creature:dwarf-warrior": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=2965"
+  },
+  "creature:dybbuk": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2967"
+  },
+  "creature:eagle": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2968"
+  },
+  "creature:earth-scamp": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2986"
+  },
+  "creature:elananx": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2972"
+  },
+  "creature:electric-eel": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2970"
+  },
+  "creature:elemental-avalanche": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2980"
+  },
+  "creature:elemental-hurricane": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2976"
+  },
+  "creature:elemental-inferno": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2984"
+  },
+  "creature:elemental-tsunami": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2992"
+  },
+  "creature:elephant": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2993"
+  },
+  "creature:elf-ranger": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=2995"
+  },
+  "creature:faydhaan": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3005"
+  },
+  "creature:fey-dragonet": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2957"
+  },
+  "creature:fire-giant": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3014"
+  },
+  "creature:fire-scamp": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2987"
+  },
+  "creature:firewyrm": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2983"
+  },
+  "creature:flame-drake": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2959"
+  },
+  "creature:flash-beetle": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2852"
+  },
+  "creature:forest-troll": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3219"
+  },
+  "creature:frost-drake": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2962"
+  },
+  "creature:frost-giant": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3013"
+  },
+  "creature:fungus-leshy": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3081"
+  },
+  "creature:gancanagh": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2841"
+  },
+  "creature:gargoyle": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3001"
+  },
+  "creature:ghost-commoner": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3007"
+  },
+  "creature:ghost-mage": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3008"
+  },
+  "creature:ghoul-soldier": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3010"
+  },
+  "creature:ghoul-stalker": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3009"
+  },
+  "creature:giant-anaconda": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3203"
+  },
+  "creature:giant-animated-statue": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2821"
+  },
+  "creature:giant-ant": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2824"
+  },
+  "creature:giant-bat": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2849"
+  },
+  "creature:giant-centipede": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2875"
+  },
+  "creature:giant-crawling-hand": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2886"
+  },
+  "creature:giant-eagle": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2969"
+  },
+  "creature:giant-flytrap": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3000"
+  },
+  "creature:giant-frilled-lizard": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3089"
+  },
+  "creature:giant-gecko": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3087"
+  },
+  "creature:giant-hippocampus": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3051"
+  },
+  "creature:giant-mantis": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3094"
+  },
+  "creature:giant-monitor-lizard": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3088"
+  },
+  "creature:giant-moray-eel": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2971"
+  },
+  "creature:giant-octopus": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3115"
+  },
+  "creature:giant-rat": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3162"
+  },
+  "creature:giant-scorpion": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3175"
+  },
+  "creature:giant-stag-beetle": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2853"
+  },
+  "creature:giant-tarantula": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3208"
+  },
+  "creature:giant-viper": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3202"
+  },
+  "creature:giant-wasp": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3233"
+  },
+  "creature:gimmerling": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3018"
+  },
+  "creature:giylea": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2836"
+  },
+  "creature:globster": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3019"
+  },
+  "creature:gnome-bard": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3020"
+  },
+  "creature:goblin-commando": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3025"
+  },
+  "creature:goblin-dog": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3028"
+  },
+  "creature:goblin-pyro": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3026"
+  },
+  "creature:goblin-war-chanter": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3027"
+  },
+  "creature:goblin-warrior": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3024"
+  },
+  "creature:gogiteth": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3029"
+  },
+  "creature:goliath-spider": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3209"
+  },
+  "creature:gongorinan": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3155"
+  },
+  "creature:gorilla": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2827"
+  },
+  "creature:gosreg": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2931"
+  },
+  "creature:gourd-leshy": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3080"
+  },
+  "creature:graveknight": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3030"
+  },
+  "creature:great-cyclops": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2890"
+  },
+  "creature:great-white-shark": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3188"
+  },
+  "creature:greater-hell-hound": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3048"
+  },
+  "creature:greater-nightmare": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3106"
+  },
+  "creature:greater-shadow": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3187"
+  },
+  "creature:griffon": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3034"
+  },
+  "creature:grikkitog": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3035"
+  },
+  "creature:grim-reaper": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3036"
+  },
+  "creature:grindylow": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3038"
+  },
+  "creature:grizzly-bear": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2850"
+  },
+  "creature:grothlut": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2997"
+  },
+  "creature:guard-dog": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2924"
+  },
+  "creature:guthallath": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3039"
+  },
+  "creature:gylou": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2910"
+  },
+  "creature:hadrosaurid": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2918"
+  },
+  "creature:halfling-street-watcher": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3044"
+  },
+  "creature:halfling-troublemaker": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3045"
+  },
+  "creature:harpy": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3046"
+  },
+  "creature:hell-hound": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3047"
+  },
+  "creature:herexen": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3049"
+  },
+  "creature:hippocampus": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3050"
+  },
+  "creature:hippogriff": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3052"
+  },
+  "creature:hobgoblin-archer": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3054"
+  },
+  "creature:hobgoblin-general": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3055"
+  },
+  "creature:hobgoblin-soldier": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3053"
+  },
+  "creature:homunculus": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3056"
+  },
+  "creature:hryngar-bombardier": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3062"
+  },
+  "creature:hryngar-sharpshooter": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3061"
+  },
+  "creature:hryngar-taskmaster": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3063"
+  },
+  "creature:hunting-spider": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3207"
+  },
+  "creature:hyaenodon": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3066"
+  },
+  "creature:hydra": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3064"
+  },
+  "creature:hyena": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3065"
+  },
+  "creature:ice-linnorm": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3084"
+  },
+  "creature:ifrit": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3006"
+  },
+  "creature:imp": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3067"
+  },
+  "creature:irnakurse": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2998"
+  },
+  "creature:iron-hag": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3042"
+  },
+  "creature:iron-warden": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3068"
+  },
+  "creature:island-oni": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3124"
+  },
+  "creature:jaathoom": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3003"
+  },
+  "creature:jabali": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3004"
+  },
+  "creature:jah-tohl": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2930"
+  },
+  "creature:jann": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3002"
+  },
+  "creature:jinkin": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3033"
+  },
+  "creature:jungle-drake": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2960"
+  },
+  "creature:kanya": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2842"
+  },
+  "creature:keketar": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3146"
+  },
+  "creature:kholo-bonekeeper": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3070"
+  },
+  "creature:kholo-hunter": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3069"
+  },
+  "creature:kholo-sergeant": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3071"
+  },
+  "creature:kobold-cavern-mage": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3074"
+  },
+  "creature:kobold-scout": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3073"
+  },
+  "creature:kobold-warrior": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3072"
+  },
+  "creature:kraken": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3075"
+  },
+  "creature:krooth": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3076"
+  },
+  "creature:lamia": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3077"
+  },
+  "creature:lamia-matriarch": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3078"
+  },
+  "creature:larval-ofalth": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3116"
+  },
+  "creature:lawbringer-warpriest": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3141"
+  },
+  "creature:leaf-leshy": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3079"
+  },
+  "creature:leopard": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2865"
+  },
+  "creature:lesser-death": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3037"
+  },
+  "creature:leukodaemon": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2893"
+  },
+  "creature:lich": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3082"
+  },
+  "creature:lion": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2866"
+  },
+  "creature:living-landslide": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2978"
+  },
+  "creature:living-tar": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3128"
+  },
+  "creature:living-waterfall": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2990"
+  },
+  "creature:living-whirlwind": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2974"
+  },
+  "creature:living-wildfire": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2982"
+  },
+  "creature:lizardfolk-defender": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3090"
+  },
+  "creature:lizardfolk-scout": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3091"
+  },
+  "creature:lizardfolk-stargazer": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3092"
+  },
+  "creature:lyrakien": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2840"
+  },
+  "creature:magma-worm": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2873"
+  },
+  "creature:mammoth": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2994"
+  },
+  "creature:marsh-giant": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3011"
+  },
+  "creature:medusa": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3096"
+  },
+  "creature:megalodon": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3189"
+  },
+  "creature:megaprimatus": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2828"
+  },
+  "creature:merfolk-warrior": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3097"
+  },
+  "creature:merfolk-wavecaller": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3098"
+  },
+  "creature:minotaur-hunter": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3099"
+  },
+  "creature:mitflit": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3031"
+  },
+  "creature:morrigna": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3149"
+  },
+  "creature:mountain-oni": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3121"
+  },
+  "creature:mukradi": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3100"
+  },
+  "creature:mummy-guardian": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3101"
+  },
+  "creature:mummy-pharaoh": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3102"
+  },
+  "creature:naiad": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3111"
+  },
+  "creature:naiad-queen": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3113"
+  },
+  "creature:nessari": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2911"
+  },
+  "creature:nightmare": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3105"
+  },
+  "creature:nilith": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3107"
+  },
+  "creature:norn": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3108"
+  },
+  "creature:nosoi": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3147"
+  },
+  "creature:noxious-needler": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3109"
+  },
+  "creature:nuckelavee": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3110"
+  },
+  "creature:ofalth": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3117"
+  },
+  "creature:ogre-boss": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3120"
+  },
+  "creature:ogre-glutton": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3119"
+  },
+  "creature:ogre-warrior": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3118"
+  },
+  "creature:omox": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2898"
+  },
+  "creature:orc-commander": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3132"
+  },
+  "creature:orc-scrapper": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3129"
+  },
+  "creature:orc-veteran": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3130"
+  },
+  "creature:orca": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2927"
+  },
+  "creature:ort": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2905"
+  },
+  "creature:pachycephalosaurus": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2917"
+  },
+  "creature:paleohemoth": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3133"
+  },
+  "creature:pegasus": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3134"
+  },
+  "creature:phade": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2975"
+  },
+  "creature:phantom-beast": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3136"
+  },
+  "creature:phantom-knight": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3135"
+  },
+  "creature:phistophilus": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2909"
+  },
+  "creature:phoenix": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3137"
+  },
+  "creature:pipefox": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3138"
+  },
+  "creature:pitborn-adept": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3140"
+  },
+  "creature:pixie": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3212"
+  },
+  "creature:plague-zombie": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3250"
+  },
+  "creature:pleroma": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2811"
+  },
+  "creature:poltergeist": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3142"
+  },
+  "creature:poracha": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3143"
+  },
+  "creature:pteranodon": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3151"
+  },
+  "creature:pugwampi": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3032"
+  },
+  "creature:pukwudgie": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3153"
+  },
+  "creature:pusk": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2895"
+  },
+  "creature:python": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3201"
+  },
+  "creature:qarna": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2833"
+  },
+  "creature:quai-dau-to": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3158"
+  },
+  "creature:quatoid": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2991"
+  },
+  "creature:quelaunt": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3159"
+  },
+  "creature:quetz-coatl": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2882"
+  },
+  "creature:quetzalcoatlus": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3152"
+  },
+  "creature:raja-krodha": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3161"
+  },
+  "creature:raktavarna": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3160"
+  },
+  "creature:rat-swarm": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3163"
+  },
+  "creature:ratfolk-grenadier": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3164"
+  },
+  "creature:redcap": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3165"
+  },
+  "creature:reefclaw": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3166"
+  },
+  "creature:rekhep": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2835"
+  },
+  "creature:revenant": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3167"
+  },
+  "creature:rhinoceros": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3168"
+  },
+  "creature:rhu-chalik": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2928"
+  },
+  "creature:riding-dog": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2925"
+  },
+  "creature:riding-horse": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3058"
+  },
+  "creature:riding-pony": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3057"
+  },
+  "creature:river-drake": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2958"
+  },
+  "creature:roc": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3170"
+  },
+  "creature:rune-giant": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3017"
+  },
+  "creature:sargassum-heap": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3171"
+  },
+  "creature:sarglagon": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2908"
+  },
+  "creature:satyr": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3173"
+  },
+  "creature:scarecrow": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3174"
+  },
+  "creature:scorpion-swarm": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3176"
+  },
+  "creature:sea-hag": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3040"
+  },
+  "creature:sea-serpent": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3177"
+  },
+  "creature:sedacthy-marauder": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3179"
+  },
+  "creature:sedacthy-scout": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3178"
+  },
+  "creature:sedacthy-speaker": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3180"
+  },
+  "creature:seraptis": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2899"
+  },
+  "creature:sewer-ooze": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3125"
+  },
+  "creature:shadow": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3186"
+  },
+  "creature:shadow-giant": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3016"
+  },
+  "creature:shemhazian": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2900"
+  },
+  "creature:shining-child": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3190"
+  },
+  "creature:shuln": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3191"
+  },
+  "creature:skeletal-champion": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3194"
+  },
+  "creature:skeletal-giant": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3196"
+  },
+  "creature:skeletal-horse": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3195"
+  },
+  "creature:skeletal-hulk": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3197"
+  },
+  "creature:skeleton-guard": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3193"
+  },
+  "creature:skulltaker": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3198"
+  },
+  "creature:slurk": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3199"
+  },
+  "creature:smaranava": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3103"
+  },
+  "creature:smilodon": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2868"
+  },
+  "creature:snapping-flytrap": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2999"
+  },
+  "creature:snow-oni": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3122"
+  },
+  "creature:sod-hound": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2977"
+  },
+  "creature:sphinx": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3205"
+  },
+  "creature:spider-swarm": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3206"
+  },
+  "creature:sprigjack": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3221"
+  },
+  "creature:sprite": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3210"
+  },
+  "creature:stegosaurus": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2920"
+  },
+  "creature:stone-bulwark": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3213"
+  },
+  "creature:stone-giant": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3012"
+  },
+  "creature:stone-mauler": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2979"
+  },
+  "creature:string-slime": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3126"
+  },
+  "creature:succubus": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2897"
+  },
+  "creature:sweet-hag": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3041"
+  },
+  "creature:tabellia": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2817"
+  },
+  "creature:tarn-linnorm": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3085"
+  },
+  "creature:tengu-sneak": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3214"
+  },
+  "creature:terotricus": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3215"
+  },
+  "creature:thulgant": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3157"
+  },
+  "creature:tiger": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2867"
+  },
+  "creature:tomb-jelly": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3127"
+  },
+  "creature:tooth-fairy": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3216"
+  },
+  "creature:tooth-fairy-swarm": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3217"
+  },
+  "creature:tor-linnorm": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3086"
+  },
+  "creature:treerazer": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3218"
+  },
+  "creature:triceratops": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2921"
+  },
+  "creature:troll-warleader": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3220"
+  },
+  "creature:twigjack": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3222"
+  },
+  "creature:tyrannosaurus": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2923"
+  },
+  "creature:ugothol": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2812"
+  },
+  "creature:umbral-gnome-rockwarden": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3023"
+  },
+  "creature:umbral-gnome-scout": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3021"
+  },
+  "creature:umbral-gnome-warrior": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3022"
+  },
+  "creature:unicorn": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3223"
+  },
+  "creature:vampire-bat-swarm": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2848"
+  },
+  "creature:vampire-count": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3225"
+  },
+  "creature:vampire-mastermind": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3226"
+  },
+  "creature:vampire-servitor": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3224"
+  },
+  "creature:vanth": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3148"
+  },
+  "creature:velociraptor": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2915"
+  },
+  "creature:venedaemon": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2892"
+  },
+  "creature:vescavor-queen": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3228"
+  },
+  "creature:vescavor-swarm": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3227"
+  },
+  "creature:vicharamuni": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3104"
+  },
+  "creature:vidileth": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2813"
+  },
+  "creature:vilderavn": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3229"
+  },
+  "creature:viper": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3200"
+  },
+  "creature:voidworm": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3144"
+  },
+  "creature:vordine": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2906"
+  },
+  "creature:vrolikai": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2901"
+  },
+  "creature:war-horse": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3060"
+  },
+  "creature:war-pony": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3059"
+  },
+  "creature:warg": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3230"
+  },
+  "creature:warsworn": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3232"
+  },
+  "creature:wasp-swarm": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3234"
+  },
+  "creature:water-scamp": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2988"
+  },
+  "creature:werebear": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3237"
+  },
+  "creature:wererat": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3235"
+  },
+  "creature:weretiger": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3238"
+  },
+  "creature:werewolf": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3236"
+  },
+  "creature:wight": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3239"
+  },
+  "creature:will-o-wisp": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3240"
+  },
+  "creature:witchwarg": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3231"
+  },
+  "creature:wolf": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3241"
+  },
+  "creature:woolly-rhinoceros": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3169"
+  },
+  "creature:wraith": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3243"
+  },
+  "creature:wyvern": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2961"
+  },
+  "creature:xoarian": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2929"
+  },
+  "creature:xulgath-leader": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3246"
+  },
+  "creature:xulgath-skulker": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3245"
+  },
+  "creature:xulgath-warrior": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3244"
+  },
+  "creature:yamaraj": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3150"
+  },
+  "creature:yeti": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3247"
+  },
+  "creature:zecui": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3248"
+  },
+  "creature:zephyr-hawk": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2973"
+  },
+  "creature:zoaem": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2832"
+  },
+  "creature:zombie-brute": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3251"
+  },
+  "creature:zombie-hulk": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3252"
+  },
+  "creature:zyss-serpentfolk": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3181"
+  },
+  "weapon:shears": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=446"
+  }
+}

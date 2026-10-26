@@ -8,8 +8,7 @@ import { mkdir } from 'node:fs/promises';
 import { parseArgs } from 'node:util';
 
 import { bookRegistry } from '@pioneer/rules/catalog';
-import { AonUrl } from '@pioneer/rules/sdk';
-import * as z from 'zod';
+import { AonListingFile } from '@pioneer/rules/sdk';
 
 import { parseSources } from './parse.ts';
 import type { ListedEntry } from './parse.ts';
@@ -19,13 +18,6 @@ const OUT_DIR = `${import.meta.dir}/../../content/aon`;
 const USER_AGENT = 'pioneer-importer/0.1 (+https://github.com/DavidDudson/pioneer; davidjohndudson@gmail.com)';
 const INTERVAL_MS = 2000;
 
-const ListedRow = z.strictObject({ type: z.string(), name: z.string(), url: AonUrl });
-
-const ListingFile = z.strictObject({
-  etag: z.string().optional(),
-  entries: z.array(ListedRow),
-});
-
 async function storedEtag(file: string): Promise<string | undefined> {
   const stored = Bun.file(file);
   const exists = await stored.exists();
@@ -33,7 +25,7 @@ async function storedEtag(file: string): Promise<string | undefined> {
     return undefined;
   }
   const json: unknown = await stored.json();
-  return ListingFile.parse(json).etag;
+  return AonListingFile.parse(json).etag;
 }
 
 async function save(file: string, etag: string | undefined, entries: readonly ListedEntry[]): Promise<void> {

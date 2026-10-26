@@ -1,0 +1,1055 @@
+{
+  "etag": "\"8fb97ecf16774916bccca20af380e12a\"",
+  "entries": [
+    {
+      "type": "Arcane Schools",
+      "name": "School of Rooted Wisdom",
+      "url": "https://2e.aonprd.com/ArcaneSchools.aspx?ID=24"
+    },
+    {
+      "type": "Arcane Schools",
+      "name": "School of Thassilonian Rune Magic",
+      "url": "https://2e.aonprd.com/ArcaneSchools.aspx?ID=25"
+    },
+    {
+      "type": "Arcane Schools",
+      "name": "School of the Reclamation",
+      "url": "https://2e.aonprd.com/ArcaneSchools.aspx?ID=26"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Campfire Chronicler",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=300"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Kitharodian Actor",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=301"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Lepidstadt Surgeon",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=302"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Runelord",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=303"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Academic Scion",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=491"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Convocation Scout",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=492"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Ghostwriter",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=493"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Library Dweller",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=494"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Party Scholar",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=495"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Respected Mentor",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=496"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "School Medic",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=497"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Star Athlete",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=498"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Working Student",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=499"
+    },
+    {
+      "type": "Equipment",
+      "name": "Aetheric Irritant",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3565"
+    },
+    {
+      "type": "Equipment",
+      "name": "Blood Pack Squib",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3527"
+    },
+    {
+      "type": "Equipment",
+      "name": "Bloodstone Doll",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3574"
+    },
+    {
+      "type": "Equipment",
+      "name": "Branch Attendant's Mask",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3561"
+    },
+    {
+      "type": "Equipment",
+      "name": "Brimorak Bone Tiles",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3581"
+    },
+    {
+      "type": "Equipment",
+      "name": "Conspirator's Cookie",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3520"
+    },
+    {
+      "type": "Equipment",
+      "name": "Demon Bone Tiles",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3581"
+    },
+    {
+      "type": "Equipment",
+      "name": "Demon-Hunting Bands",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3540"
+    },
+    {
+      "type": "Equipment",
+      "name": "Dr. Ushernacht's Astonishing Ink",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3564"
+    },
+    {
+      "type": "Equipment",
+      "name": "Drop of Convergent Waters",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3563"
+    },
+    {
+      "type": "Equipment",
+      "name": "Echo Token",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3521"
+    },
+    {
+      "type": "Equipment",
+      "name": "Fake Blood Pack",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3528"
+    },
+    {
+      "type": "Equipment",
+      "name": "Greater Aetheric Irritant",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3565"
+    },
+    {
+      "type": "Equipment",
+      "name": "Greater Moritype",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3568"
+    },
+    {
+      "type": "Equipment",
+      "name": "Greater Quartz-Coil Rail Transport",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3570"
+    },
+    {
+      "type": "Equipment",
+      "name": "Greater Vanishing Shocker",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3573"
+    },
+    {
+      "type": "Equipment",
+      "name": "Hidden Pocket Outfit",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3529"
+    },
+    {
+      "type": "Equipment",
+      "name": "Illusory Backdrop",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3530"
+    },
+    {
+      "type": "Equipment",
+      "name": "Illusory Program",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3524"
+    },
+    {
+      "type": "Equipment",
+      "name": "Inspiring Spotlight",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3531"
+    },
+    {
+      "type": "Equipment",
+      "name": "Kimanéz Luminescent Toadstool",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3579"
+    },
+    {
+      "type": "Equipment",
+      "name": "Krasovnatype",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3566"
+    },
+    {
+      "type": "Equipment",
+      "name": "Lesser Aetheric Irritant",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3565"
+    },
+    {
+      "type": "Equipment",
+      "name": "Lesser Maelstromic Destabilizer",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3567"
+    },
+    {
+      "type": "Equipment",
+      "name": "Lesser Portable Seal",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3569"
+    },
+    {
+      "type": "Equipment",
+      "name": "Lesser Quartz-Coil Rail Transport",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3570"
+    },
+    {
+      "type": "Equipment",
+      "name": "Lesser Tangibility Resonator",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3572"
+    },
+    {
+      "type": "Equipment",
+      "name": "Lesser Vanishing Shocker",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3573"
+    },
+    {
+      "type": "Equipment",
+      "name": "Maelstromic Destabilizer",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3567"
+    },
+    {
+      "type": "Equipment",
+      "name": "Major Aetheric Irritant",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3565"
+    },
+    {
+      "type": "Equipment",
+      "name": "Major Astonishing Ink",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3564"
+    },
+    {
+      "type": "Equipment",
+      "name": "Major Bloodstone Doll",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3574"
+    },
+    {
+      "type": "Equipment",
+      "name": "Major Maelstromic Destabilizer",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3567"
+    },
+    {
+      "type": "Equipment",
+      "name": "Major Portable Seal",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3569"
+    },
+    {
+      "type": "Equipment",
+      "name": "Major Quartz-Coil Rail Transport",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3570"
+    },
+    {
+      "type": "Equipment",
+      "name": "Major Tangibility Resonator",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3572"
+    },
+    {
+      "type": "Equipment",
+      "name": "Major Vanishing Shocker",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3573"
+    },
+    {
+      "type": "Equipment",
+      "name": "Minor Astonishing Ink",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3564"
+    },
+    {
+      "type": "Equipment",
+      "name": "Minor Bloodstone Doll",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3574"
+    },
+    {
+      "type": "Equipment",
+      "name": "Mnemonic Feather",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3523"
+    },
+    {
+      "type": "Equipment",
+      "name": "Moderate Aetheric Irritant",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3565"
+    },
+    {
+      "type": "Equipment",
+      "name": "Moderate Astonishing Ink",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3564"
+    },
+    {
+      "type": "Equipment",
+      "name": "Moderate Bloodstone Doll",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3574"
+    },
+    {
+      "type": "Equipment",
+      "name": "Moderate Maelstromic Destabilizer",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3567"
+    },
+    {
+      "type": "Equipment",
+      "name": "Moderate Portable Seal",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3569"
+    },
+    {
+      "type": "Equipment",
+      "name": "Moderate Quartz-Coil Rail Transport",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3570"
+    },
+    {
+      "type": "Equipment",
+      "name": "Moderate Tangibility Resonator",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3572"
+    },
+    {
+      "type": "Equipment",
+      "name": "Moderate Vanishing Shocker",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3573"
+    },
+    {
+      "type": "Equipment",
+      "name": "Monster Suit",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3532"
+    },
+    {
+      "type": "Equipment",
+      "name": "Moritype",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3568"
+    },
+    {
+      "type": "Equipment",
+      "name": "Mounted Inspiring Spotlight",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3531"
+    },
+    {
+      "type": "Equipment",
+      "name": "Mutator Onyx",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3576"
+    },
+    {
+      "type": "Equipment",
+      "name": "Oathlamp of Accord",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3575"
+    },
+    {
+      "type": "Equipment",
+      "name": "One-Hour Flower",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3518"
+    },
+    {
+      "type": "Equipment",
+      "name": "Perfection's First Step",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3562"
+    },
+    {
+      "type": "Equipment",
+      "name": "Portable Inspiring Spotlight",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3531"
+    },
+    {
+      "type": "Equipment",
+      "name": "Portable Seal",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3569"
+    },
+    {
+      "type": "Equipment",
+      "name": "Prankster's Perpetual Pieplate",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3577"
+    },
+    {
+      "type": "Equipment",
+      "name": "Prismatic Dust",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3533"
+    },
+    {
+      "type": "Equipment",
+      "name": "Pusk Bone Tiles",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3581"
+    },
+    {
+      "type": "Equipment",
+      "name": "Quartz-Coil Rail Transport",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3570"
+    },
+    {
+      "type": "Equipment",
+      "name": "Seed Pod of Rooted Wisdom",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3539"
+    },
+    {
+      "type": "Equipment",
+      "name": "Seraptis Bone Tiles",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3581"
+    },
+    {
+      "type": "Equipment",
+      "name": "Shaping Sweet",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3522"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spark Wafer",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3534"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spiced Demonade",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3519"
+    },
+    {
+      "type": "Equipment",
+      "name": "Static-Muscular Relay",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3571"
+    },
+    {
+      "type": "Equipment",
+      "name": "Talented Tap Shoes",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3535"
+    },
+    {
+      "type": "Equipment",
+      "name": "Tangibility Resonator",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3572"
+    },
+    {
+      "type": "Equipment",
+      "name": "Theater Enhancers",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3525"
+    },
+    {
+      "type": "Equipment",
+      "name": "Three-Pillared Yang Na",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3580"
+    },
+    {
+      "type": "Equipment",
+      "name": "Twig of Knowledge and Memory",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3538"
+    },
+    {
+      "type": "Equipment",
+      "name": "Uzunjati Storytelling Amulet",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3560"
+    },
+    {
+      "type": "Equipment",
+      "name": "Vanishing Shocker",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3573"
+    },
+    {
+      "type": "Equipment",
+      "name": "Vocal Shells",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3526"
+    },
+    {
+      "type": "Equipment",
+      "name": "Weapon of False Wounds",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3536"
+    },
+    {
+      "type": "Equipment",
+      "name": "Windborne Platform",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3537"
+    },
+    {
+      "type": "Equipment",
+      "name": "Zarothrask's Contract",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3578"
+    },
+    {
+      "type": "Familiar Abilities",
+      "name": "Gibe (familiar)",
+      "url": "https://2e.aonprd.com/Familiars.aspx?ID=180"
+    },
+    {
+      "type": "Familiar Abilities",
+      "name": "Ink Spray (familiar)",
+      "url": "https://2e.aonprd.com/Familiars.aspx?ID=179"
+    },
+    {
+      "type": "Familiar Abilities",
+      "name": "Stylus Claws (familiar)",
+      "url": "https://2e.aonprd.com/Familiars.aspx?ID=186"
+    },
+    {
+      "type": "Feats",
+      "name": "A Miracle of Science!",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7481"
+    },
+    {
+      "type": "Feats",
+      "name": "Aeon Resonance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7484"
+    },
+    {
+      "type": "Feats",
+      "name": "Animal Actor",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7457"
+    },
+    {
+      "type": "Feats",
+      "name": "Artery Map",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7475"
+    },
+    {
+      "type": "Feats",
+      "name": "Beautiful Knifework",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7477"
+    },
+    {
+      "type": "Feats",
+      "name": "Behold My Creation!",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7478"
+    },
+    {
+      "type": "Feats",
+      "name": "Bleak Humorist",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7463"
+    },
+    {
+      "type": "Feats",
+      "name": "Campfire Chronicler Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7438"
+    },
+    {
+      "type": "Feats",
+      "name": "Clean Take",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7459"
+    },
+    {
+      "type": "Feats",
+      "name": "Convergent Tides",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7466"
+    },
+    {
+      "type": "Feats",
+      "name": "Cozy Campfire",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7442"
+    },
+    {
+      "type": "Feats",
+      "name": "Crosscurrent Counter",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7469"
+    },
+    {
+      "type": "Feats",
+      "name": "Culvert's Collapse",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7498"
+    },
+    {
+      "type": "Feats",
+      "name": "Divert Streamflow",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7496"
+    },
+    {
+      "type": "Feats",
+      "name": "Embed Aeon Stone",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7483"
+    },
+    {
+      "type": "Feats",
+      "name": "Flickering Stories",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7444"
+    },
+    {
+      "type": "Feats",
+      "name": "Flood Stance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7492"
+    },
+    {
+      "type": "Feats",
+      "name": "Heaven's Step Offense",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7458"
+    },
+    {
+      "type": "Feats",
+      "name": "Illuminating Stories",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7443"
+    },
+    {
+      "type": "Feats",
+      "name": "In Lightning, Life",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7473"
+    },
+    {
+      "type": "Feats",
+      "name": "Kitharodian Actor Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7456"
+    },
+    {
+      "type": "Feats",
+      "name": "Lepidstadt Surgeon Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7472"
+    },
+    {
+      "type": "Feats",
+      "name": "Lessons of Flux",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7502"
+    },
+    {
+      "type": "Feats",
+      "name": "Let my Creature Live!",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7476"
+    },
+    {
+      "type": "Feats",
+      "name": "Listener's Boon",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7440"
+    },
+    {
+      "type": "Feats",
+      "name": "Maelstrom Flow",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7471"
+    },
+    {
+      "type": "Feats",
+      "name": "Monumental Maestro",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7460"
+    },
+    {
+      "type": "Feats",
+      "name": "Of Lions and Wyrms",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7464"
+    },
+    {
+      "type": "Feats",
+      "name": "Orichalcum Bond",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7489"
+    },
+    {
+      "type": "Feats",
+      "name": "Ouroboric Pact",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7448"
+    },
+    {
+      "type": "Feats",
+      "name": "Pact of Huldra's Renewal",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7447"
+    },
+    {
+      "type": "Feats",
+      "name": "Pact of the Crossroads",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7450"
+    },
+    {
+      "type": "Feats",
+      "name": "Pact of the Death Hunter",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7451"
+    },
+    {
+      "type": "Feats",
+      "name": "Pact of the Fey Paths",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7452"
+    },
+    {
+      "type": "Feats",
+      "name": "Pact of the Living Pact",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7454"
+    },
+    {
+      "type": "Feats",
+      "name": "Pact of the Nightblossom",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7449"
+    },
+    {
+      "type": "Feats",
+      "name": "Pact of the Rune Dragon",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7453"
+    },
+    {
+      "type": "Feats",
+      "name": "Performer's Treatment",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7491"
+    },
+    {
+      "type": "Feats",
+      "name": "Raging Stories",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7441"
+    },
+    {
+      "type": "Feats",
+      "name": "Reflective Ripple Stance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7493"
+    },
+    {
+      "type": "Feats",
+      "name": "Rippling Spin",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7499"
+    },
+    {
+      "type": "Feats",
+      "name": "Rise, My Creature!",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7474"
+    },
+    {
+      "type": "Feats",
+      "name": "Rod of Rule",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7485"
+    },
+    {
+      "type": "Feats",
+      "name": "Runelord Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7482"
+    },
+    {
+      "type": "Feats",
+      "name": "Ruthless Orator",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7465"
+    },
+    {
+      "type": "Feats",
+      "name": "Shattering Spellstrike",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7467"
+    },
+    {
+      "type": "Feats",
+      "name": "Sin Counterspell",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7488"
+    },
+    {
+      "type": "Feats",
+      "name": "Sin Reservoir",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7487"
+    },
+    {
+      "type": "Feats",
+      "name": "Sinbladed Spell",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7486"
+    },
+    {
+      "type": "Feats",
+      "name": "Snakebird's Shadow",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7500"
+    },
+    {
+      "type": "Feats",
+      "name": "Stand Back, I'm a Doctor!",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7480"
+    },
+    {
+      "type": "Feats",
+      "name": "Stasian Charge",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7479"
+    },
+    {
+      "type": "Feats",
+      "name": "Stories of Home",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7446"
+    },
+    {
+      "type": "Feats",
+      "name": "Student of Water",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7494"
+    },
+    {
+      "type": "Feats",
+      "name": "Stunt Performer Stance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7461"
+    },
+    {
+      "type": "Feats",
+      "name": "Surface Tension",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7468"
+    },
+    {
+      "type": "Feats",
+      "name": "Sympathetic Portrayal",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7462"
+    },
+    {
+      "type": "Feats",
+      "name": "Talent Envy",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7455"
+    },
+    {
+      "type": "Feats",
+      "name": "Tales of the Road",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7445"
+    },
+    {
+      "type": "Feats",
+      "name": "The Dead Tell Tales",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7439"
+    },
+    {
+      "type": "Feats",
+      "name": "Tributary Circulation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7497"
+    },
+    {
+      "type": "Feats",
+      "name": "Wake to Strife",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7501"
+    },
+    {
+      "type": "Feats",
+      "name": "Waterfowl Stance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7495"
+    },
+    {
+      "type": "Feats",
+      "name": "Wave Dashes Rocks",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7503"
+    },
+    {
+      "type": "Feats",
+      "name": "Wave Spiral",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7504"
+    },
+    {
+      "type": "Feats",
+      "name": "Whirlpool's Pull",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7470"
+    },
+    {
+      "type": "Hybrid Studies",
+      "name": "Resurgent Maelstrom",
+      "url": "https://2e.aonprd.com/HybridStudies.aspx?ID=9"
+    },
+    {
+      "type": "Lessons",
+      "name": "Lesson of Memory",
+      "url": "https://2e.aonprd.com/Lessons.aspx?ID=31"
+    },
+    {
+      "type": "Lessons",
+      "name": "Lesson of Vows",
+      "url": "https://2e.aonprd.com/Lessons.aspx?ID=32"
+    },
+    {
+      "type": "Patron Themes",
+      "name": "Cobyslarni",
+      "url": "https://2e.aonprd.com/Patrons.aspx?ID=23"
+    },
+    {
+      "type": "Rituals",
+      "name": "Retreat Among the Rains",
+      "url": "https://2e.aonprd.com/Rituals.aspx?ID=201"
+    },
+    {
+      "type": "Spells",
+      "name": "All-Encompassing Hunger",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2318"
+    },
+    {
+      "type": "Spells",
+      "name": "Annunciation of the Outer Gate",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2334"
+    },
+    {
+      "type": "Spells",
+      "name": "Beseech the Sphinx",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2314"
+    },
+    {
+      "type": "Spells",
+      "name": "Bridge of Vines",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2294"
+    },
+    {
+      "type": "Spells",
+      "name": "Buzzing Servants",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2315"
+    },
+    {
+      "type": "Spells",
+      "name": "Call the Ten",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2304"
+    },
+    {
+      "type": "Spells",
+      "name": "Censure Falsehoods",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2302"
+    },
+    {
+      "type": "Spells",
+      "name": "Chrysopoetic Curse",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2326"
+    },
+    {
+      "type": "Spells",
+      "name": "Coiling Dance",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2316"
+    },
+    {
+      "type": "Spells",
+      "name": "Crescent Scepter",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2319"
+    },
+    {
+      "type": "Spells",
+      "name": "Cutting Eye",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2320"
+    },
+    {
+      "type": "Spells",
+      "name": "Devouring Void",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2327"
+    },
+    {
+      "type": "Spells",
+      "name": "Disruptive Transfer",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2317"
+    },
+    {
+      "type": "Spells",
+      "name": "Domora's Defense",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2305"
+    },
+    {
+      "type": "Spells",
+      "name": "Grasping Vine",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2292"
+    },
+    {
+      "type": "Spells",
+      "name": "Halcyon Mists",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2303"
+    },
+    {
+      "type": "Spells",
+      "name": "Heart's Hook",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2321"
+    },
+    {
+      "type": "Spells",
+      "name": "Ibex's Harvest",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2307"
+    },
+    {
+      "type": "Spells",
+      "name": "Indolent Haze",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2328"
+    },
+    {
+      "type": "Spells",
+      "name": "Information Overload",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2300"
+    },
+    {
+      "type": "Spells",
+      "name": "Kgalaserke's Axes",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2308"
+    },
+    {
+      "type": "Spells",
+      "name": "Love's Sacrifice",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2329"
+    },
+    {
+      "type": "Spells",
+      "name": "Mental Map",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2295"
+    },
+    {
+      "type": "Spells",
+      "name": "Mimic Spell",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2298"
+    },
+    {
+      "type": "Spells",
+      "name": "Overwhelming Memory",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2296"
+    },
+    {
+      "type": "Spells",
+      "name": "Personal Runewell",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2325"
+    },
+    {
+      "type": "Spells",
+      "name": "Pocket Library",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2291"
+    },
+    {
+      "type": "Spells",
+      "name": "Precious Gleam",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2322"
+    },
+    {
+      "type": "Spells",
+      "name": "Ranage's Circle",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2310"
+    },
+    {
+      "type": "Spells",
+      "name": "Recall Legacy",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2299"
+    },
+    {
+      "type": "Spells",
+      "name": "Reclined Apport",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2323"
+    },
+    {
+      "type": "Spells",
+      "name": "Restore Ground",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2297"
+    },
+    {
+      "type": "Spells",
+      "name": "The Four Hunters",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2306"
+    },
+    {
+      "type": "Spells",
+      "name": "The Parrot's Whisper",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2309"
+    },
+    {
+      "type": "Spells",
+      "name": "The Queen's Rainbow",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2332"
+    },
+    {
+      "type": "Spells",
+      "name": "Thief of Fortune",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2330"
+    },
+    {
+      "type": "Spells",
+      "name": "Threefold Limb",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2312"
+    },
+    {
+      "type": "Spells",
+      "name": "Turbulent Tide",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2311"
+    },
+    {
+      "type": "Spells",
+      "name": "Unbroken Panoply",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2313"
+    },
+    {
+      "type": "Spells",
+      "name": "Unravel Knowledge",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2301"
+    },
+    {
+      "type": "Spells",
+      "name": "Unsettling Knowledge",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2293"
+    },
+    {
+      "type": "Spells",
+      "name": "Vengeful Glare",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2324"
+    }
+  ]
+}

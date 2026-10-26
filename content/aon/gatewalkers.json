@@ -1,0 +1,675 @@
+{
+  "etag": "\"4c46b49fd6034057a6f19d08e14981a0\"",
+  "entries": [
+    {
+      "type": "Archetypes",
+      "name": "Oatia Skysage",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=335"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Scions of Domora",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=336"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Twilight Speaker",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=337"
+    },
+    {
+      "type": "Curses",
+      "name": "Blackfrost",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=96"
+    },
+    {
+      "type": "Curses",
+      "name": "Moon Hag's Eye",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=97"
+    },
+    {
+      "type": "Curses",
+      "name": "Obnubilate Curse",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=95"
+    },
+    {
+      "type": "Equipment",
+      "name": "Aether Marbles",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4032"
+    },
+    {
+      "type": "Equipment",
+      "name": "Astrolabe",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4027"
+    },
+    {
+      "type": "Equipment",
+      "name": "Astrolabe of Falling Stars",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4028"
+    },
+    {
+      "type": "Equipment",
+      "name": "Bioluminescence Bomb",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4022"
+    },
+    {
+      "type": "Equipment",
+      "name": "Bottled Omen",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4025"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cloak of Devouring Thorns",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4023"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cloak of Gnawing Leaves",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4023"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cloak of Thirsty Fronds",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4023"
+    },
+    {
+      "type": "Equipment",
+      "name": "Draft of Stellar Radiance",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4026"
+    },
+    {
+      "type": "Equipment",
+      "name": "Greater Aether Marbles",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4032"
+    },
+    {
+      "type": "Equipment",
+      "name": "Greater Pickled Demon Tongue",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4030"
+    },
+    {
+      "type": "Equipment",
+      "name": "Greater Polished Demon Horn",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4031"
+    },
+    {
+      "type": "Equipment",
+      "name": "Greater Stalk Goggles",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4024"
+    },
+    {
+      "type": "Equipment",
+      "name": "Ice Forge",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4037"
+    },
+    {
+      "type": "Equipment",
+      "name": "Lesser Aether Marbles",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4032"
+    },
+    {
+      "type": "Equipment",
+      "name": "Major Pickled Demon Tongue",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4030"
+    },
+    {
+      "type": "Equipment",
+      "name": "Major Polished Demon Horn",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4031"
+    },
+    {
+      "type": "Equipment",
+      "name": "Major Stalk Goggles",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4024"
+    },
+    {
+      "type": "Equipment",
+      "name": "Mariner's Astrolabe",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4027"
+    },
+    {
+      "type": "Equipment",
+      "name": "Mindsponge",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4036"
+    },
+    {
+      "type": "Equipment",
+      "name": "Moderate Aether Marbles",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4032"
+    },
+    {
+      "type": "Equipment",
+      "name": "Oil of Corpse Restoration",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4038"
+    },
+    {
+      "type": "Equipment",
+      "name": "Pickled Demon Tongue",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4030"
+    },
+    {
+      "type": "Equipment",
+      "name": "Polished Demon Horn",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4031"
+    },
+    {
+      "type": "Equipment",
+      "name": "Psychic Colors Elixir",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4034"
+    },
+    {
+      "type": "Equipment",
+      "name": "Rime Jar",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4039"
+    },
+    {
+      "type": "Equipment",
+      "name": "Shadewither Key",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4021"
+    },
+    {
+      "type": "Equipment",
+      "name": "Stalk Goggles",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4024"
+    },
+    {
+      "type": "Equipment",
+      "name": "Standard Astrolabe",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4027"
+    },
+    {
+      "type": "Equipment",
+      "name": "Star of Cynosure",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4040"
+    },
+    {
+      "type": "Equipment",
+      "name": "Stargazer's Spyglass",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4029"
+    },
+    {
+      "type": "Equipment",
+      "name": "Telekinetic Converters",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4033"
+    },
+    {
+      "type": "Equipment",
+      "name": "Vat-Grown Brain",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4035"
+    },
+    {
+      "type": "Familiar Abilities",
+      "name": "Bound to Mortal (familiar)",
+      "url": "https://2e.aonprd.com/Familiars.aspx?ID=188"
+    },
+    {
+      "type": "Familiar Abilities",
+      "name": "Spiritual Recall (familiar)",
+      "url": "https://2e.aonprd.com/Familiars.aspx?ID=187"
+    },
+    {
+      "type": "Feats",
+      "name": "Basic Skysage Divination",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8113"
+    },
+    {
+      "type": "Feats",
+      "name": "Betraying Shank",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8135"
+    },
+    {
+      "type": "Feats",
+      "name": "Disarming Smile",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8134"
+    },
+    {
+      "type": "Feats",
+      "name": "Empathetic Envoy",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8133"
+    },
+    {
+      "type": "Feats",
+      "name": "Emphatic Emissary",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8138"
+    },
+    {
+      "type": "Feats",
+      "name": "Expert Skysage Divination",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8119"
+    },
+    {
+      "type": "Feats",
+      "name": "Guardian's Embrace",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8127"
+    },
+    {
+      "type": "Feats",
+      "name": "Guided Skill",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8126"
+    },
+    {
+      "type": "Feats",
+      "name": "Ilverani Purist",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8136"
+    },
+    {
+      "type": "Feats",
+      "name": "Invigorating Breath",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8128"
+    },
+    {
+      "type": "Feats",
+      "name": "Master Skysage Divination",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8123"
+    },
+    {
+      "type": "Feats",
+      "name": "Minor Omen",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8116"
+    },
+    {
+      "type": "Feats",
+      "name": "Night's Glow",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8115"
+    },
+    {
+      "type": "Feats",
+      "name": "Night's Shine",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8120"
+    },
+    {
+      "type": "Feats",
+      "name": "Night's Warning",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8121"
+    },
+    {
+      "type": "Feats",
+      "name": "Oatia Skysage Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8112"
+    },
+    {
+      "type": "Feats",
+      "name": "Scholar's Hunch",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8117"
+    },
+    {
+      "type": "Feats",
+      "name": "Scion of Domora Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8124"
+    },
+    {
+      "type": "Feats",
+      "name": "Spirit Guide Form",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8131"
+    },
+    {
+      "type": "Feats",
+      "name": "Spiritual Aid",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8130"
+    },
+    {
+      "type": "Feats",
+      "name": "Spiritual Flurry",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8129"
+    },
+    {
+      "type": "Feats",
+      "name": "Spiritual Strike",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8125"
+    },
+    {
+      "type": "Feats",
+      "name": "Stargazer's Eyes",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8114"
+    },
+    {
+      "type": "Feats",
+      "name": "Starlight Armor",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8122"
+    },
+    {
+      "type": "Feats",
+      "name": "Starlit Spells",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8118"
+    },
+    {
+      "type": "Feats",
+      "name": "Twilight Speaker Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8132"
+    },
+    {
+      "type": "Feats",
+      "name": "World-Wise Vigilance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=8137"
+    },
+    {
+      "type": "Hazards",
+      "name": "Blooming Jijioa",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=587"
+    },
+    {
+      "type": "Hazards",
+      "name": "Cordon Alarm",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=588"
+    },
+    {
+      "type": "Hazards",
+      "name": "Corpse Disposal",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=594"
+    },
+    {
+      "type": "Hazards",
+      "name": "Dream-Poisoned Doors",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=610"
+    },
+    {
+      "type": "Hazards",
+      "name": "Etward's Nightmare",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=609"
+    },
+    {
+      "type": "Hazards",
+      "name": "Exploding Stove",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=590"
+    },
+    {
+      "type": "Hazards",
+      "name": "Falling Bridge",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=593"
+    },
+    {
+      "type": "Hazards",
+      "name": "Formian Sting Trench",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=584"
+    },
+    {
+      "type": "Hazards",
+      "name": "Freezing Floor",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=605"
+    },
+    {
+      "type": "Hazards",
+      "name": "Haunted Aiudara",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=586"
+    },
+    {
+      "type": "Hazards",
+      "name": "Memory of Osoyo",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=603"
+    },
+    {
+      "type": "Hazards",
+      "name": "Mindhammer Mushrooms",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=597"
+    },
+    {
+      "type": "Hazards",
+      "name": "Poisonous Atmosphere",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=600"
+    },
+    {
+      "type": "Hazards",
+      "name": "Reservoir Trap",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=592"
+    },
+    {
+      "type": "Hazards",
+      "name": "Rushing Wind",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=601"
+    },
+    {
+      "type": "Hazards",
+      "name": "Sacred Geyser",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=599"
+    },
+    {
+      "type": "Hazards",
+      "name": "Scholar's Bane",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=598"
+    },
+    {
+      "type": "Hazards",
+      "name": "Shadow Guards",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=595"
+    },
+    {
+      "type": "Hazards",
+      "name": "Shadowshift Field",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=589"
+    },
+    {
+      "type": "Hazards",
+      "name": "Shroud of Silence",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=602"
+    },
+    {
+      "type": "Hazards",
+      "name": "Soporific Lecture",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=608"
+    },
+    {
+      "type": "Hazards",
+      "name": "Test of the God Caller",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=607"
+    },
+    {
+      "type": "Hazards",
+      "name": "Toppling Shelves",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=606"
+    },
+    {
+      "type": "Hazards",
+      "name": "Valmar's Pit Trap",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=604"
+    },
+    {
+      "type": "Hazards",
+      "name": "Violet Mister",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=591"
+    },
+    {
+      "type": "Monsters",
+      "name": "Amelekana",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4214"
+    },
+    {
+      "type": "Monsters",
+      "name": "Arctic Bloom",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4215"
+    },
+    {
+      "type": "Monsters",
+      "name": "Blackfrost Prophet",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4217"
+    },
+    {
+      "type": "Monsters",
+      "name": "Blackfrost Zombie",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4216"
+    },
+    {
+      "type": "Monsters",
+      "name": "Capstan Swabbie",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4218"
+    },
+    {
+      "type": "Monsters",
+      "name": "Creeping Evil",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4219"
+    },
+    {
+      "type": "Monsters",
+      "name": "Crownbound Constellation",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4220"
+    },
+    {
+      "type": "Monsters",
+      "name": "Desa-Desa",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4222"
+    },
+    {
+      "type": "Monsters",
+      "name": "Dreamscraper",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4223"
+    },
+    {
+      "type": "Monsters",
+      "name": "Elder Thing",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4224"
+    },
+    {
+      "type": "Monsters",
+      "name": "Elder Thing Researcher",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4225"
+    },
+    {
+      "type": "Monsters",
+      "name": "Glimmervine",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4226"
+    },
+    {
+      "type": "Monsters",
+      "name": "Gokeki",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4227"
+    },
+    {
+      "type": "Monsters",
+      "name": "Green Monkey",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4237"
+    },
+    {
+      "type": "Monsters",
+      "name": "Immolis",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4230"
+    },
+    {
+      "type": "Monsters",
+      "name": "Kareq",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4231"
+    },
+    {
+      "type": "Monsters",
+      "name": "Kithangian",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4221"
+    },
+    {
+      "type": "Monsters",
+      "name": "Kvernknurr",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4232"
+    },
+    {
+      "type": "Monsters",
+      "name": "Mindmoppet",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4233"
+    },
+    {
+      "type": "Monsters",
+      "name": "Myroga",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4234"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ocluai",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4229"
+    },
+    {
+      "type": "Monsters",
+      "name": "Skin Beetle",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4235"
+    },
+    {
+      "type": "Monsters",
+      "name": "Skin Beetle Swarm",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4236"
+    },
+    {
+      "type": "Monsters",
+      "name": "Stone-Breasted Owl",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4238"
+    },
+    {
+      "type": "Monsters",
+      "name": "Temagyr",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4228"
+    },
+    {
+      "type": "NPCs",
+      "name": "Ainamuuren (Corrupted)",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4239"
+    },
+    {
+      "type": "NPCs",
+      "name": "Bolan Nogasso",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4240"
+    },
+    {
+      "type": "NPCs",
+      "name": "Deniigi",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4244"
+    },
+    {
+      "type": "NPCs",
+      "name": "Etward Ritalson",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4241"
+    },
+    {
+      "type": "NPCs",
+      "name": "Innumma",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4245"
+    },
+    {
+      "type": "NPCs",
+      "name": "Kaneepo The Slim",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4242"
+    },
+    {
+      "type": "NPCs",
+      "name": "Leiko",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4249"
+    },
+    {
+      "type": "NPCs",
+      "name": "Sakuachi",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4243"
+    },
+    {
+      "type": "NPCs",
+      "name": "Ulikuq",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4246"
+    },
+    {
+      "type": "Rituals",
+      "name": "Phantom Ship",
+      "url": "https://2e.aonprd.com/Rituals.aspx?ID=220"
+    },
+    {
+      "type": "Setting Articles",
+      "name": "Adventures on Castrovel",
+      "url": "https://2e.aonprd.com/Articles.aspx?ID=73"
+    },
+    {
+      "type": "Setting Articles",
+      "name": "The Lake",
+      "url": "https://2e.aonprd.com/Articles.aspx?ID=74"
+    },
+    {
+      "type": "Spells",
+      "name": "Advanced Scurvy",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2534"
+    },
+    {
+      "type": "Spells",
+      "name": "Briny Bolt",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2535"
+    },
+    {
+      "type": "Spells",
+      "name": "Lashing Rope",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2536"
+    },
+    {
+      "type": "Spells",
+      "name": "Lashunta's Life Bubble",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2533"
+    }
+  ]
+}

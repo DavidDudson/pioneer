@@ -1,0 +1,74 @@
+{
+  "background:archaeologist": {
+    "book": "clockwork-mystery",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=668"
+  },
+  "background:archival-assistant": {
+    "book": "clockwork-mystery",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=653"
+  },
+  "background:azlanti-researcher": {
+    "book": "clockwork-mystery",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=654"
+  },
+  "background:battles-spark": {
+    "book": "clockwork-mystery",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=657"
+  },
+  "background:boundless-wonder": {
+    "book": "clockwork-mystery",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=658"
+  },
+  "background:clockwork-wonder": {
+    "book": "clockwork-mystery",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=655"
+  },
+  "background:envoys-alliance": {
+    "book": "clockwork-mystery",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=661"
+  },
+  "background:grand-archive": {
+    "book": "clockwork-mystery",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=662"
+  },
+  "background:horizon-hunters": {
+    "book": "clockwork-mystery",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=663"
+  },
+  "background:immortal-influence": {
+    "book": "clockwork-mystery",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=659"
+  },
+  "background:pathfinder-recruiter": {
+    "book": "clockwork-mystery",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=669"
+  },
+  "background:radiant-oath": {
+    "book": "clockwork-mystery",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=664"
+  },
+  "background:spell-seeker": {
+    "book": "clockwork-mystery",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=670"
+  },
+  "background:trailblazer": {
+    "book": "clockwork-mystery",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=671"
+  },
+  "background:translator": {
+    "book": "clockwork-mystery",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=672"
+  },
+  "background:unfettered-exploration": {
+    "book": "clockwork-mystery",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=660"
+  },
+  "background:verdant-wheel": {
+    "book": "clockwork-mystery",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=665"
+  },
+  "background:vigilant-seal": {
+    "book": "clockwork-mystery",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=667"
+  }
+}

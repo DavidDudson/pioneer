@@ -1,0 +1,6630 @@
+{
+  "archetype:bard": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=211"
+  },
+  "archetype:cleric": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=212"
+  },
+  "archetype:druid": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=213"
+  },
+  "archetype:fighter": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=214"
+  },
+  "archetype:ranger": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=215"
+  },
+  "archetype:rogue": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=216"
+  },
+  "archetype:witch": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=217"
+  },
+  "archetype:wizard": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=218"
+  },
+  "armor:breastplate": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Armor.aspx?ID=47"
+  },
+  "armor:chain-mail": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Armor.aspx?ID=46"
+  },
+  "armor:chain-shirt": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Armor.aspx?ID=43"
+  },
+  "armor:explorers-clothing": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Armor.aspx?ID=39"
+  },
+  "armor:full-plate": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Armor.aspx?ID=50"
+  },
+  "armor:half-plate": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Armor.aspx?ID=49"
+  },
+  "armor:hide-armor": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Armor.aspx?ID=44"
+  },
+  "armor:leather-armor": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Armor.aspx?ID=41"
+  },
+  "armor:padded-armor": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Armor.aspx?ID=40"
+  },
+  "armor:scale-mail": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Armor.aspx?ID=45"
+  },
+  "armor:splint-mail": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Armor.aspx?ID=48"
+  },
+  "armor:studded-leather-armor": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Armor.aspx?ID=42"
+  },
+  "background:acolyte": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=406"
+  },
+  "background:acrobat": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=407"
+  },
+  "background:animal-whisperer": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=408"
+  },
+  "background:artisan": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=409"
+  },
+  "background:artist": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=410"
+  },
+  "background:bandit": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=411"
+  },
+  "background:barkeep": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=412"
+  },
+  "background:barrister": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=413"
+  },
+  "background:bounty-hunter": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=414"
+  },
+  "background:charlatan": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=415"
+  },
+  "background:cook": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=416"
+  },
+  "background:criminal": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=417"
+  },
+  "background:cultist": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=418"
+  },
+  "background:detective": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=419"
+  },
+  "background:emissary": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=420"
+  },
+  "background:entertainer": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=421"
+  },
+  "background:farmhand": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=422"
+  },
+  "background:field-medic": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=423"
+  },
+  "background:fortune-teller": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=424"
+  },
+  "background:gambler": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=425"
+  },
+  "background:gladiator": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=426"
+  },
+  "background:guard": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=427"
+  },
+  "background:herbalist": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=428"
+  },
+  "background:hermit": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=429"
+  },
+  "background:hunter": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=430"
+  },
+  "background:laborer": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=431"
+  },
+  "background:martial-disciple": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=432"
+  },
+  "background:merchant": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=433"
+  },
+  "background:miner": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=434"
+  },
+  "background:noble": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=435"
+  },
+  "background:nomad": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=436"
+  },
+  "background:prisoner": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=437"
+  },
+  "background:raised-by-belief": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=438"
+  },
+  "background:sailor": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=439"
+  },
+  "background:scholar": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=440"
+  },
+  "background:scout": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=441"
+  },
+  "background:street-urchin": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=442"
+  },
+  "background:teacher": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=443"
+  },
+  "background:tinker": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=444"
+  },
+  "background:warrior": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=445"
+  },
+  "class:bard": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Classes.aspx?ID=32"
+  },
+  "class:cleric": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Classes.aspx?ID=33"
+  },
+  "class:druid": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Classes.aspx?ID=34"
+  },
+  "class:fighter": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Classes.aspx?ID=35"
+  },
+  "class:ranger": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Classes.aspx?ID=36"
+  },
+  "class:rogue": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Classes.aspx?ID=37"
+  },
+  "class:witch": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Classes.aspx?ID=38"
+  },
+  "class:wizard": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Classes.aspx?ID=39"
+  },
+  "condition:blinded": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Conditions.aspx?ID=59"
+  },
+  "condition:broken": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Conditions.aspx?ID=60"
+  },
+  "condition:clumsy": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Conditions.aspx?ID=61"
+  },
+  "condition:concealed": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Conditions.aspx?ID=62"
+  },
+  "condition:confused": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Conditions.aspx?ID=63"
+  },
+  "condition:controlled": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Conditions.aspx?ID=64"
+  },
+  "condition:dazzled": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Conditions.aspx?ID=65"
+  },
+  "condition:deafened": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Conditions.aspx?ID=66"
+  },
+  "condition:doomed": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Conditions.aspx?ID=67"
+  },
+  "condition:drained": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Conditions.aspx?ID=68"
+  },
+  "condition:dying": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Conditions.aspx?ID=69"
+  },
+  "condition:encumbered": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Conditions.aspx?ID=70"
+  },
+  "condition:enfeebled": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Conditions.aspx?ID=71"
+  },
+  "condition:fascinated": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Conditions.aspx?ID=72"
+  },
+  "condition:fatigued": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Conditions.aspx?ID=73"
+  },
+  "condition:fleeing": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Conditions.aspx?ID=74"
+  },
+  "condition:friendly": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Conditions.aspx?ID=75"
+  },
+  "condition:frightened": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Conditions.aspx?ID=76"
+  },
+  "condition:grabbed": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Conditions.aspx?ID=77"
+  },
+  "condition:helpful": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Conditions.aspx?ID=78"
+  },
+  "condition:hidden": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Conditions.aspx?ID=79"
+  },
+  "condition:hostile": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Conditions.aspx?ID=80"
+  },
+  "condition:immobilized": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Conditions.aspx?ID=81"
+  },
+  "condition:indifferent": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Conditions.aspx?ID=82"
+  },
+  "condition:invisible": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Conditions.aspx?ID=83"
+  },
+  "condition:observed": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Conditions.aspx?ID=84"
+  },
+  "condition:off-guard": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Conditions.aspx?ID=58"
+  },
+  "condition:paralyzed": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Conditions.aspx?ID=85"
+  },
+  "condition:persistent-damage": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Conditions.aspx?ID=86"
+  },
+  "condition:petrified": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Conditions.aspx?ID=87"
+  },
+  "condition:prone": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Conditions.aspx?ID=88"
+  },
+  "condition:quickened": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Conditions.aspx?ID=89"
+  },
+  "condition:restrained": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Conditions.aspx?ID=90"
+  },
+  "condition:sickened": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Conditions.aspx?ID=91"
+  },
+  "condition:slowed": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Conditions.aspx?ID=92"
+  },
+  "condition:stunned": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Conditions.aspx?ID=93"
+  },
+  "condition:stupefied": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Conditions.aspx?ID=94"
+  },
+  "condition:unconscious": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Conditions.aspx?ID=95"
+  },
+  "condition:undetected": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Conditions.aspx?ID=96"
+  },
+  "condition:unfriendly": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Conditions.aspx?ID=97"
+  },
+  "condition:unnoticed": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Conditions.aspx?ID=98"
+  },
+  "condition:wounded": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Conditions.aspx?ID=99"
+  },
+  "consumable:candle": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2709"
+  },
+  "consumable:chalk": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2711"
+  },
+  "consumable:rations": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2744"
+  },
+  "equipment:alchemists-lab": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2701"
+  },
+  "equipment:alchemists-lab-expanded": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2701"
+  },
+  "equipment:alchemists-toolkit": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2702"
+  },
+  "equipment:artisans-toolkit": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2703"
+  },
+  "equipment:artisans-toolkit-sterling": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2703"
+  },
+  "equipment:backpack": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2704"
+  },
+  "equipment:basic-crafters-book": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2705"
+  },
+  "equipment:bedroll": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2706"
+  },
+  "equipment:brass-ear": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2707"
+  },
+  "equipment:caltrops": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2708"
+  },
+  "equipment:cane": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2772"
+  },
+  "equipment:chest": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2712"
+  },
+  "equipment:climbing-kit": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2713"
+  },
+  "equipment:climbing-kit-extreme": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2713"
+  },
+  "equipment:clothing-cold-weather": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2715"
+  },
+  "equipment:clothing-fine": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2715"
+  },
+  "equipment:clothing-high-fashion-fine": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2715"
+  },
+  "equipment:clothing-ordinary": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2715"
+  },
+  "equipment:compass": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2716"
+  },
+  "equipment:compass-lensatic": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2716"
+  },
+  "equipment:concealed-sheath": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2714"
+  },
+  "equipment:cookware": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2717"
+  },
+  "equipment:corrective-lenses": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2773"
+  },
+  "equipment:crowbar": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2718"
+  },
+  "equipment:crowbar-levered": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2718"
+  },
+  "equipment:crutch": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2774"
+  },
+  "equipment:detectives-kit": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2719"
+  },
+  "equipment:disguise-kit": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2720"
+  },
+  "equipment:disguise-kit-elite": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2720"
+  },
+  "equipment:disguise-kit-elite-cosmetics": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2720"
+  },
+  "equipment:disguise-kit-replacement-cosmetics": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2720"
+  },
+  "equipment:dueling-cape": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2721"
+  },
+  "equipment:fishing-tackle": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2722"
+  },
+  "equipment:fishing-tackle-professional": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2722"
+  },
+  "equipment:flint-and-steel": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2723"
+  },
+  "equipment:formula-book-blank": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2724"
+  },
+  "equipment:grappling-hook": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2725"
+  },
+  "equipment:hammer": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2726"
+  },
+  "equipment:healers-toolkit": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2727"
+  },
+  "equipment:healers-toolkit-expanded": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2727"
+  },
+  "equipment:hearing-aid": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2775"
+  },
+  "equipment:hourglass": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2728"
+  },
+  "equipment:lantern-hooded": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2730"
+  },
+  "equipment:lock-average": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2731"
+  },
+  "equipment:lock-good": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2731"
+  },
+  "equipment:lock-poor": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2731"
+  },
+  "equipment:lock-simple": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2731"
+  },
+  "equipment:lock-superior": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2731"
+  },
+  "equipment:magnifying-glass": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2732"
+  },
+  "equipment:manacles-average": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2733"
+  },
+  "equipment:manacles-good": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2733"
+  },
+  "equipment:manacles-poor": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2733"
+  },
+  "equipment:manacles-simple": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2733"
+  },
+  "equipment:manacles-superior": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2733"
+  },
+  "equipment:merchants-scale": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2734"
+  },
+  "equipment:mirror": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2735"
+  },
+  "equipment:mug": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2736"
+  },
+  "equipment:musical-instrument-handheld": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2737"
+  },
+  "equipment:musical-instrument-heavy": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2737"
+  },
+  "equipment:musical-instrument-virtuoso-handheld": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2737"
+  },
+  "equipment:musical-instrument-virtuoso-heavy": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2737"
+  },
+  "equipment:net": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2738"
+  },
+  "equipment:parrying-scabbard": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2740"
+  },
+  "equipment:periscope": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2741"
+  },
+  "equipment:piton": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2742"
+  },
+  "equipment:primal-symbol": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2743"
+  },
+  "equipment:prosthesis": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2776"
+  },
+  "equipment:religious-symbol-silver": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2745"
+  },
+  "equipment:religious-symbol-wooden": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2745"
+  },
+  "equipment:religious-text": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2746"
+  },
+  "equipment:repair-toolkit": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2747"
+  },
+  "equipment:repair-toolkit-superb": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2747"
+  },
+  "equipment:rope": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2748"
+  },
+  "equipment:sack": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2749"
+  },
+  "equipment:saddlebags": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2750"
+  },
+  "equipment:scholarly-journal": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2763"
+  },
+  "equipment:signal-whistle": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2751"
+  },
+  "equipment:soap": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2752"
+  },
+  "equipment:spellbook-blank": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2753"
+  },
+  "equipment:spyglass": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2754"
+  },
+  "equipment:spyglass-fine": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2754"
+  },
+  "equipment:survey-map": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2764"
+  },
+  "equipment:survey-map-atlas": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2764"
+  },
+  "equipment:tack": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2755"
+  },
+  "equipment:ten-foot-pole": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2756"
+  },
+  "equipment:tent-four-person": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2757"
+  },
+  "equipment:tent-pavilion": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2757"
+  },
+  "equipment:tent-pup": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2757"
+  },
+  "equipment:thieves-toolkit": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2758"
+  },
+  "equipment:thieves-toolkit-infiltrator": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2758"
+  },
+  "equipment:thieves-toolkit-infiltrator-picks": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2758"
+  },
+  "equipment:thieves-toolkit-replacement-picks": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2758"
+  },
+  "equipment:tool-long": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2759"
+  },
+  "equipment:tool-short": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2759"
+  },
+  "equipment:torch": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2760"
+  },
+  "equipment:waterskin": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2761"
+  },
+  "equipment:wheelchair": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2777"
+  },
+  "equipment:writing-set": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2762"
+  },
+  "equipment:writing-set-extra-ink-and-paper": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2762"
+  },
+  "feat:accompany": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4603"
+  },
+  "feat:accursed-claws": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4539"
+  },
+  "feat:adapted-cantrip": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4474"
+  },
+  "feat:adaptive-adept": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4481"
+  },
+  "feat:additional-lore": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5114"
+  },
+  "feat:additional-recollection": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4877"
+  },
+  "feat:adopted-ancestry": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5115"
+  },
+  "feat:advanced-arcana": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5110"
+  },
+  "feat:advanced-dogma": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5069"
+  },
+  "feat:advanced-domain": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4666"
+  },
+  "feat:advanced-first-aid": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5116"
+  },
+  "feat:advanced-general-training": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4489"
+  },
+  "feat:advanced-hunters-trick": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5090"
+  },
+  "feat:advanced-maneuver": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5085"
+  },
+  "feat:advanced-muses-whispers": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5060"
+  },
+  "feat:advanced-school-spell": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5036"
+  },
+  "feat:advanced-trickery": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5095"
+  },
+  "feat:advanced-warden": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4870"
+  },
+  "feat:advanced-weapon-training": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4797"
+  },
+  "feat:advanced-wilding": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5077"
+  },
+  "feat:advanced-witchcraft": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5102"
+  },
+  "feat:advantageous-assault": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4798"
+  },
+  "feat:ageless-patience": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4412"
+  },
+  "feat:aggressive-block": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4776"
+  },
+  "feat:agile-grace": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4819"
+  },
+  "feat:alchemical-crafting": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5117"
+  },
+  "feat:all-in-my-head": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4632"
+  },
+  "feat:allegro": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4622"
+  },
+  "feat:analyze-weakness": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4940"
+  },
+  "feat:ancestral-longevity": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4405"
+  },
+  "feat:ancestral-paragon": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5118"
+  },
+  "feat:ancestral-suspicion": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4413"
+  },
+  "feat:anchoring-roots": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4500"
+  },
+  "feat:angelkin": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4542"
+  },
+  "feat:animal-accomplice": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4422"
+  },
+  "feat:animal-companion": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4708"
+  },
+  "feat:animal-elocutionist": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4423"
+  },
+  "feat:animal-empathy-ranger": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4865"
+  },
+  "feat:annotate-composition": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4610"
+  },
+  "feat:anthemic-performance": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5062"
+  },
+  "feat:anthropomorphic-shape": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4720"
+  },
+  "feat:anticipate-ambush": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4941"
+  },
+  "feat:arcane-breadth": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5111"
+  },
+  "feat:arcane-school-spell": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5107"
+  },
+  "feat:arcane-sense": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5119"
+  },
+  "feat:archwizards-might": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5053"
+  },
+  "feat:armor-proficiency": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5120"
+  },
+  "feat:assisting-shot": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4777"
+  },
+  "feat:assurance": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5121"
+  },
+  "feat:assured-knowledge": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4596"
+  },
+  "feat:athletic-might": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4520"
+  },
+  "feat:automatic-knowledge": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5122"
+  },
+  "feat:avatars-audience": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4704"
+  },
+  "feat:avatars-protection": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4705"
+  },
+  "feat:avenge-ally": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4419"
+  },
+  "feat:bard-dedication": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5057"
+  },
+  "feat:bardic-lore": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4573"
+  },
+  "feat:bargain-hunter": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5123"
+  },
+  "feat:bark-and-tendril": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4504"
+  },
+  "feat:barreling-charge": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4787"
+  },
+  "feat:basic-arcana": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5108"
+  },
+  "feat:basic-bard-spellcasting": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5058"
+  },
+  "feat:basic-cleric-spellcasting": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5067"
+  },
+  "feat:basic-dogma": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5068"
+  },
+  "feat:basic-druid-spellcasting": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5074"
+  },
+  "feat:basic-hunters-trick": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5088"
+  },
+  "feat:basic-lesson": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4996"
+  },
+  "feat:basic-maneuver": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5082"
+  },
+  "feat:basic-muses-whispers": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5059"
+  },
+  "feat:basic-trickery": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5093"
+  },
+  "feat:basic-wilding": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5075"
+  },
+  "feat:basic-witch-spellcasting": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5100"
+  },
+  "feat:basic-witchcraft": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5101"
+  },
+  "feat:basic-wizard-spellcasting": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5109"
+  },
+  "feat:battle-cry": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5124"
+  },
+  "feat:battle-medicine": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5125"
+  },
+  "feat:beast-trainer": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4512"
+  },
+  "feat:bestial-manifestation": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4548"
+  },
+  "feat:bizarre-magic": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5126"
+  },
+  "feat:blade-brake": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4778"
+  },
+  "feat:blank-slate": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4979"
+  },
+  "feat:blessed-blood-nephilim": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4553"
+  },
+  "feat:blind-fight": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4809"
+  },
+  "feat:bloody-blows": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4521"
+  },
+  "feat:bloody-debilitation": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4967"
+  },
+  "feat:bond-conservation": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5037"
+  },
+  "feat:bonded-animal": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5127"
+  },
+  "feat:bonded-focus": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5045"
+  },
+  "feat:boulder-roll": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4394"
+  },
+  "feat:bounce-back": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4490"
+  },
+  "feat:boundless-reprisals": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4857"
+  },
+  "feat:break-curse": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5128"
+  },
+  "feat:breath-control": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5129"
+  },
+  "feat:brine-may": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4530"
+  },
+  "feat:brutal-beating": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4923"
+  },
+  "feat:brutal-finish": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4832"
+  },
+  "feat:brutish-shove": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4779"
+  },
+  "feat:bullseye": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4949"
+  },
+  "feat:burn-it": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4438"
+  },
+  "feat:cackle": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4992"
+  },
+  "feat:call-and-response": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4604"
+  },
+  "feat:call-of-the-green-man": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4508"
+  },
+  "feat:call-of-the-wild": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4716"
+  },
+  "feat:call-wizardly-tools": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5029"
+  },
+  "feat:called": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4537"
+  },
+  "feat:callow-may": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4531"
+  },
+  "feat:camouflage": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4887"
+  },
+  "feat:canny-acumen": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5130"
+  },
+  "feat:cantrip-expansion": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4580"
+  },
+  "feat:cast-down": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4661"
+  },
+  "feat:castigating-weapon": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4675"
+  },
+  "feat:cat-fall": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5131"
+  },
+  "feat:cauldron": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4993"
+  },
+  "feat:cautious-curiosity": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4432"
+  },
+  "feat:cave-climber": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4450"
+  },
+  "feat:ceaseless-shadows": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4471"
+  },
+  "feat:celestial-magic": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4558"
+  },
+  "feat:celestial-mercy": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4562"
+  },
+  "feat:ceremonial-knife": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5001"
+  },
+  "feat:certain-strike": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4820"
+  },
+  "feat:changeling-lore": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4534"
+  },
+  "feat:channel-smite": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4655"
+  },
+  "feat:channeling-block": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4686"
+  },
+  "feat:charming-liar": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5132"
+  },
+  "feat:city-scavenger": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4439"
+  },
+  "feat:cleric-dedication": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5066"
+  },
+  "feat:clever-counterspell": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5041"
+  },
+  "feat:clever-gambit": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4924"
+  },
+  "feat:clever-improviser": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4482"
+  },
+  "feat:cling": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4451"
+  },
+  "feat:cloak-of-poison": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4509"
+  },
+  "feat:cloud-jump": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5133"
+  },
+  "feat:cloud-step": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4980"
+  },
+  "feat:cognitive-loophole": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4981"
+  },
+  "feat:combat-assessment": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4768"
+  },
+  "feat:combat-climber": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5134"
+  },
+  "feat:combat-grab": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4780"
+  },
+  "feat:combat-reading": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4588"
+  },
+  "feat:communal-crafting": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5135"
+  },
+  "feat:communal-healing": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4648"
+  },
+  "feat:companions-cry": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4871"
+  },
+  "feat:conceal-spell": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4997"
+  },
+  "feat:confabulator": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5136"
+  },
+  "feat:continual-recovery": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5137"
+  },
+  "feat:convincing-illusion": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5032"
+  },
+  "feat:cooperative-nature": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4475"
+  },
+  "feat:cooperative-soul": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4484"
+  },
+  "feat:counter-perform": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5061"
+  },
+  "feat:courageous-advance": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4589"
+  },
+  "feat:courageous-assault": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4611"
+  },
+  "feat:courageous-onslaught": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4628"
+  },
+  "feat:courtly-graces": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5138"
+  },
+  "feat:coven-spell": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5012"
+  },
+  "feat:craft-anything": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5139"
+  },
+  "feat:crashing-slam": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4821"
+  },
+  "feat:cremate-undead": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4667"
+  },
+  "feat:critical-debilitation": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4968"
+  },
+  "feat:crossbow-ace": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4860"
+  },
+  "feat:cultural-adaptability": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4465"
+  },
+  "feat:current-spell": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4728"
+  },
+  "feat:cut-from-the-air": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4822"
+  },
+  "feat:dance-underfoot": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4467"
+  },
+  "feat:dashing-strike": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4833"
+  },
+  "feat:dazing-blow": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4799"
+  },
+  "feat:deadly-aim": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4883"
+  },
+  "feat:deadly-simplicity": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4642"
+  },
+  "feat:debilitating-shot": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4823"
+  },
+  "feat:deep-lore": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4633"
+  },
+  "feat:defensive-coordination": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4597"
+  },
+  "feat:defensive-recovery": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4680"
+  },
+  "feat:defensive-roll": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4975"
+  },
+  "feat:defy-death": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4522"
+  },
+  "feat:defy-the-darkness": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4395"
+  },
+  "feat:deimatic-display": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4733"
+  },
+  "feat:deitys-protection": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4687"
+  },
+  "feat:delay-trap": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4950"
+  },
+  "feat:desperate-finisher": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4840"
+  },
+  "feat:determination": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4841"
+  },
+  "feat:diehard": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5140"
+  },
+  "feat:directed-audience": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4581"
+  },
+  "feat:directed-channel": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4656"
+  },
+  "feat:dirge-of-doom": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4598"
+  },
+  "feat:disarming-stance": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4800"
+  },
+  "feat:disarming-twist": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4824"
+  },
+  "feat:discordant-voice": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4634"
+  },
+  "feat:disorienting-opening": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4810"
+  },
+  "feat:dispelling-slice": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4982"
+  },
+  "feat:disrupt-prey": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4872"
+  },
+  "feat:disruptive-stance": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4825"
+  },
+  "feat:distracting-feint": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4925"
+  },
+  "feat:distracting-shadows": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4455"
+  },
+  "feat:distracting-shot": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4893"
+  },
+  "feat:diverse-weapon-expert": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5086"
+  },
+  "feat:divine-apex": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4698"
+  },
+  "feat:divine-breadth": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5070"
+  },
+  "feat:divine-castigation": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4643"
+  },
+  "feat:divine-countermeasures": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4559"
+  },
+  "feat:divine-declaration": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4565"
+  },
+  "feat:divine-guidance": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5141"
+  },
+  "feat:divine-infusion": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4657"
+  },
+  "feat:divine-rebuttal": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4662"
+  },
+  "feat:divine-wings": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4560"
+  },
+  "feat:domain-focus": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4681"
+  },
+  "feat:domain-initiate": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4644"
+  },
+  "feat:double-double": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5009"
+  },
+  "feat:double-prey": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4894"
+  },
+  "feat:double-shot": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4788"
+  },
+  "feat:double-slice": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4769"
+  },
+  "feat:dragon-shape": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4749"
+  },
+  "feat:dread-striker": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4930"
+  },
+  "feat:dream-may": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4532"
+  },
+  "feat:druid-dedication": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5073"
+  },
+  "feat:dual-handed-assault": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4789"
+  },
+  "feat:dubious-knowledge": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5142"
+  },
+  "feat:dueling-dance-fighter": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4834"
+  },
+  "feat:dueling-riposte": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4811"
+  },
+  "feat:dwarven-doughtiness": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4387"
+  },
+  "feat:dwarven-lore": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4388"
+  },
+  "feat:dwarven-reinforcement": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4396"
+  },
+  "feat:dwarven-weapon-familiarity": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4389"
+  },
+  "feat:earned-glory": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4567"
+  },
+  "feat:earworm": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4623"
+  },
+  "feat:ebb-and-flow": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4688"
+  },
+  "feat:echoes-in-stone": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4397"
+  },
+  "feat:echoing-channel": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4699"
+  },
+  "feat:eclectic-polymath": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4617"
+  },
+  "feat:eclectic-skill": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4605"
+  },
+  "feat:educate-allies": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4599"
+  },
+  "feat:effortless-concentration": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4629"
+  },
+  "feat:elemental-shape": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4741"
+  },
+  "feat:elemental-summons": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4721"
+  },
+  "feat:elf-atavism": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4568"
+  },
+  "feat:elf-step": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4415"
+  },
+  "feat:elven-lore": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4406"
+  },
+  "feat:elven-weapon-familiarity": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4407"
+  },
+  "feat:emblazon-antimagic": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4682"
+  },
+  "feat:emblazon-armament": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4649"
+  },
+  "feat:emblazon-energy": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4668"
+  },
+  "feat:emotional-push": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4582"
+  },
+  "feat:energized-font": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4430"
+  },
+  "feat:energy-ablation": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5026"
+  },
+  "feat:enhanced-familiar": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4717"
+  },
+  "feat:enigmas-knowledge": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4618"
+  },
+  "feat:esoteric-polymath": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4583"
+  },
+  "feat:eternal-bane": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4693"
+  },
+  "feat:eternal-blessing": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4694"
+  },
+  "feat:eternal-composition": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4635"
+  },
+  "feat:exacting-strike": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4770"
+  },
+  "feat:expeditious-search": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5143"
+  },
+  "feat:experienced-professional": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5144"
+  },
+  "feat:experienced-smuggler": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5145"
+  },
+  "feat:experienced-tracker": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5146"
+  },
+  "feat:expert-bard-spellcasting": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5064"
+  },
+  "feat:expert-cleric-spellcasting": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5071"
+  },
+  "feat:expert-druid-spellcasting": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5079"
+  },
+  "feat:expert-longevity": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4416"
+  },
+  "feat:expert-witch-spellcasting": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5104"
+  },
+  "feat:expert-wizard-spellcasting": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5112"
+  },
+  "feat:explosive-arrival": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5033"
+  },
+  "feat:extraplanar-supplication": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4554"
+  },
+  "feat:familiar": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5024"
+  },
+  "feat:familiars-language": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4998"
+  },
+  "feat:fantastic-leap": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4969"
+  },
+  "feat:far-shot": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4873"
+  },
+  "feat:far-throw": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4942"
+  },
+  "feat:fascinating-performance": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5147"
+  },
+  "feat:fast-channel": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4689"
+  },
+  "feat:fast-recovery": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5148"
+  },
+  "feat:fatal-aria": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4637"
+  },
+  "feat:favored-prey": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4874"
+  },
+  "feat:favored-terrain": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4866"
+  },
+  "feat:fearsome-brute": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4826"
+  },
+  "feat:feather-step": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5149"
+  },
+  "feat:felling-shot": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4970"
+  },
+  "feat:felling-strike": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4812"
+  },
+  "feat:ferocious-beasts": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4527"
+  },
+  "feat:ferocious-shape": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4734"
+  },
+  "feat:fey-caller": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4735"
+  },
+  "feat:fey-fellowship": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4424"
+  },
+  "feat:fiendish-magic": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4561"
+  },
+  "feat:fighter-dedication": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5081"
+  },
+  "feat:fighter-resiliency": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5083"
+  },
+  "feat:first-world-adept": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4433"
+  },
+  "feat:first-world-magic": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4425"
+  },
+  "feat:fleet": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5150"
+  },
+  "feat:flinging-charge": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4827"
+  },
+  "feat:flinging-shove": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4835"
+  },
+  "feat:floral-restoration": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4736"
+  },
+  "feat:flourish-and-ruin": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4510"
+  },
+  "feat:foil-senses": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5151"
+  },
+  "feat:folksy-patter": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4456"
+  },
+  "feat:forager": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5152"
+  },
+  "feat:forcible-energy": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5042"
+  },
+  "feat:forest-passage": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4722"
+  },
+  "feat:forlorn": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4408"
+  },
+  "feat:form-control": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4723"
+  },
+  "feat:form-retention": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5038"
+  },
+  "feat:fortissimo-composition": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4606"
+  },
+  "feat:fortunate-relief": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4683"
+  },
+  "feat:furious-focus": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4801"
+  },
+  "feat:gang-up": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4943"
+  },
+  "feat:garland-spell": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4750"
+  },
+  "feat:general-training": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4476"
+  },
+  "feat:glad-hand": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5153"
+  },
+  "feat:gnome-obsession": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4426"
+  },
+  "feat:gnome-weapon-familiarity": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4427"
+  },
+  "feat:goblin-lore": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4440"
+  },
+  "feat:goblin-scuttle": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4441"
+  },
+  "feat:goblin-song": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4442"
+  },
+  "feat:goblin-weapon-familiarity": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4443"
+  },
+  "feat:graceful-poise": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4848"
+  },
+  "feat:grasping-reach": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4493"
+  },
+  "feat:greater-distracting-shot": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4902"
+  },
+  "feat:greater-lesson": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5002"
+  },
+  "feat:grimspawn": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4543"
+  },
+  "feat:group-aid": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4485"
+  },
+  "feat:group-coercion": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5154"
+  },
+  "feat:group-impression": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5155"
+  },
+  "feat:grown-of-oak": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4729"
+  },
+  "feat:guardians-deflection-fighter": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4802"
+  },
+  "feat:guiding-finish": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4842"
+  },
+  "feat:guiding-luck": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4468"
+  },
+  "feat:guiding-riposte": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4843"
+  },
+  "feat:hag-claws": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4535"
+  },
+  "feat:hag-magic": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4541"
+  },
+  "feat:hags-sight": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4536"
+  },
+  "feat:halfling-lore": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4457"
+  },
+  "feat:halfling-luck": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4458"
+  },
+  "feat:halfling-weapon-familiarity": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4459"
+  },
+  "feat:halo": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4549"
+  },
+  "feat:hardy-traveler": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4486"
+  },
+  "feat:harming-hands": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4645"
+  },
+  "feat:harmlessly-cute": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4494"
+  },
+  "feat:harmonize": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4600"
+  },
+  "feat:haughty-obstinacy": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4477"
+  },
+  "feat:hazard-finder": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4884"
+  },
+  "feat:head-stomp": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4931"
+  },
+  "feat:healing-hands": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4646"
+  },
+  "feat:healing-transformation": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4742"
+  },
+  "feat:hefty-hauler": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5156"
+  },
+  "feat:hellspawn": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4544"
+  },
+  "feat:heroic-presence": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4492"
+  },
+  "feat:heroic-recovery": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4676"
+  },
+  "feat:hex-focus": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5013"
+  },
+  "feat:hex-master": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5021"
+  },
+  "feat:hidden-paragon": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4989"
+  },
+  "feat:hierophants-power": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4765"
+  },
+  "feat:hobnobber": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5157"
+  },
+  "feat:hold-mark": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4517"
+  },
+  "feat:homeward-bound": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4437"
+  },
+  "feat:house-of-imaginary-walls": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4612"
+  },
+  "feat:hunted-shot": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4861"
+  },
+  "feat:hunters-aim": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4867"
+  },
+  "feat:hymn-of-healing": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4574"
+  },
+  "feat:illusion-sense": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4428"
+  },
+  "feat:impaling-briars": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4759"
+  },
+  "feat:impeccable-crafting": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5158"
+  },
+  "feat:implausible-infiltration": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4986"
+  },
+  "feat:implausible-purchase-rogue": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4987"
+  },
+  "feat:impossible-flurry": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4907"
+  },
+  "feat:impossible-polymath": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4636"
+  },
+  "feat:impossible-striker": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4990"
+  },
+  "feat:impossible-volley": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4854"
+  },
+  "feat:impressive-performance": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5159"
+  },
+  "feat:improved-dueling-riposte": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4836"
+  },
+  "feat:improved-poison-weapon": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4951"
+  },
+  "feat:improved-swift-banishment": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4700"
+  },
+  "feat:improved-twin-riposte-fighter": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4844"
+  },
+  "feat:improved-twin-riposte-ranger": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4903"
+  },
+  "feat:in-tune": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4590"
+  },
+  "feat:incredible-aim": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4813"
+  },
+  "feat:incredible-companion-druid": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4737"
+  },
+  "feat:incredible-companion-ranger": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4888"
+  },
+  "feat:incredible-familiar": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5004"
+  },
+  "feat:incredible-ferocity": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4526"
+  },
+  "feat:incredible-improvisation": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4487"
+  },
+  "feat:incredible-initiative": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5160"
+  },
+  "feat:incredible-investiture": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5161"
+  },
+  "feat:incredible-ricochet": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4837"
+  },
+  "feat:infinite-possibilities": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5050"
+  },
+  "feat:initiate-warden": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4862"
+  },
+  "feat:insect-shape": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4730"
+  },
+  "feat:inspirational-focus": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4619"
+  },
+  "feat:inspire-imitation": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4569"
+  },
+  "feat:inspired-stratagem": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4952"
+  },
+  "feat:instant-opening": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4976"
+  },
+  "feat:instinctive-obfuscation": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4436"
+  },
+  "feat:instinctive-support": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4731"
+  },
+  "feat:intimidating-glare": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5162"
+  },
+  "feat:intimidating-prowess": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5163"
+  },
+  "feat:intimidating-strike": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4782"
+  },
+  "feat:inventor": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5164"
+  },
+  "feat:inviolable": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4701"
+  },
+  "feat:invoke-disaster": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4762"
+  },
+  "feat:iron-fists": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4513"
+  },
+  "feat:irresistible-magic": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5034"
+  },
+  "feat:junk-tinker": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4444"
+  },
+  "feat:keen-magical-detection": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5043"
+  },
+  "feat:kip-up": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5165"
+  },
+  "feat:kneecap": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4447"
+  },
+  "feat:knowledge-is-power-wizard": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5039"
+  },
+  "feat:lasting-armament": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4690"
+  },
+  "feat:lasting-coercion": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5166"
+  },
+  "feat:lawbringer": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4545"
+  },
+  "feat:leave-an-opening": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4977"
+  },
+  "feat:legendary-codebreaker": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5167"
+  },
+  "feat:legendary-linguist": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5168"
+  },
+  "feat:legendary-medic": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5169"
+  },
+  "feat:legendary-monster-hunter": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4904"
+  },
+  "feat:legendary-negotiation": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5170"
+  },
+  "feat:legendary-performer": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5171"
+  },
+  "feat:legendary-professional": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5172"
+  },
+  "feat:legendary-shot": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4912"
+  },
+  "feat:legendary-sneak": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5173"
+  },
+  "feat:legendary-survivalist": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5174"
+  },
+  "feat:legendary-thief": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5175"
+  },
+  "feat:lengthy-diversion": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5176"
+  },
+  "feat:leshy-familiar": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4710"
+  },
+  "feat:leshy-familiar-secrets": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4724"
+  },
+  "feat:leshy-glide": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4501"
+  },
+  "feat:leshy-lore": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4495"
+  },
+  "feat:leshy-superstition": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4496"
+  },
+  "feat:ley-line-conduit": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4766"
+  },
+  "feat:lie-to-me": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5177"
+  },
+  "feat:life-leap": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4434"
+  },
+  "feat:light-step": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4944"
+  },
+  "feat:lightning-swap": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4783"
+  },
+  "feat:lingering-composition": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4575"
+  },
+  "feat:linked-focus": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5030"
+  },
+  "feat:loremasters-etude": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4584"
+  },
+  "feat:loud-singer": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4448"
+  },
+  "feat:lucky-keepsake": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4505"
+  },
+  "feat:lunge": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4784"
+  },
+  "feat:lunging-stance": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4838"
+  },
+  "feat:magic-hands": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4664"
+  },
+  "feat:magic-rider": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4421"
+  },
+  "feat:magic-sense": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5044"
+  },
+  "feat:magical-crafting": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5178"
+  },
+  "feat:magical-shorthand": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5179"
+  },
+  "feat:major-lesson": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5010"
+  },
+  "feat:maker-of-miracles": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4706"
+  },
+  "feat:manifold-edge": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4908"
+  },
+  "feat:march-the-mines": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4401"
+  },
+  "feat:martial-experience": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4414"
+  },
+  "feat:martial-performance": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4576"
+  },
+  "feat:martyr": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4669"
+  },
+  "feat:master-bard-spellcasting": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5065"
+  },
+  "feat:master-cleric-spellcasting": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5072"
+  },
+  "feat:master-druid-spellcasting": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5080"
+  },
+  "feat:master-monster-hunter": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4889"
+  },
+  "feat:master-of-many-styles": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4850"
+  },
+  "feat:master-spotter-ranger": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5091"
+  },
+  "feat:master-witch-spellcasting": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5105"
+  },
+  "feat:master-wizard-spellcasting": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5113"
+  },
+  "feat:masterful-companion": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4909"
+  },
+  "feat:masterful-warden": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4878"
+  },
+  "feat:mature-animal-companion-druid": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4725"
+  },
+  "feat:mature-animal-companion-ranger": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4879"
+  },
+  "feat:melodious-spell": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4591"
+  },
+  "feat:methodical-debilitations": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4961"
+  },
+  "feat:miraculous-possibility": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4702"
+  },
+  "feat:mirror-shield": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4828"
+  },
+  "feat:mist-child": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4538"
+  },
+  "feat:mobile-shot-stance": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4814"
+  },
+  "feat:mobility": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4926"
+  },
+  "feat:monster-crafting": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5180"
+  },
+  "feat:monster-hunter": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4863"
+  },
+  "feat:monster-warden": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4868"
+  },
+  "feat:monstrosity-shape": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4760"
+  },
+  "feat:monstrous-peacemaker": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4571"
+  },
+  "feat:mountain-strategy": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4390"
+  },
+  "feat:mountains-stoutness": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4398"
+  },
+  "feat:mug": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4932"
+  },
+  "feat:multifarious-muse": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4585"
+  },
+  "feat:multilingual": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5181"
+  },
+  "feat:multishot-stance": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4851"
+  },
+  "feat:multitalented": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4488"
+  },
+  "feat:murksight": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5005"
+  },
+  "feat:musetouched": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4546"
+  },
+  "feat:natural-ambition": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4478"
+  },
+  "feat:natural-medicine": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5182"
+  },
+  "feat:natural-skill": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4479"
+  },
+  "feat:nephilim-eyes": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4550"
+  },
+  "feat:nephilim-lore": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4551"
+  },
+  "feat:nephilim-resistance": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4555"
+  },
+  "feat:nimble-crawl": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5183"
+  },
+  "feat:nimble-dodge": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4916"
+  },
+  "feat:nimble-elf": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4409"
+  },
+  "feat:nimble-hooves": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4552"
+  },
+  "feat:nimble-roll": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4953"
+  },
+  "feat:nimble-strike": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4962"
+  },
+  "feat:no-cause-for-alarm": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5184"
+  },
+  "feat:nonlethal-spell": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5027"
+  },
+  "feat:occult-breadth": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5063"
+  },
+  "feat:occult-resistance": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4540"
+  },
+  "feat:oddity-identification": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5185"
+  },
+  "feat:ode-to-ouroboros": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4613"
+  },
+  "feat:opportune-backstab": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4954"
+  },
+  "feat:orc-ferocity": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4514"
+  },
+  "feat:orc-lore": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4515"
+  },
+  "feat:orc-sight": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4572"
+  },
+  "feat:orc-superstition": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4516"
+  },
+  "feat:orc-weapon-familiarity": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4518"
+  },
+  "feat:order-explorer": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4718"
+  },
+  "feat:order-magic": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4726"
+  },
+  "feat:order-spell": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5076"
+  },
+  "feat:otherworldly-acumen": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4417"
+  },
+  "feat:otherworldly-magic": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4410"
+  },
+  "feat:overextending-feint": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4917"
+  },
+  "feat:overwhelming-blow": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4852"
+  },
+  "feat:overwhelming-energy": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4743"
+  },
+  "feat:panic-the-dead": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4650"
+  },
+  "feat:paragons-guard": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4839"
+  },
+  "feat:parting-shot": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4790"
+  },
+  "feat:patrons-breadth": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5103"
+  },
+  "feat:patrons-claim": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5019"
+  },
+  "feat:patrons-presence": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5015"
+  },
+  "feat:patrons-truth": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5022"
+  },
+  "feat:peerless-warden": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4890"
+  },
+  "feat:penetrating-shot": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4891"
+  },
+  "feat:perfect-distraction": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4983"
+  },
+  "feat:perfect-encore": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4638"
+  },
+  "feat:perfect-form-control": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4763"
+  },
+  "feat:perfect-shot": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4910"
+  },
+  "feat:pervasive-superstition": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4524"
+  },
+  "feat:pet": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5186"
+  },
+  "feat:pickpocket": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5187"
+  },
+  "feat:pied-piping": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4639"
+  },
+  "feat:pitborn": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4547"
+  },
+  "feat:planar-survival": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5188"
+  },
+  "feat:plant-empathy": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4711"
+  },
+  "feat:plant-evidence": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4918"
+  },
+  "feat:plant-shape": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4744"
+  },
+  "feat:point-blank-stance": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4771"
+  },
+  "feat:poison-resistance": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4719"
+  },
+  "feat:poison-weapon": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4933"
+  },
+  "feat:positioning-assault": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4815"
+  },
+  "feat:powerful-leap": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5189"
+  },
+  "feat:powerful-shove": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4791"
+  },
+  "feat:powerful-sneak": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4988"
+  },
+  "feat:prairie-rider": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4460"
+  },
+  "feat:precise-debilitations": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4963"
+  },
+  "feat:predictable": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4934"
+  },
+  "feat:predictive-purchase-rogue": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4955"
+  },
+  "feat:premonition-of-avoidance": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4647"
+  },
+  "feat:premonition-of-clarity": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4691"
+  },
+  "feat:preparation": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4971"
+  },
+  "feat:prescient-consumable": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5190"
+  },
+  "feat:prescient-planner": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5191"
+  },
+  "feat:primal-aegis": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4764"
+  },
+  "feat:primal-breadth": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5078"
+  },
+  "feat:primal-focus": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4751"
+  },
+  "feat:primal-howl": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4745"
+  },
+  "feat:primal-summons": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4752"
+  },
+  "feat:pristine-weapon": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4746"
+  },
+  "feat:project-persona": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4431"
+  },
+  "feat:quick-climb": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5192"
+  },
+  "feat:quick-coercion": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5193"
+  },
+  "feat:quick-disguise": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5194"
+  },
+  "feat:quick-draw": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4869"
+  },
+  "feat:quick-identification": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5195"
+  },
+  "feat:quick-jump": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5196"
+  },
+  "feat:quick-recognition": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5197"
+  },
+  "feat:quick-repair": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5198"
+  },
+  "feat:quick-reversal": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4792"
+  },
+  "feat:quick-shield-block": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4816"
+  },
+  "feat:quick-squeeze": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5199"
+  },
+  "feat:quick-swim": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5200"
+  },
+  "feat:quick-unlock": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5201"
+  },
+  "feat:quickened-casting": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4614"
+  },
+  "feat:quiet-allies": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5202"
+  },
+  "feat:raise-menhir": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4738"
+  },
+  "feat:raise-symbol": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4658"
+  },
+  "feat:rallying-anthem": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4592"
+  },
+  "feat:rampaging-ferocity": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4529"
+  },
+  "feat:ranger-dedication": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5087"
+  },
+  "feat:ranger-resiliency": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5089"
+  },
+  "feat:rapid-mantel": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5203"
+  },
+  "feat:rapid-response": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4651"
+  },
+  "feat:razzle-dazzle": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4429"
+  },
+  "feat:reach-spell": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4577"
+  },
+  "feat:reactive-distraction": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4991"
+  },
+  "feat:reactive-interference": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4972"
+  },
+  "feat:reactive-pursuit": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4935"
+  },
+  "feat:reactive-shield": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4772"
+  },
+  "feat:reactive-striker": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5084"
+  },
+  "feat:reactive-transformation": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4754"
+  },
+  "feat:read-lips": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5204"
+  },
+  "feat:rebounding-smite": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4695"
+  },
+  "feat:rebounding-toss": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4785"
+  },
+  "feat:recognize-spell": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5205"
+  },
+  "feat:reconstruct-the-scene": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4984"
+  },
+  "feat:reflect-spell": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5016"
+  },
+  "feat:reflexive-courage": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4608"
+  },
+  "feat:reflexive-shield": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4803"
+  },
+  "feat:regrowth": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4511"
+  },
+  "feat:remediate": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4696"
+  },
+  "feat:replenishment-of-war": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4677"
+  },
+  "feat:reprepare-spell": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5051"
+  },
+  "feat:resounding-bravery": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4817"
+  },
+  "feat:resounding-finale": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4630"
+  },
+  "feat:restorative-channel": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4670"
+  },
+  "feat:resurrectionist": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4697"
+  },
+  "feat:revealing-stab": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4804"
+  },
+  "feat:reverberate": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4620"
+  },
+  "feat:ricochet-feint": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4973"
+  },
+  "feat:ricochet-stance-fighter": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4805"
+  },
+  "feat:ricochet-stance-rogue": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4956"
+  },
+  "feat:ride": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5206"
+  },
+  "feat:rites-of-convocation": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4999"
+  },
+  "feat:rites-of-transfiguration": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5017"
+  },
+  "feat:ritual-researcher": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4593"
+  },
+  "feat:ritual-reversion": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4502"
+  },
+  "feat:robust-recovery": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5207"
+  },
+  "feat:rock-runner": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4391"
+  },
+  "feat:rogue-dedication": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5092"
+  },
+  "feat:rough-rider": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4445"
+  },
+  "feat:sabotage": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4936"
+  },
+  "feat:sacred-ground": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4660"
+  },
+  "feat:sanctify-armament": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4671"
+  },
+  "feat:sap-life": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4652"
+  },
+  "feat:sapping-symbol": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4684"
+  },
+  "feat:savage-critical": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4855"
+  },
+  "feat:scar-thick-skin": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4523"
+  },
+  "feat:scare-to-death": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5208"
+  },
+  "feat:schooled-in-secrets": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5209"
+  },
+  "feat:scintillating-spell": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5048"
+  },
+  "feat:scion-of-many-planes": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4556"
+  },
+  "feat:scoundrels-surprise": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4937"
+  },
+  "feat:scouts-warning": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4876"
+  },
+  "feat:scroll-adept": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5040"
+  },
+  "feat:seasoned": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5210"
+  },
+  "feat:second-sting": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4895"
+  },
+  "feat:second-thoughts": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5052"
+  },
+  "feat:secondary-detonation-array": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5046"
+  },
+  "feat:seedpod": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4497"
+  },
+  "feat:selective-energy": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4665"
+  },
+  "feat:sense-allies": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4483"
+  },
+  "feat:sense-the-unseen": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4898"
+  },
+  "feat:shadow-hunter": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4911"
+  },
+  "feat:shadow-of-the-wilds": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4498"
+  },
+  "feat:shadow-self": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4473"
+  },
+  "feat:shameless-request": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5211"
+  },
+  "feat:shared-assault": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4621"
+  },
+  "feat:shared-avoidance": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4678"
+  },
+  "feat:shared-clarity": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4703"
+  },
+  "feat:shared-prey": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4899"
+  },
+  "feat:shared-replenishment": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4685"
+  },
+  "feat:shatter-defenses": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4806"
+  },
+  "feat:shield-block": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5212"
+  },
+  "feat:shield-of-faith": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4679"
+  },
+  "feat:shield-warden": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4807"
+  },
+  "feat:shielded-stride": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4793"
+  },
+  "feat:shove-down": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4945"
+  },
+  "feat:side-by-side-druid": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4747"
+  },
+  "feat:side-by-side-ranger": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4896"
+  },
+  "feat:sidestep": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4957"
+  },
+  "feat:sign-language": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5213"
+  },
+  "feat:siphon-power": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5018"
+  },
+  "feat:skill-training": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5214"
+  },
+  "feat:skillful-tail": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4557"
+  },
+  "feat:skirmish-strike": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4880"
+  },
+  "feat:skittering-scuttle": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4452"
+  },
+  "feat:slag-may": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4533"
+  },
+  "feat:slam-down": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4794"
+  },
+  "feat:sleek-reposition": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4786"
+  },
+  "feat:slip-sideways": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4563"
+  },
+  "feat:slippery-secrets": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5215"
+  },
+  "feat:sly-disarm": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4946"
+  },
+  "feat:sly-striker": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4958"
+  },
+  "feat:smash-from-the-air": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4856"
+  },
+  "feat:snagging-strike": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4773"
+  },
+  "feat:snap-shot": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4881"
+  },
+  "feat:sneak-adept": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4964"
+  },
+  "feat:sneak-attacker": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5094"
+  },
+  "feat:snowdrift-spell": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4727"
+  },
+  "feat:soaring-shape": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4739"
+  },
+  "feat:solar-rejuvenation": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4506"
+  },
+  "feat:song-of-marching": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4601"
+  },
+  "feat:song-of-strength": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4586"
+  },
+  "feat:soothing-ballad": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4624"
+  },
+  "feat:sow-spell": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4755"
+  },
+  "feat:speak-with-kindred": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4503"
+  },
+  "feat:specialized-companion-druid": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4756"
+  },
+  "feat:specialized-companion-ranger": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4905"
+  },
+  "feat:specialty-crafting": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5216"
+  },
+  "feat:spell-combination": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5054"
+  },
+  "feat:spell-devourer": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4528"
+  },
+  "feat:spell-mastery": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5055"
+  },
+  "feat:spell-protection-array": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5031"
+  },
+  "feat:spell-tinker": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5049"
+  },
+  "feat:spellbook-prodigy": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5025"
+  },
+  "feat:spellshape-channel": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4707"
+  },
+  "feat:spirit-familiar-witch": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5006"
+  },
+  "feat:split-hex": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5020"
+  },
+  "feat:split-slot": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5035"
+  },
+  "feat:spring-from-the-shadows": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4974"
+  },
+  "feat:stay-down": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4978"
+  },
+  "feat:steady-balance": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5217"
+  },
+  "feat:steady-spellcasting": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4602"
+  },
+  "feat:stealthy-companion": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4900"
+  },
+  "feat:step-lively": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4466"
+  },
+  "feat:stitched-familiar": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5007"
+  },
+  "feat:stone-bones": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4399"
+  },
+  "feat:stonegate": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4403"
+  },
+  "feat:stonemasons-eye": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4392"
+  },
+  "feat:stonewalker": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4400"
+  },
+  "feat:stonewall": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4404"
+  },
+  "feat:storm-born": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4712"
+  },
+  "feat:storm-retribution": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4732"
+  },
+  "feat:streetwise": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5218"
+  },
+  "feat:strong-arm": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4927"
+  },
+  "feat:stubborn-persistence": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4491"
+  },
+  "feat:student-of-the-canon": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5219"
+  },
+  "feat:studious-capacity": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4631"
+  },
+  "feat:subtle-theft": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5220"
+  },
+  "feat:sudden-charge": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4774"
+  },
+  "feat:sudden-leap": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4818"
+  },
+  "feat:summon-nephilim-kin": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4564"
+  },
+  "feat:superior-bond": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5047"
+  },
+  "feat:supernatural-charm": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4570"
+  },
+  "feat:sure-feet": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4461"
+  },
+  "feat:surging-focus": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4672"
+  },
+  "feat:survey-wildlife": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5221"
+  },
+  "feat:swift-banishment": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4692"
+  },
+  "feat:swift-elusion": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4985"
+  },
+  "feat:swift-sneak": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5222"
+  },
+  "feat:swift-tracker": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4882"
+  },
+  "feat:swipe": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4795"
+  },
+  "feat:swipe-souvenir": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4959"
+  },
+  "feat:sympathetic-strike": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5000"
+  },
+  "feat:symphony-of-the-muse": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4640"
+  },
+  "feat:symphony-of-the-unfettered-heart": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4615"
+  },
+  "feat:tactical-debilitations": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4965"
+  },
+  "feat:tactical-entry": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4960"
+  },
+  "feat:tactical-reflexes": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4830"
+  },
+  "feat:telluric-power": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4402"
+  },
+  "feat:terrain-expertise": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5223"
+  },
+  "feat:terrain-master": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4885"
+  },
+  "feat:terrain-stalker": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5224"
+  },
+  "feat:terrified-retreat": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5225"
+  },
+  "feat:thorned-seedpod": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4507"
+  },
+  "feat:thunderclap-spell": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4748"
+  },
+  "feat:timeless-nature": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4757"
+  },
+  "feat:titan-slinger": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4462"
+  },
+  "feat:titan-wrestler": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5226"
+  },
+  "feat:to-the-ends-of-the-earth": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4913"
+  },
+  "feat:toppling-dance": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4472"
+  },
+  "feat:toughness": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5227"
+  },
+  "feat:train-animal": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5228"
+  },
+  "feat:trap-finder": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4919"
+  },
+  "feat:trick-magic-item": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5229"
+  },
+  "feat:triple-shot": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4808"
+  },
+  "feat:triple-threat": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4914"
+  },
+  "feat:triple-time": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4594"
+  },
+  "feat:triumphant-inspiration": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4625"
+  },
+  "feat:true-hypercognition": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4626"
+  },
+  "feat:true-shapeshifter": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4767"
+  },
+  "feat:tumble-behind-rogue": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4920"
+  },
+  "feat:twin-distraction": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4939"
+  },
+  "feat:twin-feint": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4921"
+  },
+  "feat:twin-parry": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4796"
+  },
+  "feat:twin-riposte": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4831"
+  },
+  "feat:twin-takedown": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4864"
+  },
+  "feat:twinned-defense-fighter": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4853"
+  },
+  "feat:twist-the-knife": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4947"
+  },
+  "feat:two-weapon-flurry": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4846"
+  },
+  "feat:ultimate-flexibility": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4858"
+  },
+  "feat:ultimate-polymath": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4641"
+  },
+  "feat:ultimate-skirmisher": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4915"
+  },
+  "feat:unbalancing-blow": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4928"
+  },
+  "feat:unburdened-iron": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4393"
+  },
+  "feat:uncanny-dodge": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5097"
+  },
+  "feat:unconventional-weaponry": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4480"
+  },
+  "feat:undaunted": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4499"
+  },
+  "feat:underhanded-assault": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4929"
+  },
+  "feat:underwater-marauder": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5230"
+  },
+  "feat:undying-ferocity": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4525"
+  },
+  "feat:unfettered-halfling": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4463"
+  },
+  "feat:unhampered-passage": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4470"
+  },
+  "feat:unified-theory": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5231"
+  },
+  "feat:universal-longevity": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4420"
+  },
+  "feat:unmistakable-lore": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5232"
+  },
+  "feat:untamed-form": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4713"
+  },
+  "feat:untrained-improvisation": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5233"
+  },
+  "feat:unusual-composition": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4616"
+  },
+  "feat:unusual-treatment": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5234"
+  },
+  "feat:unwavering-mien": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4411"
+  },
+  "feat:uplifting-overture": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4587"
+  },
+  "feat:uplifting-winds": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4761"
+  },
+  "feat:vandal": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4449"
+  },
+  "feat:verdant-metamorphosis": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4758"
+  },
+  "feat:verdant-weapon": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4714"
+  },
+  "feat:versatile-font": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4653"
+  },
+  "feat:versatile-performance": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4578"
+  },
+  "feat:versatile-signature": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4595"
+  },
+  "feat:very-sneaky": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4446"
+  },
+  "feat:very-very-sneaky": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4453"
+  },
+  "feat:vicious-debilitations": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4966"
+  },
+  "feat:vicious-swing": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4775"
+  },
+  "feat:vigorous-anthem": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4627"
+  },
+  "feat:virtuosic-performer": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5235"
+  },
+  "feat:vivacious-conduit": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4435"
+  },
+  "feat:wall-jump": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5236"
+  },
+  "feat:wandering-oasis": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4753"
+  },
+  "feat:ward-medic": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5237"
+  },
+  "feat:wardens-boon": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4886"
+  },
+  "feat:wardens-focus": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4897"
+  },
+  "feat:wardens-guidance": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4901"
+  },
+  "feat:wardens-reload": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4906"
+  },
+  "feat:wardens-step": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4892"
+  },
+  "feat:warpriests-armor": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4654"
+  },
+  "feat:wary-disarmament": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5238"
+  },
+  "feat:watch-your-back": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4948"
+  },
+  "feat:watchful-halfling": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4464"
+  },
+  "feat:weapon-proficiency": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5239"
+  },
+  "feat:weapon-supremacy": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4859"
+  },
+  "feat:well-versed": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4579"
+  },
+  "feat:widen-spell": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4715"
+  },
+  "feat:wind-caller": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4740"
+  },
+  "feat:witch-dedication": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5099"
+  },
+  "feat:witchs-armaments": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4995"
+  },
+  "feat:witchs-bottle": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5008"
+  },
+  "feat:witchs-broom": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5014"
+  },
+  "feat:witchs-charge": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5003"
+  },
+  "feat:witchs-communion": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5011"
+  },
+  "feat:witchs-hut": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5023"
+  },
+  "feat:wizard-dedication": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5106"
+  },
+  "feat:youre-next": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4922"
+  },
+  "feat:zealous-rush": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4674"
+  },
+  "heritage:aiuvarin": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=281"
+  },
+  "heritage:ancient-blooded-dwarf": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=234"
+  },
+  "heritage:ancient-elf": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=239"
+  },
+  "heritage:arctic-elf": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=240"
+  },
+  "heritage:badlands-orc": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=272"
+  },
+  "heritage:battle-ready-orc": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=273"
+  },
+  "heritage:cactus-leshy": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=263"
+  },
+  "heritage:cavern-elf": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=241"
+  },
+  "heritage:chameleon-gnome": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=245"
+  },
+  "heritage:changeling": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=279"
+  },
+  "heritage:charhide-goblin": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=250"
+  },
+  "heritage:death-warden-dwarf": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=235"
+  },
+  "heritage:deep-orc": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=274"
+  },
+  "heritage:dromaar": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=282"
+  },
+  "heritage:fey-touched-gnome": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=246"
+  },
+  "heritage:forge-dwarf": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=236"
+  },
+  "heritage:fruit-leshy": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=264"
+  },
+  "heritage:fungus-leshy": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=265"
+  },
+  "heritage:gourd-leshy": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=266"
+  },
+  "heritage:grave-orc": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=275"
+  },
+  "heritage:gutsy-halfling": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=255"
+  },
+  "heritage:hillock-halfling": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=256"
+  },
+  "heritage:hold-scarred-orc": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=276"
+  },
+  "heritage:irongut-goblin": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=251"
+  },
+  "heritage:jinxed-halfling": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=257"
+  },
+  "heritage:leaf-leshy": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=267"
+  },
+  "heritage:lotus-leshy": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=268"
+  },
+  "heritage:nephilim": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=280"
+  },
+  "heritage:nomadic-halfling": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=258"
+  },
+  "heritage:rainfall-orc": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=277"
+  },
+  "heritage:razortooth-goblin": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=252"
+  },
+  "heritage:rock-dwarf": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=237"
+  },
+  "heritage:root-leshy": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=269"
+  },
+  "heritage:seaweed-leshy": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=270"
+  },
+  "heritage:seer-elf": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=242"
+  },
+  "heritage:sensate-gnome": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=247"
+  },
+  "heritage:skilled-human": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=261"
+  },
+  "heritage:snow-goblin": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=253"
+  },
+  "heritage:strong-blooded-dwarf": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=238"
+  },
+  "heritage:twilight-halfling": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=259"
+  },
+  "heritage:umbral-gnome": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=248"
+  },
+  "heritage:unbreakable-goblin": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=254"
+  },
+  "heritage:versatile-human": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=262"
+  },
+  "heritage:vine-leshy": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=271"
+  },
+  "heritage:wellspring-gnome": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=249"
+  },
+  "heritage:whisper-elf": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=243"
+  },
+  "heritage:wildwood-halfling": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=260"
+  },
+  "heritage:winter-orc": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=278"
+  },
+  "heritage:woodland-elf": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=244"
+  },
+  "ritual:animate-object": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=107"
+  },
+  "ritual:blight": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=111"
+  },
+  "ritual:collective-memories": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=113"
+  },
+  "ritual:consecrate": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=115"
+  },
+  "ritual:control-weather": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=116"
+  },
+  "ritual:create-undead": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=117"
+  },
+  "ritual:geas": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=118"
+  },
+  "ritual:planar-servitor": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=120"
+  },
+  "ritual:plant-growth": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=121"
+  },
+  "ritual:primal-call": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=122"
+  },
+  "ritual:resurrect": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=123"
+  },
+  "ritual:wish": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=125"
+  },
+  "shield:buckler": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Shields.aspx?ID=17"
+  },
+  "shield:steel-shield": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Shields.aspx?ID=19"
+  },
+  "shield:tower-shield": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Shields.aspx?ID=20"
+  },
+  "shield:wooden-shield": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Shields.aspx?ID=18"
+  },
+  "spell:acid-grip": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1436"
+  },
+  "spell:aerial-form": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1437"
+  },
+  "spell:agile-feet": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1838"
+  },
+  "spell:air-bubble": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1438"
+  },
+  "spell:alarm": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1439"
+  },
+  "spell:allegro": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1761"
+  },
+  "spell:animal-feature": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1866"
+  },
+  "spell:animal-form": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1440"
+  },
+  "spell:animal-messenger": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1441"
+  },
+  "spell:ant-haul": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1442"
+  },
+  "spell:appearance-of-wealth": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1850"
+  },
+  "spell:aqueous-orb": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1443"
+  },
+  "spell:arctic-rift": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1444"
+  },
+  "spell:artistic-flourish": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1789"
+  },
+  "spell:athletic-rush": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1818"
+  },
+  "spell:augury": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1445"
+  },
+  "spell:avatar": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1446"
+  },
+  "spell:bane": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1447"
+  },
+  "spell:banishment": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1448"
+  },
+  "spell:bind-undead": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1449"
+  },
+  "spell:bit-of-luck": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1814"
+  },
+  "spell:blazing-bolt": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1450"
+  },
+  "spell:bless": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1451"
+  },
+  "spell:blessed-boundary": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1452"
+  },
+  "spell:blindness": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1453"
+  },
+  "spell:blood-vendetta": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1454"
+  },
+  "spell:blood-ward": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1874"
+  },
+  "spell:blur": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1455"
+  },
+  "spell:breath-of-life": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1456"
+  },
+  "spell:breathe-fire": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1457"
+  },
+  "spell:cackle": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1875"
+  },
+  "spell:calm": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1458"
+  },
+  "spell:canticle-of-everlasting-grief": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1459"
+  },
+  "spell:captivating-adoration": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1829"
+  },
+  "spell:cataclysm": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1460"
+  },
+  "spell:caustic-blast": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1461"
+  },
+  "spell:chain-lightning": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1462"
+  },
+  "spell:charm": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1463"
+  },
+  "spell:charming-push": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1902"
+  },
+  "spell:charming-touch": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1828"
+  },
+  "spell:chilling-darkness": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1464"
+  },
+  "spell:clairaudience": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1465"
+  },
+  "spell:clairvoyance": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1466"
+  },
+  "spell:cleanse-affliction": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1467"
+  },
+  "spell:cleanse-cuisine": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1468"
+  },
+  "spell:clear-mind": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1469"
+  },
+  "spell:clinging-ice": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1887"
+  },
+  "spell:cloak-of-shadow": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1790"
+  },
+  "spell:command": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1470"
+  },
+  "spell:commanding-lash": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1845"
+  },
+  "spell:community-restoration": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1901"
+  },
+  "spell:competitive-edge": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1783"
+  },
+  "spell:confusion": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1471"
+  },
+  "spell:contingency": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1472"
+  },
+  "spell:control-water": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1473"
+  },
+  "spell:cornucopia": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1856"
+  },
+  "spell:counter-performance": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1762"
+  },
+  "spell:courageous-anthem": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1763"
+  },
+  "spell:cozy-cabin": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1474"
+  },
+  "spell:create-food": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1475"
+  },
+  "spell:create-water": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1476"
+  },
+  "spell:creation": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1477"
+  },
+  "spell:creative-splash": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1788"
+  },
+  "spell:crisis-of-faith": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1478"
+  },
+  "spell:cry-of-destruction": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1794"
+  },
+  "spell:curse-of-death": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1876"
+  },
+  "spell:cursed-metamorphosis": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1479"
+  },
+  "spell:darkened-sight": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1791"
+  },
+  "spell:darkness": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1480"
+  },
+  "spell:darkvision": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1481"
+  },
+  "spell:daze": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1482"
+  },
+  "spell:dazzling-flash": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1836"
+  },
+  "spell:deafness": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1483"
+  },
+  "spell:deaths-call": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1792"
+  },
+  "spell:deceivers-cloak": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1877"
+  },
+  "spell:delusional-pride": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1787"
+  },
+  "spell:desiccate": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1484"
+  },
+  "spell:destructive-aura": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1795"
+  },
+  "spell:detect-magic": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1485"
+  },
+  "spell:detect-poison": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1486"
+  },
+  "spell:detect-scrying": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1487"
+  },
+  "spell:detonate-magic": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1488"
+  },
+  "spell:dinosaur-form": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1489"
+  },
+  "spell:dirge-of-doom": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1764"
+  },
+  "spell:disappearance": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1490"
+  },
+  "spell:discern-secrets": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1888"
+  },
+  "spell:disguise-magic": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1491"
+  },
+  "spell:disintegrate": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1492"
+  },
+  "spell:dispel-magic": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1493"
+  },
+  "spell:dispelling-globe": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1494"
+  },
+  "spell:disperse-into-air": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1781"
+  },
+  "spell:divine-decree": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1495"
+  },
+  "spell:divine-immolation": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1496"
+  },
+  "spell:divine-inspiration": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1497"
+  },
+  "spell:divine-lance": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1498"
+  },
+  "spell:divine-wrath": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1499"
+  },
+  "spell:dizzying-colors": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1500"
+  },
+  "spell:dominate": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1501"
+  },
+  "spell:downpour": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1849"
+  },
+  "spell:dragon-form": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1502"
+  },
+  "spell:dream-message": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1503"
+  },
+  "spell:dreamers-call": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1797"
+  },
+  "spell:dreaming-potential": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1504"
+  },
+  "spell:duplicate-foe": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1505"
+  },
+  "spell:earthbind": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1506"
+  },
+  "spell:earthquake": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1507"
+  },
+  "spell:earthworks": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1900"
+  },
+  "spell:eclipse-burst": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1508"
+  },
+  "spell:electric-arc": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1509"
+  },
+  "spell:elemental-betrayal": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1878"
+  },
+  "spell:elemental-form": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1510"
+  },
+  "spell:embed-message": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1511"
+  },
+  "spell:enduring-might": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1819"
+  },
+  "spell:energy-absorption": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1897"
+  },
+  "spell:energy-aegis": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1512"
+  },
+  "spell:enfeeble": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1513"
+  },
+  "spell:enlarge": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1514"
+  },
+  "spell:enlarge-companion": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1867"
+  },
+  "spell:entangling-flora": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1515"
+  },
+  "spell:enthrall": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1516"
+  },
+  "spell:environmental-endurance": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1517"
+  },
+  "spell:ephemeral-tracking": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1870"
+  },
+  "spell:eradicate-undeath": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1793"
+  },
+  "spell:everlight": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1518"
+  },
+  "spell:evil-eye": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1889"
+  },
+  "spell:execute": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1519"
+  },
+  "spell:fabricated-truth": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1520"
+  },
+  "spell:face-in-the-crowd": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1784"
+  },
+  "spell:falling-stars": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1521"
+  },
+  "spell:false-vision": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1522"
+  },
+  "spell:false-vitality": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1523"
+  },
+  "spell:fatal-aria": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1765"
+  },
+  "spell:fear": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1524"
+  },
+  "spell:feet-to-fins": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1525"
+  },
+  "spell:field-of-life": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1526"
+  },
+  "spell:fiery-body": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1527"
+  },
+  "spell:figment": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1528"
+  },
+  "spell:fire-ray": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1804"
+  },
+  "spell:fire-shield": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1529"
+  },
+  "spell:fireball": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1530"
+  },
+  "spell:flame-barrier": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1805"
+  },
+  "spell:fleet-step": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1531"
+  },
+  "spell:flicker": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1532"
+  },
+  "spell:floating-flame": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1533"
+  },
+  "spell:fly": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1534"
+  },
+  "spell:forbidding-ward": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1535"
+  },
+  "spell:force-barrage": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1536"
+  },
+  "spell:force-bolt": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1896"
+  },
+  "spell:foresight": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1537"
+  },
+  "spell:fortify-summoning": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1898"
+  },
+  "spell:fortissimo-composition": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1766"
+  },
+  "spell:freeze-time": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1538"
+  },
+  "spell:frostbite": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1539"
+  },
+  "spell:gate": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1540"
+  },
+  "spell:gecko-grip": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1541"
+  },
+  "spell:gentle-landing": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1542"
+  },
+  "spell:ghostly-carrier": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1543"
+  },
+  "spell:ghostly-weapon": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1544"
+  },
+  "spell:glimpse-the-truth": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1843"
+  },
+  "spell:goblin-pox": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1545"
+  },
+  "spell:gouging-claw": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1546"
+  },
+  "spell:gravity-weapon": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1863"
+  },
+  "spell:grease": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1547"
+  },
+  "spell:grim-tendrils": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1548"
+  },
+  "spell:guidance": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1549"
+  },
+  "spell:gust-of-wind": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1550"
+  },
+  "spell:hallucination": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1551"
+  },
+  "spell:hand-of-the-apprentice": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1906"
+  },
+  "spell:harm": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1552"
+  },
+  "spell:haste": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1553"
+  },
+  "spell:heal": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1554"
+  },
+  "spell:heal-animal": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1855"
+  },
+  "spell:heal-companion": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1864"
+  },
+  "spell:healers-blessing": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1808"
+  },
+  "spell:heroism": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1555"
+  },
+  "spell:holy-light": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1557"
+  },
+  "spell:honeyed-words": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1558"
+  },
+  "spell:house-of-imaginary-walls": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1767"
+  },
+  "spell:howling-blizzard": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1559"
+  },
+  "spell:humanoid-form": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1560"
+  },
+  "spell:hunters-luck": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1868"
+  },
+  "spell:hunters-vision": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1872"
+  },
+  "spell:hurtling-stone": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1798"
+  },
+  "spell:hydraulic-push": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1561"
+  },
+  "spell:hydraulic-torrent": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1562"
+  },
+  "spell:hymn-of-healing": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1768"
+  },
+  "spell:hypercognition": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1563"
+  },
+  "spell:hypnotize": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1564"
+  },
+  "spell:ignite-ambition": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1782"
+  },
+  "spell:ignition": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1565"
+  },
+  "spell:ill-omen": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1566"
+  },
+  "spell:illusory-creature": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1567"
+  },
+  "spell:illusory-disguise": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1568"
+  },
+  "spell:illusory-object": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1569"
+  },
+  "spell:illusory-scene": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1570"
+  },
+  "spell:impaling-briars": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1857"
+  },
+  "spell:impaling-spike": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1571"
+  },
+  "spell:implosion": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1572"
+  },
+  "spell:indestructibility": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1573"
+  },
+  "spell:infuse-vitality": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1574"
+  },
+  "spell:insect-form": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1575"
+  },
+  "spell:interdisciplinary-incantation": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1907"
+  },
+  "spell:interplanar-teleport": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1576"
+  },
+  "spell:invisibility": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1577"
+  },
+  "spell:invisibility-cloak": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1903"
+  },
+  "spell:invoke-spirits": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1578"
+  },
+  "spell:item-facade": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1579"
+  },
+  "spell:jump": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1580"
+  },
+  "spell:knock": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1581"
+  },
+  "spell:know-the-enemy": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1813"
+  },
+  "spell:know-the-way": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1582"
+  },
+  "spell:laughing-fit": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1583"
+  },
+  "spell:levitate": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1584"
+  },
+  "spell:life-boost": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1879"
+  },
+  "spell:light": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1585"
+  },
+  "spell:lightning-bolt": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1586"
+  },
+  "spell:liminal-doorway": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1587"
+  },
+  "spell:lingering-composition": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1769"
+  },
+  "spell:localized-quake": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1799"
+  },
+  "spell:locate": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1588"
+  },
+  "spell:lock": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1589"
+  },
+  "spell:loremasters-etude": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1770"
+  },
+  "spell:lucky-break": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1815"
+  },
+  "spell:mad-monkeys": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1590"
+  },
+  "spell:magic-hide": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1865"
+  },
+  "spell:magic-passage": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1591"
+  },
+  "spell:magics-vessel": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1816"
+  },
+  "spell:malicious-shadow": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1880"
+  },
+  "spell:malignant-sustenance": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1847"
+  },
+  "spell:manifestation": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1592"
+  },
+  "spell:mariners-curse": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1593"
+  },
+  "spell:marvelous-mount": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1594"
+  },
+  "spell:mask-of-terror": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1595"
+  },
+  "spell:massacre": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1596"
+  },
+  "spell:mending": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1597"
+  },
+  "spell:message": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1598"
+  },
+  "spell:metamorphosis": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1599"
+  },
+  "spell:migration": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1600"
+  },
+  "spell:mind-probe": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1601"
+  },
+  "spell:mind-reading": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1602"
+  },
+  "spell:mindlink": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1603"
+  },
+  "spell:mirage": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1604"
+  },
+  "spell:mislead": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1605"
+  },
+  "spell:mist": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1606"
+  },
+  "spell:moment-of-renewal": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1607"
+  },
+  "spell:monstrosity-form": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1608"
+  },
+  "spell:moon-frenzy": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1609"
+  },
+  "spell:moonbeam": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1820"
+  },
+  "spell:mountain-resilience": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1610"
+  },
+  "spell:mystic-armor": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1611"
+  },
+  "spell:mystic-beacon": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1817"
+  },
+  "spell:nature-incarnate": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1612"
+  },
+  "spell:natures-bounty": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1823"
+  },
+  "spell:natures-pathway": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1613"
+  },
+  "spell:needle-of-vengeance": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1881"
+  },
+  "spell:never-mind": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1614"
+  },
+  "spell:nightmare": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1615"
+  },
+  "spell:noise-blast": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1616"
+  },
+  "spell:nudge-fate": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1890"
+  },
+  "spell:oaken-resilience": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1617"
+  },
+  "spell:ode-to-ouroboros": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1771"
+  },
+  "spell:one-with-plants": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1618"
+  },
+  "spell:one-with-stone": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1619"
+  },
+  "spell:outcasts-curse": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1620"
+  },
+  "spell:overstuff": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1810"
+  },
+  "spell:overwhelming-presence": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1621"
+  },
+  "spell:paralyze": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1622"
+  },
+  "spell:paranoia": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1623"
+  },
+  "spell:patrons-puppet": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1882"
+  },
+  "spell:peaceful-bubble": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1624"
+  },
+  "spell:peaceful-rest": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1625"
+  },
+  "spell:perfected-body": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1831"
+  },
+  "spell:perfected-mind": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1830"
+  },
+  "spell:personal-blizzard": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1883"
+  },
+  "spell:pest-form": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1626"
+  },
+  "spell:pet-cache": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1627"
+  },
+  "spell:petrify": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1628"
+  },
+  "spell:phantasmagoria": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1629"
+  },
+  "spell:phantasmal-calamity": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1630"
+  },
+  "spell:phantasmal-minion": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1631"
+  },
+  "spell:phantom-pain": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1632"
+  },
+  "spell:phase-familiar": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1884"
+  },
+  "spell:pied-piping": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1772"
+  },
+  "spell:pinpoint": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1633"
+  },
+  "spell:planar-palace": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1634"
+  },
+  "spell:planar-seal": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1635"
+  },
+  "spell:planar-tether": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1636"
+  },
+  "spell:plant-form": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1637"
+  },
+  "spell:possession": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1638"
+  },
+  "spell:precious-metals": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1851"
+  },
+  "spell:prestidigitation": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1639"
+  },
+  "spell:primal-summons": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1854"
+  },
+  "spell:project-image": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1640"
+  },
+  "spell:protection": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1641"
+  },
+  "spell:protective-wards": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1894"
+  },
+  "spell:protectors-sacrifice": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1832"
+  },
+  "spell:protectors-sphere": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1833"
+  },
+  "spell:pulse-of-civilization": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1785"
+  },
+  "spell:pummeling-rubble": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1642"
+  },
+  "spell:punishing-winds": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1643"
+  },
+  "spell:pushing-gust": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1780"
+  },
+  "spell:quandary": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1644"
+  },
+  "spell:raise-dead": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1645"
+  },
+  "spell:rallying-anthem": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1773"
+  },
+  "spell:rangers-bramble": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1871"
+  },
+  "spell:read-aura": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1646"
+  },
+  "spell:read-fate": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1802"
+  },
+  "spell:read-omens": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1647"
+  },
+  "spell:rebuke-death": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1809"
+  },
+  "spell:regenerate": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1648"
+  },
+  "spell:remake": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1649"
+  },
+  "spell:repulsion": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1650"
+  },
+  "spell:resist-energy": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1651"
+  },
+  "spell:restorative-moment": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1885"
+  },
+  "spell:retributive-pain": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1827"
+  },
+  "spell:retrocognition": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1652"
+  },
+  "spell:revealing-light": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1653"
+  },
+  "spell:revival": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1654"
+  },
+  "spell:rewrite-memory": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1655"
+  },
+  "spell:ring-of-truth": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1656"
+  },
+  "spell:rune-of-observation": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1895"
+  },
+  "spell:runic-body": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1657"
+  },
+  "spell:runic-weapon": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1658"
+  },
+  "spell:safe-passage": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1659"
+  },
+  "spell:safeguard-secret": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1835"
+  },
+  "spell:sanctuary": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1660"
+  },
+  "spell:savor-the-sting": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1826"
+  },
+  "spell:scholarly-recollection": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1812"
+  },
+  "spell:scouting-eye": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1661"
+  },
+  "spell:scramble-body": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1904"
+  },
+  "spell:scrying": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1662"
+  },
+  "spell:see-the-unseen": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1663"
+  },
+  "spell:seize-soul": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1664"
+  },
+  "spell:sending": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1665"
+  },
+  "spell:shadow-blast": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1666"
+  },
+  "spell:shape-stone": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1667"
+  },
+  "spell:shape-wood": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1668"
+  },
+  "spell:share-life": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1669"
+  },
+  "spell:shared-nightmare": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1825"
+  },
+  "spell:shatter": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1670"
+  },
+  "spell:shield": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1671"
+  },
+  "spell:shifting-form": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1905"
+  },
+  "spell:shrink": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1672"
+  },
+  "spell:shroud-of-night": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1891"
+  },
+  "spell:sigil": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1673"
+  },
+  "spell:silence": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1674"
+  },
+  "spell:sleep": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1675"
+  },
+  "spell:slither": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1676"
+  },
+  "spell:slow": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1677"
+  },
+  "spell:song-of-marching": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1774"
+  },
+  "spell:song-of-strength": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1775"
+  },
+  "spell:soothe": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1678"
+  },
+  "spell:soothing-ballad": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1776"
+  },
+  "spell:soothing-mist": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1869"
+  },
+  "spell:soothing-words": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1800"
+  },
+  "spell:sound-body": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1679"
+  },
+  "spell:speak-with-animals": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1680"
+  },
+  "spell:speak-with-plants": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1681"
+  },
+  "spell:speak-with-stones": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1682"
+  },
+  "spell:spellwrack": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1683"
+  },
+  "spell:spider-sting": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1684"
+  },
+  "spell:spiral-of-horrors": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1899"
+  },
+  "spell:spirit-blast": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1685"
+  },
+  "spell:spirit-link": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1686"
+  },
+  "spell:spiritual-armament": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1687"
+  },
+  "spell:spiritual-guardian": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1688"
+  },
+  "spell:stabilize": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1689"
+  },
+  "spell:status": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1690"
+  },
+  "spell:stoke-the-heart": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1892"
+  },
+  "spell:storm-lord": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1858"
+  },
+  "spell:stormwind-flight": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1859"
+  },
+  "spell:stupefy": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1691"
+  },
+  "spell:subconscious-suggestion": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1692"
+  },
+  "spell:sudden-shift": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1840"
+  },
+  "spell:suggestion": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1693"
+  },
+  "spell:summon-animal": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1694"
+  },
+  "spell:summon-celestial": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1695"
+  },
+  "spell:summon-construct": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1696"
+  },
+  "spell:summon-dragon": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1697"
+  },
+  "spell:summon-elemental": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1698"
+  },
+  "spell:summon-entity": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1699"
+  },
+  "spell:summon-fey": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1700"
+  },
+  "spell:summon-fiend": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1701"
+  },
+  "spell:summon-giant": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1702"
+  },
+  "spell:summon-instrument": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1703"
+  },
+  "spell:summon-monitor": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1704"
+  },
+  "spell:summon-plant-or-fungus": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1705"
+  },
+  "spell:summon-undead": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1706"
+  },
+  "spell:sunburst": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1707"
+  },
+  "spell:sure-footing": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1708"
+  },
+  "spell:sure-strike": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1709"
+  },
+  "spell:sweet-dream": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1796"
+  },
+  "spell:symphony-of-the-unfettered-heart": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1777"
+  },
+  "spell:synaptic-pulse": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1710"
+  },
+  "spell:tailwind": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1711"
+  },
+  "spell:take-its-course": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1811"
+  },
+  "spell:talking-corpse": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1712"
+  },
+  "spell:tangle-vine": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1713"
+  },
+  "spell:tangling-creepers": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1714"
+  },
+  "spell:telekinetic-hand": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1715"
+  },
+  "spell:telekinetic-haul": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1716"
+  },
+  "spell:telekinetic-maneuver": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1717"
+  },
+  "spell:telekinetic-projectile": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1718"
+  },
+  "spell:telepathy": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1719"
+  },
+  "spell:teleport": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1720"
+  },
+  "spell:tempest-surge": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1860"
+  },
+  "spell:tempt-fate": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1803"
+  },
+  "spell:terrain-transposition": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1873"
+  },
+  "spell:thunderstrike": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1721"
+  },
+  "spell:tidal-surge": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1848"
+  },
+  "spell:touch-of-obedience": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1844"
+  },
+  "spell:touch-of-the-moon": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1821"
+  },
+  "spell:touch-of-undeath": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1846"
+  },
+  "spell:toxic-cloud": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1722"
+  },
+  "spell:translate": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1723"
+  },
+  "spell:translocate": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1724"
+  },
+  "spell:travelers-transit": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1839"
+  },
+  "spell:tree-of-seasons": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1725"
+  },
+  "spell:tricksters-twin": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1841"
+  },
+  "spell:triple-time": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1778"
+  },
+  "spell:true-target": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1726"
+  },
+  "spell:truesight": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1727"
+  },
+  "spell:truespeech": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1728"
+  },
+  "spell:umbral-journey": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1729"
+  },
+  "spell:uncontrollable-dance": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1730"
+  },
+  "spell:unfathomable-song": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1731"
+  },
+  "spell:unfettered-movement": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1732"
+  },
+  "spell:unfettered-pack": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1733"
+  },
+  "spell:unimpeded-stride": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1806"
+  },
+  "spell:unity": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1801"
+  },
+  "spell:unrelenting-observation": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1734"
+  },
+  "spell:untamed-form": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1861"
+  },
+  "spell:untamed-shift": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1862"
+  },
+  "spell:uplifting-overture": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1779"
+  },
+  "spell:vampiric-exsanguination": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1735"
+  },
+  "spell:vampiric-feast": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1736"
+  },
+  "spell:vanishing-tracks": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1737"
+  },
+  "spell:vapor-form": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1738"
+  },
+  "spell:veil-of-confidence": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1786"
+  },
+  "spell:veil-of-dreams": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1886"
+  },
+  "spell:veil-of-privacy": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1739"
+  },
+  "spell:ventriloquism": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1740"
+  },
+  "spell:vibrant-pattern": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1741"
+  },
+  "spell:vibrant-thorns": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1822"
+  },
+  "spell:vision-of-death": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1742"
+  },
+  "spell:vital-beacon": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1743"
+  },
+  "spell:vitality-lash": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1744"
+  },
+  "spell:void-warp": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1745"
+  },
+  "spell:volcanic-eruption": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1746"
+  },
+  "spell:wails-of-the-damned": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1747"
+  },
+  "spell:waking-nightmare": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1824"
+  },
+  "spell:wall-of-fire": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1748"
+  },
+  "spell:wall-of-force": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1749"
+  },
+  "spell:wall-of-ice": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1750"
+  },
+  "spell:wall-of-stone": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1751"
+  },
+  "spell:wall-of-thorns": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1752"
+  },
+  "spell:wall-of-wind": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1753"
+  },
+  "spell:warp-mind": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1754"
+  },
+  "spell:water-breathing": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1755"
+  },
+  "spell:water-walk": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1756"
+  },
+  "spell:wave-of-despair": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1757"
+  },
+  "spell:weapon-storm": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1758"
+  },
+  "spell:weapon-surge": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1852"
+  },
+  "spell:whispering-quiet": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1834"
+  },
+  "spell:wilding-word": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1893"
+  },
+  "spell:word-of-freedom": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1807"
+  },
+  "spell:word-of-truth": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1842"
+  },
+  "spell:wrathful-storm": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1759"
+  },
+  "spell:zeal-for-battle": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1853"
+  },
+  "spell:zealous-conviction": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1760"
+  },
+  "weapon:arbalest": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=432"
+  },
+  "weapon:bastard-sword": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=370"
+  },
+  "weapon:battle-axe": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=371"
+  },
+  "weapon:blowgun": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=424"
+  },
+  "weapon:bo-staff": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=372"
+  },
+  "weapon:bola": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=433"
+  },
+  "weapon:clan-dagger": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=368"
+  },
+  "weapon:club": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=357"
+  },
+  "weapon:composite-longbow": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=434"
+  },
+  "weapon:composite-shortbow": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=435"
+  },
+  "weapon:crossbow": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=425"
+  },
+  "weapon:dagger": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=358"
+  },
+  "weapon:dart": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=426"
+  },
+  "weapon:dogslicer": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=405"
+  },
+  "weapon:elven-curve-blade": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=406"
+  },
+  "weapon:falchion": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=373"
+  },
+  "weapon:filchers-fork": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=407"
+  },
+  "weapon:flail": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=374"
+  },
+  "weapon:gauntlet": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=359"
+  },
+  "weapon:glaive": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=375"
+  },
+  "weapon:gnome-flickmace": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=421"
+  },
+  "weapon:gnome-hooked-hammer": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=408"
+  },
+  "weapon:greataxe": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=376"
+  },
+  "weapon:greatclub": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=377"
+  },
+  "weapon:greatpick": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=378"
+  },
+  "weapon:greatsword": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=379"
+  },
+  "weapon:guisarme": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=380"
+  },
+  "weapon:halberd": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=381"
+  },
+  "weapon:halfling-sling-staff": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=438"
+  },
+  "weapon:hand-crossbow": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=427"
+  },
+  "weapon:hatchet": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=382"
+  },
+  "weapon:heavy-crossbow": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=428"
+  },
+  "weapon:horsechopper": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=409"
+  },
+  "weapon:javelin": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=429"
+  },
+  "weapon:kama": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=410"
+  },
+  "weapon:katana": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=411"
+  },
+  "weapon:katar": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=369"
+  },
+  "weapon:khakkhara": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=412"
+  },
+  "weapon:kukri": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=413"
+  },
+  "weapon:lance": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=383"
+  },
+  "weapon:light-hammer": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=384"
+  },
+  "weapon:light-mace": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=360"
+  },
+  "weapon:light-pick": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=385"
+  },
+  "weapon:longbow": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=436"
+  },
+  "weapon:longspear": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=361"
+  },
+  "weapon:longsword": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=386"
+  },
+  "weapon:mace": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=362"
+  },
+  "weapon:main-gauche": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=387"
+  },
+  "weapon:maul": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=388"
+  },
+  "weapon:morningstar": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=363"
+  },
+  "weapon:nunchaku": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=414"
+  },
+  "weapon:orc-knuckle-dagger": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=415"
+  },
+  "weapon:orc-necksplitter": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=422"
+  },
+  "weapon:pick": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=389"
+  },
+  "weapon:ranseur": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=390"
+  },
+  "weapon:rapier": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=391"
+  },
+  "weapon:sai": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=416"
+  },
+  "weapon:sap": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=392"
+  },
+  "weapon:sawtooth-saber": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=423"
+  },
+  "weapon:scimitar": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=393"
+  },
+  "weapon:scythe": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=394"
+  },
+  "weapon:shield-boss": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=396"
+  },
+  "weapon:shield-spikes": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=397"
+  },
+  "weapon:shortbow": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=437"
+  },
+  "weapon:shortsword": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=398"
+  },
+  "weapon:shuriken": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=439"
+  },
+  "weapon:sickle": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=364"
+  },
+  "weapon:sling": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=430"
+  },
+  "weapon:spear": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=365"
+  },
+  "weapon:spiked-chain": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=417"
+  },
+  "weapon:spiked-gauntlet": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=366"
+  },
+  "weapon:staff": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=367"
+  },
+  "weapon:starknife": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=399"
+  },
+  "weapon:sword-cane": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=400"
+  },
+  "weapon:temple-sword": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=418"
+  },
+  "weapon:trident": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=401"
+  },
+  "weapon:wakizashi": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=419"
+  },
+  "weapon:war-flail": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=402"
+  },
+  "weapon:warhammer": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=403"
+  },
+  "weapon:whip": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=404"
+  }
+}
