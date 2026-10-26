@@ -23,6 +23,7 @@ import { filter, merge } from 'rxjs';
 
 import { ImportBoostReport } from '../import-boost-report/import-boost-report.component';
 import { ImportDiscrepancyReport } from '../import-discrepancy-report/import-discrepancy-report.component';
+import { ImportFeatReport } from '../import-feat-report/import-feat-report.component';
 import { KIND_KEYS, REASON_KEYS, REASON_TONES, UNCARRIED_KEYS } from '../import-labels';
 import { ImportSkillReport } from '../import-skill-report/import-skill-report.component';
 import { ImportSpellReport } from '../import-spell-report/import-spell-report.component';
@@ -52,6 +53,7 @@ interface GroupView {
     Heading,
     ImportBoostReport,
     ImportDiscrepancyReport,
+    ImportFeatReport,
     ImportSkillReport,
     Link,
     ImportSpellReport,

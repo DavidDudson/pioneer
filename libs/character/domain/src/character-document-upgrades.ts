@@ -36,6 +36,8 @@ const UPGRADES: readonly UpgradeStep[] = [
   (document) => document,
   /** 9 → 10: the key item an inventory line is the holder's copy of (#924). A version 9 line has no `keyItem`, which reads as none. */
   (document) => document,
+  /** 10 → 11: the feats an import found no slot for, kept on the build. A version 10 build has none. */
+  (document) => document,
 ];
 
 /** The version a chain of steps upgrades to: one past the last step. */

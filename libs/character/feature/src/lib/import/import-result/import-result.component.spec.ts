@@ -27,6 +27,7 @@ const EMPTY: CharacterImportReport = {
   modifierDifferences: [],
   discrepancies: { compared: 0, differences: [] },
   ruleBreaking: RuleBreakingCount.parse(0),
+  ruleBreakingFeats: RuleBreakingCount.parse(0),
 };
 
 async function render(report: CharacterImportReport): Promise<ComponentFixture<ImportResult>> {
@@ -64,6 +65,7 @@ describe(ImportResult, () => {
       modifierDifferences: [],
       discrepancies: { compared: 0, differences: [] },
       ruleBreaking: RuleBreakingCount.parse(0),
+      ruleBreakingFeats: RuleBreakingCount.parse(0),
     });
 
     expect(text(fixture)).toContain("weren't kept: Class features and Spells");
@@ -108,6 +110,12 @@ describe(ImportResult, () => {
 
     expect(text(fixture)).toContain('3 items were kept as imported but break a rule.');
     expect(text(fixture)).toContain('Review them in the inventory');
+  });
+
+  it('counts the imported feats no slot offers, kept and flagged rather than forced into a slot', async () => {
+    const fixture = await render({ ...EMPTY, ruleBreakingFeats: RuleBreakingCount.parse(2) });
+
+    expect(text(fixture)).toContain('2 feats fit no slot, so they were kept as imported but break a rule.');
   });
 
   it('leaves out the rule-breaking line when no imported item breaks a rule', async () => {

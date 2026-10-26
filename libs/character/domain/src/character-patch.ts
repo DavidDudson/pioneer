@@ -56,6 +56,8 @@ export const CharacterPatchField = {
   GrantSpellAccess: 'grantSpellAccess',
   /** A spell the character no longer has access to; picks of it stay, invalid. */
   RevokeSpellAccess: 'revokeSpellAccess',
+  /** An imported feat no slot took, taken off the list so it stops being flagged. */
+  DismissUnplacedFeat: 'dismissUnplacedFeat',
   /** What the character looks like; empty rich text clears it. */
   SetAppearance: 'setAppearance',
   /** How the character acts and what they care about; empty rich text clears it. */
@@ -108,6 +110,7 @@ export const CharacterPatchSchema = z.discriminatedUnion('field', [
   z.object({ field: z.literal(CharacterPatchField.SetCoins), coins: CoinsSchema }),
   z.object({ field: z.literal(CharacterPatchField.GrantSpellAccess), spell: ContentId }),
   z.object({ field: z.literal(CharacterPatchField.RevokeSpellAccess), spell: ContentId }),
+  z.object({ field: z.literal(CharacterPatchField.DismissUnplacedFeat), feat: ContentId }),
   z.object({ field: z.literal(CharacterPatchField.SetAppearance), value: RichText }),
   z.object({ field: z.literal(CharacterPatchField.SetPersonality), value: RichText }),
 ]);
@@ -124,6 +127,12 @@ export type PatchCharacterBody = z.infer<typeof PatchCharacterBody>;
 export type SpellAccessPatch = Extract<
   CharacterPatch,
   { readonly field: typeof CharacterPatchField.GrantSpellAccess | typeof CharacterPatchField.RevokeSpellAccess }
+>;
+
+/** The edit that takes an imported feat off the list of those no slot holds. */
+export type UnplacedFeatPatch = Extract<
+  CharacterPatch,
+  { readonly field: typeof CharacterPatchField.DismissUnplacedFeat }
 >;
 
 /** The edits that write the appearance or the personality. */
@@ -143,6 +152,7 @@ export type UntargetedPatch = Extract<
       | typeof CharacterPatchField.ClearSlot
       | typeof CharacterPatchField.GrantSpellAccess
       | typeof CharacterPatchField.RevokeSpellAccess
+      | typeof CharacterPatchField.DismissUnplacedFeat
       | ProsePatch['field'];
   }
 >;
@@ -154,6 +164,7 @@ const UNTARGETED_FIELDS: ReadonlySet<CharacterPatchField> = new Set<UntargetedPa
   CharacterPatchField.ClearSlot,
   CharacterPatchField.GrantSpellAccess,
   CharacterPatchField.RevokeSpellAccess,
+  CharacterPatchField.DismissUnplacedFeat,
   CharacterPatchField.SetAppearance,
   CharacterPatchField.SetPersonality,
 ]);

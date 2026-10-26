@@ -109,6 +109,17 @@ Implied conditions come through the condition's own `GrantItem`; a condition ano
 suppressed while that one lasts; and however many instances of a condition there are, the character has it once, at the
 highest value. Durations are stored, not counted down yet.
 
+### Feats no slot holds
+
+An import (Pathbuilder) may hold a feat that fits no slot the rules offer. The importer never forces it into one:
+`build.unplacedFeats` keeps it (schema version 11), each feat once. Whether it breaks a rule is derived on every
+read, as for the inventory (ADR-0064): `unplacedFeatBreaks` flags each listed feat no slot pick holds, with
+`rules.choices.invalid.noSlot`, and nothing flagged is stored. The list is what the flag reads from, since a feat in
+no slot is in no other place. Picking the feat in a slot takes it off the list, as does `dismissUnplacedFeat`. The
+import report counts them (`ruleBreakingFeats`), the feats tab lists them and the sheet header counts them with the
+inventory's rule breaks. A rule a published variant covers (Dual Class, Free Archetype, No Dedication Lock) is
+enabled by the import instead; the flag is for everything else.
+
 ### Schema versions
 
 Every stored document carries `schemaVersion`. `decodeCharacterDocument` upgrades an older document to the current

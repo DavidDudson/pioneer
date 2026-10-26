@@ -180,6 +180,12 @@
       "kitsHint": "A kit adds every item in it at once, what its backpack holds packed inside.",
       "kitsLoadError": "The kits could not be loaded. Try again."
     },
+    "unplacedFeats": {
+      "heading": "Feats with no slot",
+      "explain": "The import found these feats but no slot offers them, so they were kept as imported and break a rule. Pick one in a feat slot to place it, or dismiss it.",
+      "dismiss": "Dismiss",
+      "dismissNamed": "Dismiss {name}"
+    },
     "feats": {
       "slot": "{prompt}, level {level}",
       "slotFrom": "Feat from {entry}, level {level}",
@@ -642,6 +648,7 @@
       "discrepancyWhy": "Why Pioneer's value is what it is",
       "ruleBreaking": "{count, plural, one {# item was kept as imported but breaks a rule} other {# items were kept as imported but break a rule}}.",
       "ruleBreakingReview": "Review them in the inventory",
+      "ruleBreakingFeats": "{count, plural, one {# feat fits no slot, so it was kept as imported but breaks a rule} other {# feats fit no slot, so they were kept as imported but break a rule}}. Place each in a slot or dismiss it, on the sheet's feats.",
       "statistic": {
         "named": "{name}",
         "defenseUnarmored": "Unarmored defense",

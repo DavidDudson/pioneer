@@ -961,6 +961,7 @@
         "rankSignatureSpell": "{rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank signature spell"
       },
       "invalid": {
+        "noSlot": "No slot offers this feat, so it was kept as imported and breaks a rule. Pick it in a feat slot or dismiss it.",
         "notOffered": "This choice no longer offers that option, so it counts for nothing. Choose another.",
         "contentNotLoaded": "The content picked here is not loaded, so it counts for nothing.",
         "boostTaken": "A boost given with this one already raises that attribute, so it counts for nothing. Choose another.",

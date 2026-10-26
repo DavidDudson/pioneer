@@ -25,7 +25,13 @@ describe('decodeCharacterDocument', () => {
   test('fills every part the player has not touched with its empty default', () => {
     const document = decodeCharacterDocument(minimal);
     expect(document.packs).toStrictEqual([]);
-    expect(document.build).toStrictEqual({ choices: {}, spellAccess: [], repertoireSwaps: [], boons: [] });
+    expect(document.build).toStrictEqual({
+      choices: {},
+      spellAccess: [],
+      unplacedFeats: [],
+      repertoireSwaps: [],
+      boons: [],
+    });
     expect(document.inventory).toStrictEqual(EMPTY_INVENTORY);
     expect(document.play).toStrictEqual(FRESH_PLAY);
     expect(document.overrides).toStrictEqual([]);

@@ -186,6 +186,8 @@ export {
 } from './prepared-spells';
 export { PreparedPickProblem } from './prepared-pick-problem';
 export { SpellAccessProblem, spellAccessProblem } from './spell-access';
+export { unplacedFeatBreaks } from './unplaced-feats';
+export type { UnplacedFeatBreak } from './unplaced-feats';
 export {
   castRanks,
   isSignatureKey,
@@ -284,6 +286,7 @@ export {
   CorruptCharacterDocumentError,
   decodeCharacterDocument,
   SPELL_ACCESS_MAX,
+  UNPLACED_FEATS_MAX,
 } from './character-document';
 export {
   CharacterSchemaVersion,
