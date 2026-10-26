@@ -3,6 +3,7 @@ import type { PredicateFacts, PredicateSummary } from '@pioneer/rules/predicate'
 import { ContentId, RollOptionNamespace } from '@pioneer/rules/sdk';
 import type { ChoiceOption, ChoiceQuery, ChoiceSetElement, ChoiceValue, ContentText } from '@pioneer/rules/sdk';
 
+import { candidateOptions } from './candidate-options';
 import type { ChoiceContext } from './choices';
 import type { GrantEntry } from './grant-entry';
 import { byCodeUnit } from './order';
@@ -56,10 +57,11 @@ function sharesOwnTrait({ ownTrait }: ChoiceQuery, candidateFacts: PredicateFact
  * Every entry of the query's kind whose filter is not false, read against the character's facts with the entry's
  * own options under `item:`. One whose filter is unknown carries when it would hold. Sorted by name, then id.
  */
-function queriedOptions(query: ChoiceQuery, { facts, lookup }: ChoiceContext): OfferedOption[] {
+function queriedOptions(query: ChoiceQuery, context: ChoiceContext): OfferedOption[] {
+  const { facts, lookup } = context;
   const { kind, filter } = query;
   const offered = lookup.ofKind(kind).flatMap((candidate): OfferedOption[] => {
-    const candidateFacts = facts.withNamespace(CANDIDATE_NAMESPACE, candidate.rollOptions);
+    const candidateFacts = facts.withNamespace(CANDIDATE_NAMESPACE, candidateOptions(candidate, context));
     if (!sharesOwnTrait(query, candidateFacts)) {
       return [];
     }
@@ -87,14 +89,15 @@ function isListed(choices: readonly ChoiceOption[], value: ChoiceValue, facts: P
 }
 
 /** Whether `value` is an entry of the query's kind whose filter is not false: the query tested on that one entry. */
-function isQueried(query: ChoiceQuery, value: ChoiceValue, { facts, lookup }: ChoiceContext): boolean {
+function isQueried(query: ChoiceQuery, value: ChoiceValue, context: ChoiceContext): boolean {
+  const { facts, lookup } = context;
   const { kind, filter } = query;
   const id = ContentId.safeParse(value);
   const candidate = id.success ? lookup.entry(id.data) : undefined;
   if (candidate?.kind !== kind) {
     return false;
   }
-  const candidateFacts = facts.withNamespace(CANDIDATE_NAMESPACE, candidate.rollOptions);
+  const candidateFacts = facts.withNamespace(CANDIDATE_NAMESPACE, candidateOptions(candidate, context));
   return sharesOwnTrait(query, candidateFacts) && evaluatePredicate(filter, candidateFacts) !== Truth.False;
 }
 
