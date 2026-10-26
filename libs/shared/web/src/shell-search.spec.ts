@@ -23,6 +23,14 @@ describe(ShellSearch, () => {
     expect(search.hidden()).toBe(false);
   });
 
+  it('counts each request for the cursor, so asking again is a change', () => {
+    const search = TestBed.inject(ShellSearch);
+    expect(search.focusRequests()).toBe(0);
+    search.requestFocus();
+    search.requestFocus();
+    expect(search.focusRequests()).toBe(2);
+  });
+
   it('counts a release only once', () => {
     const search = TestBed.inject(ShellSearch);
     const first = search.hide();

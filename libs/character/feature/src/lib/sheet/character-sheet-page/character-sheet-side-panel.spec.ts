@@ -126,6 +126,44 @@ describe('CharacterSheetPage side panel', () => {
     expect(root.querySelector('pio-stub-side-panel')).toBeNull();
   });
 
+  it('offers no button and opens no empty drawer when the panel fails to load', async () => {
+    fakeBrowser();
+    const loader = vi.fn<() => Promise<Type<unknown>>>().mockRejectedValue(new Error('offline'));
+    const { root } = await openSheet(undefined, {
+      providers: [IDLE_NOW, { provide: SHEET_SIDE_PANEL, useValue: loader }],
+    });
+    await TestBed.inject(Router).navigateByUrl(`${TestBed.inject(Router).url}?drawer=open`);
+    await vi.waitFor(() => {
+      expect(loader).toHaveBeenCalledTimes(1);
+    });
+    // Past the microtasks in which the host handles the rejection.
+    await new Promise((resolve) => {
+      setTimeout(resolve, 0);
+    });
+
+    expect(openButton(root)).toBeUndefined();
+    expect(root.querySelector('dialog')).toBeNull();
+  });
+
+  it('asks the panel for the cursor each time the button is pressed, open or not', async () => {
+    fakeBrowser();
+    const { root } = await openSheet(undefined, { providers: WITH_PANEL });
+    const search = TestBed.inject(ShellSearch);
+    await vi.waitFor(() => {
+      expect(openButton(root)).toBeDefined();
+    });
+
+    present(openButton(root)).click();
+    await vi.waitFor(() => {
+      expect(search.focusRequests()).toBe(1);
+    });
+    present(openButton(root)).click();
+
+    await vi.waitFor(() => {
+      expect(search.focusRequests()).toBe(2);
+    });
+  });
+
   it('does not hide the shell search for a panel that arrives after the sheet is left', async () => {
     const { promise: late, resolve: arrive } = Promise.withResolvers<Type<unknown>>();
     const loader = vi.fn<() => Promise<Type<unknown>>>(async () => late);
