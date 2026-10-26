@@ -41,7 +41,7 @@
                             | transloco
                               : { file: cache.file, pack: pack.titleKey ? (pack.titleKey | transloco) : pack.id }
                         "
-                        >{{ cache.file }}</fr-link
+                        ><fr-text element="code">{{ cache.file }}</fr-text></fr-link
                       >
                       <fr-text variant="caption" tone="muted">{{ size(cache.bytes) }}</fr-text>
                     </fr-stack>
