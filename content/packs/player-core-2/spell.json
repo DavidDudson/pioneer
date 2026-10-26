@@ -2446,7 +2446,8 @@
         "unit": "minute"
       },
       "traditions": ["arcane", "divine", "occult"],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {
@@ -9341,7 +9342,8 @@
         "until": "daily-preparations"
       },
       "traditions": ["arcane", "occult"],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {
@@ -10423,7 +10425,8 @@
         "unit": "minute"
       },
       "traditions": [],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {
@@ -10588,7 +10591,8 @@
             ]
           }
         ]
-      }
+      },
+      "dismiss": true
     }
   },
   {
@@ -11110,7 +11114,8 @@
         "unit": "minute"
       },
       "traditions": [],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {
@@ -13106,7 +13111,8 @@
         "unit": "minute"
       },
       "traditions": ["divine"],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {
@@ -14049,7 +14055,8 @@
         "until": "daily-preparations"
       },
       "traditions": ["arcane"],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {
@@ -16386,7 +16393,8 @@
         "until": "daily-preparations"
       },
       "traditions": ["occult", "primal"],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {

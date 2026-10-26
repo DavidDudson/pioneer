@@ -1701,7 +1701,8 @@
         "unit": "hour"
       },
       "traditions": [],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {

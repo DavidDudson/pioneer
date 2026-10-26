@@ -91,7 +91,8 @@
           "damageType": "force",
           "kinds": ["damage"]
         }
-      ]
+      ],
+      "dismiss": true
     }
   },
   {
@@ -2081,7 +2082,8 @@
         "unit": "minute"
       },
       "traditions": ["arcane", "divine", "occult", "primal"],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {
@@ -2626,7 +2628,8 @@
         "unit": "minute"
       },
       "traditions": [],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {
