@@ -20,7 +20,7 @@ concurrency:
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
-  # `bun run check` split by runtime so each job stays near 4 minutes. The ci:* scripts together cover check;
+  # `bun run check` split by runtime so each job stays under 5 minutes. The ci:* scripts together cover check;
   # a target added to check goes in one of them too.
   check:
     name: Check (${{ matrix.name }})
@@ -34,7 +34,27 @@ jobs:
         include:
           - { name: lint, id: lint, script: ci:lint, args: '' }
           - { name: typecheck and build, id: build, script: ci:build, args: '' }
-          - { name: storybook, id: storybook, script: ci:storybook, args: '' }
+          # The rules-ui stories alone took over 5 minutes on a cold cache, so they run in three shards (the
+          # shard-* configurations of its test-storybook target); the other projects share one job.
+          - {
+              name: storybook rules 1,
+              id: storybook-rules-1,
+              script: ci:storybook,
+              args: --projects=rules-ui --configuration=shard-1,
+            }
+          - {
+              name: storybook rules 2,
+              id: storybook-rules-2,
+              script: ci:storybook,
+              args: --projects=rules-ui --configuration=shard-2,
+            }
+          - {
+              name: storybook rules 3,
+              id: storybook-rules-3,
+              script: ci:storybook,
+              args: --projects=rules-ui --configuration=shard-3,
+            }
+          - { name: storybook rest, id: storybook-rest, script: ci:storybook, args: --exclude=rules-ui }
     defaults:
       run:
         # Same toolchain as local: every step runs inside the flake devshell.
@@ -73,9 +93,10 @@ jobs:
           # The Angular compiler (ngc) runs out of its default heap typechecking the web projects.
           NODE_OPTIONS: --max-old-space-size=6144
 
-  # `ci:test` split by project group so each job stays near the others: the character feature (its specs open pages
-  # over Player Core's import), the other web projects (Angular unit tests), and the Bun projects, which hold the
-  # DB tests and so need Postgres. Together the groups cover every project with a test target.
+  # `ci:test` split by project group so each job stays under 5 minutes: the character feature (its specs open pages
+  # over Player Core's import), the other web projects (Angular unit tests), the api (its DB and compiled-binary
+  # tests), and the other Bun projects, which also need Postgres. Together the groups cover every project with a test
+  # target; a project not named below falls into a "rest" group.
   test:
     name: Check (test ${{ matrix.name }})
     runs-on: ubuntu-24.04
@@ -104,8 +125,41 @@ jobs:
               args: --projects=character-feature --configuration=page-c,
             }
           - { name: character rest, id: character-rest, args: --projects=character-feature --configuration=rest }
-          - { name: web, id: web, args: '--projects=tag:platform:web --exclude=character-feature --parallel=2' }
-          - { name: server and domain, id: server, args: '--exclude=tag:platform:web' }
+          - {
+              name: web ui,
+              id: web-ui,
+              args: '--projects=rules-ui,content-ui,play-ui,frontier,rules-data-access --parallel=2',
+            }
+          - {
+              name: web rest,
+              id: web,
+              args: '--projects=tag:platform:web --exclude=character-feature,rules-ui,content-ui,play-ui,frontier,rules-data-access --parallel=2',
+            }
+          # Generating a character for every class is most of the api's test time (the same run hung until the job
+          # timeout), so it runs in four parts: the generate-* configurations of the api's test target, which name the
+          # Player Core classes between them. A class added to that test goes in one of them too.
+          - { name: server api, id: server-api, args: '--projects=api --configuration=rest' }
+          - {
+              name: server api characters 1,
+              id: server-api-generate-1,
+              args: '--projects=api --configuration=generate-1',
+            }
+          - {
+              name: server api characters 2,
+              id: server-api-generate-2,
+              args: '--projects=api --configuration=generate-2',
+            }
+          - {
+              name: server api characters 3,
+              id: server-api-generate-3,
+              args: '--projects=api --configuration=generate-3',
+            }
+          - {
+              name: server api characters 4,
+              id: server-api-generate-4,
+              args: '--projects=api --configuration=generate-4',
+            }
+          - { name: server rest, id: server, args: '--exclude=tag:platform:web,api' }
     services:
       postgres:
         # Same major/minor as the devshell's postgresql_18.

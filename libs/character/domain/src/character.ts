@@ -108,7 +108,7 @@ export class Character {
     readonly level?: CharacterLevel;
     readonly choices?: Readonly<Record<SlotKey, ChoiceValue>>;
     readonly inventory?: Inventory;
-    readonly unplacedFeats?: readonly ContentId[];
+    readonly unplacedFeats?: readonly ContentId[] | undefined;
     readonly now: Temporal.Instant;
   }): Character {
     return new Character({

@@ -4,7 +4,7 @@ import { DEDICATION_FIXTURES } from '@pioneer/character/domain/testing';
 import { PathbuilderName, registryLookup } from '@pioneer/interop/pathbuilder';
 import type { ImportedFeat } from '@pioneer/interop/pathbuilder';
 import { mordredExport } from '@pioneer/interop/pathbuilder/testing';
-import { ContentLevel, ContentRegistry } from '@pioneer/rules/sdk';
+import { ContentRegistry, Level } from '@pioneer/rules/sdk';
 import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 
 import { noDedicationLockVariant, readExport } from './pathbuilder-import';
@@ -26,7 +26,7 @@ function feat(name: string, level: number): ImportedFeat {
     name: text,
     choice: undefined,
     type: text,
-    level: ContentLevel.parse(level),
+    level: Level.parse(level),
     slot: undefined,
     slotted: true,
   };

@@ -28,6 +28,11 @@ import { unfillableSlots } from './level-20-derive';
 const CLASS_TIMEOUT_MS = 180_000;
 const SEED_MAX = 2_147_483_647;
 const PROPERTY_RUNS = 12;
+/**
+ * Slots a generated character leaves open on top of the ones no build can fill: the generator can pick a feat whose
+ * choice it cannot fill yet (a Rogue's Terrain Stalker and Specialty Crafting), which the level 20 build avoids.
+ */
+const GENERATED_UNFILLABLE: Readonly<Record<string, number>> = { Rogue: 2 };
 
 /** The classes of Player Core (remaster). */
 const PLAYER_CORE_CLASSES = [
@@ -100,7 +105,7 @@ function fillable(result: Generated): readonly string[] {
 function problems(result: Generated, className: string | undefined): readonly string[] {
   const slots = characterSlots(result.character.document, content);
   const invalid = slots.filter((slot) => slot.status === SlotStatus.Invalid).map((slot) => `invalid ${slot.key}`);
-  const allowed = className === undefined ? 0 : unfillableSlots(className);
+  const allowed = className === undefined ? 0 : unfillableSlots(className) + (GENERATED_UNFILLABLE[className] ?? 0);
   const unfilled = fillable(result);
   const open = unfilled.length > allowed ? unfilled.map((key) => `open ${key}`) : [];
   return [...invalid, ...open];

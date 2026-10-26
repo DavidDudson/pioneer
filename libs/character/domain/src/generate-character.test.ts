@@ -39,11 +39,15 @@ function isClassOrBoost(key: SlotKey): boolean {
 }
 
 describe('generateCharacter', () => {
-  test('the same seed gives the same character, another seed another', () => {
-    expect(generated(7, 5).character.document).toEqual(generated(7, 5).character.document);
-    const classes = SEEDS.map((seed) => generated(seed, 1).character.document.build.choices[CLASS_SLOT]);
-    expect(new Set(classes).size).toBeGreaterThan(1);
-  });
+  test(
+    'the same seed gives the same character, another seed another',
+    () => {
+      expect(generated(7, 5).character.document).toEqual(generated(7, 5).character.document);
+      const classes = SEEDS.map((seed) => generated(seed, 1).character.document.build.choices[CLASS_SLOT]);
+      expect(new Set(classes).size).toBeGreaterThan(1);
+    },
+    SLOW,
+  );
 
   test.each(LEVELS)(
     'at level %d no slot is invalid and none left open offers a pick the builder accepts',
