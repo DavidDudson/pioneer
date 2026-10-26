@@ -59,6 +59,7 @@ function laterVocabulary() {
     import('@pioneer/content/packs/core-rules/imported/monster-core-2/language.json'),
     import('@pioneer/content/packs/core-rules/imported/monster-core-2/sense.json'),
     import('@pioneer/content/packs/core-rules/imported/monster-core-2/trait.json'),
+    import('@pioneer/content/packs/core-rules/imported/npc-core/language.json'),
     import('@pioneer/content/packs/core-rules/imported/season-of-ghosts/statistic.json'),
     import('@pioneer/content/packs/core-rules/imported/season-of-ghosts/trait.json'),
     import('@pioneer/content/packs/core-rules/imported/myth-speakers/statistic.json'),

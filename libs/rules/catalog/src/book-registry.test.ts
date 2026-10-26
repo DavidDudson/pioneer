@@ -58,6 +58,7 @@ describe('book registry', () => {
         'monster-core-2',
         'mwangi-expanse',
         'myth-speakers',
+        'npc-core',
         'player-core',
         'player-core-2',
         'rage-of-elements',

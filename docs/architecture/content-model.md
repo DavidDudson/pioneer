@@ -476,7 +476,8 @@ and homebrew cannot use that path. A pack directory holds:
 - `<kind>.json`: an array of `ContentEntry` envelopes of that kind, in a stable order.
 
 The hand-authored pack (`core-rules`) lives
-there too, beside the Foundry imports `player-core`, `player-core-2`, `gm-core`, `monster-core`, `monster-core-2`, `divine-mysteries`,
+there too, beside the Foundry imports `player-core`, `player-core-2`, `gm-core`, `monster-core`, `monster-core-2`, `npc-core`,
+`divine-mysteries`,
 `treasure-vault`, `howl-of-the-wild`, `war-of-immortals`, `mwangi-expanse`, `secrets-of-magic`, `rage-of-elements`,
 `tian-xia-character-guide`, `dark-archive-remastered`, `character-guide`, `impossible-lands`, `impossible-magic`,
 `guns-and-gears`, `battlecry`, `cheliax-infernal-inheritance`, `rival-academies`, `shining-kingdoms`, `draconic-codex`,
