@@ -1765,7 +1765,7 @@
     "name": "Spell Effect: Ash Form",
     "level": 6,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",

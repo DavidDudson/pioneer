@@ -1722,7 +1722,7 @@
     "name": "Spell Effect: Corrosive Body",
     "level": 7,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -6035,7 +6035,7 @@
     "name": "Spell Effect: Ooze Form",
     "level": 3,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",

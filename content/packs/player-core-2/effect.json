@@ -12792,7 +12792,7 @@
     "name": "Spell Effect: Bestial Curse (Critical Failure)",
     "level": 4,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -12842,7 +12842,7 @@
     "name": "Spell Effect: Bestial Curse (Failure)",
     "level": 4,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -14631,7 +14631,7 @@
     "name": "Spell Effect: Primal Herd",
     "level": 10,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -14912,7 +14912,7 @@
     "name": "Spell Effect: Qi Form",
     "level": 9,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -15187,7 +15187,7 @@
     "name": "Spell Effect: Sacred Form",
     "level": 6,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -15667,7 +15667,7 @@
     "name": "Spell Effect: Spectral Advance",
     "level": 1,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -16064,7 +16064,7 @@
     "name": "Spell Effect: Unusual Anatomy",
     "level": 5,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",

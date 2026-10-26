@@ -18,6 +18,7 @@ const PACKS = cutTo([...CHARACTER_CONTENT_KINDS, ContentKind.Effect]);
 
 const EMPOWERED_ONSLAUGHT = '963ae779-6771-5e53-a0a5-668aa2ee79ca';
 const PLANT_FORM = '364d6d32-3a80-511d-95b1-952f32748076';
+const HUMANOID_FORM = '2637bb3d-7377-5209-bc2c-97995c254a45';
 const FIRST = '00000000-0000-4000-8000-000000000001';
 
 const plant = {
@@ -26,6 +27,14 @@ const plant = {
   source: { kind: 'self' },
   form: 'plant-form:flytrap',
   rank: 6,
+};
+
+const humanoid = {
+  id: FIRST,
+  effect: HUMANOID_FORM,
+  source: { kind: 'self' },
+  form: 'humanoid-form:large',
+  rank: 5,
 };
 
 /** The play state of a full-health character with `effects` on it, at `revision`. */
@@ -57,6 +66,16 @@ describe('CharacterSheetPage form header', () => {
     expect(textOf(bannerOf(root))).toContain('Flytrap form');
     expect(textOf(bannerOf(root))).toContain('Rank 6');
     expect(buttonOf(root, 'Dismiss')).toBeDefined();
+  });
+
+  it('names a disguise form that is no battle form like any other', async () => {
+    const { root } = await openSheet(undefined, { play: playWith([humanoid]), packs: PACKS });
+
+    await vi.waitFor(() => {
+      expect(textOf(bannerOf(root))).toContain('In form: Spell Effect: Humanoid Form');
+    });
+    expect(textOf(bannerOf(root))).toContain('Large Humanoid form');
+    expect(textOf(bannerOf(root))).toContain('Rank 5');
   });
 
   it('says on Exploration that the appearance is not part of the form', async () => {

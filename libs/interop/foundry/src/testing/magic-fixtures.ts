@@ -152,3 +152,13 @@ export function effectOfNoTime(expiry: unknown): DocumentFixture {
   const { system } = BLESS_EFFECT;
   return { ...BLESS_EFFECT, system: { ...system, duration: { expiry, sustained: false, unit: 'rounds', value: 0 } } };
 }
+
+export const HUMANOID_FORM = spell('UvqNp3pXlh2SYN5c', 'Humanoid Form', {
+  level: { value: 2 },
+  traits: { rarity: 'common', traditions: ['arcane', 'primal'], value: ['manipulate', 'polymorph'] },
+});
+
+/** A spell effect named for `spell`, as Foundry's `spell-effects` pack names them, with no traits. */
+export function spellEffectOf(id: string, name: string): DocumentFixture {
+  return { ...BLESS_EFFECT, id, name };
+}

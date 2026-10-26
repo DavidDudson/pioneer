@@ -129,3 +129,19 @@ export function viewOf(
     temporaryHitPoints: Number(vitals.temporaryHitPoints?.amount ?? 0),
   };
 }
+
+/** Every rule of the Player Core effect `slug`, in play at spell rank `rank`: a form that is no battle form has no `BattleForm`. */
+export function effectRulesOf(slug: string, rank: number): readonly RuleInPlay[] {
+  const entry = PLAYER_CORE_EFFECTS.find((each) => each.slug === slug);
+  if (entry === undefined) {
+    throw new Error(`${slug} is not in the player-core effects`);
+  }
+  return entry.rules.map((element, rule) =>
+    RuleInPlay.parse({
+      element,
+      origin: { hops: [], entry: entry.id, sources: entry.sources },
+      rule,
+      itemLevel: Level.parse(rank),
+    }),
+  );
+}

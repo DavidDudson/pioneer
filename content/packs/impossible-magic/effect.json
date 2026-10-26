@@ -3883,7 +3883,7 @@
     "name": "Spell Effect: Aberrant Form",
     "level": 5,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -4448,7 +4448,7 @@
     "name": "Spell Effect: Angel Form",
     "level": 7,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -5889,7 +5889,7 @@
     "name": "Spell Effect: Cosmic Form",
     "level": 7,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -6309,7 +6309,7 @@
     "name": "Spell Effect: Daemon Form",
     "level": 6,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -7022,7 +7022,7 @@
     "name": "Spell Effect: Demon Form",
     "level": 6,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -7636,7 +7636,7 @@
     "name": "Spell Effect: Devil Form",
     "level": 6,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -8585,7 +8585,7 @@
     "name": "Spell Effect: Element Embodied (Air)",
     "level": 10,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -8857,7 +8857,7 @@
     "name": "Spell Effect: Element Embodied (Earth)",
     "level": 10,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -9113,7 +9113,7 @@
     "name": "Spell Effect: Element Embodied (Fire)",
     "level": 10,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -9361,7 +9361,7 @@
     "name": "Spell Effect: Element Embodied (Metal)",
     "level": 10,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -9601,7 +9601,7 @@
     "name": "Spell Effect: Element Embodied (Water)",
     "level": 10,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -9857,7 +9857,7 @@
     "name": "Spell Effect: Element Embodied (Wood)",
     "level": 10,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -10602,7 +10602,7 @@
     "name": "Spell Effect: Fey Form",
     "level": 4,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -11980,7 +11980,7 @@
     "name": "Spell Effect: Living Thunderbolt",
     "level": 6,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -13115,7 +13115,7 @@
     "name": "Spell Effect: Summoner's Visage",
     "level": 1,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",

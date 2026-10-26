@@ -1,6 +1,7 @@
 import { ContentKind, slugName, Trait } from '@pioneer/rules/sdk';
 import type { BookId, PackId } from '@pioneer/rules/sdk';
 
+import { withPolymorphTraits } from './effect-traits';
 import { entryReferences } from './entry-references';
 import type { KnownEntry } from './entry-references';
 import { entrySlugs } from './entry-slugs';
@@ -69,6 +70,10 @@ function traitsOf(known: readonly KnownEntry[]): ReadonlySet<Trait> {
   return new Set(entries.map(({ slug }) => Trait.parse(slugName(slug))));
 }
 
+function importedEntry({ source, envelope, kindData }: ImportedEntry): ImportedEntry {
+  return { source, envelope, ...(kindData === undefined ? {} : { kindData }) };
+}
+
 export function translateImport(selected: readonly SelectedEntry[], context: ImportContext): ImportTranslation {
   const { pack, vocabularyPack, known } = context;
   const vocabulary = importVocabulary(selected, { ...context, pack: vocabularyPack });
@@ -107,11 +112,7 @@ export function translateImport(selected: readonly SelectedEntry[], context: Imp
   });
   return {
     envelopes,
-    entries: translated.map(({ source, envelope, kindData }) => ({
-      source,
-      envelope,
-      ...(kindData === undefined ? {} : { kindData }),
-    })),
+    entries: withPolymorphTraits(translated.map((entry) => importedEntry(entry))),
     archetypes: archetypes.entries,
     vocabulary: vocabulary.entries,
     vocabularyGaps: vocabulary.gaps,

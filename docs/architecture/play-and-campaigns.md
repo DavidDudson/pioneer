@@ -392,6 +392,10 @@ restricts no section; it is exclusive with every other polymorph effect, battle 
 any form, and the Exploration tab says the appearance there is the character's own, not the form's. Only a polymorph
 effect is cast at a rank; the server refuses a rank on any other.
 
+Humanoid Form is the committed example. It picks a size (`CreatureSize`, with the reach of that size), adds the
+`humanoid` trait and offers two toggles: passing as a humanoid (the Deception bonuses) and a sense. The sense is a
+toggle with suboptions rather than a second choice, because an active form keeps one chosen roll option.
+
 End-of-turn bookkeeping (frightened decreasing, persistent damage flat checks, effect expiry) is a pure function
 over play state and the turn event, so it can run in the browser and on the server identically.
 

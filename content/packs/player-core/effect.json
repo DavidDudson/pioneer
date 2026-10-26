@@ -6037,7 +6037,7 @@
     "name": "Spell Effect: Aerial Form",
     "level": 4,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -7237,7 +7237,7 @@
     "name": "Spell Effect: Animal Form (Ape)",
     "level": 2,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -7613,7 +7613,7 @@
     "name": "Spell Effect: Animal Form (Bear)",
     "level": 2,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -8063,7 +8063,7 @@
     "name": "Spell Effect: Animal Form (Bull)",
     "level": 2,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -8437,7 +8437,7 @@
     "name": "Spell Effect: Animal Form (Canine)",
     "level": 2,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -8811,7 +8811,7 @@
     "name": "Spell Effect: Animal Form (Cat)",
     "level": 2,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -9261,7 +9261,7 @@
     "name": "Spell Effect: Animal Form (Deer)",
     "level": 2,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -9635,7 +9635,7 @@
     "name": "Spell Effect: Animal Form (Frog)",
     "level": 2,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -10084,7 +10084,7 @@
     "name": "Spell Effect: Animal Form (Shark)",
     "level": 2,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -10469,7 +10469,7 @@
     "name": "Spell Effect: Animal Form (Snake)",
     "level": 2,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -12006,7 +12006,7 @@
     "name": "Spell Effect: Dinosaur Form (Ankylosaurus)",
     "level": 4,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -12392,7 +12392,7 @@
     "name": "Spell Effect: Dinosaur Form (Brontosaurus)",
     "level": 4,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -12778,7 +12778,7 @@
     "name": "Spell Effect: Dinosaur Form (Deinonychus)",
     "level": 4,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -13184,7 +13184,7 @@
     "name": "Spell Effect: Dinosaur Form (Stegosaurus)",
     "level": 4,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -13510,7 +13510,7 @@
     "name": "Spell Effect: Dinosaur Form (Triceratops)",
     "level": 4,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -13917,7 +13917,7 @@
     "name": "Spell Effect: Dinosaur Form (Tyrannosaurus)",
     "level": 4,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -14429,7 +14429,7 @@
     "name": "Spell Effect: Dragon Form",
     "level": 6,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -14905,7 +14905,7 @@
     "name": "Spell Effect: Elemental Form",
     "level": 5,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -15744,7 +15744,7 @@
     "name": "Spell Effect: Enlarge",
     "level": 2,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -15830,7 +15830,7 @@
     "name": "Spell Effect: Enlarge Companion",
     "level": 2,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -16128,7 +16128,7 @@
     "name": "Spell Effect: Fiery Body",
     "level": 7,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -17441,7 +17441,7 @@
     "name": "Spell Effect: Humanoid Form",
     "level": 2,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -17509,17 +17509,44 @@
       {
         "key": "Sense",
         "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb",
-        "predicate": ["vision-type:darkvision"]
+        "predicate": ["option:humanoid-form-sense:darkvision"]
       },
       {
         "key": "Sense",
         "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c",
-        "predicate": ["vision-type:low-light-vision"]
+        "predicate": ["option:humanoid-form-sense:low-light-vision"]
       },
       {
         "key": "ActorTraits",
         "add": ["humanoid"],
         "remove": []
+      },
+      {
+        "key": "CreatureSize",
+        "value": "small",
+        "resizeEquipment": true,
+        "reach": {
+          "override": 5
+        },
+        "predicate": ["humanoid-form:small"]
+      },
+      {
+        "key": "CreatureSize",
+        "value": "medium",
+        "resizeEquipment": true,
+        "reach": {
+          "override": 5
+        },
+        "predicate": ["humanoid-form:medium"]
+      },
+      {
+        "key": "CreatureSize",
+        "value": "large",
+        "resizeEquipment": true,
+        "reach": {
+          "override": 10
+        },
+        "predicate": ["humanoid-form:large"]
       },
       {
         "key": "FlatModifier",
@@ -17533,9 +17560,9 @@
         "key": "FlatModifier",
         "selectors": ["skill:deception"],
         "type": "proficiency",
-        "value": "@level",
+        "value": "ternary(@rank.skill.deception, 0, @level)",
         "slug": "humanoid-form-proficiency-bonus",
-        "predicate": ["option:pass-as-humanoid", "proficiency:untrained"]
+        "predicate": ["option:pass-as-humanoid"]
       },
       {
         "key": "FlatModifier",
@@ -17551,6 +17578,25 @@
         "display": {
           "label": "Human Form — Pass as Humanoid"
         }
+      },
+      {
+        "key": "RollOption",
+        "option": "option:humanoid-form-sense",
+        "toggleable": true,
+        "value": false,
+        "display": {
+          "label": "Humanoid Form — Sense"
+        },
+        "suboptions": [
+          {
+            "value": "low-light-vision",
+            "label": "Low-Light Vision"
+          },
+          {
+            "value": "darkvision",
+            "label": "Darkvision"
+          }
+        ]
       },
       {
         "key": "ChoiceSet",
@@ -17576,31 +17622,6 @@
         ],
         "prompt": "Select a form.",
         "rollOption": "humanoid-form"
-      },
-      {
-        "key": "ChoiceSet",
-        "flag": "spell-effect-humanoid-form",
-        "choices": [
-          {
-            "value": "none",
-            "label": "None"
-          },
-          {
-            "value": "low-light-vision",
-            "label": "Low-Light Vision"
-          },
-          {
-            "value": "darkvision",
-            "label": "Darkvision"
-          }
-        ],
-        "prompt": "Select a sense.",
-        "rollOption": "vision-type",
-        "predicate": [
-          {
-            "gte": ["parent:origin:item:level", 3]
-          }
-        ]
       }
     ],
     "externalIds": {
@@ -18539,7 +18560,7 @@
     "name": "Spell Effect: Monstrosity Form",
     "level": 8,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -19725,7 +19746,7 @@
     "name": "Spell Effect: Nature Incarnate",
     "level": 10,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -20588,7 +20609,7 @@
     "name": "Spell Effect: Pest Form",
     "level": 1,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -20837,7 +20858,7 @@
     "name": "Spell Effect: Plant Form",
     "level": 5,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -22939,7 +22960,7 @@
     "name": "Spell Effect: Shrink",
     "level": 2,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -24608,7 +24629,7 @@
     "name": "Spell Effect: Untamed Form",
     "level": 1,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -25180,7 +25201,7 @@
     "name": "Spell Effect: Vapor Form",
     "level": 4,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
